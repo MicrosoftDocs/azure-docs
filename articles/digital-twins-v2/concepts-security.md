@@ -23,16 +23,16 @@ RBAC is provided to Azure Digital Twins via integration with [Azure Active Direc
 
 ## RBAC through Azure AD
 
-You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by **Azure AD**, and receives an OAuth 2.0 token in return. The token can be used to authorize an access request to an Azure Digital Twins instance.
+You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by **Azure AD**, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
 With Azure AD, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
 
-1. First, the security principal's identity is *authenticated*, and an OAuth 2.0 token is returned. The resource name to request a token from is https://servicebus.azure.net.
+1. First, the security principal's identity is *authenticated*, and an OAuth 2.0 token is returned.
 2. Next, the token is passed as part of a request to the Azure Digital Twins service, to *authorize* access to the specified resource.
 
-The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure Function app, it can use a managed identity to access the resources. 
+The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an [Azure Function](../azure-functions/functions-overview.md) app, it can use a managed identity to access the resources. 
 
 The authorization step requires that an RBAC role be assigned to the security principal. Azure Digital Twins provides RBAC roles that encompass sets of permissions for Azure Digital Twins resources. The roles that are assigned to a security principal determine the permissions that the principal will have. 
 
@@ -44,15 +44,17 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 * Azure Digital Twins Owner (Preview) – Use this role to give admin controls over Azure Digital Twins resources.
 * Azure Digital Twins Reader (Preview) – Use this role to give read only access to Azure Digital Twins resources.
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. 
 
-You can assign roles using a variety of mechanism:
-* IAM pane for Azure Digital Twins in Azure Portal
-* CLI commands to add or remove a role
+For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
-For more detailed steps on how to do this, visit the tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
+You can assign roles in either of two ways:
+* via the access control (IAM) pane for Azure Digital Twins in Azure Portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)).
+* via CLI commands to add or remove a role
 
-## Best practices: resource scope
+For more detailed steps on how to do this, you can also visit the Azure Digital Twins tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
+
+## Permission scopes
 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
 
