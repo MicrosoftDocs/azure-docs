@@ -1,12 +1,12 @@
 ---
 title: Automatic OS image upgrades with Azure virtual machine scale sets
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
-author: shandilvarun
+author: mayanknayar
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.author: vashan
+ms.date: 03/18/2019
+ms.author: manayar
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
@@ -39,7 +39,7 @@ The upgrade process works as follows:
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom images aren't currently supported.
+Only certain OS platform images are currently supported. Custom image support is available in preview for custom images deployed through Shared Image Gallery.
 
 The following SKUs are currently supported (and more are added periodically):
 
@@ -75,6 +75,84 @@ If you are using Service Fabric, ensure the following conditions are met:
 -	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
 
 Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+
+## Automatic OS image upgrade for custom images (preview)
+
+> [!IMPORTANT]
+> Automatic OS image upgrade for custom images is currently in Public Preview. An opt-in procedure is needed to use the public preview functionality described below.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Automatic OS image upgrade is available in preview for custom images deployed through [Shared Image Gallery](shared-image-galleries.md). Other custom images are not supported for automatic OS image upgrades.
+
+Enabling the preview functionality requires a one-time opt-in for the feature *AutomaticOSUpgradeWithGalleryImage* per subscription, as detailed below.
+
+### REST API
+The following example describes how to enable the preview for your subscription:
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
+```
+
+Feature registration can take up to 15 minutes. To check the registration status:
+
+```
+GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+```
+
+### Azure PowerShell
+Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Feature registration can take up to 15 minutes. To check the registration status:
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+### Azure CLI 2.0
+Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Feature registration can take up to 15 minutes. To check the registration status:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
+### Additional requirements for custom images
+- The opt-in process described above needs to be completed only once per subscription. Post opt-in completion, automatic OS upgrades can be enabled for any scale set created with Shared Image Gallery images in that subscription.
+- The configuration process for automatic OS image upgrade is the same for all scale sets as detailed in the [configuration section](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) of this page.
+- Scale sets instances configured for automatic OS image upgrades will be upgraded to the latest version of the Shared Image Gallery image when a new version of the image is published and [replicated](shared-image-galleries.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your scale sets.
+
+> [!NOTE]
+>It can take up to 2 hours for a scale set to get the first image rollout after the scale set is configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are applied to the scale set without this delay.
+
 
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
