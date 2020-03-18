@@ -109,11 +109,11 @@ To control the y-axis range, use the “…” chart menu, and select **Edit cha
 
 ## Change colors of chart lines
 
-After configuring the charts, the lines on chart are automatically assigned a color from a default palette. You may want to change those colors as per your preference.
+After configuring the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
 
-To change the color of a chart line click on the colored bar in the legend corresponding to the chart and use the color picker dialog which opens to configure the color for the line.
+To change the color of a chart line, click on the colored bar in the legend corresponding to the chart. The color picker dialog will open. Use the color piker to configure the color for the line.
 
-Once the chart colors are configured, you can persist them by pinning charts to a dashboard. The next section describes this in detail.
+Once the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
 
 ![metric image](./media/metrics-charts/018.png)
 
