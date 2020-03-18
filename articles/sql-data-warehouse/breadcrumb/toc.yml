@@ -29,3 +29,11 @@
   - name: Synapse Analytics
     tocHref: /sql/t-sql/
     topicHref: /azure/sql-data-warehouse/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: azure/synapse-analytics/sql-data-warehouse/
+    topicHref: /azure/sql-data-warehouse/index
