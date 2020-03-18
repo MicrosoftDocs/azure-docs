@@ -1,6 +1,6 @@
 ---
 title: Azure Storage code samples | Microsoft Docs
-description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Python, Node.js, and C++ storage client libraries.
+description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Python, Node.js, Azure CLI, and C++ storage client libraries.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -56,7 +56,7 @@ To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/insta
 
 * [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli)
 * [Azure Storage samples using the Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
-* [Popular articles on using the Azure Cli with Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
+* [Popular articles on using the Azure CLI with Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## API reference and source code
 
