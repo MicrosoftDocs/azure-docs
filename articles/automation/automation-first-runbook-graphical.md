@@ -126,23 +126,24 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. Hover over **Get Run As Connection** until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Connect-AzAccount` to form a link. The runbook starts with `Get Run As Connection` and then runs `Connect-AzAccount`.<br> ![Create link between activities](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. On the canvas, select `Connect-AzAccount`. In the Configuration control pane, type **Login to Azure** in the **Label** field.
 1. Click **Parameters**, and the Activity Parameter Configuration page appears.
-1. The `Connect-AzAccount` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Click **Parameter Set** and then select **ServicePrincipalCertificate**.
+1. The `Connect-AzAccount` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Click **Parameter Set** and then select **ServicePrincipalCertificateWithSubscriptionId**.
 1. The parameters for this parameter set are displayed on the Activity Parameter Configuration page. Click **APPLICATIONID**.<br> ![Add Azure account parameters](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. On the Parameter Value page, make the following settings and then click **OK**.
 
    * **Data source** -- select **Activity output**.
-   * Data source list -- select **Get Run As Connection**.
+   * Data source list -- select **Get Automation Connection**.
    * **Field path** -- type `ApplicationId`. You are specifying the name of the property for the field path because the activity outputs an object with multiple properties.
+
 1. Click **CERTIFICATETHUMBPRINT**, and on the Parameter Value page, make the following settings and then click **OK**.
 
     * **Data source** -- select **Activity output**.
-    * Data source list -- select **Get Run As Connection**.
+    * Data source list -- select **Get Automation Connection**.
     * **Field path** -- type `CertificateThumbprint`.
 1. Click **SERVICEPRINCIPAL**, and on the Parameter Value page, select **ConstantValue** for the **Data source** field; click the option **True**; and then click **OK**.
 1. Click **TENANTID**, and make the following settings on the Parameter Value page. When finished, click **OK** twice.
 
     * **Data source** -- select **Activity output**. 
-    * Data source list -- select **Get Run As Connection**.
+    * Data source list -- select **Get Automation Connection**.
     * **Field path** -- type `TenantId`. 
 1. In the Library control, type `Set-AzContext` in the search field.
 1. Add `Set-AzContext` to the canvas.
