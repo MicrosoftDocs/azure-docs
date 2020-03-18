@@ -127,8 +127,6 @@ For more information about available configurable options, see [Initialize clien
     1. Select **Login** to login.
     1. Select **Profile** to call the Microsoft Graph.
 
-* If you're using Visual Studio, select the project solution, and then select **F5** to run the project.
-
 After the browser loads the application, select **Login**. The first time that you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, select **Profile**, and your user profile information will be displayed on the page.
 
 ## How the sample works
