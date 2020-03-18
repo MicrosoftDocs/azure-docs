@@ -34,7 +34,7 @@ Auto-repair takes several steps to repair a broken node.  If a node is determine
 2. If the node does not become available within 10 minutes, the node is rebooted.
 3. If the node is not available within 30 minutes, the node is re-imaged.
 
-> ![Note]
+> [!Note]
 > If multiple nodes are unhealthy, they are repaired one by one
 
 ## Next steps
