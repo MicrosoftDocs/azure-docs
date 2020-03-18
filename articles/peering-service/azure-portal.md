@@ -2,14 +2,14 @@
 title: Register Azure Peering Service Preview - Azure portal
 description: Learn how to register Azure Peering Service by using the Azure portal
 services: peering-service
-author: derekol
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 03/07/2020
-ms.author: derekol
+ms.author: derekolo
 ---
 
 # Register Peering Service Preview by using the Azure portal
