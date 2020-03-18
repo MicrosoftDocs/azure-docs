@@ -44,7 +44,7 @@ The utility can pull source data from a local folder or from an Azure blob stora
 
     For example:
     ```
-    LightIngest "Data Source=https://ingest-tzgitlin.westus.kusto.windows.net;AAD Federated Security=True"  -db:TzviaTest -table:Trips -source:"https://tzgitlinegdemo2.blob.core.windows.net/saadxworkshop1;VXPnUFzvBRLBIqEgcA0hRnSXmq69jVyZMChgUn5BeVwhjLnx4ucHZ8RPGTZ0F2hXHnC/vesoFSMF5f4gepeTJw==" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+    LightIngest "Data Source=https://{Cluster name and region}.kusto.windows.net;AAD Federated Security=True"  -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
     ```
 
 * The recommended method is for `LightIngest` to work with the ingestion endpoint at `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`. This way, the Azure Data Explorer service can manage the ingestion load, and you can easily recover from transient errors. However, you can also configure `LightIngest` to work directly with the engine endpoint (`https://{yourClusterNameAndRegion}.kusto.windows.net`).
@@ -58,14 +58,25 @@ The utility can pull source data from a local folder or from an Azure blob stora
 |-database             |-db          |string  |Optional  |Target Azure Data Explorer database name |
 |-table                |             |string  |Mandatory |Target Azure Data Explorer table name |
 |-sourcePath           |-source      |string  |Mandatory |Path to source files or root URI of the blob container. If the data is in blobs, must contain storage account key or SAS. Recommended to enclose in double quotes |
-|-prefix               |             |string  |Optional  |When the source data to ingest resides on blob storage, this URL prefix is shared by all blobs, excluding the container name. For example, if the data is in `MyContainer/Dir1/Dir2`, then the prefix should be `Dir1/Dir2`. Enclosing in double quotes is recommended |
+|-prefix               |             |string  |Optional  |When the source data to ingest resides on blob storage, this URL prefix is shared by all blobs, excluding the container name. <br>For example, if the data is in `MyContainer/Dir1/Dir2`, then the prefix should be `Dir1/Dir2`. Enclosing in double quotes is recommended |
 |-pattern              |             |string  |Optional  |Pattern by which source files/blobs are picked. Supports wildcards. For example, `"*.csv"`. Recommended to enclose in double quotes |
+|-zipPattern           |             |string  |Optional  |Regular expression to use when selecting which files in a ZIP archive to ingest.<br>All other files in the archive will be ignored.For example, `"*.csv"`. It's recommended to surround it in double quotes |
 |-format               |-f           |string  |Optional  |Source data format. Must be one of the [supported formats](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#supported-data-formats) |
 |-ingestionMappingPath |-mappingPath |string  |Optional  |Path to ingestion column-mapping file (mandatory for Json and Avro formats). See [data mappings](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-ingestionMappingRef  |-mappingRef  |string  |Optional  |Name of a pre-created ingestion column mapping (mandatory for Json and Avro formats). See [data mappings](https://docs.microsoft.com/azure/kusto/management/mappings) |
+|-creationTimePattern  |             |string  |Optional  |When set, is used to extract the CreationTime property from the file or blob path. See [Using CreationTimePattern argument](#using-creationtimepattern-argument) |
 |-ignoreFirstRow       |-ignoreFirst |bool    |Optional  |If set, the first record of each file/blob is ignored (for example, if the source data has headers) |
 |-tag                  |             |string  |Optional  |[Tags](https://docs.microsoft.com/azure/kusto/management/extents-overview#extent-tagging) to associate with the ingested data. Multiple occurrences are permitted |
 |-dontWait             |             |bool    |Optional  |If set to 'true', does not wait for ingestion completion. Useful when ingesting large amounts of files/blobs |
+
+### Using CreationTimePattern argument
+
+The `-creationTimePattern` argument extracts the CreationTime property from the file or blob path. The pattern does not need to reflect the entire item path, just the section enclosing the timestamp you want to use.
+The value of the argument must contain of three sections:
+* Constant test immediately preceding the timestamp, enclosed in single quotes
+* The timestamp format, in standard [.NET DateTime notation](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
+* Constant text immediately following the timestamp
+For example, if blob names end with 'historicalvalues19840101.parquet' (the timestamp is four digits for the year, two digits for the month and two digits for the day of month), the corresponding value for the `-creationTimePattern` argument is 'historicalvalues'yyyyMMdd'.parquet'.
 
 ### Command-line arguments for advanced scenarios
 
@@ -73,19 +84,27 @@ The utility can pull source data from a local folder or from an Azure blob stora
 |----------------------|-------------|--------|----------|-------------------------------------------|
 |-compression          |-cr          |double  |Optional  |Compression ratio hint. Useful when ingesting compressed files/blobs to help Azure Data Explorer assess the raw data size. Calculated as original size divided by compressed size |
 |-limit                |-l           |integer |Optional  |If set, limits the ingestion to first N files |
+|-listOnly             |-list        |bool    |Optional  |If set, only displays the items that would have been selected for ingestion| 
 |-ingestTimeout        |             |integer |Optional  |Timeout in minutes for all ingest operations completion. Defaults to `60`|
 |-forceSync            |             |bool    |Optional  |If set, forces synchronous ingestion. Defaults to `false` |
 |-dataBatchSize        |             |integer |Optional  |Sets the total size limit (MB, uncompressed) of each ingest operation |
 |-filesInBatch         |             |integer |Optional  |Sets the file/blob count limit of each ingest operation |
 |-devTracing           |-trace       |string  |Optional  |If set, diagnostic logs are written to a local directory (by default, `RollingLogs` in the current directory, or can be modified by setting the switch value) |
 
+## Blob metadata properties
+When used with Azure blobs, `LightIngest` will use certain blob metadata properties to augment the ingestion process.
+|Metadata property                            | Usage                                                                           |
+|---------------------------------------------|---------------------------------------------------------------------------------|
+|`rawSizeBytes`, `kustoUncompressedSizeBytes` | If set, will be interpreted as the uncompressed data size                       |
+|`kustoCreationTime`, `kustoCreationTimeUtc`  | Interpreted as UTC timestamp. If set, will be used to override the creation time in Kusto. Useful for backfilling scenarios |
+
 ## Usage examples
 
-**Ingesting a specific number of blobs in JSON format**
+### Ingesting a specific number of blobs in JSON format
 
-* Ingest two blobs under a specified storage account {Account}, files of `JSON` format matching the pattern `.json`
+* Ingest two blobs under a specified storage account {Account}, in `JSON` format matching the pattern `.json`
 * Destination is the database {Database}, the table `SampleData`
-* Data will be ingested at a compression ratio of 10.0
+* Indicate that your data is compressed with the approximate ratio of 10.0
 * LightIngest won't wait for the ingestion to be completed
 
 To use the LightIngest command below:
@@ -93,13 +112,13 @@ To use the LightIngest command below:
 1. Create a mapping command and enter the IngestionMappingRef command, replacing `SampleData_mapping`.
 1. Copy your cluster name and enter it into the LightIngest command, replacing `{Cluster Name and Region}`.
 1. Enter the database name into the LightIngest command, replacing `{Database}`.
-1. Replace `{Account}` with your account name.
+1. Replace `{Account}` with your account name and replace `{ROOT_CONTAINER}?{SAS token}` with the appropriate information.
 
     ```
     LightIngest "Data Source=https://{Cluster name and region}kusto.windows.net;AAD Federated Security=True"  
         -db:{Database name} 
         -table:SampleData 
-        -source:"https://{Account}.blob.core.windows.net/data?sp=rl&st=2020-03-17T14:10:02Z&se=2022-12-31T14:10:00Z&sv=2019-02-02&sr=c&sig=QY6%2B1jAjIBQzkPIatkdDlbr%2FggUyq4gklmt%2FcOUM31Y%3D" 
+        -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER}?{SAS token}" 
         -IngestionMappingRef:SampleData_mapping 
         -pattern:"*.json" 
         -format:JSON 
@@ -113,7 +132,7 @@ To use the LightIngest command below:
 1. In Azure Data Explorer, open query count.
     ![Injestion result in Azure Data Explorer](media/lightingest/lightingest-showfailure-count.png)
 
-**Ingesting blobs using a storage account key or a SAS token**
+### Ingesting blobs using a storage account key or a SAS token
 
 * Ingest 10 blobs under specified storage account `ACCOUNT`, in folder `DIR`, under container `CONT`, and matching the pattern `*.csv.gz`
 * Destination is database `DB`, table `TABLE`, and the ingestion mapping `MAPPING` is precreated on the destination
@@ -141,7 +160,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True;In
   -limit:10
 ```
 
-**Ingesting all blobs in a container, not including header rows**
+### Ingesting all blobs in a container, not including header rows
 
 * Ingest all blobs under specified storage account `ACCOUNT`, in folder `DIR1/DIR2`, under container `CONT`, and matching the pattern `*.csv.gz`
 * Destination is database `DB`, table `TABLE`, and the ingestion mapping `MAPPING` is precreated on the destination
@@ -160,7 +179,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
   -ignoreFirstRow:true
 ```
 
-**Ingesting all JSON files from a path**
+### Ingesting all JSON files from a path
 
 * Ingest all files under path `PATH`, matching the pattern `*.json`
 * Destination is database `DB`, table `TABLE`, and the ingestion mapping is defined in local file `MAPPING_FILE_PATH`
@@ -176,7 +195,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
   -mappingPath:"MAPPING_FILE_PATH"
 ```
 
-**Ingesting files and writing diagnostic trace files**
+### Ingesting files and writing diagnostic trace files
 
 * Ingest all files under path `PATH`, matching the pattern `*.json`
 * Destination is database `DB`, table `TABLE`, and the ingestion mapping is defined in local file `MAPPING_FILE_PATH`
@@ -193,3 +212,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
   -mappingPath:"MAPPING_FILE_PATH"
   -trace:"LOGS_PATH"
 ```
+## Changelog
+|Version        |Changes                                                                             |
+|---------------|------------------------------------------------------------------------------------|
+|4.0.9.0        |<ul><li>Added `-zipPattern` argument</li><li>Added `-listOnly` argument</li><li>Arguments summary is displayed before run is commenced</li><li>CreationTime is read from blob metadata properties or from blob or file name, according to the `-creationTimePattern` argument</li></ul>|
