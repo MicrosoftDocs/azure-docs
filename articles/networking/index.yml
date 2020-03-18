@@ -217,6 +217,36 @@ conceptualContent:
         url: ../firewall/index.yml
         text: See more  
 
+    - title: Secure access to Azure VMs
+      links: 
+        - url: ../bastion/bastion-overview.md
+          itemType: overview
+          text:  What is Azure Bastion?
+        - url: ../bastion/bastion-create-host-portal.md
+          itemType: how-to-guide
+          text:  Create an Azure Bastion host
+        - url: ../bastion/troubleshoot.md
+          itemType: how-to-guide
+          text:  Troubleshoot Azure Bastion
+      footerLink:
+        url: ../bastion/index.yml
+        text: See more 
+    
+    - title: Network security management
+      links: 
+        - url: ../firewall-manager/overview.md
+          itemType: overview
+          text:  What is Azure Firewall Manager?
+        - url: ../firewall-manager/secured-virtual-hub.md
+          itemType: concept
+          text: What is a secured virtual hub?
+        - url: ../firewall-manager/secure-cloud-network.md
+          itemType: tutorial
+          text:  Secure your virtual WAN using Azure Firewall Manager
+      footerLink: 
+        url: ../firewall/index.yml
+        text: See more 
+
     - title: Web application firewall
       links: 
         - url: ../web-application-firewall/overview.md
@@ -238,36 +268,6 @@ conceptualContent:
         url: ../web-application-firewall/index.yml
         text: See more  
  
-    - title: Network security management
-      links: 
-        - url: ../firewall-manager/overview.md
-          itemType: overview
-          text:  What is Azure Firewall Manager?
-        - url: ../firewall-manager/secured-virtual-hub.md
-          itemType: concept
-          text: What is a secured virtual hub?
-        - url: ../firewall-manager/secure-cloud-network.md
-          itemType: tutorial
-          text:  Secure your virtual WAN using Azure Firewall Manager
-      footerLink: 
-        url: ../firewall/index.yml
-        text: See more 
-
-    - title: Secure access to Azure VMs
-      links: 
-        - url: ../bastion/bastion-overview.md
-          itemType: overview
-          text:  What is Azure Bastion?
-        - url: ../bastion/bastion-create-host-portal.md
-          itemType: how-to-guide
-          text:  Create an Azure Bastion host
-        - url: ../bastion/troubleshoot.md
-          itemType: how-to-guide
-          text:  Troubleshoot Azure Bastion
-      footerLink:
-        url: ../bastion/index.yml
-        text: See more 
-
     - title: Private access to a service
       links: 
         - url: ../private-link/private-link-overview.md
