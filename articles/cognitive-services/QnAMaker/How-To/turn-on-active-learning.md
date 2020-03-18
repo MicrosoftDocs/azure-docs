@@ -2,12 +2,12 @@
 title: Improve knowledge base - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 03/18/2020
 ---
 
 # Use active learning to improve your knowledge base
 
-[Active learning](../Concepts/active-learning-suggestions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them.
+[Active learning](../Concepts/active-learning-suggestions.md) allows you to improve the quality of your knowledge base by suggesting alternative questions. User-submissions are taken into consideration and shows up as suggestions in the alternate questions list. You have the flexibility to either add those suggestions as alternate questions or reject them.
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 

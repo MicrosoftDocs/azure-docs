@@ -2,7 +2,7 @@
 title: Manage knowledge bases - QnA Maker
 description: QnA Maker allows you to manage your knowledge bases by providing access to the knowledge base settings and content.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/18/2020
 ---
 
 # Create knowledge base and manage settings
@@ -31,7 +31,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
 
    ![Screenshot of selecting a QnA Maker service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. In **Step 3**, name your knowledge base **My Sample QnA KB**.
+1. In **Step 3**, name your knowledge base `My Sample QnA KB`.
 
 1. In **Step 4**, configure the settings with the following table:
 
