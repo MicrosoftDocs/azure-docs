@@ -41,7 +41,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Complete these tasks before you begin this tutorial:
 
-* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Create a master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
