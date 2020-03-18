@@ -22,11 +22,11 @@ Azure FarmBeats includes user management for people who are part of your Azure A
 Azure FarmBeats uses Azure AD for authentication, access control, and roles. You can add users in the Azure AD tenant as users in Azure FarmBeats.
 
 > [!NOTE]
-> If a user is not an Azure AD tenant user, , follow the instructions in the **Add Azure AD users** section to complete the setup.
+> If a user is not an Azure AD tenant user, follow the instructions in the **Add Azure AD users** section to complete the setup.
 
 Azure FarmBeats supports two types of user roles:
 
- - **Admin**: Full access to Azure FarmBeats Datahub APIs. Users in this role can query all Azure FarmBeats Datahub objects and perform all operations from the FarmBeats Accelerator.
+ - **Admin**: Complete access to Azure FarmBeats Datahub APIs. Users in this role can query all Azure FarmBeats Datahub objects and perform all operations from the FarmBeats Accelerator.
  - **Read-Only**: Read-only access to FarmBeats Datahub APIs. Users can view the Datahub APIs, the Accelerator Dashboards, and the maps. Users with read-only access can't perform operations such as generating maps, associating devices, or creating farms.
 
 ## Add users to Azure FarmBeats
