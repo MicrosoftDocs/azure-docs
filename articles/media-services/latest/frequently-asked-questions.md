@@ -59,7 +59,15 @@ For details, see [Moving a Media Services account between subscriptions](media-s
 
 ### How can I ensure a live event is stopped if the end user just closes a browser instead of clicking the end broadcast button?
 
-From the server side, you can monitor live events by subscribing to Event Grid events. For more information, see the [eventgrid event schema](media-services-event-schemas.md#live-event-types).
+You can approach it from a client side or a server side.
+
+#### Client side
+
+Your web application should prompt the user if they want to end the broadcast if they are closing the browser. This is a browser event that your web application can handle.
+
+#### Server side
+
+You can monitor live events by subscribing to Event Grid events. For more information, see the [eventgrid event schema](media-services-event-schemas.md#live-event-types).
 
 * You can either [subscribe](reacting-to-media-services-events.md) to the stream level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemasmd#liveeventencoderdisconnected) and monitor that no reconnection come in for a while to stop and delete your live event.
 * Or, you can [subscribe](reacting-to-media-services-events.md) to the track level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have incoming bitrate dropping to 0; or the last timestamp is no longer increasing, then you can also safely shut down the live event. The heartbeat events come in at every 20 seconds for every track so it could be a little bit verbose.
