@@ -138,7 +138,7 @@ landingContent:
       - linkListType: overview      
         links:
           - text: Capture events in Azure Blob Storage or Azure Data Lake Storage
-            url: event-hubs-dedicated-overview.md    
+            url: event-hubs-capture-overview.md    
       - linkListType: quickstart
         links:
           - text: Use Azure portal to enable capturing of events
