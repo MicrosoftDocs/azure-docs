@@ -96,6 +96,8 @@
       href: how-to-use-classroom-lab.md
     - name: Use remote desktop connection for Linux VMs
       href: how-to-use-remote-desktop-linux-student.md                
+    - name: Connect to a VM from Mac using RDP
+      href: connect-virtual-machine-mac-rdp.md
     - name: Set or reset passwords for virtual machines 
       href: how-to-set-virtual-machine-passwords-student.md        
 - name: Reference
