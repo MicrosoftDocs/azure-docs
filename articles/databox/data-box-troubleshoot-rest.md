@@ -42,7 +42,7 @@ This section details some of the issues faced when using AzCopy for Linux with D
 |Error message  |Recommended action |
 |---------|---------|
 |AzCopy command appears to hang for 20 minutes before displaying this error: <br>Error parsing source location `https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>`. No such device or address|Check that the endpoint name `<accountname>.blob.<serialnumber>.microsoftdatabox.com` is added to the hosts file at: `/etc/hosts`.|
-|AzCopy command appears to hang for 20 minutes before displaying this error: <br>Error parsing source location… The TLS connection could not be established.|Import the TLS/SSL certificate for your device into the system’s certificate store. For more information, go to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate).|
+|AzCopy command appears to hang for 20 minutes before displaying this error: <br>Error parsing source location… The SSL connection could not be established.|Import the TLS/SSL certificate for your device into the system’s certificate store. For more information, go to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 ## Errors seen in Azure Storage library for Python
 
