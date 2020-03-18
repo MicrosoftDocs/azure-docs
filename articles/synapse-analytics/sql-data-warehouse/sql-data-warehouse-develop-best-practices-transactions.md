@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse 
+ms.custom: seo-lt-2019, azure-synapse 
 ---
 
 # Optimizing transactions in SQL Analytics
