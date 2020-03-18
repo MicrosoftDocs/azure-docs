@@ -121,7 +121,6 @@ If you do not see a specific tag in Cost Management, consider the following:
     - Notification Hubs
     - Service Bus
     - Time Series Insights
-    - VPN gateway
     
 Here are a few tips for working with tags:
 
