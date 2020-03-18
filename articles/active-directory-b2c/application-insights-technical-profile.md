@@ -43,7 +43,7 @@ The following example shows the common application insights technical profile. O
 
 ## Input claims
 
-The **InputClaims** element contains a list of claims to send to the Application Insights. You can also map the name of your claim to the a name you prefer to appear in Application Insights. Following example shows the how to send telemetries to Application Insights. Properties of an event are added through the syntax `{property:NAME}`, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported [claim resolvers](claim-resolver-overview.md).
+The **InputClaims** element contains a list of claims to send to the Application Insights. You can also map the name of your claim to a name you prefer to appear in Application Insights. Following example shows how to send telemetries to Application Insights. Properties of an event are added through the syntax `{property:NAME}`, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported [claim resolvers](claim-resolver-overview.md).
 
 ```XML
 <InputClaims>
@@ -74,7 +74,7 @@ The CryptographicKeys element is not used.
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | InstrumentationKey| Yes | The Application Insights [instrumentation key](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key), which will be used for logging the events. | 
-| DeveloperMode| No | A Boolean that indicates whether developer mode is enabled. Possible values: `true`, or `false` (default). This controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights.| 
+| DeveloperMode| No | A Boolean that indicates whether developer mode is enabled. Possible values: `true`, or `false` (default). This metadata controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights.| 
 |DisableTelemetry |No |A Boolean that indicates whether telemetry should be enabled or not. Possible values: `true`, or `false` (default).| 
 
 
