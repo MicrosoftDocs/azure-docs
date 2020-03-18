@@ -14,7 +14,6 @@ ms.custom: include file
 |Field|Description|
 |----|----|
 |**AlertName**|Alert display name|
-|**Severity**|The alert severity (High/Medium/Low/Informational)|
 |**AlertType**|unique alert identifier|
 |**ConfidenceLevel**|(Optional) The confidence level of this alert (High/Low)|
 |**ConfidenceScore**|(Optional) Numeric confidence indicator of the security alert|
@@ -31,6 +30,7 @@ ms.custom: include file
 |**ProviderName**|unused|
 |**RemediationSteps**|Manual action items to take to remediate the security threat|
 |**ResourceId**|Full identifier of the affected resource|
+|**Severity**|The alert severity (High/Medium/Low/Informational)|
 |**SourceComputerId**|a unique GUID for the affected server (if the alert is generated on the server)|
 |**SourceSystem**|unused|
 |**StartTime**|The impact start time of the alert (the time of the first event contributing to the alert)|

@@ -40,43 +40,30 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 ## The schemas 
 
 
-### [Workflow automation](#tab/schema-workflowautomation)
+### [Workflow automation and continuous export to Event Hub](#tab/schema-continuousexport)
 
-### Sample JSON for alerts sent to workflow automation
+### Sample JSON for alerts sent to Logic Apps, Event Hub, and third-party SIEMs
 
-This is the schema of the alert events passed to Logic App instances that were configured in Security Center's workflow automation. For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
+This is the schema of the alert events passed to:
 
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
+- Azure Logic App instances that were configured in Security Center's workflow automation
+- Azure Event Hub using Security Center's continuous export feature
 
-
-
-
-### [Continuous export to Event Hub](#tab/schema-continuousexport)
-
-### Sample JSON for alerts sent with continuous export to Event Hub and third-party SIEMs
-
-This is the schema of the alert events passed to an Event Hub using the Security Center's continuous export feature. For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
+For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
+For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
 
 [!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
 
 
 
 
-### [Azure Sentinel](#tab/schema-sentinel)
+### [Azure Sentinel and Log Analytics workspaces](#tab/schema-sentinel)
 
 The Sentinel Connector gets alerts from Azure Security Center and sends them to the Log Analytics Workspace for Azure Sentinel. 
 
 To create a Sentinel case or incident using Security Center alerts, you'll need the schema for those alerts shown below. 
 
-> [!TIP]
-> For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
-
-[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-loganalyticsworkspace.md)]
-
-
-
-
-### [Log Analytics workspace](#tab/schema-workspace)
+For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-loganalyticsworkspace.md)]
 
@@ -87,12 +74,12 @@ To create a Sentinel case or incident using Security Center alerts, you'll need 
 
 Azure Security Center audits generated Security alerts as events in Azure Activity Log.
 
-You can easily view the security alerts events in Activity log by searching for the Activate Alert event:
+You can view the security alerts events in Activity Log by searching for the Activate Alert event as shown:
 
 [![Searching the Activity log for the Activate Alert event](media/alerts-schemas/SampleActivityLogAlert.png)](media/alerts-schemas/SampleActivityLogAlert.png#lightbox)
 
-### Sample JSON for alerts sent to Azure Activity Log
 
+### Sample JSON for alerts sent to Azure Activity Log
 
 ```json
 {
