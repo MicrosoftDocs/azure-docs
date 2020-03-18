@@ -13,7 +13,7 @@ ms.date: 02/07/2019
 
 # Access Azure API for FHIR with Postman
 
-A client application would access an FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access an FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
+A client application would access an FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access a FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
 
 ## Prerequisites
 

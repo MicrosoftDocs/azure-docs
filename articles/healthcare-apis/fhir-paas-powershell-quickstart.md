@@ -41,7 +41,7 @@ New-AzHealthcareApisService -Name nameoffhirservice -ResourceGroupName myResourc
 ```
 
 > [!NOTE]
-> Depending on the version of the `Az` PowerShell module you have installed, the provisioned FHIR server may have the currently signed in PowerShell user set in the list of allowed identity object IDs for the deployed FHIR service. Going forward, we recommend that you [use Azure RBAC](configure-azure-rbac.md) for assigning data plane roles and you may need to delete this users object ID after deployment to enable Azure RBAC mode.
+> Depending on the version of the `Az` PowerShell module you have installed, the provisioned FHIR server may be configured to use [local RBAC](configure-local-rbac.md) and have the currently signed in PowerShell user set in the list of allowed identity object IDs for the deployed FHIR service. Going forward, we recommend that you [use Azure RBAC](configure-azure-rbac.md) for assigning data plane roles and you may need to delete this users object ID after deployment to enable Azure RBAC mode.
 
 
 ## Fetch capability statement
