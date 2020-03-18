@@ -14,6 +14,8 @@ ms.service: azure-project-spool
 
 *The purpose of this doc is to collaboratively brainstorm and articulate the **purpose of docs** and how we can use docs to **unify our thinking**.*
 
+~
+
 # Spool Docs Philosophy
 
 - We (Microsoft) have invested lots of money into developing communications infrastructure that works really well at scale. COVID-19 has proven that.
