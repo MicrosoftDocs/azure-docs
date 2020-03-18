@@ -18,7 +18,7 @@ This article is a collection of best practices to help you to achieve optimal pe
 
 ## Reduce cost with pause and scale
 
-For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
 
 ## Maintain statistics
 Azure SQL Data Warehouse can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up-to-date. 
@@ -145,7 +145,7 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
+[Create table as select (CTAS)]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md

@@ -96,7 +96,7 @@ If you're going to incrementally load your data, first make sure that you alloca
 
 We recommend using PolyBase and ADF V2 for automating your ELT pipelines into your data warehouse.
 
-For a large batch of updates in your historical data, consider using a [CTAS](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
+For a large batch of updates in your historical data, consider using a [CTAS](sql-data-warehouse-develop-ctas.md) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
 
 ## Maintain statistics
  Until auto-statistics are generally available, manual maintenance of statistics is required. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 
@@ -115,10 +115,10 @@ Finally, by using Gen2 of [SQL pool](../../sql-data-warehouse/sql-data-warehouse
 Learn more how to work with [resource classes and concurrency](../../sql-data-warehouse/resource-classes-for-workload-management.md).
 
 ## Lower your cost
-A key feature of Azure Synapse is the ability to [manage compute resources](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 
-A key feature of Azure Synapse is the ability to [manage compute resources](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoscale now at the time you want with Azure Functions:
 

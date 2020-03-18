@@ -16,7 +16,7 @@ ms.custom: seo-lt-2019
 
 # Quickstart: Scale compute for Synapse SQL pool with Azure PowerShell
 
-You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell. [Scale out compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
+You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
