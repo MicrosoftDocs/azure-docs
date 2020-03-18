@@ -396,8 +396,8 @@
     #   href: article-template.md
     # - name: Manage private endpoints
     #   href: article-template.md
-    - name: provision and secure a linked service with Managed Vnet
-      href: linked-service.md
+      - name: provision and secure a linked service with Managed Vnet
+        href: linked-service.md
     # - name: Enable encryption - portal
     #   href: article-template.md
     # - name: Enable encryption - TSQL
