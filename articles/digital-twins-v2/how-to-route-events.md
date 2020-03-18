@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Route telemetry and event data to outside services
 
-Azure Digital Twins **Event APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
+Azure Digital Twins **EventRoute APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
 
 ## Routes
 
@@ -30,33 +30,16 @@ One route should allow multiple notifications and event types to be selected.
 
 If there is no route, no messages are routed outside of Azure Digital Twins. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
 
+**Note**: In private preview, filters are not supported. Please use an event grid as an endpoint with n event grid subscription filter to use selective messaging.
+
 In SDK form:
 
 ```csharp
-Response CreateEventRoute(string routeId, string endpointId, string filter)
+await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointId"));
 ```
-Filter can be `null`/empty and all events will be published to the endpoint.
+);`
 
-`PATCH {service}/eventroutes/{id}`
-Patch operation supports patching of the filter in json-patch format.
-
-Delete routes operation
-`DELETE {service}/eventroutes/{id}`
-`Response DeleteEventRoute(string routeId);`
-
-List event routes:
-`GET {service}/eventroutes`
-`IEnumerable<Response<string>> ListEventRoutes();`
-
-## Message routing query and filter
-Message routing queries for Azure Digital Twins support multiple categories of filters, all expressed in one single query language:
-* Filter on message type
-* Filter on digital twin (no traversal of graph)
-* Filter on message/notification body
-* Filter on message properties
-
-> [!NOTE]
-> Azure Digital Twins messages are following CloudEvents standard.
+## Message Examples
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
 
@@ -102,69 +85,6 @@ Life-cycle notifications message
       } 
 }
 ```
-
-### Filter based on message types
-
-You can query based on message type—telemetry vs. notifications. In the query language for filtering on message type, `IS`, `AND`, and `OR` operators are supported. 
-
-`type = 'microsoft.digitaltwins.twin.create' OR type = 'microsoft.iot.telemetry'`
-You can also specify `IN` operator 
-`type IN ['microsoft.iot.telemetry', 'microsoft.digitaltwins.twin.create']`
-
-### Filter based on Twins
-
-The query language for this filtering scenario is compatible with Azure Digital Twins query language, and is a subset of it (Azure Digital Twins query language's `JOIN` is out of scope).
-
-`$dt.$metadata.$model = "urn:contosocom:example:Thermostat:1"` OR 
-`$dt.$metadata.$model = "urn:contosocom:example:DigitalTwins:Space"`
-
-or 
-
-`$dt.IS_OF_MODEL(urn:contosocom:example:Thermostat:1')` OR
-`$dt.IS_OF_MODEL('urn:contosocom:example:DigitalTwins:Space:1')`
-
-`$dt.firmwareVersion = "1.0" AND $dt.location = "Redmond"`
-
-### Filter based on message body
-
-This query language should be similar to the way IoT Hub supports filtering of messages. In the IoT Hub query language, the telemetry message itself is referred to as `$body`.
-
-```json
-{
-    "Temperature": 50,
-        "Humidity": 83,
-        "Time": "2017-03-09T00:00:00.000Z",
-        "IsEnabled": true,
-        "GPS": {
-            "Long": "40.748440",
-            "Lat": "-73.984559",
-        }
-}
-```
-
-### Filter based on message properties
-This query language should be similar to IoT Hub's query language, filtering on message properties.
-
-```sql
-AND source = "thermostat.vav-10"
-AND contentType = 'UTF-8'
-```
-
-Any of these four dimensions could be used individually, or with `AND` and `OR` conditions.
-
-```sql
-AND type = 'DigitalTwinTelemetryMessages'
-AND $dt.$metadata.$model = "urn:contosocom:example:DigitalTwins:Device"
-AND $dt.firmwareVersion = "1.1"
-AND $dt.Name = 'device1'
-AND $body.Temperature > 0
-AND source = "thermostat.vav-10"
-AND contentType = 'UTF-8'
-```
-
-Filtering on the routes is flat, with no traversal of the graph (out of scope for Azure Digital Twins Preview). 
-Azure Digital Twins should support at least 10 custom endpoints and 100 routes, like with IoT Hub.
-Complex filtering to traverse the graph is out of scope for preview release.
 
 ## Route event types and message formats
 

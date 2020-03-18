@@ -15,6 +15,8 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
+# **THIS DOCUMENT SHOULD BE DELETED BASED ON CURRENT GA PLANS**
+
 # IoT Hub devices in Azure Digital Twins
 
 In addition to your digital twins built from business concepts with [user-defined twin types](concepts-models.md), you can also have digital twins in the twin graph that represent IoT devices placed in your environment. IoT devices might be simple sensors, such as thermostats, or more complex machines. These devices are typically managed in an [Azure IoT hub](../iot-hub/about-iot-hub.md).

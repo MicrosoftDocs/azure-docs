@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Manage an individual digital twin
+title: Retrieving, Updating and Deleting Twins and Relationships
 titleSuffix: Azure Digital Twins
-description: See how to manipulate an individual Azure digital twin, including its details, commands, and properties.
+description: See how to retrieve, update and delete individual twins and relationships
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,14 +15,19 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Manage an individual digital twin in the twin graph
+# Retrieving, Updating and Deleting Twins and Relationships
 
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
 ## Get twin data for an entire digital twin
 
-You can access data on any Azure digital twin by calling `Response<JsonDocument> GetTwin(string id);`.
-This returns twin data in JSON form. Assuming the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) defines a digital twin of twin type *Moon*:
+You can access data on any Azure digital twin by calling
+
+```csharp
+object result = await client.DigitalTwins.GetByIdAsync(id);
+```
+
+This returns twin data in a JSON.Net object form (for preview). Assuming the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) defines a digital twin of twin type *Moon*:
 
 ```json
 {
@@ -46,12 +51,11 @@ This returns twin data in JSON form. Assuming the following twin type (written i
 }
 ```
 
-The call `GetTwin("myMoon-001");` might return:
+The call `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` might return:
 
 ```json
 {
   "$dtId": "myMoon-001",
-  "$conformance": "conformant",
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
@@ -76,10 +80,6 @@ The call `GetTwin("myMoon-001");` might return:
 
 The defined properties of the Azure digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix:
 * The ID of the digital twin in this Azure Digital Twins instance.
-* The conformance flag, indicating if the current data in the digital twin is conforming to the defined twin type. Digital twins defined in the Azure Digital Twins service will always be conformant, but [digital twins controlled by IoT Hub devices](concepts-iothub-devices.md) may have data not conforming with the twin type definition. The conformance flag has three possible values:
-    - *Conformant*: The defined twin type is available, and the data in the digital twin conforms with the twin type definition.
-    - *Non-Conformant*: The defined twin type is available, and the data in the digital twin does not conform with the twin type definition. For example, a property with an expected type of `double` has mistakenly been set by a device to a `string` value.
-    - *Unknown*: The defined twin type cannot be found, so conformance cannot be validated.
 * Metadata. The metadata section contains a variety of metadata. For example:
     - The DTMI of the twin type of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
@@ -88,8 +88,8 @@ The defined properties of the Azure digital twin are returned as top-level prope
 ## Patch digital twins
 
 To update multiple properties on a digital twin, use 
-`Response<JsonDocument> UpdateTwin(string id, JsonDocument patch)`.
-The JSON document passed in to `UpdateTwin` must be in JSON patch format.
+`await client.DigitalTwins.UpdateAsync(id, patch);`.
+The JSON document passed in to `Update` must be in JSON patch format.
 
 For example:
 
@@ -97,12 +97,12 @@ For example:
 [
   {
     "op": "replace",
-    "path": "mass",
+    "path": "/mass",
     "value": 0.0799
   },
   {
     "op": "replace",
-    "path": "temperature",
+    "path": "/temperature",
     "value": 0.800
   }
 ]
@@ -126,7 +126,7 @@ To patch properties in components, use path syntax in JSON Patch:
 
 ## Change the twin type
 
-`UpdateTwin` can also be used to migrate an Azure digital twin to a different twin type. For example:
+`Update` can also be used to migrate an Azure digital twin to a different twin type. For example:
 
 ```json
 [
@@ -158,153 +158,94 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
-## Get and set properties on digital twins
-
-To access properties on Azure digital twins, you can use `GetProperty` functions on the client object. These functions can retrieve values as JSON (including all the metadata) or as primitive types:
-
-```csharp
-var client = new DigitalTwinsServiceClient("...");
-double tempVal = 0;
-// Get property as Json
-Response<JsonDocument> result = client.GetPropertyAsJson(roomid, "temperature");
-
-// Get property as primitive type 
-Response<int> intresult = client.GetIntProperty(roomid, "myIntProperty");
-// result value is: int a = intresult.Value
-
-Response<double> dresult = client.GetDoubleProperty(roomid, "myDoubleProperty");
-// ...etc, other versions of the functions
-// ...compute something...
-Response<string> jresult = client.SetPropertyAsJson(roomid, "temperature", tempVal);
-Response<int> ires = client.SetIntProperty(roomid, "myIntProperty", myIntValue);
-```
-
-## Complex properties
-
-To access complex properties, you need to use JSON. 
-
-```csharp
-var client = new DigitalTwinsServiceClient("...");
-string complexPropertyValue;
-Response<JsonDocument> = client.GetPropertyAsJson(roomid, "myComplexProperty");
-// Deserialize return value, with System.Text.Json
-// [TBA]
-// ...compute something...
-Response<string> result = client.SetProperty(roomid, "myComplexProperty", complexPropertyJSonValue);
-```
-
-## Components
-
-For components defined in a twin type, you can describe a property path.
-Let's say we have the following DTDL twin types that define a phone device with two cameras:
-
-```json
-{
-    "@id": "urn:contosocom:example:Camera:1",
-    "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
-    "contents": [
-        {
-            "@type": "Property",
-            "name": "aperture",
-            "schema": "double",
-            "writable": true
-        },
-        {
-            "@type": "Property",
-            "name": "exposure",
-            "schema": "double",
-            "writable": true
-        }
-    ]
-},
-{
-    "@id": " urn:contosocom:example:Phone:1",
-    "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
-    "contents": [
-        {
-            "@type": "Component",
-            "name": "frontCamera",
-            "schema": "urn:contosocom:example:Camera:1"
-        },
-        {
-            "@type": "Component",
-            "name": "backCamera",
-            "schema": "urn:contosocom:example:Camera:1"
-        },
-    ]
-}
-```
-
-To access properties on the *frontCamera* component, you can write:
-
-```csharp
-var client = new DigitalTwinsServiceClient("...");
-Response<double> result = client.SetDoubleProperty(phoneId, "frontCamera.aperture", newApertureValue);
-```
-
-In other words, the property name for component access is a property path consisting of component names separated by a dot, followed by the property name on the final leaf component.
-
-## Relationships
-
-To access relationships, see the following example.
-Recall the twin type definitions of *Moon* and *Planet* digital twins:
-
-```json
-{
-    "@id": "urn:contosocom:example:Planet:1",
-    "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
-    "extends": [
-      "ex:CelestialBody"
-    ],
-    "contents": [
-      {
-          "@type": "Relationship",
-          "name": "satellites",
-          "target": "urn:contosocom:example:Moon:1"
-      }
-    ]
-},
-{
-    "@id": "urn:contosocom:example:Moon:1",
-    "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
-    "extends": [
-        "ex:CelestialBody"
-    ],
-    "contents": [
-        {
-            "@type": "Relationship",
-            "name": "owner",
-            "target": "urn:contosocom:example:Planet:1"
-        }
-    ]
-}
-```
+## List Relationships
 
 To access relationships, you can write:
 
 ```csharp
-var client = new DigitalTwinsServiceClient("...");
-string rels;
-Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, "satellites");
-// Parse relationships as json as desired from result.Value
+await client.DigitalTwins.ListEdgesAsync(id)
 ```
-This call returns an array of relationships, because each relationship can have a cardinality that is larger than one. To navigate a relationship, you can follow the target of the returned relationship:
 
+Here is a more complete example that includes paging:
 ```csharp
-var client = new DigitalTwinsServiceClient("...");
-string rels;
-Response<JsonDocument> result = client.GetRelationshipAsJson(planetId, "satellites");
-var result = results.Value.GetArrayEnumerator());
-foreach (JElement je in result)
+static async Task ListOutgoingRelationships(string id)
 {
-    String target = je.GetProperty("Target").GetString();
-    String name;
-    Response<string> name = client.GetStringProperty(target, "name"); 
-    Console.WriteLine(name);
+    // Find the relationships for the twin
+    try
+    {
+        List<object> relList = new List<object>();
+        // Enumerate the IPage object returned to get the results
+        // ListAsync will throw if an error occurs
+        IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
+        relList.AddRange(relPage);
+        // If there are more pages, the NextPageLink in the page is set
+        while (relPage.NextPageLink != null)
+        {
+            // Get more pages...
+            relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
+            relList.AddRange(relPage);
+        }
+        Console.WriteLine($"Found {relList.Count} relationships on {id}");
+        // Let's delete the edges we found
+        foreach (JObject r in relList)
+        {
+            string relId = r.Value<string>("$edgeId");
+            string relName = r.Value<string>("$relationship");
+            Console.WriteLine($"Found relationship {relId} from {id}");
+        }
+    }
+    catch (ErrorResponseException e)
+    {
+        Console.WriteLine($"*** Error retrieving relationships for {id}: {e.Response.StatusCode}");
+    }
+}
+```
+
+You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the "target" field from the relationship returned and use it as the id for your next call to DigitalTwins.GetById. 
+
+## Deleting Relationships
+You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
+You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship id). ALl three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship ids do NOT need to be globally unique.
+
+
+## Incoming Relationships
+ADT also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
+
+A similar example to the above one for outgoing relationships - this code finds and deletes all incoming relationships to a twin.
+```csharp
+static async Task FindAndDeleteIncomingRelationships(string id)
+{
+    // Find the incoming relationships for the twin
+    try
+    {
+        List<IncomingEdge> relList = new List<IncomingEdge>();
+        // Enumerate the IPage object returned to get the results
+        // ListAsync will throw if an error occurs
+        IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(id);
+        relList.AddRange(relPage);
+        // If there are more pages, the NextPageLink in the page is set
+        while (relPage.NextPageLink != null)
+        {
+            // Get more pages...
+            relPage = await client.DigitalTwins.ListIncomingEdgesNextAsync(relPage.NextPageLink);
+            relList.AddRange(relPage);
+        }
+        Console.WriteLine($"Found {relList.Count} relationships on {id}");
+        // Let's delete the edges we found
+        foreach (IncomingEdge r in relList)
+        {
+            string relId = r.EdgeId;
+            string relName = r.Relationship;
+            string source = r.SourceId;
+            // Need twin id, relationshipname and edgeid to uniquely identify a particular relationship
+            await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
+            Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
+        }
+    }
+    catch (ErrorResponseException e)
+    {
+        Console.WriteLine($"*** Error deleting incoming relationships for {id}: {e.Response.StatusCode}");
+    }
 }
 ```
 

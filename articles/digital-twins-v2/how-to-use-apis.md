@@ -17,13 +17,17 @@ ms.service: digital-twins
 
 # Developer overview of Azure Digital Twins APIs
 
+> [!TIP]
+> * To learn how to create an ADT instance, please see [How to Set Up an ADT Instance](how-to-set-up-an-adt-instance.md)
+> * To learn how to authenticate and connect to an instance, please see [How to Authenticate Against an ADT Instance](how-to-authenticate.md)
+
 This article gives a brief overview of the API surface of Azure Digital Twins. 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
-* **Model Management APIs** - The Model Management APIs are used to manage the [twin types](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
-* **Twin APIs** - The Twin APIs let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
-* **Query APIs** - The Query APIs let developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships, by applying filters.
-* **Event and Routing APIs** - The Event APIs let developers [wire up event flow](concepts-route-events.md) through the system, as well as to downstream services.
+* **DigitalTwinsModels** - The DigitalTwinsModels category provides APIs are used to manage the [twin types](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
+* **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
+* **Query* - The Query category lets developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships
+* **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md) through the system, as well as to downstream services.
 
 ## Generating Azure Digital Twins SDKs (preview)
 
@@ -48,7 +52,117 @@ To run Autorest against the ADT swagger file:
 autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-As a result, you will see a new folder named ADTApi in your working directory. The generated SDK files will have the namespace ADTApi, which we will continue to use in the following examples
+As a result, you will see a new folder named ADTApi in your working directory. The generated SDK files will have the namespace ADTApi, which we will continue to use in the examples in the how-to section.
+
+See [Adding the SDK to a Visual Studio Project] below for instructions how to build the SDK as a C# class library that can be included into other projects.
+
+Autorest supports a wide range of language code generators. We have so far only tested the SDK generation with C# and Typescript.
+
+## General Usage Guidelines for the Generated C# SDK
+
+### Synchronous and Asynchronous Calls
+All SDK functions come in synchronous and asynchronous versions
+
+### Typed and Untyped Data - Use of JSON.Net
+This is subject to change after private preview.
+
+Generally, we aim to return strongly typed objects from REST api calls. However, because ADT lets users define their own types for twins (effectively, custom types), we have no way to pre-define static return data for many ADT calls. Instead, we return strongly typed wrapper types where applicable, but the twin-related data (custom types) itself is in form of JSON.Net objects, wherever the data type "object" appears in the API signatures. You can cast these objects appropriately.
+
+### Azure SDK Guideline Compliance
+Unlike the Autorest-generated SDK, the future official SDK will conform to the [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and specifically for C# [the C# SDK guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+
+### Error Handling
+Whenever an error occurs in the SDK, the SDK will throw an exception, even for errors such as 404, and so on. It is therefore important to encapsulate all API calls with try/catch blocks.
+
+```csharp
+try
+{
+    await client.DigitalTwins.AddAsync(id, initData);
+    Console.WriteLine($"Created a twin successfully: {id}");
+}
+catch (ErrorResponseException e)
+{
+    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
+}
+```
+
+### Paging
+Autorest generates two types of paging patterns for the SDK:
+* One for all APIs except the query API
+* One for the query API
+
+The non-query paging pattern works as follows:
+There are two versions of each call
+* A version to make the initial call (e.g. DigitalTwins.ListEdges())
+* A version to get subsequent pages, suffixed with "Next" (e.g. DigitalTwins.ListEdgesNext())
+
+A more complete code snippet shows how to retrieve a list of outgoing relationships from ADT:
+```csharp
+try
+{
+    // List to hold the results in
+    List<object> relList = new List<object>();
+    // Enumerate the IPage object returned to get the results
+    // ListAsync will throw if an error occurs
+    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
+    relList.AddRange(relPage);
+    // If there are more pages, the NextPageLink in the page is set
+    while (relPage.NextPageLink != null)
+    {
+        // Get more pages...
+        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
+        relList.AddRange(relPage);
+    }
+    Console.WriteLine($"Found {relList.Count} relationships on {id}");
+    // Do something with each object found
+    // As relationships are custom types, they are JSON.Net types
+    foreach (JObject r in relList)
+    {
+        string relId = r.Value<string>("$edgeId");
+        string relName = r.Value<string>("$relationship");
+        Console.WriteLine($"Found relationship {relId} from {id}");
+    }
+}
+catch (ErrorResponseException e)
+{
+    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+}
+```
+
+The second pattern is only generated for the query API. It uses a continuationToken explicitly.
+An example:
+
+```csharp
+string query = "SELECT * FROM digitaltwins";
+string conToken = null; // continuation token from the query
+int page = 0;
+try
+{
+    // Repeat the query while there are pages
+    do
+    {
+        QuerySpecification spec = new QuerySpecification(query, conToken);
+        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
+        page++;
+        Console.WriteLine($"== Query results page {page}:");
+        if (qr.Items != null)
+        {
+            // Query returns are JObjects
+            foreach(JObject o in qr.Items)
+            {
+                string twinId = o.Value<string>("$dtId");
+                Console.WriteLine($"  Found {twinId}");
+            }
+        }
+        Console.WriteLine($"== End query results page {page}");
+        conToken = qr.ContinuationToken;
+    } while (conToken != null);
+} catch (ErrorResponseException e)
+{
+    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
+}
+```
+
 
 ## Adding the SDK to a Visual Studio Project
 
