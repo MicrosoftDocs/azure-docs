@@ -85,11 +85,16 @@ The following table classifies Microsoft tools and their current suitability for
 |![Not recommended.](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Does not copy metadata. |
 |||||
 
-*Full fidelity: meets or exceeds Azure file share capabilities.
+*\* Full fidelity: meets or exceeds Azure file share capabilities.*
 
 ### Migration helper tools
 
 This category lists tools that help with planning and executing migrations.
+
+* RoboCopy, from Microsoft Corporation
+
+    One of the most well-rounded copy tools available, comes out-of-the-box with Microsoft Windows.Due to the many options in this tool, the main [RoboCopy documentation](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) is a helpful source.
+    </br></br>
 
 * TreeSize, from JAM Software GmbH
 
