@@ -19,7 +19,7 @@ In this tutorial, you create an end-to-end pipeline containing **Validation**, *
 
 - **Validation** ensures that your source dataset is ready for downstream consumption before you trigger the copy and analytics job.
 
-- **Copy** duplicates the source dataset to the sink storage which is mounted as DBFS in the Databricks notebook. In this way, the dataset can be directly consumed by Spark.
+- **Copy** duplicates the source dataset to the sink storage, which is mounted as DBFS in the Databricks notebook. In this way, the dataset can be directly consumed by Spark.
 
 - **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or SQL Data Warehouse.
 
@@ -108,7 +108,7 @@ To import a **Transformation** notebook to your Databricks workspace:
 
     - **Azure Databricks** – to connect to the Databricks cluster.
 
-        Create a Databricks-linked service using the access key you generated earier. You may opt to select an *interactive cluster* if you have one. This example uses the *New job cluster* option.
+        Create a Databricks-linked service using the access key you generated previously. You may opt to select an *interactive cluster* if you have one. This example uses the *New job cluster* option.
 
         ![8](media/solution-template-Databricks-notebook/databricks-connection.png)
 
@@ -120,58 +120,63 @@ To import a **Transformation** notebook to your Databricks workspace:
 
 In the new pipeline, most settings are  configured automatically with default values. Review the configurations of your pipeline and make any necessary changes:
 
-- A _Validation_ activity **Availability flag** is created for checking the source. The Dataset value should be set to   *SourceAvailabilityDataset* which was created earlier.
+1. In the **Validation** activity **Availability flag**, verify that the source Dataset value is set to the `SourceAvailabilityDataset`  created earlier.
 
    ![12](media/solution-template-Databricks-notebook/validation-settings.png)
 
-- A _Copy data_ activity **file-to-blob** is created for copying the dataset from the source to the sink. Check the source and sink tabs to change these settings.
+1. In the **Copy data** activity **file-to-blob**, check the source and sink tabs. Change settings if necessary.
 
-  - Source tab
+   - Source tab
    ![13](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
-  - Sink tab
+   - Sink tab
    ![14](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-\***
-- A _Notebook_ activity **Transformation** is created with the linked service from earlier.
-    ![16](media/solution-template-Databricks-notebook/notebook-activity.png)
+1. In the **Notebook** activity **Transformation**, review and update the paths and settings as needed.
 
-   1. Select **Settings** tab. For *Notebook path*, the template defines a path by default. You may need to browse and select the correct notebook path uploaded in **Prerequisite** 2.
+   The **Databricks linked service** should be pre-populated with the value from a previous step, as shown:
+   ![16](media/solution-template-Databricks-notebook/notebook-activity.png)
+
+   To check the **Notebook** settings:
+  
+    1. Select **Settings** tab. For **Notebook path**, verify that the default path is correct. You may need to browse and choose the correct notebook path.
 
        ![17](media/solution-template-Databricks-notebook/notebook-settings.png)
-    
-     1. Check out the *Base Parameters* created as shown in the screenshot. They are to be passed to the Databricks notebook from Data Factory. 
 
-         ![Base parameters](media/solution-template-Databricks-notebook/base-parameters.png)
+    1. Expand the **Base Parameters** selector and verify that the parameters match what is shown in the following screenshot. These parameters are passed to the Databricks notebook from Data Factory.
 
-1. **Pipeline Parameters** is defined as below.
+       ![Base parameters](media/solution-template-Databricks-notebook/base-parameters.png)
 
-    ![15](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+1. Verify that the **Pipeline Parameters** match what is shown in the following screenshot:
+  ![15](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
-1. Setting up datasets.
-    1. **SourceAvailabilityDataset** is created to check if source data is available.
+1. Connect to your datasets.
 
-        ![9](media/solution-template-Databricks-notebook/source-availability-dataset.png)
+   - **SourceAvailabilityDataset** - to check that the source data is available.
 
-    1. **SourceFilesDataset** - for copying the source data.
+     ![9](media/solution-template-Databricks-notebook/source-availability-dataset.png)
 
-        ![10](media/solution-template-Databricks-notebook/source-file-dataset.png)
+   - **SourceFilesDataset** - to access the source data.
 
-    1. **DestinationFilesDataset** – for copying into the sink/destination location.
+       ![10](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-        1. Linked service - *sinkBlob_LS* created in previous step.
+   - **DestinationFilesDataset** – to copy the data into the sink destination location. Use the following values:
 
-        2. File path - *sinkdata/staged_sink*.
+     - **Linked service** - `sinkBlob_LS`, created in a previous step.
 
-            ![11](media/solution-template-Databricks-notebook/destination-dataset.png)
+     - **File path** - `sinkdata/staged_sink`.
 
-1. Select **Debug** to run the pipeline. You can find link to Databricks logs for more detailed Spark logs.
+       ![11](media/solution-template-Databricks-notebook/destination-dataset.png)
+
+1. Select **Debug** to run the pipeline. You can find the link to Databricks logs for more detailed Spark logs.
 
     ![18](media/solution-template-Databricks-notebook/pipeline-run-output.png)
 
-    You can also verify the data file using storage explorer. (For correlating with Data Factory pipeline runs, this example appends the pipeline run ID from data factory to the output folder. This way you can track back the files generated via each run.)
+    You can also verify the data file using storage explorer.
 
-    ![19](media/solution-template-Databricks-notebook/verify-data-files.png)
+    > [!NOTE]
+    > For correlating with Data Factory pipeline runs, this example appends the pipeline run ID from data factory to the output folder. This way you can track back the files generated via each run.
+    > ![19](media/solution-template-Databricks-notebook/verify-data-files.png)
 
 ## Next steps
 
