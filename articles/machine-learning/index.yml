@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Azure Machine Learning is Microsoft's all-inclusive service for data scientists and developers. Learn how to train, deploy, and manage your machine learning models and pipelines at scale with a single, cloud-based solution. 
+summary: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Azure Machine Learning is Microsoft's all-inclusive service for data scientists and developers. Learn how to train, deploy, and manage your machine learning models and pipelines at scale with a single, cloud-based solution.
+  description: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/05/2020
+  ms.date: 03/18/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
