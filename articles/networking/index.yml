@@ -24,12 +24,12 @@ highlightedContent:
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: Hub-spoke network topology in Azure
-      itemType: architecture
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Load-balancing options in Azure
       itemType: architecture
       url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Private access to a SQL database server
       itemType: tutorial
       url: ../private-link/create-private-endpoint-portal.md
