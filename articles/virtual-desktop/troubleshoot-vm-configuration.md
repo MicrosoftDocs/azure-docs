@@ -125,13 +125,13 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 ## Error:  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
 
-**Cause:** Registration token has expired or has been generated with expiration value of 999999.
+**Cause:** Registration token has expired.
 
 **Fix:** Follow these instructions to fix the agent registry error.
 
 1. If there's already a registration token, remove it with Remove-RDSRegistrationInfo.
 2. Generate new token with Rds-NewRegistrationInfo.
-3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 99999).
+3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 1440).
 
 ### Error: Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-RdsSessionHost
 
