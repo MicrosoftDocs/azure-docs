@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Azure Synapse Analytics – Workload Management Portal Monitoring (Preview)
 This article explains how to monitor [workload group](sql-data-warehouse-workload-isolation.md#workload-groups) resource utilization and query activity. 
-For details on how to configure the Azure Metrics Explorer see the [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) article.  See the [Resource utilization](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) section in Azure Synapse Analytics Monitoring documentation for details on how to monitor system resource consumption.
+For details on how to configure the Azure Metrics Explorer see the [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) article.  See the [Resource utilization](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) section in Azure Synapse Analytics Monitoring documentation for details on how to monitor system resource consumption.
 There are two different categories of workload group metrics provided for monitoring workload management: resource allocation and query activity.  These metrics can be split and filtered by workload group.  The metrics can be split and filtered based on if they are system defined (resource class workload groups) or user-defined (created by user with [CREATE WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) syntax).
 
 ## Workload management metric definitions
@@ -74,8 +74,8 @@ Filter: [Workload Group] = `wgDataAnalyst`<br>
 The chart shows that with a 9% cap on resources, the workload group is 90%+ utilized (from the *Workload group allocation by max resource percent metric*).  There is a steady queuing of queries as shown from the *Workload group queued queries metric*.  In this case, increasing the `CAP_PERCENTAGE_RESOURCE` to a value higher than 9% will allow more queries to execute concurrently.  Increasing the `CAP_PERCENTAGE_RESOURCE` assumes that there are enough resources available and not isolated by other workload groups.  Verify the cap increased by checking the *Effective cap resource percent metric*.  If more throughput is desired, also consider increasing the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` to a value greater than 3.  Increasing the `REQUEST_MIN_RESOURCE_GRANT_PERCENT` could allow queries to run faster.
 
 ## Next steps
-[Quickstart: Configure workload isolation using T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
+[Quickstart: Configure workload isolation using T-SQL](../synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md)<br>
 [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)<br>
 [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)<br>
-[Monitoring resource utilization](sql-data-warehouse-concept-resource-utilization-query-activity.md)
+[Monitoring resource utilization](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md)
 
