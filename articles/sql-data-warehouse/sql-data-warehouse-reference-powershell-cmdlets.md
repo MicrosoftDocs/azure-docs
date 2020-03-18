@@ -82,7 +82,7 @@ These PowerShell cmdlets are supported with Azure Synapse Analytics data warehou
 ## Next steps
 For more PowerShell examples, see:
 
-* [Create a data warehouse using PowerShell](create-data-warehouse-powershell.md)
+* [Create a data warehouse using PowerShell](../synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell.md)
 * [Database restore](sql-data-warehouse-restore-database-powershell.md)
 
 For other tasks that can be automated with PowerShell, see [Azure SQL Database cmdlets](https://docs.microsoft.com/powershell/module/az.sql). Not all Azure SQL Database cmdlets are supported for Azure Synapse Analytics data warehouse.  For a list of tasks that can be automated with REST, see [Operations for Azure SQL Database](/rest/api/sql/).

@@ -90,7 +90,7 @@ See the following diagram that shows three environment definitions. Two of them 
 If you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. Also, any future environment with matching definition will keep using the old version. To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. Note that new dependencies, including nested ones will be installed that might break a previously working scenario
 
 > [!WARNING]
->  The [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
+>  The [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
 
 ## Next steps
 
