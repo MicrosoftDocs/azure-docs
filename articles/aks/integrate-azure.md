@@ -1,5 +1,6 @@
 ---
-title: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
+title: Use Open Service Broker for Azure
+titleSuffix: Azure Kubernetes Service
 description: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 author: zr-msft
 ms.topic: overview
