@@ -60,7 +60,7 @@ Follow the processes below to upload your DWG design package:
 
     </center>
 
-### Data conversion process
+### Data conversion procedure
 
 Now that your DWG package is uploaded, we'll use the `udid` for the uploaded package to convert the DWG package into map data.
 

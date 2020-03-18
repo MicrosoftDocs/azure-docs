@@ -1,6 +1,6 @@
 ---
 title: DWG package requirements in Azure Maps | Microsoft Docs
-description: Learn about DWG to GeoJSON data format conversion in Azure Maps 
+description: Learn about the DWG package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 03/05/2020
@@ -93,7 +93,7 @@ The DWG file for each level should define a layer containing units.  Units are n
 * Units must not contain any self-intersecting geometry
 * Units must not overlap
 
- Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitLabel-layer).
+ Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
 ### Walls layer
 
@@ -116,7 +116,7 @@ The DWG file for each level may contain a zone layer that defines the physical e
 * May overlap
 * May fall inside or outside the facility's exterior perimeter
 
-Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#zoneLabel-layer) for more details.
+Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#zonelabel-layer) for more details.
 
 ### UnitLabel layer
 
@@ -136,11 +136,11 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 
 ## Manifest file requirements
 
-The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. As indicated by the name, the manifest file is a JSON text file. It defines DWG file names, georeferencing information, and facility details.
+The zip file must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. As indicated by the name, the manifest file is a JSON text file. It defines DWG file names, georeferencing information, and facility details.
 
-The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space.  
+The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip file. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space.  
 
-Only the files identified by the manifest will be ingested by the Conversion API. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored. Make sure that your file names are spelled correctly.
+Only the files identified by the manifest will be ingested by the Conversion API. Files that are in the zip file, but aren't properly listed in the manifest, will be ignored. Make sure that your file names are spelled correctly.
 
 Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the Conversion API. 
 
@@ -184,7 +184,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 |ordinal | integer |    true | Ordinal is used to determine the vertical order of levels. Every facility must have a level with ordinal 0 |
 |heightAboveFacilityAnchor | numeric |    false |    Level height above the ground floor in meters |
 | verticalExtent | numeric | false | Floor to ceiling height (thickness) of the level in meters |
-|filename |    string |    true |    File system path of the CAD drawing for a building level. It must be relative to the root of the building's zip folder. |
+|filename |    string |    true |    File system path of the CAD drawing for a building level. It must be relative to the root of the building's zip file. |
 
 ### georeference
 
@@ -325,3 +325,6 @@ Once your DWG package meets the requirements, you may use the Conversion API to 
 
 > [!div class="nextstepaction"]
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
+
+> [!div class="nextstepaction"]
+> [How to use Indoor Maps module](how-to-use-indoor-module.md)

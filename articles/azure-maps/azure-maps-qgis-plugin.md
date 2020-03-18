@@ -223,7 +223,7 @@ The first step in adding a feature to the map is to decide the category and the 
 
    <center>
 
-You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](dwg-requirement.md#dwg-files-requirements) to decide where to add your features.
+You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](dwg-requirements.md#dwg-files-requirements) to decide where to add your features.
 
 ## Full list of feature collections
 

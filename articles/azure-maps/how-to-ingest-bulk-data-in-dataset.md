@@ -28,9 +28,9 @@ The instructions below overview the process of uploading a DWG package, converti
 
 1. Before you upload data into the Azure Maps resources, make sure that your DWG package meets the [DWG package requirements](dwg-requirements.md).
 
-2. Upload your DWG package to the Azure Maps service, and obtain a `udid` for the uploaded package. This procedure is detailed in the [Data Upload section of the Indoor Data Management](indoor-data-management.md#data-upload-process) article.
+2. Upload your DWG package to the Azure Maps service, and obtain a `udid` for the uploaded package. This procedure is detailed in the [Data Upload section of the Indoor Data Management](indoor-data-management.md#data-upload-procedure) article.
 
-3. Once you obtain the `udid` for the uploaded packaged, convert the uploaded packaged using the Azure Maps Conversion service, and obtain the conversion `conversionId` for the converted package. This procedure is detailed in the [Data Conversion section of the Indoor Data Management](indoor-data-management.md#data-conversion-process) article.
+3. Once you obtain the `udid` for the uploaded packaged, convert the uploaded packaged using the Azure Maps Conversion service, and obtain the conversion `conversionId` for the converted package. This procedure is detailed in the [Data Conversion section of the Indoor Data Management](indoor-data-management.md#data-conversion-procedure) article.
 
 4. Once you obtain the `conversionId` for the converted package, create an initial data set using the Azure Maps Dataset service, and obtain the `datasetId`. This procedure is detailed in the [Data sets section of the Indoor Data Management](indoor-data-management.md#data-sets) article. Copy the `datasetId`to use in the next section.
 
@@ -78,7 +78,7 @@ This section assumes that you already have a data set, and that you know your `d
 
 10. To query the status URL, append you Azure Maps subscription key, and make a **GET** request.
 
-11. The response body will contain a status indicating if your data bulk import failed or succeeded. If the request failed, you'll see a message with the error details. Remember to append your Azure Maps key for authentication. If the bulk import operation failed, you'll see a message with details. For example, the operation fails if your data is not in the right format. If the bulk import was successful, you'll see a success message, like in the below image.
+11. The response body will contain a status indicating if your data bulk import failed or succeeded. If the request failed, you'll see a message with the error details. Remember to append your Azure Maps key for authentication. If the bulk import operation failed, you'll see a message with details. For example, the operation fails if your data isn't in the right format. If the bulk import was successful, you'll see a success message, like in the below image.
 
     <center>
 
