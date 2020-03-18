@@ -1,45 +1,135 @@
 ---
-title: Tag resources for logical organization
+title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/18/2020
 ---
-# Use tags to organize your Azure resources
+# Use tags to organize your Azure resources, resource groups and subscriptions
 
-You apply tags to your Azure resources to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-After you apply tags, you can retrieve all the resources in your subscription with that tag name and value. Tags enable you to retrieve related resources from different resource groups. This approach is helpful when you need to organize resources for billing or management.
+For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
-Your taxonomy should consider a self-service metadata tagging strategy in addition to an autotagging strategy to reduce the burden on users and increase accuracy.
+You can apply Azure Policies to make sure tagging conventions are maintained for your organization. For more information, see [Assign policies for tag compliance](tag-policies.md).
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
-
-## Limitations
-
-The following limitations apply to tags:
-
-* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* Each resource or resource group can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group can contain many resources that each have 50 tag name/value pairs.
-* The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
-* Generalized VMs don't support tags.
-* Tags applied to the resource group are not inherited by the resources in that resource group.
-* Tags can't be applied to classic resources such as Cloud Services.
-* Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
-
-   > [!NOTE]
-   > Currently Azure DNS zones and Traffic Manger services also don't allow the use of spaces in the tag. 
 
 ## Required access
 
 To apply tags to resources, the user must have write access to that resource type. To apply tags to all resource types, use the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
-## Policies
-
-You can use [Azure Policy](../../governance/policy/overview.md) to enforce tagging rules and conventions. By creating a policy, you avoid the scenario of resources being deployed to your subscription that don't comply with the expected tags for your organization. Instead of manually applying tags or searching for resources that aren't compliant, you can create a policy that automatically applies the needed tags during deployment. Tags can also now be applied to existing resources with the new [Modify](../../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../../governance/policy/how-to/remediate-resources.md). The following section shows example policies for tags.
-
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
-
 ## PowerShell
+
+Azure PowerShell offers two commands for applying tags - [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You must have Azure PowerShell 3.6.1 or later to use these commands.
+
+The **New-AzTag** replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
+
+The following example applies a set of tags to a storage account:
+
+```azurepowershell-interactive
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resource = Get-AzResource -resourcename demoStorage -resourcegroup demoGroup
+New-AzTag -ResourceId $resource.id -Tag $tags
+```
+
+When the command completes, notice that the resource has two tags.
+
+```azurepowershell
+Properties :
+        Name    Value
+        ======  =======
+        Dept    Finance
+        Status  Normal
+```
+
+If you run the command again but this time with different tags, notice that the earlier tags are removed.
+
+```azurepowershell-interactive
+$tags = @{"Team"="Compliance"; "Environment"="Production"}
+New-AzTag -ResourceId $resource.id -Tag $tags
+```
+
+```azurepowershell
+Properties :
+        Name         Value
+        ===========  ==========
+        Environment  Production
+        Team         Compliance
+```
+
+To add tags to a resource that already has tags, use **Update-AzTag**. Set the **-Operation** parameter to **Merge**.
+
+```azurepowershell-interactive
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
+```
+
+Notice all four tags have been applied to the resource.
+
+```azurepowershell
+Properties :
+        Name         Value
+        ===========  ==========
+        Status       Normal
+        Dept         Finance
+        Team         Compliance
+        Environment  Production
+```
+
+When you set the **-Operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
+
+```azurepowershell-interactive
+$tags = @{"Project"="ECommerce"; "CostCenter"="00123"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
+```
+
+Only the new tags remain on the resource.
+
+```azurepowershell
+Properties :
+        Name        Value
+        ==========  =========
+        CostCenter  00123
+        Project     ECommerce
+```
+
+You can also set **-Operation** to **Delete** to remove a specific tag.
+
+```azurepowershell-interactive
+$removeTags = @{"Project"="ECommerce"}
+Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
+```
+
+The specified tag is removed.
+
+```azurepowershell
+Properties :
+        Name        Value
+        ==========  =====
+        CostCenter  00123
+```
+
+To add tags to a *resource without existing tags*, use:
+
+```azurepowershell-interactive
+$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $resource.ResourceId -Force
+```
+
+You may have more than one resource with the same name in a resource group. In that case, you can set each resource with the following commands:
+
+```azurepowershell-interactive
+$resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
+$resource | ForEach-Object { Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Force }
+```
+
+To add tags to a *resource that has existing tags*, use:
+
+```azurepowershell-interactive
+$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$resource.Tags.Add("Status", "Approved")
+Set-AzResource -Tag $resource.Tags -ResourceId $resource.ResourceId -Force
+```
 
 To see the existing tags for a *resource group*, use:
 
@@ -68,12 +158,6 @@ Or, if you have the resource ID for a resource, you can pass that resource ID to
 (Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
-To get *resource groups that have a specific tag name and value*, use:
-
-```azurepowershell-interactive
-(Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
-```
-
 To get *resources that have a specific tag name and value*, use:
 
 ```azurepowershell-interactive
@@ -85,6 +169,18 @@ To get *resources that have a specific tag name*, use:
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
+
+### Resource group
+
+To get *resource groups that have a specific tag name and value*, use:
+
+```azurepowershell-interactive
+(Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
+```
+
+
+
+
 
 Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags.
 
@@ -102,27 +198,7 @@ $tags.Add("Status", "Approved")
 Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
-To add tags to a *resource without existing tags*, use:
 
-```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $resource.ResourceId -Force
-```
-
-You may have more than one resource with the same name in a resource group. In that case, you can set each resource with the following commands:
-
-```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
-$resource | ForEach-Object { Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Force }
-```
-
-To add tags to a *resource that has existing tags*, use:
-
-```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$resource.Tags.Add("Status", "Approved")
-Set-AzResource -Tag $resource.Tags -ResourceId $resource.ResourceId -Force
-```
 
 To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
@@ -275,7 +351,7 @@ done
 IFS=$origIFS
 ```
 
-## Templates
+## ARM templates
 
 To tag a resource during deployment, add the `tags` element to the resource you're deploying. Provide the tag name and value.
 
@@ -436,7 +512,23 @@ You can retrieve information about tags through the [Azure Resource Usage and Ra
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
+## Limitations
+
+The following limitations apply to tags:
+
+* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
+* Each resource or resource group can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group can contain many resources that each have 50 tag name/value pairs.
+* The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
+* Generalized VMs don't support tags.
+* Tags applied to the resource group are not inherited by the resources in that resource group.
+* Tags can't be applied to classic resources such as Cloud Services.
+* Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Currently Azure DNS zones and Traffic Manger services also don't allow the use of spaces in the tag.
+
+
 ## Next steps
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resource-groups-portal.md).  
+* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resource-groups-portal.md).
