@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Primary key, foreign key, and unique key in SQL Analytics
@@ -167,4 +166,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## Next steps
 
-After creating the tables for your SQL Analytics database, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Analytics databases](load-data-wideworldimportersdw.md).
+After creating the tables for your SQL Analytics database, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Analytics databases](../synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw.md).
