@@ -171,7 +171,7 @@ Note the following constraints when making a backup or restore request:
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
--   In addition, the following items are not part of the backup data: custom domain SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
+-   In addition, the following items are not part of the backup data: custom domain TLS/SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
 -   The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
 -   **Allow** access from control plane to Azure Storage Account, if it has [firewall][azure-storage-ip-firewall] enabled. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from. 
