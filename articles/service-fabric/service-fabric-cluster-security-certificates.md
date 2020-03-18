@@ -254,14 +254,14 @@ Completion of phase 2 also marks the conversion of the cluster to common name-ba
 In a separate article we will address the topic of managing and provisioning certificates into a Service Fabric cluster.
 
 ## Troubleshooting and Frequently Asked Questions
-While debugging authentication-related issues in Service Fabric clusters is not easy, we're hopeful the following hints and tips may help. The easiest way to begin investigations is to examine the Service Fabric event logs on the nodes of the cluster - not necessarily only those showing symptoms, but also nodes which are up but are unable to connect to one of their neighbors. On Windows, events of significance are typically logged under the 'Applications and Services Logs\Microsoft-ServiceFabric\Admin' or 'Operational' channels, respectively.
+While debugging authentication-related issues in Service Fabric clusters is not easy, we're hopeful the following hints and tips may help. The easiest way to begin investigations is to examine the Service Fabric event logs on the nodes of the cluster - not necessarily only those showing symptoms, but also nodes which are up but are unable to connect to one of their neighbors. On Windows, events of significance are typically logged under the 'Applications and Services Logs\Microsoft-ServiceFabric\Admin' or 'Operational' channels, respectively. Sometimes it may be helpful to [enable CAPI2 logging](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues), to capture more details regarding the certificate validation, retrieval of CRL/CTL etc. (Please remember to disable it after completing the repro, it can be quite verbose.)
 
 Typical symptoms that manifest themselves in a cluster experiencing authentication issues are: 
   - nodes are down/cycling 
   - connection attempts are rejected
   - connection attempts are timing out
 
-Each of the symptoms may be caused by different problems, and the same root cause may show different manifestations; as such, we'll just list a small sample of typical problems, with recommendations for fixing them.
+Each of the symptoms may be caused by different problems, and the same root cause may show different manifestations; as such, we'll just list a small sample of typical problems, with recommendations for fixing them. 
 
 * Nodes can exchange messages but cannot connect. A possible cause for connection attempts to be terminated is the 'certificate not matched' error - one of the parties in a Service Fabric-to- Service Fabric connections is presenting a certificate which fails the recipient's validation rules. May be accompanied by either of the following errors: 
   ```C++
