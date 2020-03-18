@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -53,6 +53,9 @@ After the digital files are uploaded into storage and associated with an Asset, 
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. Get a SAS URL with read-write permissions that will be used to upload digital files into the Asset container. You can use the Media Services API to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+
+    `AssetContainerSas.listContainerSas` takes a `ListContainerSasInput` parameter on which you set `expiryTime`. The time should be set to  < 24 hours.
+    
 3. Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to upload files into the Asset container.
 4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
 5. Stream the content from the "output" asset.

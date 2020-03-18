@@ -82,7 +82,9 @@
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
     - name: Enable SSL endpoint in sidecar
-      href: container-instances-container-group-ssl.md     
+      href: container-instances-container-group-ssl.md
+    - name: Expose static IP address
+      href: container-instances-application-gateway.md  
   - name: Mount data volumes
     items:
     - name: Azure file share

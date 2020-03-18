@@ -136,7 +136,7 @@ There are many methods for deploying templates. Azure Cloud shell is used in thi
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
 
     # [PowerShell](#tab/PowerShell)
