@@ -28,9 +28,6 @@ To start developing with Video Indexer, browse to the [Video Indexer](https://ww
 
 ## Upload a video using the Video Indexer website
 
-> [!NOTE]
-> A name of the video must be no greater than 80 characters.
-
 ### Supported file formats for Video Indexer
 
 See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
@@ -39,6 +36,9 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
 2. To upload a video, press the **Upload** button or link.
+
+    > [!NOTE]
+    > The name of the video must be no greater than 80 characters.
 
     ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
 
