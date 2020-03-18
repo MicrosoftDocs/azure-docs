@@ -4,14 +4,13 @@ description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, azure-synapse
 ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.custom: azure-synapse
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
 
