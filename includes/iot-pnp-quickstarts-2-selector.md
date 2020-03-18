@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-pnp
- author: baanders
+ author: dominicbetts
  ms.service: iot-pnp
  ms.topic: include
  ms.date: 11/11/2019
- ms.author: baanders
+ ms.author: dominicbetts
  ms.custom: include file
 ---
 
