@@ -60,7 +60,7 @@ Use the following strategies, depending on the table properties:
 * Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* to analyze any skewness in the data.
 * Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* to analyze data movements behind queries, monitor the time broadcast, and shuffle operations take. This is helpful to review your distribution strategy.
 
-Learn more about [replicated tables](../synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables.md) and [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 ## Index your table
 
