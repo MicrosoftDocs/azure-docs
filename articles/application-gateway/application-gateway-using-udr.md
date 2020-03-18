@@ -23,7 +23,8 @@ Scenarios that currently are **not** supported include:
 > [!WARNING]
 > An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Please ensure that all management/control plane traffic is sent **directly to the internet** and not through a virtual appliance. 
 
-## Scenario 1: UDR to disable Border Gateway Protocol (BGP) Route Propagation to Application Gateway subnet
+## Supported Scenarios
+### Scenario 1: UDR to disable Border Gateway Protocol (BGP) Route Propagation to Application Gateway subnet
 Sometimes 0.0.0.0/0 is advertised via ExpressRoute or VPN gateways associated with the Application Gateway virtual network. This breaks management plane traffic which requires a direct path to the internet. In such scenarios, UDR can be used to disable BGP route propagation. To disable BGP route propagation, follow the steps below: 
 
 1. Create a Route Table resource in Azure and disable the "Virtual network gateway route propagation" field. 
@@ -36,8 +37,8 @@ UDR can currently be used on Application Gateway to send 0.0.0.0/0 traffic direc
 
 ## Scenario 3: UDR for Azure Kubernetes Service kubenet 
 
-**Not supported**
-## Scenario: UDR for Virtual Appliances
+## Unsupported Scenarios
+### Scenario: UDR for Virtual Appliances
 Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premise (forced tunneling) is not yet supported. 
 
 
