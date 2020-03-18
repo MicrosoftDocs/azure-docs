@@ -30,10 +30,10 @@ ms.service: azure-project-spool
   - Existing Azure customers who use Twilio and other competitors for things that we can do for them (phone number provisioning, sms, calling).
    - Use-cases have been listed in the [About Spool page](https://review.docs.microsoft.com/en-us/azure/project-spool/overview?branch=pr-en-us-104477).
 - **Docs are a forcing function** for clarity between stakeholders as we approach public preview and GA.
-- **Docs can serve as the North Star** - the source of truth - for all stakeholders as "ideological deltas" are minimized.
+- **Docs can serve as the North Star** - the source of truth - for all stakeholders as ambiguity is minimized.
 - As a developer, I decide to pay (or advocate for) a service when it's painless. I look for simplicity that **doesn't make me think**. If the docs don't make me think, then I trust that the product won't make me think.
 - **We can use docs to unify our thinking in service of our customer's needs.** To do that, we need to lay down some implementation-agnostic initial scaffolding that answers the most obvious developer questions: **How can this help me? How easy is it to use?**
-- As we develop our docs, we need to identify and reconcile ideological deltas between stakeholders. These deltas will be documented at the top of each page under development.
+- As we develop our docs, we need to identify and reconcile ambiguity. Points of ambiguity will be documented at the top of each page under development.
 - The core priorities of docs are **simplicity** and **progress**.
 - To make progress, **all primitive owners need to contribute docs and samples**. Mick's role is not to create docs - it's editorial and docs-ops support.
 - To maintain progress and accountability, **we need to track docs ownership and status**. This is being tracked [here](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn).
