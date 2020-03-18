@@ -71,7 +71,7 @@ When you enable custom data, and execute a script, it will delay the VM reportin
 
 To troubleshoot custom data execution, review */var/log/waagent.log*
 
-* cloud-init - By default will process custom data by default, cloud-init accepts [multiple formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) of custom data, such as cloud-init configuration, scripts etc. Similar to the Linux Agent, when cloud-init processes the custom data. If there are errors during execution of the configuration processing or scripts, this is not deemed a fatal provisioning failure, and you will need to create a notification path to alert you for the completion state of the script. However, different to the Linux Agent, cloud-init does not wait on user custom data configurations to complete before reporting to the platform that the VM is ready. For more information on cloud-init on azure, review the [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+* cloud-init - By default will process custom data by default, cloud-init accepts [multiple formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) of custom data, such as cloud-init configuration, scripts etc. Similar to the Linux Agent, when cloud-init processes the custom data. If there are errors during execution of the configuration processing or scripts, it is not deemed a fatal provisioning failure, and you will need to create a notification path to alert you for the completion state of the script. However, different to the Linux Agent, cloud-init does not wait on user custom data configurations to complete before reporting to the platform that the VM is ready. For more information on cloud-init on azure, review the [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
 
 To troubleshoot custom data execution, review the troubleshooting [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init).
@@ -79,7 +79,7 @@ To troubleshoot custom data execution, review the troubleshooting [documentation
 
 ## FAQ
 ### Can I update custom data after the VM has been created?
-For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (this will not work for the PS or AZ CLI clients). When you update custom data in the VMSS model:
+For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (not applicable for PS or AZ CLI clients). When you update custom data in the VMSS model:
 * Existing instances in the VMSS will not get the updated custom data, only until they are reimaged.
 * Existing instances in the VMSS that are upgraded will not get the updated custom data.
 * New instances will receive the new custom data.
