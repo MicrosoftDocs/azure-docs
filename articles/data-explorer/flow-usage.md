@@ -107,12 +107,13 @@ Visualize this information as a pie chart and email it to the team.
 
     ![Visualize results with multiple attachments](./media/flow-usage/flow-visualizeresultsmultipleattachments.png)
 
-> [!IMPORTANT]
-> In the *Cluster Name* fields, enter the cluster URL.
+    > [!IMPORTANT]
+    > In the *Cluster Name* fields, enter the cluster URL.
 
 1. Add a Send an email action. 
     * In the *Body* field, insert the required body so that the visualized result of the query is included in the body of the email.
     * To add an attachment to the email, add Attachment Name and Attachment Content.
+    
     ![Email multiple attachments](./media/flow-usage/flow-emailmultipleattachments.png)
 
 Results:

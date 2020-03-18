@@ -32,15 +32,18 @@ In this section, you'll create a virtual network and subnet.
 
 1. In **Create virtual network**, enter or select this information in the Basics tab:
 
- ![Create Virtual Network][1]
+   > [!div class="mx-imgBorder"]
+   > ![Create Virtual Network][1]
 
 1. Click **"Next: IP Addresses >"** and enter or select this information:
 
-![Configure IP Addresses][2]
+   > [!div class="mx-imgBorder"]
+   >![Configure IP Addresses][2]
 
 1. In the subnet section, click **"+ Add Subnet"** and enter the following information and click **"Add"**
 
-![Add Subnet][3]
+   > [!div class="mx-imgBorder"]
+   >![Add Subnet][3]
 
 1. Click **"Review + create"**
 
@@ -52,15 +55,17 @@ In this section, you'll create a virtual network and subnet.
 
 1. In Create a virtual machine - Basics, enter or select this information:
 
-![Virtual Machine basic ][4]
+   > [!div class="mx-imgBorder"]
+   >![Virtual Machine basic ][4]
 
 1. Select **"Next: Disks"**
 
-Keep default settings.
+   Keep default settings.
 
 1. Select **"Next: Networking"**, select this information:
 
-![Networking ][5]
+   > [!div class="mx-imgBorder"]
+   >![Networking ][5]
 
 1. Click **"Review + Create"**
 
@@ -71,7 +76,7 @@ Keep default settings.
 In this section, you will create a private Web App using a Private Endpoint to it.
 
 > [!Note]
->The Private Endpoint feature is only available for the Premium V2 tier, and the Isolated tier with an external App Service Environment (ASE).
+>The Private Endpoint feature is only available for the Premium V2 SKU.
 
 ### Web App
 
@@ -79,7 +84,8 @@ In this section, you will create a private Web App using a Private Endpoint to i
 
 1. In Create Web App - Basics, enter or select this information:
 
-![Web App basic ][6]
+   > [!div class="mx-imgBorder"]
+   >![Web App basic ][6]
 
 1. Select **"Review + create"**
 
@@ -89,31 +95,37 @@ In this section, you will create a private Web App using a Private Endpoint to i
 
 1. In the Web App properties, select **Settings** > **Networking** and click on **"Configure your private endpoint connections"**
 
-![Web App networking][7]
+   > [!div class="mx-imgBorder"]
+   >![Web App networking][7]
 
 1. In the wizard, click **"+ add"**
 
-![Web App Private Endpoint][8]
+   > [!div class="mx-imgBorder"]
+   >![Web App Private Endpoint][8]
 
 1. Fill the subscription, VNet, and Subnet information and click **"OK"**
 
-![Web App Networking][9]
+   > [!div class="mx-imgBorder"]
+   >![Web App Networking][9]
 
 1. Review the creation of the private endpoint
 
-![Review][10]
-![Final view of the Private endpoint][11]
+   > [!div class="mx-imgBorder"]
+   >![Review][10]
+   >![Final view of the Private endpoint][11]
 
 ## Connect to a VM from the internet
 
 1. In the portal's search bar, enter **myVm**
 1. Select the **Connect button**. After selecting the Connect button, Connect to virtual machine opens, select **RDP**
 
-![RDP button][12]
+   > [!div class="mx-imgBorder"]
+   >![RDP button][12]
 
 1. Azure creates a Remote Desktop Protocol (.rdp) file and downloads it to your computer after you click on **Download RDP file**
 
-![Download RDP file][13]
+   > [!div class="mx-imgBorder"]
+   >![Download RDP file][13]
 
 1. Open the downloaded.rdp file.
 
@@ -135,38 +147,45 @@ In this section, you will connect privately to the Web App using the Private End
 
 1. Get the private IP of your Private Endpoint, in the search bar type **Private Link**, and select Private Link
 
-![Private Link][14]
+   > [!div class="mx-imgBorder"]
+   >![Private Link][14]
 
 1. In the Private Link Center, select **Private Endpoints** to list all your Private Endpoints
 
-![Private Link center][15]
+   > [!div class="mx-imgBorder"]
+   >![Private Link center][15]
 
 1. Select the Private Endpoint link to your Web App and your subnet
 
-![Private endpoint properties][16]
+   > [!div class="mx-imgBorder"]
+   >![Private endpoint properties][16]
 
 1. Copy the Private IP of your Private Endpoint and the FQDN of your Web App, in our case webappdemope.azurewebsites.net 10.10.2.4
 
 1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and copy the Web App name, you must have a 403 forbidden error page
 
-![Forbidden][17]
+   > [!div class="mx-imgBorder"]
+   >![Forbidden][17]
 
-> [!Note]
+> [!Important]
 > As this feature is in preview, you need to manually manage the DNS entry.
 
 1. Create the host entry, open file explorer and locate the hosts file
 
-![Hosts file][18]
+   > [!div class="mx-imgBorder"]
+   >![Hosts file][18]
 
 1. Add an entry with the private IP address and the public name of your Web App by editing the hosts file with notepad
 
-![Hosts content][19]
+   > [!div class="mx-imgBorder"]
+   >![Hosts content][19]
 
 1. Save the file
 
 1. Open a browser and type the url of your web app
 
-![Web site with PE][20]
+   > [!div class="mx-imgBorder"]
+   >![Web site with PE][20]
 
 1. You are accessing to your Web App through the Private Endpoint
 

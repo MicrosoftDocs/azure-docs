@@ -1,7 +1,7 @@
 ---
 title: Add a popup to a point on a map |Microsoft Azure Maps
 description: In this article, you will learn how to add a popup to a point using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
 ms.topic: conceptual
@@ -124,14 +124,14 @@ new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
     title: 'Template 1 - String template',
     value1: 1.2345678,
     value2: {
-    	subValue: 'Pizza'
+        subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6],
     popupTemplate: {
-    	content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
-    	numberFormat: {
+        content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+        numberFormat: {
             maximumFractionDigits: 2
-    	}
+        }
     }
 }),
 ```
@@ -150,7 +150,7 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     url: 'https://aka.ms/AzureMapsSamples',
     email: 'info@microsoft.com',
     popupTemplate: {
-    	content: [{
+        content: [{
     propertyPath: 'createDate',
     label: 'Created Date'
     },
@@ -158,12 +158,12 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     propertyPath: 'dateNumber',
     label: 'Formatted date from number',
     dateFormat: {
-    	weekday: 'long',
-    	year: 'numeric',
-    	month: 'long',
-    	day: 'numeric',
-    	timeZone: 'UTC',
-    	timeZoneName: 'short'
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+        timeZoneName: 'short'
     }
     },
     {
@@ -171,8 +171,8 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     label: 'Code samples',
     hideLabel: true,
     hyperlinkFormat: {
-    	lable: 'Go to code samples!',
-    	target: '_blank'
+        lable: 'Go to code samples!',
+        target: '_blank'
     }
     },
     {
@@ -180,11 +180,11 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     label: 'Email us',
     hideLabel: true,
     hyperlinkFormat: {
-    	target: '_blank',
-    	scheme: 'mailto:'
+        target: '_blank',
+        scheme: 'mailto:'
         }
     }
-    	]
+        ]
     }
 }),
 

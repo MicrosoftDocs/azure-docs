@@ -57,6 +57,6 @@ At this point, you have a simple environment where any check-in to your source c
 ## Next steps
 
 - Explore [SQL Analytics MPP architecture](massively-parallel-processing-mpp-architecture.md)
-- Quickly [create a SQL pool](create-data-warehouse-portal.md)
+- Quickly [create a SQL pool](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Load sample data](sql-data-warehouse-load-sample-databases.md)
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
