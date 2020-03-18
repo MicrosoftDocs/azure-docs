@@ -1,25 +1,27 @@
 ---
-title: Trigger container group by GitHub action
+title: Deploy container instance by GitHub action
 description: Configure a GitHub action that automates steps to build, push, and deploy a container image to Azure Container Instances
 ms.topic: article
-ms.date: 03/17/2020
+ms.date: 03/18/2020
 ms.custom: 
 ---
 
-# Configure a GitHub action to create a container group
+# Configure a GitHub action to create a container instance
 
 [GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
-Use GitHub actions to automate deployment of a container image to Azure Container Instances. This article shows you how to set up a workflow in a GitHub repo triggered by push of a code commit that performs the following actions:
+Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub action to automate deployment of a container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
+
+This article shows how to set up a workflow in a GitHub repo that performs the following actions:
 
 * Build an image from a Dockerfile
 * Push the image to an Azure container registry
-* Deploy the container image to Azure Container Instances
+* Deploy the container image to an Azure container instance
 
-This article shows two methods to set up the workflow:
+This article shows two ways to set up the workflow:
 
-* Configure a workflow in a GitHub repo that uses the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy-action) action
-* Use the `az container app up` command in the [Deploy to Azure](https://github.com/Azure/deploy-to-azure-cli-extension) extension in the Azure CLI. This command streamlines creation of the GitHub workflow and deployment steps
+* Configure a workflow yourself in a GitHub repo using the Deploy to Azure Container Instances action and other actions.  
+* Use the `az container app up` command in the [Deploy to Azure](https://github.com/Azure/deploy-to-azure-cli-extension) extension in the Azure CLI. This command streamlines creation of the GitHub workflow and deployment steps.
 
 > [!IMPORTANT]
 > The GitHub action for Azure Container Instances is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -30,13 +32,11 @@ This article shows two methods to set up the workflow:
 * **Azure CLI** - You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete the Azure CLI steps. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 * **Azure container registry** - If you don't have one, create an Azure container registry in the Basic tier using the [Azure CLI](../container-registry/container-registry-get-started-azure-cli.md), [Azure portal](../container-registry/container-registry-get-started-portal.md), or other methods. Take note of the resource group used for the deployment, which is used for the GitHub workflow.
 
-## Workflow setup
-
-### Fork sample repo
+## Set up repo
 
 * For the examples in this article, use GitHub to fork the following repository: https://github.com/Azure-Samples/acr-build-helloworld-node
 
-  This repo contains a Dockerfile to create a container image of a small web app.
+  This repo contains a Dockerfile and source files to create a container image of a small web app.
 
   ![Screenshot of the Fork button (highlighted) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
@@ -86,7 +86,7 @@ Save the JSON output because it is used in a later step. Also, take note of the 
 
 ### Update service principal for registry authentication
 
-Update the Azure service principal credentials to allow push and pull permissions on your container registry. This step allows you the GitHub workflow to us the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md). 
+Update the Azure service principal credentials to allow push and pull permissions on your container registry. This step allows the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md). 
 
 Get the resource ID of your container registry. Substitute the name of your registry in the following [az acr show][az-acr-show] command:
 
@@ -154,7 +154,7 @@ jobs:
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
 
         - name: 'Deploy to Azure Container Instances'
-          uses: 'azure/aci-deploy-action@v1'
+          uses: 'azure/aci-deploy@v1'
           with:
             resource-group: ${{ secrets.RESOURCE_GROUP }}
             dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
@@ -168,9 +168,11 @@ jobs:
 
 ### Validate workflow
 
-After you commit the workflow file, the workflow is triggered. To review workflow progress, navigate to **Actions** > **Workflows**. See [Managing a workflow run](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) for information about viewing the status and results of each step in your workflow.
+After you commit the workflow file, the workflow is triggered. To review workflow progress, navigate to **Actions** > **Workflows**. 
 
 ![View workflow progress](./media/container-instances-github-action/github-action-progress.png)
+
+See [Managing a workflow run](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) for information about viewing the status and results of each step in your workflow.
 
 When the workflow completes, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
 
@@ -196,30 +198,28 @@ After the instance is provisioned, navigate to the container's FQDN in your brow
 
 ## Use Deploy to Azure extension
 
-Alternatively, use the [Deploy to Azure extension](https://github.com/Azure/deploy-to-azure-cli-extension) in the Azure CLI to configure the workflow. The `az container app up` command in the extension takes minimal input parameters from you to set up a workflow to deploy to Azure Container Instances. 
+Alternatively, use the [Deploy to Azure extension](https://github.com/Azure/deploy-to-azure-cli-extension) in the Azure CLI to configure the workflow. The `az container app up` command in the extension takes input parameters from you to set up a workflow to deploy to Azure Container Instances. 
 
 The workflow created by the Azure CLI is similar to the workflow you can [create manually using GitHub](#configure-github-workflow).
 
-### Additional prerequisites
+### Additional prerequisite
 
-In addition to the [prerequisites](#prerequisites) and [workflow setup](#workflow-setup) for this scenario, you need to install the  **Deploy to Azure extension** for the Azure CLI.
+In addition to the [prerequisites](#prerequisites) and [repo setup](#set-up-repo) for this scenario, you need to install the  **Deploy to Azure extension** for the Azure CLI.
 
 Run the [az extension add][az-extension-add] command to install the extension:
 
-<TODO: Link to prod extension?>
-
 ```azurecli
 az extension add \
-  --source https://github.com/Azure/deploy-to-azure-cli-extension/releases/download/20200311.2/deploy_to_azure-0.1.0-py2.py3-none-any.whl
+  --name deploy-to-azure
 ```
 
 For information about finding, installing, and managing extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-### Deploy to Azure Container Instances
+### Run `az container up`
 
 To run the [az container app up][az-container-app-up] command, provide at minimum:
 
-* The name of your Azure container registry, for example, *myrewgistry*
+* The name of your Azure container registry, for example, *myregistry*
 * The URL to your GitHub repo, for example, `https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
 
 Sample command:
@@ -230,15 +230,18 @@ az container app up \
   --repository https://github.com/myID/acr-build-helloworld-node
 ```
 
-When prompted, provide your GitHub credentials. The command then creates a personal access token (PAT) to authenticate with your registry. The token has *repo* and *user* scopes on the repo. Alternatively, [create your own PAT](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) with those scopes and supply the PAT when prompted.
+### Command progress
 
-The command creates:
+* When prompted, provide your GitHub credentials or provide a [GitHub personal access token](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) (PAT) that has *repo* and *user* scopes to authenticate with your registry. If you provide GitHub credentials, the command creates a PAT for you.
 
-* Service principal credentials for the workflow
-* Credentials to access the Azure container registry
-* A YAML file to define the GitHub workflow. Accept the default filename `main.yml`, or provide a filename you choose.
+* The command creates repo secrets for the workflow:
 
-After you commit the workflow file to your repo, the workflow is triggered. Output is similar to:
+  * Service principal credentials for the Azure CLI
+  * Credentials to access the Azure container registry
+
+* After the command commits the workflow file to your repo, the workflow is triggered. 
+
+Output is similar to:
 
 ```console
 [...]
@@ -252,7 +255,7 @@ Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer
 
 ### Validate workflow
 
-The workflow deploys an Azure container instance with the base name of your GitHub repo, in this case, *acr-build-helloworld-node*. In your browser, you can browse to the link provided to view the running web app.
+The workflow deploys an Azure container instance with the base name of your GitHub repo, in this case, *acr-build-helloworld-node*. In your browser, you can browse to the link provided to view the running web app. If your app listens on a port other than 8080, specify that in the URL instead.
 
 To view the workflow status and results of each step in the GitHub UI, see [Managing a workflow run](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
 
@@ -288,7 +291,7 @@ Browse the [GitHub Marketplace](https://github.com/marketplace?type=actions) for
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-create]: /cli/azure/container#az-container-create
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-delete]: /cli/azure/container#az-container-delete
