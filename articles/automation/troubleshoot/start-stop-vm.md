@@ -197,7 +197,7 @@ This issue can be caused by an improperly configured or expired Run As Account. 
 
 To check your Run As account is properly configured, go to your Automation Account in the Azure portal and select **Run as accounts** under **Account Settings**. Here you will see the status of your run as accounts, if a Run As Account is improperly configured or expired the status will show this.
 
-If your Run As account is [misconfigured](../manage-runas-account.md#misconfiguration), you should delete and recreate your Run As Account.
+If your Run As account is misconfigured, you should delete and re-create your Run As account. See [Manage Azure Automation Run As accounts](../manage-runas-account.md).
 
 If the certificate is expired for your Run As Account, follow the steps listed at [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
 

@@ -3,10 +3,10 @@ title: "Tutorial: Protect a Node.js web API using Azure Active Directory B2C and
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to use Active Directory B2C to protect a Node.js web API and call it from a single-page application.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
-ms.author: marsma
+ms.author: mimart
 ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial

@@ -77,19 +77,22 @@
     href: samples-notebooks.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+  - name: Designer datasets
+    href: sample-designer-datasets.md
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
-
+  - name: Designer pipelines
+    href: samples-designer.md
 - name: Concepts
   items:
   - name: Workspace
     href: concept-workspace.md
   - name: Environments
     href: concept-environments.md
-  - name: Data access
-    href: concept-data.md    
   - name: Data ingestion
-    href: concept-data-ingestion.md  
+    href: concept-data-ingestion.md    
+  - name: Data access
+    href: concept-data.md  
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
@@ -210,35 +213,14 @@
     - name: Create datasets with labels
       displayName: data, labels, torchvision
       href: how-to-use-labeled-dataset.md
+    - name: Data ingestion with Azure Data Factory
+      displayName: data, ingestion, adf
+      href: how-to-data-ingest-adf.md
     - name: DevOps for data ingestion
       displayName: data, ingestion, devops
       href: how-to-cicd-data-ingestion.md
   - name: Train models
     items:
-    - name: Use the designer
-      displayName: sample designer experiments
-      items:
-      - name: "Predict price"
-        displayName: regression, studio
-        href:  how-to-designer-sample-regression-automobile-price-basic.md
-      - name: "Predict price (advanced)"
-        displayName: regression, studio
-        href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-      - name: "Predict income"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-predict-income.md
-      - name: "Predict credit risk (advanced)"
-        displayName: classification, studio
-        href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-      - name: "Predict churn"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-churn.md
-      - name: "Predict flight delays"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Text classification"
-        displayName: classification, studio
-        href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
       items:
       - name: Create estimators in training
@@ -278,7 +260,7 @@
       displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use automated ML (interface)
-      href: how-to-create-portal-experiments.md
+      href: how-to-use-automated-ml-for-ml-models.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
@@ -365,18 +347,21 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: 'Designer: Retrain using published pipelines'
+    - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Designer execute Python code
+      displayName: feature extraction, feature engineering
+      href: how-to-designer-python.md
     - name: Use parallel run step
       displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-use-parallel-run-step.md
     - name: Debug & troubleshoot parallel run step
       displayName: debug_batch consume pipeline parallelrunstep inference
       href: how-to-debug-parallel-run-step.md
-    - name: Designer batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-      href: how-to-run-batch-predictions-designer.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md

@@ -114,7 +114,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     > [!NOTE]
     > Streaming Endpoints located in the same data center can't share the same custom host name.
 
-    Currently, Media Services doesn’t support SSL with custom domains.
+    Currently, Media Services doesn't support SSL with custom domains.
 
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
 - `resourceState` -
@@ -161,4 +161,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-The sample [in this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) shows how to start the default streaming endpoint with .NET.
+[Manage streaming endpoints](manage-streaming-endpoints-howto.md)

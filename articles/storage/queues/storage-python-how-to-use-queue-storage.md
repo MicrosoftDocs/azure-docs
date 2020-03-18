@@ -38,7 +38,7 @@ The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python
 To install via the Python Package Index (PyPI), type:
 
 ```bash
-pip install azure-storage-blob==2.1.0
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]

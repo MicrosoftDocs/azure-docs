@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/27/2020
+ms.date: 03/03/2020
 ---
 
 # Extract, transform, and load (ETL) at scale

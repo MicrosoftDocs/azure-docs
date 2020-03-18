@@ -89,8 +89,9 @@ For information about quotas and limits, see [App Service limits](../azure-resou
 By default, web apps are unloaded if they are idle for a set period of time. This way, the system can conserve resources. The downside is that the response to the first request after the web app is unloaded is longer, to allow the web app to load and start serving responses. In Basic and Standard service plans, you can turn on the **Always On** setting to keep the app always loaded. This eliminates longer load times after the app is idle. To change the **Always On** setting:
 
 1. In the Azure portal, go to your web app.
-2. Select **Application settings**.
-3. For **Always On**, select **On**.
+2. Select **Configuration**
+3. Select **General settings**.
+4. For **Always On**, select **On**.
 
 ## How do I turn on failed request tracing?
 

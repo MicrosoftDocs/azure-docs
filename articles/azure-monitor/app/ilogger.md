@@ -14,9 +14,9 @@ To learn more, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/c
 
 ## ASP.NET Core applications
 
-ApplicationInsightsLoggerProvider is enabled by default in [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 (and later) when you turn on regular Application Insights monitoring through either of the standard methods:
+ApplicationInsightsLoggerProvider is enabled by default in [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 (and later) when you turn on regular Application Insights monitoring through either of the methods:
 
-- By calling the **UseApplicationInsights** extension method on IWebHostBuilder
+- By calling the **UseApplicationInsights** extension method on IWebHostBuilder (Now obsolete)
 - By calling the **AddApplicationInsightsTelemetry** extension method on IServiceCollection
 
 ILogger logs that ApplicationInsightsLoggerProvider captures are subject to the same configuration as any other telemetry that's collected. They have the same set of TelemetryInitializers and TelemetryProcessors, use the same TelemetryChannel, and are correlated and sampled in the same way as other telemetry. If you use version 2.7.1 or later, no action is required to capture ILogger logs.
@@ -424,7 +424,7 @@ When you use the standalone package, `TelemetryClient` is not injected to the DI
 ```csharp
 public class MyController : ApiController
 {
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   // This telemetryclient can be used to track additional telemetry using TrackXXX() api.
    private readonly TelemetryClient _telemetryClient;
    private readonly ILogger _logger;
 
