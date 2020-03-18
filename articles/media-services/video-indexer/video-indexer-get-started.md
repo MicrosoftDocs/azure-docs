@@ -19,6 +19,9 @@ This getting started tutorial shows how to sign in to the Video Indexer website 
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Azure Media Services account related charges. 
 
+> [!NOTE]
+> Once you start using Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
+
 ## Sign up for Video Indexer
 
 To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.com) website and sign up.
@@ -44,9 +47,6 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
     ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
-
-> [!NOTE]
-> Once you upload your content, it is stored encrypted at rest with a Microsoft managed key.
 
 ## See also
 
