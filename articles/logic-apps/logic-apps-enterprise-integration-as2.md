@@ -1,119 +1,130 @@
 ---
-title: Learn to create an AS2 agreement for the Enterprise Integration Pack | Microsoft Docs
-description: Learn to create an AS2 agreement for the Enterprise Integration Pack| Azure logic apps
+title: Send and receive AS2 messages for B2B
+description: Exchange AS2 messages for B2B enterprise integration scenarios by using Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: 
-
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: deonhe
-
+ms.date: 02/27/2020
 ---
-# Enterprise integration with AS2
-## Create an AS2 agreement
-In order to use the enterprise features in Logic apps, you must first create agreements. 
 
-### Here's what you need before you get started
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) defined in your Azure subscription  
-* At least two [partners](logic-apps-enterprise-integration-partners.md) already defined in your integration account  
+# Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
-> [!NOTE]
-> When creating an agreement, the content in the agreement file must match the agreement type.    
-> 
-> 
+> [!IMPORTANT]
+> The original AS2 connector is being deprecated, so make sure that you use the **AS2 (v2)** connector instead. 
+> This version provides the same capabilities as the original version, is native to the Logic Apps runtime, and provides 
+> significant performance improvements in terms of throughput and message size. Also, the native v2 connector doesn't 
+> require that you create a connection to your integration account. Instead, as described in the prerequisites, 
+> make sure that you link your integration account to the logic app where you plan to use the connector.
 
-After you've [created an integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) and [added partners](logic-apps-enterprise-integration-partners.md), you can create an agreement by following these steps:  
+To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions for managing AS2 communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
 
-### From the Azure portal home page
-After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
+* [**AS2 Encode** action](#encode) for providing encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs these tasks when configured:
 
-1. Select **Browse** from the menu on the left.  
+  * Signs outgoing messages.
+  * Encrypts outgoing messages.
+  * Compresses the message.
+  * Transmits the file name in the MIME header.
+
+* [**AS2 Decode** action](#decode) for providing decryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN). For example, this action performs these tasks:
+
+  * Processes AS2/HTTP headers.
+  * Reconciles received MDNs with the original outbound messages.
+  * Updates and correlates records in the non-repudiation database.
+  * Writes records for AS2 status reporting.
+  * Outputs payload contents as base64-encoded.
+  * Determines whether MDNs are required. Based on the AS2 agreement, determines whether MDNs should be synchronous or asynchronous.
+  * Generates synchronous or asynchronous MDNs based on the AS2 agreement.
+  * Sets the correlation tokens and properties on MDNs.
+
+  This action also performs these tasks when configured:
+
+  * Verifies the signature.
+  * Decrypts the messages.
+  * Decompresses the message.
+  * Check and disallow message ID duplicates.
+
+This article shows how to add the AS2 encoding and decoding actions to an existing logic app.
+
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* The logic app from where you want to use the AS2 connector and a trigger that starts your logic app's workflow. The AS2 connector provides only actions, not triggers. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to the logic app where you plan to use the AS2 connector. Both your logic app and integration account must exist in the same location or Azure region.
+
+* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account by using the AS2 identity qualifier.
+
+* Before you can use the AS2 connector, you must create an AS2 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
+
+* If you use [Azure Key Vault](../key-vault/key-vault-overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
+
+  In the Azure portal, go to the key in your key vault, review your key's **Permitted operations**, and confirm that the **Encrypt** and **Decrypt** operations are selected, for example:
+
+  ![Check vault key operations](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
+
+<a name="encode"></a>
+
+## Encode AS2 messages
+
+1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+
+1. In the designer, add a new action to your logic app.
+
+1. Under **Choose an action** and the search box, select **All**. In the search box, enter "as2 encode", and make sure that you select the AS2 (v2) action: **AS2 Encode**
+
+   ![Select "AS2 Encode"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
+
+1. Now provide information for these properties:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Message to encode** | The message payload |
+   | **AS2 from** | The identifier for the message sender as specified by your AS2 agreement |
+   | **AS2 to** | The identifier for the message receiver as specified by your AS2 agreement |
+   |||
+
+   For example:
+
+   ![Message encoding properties](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
 > [!TIP]
-> If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
-> 
-> 
+> If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
+> The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
-![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
+<a name="decode"></a>
 
-1. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-   ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)  
-2. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
-   ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)  
-3. Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
-4. Select the **Add** button in the Agreements blade that opens.  
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-5. Enter a **Name** for your agreement then select the **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+## Decode AS2 messages
 
-Here are a few details you may find useful when configuring the settings for your agreement: 
+1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-| Property | Description |
-| --- | --- |
-| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that is configuring the agreement. |
-| Host Identity |An identifier for the host partner. |
-| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-| Guest Identity |An identifier for the guest partner. |
-| Receive Settings |These properties apply to all messages received by an agreement |
-| Send Settings |These properties apply to all messages sent by an agreement |
+1. In the designer, add a new action to your logic app.
 
-Let's continue:  
+1. Under **Choose an action** and the search box, select **All**. In the search box, enter "as2 decode", and make sure that you select the AS2 (v2) action: **AS2 Decode**
 
-1. Select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-   
-   * Optionally, you can override the properties in the incoming message. To do this, select the **Override message properties** checkbox.
-   * Select the **Message should be signed** checkbox if you'd like to require all incoming messages to be signed. If you select this option, you will also need to select the **Certificate** that will be used to validate the signature on the messages.
-   * Optionally, you can require messages to be encrypted as well. To do this, select the **Message should be encrypted** checkbox. You would then need to select the **Certificate** that will be used to decode the incoming messages.
-   * You can also require messages to be compressed. To do this, select the **Message should be compressed** checkbox.  
-     ![](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)  
+   ![Select "AS2 Decode"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-See the table below if you would like to learn more about what the receive settings enable.  
+1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
 
-| Property | Description |
-| --- | --- |
-| Override message properties |Select this to indicate that properties in received messages can be overridden |
-| Message should be signed |Enable this to require messages to be digitally signed |
-| Message should be encrypted |Enable this to require messages to be encrypted. Non-encrypted messages will be rejected. |
-| Message should be compressed |Enable this to require messages to be compressed. Non-compressed messages will be rejected. |
-| MDN Text |This is a default MDN to be sent to the message sender |
-| Send MDN |Enable this to allow MDNs to be sent. |
-| Send signed MDN |Enable this to require MDNs to be signed. |
-| MIC Algorithm | |
-| Send asynchronous MDN |Enable this to require messages to be sent asynchronously. |
-| URL |This is the URL to which messages will be sent. |
+   For example, suppose your logic app receives messages through a Request trigger. You can select the outputs from that trigger.
 
-Now, let's continue:  
+   ![Select Body and Headers from Request outputs](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png)
 
-1. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-5.png)  
+## Sample
 
-See the table below if you would like to learn more about what the send settings enable.  
+To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-| Property | Description |
-| --- | --- |
-| Enable message signing |Select this checkbox to enable all messages sent from the agreement to be signed. |
-| MIC Algorithm |Select the algorithm to use in message signing |
-| Certificate |Select the certificate to use in message signing |
-| Enable message encryption |Select this checkbox to encrypt all messages sent from this agreement. |
-| Encryption Algorithm |Select the encryption algorithm to use in message encryption |
-| Unfold HTTP headers |Select this checkbox to unfold the HTTP content-type header into a single line. |
-| Request MDN |Enable this checkbox to request an MDN for all messages sent from this agreement |
-| Request signed MDN |Enable to request that all MDNs sent to this agreement are signed |
-| Request asynchronous MDN |Enable to request asynchronous MDN to be sent to this agreement |
-| URL |The URL to which MDNs will be sent |
-| Enable NRR |Select this checkbox to enable Non-Repudiation of Receipt |
+## Connector reference
 
-We are almost done!  
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/as2/). 
 
-1. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's original ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 03/17/16-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 ## Troubleshooting update failures
 **What if you see a notification that the pre-upgrade checks have failed?**
@@ -19,3 +25,8 @@ Run the cmdlet on both controllers.
 
 If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
 
+**What if you see an update failure when updating your device to Update 4 and both the controllers are running Update 4?**
+
+Starting Update 4, if both the controllers are running the same software version and if there is an update failure, the controllers do not go into recovery mode. This situation can arise if the device software hotfix (1st order update) is applied to both the controllers successfully but other hotfixes (2nd order and 3rd order) are yet to be applied. Starting Update 4, the controllers will go into recovery mode only if the two controllers are running different software versions. 
+
+If the user sees an update failure when both controllers are running Update 4, we recommend that they wait a few minutes and then retry updating. If the retry does not succeed, then they should contact Microsoft Support.

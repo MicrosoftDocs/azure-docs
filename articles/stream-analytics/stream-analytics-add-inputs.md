@@ -1,83 +1,40 @@
 ---
-title: Add a data input to your Stream Analytics jobs | Microsoft Docs
-description: Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blog storage.
-keywords: data input, streaming data
-documentationcenter: ''
-services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 9e59bd24-2a80-4ecb-b6b2-309a07c70bcd
+title: Understand inputs for Azure Stream Analytics
+description: This article describe the concept of inputs in an Azure Stream Analytics job, comparing streaming input to reference data input.
+author: jseb225
+ms.author: jeanb
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 09/26/2016
-ms.author: jeffstok
-
+ms.topic: conceptual
+ms.date: 06/11/2019
 ---
-# Add a streaming data input or reference data to a Stream Analytics job
-Learn how to hook up a data source to your Stream Analytics job as streaming data input from Event Hubs or reference data from Blob storage.
 
-Azure Stream Analytics jobs can be connected to one data input or more, each of which define a connection to an existing data source. As data is sent to that data source, it is consumed by the Stream Analytics job and processed in real time as streaming data. Stream Analytics has first class integration with [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) and [Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md) both within and outside of the job's subscription.
+# Understand inputs for Azure Stream Analytics
 
-This article is a step in the [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/).
+Azure Stream Analytics jobs connect to one or more data inputs. Each input defines a connection to an existing data source. Stream Analytics accepts data incoming from several kinds of event sources including Event Hubs, IoT Hub, and Blob storage. The inputs are referenced by name in the streaming SQL query that you write for each job. In the query, you can join multiple inputs to blend data or compare streaming data with a lookup to reference data, and pass the results to outputs. 
 
-## Data input: Streaming data and reference data
-There are two distinct types of inputs in Stream Analytics: data streams and reference data.
+Stream Analytics has first-class integration with three kinds of resources as inputs:
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 
 
-* **Data Streams**:
-    Stream Analytics jobs must include at least one data stream input to be consumed and transformed by the job. Azure Blob storage and Azure Event Hubs are supported as data stream input sources. Azure Event Hubs are used to collect event streams from connected devices, services and applications. Azure Blob storage can be used as an input source for ingesting bulk data as a stream.  
-* **Reference data**:
-    Stream Analytics supports a second type of auxiliary input called reference data.  As opposed to data in motion, this data is static or slowing changing.  It is typically used for performing look-ups and correlations with data streams to create a richer data set.  Azure Blob storage is currently the only supported input source for reference data.  
+These input resources can live in the same Azure subscription as your Stream Analytics job, or from a different subscription.
 
-To add an input to your Stream Analytics job:
+You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) to create, edit, and test Stream Analytics job inputs.
 
-1. In the Azure portal click **Inputs** and then click **Add an Input** in your Stream Analytics job.
-   
-    ![Azure classic portal - add an input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
-   
-    In the Azure portal click the **Inputs** tile in your Stream Analytics job.  
-   
-    ![Azure portal - Add data input.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
-2. Specify the type of the input: either **Data stream** or **Reference data**.
-   
-    ![Add the correct data input, streamed or reference](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)  
-   
-    ![Add the correct data input, streamed or reference](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)  
-3. If creating a Data Stream input, specify the source type for the input.  This step can be skipped during Reference Data creation as only Blob storage is supported at this time.
-   
-    ![Add data stream data input](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)  
-   
-    ![Add data stream data input](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
-4. Provide a friendly name for this input in the Input Alias box.  This name will be used in your job's query later on to refer to the input.
-   
-    Fill in the rest of the required connection properties to connect to your data source. These fields vary by type of input and source type and are defined in detail [here](stream-analytics-create-a-job.md).  
-   
-    ![Add event hub data input](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
-5. Specify the serialization settings for the input data:
-   
-   * To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
-   * Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
-     
-     ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
-     
-     ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
-6. After completing the input creation, Stream Analytics will verify that it can connect to the input source.  You can view the status of the Test Connection operation in the Notification hub.
-   
-    ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
-   
-    ![Test connection of the streaming data input](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
+## Stream and reference inputs
+As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.
 
-## Get help with streaming data inputs
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+### Data stream input
+A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, and Blob storage are supported as data stream input sources. Event Hubs are used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios.  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
+
+For more information about streaming data inputs, see [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md)
+
+### Reference data input
+Stream Analytics also supports input known as *reference data*. Reference data is either completely static or changes slowly. It is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage and Azure SQL Database are currently supported as input sources for reference data. Reference data source blobs have a limit of up to 300 MB in size, depending on the query complexity and allocated Streaming Units (see the [Size limitation](stream-analytics-use-reference-data.md#size-limitation) section of the reference data documentation for more details).
+
+For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+> [!div class="nextstepaction"]
+> [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

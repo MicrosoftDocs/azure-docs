@@ -1,27 +1,24 @@
 ---
-title: Web App with Express (Node.js) | Microsoft Docs
-description: A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module.
+title: Build and deploy a Node.js Express app to Azure Cloud Services
+titleSuffix: Azure Cloud Services
+description: Build and deploy a Express.js application in Node.js to Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
-editor: ''
-
-ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/22/2016
-ms.author: robmcm
+ms.date: 08/17/2017
+ms.author: tagore
 
 ---
-# Build a Node.js web application using Express on an Azure Cloud Service
+
+# Build and deploy a Node.js web application using Express on an Azure Cloud Services
+
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
-you will create a new application using the [Express][Express] module, which provides an MVC framework for creating Node.js web applications.
+you will create a new application using the [Express](https://github.com/expressjs/express) module, which provides an MVC framework for creating Node.js web applications.
 
 A screenshot of the completed application is below:
 
@@ -119,10 +116,13 @@ Once the deployment operation completes, your browser will open and display the 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## Next steps
-For more information, see the [Node.js Developer Center](/develop/nodejs/).
+For more information, see the [Node.js Developer Center](https://docs.microsoft.com/azure/javascript/).
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

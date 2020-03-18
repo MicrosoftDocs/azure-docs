@@ -1,0 +1,61 @@
+### YamlMime:Landing
+
+title: Azure Red Hat OpenShift documentation
+summary: Azure Red Hat OpenShift provides single-tenant, high-availability Kubernetes clusters on Azure, supported by Red Hat and Microsoft.
+
+metadata:
+  title: Azure Red Hat OpenShift documentation
+  description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  ms.service: container-service
+  services: container-service
+  ms.topic: landing-page
+  author: jimzim
+  ms.author: jzim
+  ms.date: 03/06/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Red Hat OpenShift
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Red Hat OpenShift?
+            url: intro-openshift.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create an Azure Red Hat OpenShift cluster
+            url: tutorial-create-cluster.md
+          - text: Scale an Azure Red Hat OpenShift cluster
+            url: tutorial-scale-cluster.md
+          - text: Delete an Azure Red Hat OpenShift cluster
+            url: tutorial-delete-cluster.md
+
+  # Card
+  - title: Set up
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your Azure Red Hat OpenShift dev environment
+            url: howto-setup-environment.md
+          - text: Create an Azure AD tenant
+            url: howto-create-tenant.md
+          - text: Create an Azure AD app object and user
+            url: howto-aad-app-configuration.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/openshift
+          - text: REST API
+            url: /rest/api/openshift
+          - text: Red Hat OpenShift docs
+            url: https://docs.openshift.com/aro/welcome/index.html

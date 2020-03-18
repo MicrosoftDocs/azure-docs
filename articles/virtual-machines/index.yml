@@ -1,0 +1,127 @@
+﻿### YamlMime:Hub
+
+title: Virtual Machines Documentation
+summary: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. 
+brand: azure
+
+metadata:
+  title: Azure Virtual Machines 
+  description: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. 
+  services: virtual-machines
+  ms.service: virtual-machines 
+  ms.topic: hub-page
+  author: cynthn 
+  ms.author: cynthn 
+  ms.date: 02/14/2020 
+
+
+highlightedContent:
+  items:
+    - title: Create a Linux virtual machine using the Azure CLI
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli
+    - title: Create a Windows virtual machine using PowerShell
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+    - title: Create a virtual machine scale set in the portal
+      itemType: quickstart
+      url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-portal
+    - title: Spot VMs - take advantage of our unused capacity at a significant cost savings.
+      itemType: concept
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms
+    - title: Dedicated hosts - physical servers to host one or more virtual machines.
+      itemType: concept
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/dedicated-hosts
+    - title: Proximity placement groups - get VMs as close as possible for lower latency.
+      itemType: how-to-guide
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups
+
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    - title: Linux virtual machines
+      links:
+        - url: https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros
+          itemType: concept
+          text: Endorsed distros
+        - url: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks
+          itemType: tutorial
+          text: Create and manage disks
+        - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
+          itemType: how-to-guide
+          text: Azure Image Builder
+        - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/linux-index
+          itemType: how-to-guide
+          text: Troubleshoot Linux virtual machines
+      footerLink:
+        url: https://docs.microsoft.com/azure/virtual-machines/linux/
+        text: See more
+    # Card
+    - title: Windows virtual machines
+      links:
+        - url: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell
+          itemType: how-to-guide
+          text: Create a VM using PowerShell
+        - url: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-data-disk
+          itemType: tutorial
+          text: Create and manage disks
+        - url: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+          itemType: how-to-guide
+          text: Configure managed identities
+        - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
+          itemType: how-to-guide
+          text: Troubleshoot Windows virtual machines
+      # footerLink (optional)
+      footerLink:
+        url: https://docs.microsoft.com/azure/virtual-machines/windows/
+        text: See more
+    # Card
+    - title: Virtual machine scale sets
+      links:
+        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/quick-create-powershell
+          itemType: how-to-guide
+          text: Create a scale set using PowerShell
+        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/orchestration-modes
+          itemType: concept
+          text: Orchestration modes
+        - url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot
+          itemType: how-to-guide
+          text: Use Spot instances
+      # footerLink (optional)
+      footerLink:
+        url: https://docs.microsoft.com/azure/virtual-machine-scale-sets/
+        text: See more
+
+tools:
+  title: Tools
+  summary: Tools for working with Azure virtual machines.
+  items:
+    # Card
+    - title: Azure CLI
+      imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      url: https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest
+    - title: Azure PowerShell
+      imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      url: https://docs.microsoft.com/powershell/module/az.compute#virtual_machines
+    - title: REST API
+      imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
+      url: https://docs.microsoft.com/rest/api/compute/virtualmachines
+
+additionalContent:
+  sections:
+    - title: Other resources 
+      summary: Additional resources for working with Azure virtual machines.
+      items:
+        - title: Learn
+          links:
+            - text: Browse learning modules
+              url: https://docs.microsoft.com/learn/browse/?products=azure-virtual-machines
+        - title: Template gallery
+          links:
+            - text: Browse the quickstart template gallery
+              url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+        - title: Troubleshoot
+          links:
+            - text: Information for troubleshooting errors
+              url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/

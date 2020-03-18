@@ -1,17 +1,21 @@
-## Quick steps
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images using the Resource Manager deployment model. Follow these steps once your virtual machine starts running.
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
-1. Select your virtual machine in the portal. The DNS name is blank. Click **Public IP address**:
+1. Select your VM in the portal. Under **DNS name**, click **Configure**.
    
-   ![Click Public IP resource in the portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+   ![Click Configure under DNS name](./media/virtual-machines-common-portal-create-fqdn/configure.png)
 
-2. Enter the desired DNS name label and then click **Save**.
+2. Enter the desired DNS name and then select **Save**.
    
-   ![Enter a DNS name label for your public IP resource](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
-   
-   The Public IP resource now shows this new DNS label on its blade.
+   ![Enter a DNS name label for your public IP resource](./media/virtual-machines-common-portal-create-fqdn/configure-pane.png)
 
-3. Close the Public IP blades and go back to the VM overview blade in the portal. After a few seconds, the portal should update your settings. Verify that the DNS name/FQDN appears next to the IP address for the **Public IP address** resource.
+
+3. To return to the VM overview blade, close the *Public IP address* blade. Verify that the *DNS name* is now shown.
    
-   ![Confirm your new DNS label is set](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+
 

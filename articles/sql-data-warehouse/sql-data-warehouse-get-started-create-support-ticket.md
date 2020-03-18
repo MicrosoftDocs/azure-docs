@@ -1,97 +1,106 @@
 ---
-title: How to create a support ticket for SQL Data Warehouse | Microsoft Docs
-description: How to create a support ticket in Azure SQL Data Warehouse.
+title: Request quota increases and get support
+description: How to create a support request in the Azure portal for Azure Synapse Analytics. Request quota increases or get problem resolution support.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.subservice: manage
+ms.date: 03/10/2020
+author: kevinvngo
+ms.author: kevin
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019, azure-synapse
 ---
-# How to create a support ticket for SQL Data Warehouse
-If you are having any issues with your SQL Data Warehouse, please create a support ticket so that our engineering team can assist you.
 
-> [!NOTE] 
-> As of 12/20/2016, the resource health check in the Azure portal is not accurate. We are actively working to fix this issue. 
+# Request quota increases and get support for Azure Synapse Analytics
 
+This article describes how to submit a support ticket in the Azure portal for Azure Synapse Analytics. This process enables you to request a quota increase or to submit a technical support request for the engineering support team.
 
 ## Create a support ticket
-1. Open the [Azure portal][Azure portal].
-2. On the Home screen, click the **Help + support** tile.
-   
-    ![Help + support](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
-3. On the Help + Support blade, click **Create support request**.
-   
-    ![New support request](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
-   
-    <a name="request-quota-change"></a> 
-4. Select the **Request Type**.
-   
-    ![Request type](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
-   
+
+Use the following steps to create a new support request from the Azure portal for Azure Synapse Analytics.
+
+1. On  the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
+
+   ![The Help + support link](./media/sql-data-warehouse-get-started-create-support-ticket/help-plus-support.png)
+
+
+1. In **Help + support**, select **New support request**.
+
+    ![Create a new support request](./media/sql-data-warehouse-get-started-create-support-ticket/new-support-request.png)
+
+1. Review your [Azure support plan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
+
+   * **Billing, quota, and subscription management** support are available at all support levels.
+   * **Break-fix** support is provided through [Developer](https://azure.microsoft.com/support/plans/developer/), [Standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/), or [Premier](https://azure.microsoft.com/support/plans/premier/) support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
+   * **Developer mentoring** and **advisory services** are available at the [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) and [Premier](https://azure.microsoft.com/support/plans/premier/) support levels.
+
+   If you have a Premier support plan, you can also report Azure Synapse Analytics issues on the [Microsoft Premier online portal](https://premier.microsoft.com/). See [Azure support plans](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs](https://azure.microsoft.com/support/faq/).
+
+1. For **Issue type**, select the appropriate issue type. For break-fix problems, select **Technical**. For quota increase requests, select **Service and subscription limits (quotas)**.
+
+   ![Select an issue type](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-issue-type.png)  
+
    > [!NOTE]
-   > By default, each SQL server (e.g. myserver.database.windows.net) has a **DTU Quota** of 45,000. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting *Quota* as the request type. To calculate your DTU needs, multiply the 7.5 by the total [DWU][DWU] needed. For example, you would like to host two DW6000s on one SQL server, then you should request a DTU quota of 90,000.  You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. 
-   > 
-   > 
-5. Select the **Subscription** that hosts the database with the problem you are reporting.
-   
-    ![Subscription](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
-6. Select **SQL Data Warehouse** as the Resource.
-   
-    ![Resource](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. Select your [Azure support plan][Azure support plan].
-   
-   * **Billing, quota and subscription management** support is available at all support levels.
-   * **Break-fix** support is provided through [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] or [Premier][Premier] support. Break-fix issues are problems experienced by customers while using Azure where there is a reasonable expectation that Microsoft caused the problem.
-   * **Developer mentoring** and **advisory services** are available at the [Professional Direct][Professional Direct] and [Premier][Premier] support levels. 
-     
-     If you have a Premier support plan, you can also report SQL Data Warehouse related issues on the [Microsoft Premier online portal][Microsoft Premier online portal].  See [Azure support plans][Azure support plan] to learn more about the various support plans, including scope, response times, pricing, etc.  For frequently asked questions about Azure support, see [Azure support FAQs][Azure support FAQs].  
-     
-     ![Support plan](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Select the **Problem Type** and **Category**. In this example, we have chosen "Tools" as the Problem type and "Client tools" as the category. 
-   
-    ![Problem type category](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
-9. Describe the problem and choose the level of business impact.
-   
-    ![Problem description](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
-10. Your **contact information** for this support ticket will be pre-filled. Update this if necessary.
-    
-    ![Contact info](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
-11. Click **Create** to submit the support request.
+   > This remainder of this article focusses on quota-increase requests. But you can also select **Technical** here for problem-resolution support requests. If you select **Technical**, you are asked to provide a summary and then identify a problem type by selecting **Select problem type**. You may see solutions to help resolve your issue. If the solutions presented do not resolve your issue, select **Next:Details** and complete the form to submit the support ticket.
+
+1. For quota increase requests, select **Azure Synapse Analytics** for the **Quota type**. Then select **Next: Solutions >>**.
+
+   ![Select a quota type](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
+
+1. In the **Details** window, select **Provide details** to enter additional information.
+
+   ![The "Provide details" link](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
+
+## Quota request types
+
+Clicking **Provide details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different quota requests available for Azure Synapse Analytics.
+
+### Data Warehouse Units (DWUs) per server
+
+Use the following steps to request an increase in the DWUs per server.
+
+1. Select the **Data Warehouse Units (DTUs) per server** quota type.
+
+1. In the **Resource** list, select the resource to target.
+
+1. In the **Request quota** field, enter the new DWU limit that you are requesting.
+
+   ![DWU quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
+
+### Servers per subscription
+
+Use the following steps to request an increase in the number of servers per subscription.
+
+1. Select the **Servers per subscription** quota type.
+
+1. In the **Location** list, select the Azure region to use. The quota is per subscription in each region.
+
+1. In the **New quota** field, enter your request for the maximum number of servers in that region.
+
+   ![Servers quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
+
+### Enable subscription access to a region
+
+Some offer types are not available in every region. You may see an error such as the following:
+
+`This location is not available for subscription`
+
+If your subscription needs access in a particular region, please use the **Other quota request** option to request access. In your request, specify the offering and SKU details that you want to enable for the region. To explore the offering and SKU options, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+
+![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+
+## Submit your request
+
+The final step is to fill in the remaining details of your SQL Database support request. Then select **Next: Review + create>>**, and after reviewing the request details, click **Create** to submit the request.
 
 ## Monitor a support ticket
-After you have submitted the support request, the Azure support team will contact you. To check your request status and details, click **Manage support requests** on the dashboard.
 
-![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
+After you've submitted the support request, the Azure support team will contact you. To check your request status and details, click **All support requests** on the dashboard.
 
-## Other Resources
-Additionally, you can connect with the SQL Data Warehouse community on [Stack Overflow][Stack Overflow] or on the [Azure SQL Data Warehouse MSDN forum][Azure SQL Data Warehouse MSDN forum].
+![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
-<!--Image references--> 
+## Other resources
 
-<!--Article references--> 
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-
-<!--MSDN references--> 
-
-<!--Other web references--> 
-[Azure portal]: https://portal.azure.com/
-[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
-[Developer]: https://azure.microsoft.com/support/plans/developer/  
-[Standard]: https://azure.microsoft.com/support/plans/standard/  
-[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
-[Premier]: https://azure.microsoft.com/support/plans/premier/  
-[Azure support FAQs]: https://azure.microsoft.com/support/faq/
-[Microsoft Premier online portal]: https://premier.microsoft.com/
-[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+You can also connect with the Azure Synapse Analytics community on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) or through the [Azure SQL Data Warehouse MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
 

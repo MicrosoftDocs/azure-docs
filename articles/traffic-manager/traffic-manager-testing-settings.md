@@ -1,23 +1,18 @@
 ---
-title: Testing Traffic Manager Settings | Microsoft Docs
-description: This article will help you test Traffic Manager settings
+title: Verify Azure Traffic Manager settings
+description: In this article, learn how to verify your Traffic Manager settings and test the traffic routing method.
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: 2180b640-596e-4fb2-be59-23a38d606d12
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: kumud
+ms.date: 03/16/2017
+ms.author: rohink
 ---
 
-# Test your Traffic Manager settings
+# Verify Traffic Manager settings
 
 To test your Traffic Manager settings, you need to have multiple clients, in various locations, from which you can run your tests. Then, bring the endpoints in your Traffic Manager profile down one at a time.
 

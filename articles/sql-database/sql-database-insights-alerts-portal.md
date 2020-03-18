@@ -1,121 +1,68 @@
 ---
-title: Use Azure portal to create SQL Database alerts | Microsoft Docs
+title: Setup alerts and notifications (Azure portal)
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
-author: CarlRabeler
-manager: jhubbard
-editor: ''
 services: sql-database
-documentationcenter: ''
-
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
-ms.custom: monitor and tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2016
-ms.author: carlrab
-
+ms.subservice: performance
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: aamalvea
+ms.author: aamalvea
+ms.reviewer: jrasnik, carlrab
+ms.date: 03/10/2020
 ---
-# Use Azure portal to create alerts for Azure SQL Database
+# Create alerts for Azure SQL Database and Azure Synapse Analytics databases using Azure portal
 
 ## Overview
-This article shows you how to set up Azure SQL Database alerts using the Azure portal. This article also provides best practices for values and thresholds.    
+
+This article shows you how to set up alerts for single, pooled, and data warehouse databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
+
+> [!IMPORTANT]
+> This feature is not yet available in Managed Instance. As an alternative, you can use SQL Agent to send email alerts for some metrics based on [Dynamic Management Views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
-* **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
+* **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.
 * **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
 You can configure an alert to do the following when it triggers:
 
-* send email notifications to the service administrator and co-administrators
-* send email to additional emails that you specify.
-* call a webhook
-* start execution of an Azure runbook (only from the Azure portal)
+* Send email notifications to the service administrator and co-administrators
+* Send email to additional emails that you specify.
+* Call a webhook
 
 You can configure and get information about alert rules using
 
 * [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [command-line interface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
+
 1. In the [portal](https://portal.azure.com/), locate the resource you are interested in monitoring and select it.
-2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
-   
-    ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
-3. Select the **Add alert** command and fill in the fields.
-   
-    ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
-4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
-5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
-6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
-7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
-8. Put in a valid URI in the **Webhook** field if you want it called when the alert fires.
-9. If you use Azure Automation, you can select a Runbook to be run when the alert fires.
-10. Select **OK** when done to create the alert.   
+2. Select **Alerts** in the Monitoring section. The text and icon may vary slightly for different resources.  
 
-Within a few minutes, the alert is active and triggers as previously described.
+   ![Monitoring](media/sql-database-insights-alerts-portal/Alerts.png)
+  
+3. Select the **New alert rule** button to open the **Create rule** page.
+  ![Create rule](media/sql-database-insights-alerts-portal/create-rule.png)
 
-## Managing your alerts
-Once you have created an alert, you can select it and:
+4. In the **Condition** section, click **Add**.
+  ![Define condition](media/sql-database-insights-alerts-portal/create-rule.png)
+5. In the **Configure signal logic** page, select a signal.
+  ![Select signal](media/sql-database-insights-alerts-portal/select-signal.png).
+6. After selecting a signal, such as **CPU percentage**, the **Configure signal logic** page appears.
+  ![Configure signal logic](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
+7. On this page, configure that threshold type, operator, aggregation type, threshold value, aggregation granularity, and frequency of evaluation. Then click **Done**.
+8. On the **Create rule**, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs.
+  ![Define action group](media/sql-database-insights-alerts-portal/action-group.png)
 
-* View a graph showing the metric threshold and the actual values from the previous day.
-* Edit or delete it.
-* **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
+9. Define a name for the rule, provide an optional description, choose a severity level for the rule, choose whether to enable the rule upon rule creation, and then click **Create rule alert** to create the metric rule alert.
 
-
-## SQL Database alert values and thresholds
-
-| Resource Type	| Metric Name | Friendly Name | Aggregation Type | Minimum alert time window|
-| --- | --- | --- | --- | --- |
-| SQL database | cpu_percent | CPU percentage | Average | 5 minutes |
-| SQL database | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
-| SQL database | log_write_percent | Log IO percentage | Average | 5 minutes |
-| SQL database | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
-| SQL database | storage | Total database size | Maximum | 30 minutes |
-| SQL database | connection_successful | Successful Connections | Total | 10 minutes |
-| SQL database | connection_failed | Failed Connections | Total | 10 minutes |
-| SQL database | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
-| SQL database | deadlock | Deadlocks | Total | 10 minutes |
-| SQL database | storage_percent | Database size percentage | Maximum | 30 minutes |
-| SQL database | xtp_storage_percent | In-Memory OLTP storage percent(Preview) | Average | 5 minutes |
-| SQL database | workers_percent | Workers percentage | Average | 5 minutes |
-| SQL database | sessions_percent | Sessions percent | Average | 5 minutes |
-| SQL database | dtu_limit | DTU limit | Average | 5 minutes |
-| SQL database | dtu_used | DTU used | Average | 5 minutes |
-||||||	 	 	 
-| SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
-| SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
-| SQL data warehouse | storage | Total database size | Maximum | 10 minutes |
-| SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
-| SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
-| SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |
-| SQL data warehouse | service_level_objective | Service level objective of the database | Total | 10 minutes |
-| SQL data warehouse | dwu_limit | dwu limit | Maximum | 10 minutes |
-| SQL data warehouse | dwu_consumption_percent | DWU percentage | Average | 10 minutes |
-| SQL data warehouse | dwu_used | DWU used | Average | 10 minutes |
-|||||| 	 	 	 	 
-| Elastic pool | cpu_percent | CPU percentage | Average | 5 minutes |
-| Elastic pool | physical_data_read_percent | Data IO percentage | Average | 5 minutes |
-| Elastic pool | log_write_percent | Log IO percentage | Average | 5 minutes |
-| Elastic pool | dtu_consumption_percent | DTU percentage | Average | 5 minutes |
-| Elastic pool | storage_percent | Storage percentage | Average | 5 minutes |
-| Elastic pool | workers_percent | Workers percentage | Average | 5 minutes |
-| Elastic pool | eDTU_limit | eDTU limit | Average | 5 minutes |
-| Elastic pool | storage_limit | Storage limit | Average | 5 minutes |
-| Elastic pool | eDTU_used | eDTU used | Average | 5 minutes |
-| Elastic pool | storage_used | Storage used | Average | 5 minutes |
-||||||
-
+Within 10 minutes, the alert is active and triggers as previously described.
 
 ## Next steps
-* [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
-* Get an [overview of diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
-* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 
+* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).

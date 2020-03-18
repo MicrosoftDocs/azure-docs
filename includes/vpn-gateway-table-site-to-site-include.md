@@ -1,11 +1,19 @@
-| **Deployment Model/Method** | **Azure Portal** | **Classic Portal** | **PowerShell** |
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 04/26/2019
+ ms.author: cherylmc
+ ms.custom: include file
+---
+| **Deployment model/method** | **Azure portal** | **PowerShell** | **Azure CLI** |
 | --- | --- | --- | --- |
-| **Resource Manager** |[Article](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |Not Supported |[Article](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
-| **Classic** |Supported** |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |[Article+](../articles/vpn-gateway/vpn-gateway-multi-site.md) |
+| Resource Manager |[Tutorial](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br>[Tutorial+](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md) |
+| Classic |[Tutorial**](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) |[Tutorial+](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Not Supported |
 
-(*) denotes that the classic portal can only support creating one S2S VPN connection.
-
-(**) denotes that an end-to-end scenario is not yet available for the Azure portal.
+(**) denotes that this method contains steps that require PowerShell.
 
 (+) denotes that this article is written for multi-site connections.
-

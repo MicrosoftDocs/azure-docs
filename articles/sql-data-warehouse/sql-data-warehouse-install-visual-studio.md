@@ -1,57 +1,63 @@
 ---
-title: Install Visual Studio and SSDT for SQL Data Warehouse | Microsoft Docs
-description: Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse
+title: Install Visual Studio 2019 
+description: Install Visual Studio and SQL Server Development Tools (SSDT) for SQL Analytics
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
-ms.assetid: 0ed9b406-9b42-4fe6-b963-fe0a5b48aac1
+ms.custom: vs-azure
+ms.workload: azure-vs
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.subservice: development
+ms.date: 02/04/2020
+ms.author: kevin
+ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
-# Install Visual Studio 2015 and SSDT for SQL Data Warehouse
-To develop applications for SQL Data Warehouse, we recommend using Visual Studio 2015 with the most recent version of SQL Server Data Tools (SSDT).  Visual Studio 2013 Update 5 with SSDT is also supported for backward compatibility.  
 
-Using Visual Studio with SSDT will allow you to use the SQL Server Object Explorer to visually explore tables, views, stored procedures and many more objects in your SQL Data Warehouse as well as run queries.
+# Getting started with Visual Studio 2019
+Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing you to do the following:
 
-> [!NOTE]
-> SQL Data Warehouse does not yet support Visual Studio Database Projects.  This feature will be added in a future version.
-> 
-> 
+- Connect, query, and develop applications
+- Leverage an object explorer to visually explore all objects in your data model including tables, views, stored procedures, and etc.
+- Generate T-SQL data definition language (DDL) scripts for your objects
+- Develop your data warehouse using a state-based approach with SSDT Database Projects
+- Integrate your database project with source control systems such as Git with Azure Repos
+- Set up continuous integration and deployment pipelines with automation servers such as Azure DevOps
 
-## Step 1: Install Visual Studio 2015
-Follow these links to download and install Visual Studio 2015. If you already have Visual Studio 2013 or 2015 installed, you can skip to Step 2, install SSDT.
+## Install Visual Studio 2019
+See [Download Visual Studio 2019][] to download and install Visual Studio **16.3 and above**. During install, select the data storage and processing workload. Standalone SSDT installation is no longer required in Visual Studio 2019.
 
-1. [Download Visual Studio 2015][Download Visual Studio 2015].
-2. Follow the [Installing Visual Studio][Installing Visual Studio] guide on MSDN and choose the default configurations.
+## Unsupported features in SSDT
 
-## Step 2: Install SSDT
-To install SSDT for Visual Studio simply check for an SSDT update from within Visual Studio by following these steps.
+There are times when feature releases for SQL Analytics may not include support for SSDT. The following features are currently unsupported:
 
-1. In Visual Studio click on **Tools** / **Extensions and Updates…** / **Updates**
-2. Select **Product Updates** and then look for **Microsoft SQL Server Update for database tooling**
-
-If an update is not found, then you should have the latest version installed.  To confirm SSDT is installed, click on **Help** / **About Microsoft Visual Studio** and look for SQL Server Data Tools in the list.  The latest version of SSDT is 14.0.60525.0.  If the option to install is not available from Visual Studio, alternatively you can visit the [SSDT Download][SSDT Download] page to download and install SSDT manually.
+- [Materialized views](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (in progress)
+- [Ordered Clustered Columnstore Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (in progress)
+- [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (in progress)
+- [Workload management](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) - workload groups and classifiers (in progress)
+- [Row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+  - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) to get the feature supported.
+- [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
+  - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported. 
+- [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) function 
+- [Tables with constraints](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-table-constraints#table-constraints) are not supported. For these table objects, set the build action to "None".
 
 ## Next steps
-Now that you have the latest version of SSDT, you are ready to [connect][connect] to your SQL Data Warehouse.
+
+Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL pool.
 
 <!--Anchors-->
 
 <!--Image references-->
 
 <!--Articles-->
+
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Download Visual Studio 2015]: https://www.visualstudio.com/downloads/
+
+[Download Visual Studio 2019]: https://visualstudio.microsoft.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

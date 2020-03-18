@@ -1,90 +1,250 @@
 ---
-title: Logic apps content type handling | Microsoft Docs
-description: Understand how Logic Apps deals with content-types at design and runtime
+title: Handle content types
+description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
-editor: ''
-
-ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/18/2016
-ms.author: jehollan
-
+ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 07/20/2018
 ---
-# Logic Apps Content Type Handling
-There are many different types of content that can flow through a Logic App - including JSON, XML, flat files, and binary data.  While all content-types are supported, some are natively understood by the Logic Apps Engine, and others may require casting or conversions as needed.  The following article will describe how the engine handles different content-types and how they can be correctly handled as needed.
 
-## Content-Type Header
-To start simple, let's look at the two `Content-Types` that don't require any conversion or casting to use within a Logic App - `application/json` and `text/plain`.
+# Handle content types in Azure Logic Apps
 
-### Application/json
-The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling.  Any request with the content type `application/json` will be stored and handled as a JSON Object.  In addition, JSON content can be parsed by default without needing any casting.  So a request that has the content-type header `application/json ` like this:
+Various content types can flow through a logic app, 
+for example, JSON, XML, flat files, and binary data. 
+While Logic Apps supports all content types, some have native 
+support and don't require casting or conversion in your logic apps. 
+Other types might require casting or conversion as necessary. 
+This article describes how Logic Apps handles content types and 
+how you can correctly cast or convert these types when necessary.
 
-```
-{
-    "data": "a",
-    "foo": [
-        "bar"
-    ]
-}
-```
+To determine the appropriate way for handling content types, 
+Logic Apps relies on the `Content-Type` header value in HTTP calls, 
+for example:
 
-could be parsed in a workflow with an expression like `@body('myAction')['foo'][0]` to get a value (in this case, `bar`).  No additional casting is needed.  If you are working with data that is JSON but didn't have a header specified, you can manually cast it to JSON using the `@json()` function (for example: `@json(triggerBody())['foo']`).
+* [application/json](#application-json) (native type)
+* [text/plain](#text-plain) (native type)
+* [application/xml and application/octet-stream](#application-xml-octet-stream)
+* [Other content types](#other-content-types)
 
-### Text/plain
-Similar to `application/json`, HTTP messages recieved with the `Content-Type` header of `text/plain` will be stored in it's raw form.  In addition, if included in a subsequent actions without any casting the request will go out with a `Content-Type`: `text/plain` header.  For example, if working with a flat file you may recieve the following HTTP content:
+<a name="application-json"></a>
 
-```
-Date,Name,Address
-Oct-1,Frank,123 Ave.
-```
+## application/json
 
-as `text/plain`.  If in the next action you sent it as the body of another request (`@body('flatfile')`), the request would have a `text/plain` Content-Type header.  If you are working with data that is plain text but didn't have a header specified, you can manually cast it to text using the `@string()` function (for example: `@string(triggerBody())`)
+Logic Apps stores and handles any request with the *application/json* 
+content type as a JavaScript Notation (JSON) object. 
+By default, you can parse JSON content without any casting. 
+To parse a request that has a header with the "application/json" content type, 
+you can use an expression. This example returns the value `dog` from the 
+`animal-type` array without casting: 
+ 
+`@body('myAction')['animal-type'][0]` 
+  
+  ```json
+  {
+    "client": {
+       "name": "Fido",
+       "animal-type": [ "dog", "cat", "rabbit", "snake" ]
+    }
+  }
+  ```
 
-### Application/xml and Application/octet-stream and Converter Functions
-The Logic App Engine will always preserve the `Content-Type` that was recieved on the HTTP request or response.  What this means is if a content is recieved with `Content-Type` of `application/octet-stream`, including that in a subsequent action with no casting will result in an outgoing request with `Content-Type`: `application/octet-stream`.  In this way the engine can guaruntee data will not be lost as it moves throughout the workflow.  However, the action state (inputs and outputs) are stored in a JSON object as it flows throughout the workflow.  This means in order to preserve some data-types, the engine will convert the content to a binary base64 encoded string with appropriate metadata that preserves both `$content` and `$content-type` - which will automatically be converted.  You can also manually convert between content-types using built in converter functions:
+If you're working with JSON data that doesn't specify a header, 
+you can manually cast that data to JSON by using the 
+[json() function](../logic-apps/workflow-definition-language-functions-reference.md#json), 
+for example: 
+  
+`@json(triggerBody())['animal-type']`
 
-* `@json()` - casts data to `application/json`
-* `@xml()` - casts data to `application/xml`
-* `@binary()` - casts data to `application/octet-stream`
-* `@string()` - casts data to `text/plain`
-* `@base64()` - converts content to a base64 string
-* `@base64toString()` - converts a base64 encoded string to `text/plain`
-* `@base64toBinary()` - converts a base64 encoded string to `application/octet-stream`
-* `@encodeDataUri()` - encodes a string as a dataUri byte array
-* `@decodeDataUri()` - decodes a dataUri into a byte array
+### Create tokens for JSON properties
 
-For example, if you recieved an HTTP request with `Content-Type`: `application/xml` of:
+Logic Apps provides the capability for you to generate user-friendly 
+tokens that represent the properties in JSON content so you can 
+reference and use those properties more easily in your logic app's workflow.
 
-```
+* **Request trigger**
+
+  When you use this trigger in the Logic App Designer, you can provide 
+  a JSON schema that describes the payload you expect to receive. 
+  The designer parses JSON content by using this schema and generates 
+  user-friendly tokens that represent the properties in your JSON content. 
+  You can then easily reference and use those properties throughout your 
+  logic app's workflow. 
+  
+  If you don't have a schema, you can generate the schema. 
+  
+  1. In the Request trigger, select **Use sample payload to generate schema**.  
+  
+  2. Under **Enter or paste a sample JSON payload**, provide a sample payload 
+  and then choose **Done**. For example: 
+
+     ![Provide sample JSON payload](./media/logic-apps-content-type/request-trigger.png)
+
+     The generated schema now appears in your trigger.
+
+     ![Provide sample JSON payload](./media/logic-apps-content-type/generated-schema.png)
+
+     Here is the underlying definition for your Request trigger in the code view editor:
+
+     ```json
+     "triggers": { 
+        "manual": {
+           "type": "Request",
+           "kind": "Http",
+           "inputs": { 
+              "schema": {
+                 "type": "object",
+                 "properties": {
+                    "client": {
+                       "type": "object",
+                       "properties": {
+                          "animal-type": {
+                             "type": "array",
+                             "items": {
+                                "type": "string"
+                             },
+                          },
+                          "name": {
+                             "type": "string"
+                          }
+                       }
+                    }
+                 }
+              }
+           }
+        }
+     }
+     ```
+
+  3. In your request, make sure you include a `Content-Type` header 
+  and set the header's value to `application/json`.
+
+* **Parse JSON action**
+
+  When you use this action in the Logic App Designer, 
+  you can parse JSON output and generate user-friendly 
+  tokens that represent the properties in your JSON content. 
+  You can then easily reference and use those properties 
+  throughout your logic app's workflow. Similar to 
+  the Request trigger, you can provide or generate a 
+  JSON schema that describes the JSON content you want to parse. 
+  That way, you can more easily consume data from Azure Service Bus, 
+  Azure Cosmos DB, and so on.
+
+  ![Parse JSON](./media/logic-apps-content-type/parse-json.png)
+
+<a name="text-plain"></a>
+
+## text/plain
+
+When your logic app receives HTTP messages that 
+have the `Content-Type` header set to `text/plain`, 
+your logic app stores those messages in raw form. 
+If you include these messages in subsequent actions without casting, 
+requests go out with the `Content-Type` header set to `text/plain`. 
+
+For example, when you're working with a flat file, 
+you might get an HTTP request with the `Content-Type` 
+header set to `text/plain` content type:
+
+`Date,Name,Address`</br>
+`Oct-1,Frank,123 Ave`
+
+If you then send this request on in a later action as the body for another request, 
+for example, `@body('flatfile')`, that second request also has a `Content-Type` 
+header that's set to `text/plain`. If you're working with data that is plain text 
+but didn't specify a header, you can manually cast that data to text by using the 
+[string() function](../logic-apps/workflow-definition-language-functions-reference.md#string) 
+such as this expression: 
+
+`@string(triggerBody())`
+
+<a name="application-xml-octet-stream"></a>
+
+## application/xml and application/octet-stream
+
+Logic Apps always preserves the `Content-Type` in a received HTTP request or response. 
+So if your logic app receives content with `Content-Type` set to `application/octet-stream`, 
+and you include that content in a later action without casting, 
+the outgoing request also has `Content-Type` set to `application/octet-stream`. 
+That way, Logic Apps can guarantee that data doesn't get lost while moving through the workflow. 
+However, the action state, or inputs and outputs, is stored in a JSON object 
+while the state moves through the workflow. 
+
+## Converter functions
+
+To preserve some data types, Logic Apps converts content to a binary 
+base64-encoded string with appropriate metadata that preserves both 
+the `$content` payload and the `$content-type`, which are automatically converted. 
+
+This list describes how Logic Apps converts content when you use these 
+[functions](../logic-apps/workflow-definition-language-functions-reference.md):
+
+* `json()`: Casts data to `application/json`
+* `xml()`: Casts data to `application/xml`
+* `binary()`: Casts data to `application/octet-stream`
+* `string()`: Casts data to `text/plain`
+* `base64()`: Converts content to a base64-encoded string
+* `base64toString()`: Converts a base64-encoded string to `text/plain`
+* `base64toBinary()`: Converts a base64-encoded string to `application/octet-stream`
+* `dataUri()`: Converts a string to a data URI
+* `dataUriToBinary()`: Converts a data URI to a binary string
+* `dataUriToString()`: Converts a data URI to a string
+
+For example, if you receive an HTTP request 
+where `Content-Type` set to `application/xml`, 
+such as this content:
+
+```html
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-I could cast and use later with something like `@xml(triggerBody())`, or within a function like `@xpath(xml(triggerBody()), '/CustomerName')`.
+You can cast this content by using the `@xml(triggerBody())` 
+expression with the `xml()` and `triggerBody()` functions 
+and then use this content later. Or, you can use the 
+`@xpath(xml(triggerBody()), '/CustomerName')` expression 
+with the `xpath()` and `xml()` functions. 
 
-### Other-Content Types
-Other content types are supported and will work with a Logic App, but may require manually retrieving the message body by decoding the `$content`.  For example, if I were triggering off of a `application/x-www-url-formencoded` request that looked like the following:
+## Other content types
 
-```
-CustomerName=Frank&Address=123+Avenue
-```
+Logic Apps works with and supports other content types, 
+but might require that you manually get the message 
+body by decoding the `$content` variable.
 
-since this a not plain text or JSON it will be stored in the action as:
+For example, suppose your logic app gets triggered by a request 
+with the `application/x-www-url-formencoded` content type. 
+To preserve all the data, the `$content` variable in the 
+request body has a payload that's encoded as a base64 string:
 
-```
-...
+`CustomerName=Frank&Address=123+Avenue`
+
+Because the request isn't plain text or JSON, 
+the request is stored in the action as follows:
+
+```json
 "body": {
-    "$content-type": "application/x-www-url-formencoded",
-    "$content": "AAB1241BACDFA=="
+   "$content-type": "application/x-www-url-formencoded",
+   "$content": "AAB1241BACDFA=="
 }
 ```
 
-Where `$content` is the payload encoded as a base64 string to preserve all data.  Since there currently isn't a native function for form-data, I could still use this data within a workflow by manually accessing the data with a function like `@string(body('formdataAction'))`.  If I wanted my outgoing request to also have the `application/x-www-url-formencoded` content-type header, I could just add it to the action body without any casting like `@body('formdataAction')`.  However, this will only work if body is the only parameter in the `body` input.  If you try to do `@body('formdataAction')` inside of an `application/json` request you will get a runtime error as it will send the encoded body.
+Logic Apps provides native functions for handling form data, for example: 
 
+* [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
+* [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
+* [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
+* [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
+
+Or, you can manually access the data by using an expression such as this example:
+
+`@string(body('formdataAction'))` 
+
+If you wanted the outgoing request to have the same 
+`application/x-www-url-formencoded` content type header, 
+you can add the request to the action's body without 
+any casting by using an expression such as `@body('formdataAction')`. 
+However, this method only works when the body is the only 
+parameter in the `body` input. If you try to use the 
+`@body('formdataAction')` expression in an `application/json` request, 
+you get a runtime error because the body is sent encoded.

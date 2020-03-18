@@ -1,6 +1,13 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+---
 ### Open TCP ports in the Windows firewall for the default instance of the Database Engine
-1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#open-the-vm-with-remote-desktop).
-2. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER.
+1. Connect to the virtual machine with Remote Desktop. For detailed instructions on connecting to the VM, see [Open a SQL VM with Remote Desktop](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
+2. Once signed in, at the Start screen, type **WF.msc**, and then hit ENTER.
    
     ![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 3. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
@@ -25,22 +32,11 @@
    
     ![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
+Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](https://msdn.microsoft.com/library/cc646023.aspx).
 
 ### Configure SQL Server to listen on the TCP protocol
-1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
-   
-    ![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
-3. In the console pane, click **Protocols for MSSQLSERVER** (he default instance name.) In the details pane, right-click **TCP** and click **Enable** if it is not already enabled.
-   
-    ![Enable TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. In the console pane, click **SQL Server Services**. In the details pane, right-click **SQL Server (*instance name*)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server.
-   
-    ![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Close SQL Server Configuration Manager.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### Configure SQL Server for mixed mode authentication
 The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
@@ -53,7 +49,7 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
 1. While connected to the virtual machine, on the Start page, type **SQL Server Management Studio** and click the selected icon.
    
     The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
-2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave ***your_VM_name*\your_local_administrator** in the **User name** box. Click **Connect**.
+2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**). Select **Windows Authentication**, and leave ***your_VM_name\your_local_administrator*** in the **User name** box. Click **Connect**.
    
     ![Connect to Server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.
@@ -92,5 +88,5 @@ To connect to the Database Engine from another computer, you must create at leas
    ![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. Click OK.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
+For more information about SQL Server logins, see [Create a Login](https://msdn.microsoft.com/library/aa337562.aspx).
 

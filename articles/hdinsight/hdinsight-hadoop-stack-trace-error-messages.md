@@ -1,38 +1,32 @@
 ---
-title: Hadoop stack trace error messages | Microsoft Docs
-description: Index of Hadoop stack trace error messages in HDInsight. Find the error in the list to see troubleshooting information.
-keywords: stack trace, error messages
-services: hdinsight
-documentationcenter: NA
-author: mumian
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
+title: Hadoop stack trace error messages - Azure HDInsight 
+description: Index of Hadoop stack trace error messages in Azure HDInsight. Find the error in the list to see troubleshooting information.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: big-data
-ms.date: 10/19/2016
-ms.author: rashimg;jgao
-
+ms.topic: troubleshooting
+ms.custom: hdinsightactive
+ms.date: 01/03/2020
 ---
-# Index of Hadoop in HDInsight troubleshooting articles
+
+# Index of Apache Hadoop in HDInsight troubleshooting articles
+
 Articles are organized by types of errors.
 
 ## Out of Memory error
-* [Fix an Out of Memory (OOM) error with Hive settings](hdinsight-hadoop-hive-out-of-memory-error-oom.md):
+
+* [Fix an Apache Hive out of memory error in HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md):
      Fix an out of memory error (OOM) from a Hive query. The customer scenario includes a query across many large tables.
 
-## Hive query performance
-* [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
-* [Troubleshoot Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+## Apache Hive query performance
+
+* [Optimize Apache Hive queries for Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
+* [Troubleshoot Apache Hive by using Azure HDInsight](hdinsight-troubleshoot-hive.md).
 
 ## More troubleshooting articles
-* [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
-* [Debug Hadoop in HDInsight: View logs and interpret error messages](hdinsight-debug-jobs.md)
-* [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Release notes for Hadoop components on Azure HDInsight](hdinsight-release-notes.md)
 
+* [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
+* [Access Apache Hadoop YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Release notes for Apache Hadoop components on Azure HDInsight](hdinsight-release-notes.md)

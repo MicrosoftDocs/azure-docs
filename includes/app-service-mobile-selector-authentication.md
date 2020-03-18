@@ -1,9 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 > [!div class="op_single_selector"]
-> * [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
-> * [Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
-> * [Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
-> * [Microsoft account](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
-> * [Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+> * [Azure Active Directory](../articles/app-service/configure-authentication-provider-aad.md)
+> * [Facebook](../articles/app-service/configure-authentication-provider-facebook.md)
+> * [Google](../articles/app-service/configure-authentication-provider-google.md)
+> * [Microsoft account](../articles/app-service/configure-authentication-provider-microsoft.md)
+> * [Twitter](../articles/app-service/configure-authentication-provider-twitter.md)
 > 
 > 
 

@@ -1,277 +1,209 @@
----
-title: Add the Bing Search connector logic apps | Microsoft Docs
-description: Overview of the Bing Search connector with REST API parameters
-services: ''
-suite: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
+﻿---
+title: Connect to Bing Search
+description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 05/21/2018
 tags: connectors
-
-ms.assetid: a7f530e8-1573-4612-8899-c9c84aa2de6d
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/07/2016
-ms.author: mandia
-
 ---
-# Get started with the Bing Search connector
-Connect to Bing Search to search news, search videos, and more. With Bing Search, you can: 
 
-* Build your business flow based on the data you get from your search. 
-* Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
+# Find results in Bing Search by using Azure Logic Apps
 
-To add an operation in logic apps, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+This article shows how you can find news, videos, and other items through 
+Bing Search from inside a logic app with the Bing Search connector. 
+That way, you can create logic apps that automate tasks and workflows 
+for processing search results and make those items available for other actions. 
 
-## Triggers and actions
-Bing Search includes the following actions. There are no triggers. 
+For example, you can find news items based on search criteria, 
+and have Twitter post those items as tweets in your Twitter feed.
 
-| Triggers | Actions |
-| --- | --- |
-| None |<ul><li>Search web</li><li>Search videos</li><li>Search images</li><li>Search news</li><li>Search related</li><li>Search spellings</li><li>Search all</li></ul> |
+If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
+If you're new to logic apps, review 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+For connector-specific technical information, see the 
+[Bing Search connector reference](https://docs.microsoft.com/connectors/bingsearch/).
 
-All connectors support data in JSON and XML formats.
+## Prerequisites
 
-## Swagger REST API reference
-Applies to version: 1.0.
+* A [Cognitive Services account](../cognitive-services/cognitive-services-apis-create-account.md)
 
-### Search web
-Retrieves web sites from a Bing search.  
-```GET: /Web```
+* A [Bing Search API key](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), 
+which provides access from your logic app to the Bing Search APIs
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
-| webFileType |string |no |query |none |File type to narrow the search (example: 'DOC') |
+* The logic app where you want to access your Event Hub. 
+To start your logic app with a Bing Search trigger, you need a 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+<a name="add-trigger"></a>
 
-### Search videos
-Retrieves videos from a Bing search.  
-```GET: /Video```
+## Add a Bing Search trigger
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
-| videoFilters |string |no |query |none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High' |
-| videoSortBy |string |no |query |none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p> |
+In Azure Logic Apps, every logic app must start with a 
+[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
+which fires when a specific event happens or when a 
+specific condition is met. Each time the trigger fires, 
+the Logic Apps engine creates a logic app instance 
+and starts running your app's workflow.
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+1. In the Azure portal or Visual Studio, 
+create a blank logic app, which opens Logic App Designer. 
+This example uses the Azure portal.
 
-### Search images
-Retrieves images from a Bing search.  
-```GET: /Image```
+2. In the search box, enter "Bing search" as your filter. 
+From the triggers list, select the trigger you want.
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
-| imageFilters |string |no |query |none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square' |
+   This example uses this trigger: 
+   **Bing Search - On new news article**
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+   ![Find Bing Search trigger](./media/connectors-create-api-bing-search/add-trigger.png)
 
-### Search news
-Retrieves news results from a Bing search.  
-```GET: /News```
+3. If you're prompted for connection details, 
+[create your Bing Search connection now](#create-connection).
+Or, if your connection already exists, 
+provide the necessary information for the trigger.
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
-| newsSortBy |string |no |query |none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p> |
-| newsCategory |string |no |query | |Category of news to narrow the search (example: 'rt_Business') |
-| newsLocationOverride |string |no |query |none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA') |
+   For this example, provide criteria for returning 
+   matching news articles from Bing Search.
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | Search Query | Yes | <*search-words*> | Enter the search keywords you want to use. |
+   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. |
+   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. |
+   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. |
+   | Offset | No | <*skip-value*> | The number of results to skip before returning results |
+   |||||
 
-### Search spellings
-Retrieves spelling suggestions.  
-```GET: /SpellingSuggestions```
+   For example:
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
+   ![Set up trigger](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+4. Select the interval and frequency for how often 
+you want the trigger to check for results.
 
-### Search related
-Retrieves related search results from a Bing search.  
-```GET: /RelatedSearch```
+5. When you're done, on the designer toolbar, select **Save**.
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
+6. Now continue adding one or more actions to your logic app 
+for the tasks you want to perform with the trigger results.
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+<a name="add-action"></a>
 
-### Search all
-Retrieves all web sites, videos, images, etc. from a Bing search.  
-```GET: /CompositeSearch```
+## Add a Bing Search action
 
-| Name | Data Type | Required | Located In | Default Value | Description |
-| --- | --- | --- | --- | --- | --- |
-| query |string |yes |query |none |Text to search for (example: 'xbox') |
-| maxResult |integer |no |query |none |Maximum number of results to return |
-| startOffset |integer |no |query |none |Number of results to skip |
-| adultContent |string |no |query |none |Adult content filter. Valid values: <ul><li>Off</li><li>Moderate</li><li>Strict</li></ul> |
-| market |string |no |query |none |Market or region to narrow the search (example: en-US) |
-| longitude |number |no |query |none |Longitude (east/west coordinate) to narrow the search (example: 47.603450) |
-| latitude |number |no |query |none |Latitude (north/south coordinate) to narrow the search (example: -122.329696) |
-| webFileType |string |no |query |none |File type to narrow the search (example: 'DOC') |
-| videoFilters |string |no |query |none |Filter search based on size, aspect, color, style, face or any combination thereof.  Valid values: <ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>For example: 'Duration:Short+Resolution:High' |
-| videoSortBy |string |no |query |none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p> |
-| imageFilters |string |no |query |none |Filter search based on size, aspect, color, style, face or any combination thereof. Valid values: <ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[Width]</li><li>Size:Height:[Height]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>For example: 'Size:Small+Aspect:Square' |
-| newsSortBy |string |no |query |none |Sort order for results. Valid values: <ul><li>Date</li><li>Relevance</li></ul> <p>Date sort order implies descending.</p> |
-| newsCategory |string |no |query |none |Category of news to narrow the search (example: 'rt_Business') |
-| newsLocationOverride |string |no |query |none |Override for Bing location detection. This parameter is only applicable in en-US market. The format for input is US./<state /> (example: 'US.WA') |
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+is a step in your workflow that follows a trigger or another action. 
+For this example, the logic app starts with a Bing Search trigger 
+that returns news articles matching the specified criteria.
 
-#### Response
-| Name | Description |
-| --- | --- |
-| 200 |OK |
-| default |Operation Failed. |
+1. In the Azure portal or Visual Studio, 
+open your logic app in Logic App Designer. 
+This example uses the Azure portal.
 
-## Object definitions
-#### WebResultModel: Bing web search results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Title |string |no |
-| Description |string |no |
-| DisplayUrl |string |no |
-| Id |string |no |
-| FullUrl |string |no |
+2. Under the trigger or action, select **New step** > **Add an action**.
 
-#### VideoResultModel: Bing video search results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Title |string |no |
-| DisplayUrl |string |no |
-| Id |string |no |
-| MediaUrl |string |no |
-| Runtime |integer |no |
-| Thumbnail |not defined |no |
+   This example uses this trigger:
 
-#### ThumbnailModel: Thumbnail properties of the multimedia element
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| MediaUrl |string |no |
-| ContentType |string |no |
-| Width |integer |no |
-| Height |integer |no |
-| FileSize |integer |no |
+   **Bing Search - On new news article**
 
-#### ImageResultModel: Bing image search results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Title |string |no |
-| DisplayUrl |string |no |
-| Id |string |no |
-| MediaUrl |string |no |
-| SourceUrl |string |no |
-| Thumbnail |not defined |no |
+   ![Add action](./media/connectors-create-api-bing-search/add-action.png)
 
-#### NewsResultModel: Bing news search results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Title |string |no |
-| Description |string |no |
-| DisplayUrl |string |no |
-| Id |string |no |
-| Source |string |no |
-| Date |string |no |
+   To add an action between existing steps, 
+   move your mouse over the connecting arrow. 
+   Select the plus sign (**+**) that appears, 
+   and then select **Add an action**.
 
-#### SpellResultModel: Bing spelling suggestions results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Id |string |no |
-| Value |string |no |
+3. In the search box, enter "Bing search" as your filter.
+From the actions list, select the action you want.
 
-#### RelatedSearchResultModel: Bing related search results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| Title |string |no |
-| Id |string |no |
-| BingUrl |string |no |
+   This example uses this action:
 
-#### CompositeSearchResultModel: Bing composite search results
-| Property Name | Data Type | Required |
-| --- | --- | --- |
-| WebResultsTotal |integer |no |
-| ImageResultsTotal |integer |no |
-| VideoResultsTotal |integer |no |
-| NewsResultsTotal |integer |no |
-| SpellSuggestionsTotal |integer |no |
-| WebResults |array |no |
-| ImageResults |array |no |
-| VideoResults |array |no |
-| NewsResults |array |no |
-| SpellSuggestionResults |array |no |
-| RelatedSearchResults |array |no |
+   **Bing Search - List news by query**
+
+   ![Find Bing Search action](./media/connectors-create-api-bing-search/bing-search-select-action.png)
+
+4. If you're prompted for connection details, 
+[create your Bing Search connection now](#create-connection). 
+Or, if your connection already exists, 
+provide the necessary information for the action.
+
+   For this example, provide the criteria for 
+   returning a subset of the trigger's results.
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | Search Query | Yes | <*search-expression*> | Enter an expression for querying the trigger results. You can select from the fields in the dynamic content list, or create an expression with the expression builder. |
+   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. |
+   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. |
+   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. |
+   | Offset | No | <*skip-value*> | The number of results to skip before returning results |
+   |||||
+
+   For example, suppose you want those results whose category 
+   name includes the word "tech".
+
+   1. Click in the **Search Query** box so the dynamic content list appears. 
+   From that list, select **Expression** so the expression builder appears. 
+
+      ![Bing Search trigger](./media/connectors-create-api-bing-search/bing-search-action.png)
+
+      Now you can start creating your expression.
+
+   2. From the functions list, select the **contains()** function, 
+   which then appears in the expression box. Click **Dynamic content** 
+   so that the field list reappears, but make sure your cursor stays 
+   inside the parentheses.
+
+      ![Select a function](./media/connectors-create-api-bing-search/expression-select-function.png)
+
+   3. From the field list, select **Category**, which converts to a parameter. 
+   Add a comma after the first parameter, and after the comma, add this word: `'tech'` 
+
+      ![Select a field](./media/connectors-create-api-bing-search/expression-select-field.png)
+
+   4. When you're done, select **OK**.
+
+      The expression now appears in the **Search Query** box in this format:
+
+      ![Finished expression](./media/connectors-create-api-bing-search/resolved-expression.png)
+
+      In code view, this expression appears in this format:
+
+      `"@{contains(triggerBody()?['category'],'tech')}"`
+
+5. When you're done, on the designer toolbar, select **Save**.
+
+<a name="create-connection"></a>
+
+## Connect to Bing Search
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. When you're prompted for connection information, 
+provide these details:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | Connection Name | Yes | <*connection-name*> | The name to create for your connection |
+   | API Version | Yes | <*API-version*> | By default, the Bing Search API version is set to the current version. You can select an earlier version as necessary. |
+   | API Key | Yes | <*API-key*> | The Bing Search API key that you got earlier. If you don't have a key, get your [API key now](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   |||||  
+
+   For example:
+
+   ![Create connection](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
+
+2. When you're done, select **Create**.
+
+## Connector reference
+
+For technical details, such as triggers, actions, and limits, 
+as described by the connector's Swagger file, 
+see the [connector's reference page](/connectors/bingsearch/).
 
 ## Next steps
-[Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
 
-Go back to the [APIs list](apis-list.md).
-
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

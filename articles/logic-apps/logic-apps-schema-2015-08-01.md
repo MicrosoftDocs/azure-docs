@@ -1,284 +1,316 @@
 ---
-title: New schema version 2015-08-01-preview
-description: Learn how to write the JSON definition for the latest version of Logic apps
-author: stepsic-microsoft-com
-manager: anneta
-editor: ''
+title: Schema updates for August-1-2015 preview
+description: Updated schema version 2015-08-01-preview for logic app definitions in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
-ms.author: stepsic
-
 ---
-# New schema version 2015-08-01-preview
-The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 4 key differences:
 
-1. The **APIApp** action type has been updated to a new **APIConnection** action type.
-2. **Repeat** has been renamed to **Foreach**.
-3. The **HTTP Listener** API app is no longer required.
-4. Calling child workflows uses a new schema.
+# Schema updates for Azure Logic Apps - August 1, 2015 preview
 
-## 1. Moving to API connections
-The biggest change is that you no longer need to deploy API apps into your Azure Subscription to use API's. There are 2 ways you can use APIs:
+This schema and API version for Azure Logic Apps includes key 
+improvements that make logic apps more reliable and easier to use:
 
-* Managed API's
-* Your custom Web API's
+* The **APIApp** action type is now named [**APIConnection**](#api-connections).
+* The **Repeat** action is now named [**Foreach**](#foreach).
+* The [**HTTP Listener** API App](#http-listener) is no longer required.
+* Calling child workflows uses a [new schema](#child-workflows).
 
-Each of these is handled slightly differently because their management and hosting models are different. One advantage of this model is you're no longer constrained to resources that are deployed in your Resource Group. 
+<a name="api-connections"></a>
+
+## Move to API connections
+
+The biggest change is that you no longer have to deploy API Apps into 
+your Azure subscription so that you can use APIs. Here are the ways that you can use APIs:
+
+* Managed APIs
+* Your custom Web APIs
+
+Each way is handled slightly differently because 
+their management and hosting models are different. 
+One advantage of this model is you're no longer 
+constrained to resources that are deployed in your Azure resource group. 
 
 ### Managed APIs
-There are a number of API's that are managed by Microsoft on your behalf, such as Office 365, Salesforce, Twitter, FTP etc.... Some of these managed API's can be used as-is, such as Bing Translate, while others require configuration. This configuration is called a *connection*.
 
-For example, when you use Office 365, you need to create a connection that contains your Office 365 sign-in token. This token will be securely stored and refreshed so that your Logic app can always call the Office 365 API. Alternatively, if you want to connect to your SQL or FTP server, you need to create a connection that has the connection string. 
+Microsoft manages some APIs on your behalf, 
+such as Office 365, Salesforce, Twitter, and FTP. 
+You can use some managed APIs as-is, such as Bing Translate, 
+while others require configuration, also called a *connection*.
 
-Inside of the definition these actions are called `APIConnection`. Here is an example of a connection that calls Office 365 to send an email:
+For example, when you use Office 365, 
+you must create a connection that includes your Office 365 sign-in token. 
+Your token is securely stored and refreshed so that 
+your logic app can always call the Office 365 API. 
+If you want to connect to your SQL or FTP server, 
+you must create a connection that has the connection string. 
 
-```
+In this definition, these actions are called `APIConnection`. 
+Here is an example of a connection that calls Office 365 to send an email:
+
+``` json
 {
-    "actions": {
-        "Send_Email": {
-            "type": "ApiConnection",
-            "inputs": {
-                "host": {
-                    "api": {
-                        "runtimeUrl": "https://msmanaged-na.azure-apim.net/apim/office365"
-                    },
-                    "connection": {
-                        "name": "@parameters('$connections')['shared_office365']['connectionId']"
-                    }
-                },
-                "method": "post",
-                "body": {
-                    "Subject": "Reminder",
-                    "Body": "Don't forget!",
-                    "To": "me@contoso.com"
-                },
-                "path": "/Mail"
-            }
-        }
-    }
+   "actions": {
+      "Send_an_email": {
+         "type": "ApiConnection",
+         "inputs": {
+            "host": {
+               "api": {
+                  "runtimeUrl": "https://msmanaged-na.azure-apim.net/apim/office365"
+               },
+               "connection": {
+                  "name": "@parameters('$connections')['shared_office365']['connectionId']"
+               }
+            },
+            "method": "POST",
+            "body": {
+               "Subject": "Reminder",
+               "Body": "Don't forget!",
+               "To": "me@contoso.com"
+            },
+            "path": "/Mail"
+         }
+      }
+   }
 }
 ```
 
-The portion of the inputs that is unique to API connections is the `host` object. This contains two parts: `api` and `connection`.
+The `host` object is a part of the inputs that is unique to API connections, 
+and contains these parts: `api` and `connection`. 
+The `api` object specifies the runtime URL for where that managed API is hosted. 
+You can see all the available managed APIs by calling this method:
 
-The `api` has the runtime URL of where that managed API is hosted. You can see all of the available managed APIs for you by calling `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
-
-When you use an API, it may or may not have any **connection parameters** defined. If it doesn't then no **connection** is required. If it does, then you will have to create a connection. When you create that connection it'll have the name you choose, and then you reference that in the `connection` object inside the `host` object. To create a connection in a resource group, call:
-
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
 ```
-PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
+
+When you use an API, that API might or might not have defined any *connection parameters*. 
+So, if the API doesn't define these parameters, no connection is required. 
+If the API does define these parameters, you must create a connection with a specified name.  
+You then reference that name in the `connection` object inside the `host` object. 
+To create a connection in a resource group, call this method:
+
+```text
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
 With the following body:
 
-```
+``` json
 {
-  "properties": {
-    "api": {
-      "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
-    },
-    "parameterValues" : {
-        "accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
-    }
-  },
-  "location" : "{Logic app's location}"
+   "properties": {
+      "api": {
+         "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/azureblob"
+      },
+      "parameterValues": {
+         "accountName": "<Azure-storage-account-name-with-different-parameters-for-each-API>"
+      }
+   },
+   "location": "<logic-app-location>"
 }
 ```
 
-### Deploying managed APIs in an Azure Resource manager template
-You can create a full application in an ARM template as long as it doesn’t require interactive sign-in. If it requires sign-in, you can set everything up with the ARM template, but will still have to visit the portal to authorize the connections. 
+### Deploy managed APIs in an Azure Resource Manager template
 
-```
-    "resources": [{
-        "apiVersion": "2015-08-01-preview",
-        "name": "azureblob",
-        "type": "Microsoft.Web/connections",
-        "location": "[resourceGroup().location]",
-        "properties": {
-            "api": {
-                "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-            },
-            "parameterValues": {
-                "accountName": "[parameters('storageAccountName')]",
-                "accessKey": "[parameters('storageAccountKey')]"
+When interactive sign-in isn't required, you can 
+create a full app by using a Resource Manager template.
+If sign-in is required, you can still use a Resource Manager template, 
+but you have to authorize the connections through the Azure portal. 
+
+``` json
+"resources": [ {
+   "apiVersion": "2015-08-01-preview",
+   "name": "azureblob",
+   "type": "Microsoft.Web/connections",
+   "location": "[resourceGroup().location]",
+   "properties": {
+      "api": {
+         "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+      },
+      "parameterValues": {
+         "accountName": "[parameters('storageAccountName')]",
+         "accessKey": "[parameters('storageAccountKey')]"
+      }
+    },
+},
+{
+   "type": "Microsoft.Logic/workflows",
+   "apiVersion": "2015-08-01-preview",
+   "name": "[parameters('logicAppName')]",
+   "location": "[resourceGroup().location]",
+   "dependsOn": ["[resourceId('Microsoft.Web/connections', 'azureblob')]"],
+   "properties": {
+      "sku": {
+         "name": "[parameters('sku')]",
+         "plan": {
+            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('svcPlanName'))]"
+         }
+      },
+      "parameters": {
+         "$connections": {
+             "value": {
+                  "azureblob": {
+                     "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
+                     "connectionName": "azureblob",
+                     "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+                  }
+             }
+         }
+      },
+      "definition": {
+         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+            "type": "Object",
+            "$connections": {
+               "defaultValue": {},
+ 
             }
-        }
-    }, {
-        "type": "Microsoft.Logic/workflows",
-        "apiVersion": "2015-08-01-preview",
-        "name": "[parameters('logicAppName')]",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Web/connections', 'azureblob')]"
-        ],
-        "properties": {
-            "sku": {
-                "name": "[parameters('sku')]",
-                "plan": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-                }
-            },
-            "definition": {
-                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-                "actions": {
-                    "Create_file": {
-                        "type": "apiconnection",
-                        "inputs": {
-                            "host": {
-                                "api": {
-                                    "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-                                },
-                                "connection": {
-                                    "name": "@parameters('$connections')['azureblob']['connectionId']"
-                                }
-                            },
-                            "method": "post",
-                            "queries": {
-                                "folderPath": "[concat('/',parameters('containerName'))]",
-                                "name": "helloworld.txt"
-                            },
-                            "body": "@decodeDataUri('data:,Hello+world!')",
-                            "path": "/datasets/default/files"
-                        },
-                        "conditions": []
-                    }
-                },
-                "contentVersion": "1.0.0.0",
-                "outputs": {},
-                "parameters": {
-                    "$connections": {
-                        "defaultValue": {},
-                        "type": "Object"
-                    }
-                },
-                "triggers": {
-                    "recurrence": {
-                        "type": "Recurrence",
-                        "recurrence": {
-                            "frequency": "Day",
-                            "interval": 1
-                        }
-                    }
-                }
-            },
-            "parameters": {
-                "$connections": {
-                    "value": {
-                        "azureblob": {
-                            "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
-                            "connectionName": "azureblob",
-                            "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-                        }
-
-                    }
-                }
+         },
+         "triggers": {
+            "Recurrence": {
+               "type": "Recurrence",
+               "recurrence": {
+                  "frequency": "Day",
+                  "interval": 1
+               }
             }
-        }
-    }]
+         },
+         "actions": {
+            "Create_file": {
+               "type": "ApiConnection",
+               "inputs": {
+                  "host": {
+                     "api": {
+                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+                     },
+                     "connection": {
+                       "name": "@parameters('$connections')['azureblob']['connectionId']"
+                     }
+                  },
+                  "method": "POST",
+                  "queries": {
+                     "folderPath": "[concat('/', parameters('containerName'))]",
+                     "name": "helloworld.txt"
+                  },
+                  "body": "@decodeDataUri('data:, Hello+world!')",
+                  "path": "/datasets/default/files"
+               },
+               "conditions": []
+            }
+         },
+         "outputs": {}
+      }
+   }
+} ]
 ```
 
-You can see in this example that the connections are just normal resources that live in your resource group. They reference the managedAPIs available to you in your subscription.
+You can see in this example that the connections are just resources that live in your resource group. 
+They reference the managed APIs available to you in your subscription.
 
 ### Your custom Web APIs
-If you use your own API's (specifically, not Microsoft-managed ones), then you should use the built-in **HTTP** action to call them. In order to have an ideal experience, you should expose a swagger endpoint for your API. This will enable the Logic app designer to render the inputs and outputs for your API. Without a swagger, the designer will only be able to show the inputs and outputs as opaque JSON objects.
+
+If you use your own APIs rather than Microsoft-managed ones, 
+use the built-in **HTTP** action to call your APIs. Ideally, 
+you should provide a Swagger endpoint for your API. 
+This endpoint helps Logic App Designer show your API's 
+inputs and outputs. Without a Swagger endpoint, 
+the designer can only show the inputs and outputs as opaque JSON objects.
 
 Here is an example showing the new `metadata.apiDefinitionUrl` property:
 
-```
-{
-   "actions": {
-        "mycustomAPI": {
-            "type": "http",
-            "metadata" : {
-              "apiDefinitionUrl" : "https://mysite.azurewebsites.net/api/apidef/"  
-            },
-            "inputs": {
-                "uri": "https://mysite.azurewebsites.net/api/getsomedata",
-                "method" : "GET"
-            }
-        }
-    }
+``` json
+"actions": {
+   "mycustomAPI": {
+      "type": "Http",
+      "metadata": {
+         "apiDefinitionUrl": "https://mysite.azurewebsites.net/api/apidef/"  
+      },
+      "inputs": {
+         "uri": "https://mysite.azurewebsites.net/api/getsomedata",
+         "method": "GET"
+      }
+   }
 }
 ```
 
-If you host your Web API on **App Service** then it will automatically show up in the list of actions available in the designer. If not, you'll have to paste in the URL directly. The swagger endpoint must be unauthenticated in order to be usable inside of the Logic apps designer (although you may secure the API itself with whatever methods are supported in the Swagger).
+If you host your Web API on Azure App Service, 
+your Web API automatically appears in the list of actions available in the designer. 
+If not, you have to paste in the URL directly. The Swagger endpoint must be unauthenticated 
+to be usable in the Logic App Designer, although you can secure the API itself with whatever methods that Swagger supports.
 
-### Using your already deployed API apps with 2015-08-01-preview
-If you previously deployed an API app, you can call it via the **HTTP** action.
+### Call deployed API apps with 2015-08-01-preview
 
-For example, if you use Dropbox to list files, you may have something like this in your **2014-12-01-preview** schema version definition:
+If you previously deployed an API App, you can call that app with the **HTTP** action.
+For example, if you use Dropbox to list files, 
+your **2014-12-01-preview** schema version definition might have something like:
 
-```
-{
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token": {
-            "defaultValue": "eyJ0eX...wCn90",
-            "type": "String",
-            "metadata": {
-                "token": {
-                    "name": "/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token"
-                }
+``` json
+"definition": {
+   "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token": {
+         "defaultValue": "eyJ0eX...wCn90",
+         "type": "String",
+         "metadata": {
+            "token": {
+               "name": "/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token"
             }
-        }
+         }
+      }
     },
     "actions": {
-        "dropboxconnector": {
-            "type": "ApiApp",
-            "inputs": {
-                "apiVersion": "2015-01-14",
-                "host": {
-                    "id": "/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector",
-                    "gateway": "https://avdemo.azurewebsites.net"
-                },
-                "operation": "ListFiles",
-                "parameters": {
-                    "FolderPath": "/myfolder"
-                },
-                "authentication": {
-                    "type": "Raw",
-                    "scheme": "Zumo",
-                    "parameter": "@parameters('/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
-                }
-            }
-        }
+       "dropboxconnector": {
+          "type": "ApiApp",
+          "inputs": {
+             "apiVersion": "2015-01-14",
+             "host": {
+                "id": "/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector",
+                "gateway": "https://avdemo.azurewebsites.net"
+             },
+             "operation": "ListFiles",
+             "parameters": {
+                "FolderPath": "/myfolder"
+             },
+             "authentication": {
+                "type": "Raw",
+                "scheme": "Zumo",
+                "parameter": "@parameters('/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
+             }
+          }
+       }
     }
 }
 ```
 
-You can construct the equivalent HTTP action like below (the parameters section of the Logic app definition remains unchanged):
+Now, you can now build a similar HTTP action and leave the 
+logic app definition's `parameters` section unchanged, for example:
 
-```
-{
-    "actions": {
-        "dropboxconnector": {
-            "type": "Http",
-            "metadata" : {
-              "apiDefinitionUrl" : "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
-            },
-            "inputs": {
-                "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
-                "method" : "POST",
-                "body": {
-                    "FolderPath": "/myfolder"
-                },
-                "authentication": {
-                    "type": "Raw",
-                    "scheme": "Zumo",
-                    "parameter": "@parameters('/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
-                }
-            }
-        }
-    }
+``` json
+"actions": {
+   "dropboxconnector": {
+      "type": "Http",
+      "metadata": {
+         "apiDefinitionUrl": "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
+      },
+      "inputs": {
+         "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
+         "method": "POST",
+         "body": {
+            "FolderPath": "/myfolder"
+         },
+         "authentication": {
+            "type": "Raw",
+            "scheme": "Zumo",
+            "parameter": "@parameters('/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
+         }
+      }
+   }
 }
 ```
 
@@ -286,174 +318,206 @@ Walking through these properties one-by-one:
 
 | Action property | Description |
 | --- | --- |
-| `type` |`Http` instead of `APIapp` |
-| `metadata.apiDefinitionUrl` |If you want to use this action in the Logic apps designer, you'll want to include the metadata endpoint. This is constructed from: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` |This is constructed from: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
-| `inputs.method` |Always `POST` |
-| `inputs.body` |Identical to the api app parameters |
-| `inputs.authentication` |Identical to the api app authentication |
+| `type` | `Http` instead of `APIapp` |
+| `metadata.apiDefinitionUrl` | To use this action in the Logic App Designer, include the metadata endpoint, which is constructed from: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` | Constructed from: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `inputs.method` | Always `POST` |
+| `inputs.body` | Same as the API App parameters |
+| `inputs.authentication` | Same as the API App authentication |
 
-This approach should work for all API app actions. However, please keep in mind that these previous API apps are no longer supported, and you should move to one of the two other options above (either a managed API or hosting your custom Web API).
+This approach should work for all API App actions. However, 
+remember that these previous API Apps are no longer supported. 
+So you should move to one of the two other previous options, 
+a managed API or hosting your custom Web API.
 
-## 2. Repeat renamed to Foreach
-For the previous schema version we received a lot of customer feedback that **Repeat** was confusing and didn't properly capture that it was really a for each loop. As a result, we have renamed it to **Foreach**. For example:
+<a name="foreach"></a>
 
-```
-{
-    "actions": {
-        "pingBing": {
-            "type": "Http",
-            "repeat": "@range(0,2)",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://www.bing.com/search?q=@{repeatItem()}"
-            }
-        }
-    }
+## Renamed 'repeat' to 'foreach'
+
+For the previous schema version, we received much customer feedback that the **Repeat** action 
+name was confusing and didn't properly capture that **Repeat** was really a for-each loop. 
+So, we renamed `repeat` to `foreach`. Previously you'd write this action like this example:
+
+``` json
+"actions": {
+   "pingBing": {
+      "type": "Http",
+      "repeat": "@range(0,2)",
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com/search?q=@{repeatItem()}"
+      }
+   }
 }
 ```
 
-Would now be written as:
+Now you'd write this version instead:
 
-```
-{
-    "actions": {
-        "pingBing": {
-            "type": "Http",
-            "foreach": "@range(0,2)",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://www.bing.com/search?q=@{item()}"
-            }
-        }
-    }
+``` json
+"actions": {
+   "pingBing": {
+      "type": "Http",
+      "foreach": "@range(0,2)",
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com/search?q=@{item()}"
+      }
+   }
 }
 ```
 
-Previously the function `@repeatItem()` was used to reference the current item being iterated over. This has been simplified to just `@item()`. 
+Also, the `repeatItem()` function, which referenced the item that the 
+loop is processing during the current iteration, is now renamed `item()`. 
 
-### Referencing the outputs of the Foreach
-To further simplify, the outputs of **Foreach** actions will not be wrapped in an object called **repeatItems**. This means, whereas the outputs of the above repeat were:
+### Reference outputs from 'foreach'
 
+For simplification, the outputs from `foreach` actions are 
+no longer wrapped in an object named `repeatItems`. 
+Also, with these changes, the `repeatItem()`, 
+`repeatBody()`, and `repeatOutputs()` functions are removed.
+
+So, using the previous `repeat` example, you get these outputs:
+
+``` json
+"repeatItems": [ {
+   "name": "pingBing",
+   "inputs": {
+      "uri": "https://www.bing.com/search?q=0",
+      "method": "GET"
+   },
+   "outputs": {
+      "headers": { },
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
+   },
+   "status": "Succeeded"
+} ]
 ```
-{
-    "repeatItems": [
-        {
-            "name": "pingBing",
-            "inputs": {
-                "uri": "https://www.bing.com/search?q=0",
-                "method": "GET"
-            },
-            "outputs": {
-                "headers": { },
-                "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
-            }
-            "status": "Succeeded"
-        }
-    ]
+
+Now you get these outputs instead:
+
+``` json
+[ {
+   "name": "pingBing",
+      "inputs": {
+         "uri": "https://www.bing.com/search?q=0",
+         "method": "GET"
+      },
+      "outputs": {
+         "headers": { },
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
+      },
+      "status": "Succeeded"
+} ]
+```
+
+Previously, to get the `body` from the action when referencing these outputs:
+
+``` json
+"actions": {
+   "secondAction": {
+      "type": "Http",
+      "repeat": "@outputs('pingBing').repeatItems",
+      "inputs": {
+         "method": "POST",
+         "uri": "https://www.example.com",
+         "body": "@repeatItem().outputs.body"
+      }
+   }
 }
 ```
 
-Now it will be:
+Now you can use this version instead:
 
-```
-[
-    {
-        "name": "pingBing",
-        "inputs": {
-            "uri": "https://www.bing.com/search?q=0",
-            "method": "GET"
-        },
-        "outputs": {
-            "headers": { },
-            "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
-        }
-        "status": "Succeeded"
-    }
-]
-```
-
-When referencing these outputs, to get to the body of the action you'd have to do:
-
-```
-{
-    "actions": {
-        "secondAction" : {
-            "type" : "Http",
-            "repeat" : "@outputs('pingBing').repeatItems",
-            "inputs" : {
-                "method" : "POST",
-                "uri" : "http://www.example.com",
-                "body" : "@repeatItem().outputs.body"
-            }
-        }
-    }
+``` json
+"actions": {
+   "secondAction": {
+      "type": "Http",
+      "foreach": "@outputs('pingBing')",
+      "inputs": {
+         "method": "POST",
+         "uri": "https://www.example.com",
+         "body": "@item().outputs.body"
+      }
+   }
 }
 ```
 
-Now you can do instead:
+<a name="http-listener"></a>
 
-```
-{
-    "actions": {
-        "secondAction" : {
-            "type" : "Http",
-            "foreach" : "@outputs('pingBing')",
-            "inputs" : {
-                "method" : "POST",
-                "uri" : "http://www.example.com",
-                "body" : "@item().outputs.body"
-            }
-        }
-    }
+## Native HTTP listener
+
+HTTP listener features are now built-in, so you 
+don't have to deploy an HTTP Listener API App. 
+For more information, learn how to 
+[make your logic app endpoint callable](../logic-apps/logic-apps-http-endpoint.md). 
+
+With these changes, Logic Apps replaces the `@accessKeys()` function 
+with the `@listCallbackURL()` function, which gets the endpoint when necessary. 
+Also, you now must define at least one trigger in your logic app. 
+If you want to `/run` the workflow, you have to use one of these trigger types: 
+`Manual`, `ApiConnectionWebhook`, or `HttpWebhook`
+
+<a name="child-workflows"></a>
+
+## Call child workflows
+
+Previously, calling child workflows required going to the workflow, 
+getting the access token, and pasting the token in the logic app 
+definition where you want to call that child workflow. 
+With this schema, the Logic Apps engine automatically generates 
+a SAS at runtime for the child workflow so you don't have to 
+paste any secrets into the definition. Here is an example:
+
+``` json
+"myNestedWorkflow": {
+   "type": "Workflow",
+   "inputs": {
+      "host": {
+         "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/myWorkflow001",
+         "triggerName": "myEndpointTrigger"
+      },
+      "queries": {
+         "extrafield": "specialValue"
+      },
+      "headers": {
+         "x-ms-date": "@utcnow()",
+         "Content-type": "application/json"
+      },
+      "body": {
+         "contentFieldOne": "value100",
+         "anotherField": 10.001
+      }
+   },
+   "conditions": []
 }
 ```
 
-With these changes, the functions `@repeatItem()`, `@repeatBody()` and `@repeatOutputs()` are removed.
+Also, child workflows get full access to the incoming request. 
+So, you can pass parameters in the `queries` section and in the 
+`headers` object. You can also fully define the entire `body` section.
 
-## 3. Native HTTP listener
-The HTTP Listener capabilities are now built-in, so you no longer need to deploy an HTTP Listener API app. Read about [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
-
-With these changes, the function `@accessKeys()` is removed and has been replaced with the `@listCallbackURL()` function for the purposes of getting the endpoint (when needed). In addition, you now must define at least one trigger in your Logic app now. If you want to `/run` the workflow, you'll need to have one of a `manual`, `apiConnectionWebhook` or `httpWebhook` triggers. 
-
-## 4. Calling child workflows
-Previously, calling child workflows required going to that workflow, getting the access token, and then pasting that in to the definition of the Logic app that you want to call that child. With the new schema version, the Logic apps engine will automatically generate a SAS at runtime for the child workflow, which means that you don't have to paste any secrets into the definition.  Here is an example:
-
-```
-"mynestedwf" : {
-    "type" : "workflow",
-    "inputs" : {
-        "host" : {
-            "id" : "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001",
-            "triggerName" : "myendpointtrigger"
-        },
-        "queries" : {
-            "extrafield" : "specialValue"
-        },
-        "headers" : {
-            "x-ms-date" : "@utcnow()",
-            "Content-type" : "application/json"
-        },
-        "body" : {
-            "contentFieldOne" : "value100",
-            "anotherField" : 10.001
-        }
-    },
-    "conditions" : []
-}
-```
-
-A second improvement is we will be giving the child workflows full access to the incoming request. That means that you can pass parameters in the *queries* section and in the *headers* object and that you can fully define the entire body.
-
-Finally, there are required changes to the child workflow. Whereas before you could just call a child workflow directly; now, you’ll need to define a trigger endpoint in the workflow for the parent to call. Generally, this means you’ll add a trigger of type **manual** and then use that in the parent definition. Note that the `host` property specifically has a `triggerName`, because you must always specify which trigger you are invoking.
+Finally, child workflows have these required changes. 
+While you could previously and directly call a child workflow, 
+you must now define a trigger endpoint in the workflow for the parent to call. 
+Generally, you would add a trigger that has `Manual` type, 
+and then use that trigger in the parent definition. 
+The `host` property specifically has a `triggerName` 
+because you must always specify the trigger you're calling.
 
 ## Other changes
-### New queries property
-All action types now support a new input called **queries**. This can be a structured object rather than you having to assemble the string by hand.
 
-### parse() function renamed
-As we will soon be adding more content types, the `parse()` function has been renamed to `json()`.
+### New 'queries' property
 
-## Coming soon: Enterprise Integration APIs
-At this point in time, we do not yet have managed versions of the Enterprise Integration APIs available (such as AS2). These will be coming soon as covered in the [roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). In the meanwhile, you can use your existing deployed BizTalk APIs via the HTTP action, as covered above in "Using your already deployed API apps."
+All action types now support a new input called `queries`. 
+This input can be a structured object, rather than you having to assemble the string by hand.
 
+### Renamed 'parse()' function to 'json()'
+
+The `parse()` function is now renamed the `json()` function for future content types.
+
+## Enterprise Integration APIs
+
+This schema doesn't yet support managed versions for Enterprise Integration APIs, 
+such as AS2. However, you can use existing deployed BizTalk APIs through the HTTP action. 
+For more information, see "Using your already deployed API apps" in the 
+[integration roadmap](https://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

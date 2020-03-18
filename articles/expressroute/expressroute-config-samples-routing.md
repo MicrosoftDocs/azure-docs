@@ -1,31 +1,29 @@
 ---
-title: ExpressRoute customer router configuration samples | Microsoft Docs
+title: 'Azure ExpressRoute: Router configuration samples'
 description: This page provides router config samples for Cisco and Juniper routers.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
 
-ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
 
 ---
 # Router configuration samples to set up and manage routing
-This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
+This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers when working with ExpressRoute. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 > [!IMPORTANT]
 > Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 > 
 > 
 
+## MTU and TCP MSS settings on router interfaces
+* The MTU for the ExpressRoute interface is 1500, which is the typical default MTU for an Ethernet interface on a router. Unless your router has a different MTU by default, there is no need to specify a value on the router interface.
+* Unlike an Azure VPN Gateway, the TCP MSS for an ExpressRoute circuit does not need to be specified.
+
 Router configuration samples below apply to all peerings. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute routing requirements](expressroute-routing.md) for more details on routing.
+
 
 ## Cisco IOS-XE based routers
 The samples in this section apply for any router running the IOS-XE OS family.

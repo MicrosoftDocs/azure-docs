@@ -3,8 +3,8 @@ title: StorSimple Snapshot Manager backup policies | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage the backup policies that control scheduled backups.
 services: storsimple
 documentationcenter: NA
-author: SharS
-manager: carmonm
+author: twooley
+manager: timlt
 editor: ''
 
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/12/2016
-ms.author: v-sharos
+ms.date: 06/05/2017
+ms.author: twooley
 
 ---
 # Use StorSimple Snapshot Manager to create and manage backup policies
