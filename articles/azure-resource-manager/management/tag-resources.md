@@ -20,6 +20,8 @@ To apply tags to resources, the user must have write access to that resource typ
 
 ## PowerShell
 
+### Apply tags
+
 Azure PowerShell offers two commands for applying tags - [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You must have Azure PowerShell 3.6.1 or later to use these commands.
 
 The **New-AzTag** replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
@@ -34,7 +36,7 @@ New-AzTag -ResourceId $resource.id -Tag $tags
 
 When the command completes, notice that the resource has two tags.
 
-```azurepowershell
+```output
 Properties :
         Name    Value
         ======  =======
@@ -49,7 +51,7 @@ $tags = @{"Team"="Compliance"; "Environment"="Production"}
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
-```azurepowershell
+```output
 Properties :
         Name         Value
         ===========  ==========
@@ -66,7 +68,7 @@ Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 
 Notice all four tags have been applied to the resource.
 
-```azurepowershell
+```output
 Properties :
         Name         Value
         ===========  ==========
@@ -79,41 +81,44 @@ Properties :
 When you set the **-Operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
 
 ```azurepowershell-interactive
-$tags = @{"Project"="ECommerce"; "CostCenter"="00123"}
+$tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Replace
 ```
 
 Only the new tags remain on the resource.
 
-```azurepowershell
+```output
 Properties :
         Name        Value
         ==========  =========
         CostCenter  00123
+        Team        Web
         Project     ECommerce
 ```
 
-You can also set **-Operation** to **Delete** to remove a specific tag.
+The same commands also work with resource groups or subscriptions. You pass in the identifier for the resource group or subscription you want to tag.
+
+To add a new set of tags to a resource group, use:
 
 ```azurepowershell-interactive
-$removeTags = @{"Project"="ECommerce"}
-Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
+$tags = @{"Dept"="Finance"; "Status"="Normal"}
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
 ```
 
-The specified tag is removed.
-
-```azurepowershell
-Properties :
-        Name        Value
-        ==========  =====
-        CostCenter  00123
-```
-
-To add tags to a *resource without existing tags*, use:
+To update the tags for a resource group, use:
 
 ```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $resource.ResourceId -Force
+$tags = @{"Team"="Compliance"; "Environment"="Production"}
+Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
+```
+
+To add tags to a subscription.
+
+```azurepowershell-interactive
+$tags = @{"CostCenter"="00123"; "Environment"="Dev"}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
 ```
 
 You may have more than one resource with the same name in a resource group. In that case, you can set each resource with the following commands:
@@ -123,13 +128,7 @@ $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName example
 $resource | ForEach-Object { Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Force }
 ```
 
-To add tags to a *resource that has existing tags*, use:
-
-```azurepowershell-interactive
-$resource = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$resource.Tags.Add("Status", "Approved")
-Set-AzResource -Tag $resource.Tags -ResourceId $resource.ResourceId -Force
-```
+### List by tags
 
 To see the existing tags for a *resource group*, use:
 
@@ -170,35 +169,11 @@ To get *resources that have a specific tag name*, use:
 (Get-AzResource -TagName "Dept").Name
 ```
 
-### Resource group
-
 To get *resource groups that have a specific tag name and value*, use:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
 ```
-
-
-
-
-
-Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags.
-
-To add tags to a *resource group without existing tags*, use:
-
-```azurepowershell-interactive
-Set-AzResourceGroup -Name examplegroup -Tag @{ "Dept"="IT"; "Environment"="Test" }
-```
-
-To add tags to a *resource group that has existing tags*, retrieve the existing tags, add the new tag, and reapply the tags:
-
-```azurepowershell-interactive
-$tags = (Get-AzResourceGroup -Name examplegroup).Tags
-$tags.Add("Status", "Approved")
-Set-AzResourceGroup -Tag $tags -Name examplegroup
-```
-
-
 
 To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
@@ -235,7 +210,25 @@ if ($null -ne $group.Tags) {
 }
 ```
 
-To remove all tags, pass an empty hash table:
+### Remove tags
+
+You can also set **-Operation** to **Delete** to remove specified tags.
+
+```azurepowershell-interactive
+$removeTags = @{"Project"="ECommerce"; "Team"="Web"}
+Update-AzTag -ResourceId $resource.id -Tag $removeTags -Operation Delete
+```
+
+The specified tags are removed.
+
+```output
+Properties :
+        Name        Value
+        ==========  =====
+        CostCenter  00123
+```
+
+To remove all tags, use the [Remove-AzTag](/powershell/module/az.resources/remove-aztag) command.
 
 ```azurepowershell-interactive
 Set-AzResourceGroup -Tag @{} -Name examplegroup
