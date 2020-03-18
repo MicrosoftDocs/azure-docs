@@ -15320,16 +15320,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
-      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
-      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
       "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": false
@@ -17059,6 +17049,31 @@
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
       "redirect_document_id": false
     },
+    {
+        "source_path": "articles/sql-data-warehouse/backup-and-restore.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/cheat-sheet.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/column-level-security.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/column-level-security",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/create-data-warehouse-portal.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/create-data-warehouse-powershell.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell",
+        "redirect_document_id": true
+    }, 
     {
       "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
