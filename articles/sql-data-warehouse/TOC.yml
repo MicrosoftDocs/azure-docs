@@ -19,7 +19,7 @@
 - name: Release Notes
   items:
     - name: Recent Release
-      href: release-notes-10-0-10106-0.md  
+      href: ../synapse-analytics/sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json 
     - name: Gen2 region upgrade schedule
       href: gen2-migration-schedule.md
 - name: Quickstarts
@@ -40,21 +40,21 @@
   - name: Scale
     items:
     - name: Portal
-      href: quickstart-scale-compute-portal.md
+      href: ../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: PowerShell
-      href: quickstart-scale-compute-powershell.md
+      href: ../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: T-SQL
-      href: quickstart-scale-compute-tsql.md
+      href: ../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Workload management
     items: 
     - name: Create workload classifier
       items:
       - name: T-SQL
-        href: quickstart-create-a-workload-classifier-tsql.md 
+        href: ../synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json 
     - name: Create workload isolation
       items:
       - name: T-SQL
-        href: quickstart-configure-workload-isolation-tsql.md
+        href: ../synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Security
@@ -158,7 +158,7 @@
     - name: Result set caching
       items:
       - name: Performance tuning guidance 
-        href: performance-tuning-result-set-caching.md
+        href: ../synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Set for a database
         href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Set for a session 
@@ -200,7 +200,7 @@
       - name: Transactions
         href: sql-data-warehouse-develop-transactions.md
       - name: Transactions best practices
-        href: sql-data-warehouse-develop-best-practices-transactions.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: User-defined schemas
         href: sql-data-warehouse-develop-user-defined-schemas.md
       - name: Variable assignment
@@ -238,11 +238,11 @@
     - name: Scale, pause, resume
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Resource utilization & query activity 
-      href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json 
     - name: Data protection
       href: ../synapse-analytics/sql-data-warehouse/backup-and-restore.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Recommendations 
-      href: sql-data-warehouse-concept-recommendations.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Maintenance schedules
