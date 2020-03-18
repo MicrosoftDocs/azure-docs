@@ -178,7 +178,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-[FAQs](requently-asked-questions.md#live-streaming)
+[FAQs](frequently-asked-questions.md#live-streaming)
 
 ## Next steps
 
