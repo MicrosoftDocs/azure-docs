@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Create an Azure Database for MariaDB server by using the Azure portal
