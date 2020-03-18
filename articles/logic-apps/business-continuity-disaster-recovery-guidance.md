@@ -3,9 +3,7 @@ title: Business continuity and disaster recovery
 description: Design a strategy to help you protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, logicappspm
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ---
@@ -19,6 +17,8 @@ This article provides guidance for designing a disaster recovery solution for th
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
 * [Integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can create and run logic apps within an isolated instance of the Logic Apps runtime when you need to access resources in Azure virtual networks
+
+<a name="primary-secondary-locations"></a>
 
 ## Primary and secondary locations
 
@@ -50,6 +50,8 @@ Your logic apps and locations must meet these requirements:
 
   In more advanced scenarios, you can mix both multi-tenant Azure and an ISE as locations. However, make that you consider and understand the differences between how logic apps, built-in triggers and actions, and managed connectors run in each location.
 
+<a name="managed-connections"></a>
+
 ## Connections to resources
 
 If your logic app needs access to services, systems, and resources such as Azure Storage accounts, SQL Server databases, Office 365 Outlook email accounts, and so on, you can create connections that authenticate access to these resources. Azure Logic Apps provides [built-in triggers and actions plus hundreds of Microsoft-managed REST API connectors](../connectors/apis-list.md) that your logic app can use to work with these resources.
@@ -59,6 +61,8 @@ From a disaster recovery perspective, when you set up your secondary instance in
 For example, suppose your logic app connects to an external service such as Salesforce. Your logic app's availability in a specific location is usually independent from that service's availability and location. In this case, you could use the same API connection to that service.
 
 However, suppose your logic app connects to a service that's also in the same location or region, for example, Azure SQL Database. If that entire region becomes unavailable, then Azure SQL Database is most likely also unavailable. In this case, you'd want to have a replicated or backup database in your secondary location, and you'd want to use a separate API connection to that database.
+
+<a name="on-premises-data-gateways"></a>
 
 ## On-premises data gateways
 
@@ -89,6 +93,8 @@ You can set up your primary and secondary locations so that the logic app instan
 | Some combination of both | For example, some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
+<a name="state-history"></a>
+
 ## Logic app state and history
 
 When your logic app is triggered and starts running, the app's state is stored in the same location where the app started and is non-transferable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
@@ -96,6 +102,8 @@ When your logic app is triggered and starts running, the app's state is stored i
 > [!NOTE]
 > The Sliding Window trigger, which is a schedule-based trigger, has the capability for you to 
 > move that trigger's state to an alternate region, but the API for this task is undocumented.
+
+<a name="reduce-abandoned-in-progress"></a>
 
 ### Reduce abandoned in-progress instances
 
@@ -105,9 +113,13 @@ If you have these logic apps in both primary and secondary locations, you can im
 
 ![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
+<a name="access-trigger-runs-history"></a>
+
 ### Access to trigger and runs history
 
 To get more information about your logic app's past workflow executions, you can review the app's trigger and runs history. A logic app's history execution history is stored in the same location or region where that logic app ran, which means you can't migrate this history to a different location. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective locations where those instances ran. However, you can get location-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple locations.
+
+<a name="trigger-types-guidance"></a>
 
 ## Trigger type guidance
 
@@ -258,12 +270,19 @@ For this task, create a watchdog logic app that performs these tasks:
 
 To automatically enable or activate the secondary location, create a logic app that calls the appropriate logic apps in the secondary location. Expand your watchdog app to call this activation logic app after a specific number of failures happen.
 
-## Diagnostic data
+<a name="collect-diagnostic-data"></a>
 
-Diagnostic data for logic apps can be ingested to multiple destinations such as Azure Log Analytics, Azure Event Hubs, or Azure Storage. If you choose Log Analytics for diagnostics data and the intent is to have this data available in the secondary region as well, then through Diagnostic settings you can ingest the data to multiple Log Analytics workspaces, for both primary and secondary locations. If your choice of data ingestion is Event Hubs or Storage, then you can configure them for geo-redundancy.
+## Collect diagnostic data
 
-* [Azure Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md)
-* [Azure Blob Storage disaster recovery and account failover](../storage/common/storage-disaster-recovery-guidance.md)
+You can set up logging for your logic app runs and send the resulting diagnostic data to services such as Azure Storage, Azure Event Hubs, and Azure Log Analytics for further handling and processing.
+
+* If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces.
+
+* If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:
+
+  * [Azure Blob Storage disaster recovery and account failover](../storage/common/storage-disaster-recovery-guidance.md)
+
+  * [Azure Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md)
 
 ## Next steps
 
