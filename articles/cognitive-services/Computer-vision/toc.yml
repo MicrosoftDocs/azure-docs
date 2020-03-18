@@ -9,7 +9,7 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Using the client SDK
+  - name: Using the client library
     href: quickstarts-sdk/computer-vision-sdk.md
   - name: Using the REST API
     items:

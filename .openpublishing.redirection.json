@@ -49609,6 +49609,31 @@
       "source_path": "articles/postgresql/howto-tls-configurations.md",
       "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/computer-vision-sdk?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/computer-vision-sdk?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/java-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/computer-vision-sdk?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/node-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/computer-vision-sdk?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/computer-vision-sdk?pivots=programming-language-python",
+      "redirect_document_id": false
     }
   ]
 }
