@@ -28,10 +28,10 @@ kubectl get nodes
 
 ## How automatic repair works
 
-Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attemps several remediation steps.  The steps are performed in this order:
+Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attempts several remediation steps.  The steps are performed in this order:
 
 1. After the container runtime becomes unresponsive for 10 minutes, the failing runtime daemons and related services are restarted on the node.
-2. If the node does not become available withint 10 minutes, the node is rebooted.
+2. If the node does not become available within 10 minutes, the node is rebooted.
 3. If the node is not available within 30 minutes, the node is re-imaged.
 
 > ![Note]
