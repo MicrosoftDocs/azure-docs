@@ -125,6 +125,13 @@ Select the **Main Camera** node.
 
 1. If you want to use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), for more information on recommended settings and capabilities.
 
+## Validate project setup
+
+1. Choose the ValidateProject entry from the RemoteRendering menu in the Unity editor toolbar.
+1. Use the ValidateProject window to check for and fix project settings where necessary.
+
+    ![Unity editor project validation](media/arr-unity-validation.png)
+
 ## Create a script to initialize Azure Remote Rendering
 
 Create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) and give it the name **RemoteRendering**. Open the script file and replace its entire content with the code below:
