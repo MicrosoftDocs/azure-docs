@@ -31,11 +31,23 @@ A single database has a defined set of compute, memory, IO, and storage resource
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates]()
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-sql-logical-server/)
 
-The following JSON file is the template that is used in this article. The template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). More Azure SQL database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+:::code language="json" source="~/quickstart-templates/101-sql-logical-server/azuredeploy.json" range="1-163" highlight="63-132":::
 
-[!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
+These resources are defined in the template:
+
+- [**Microsoft.Sql/servers**](/azure/templates/microsoft.sql/servers)
+- [**Microsoft.Sql/servers/firewallRules**](/azure/templates/microsoft.sql/servers/firewallrules)
+- [**Microsoft.Sql/servers/securityAlertPolicies**](/azure/templates/microsoft.sql/servers/securityalertpolicies)
+- [**Microsoft.Sql/servers/vulnerabilityAssessments**](/azure/templates/microsoft.sql/servers/vulnerabilityassessments)
+- [**Microsoft.Sql/servers/connectionPolicies**](/azure/templates/microsoft.sql/servers/connectionpolicies)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments)
+
+More Azure SQL database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+
+### Deploy the template
 
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
@@ -50,7 +62,7 @@ $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-logical-server/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
@@ -69,15 +81,15 @@ az group create --location $location --name $resourceGroupName
 
 az group deployment create -g $resourceGroupName --template-uri "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" `
     --parameters 'projectName=' + $projectName \
-                 'adminUser=' + $adminUser \
-                 'adminPassword=' + $adminPassword
+                 'administratorLogin=' + $adminUser \
+                 'administratorLoginPassword=' + $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 * * *
 
-## Query the database
+## Validate the deployment
 
 To query the database, see [Query the database](./sql-database-single-database-get-started.md#query-the-database).
 
@@ -112,3 +124,4 @@ az group delete --name $resourceGroupName
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To create a single database using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
 - To create a single database using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
+- To learn how to create Resource Manager templates, see [Create your first template](../azure-resource-manager/templates/template-tutorial-create-first-template.md).
