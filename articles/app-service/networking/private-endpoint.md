@@ -48,7 +48,7 @@ From a security perspective:
 - The NIC of the Private Endpoint cannot have an NSG associated.
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint: see [Disable network policies for private endpoints][disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
-- You can reduce the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. But adding a Web App Service Endpoint in your subnet will let you reach any Web App hosted in the same deployment stamp and exposed to the Internet.
+- You can reduce the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. But adding a Web App Private Endpoint in your subnet will let you reach any Web App hosted in the same deployment stamp and exposed to the Internet.
 
 In the Web HTTP logs of your Web App, you will find the client source IP. This is implemented using the TCP Proxy protocol, forwarding the client IP property up to the Web App. For more information, see [Getting connection Information using TCP Proxy v2][tcpproxy].
 
