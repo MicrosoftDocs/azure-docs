@@ -23,7 +23,7 @@ This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and
 ## Prerequisites
 To step through this tutorial, you need:
 
-* A SQL Data Warehouse pre-loaded with the AdventureWorksDW database. To provision a data warehouse, see [Create a SQL Data Warehouse](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load WideWorldImportersDW](load-data-wideworldimportersdw.md).
+* A SQL Data Warehouse pre-loaded with the AdventureWorksDW database. To provision a data warehouse, see [Create a SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load WideWorldImportersDW](load-data-wideworldimportersdw.md).
 
 ## 1. Connect to your database
 To open Power BI and connect to your AdventureWorksDW database:

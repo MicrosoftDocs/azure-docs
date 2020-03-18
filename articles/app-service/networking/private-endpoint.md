@@ -52,8 +52,9 @@ From a security perspective:
 
 In the Web HTTP logs of your Web App, you will find the client source IP. This is implemented using the TCP Proxy protocol, forwarding the client IP property up to the Web App. For more information, see [Getting connection Information using TCP Proxy v2][tcpproxy].
 
-![Global overview][1]
 
+  > [!div class="mx-imgBorder"]
+  > ![Web App Private Endpoint global overview](media/private-endpoint/global-schema-web-app.png)
 
 ## DNS
 
@@ -73,8 +74,7 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 To deploy Private endpoint for your Web App through the portal see [How to connect privately to a Web App][howtoguide]
 
 
-<!--Image references-->
-[1]: ./media/private-endpoint/schemaglobaloverview.png
+
 
 <!--Links-->
 [serviceendpoint]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

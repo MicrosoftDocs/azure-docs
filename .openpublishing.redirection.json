@@ -1746,6 +1746,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-News-Search/news-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/news-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/news-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/news-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -4483,7 +4503,7 @@
     {
       "source_path": "articles/azure-supportability/create-manage-support-requests-using-access-control.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request#role-based-access-control",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-supportability/how-to-create-azure-support-request.md",
@@ -15300,16 +15320,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
-      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
-      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
       "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": false
@@ -17034,6 +17044,31 @@
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
       "redirect_document_id": false
     },
+    {
+        "source_path": "articles/sql-data-warehouse/backup-and-restore.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/backup-and-restore",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/cheat-sheet.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/cheat-sheet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/column-level-security.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/column-level-security",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/create-data-warehouse-portal.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/create-data-warehouse-powershell.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell",
+        "redirect_document_id": true
+    }, 
     {
       "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
@@ -49399,19 +49434,19 @@
       "redirect_url": "/azure/media-services/latest/create-account-howto",
       "redirect_document_id": false
     },
-    { 
-      "source_path": "articles/mariadb/howto-tls-configurations.md", 
-      "redirect_url": "/azure/mariadb/howto-configure-ssl", 
-      "redirect_document_id": false 
-    },
     {
-      "source_path": "articles/mysql/howto-tls-configurations.md", 
-      "redirect_url": "/azure/mysql/howto-configure-ssl", 
+      "source_path": "articles/mariadb/howto-tls-configurations.md",
+      "redirect_url": "/azure/mariadb/howto-configure-ssl",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/postgresql/howto-tls-configurations.md", 
-      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security", 
+      "source_path": "articles/mysql/howto-tls-configurations.md",
+      "redirect_url": "/azure/mysql/howto-configure-ssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/postgresql/howto-tls-configurations.md",
+      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
       "redirect_document_id": false
     }
   ]
