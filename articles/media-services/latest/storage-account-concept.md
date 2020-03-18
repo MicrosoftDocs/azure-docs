@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure storage accounts
-titleSUffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Learn how to create an Azure storage account to use with Azure Media Services.
 services: media-services
 documentationcenter: ''
