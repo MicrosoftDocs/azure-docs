@@ -52,7 +52,7 @@ To remove users from the Azure FarmBeats system:
 2. Select **Access Control**.
 3. Select **Delete**.
 
-   The user is deleted from the system. You will receive the following confirmation message:
+   The user is deleted from the system. You'll receive the following confirmation message:
 
    ![Azure FarmBeats confirmation message](./media/create-farms-in-azure-farmbeats/manage-users-2.png)
 
@@ -61,7 +61,7 @@ To remove users from the Azure FarmBeats system:
 > [!NOTE]
 > Azure FarmBeats users need to exist in the Azure AD tenant before you assign them to applications and roles. If a user doesn't exist in the Azure AD tenant, follow the instructions in this section. Skip the instructions, if a user already exists in the Azure AD tenant.
 
-To add users to Azure AD, do the following:
+Follow the steps to add users to Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. At the top right, select your account, and then switch to the Azure AD tenant that's associated with FarmBeats.
