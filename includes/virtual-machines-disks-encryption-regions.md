@@ -12,7 +12,7 @@
 
 For premium SSDs, standard SSDs, and standard HDDs, only the following regions currently support customer-managed keys:
 
-- Available as a GA offering in the public regions.
+- Available as a GA offering in the public regions and Azure Government regions.
 
 For ultra disks, only the following regions support customer-managed keys as a GA offering:
 
