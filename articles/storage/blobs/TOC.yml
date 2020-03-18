@@ -643,8 +643,8 @@
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Integrating with Azure services
       href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Filtering data with quick query
-      href: data-lake-storage-quick-query.md
+    - name: Filtering data with query acceleration
+      href: data-lake-storage-query-acceleration.md
     - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System URI
@@ -796,8 +796,8 @@
         href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Query
       items:
-      - name: Filter data with quick query
-        href: data-lake-storage-quick-query-how-to-dotnet.md
+      - name: Filter data with quick acceleration
+        href: data-lake-storage-query-acceleration-how-to-dotnet.md
     - name: Transfer
       items:
       - name: AzCopy

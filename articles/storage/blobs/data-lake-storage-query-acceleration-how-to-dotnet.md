@@ -1,6 +1,6 @@
 ---
-title: Filter data by using Azure Data Lake Storage quick query (.NET) | Microsoft Docs
-description: Use .NET and quick query (Preview) to retrieve a subset of data from your storage account.
+title: Filter data by using Azure Data Lake Storage query acceleration (.NET) | Microsoft Docs
+description: Use .NET and query acceleration (Preview) to retrieve a subset of data from your storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -10,14 +10,14 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ---
 
-# Filter data by using Azure Data Lake Storage quick query (.NET)
+# Filter data by using Azure Data Lake Storage query acceleration (.NET)
 
 This article shows you how to use .NET and quick query (Preview) to retrieve a subset of data from your storage account. 
 
-Quick query (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Quick Query (Preview)](data-lake-storage-quick-query.md).
+Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
 
 > [!NOTE]
-> The quick query feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 
+> The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/queryaccelerationpreview). 
 
 ## Prerequisites
 
@@ -27,7 +27,9 @@ Quick query (Preview) is a new capability for Azure Data Lake Storage that enabl
 
 ## Set up your project
 
-To get started, install the [Azure.Storage.Blob](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package.  (Need preview package name and install location).
+To get started, download the query acceleration packages. 
+
+install the [Azure.Storage.Blob](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package.  (Need preview package name and install location).
 
 For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
