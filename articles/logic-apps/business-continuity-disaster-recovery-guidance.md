@@ -10,9 +10,9 @@ ms.date: 03/31/2020
 
 # Business continuity and disaster recovery for Azure Logic Apps
 
-To help reduce the impact and effects that unpredictable events can have on your business, you need a *disaster recovery* (DR) solution so that you can protect data, quickly restore resources that support critical business functions, and keep operations running to maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your organization can more respond more quickly to interruptions, planned or unplanned, and lessen the consequences on your business.
+To help reduce the impact and effects that unpredictable events can have on your business, you need a *disaster recovery* (DR) solution so that you can protect data, quickly restore resources that support critical business functions, and keep operations running to maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your organization can more respond more quickly to interruptions, planned and unplanned, and lessen downtime for your customers.
 
-This article provides guidance for designing a disaster recovery solution for the automated workflows that you build and run by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems more easily. When you plan your disaster recovery solution, make sure that you consider not only your logic apps but these resources too:
+This article provides disaster recovery strategy and solution guidance for the automated workflows that you build and run by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems more easily. When you plan your disaster recovery solution, make sure that you consider not only your logic apps but these resources too:
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
@@ -218,6 +218,8 @@ As a recommended architecture, you can use Azure API Management as a proxy for t
 A *webhook* trigger provides the capability for your logic app to subscribe to a service by passing a *callback URL* to that service. Your logic app can then listen and wait for a specific event to happen at that service endpoint. When the event happens, the service calls the webhook trigger by using the callback URL, which then runs the logic app. When enabled, the webhook trigger subscribes to the service. When disabled, the trigger unsubscribes from the service.
 
 From a disaster recovery perspective, set up primary and secondary instances that use webhook triggers to play active-passive roles because only one instance should receive events or messages from the subscribed endpoint.
+
+![Create watchdog and health check logic apps](./media/business-continuity-disaster-recovery-guidance/check-location-watchdog-health-check-logic-apps.png)
 
 ## Assess primary instance health
 
