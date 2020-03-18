@@ -37,6 +37,6 @@ Azure Monitor for containers includes pre-configured charts for the metrics list
 
 - See [Use GPUs for compute-intensive workloads on Azure Kubernetes Service](../../aks/gpu-cluster.md) (AKS) to learn how to deploy an AKS cluster that includes GPU-enabled nodes.
 
-- Learn more about [GPU Optimized VM SKUs in Microsoft Azure](../../virtual-machines/sizes-gpu.md). 
+- Learn more about [GPU Optimized VM SKUs in Microsoft Azure](../../virtual-machines/sizes-gpu.md).
 
-- Review [GPU support in Kubernetes](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) to learn more about Kubernetes experimental support for managing GPUs across one or more nodes in a cluster.   
+- Review [GPU support in Kubernetes](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) to learn more about Kubernetes experimental support for managing GPUs across one or more nodes in a cluster.
