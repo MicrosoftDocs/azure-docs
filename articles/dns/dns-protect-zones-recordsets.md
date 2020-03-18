@@ -213,7 +213,7 @@ New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceTy
 
 The equivalent command is also [available via the Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
-```azurecli-interactive
+```azurecli
 # Lock a DNS zone
 
 az lock create \
@@ -259,7 +259,7 @@ The following PowerShell command creates a CanNotDelete lock against the SOA rec
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
 
-$lvl = "CanNotDelete
+$lvl = "CanNotDelete"
 $lnm = "<lock name>"
 $rsc = "<zone name>/@"
 $rty = "Microsoft.Network/DNSZones/SOA"

@@ -51,7 +51,7 @@ Don't create a new connections for each operation in your code. Instead, reuse c
 
 ## Create a new Node.js app
 
-Create a new script file named *redistest.js*.
+Create a new script file named *redistest.js*. Use the command `npm install redis bluebird` to install required packages.
 
 Add the following example JavaScript to the file. This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
@@ -59,6 +59,7 @@ Add the following example JavaScript to the file. This code shows you how to con
 var redis = require("redis");
 var bluebird = require("bluebird");
 
+// Convert Redis client API to use promises, to make it usable with async/await syntax
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 

@@ -1,6 +1,6 @@
 ---
 title: System views
-description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
+description: Links to the documentation for system views supported in SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT 
 manager: craigg
@@ -11,12 +11,13 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# System views supported in Azure SQL Data Warehouse
-Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
+# System views supported in SQL Analytics
+Links to the documentation for T-SQL statements supported in SQL Analytics.
 
-## SQL Data Warehouse catalog views
+## SQL Analytics catalog views
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -60,8 +61,8 @@ Links to the documentation for T-SQL statements supported in Azure SQL Data Ware
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 * [sys.dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) (Preview)
 
-## SQL Server DMVs applicable to SQL Data Warehouse
-The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+## SQL Server DMVs applicable to SQL Analytics
+The following DMVs are applicable to SQL Analytics, but must be executed by connecting to the **master** database.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -140,17 +141,17 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
-## SQL Server DMVs available in SQL Data Warehouse
-SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
+## SQL Server DMVs available in SQL Analytics
+SQL Analytics exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Analytics, are reporting the state of SQL Databases running on the distributions.
 
-SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
+SQL Analytics and Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
 
 > [!NOTE]
 > To use these views, insert ‘pdw_nodes_’ into the name, as shown in the following table:
 > 
 > 
 
-| DMV name in SQL Data Warehouse | SQL Server Transact-SQL article|
+| DMV name in SQL Analytics | SQL Server Transact-SQL article|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -212,8 +213,8 @@ SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW)
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
-## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
-The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+## SQL Server 2016 PolyBase DMVs available in SQL Analytics
+The following DMVs are applicable to SQL Analytics, but must be executed by connecting to the **master** database.
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -238,4 +239,4 @@ The following DMVs are applicable to SQL Data Warehouse, but must be executed by
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL statements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).
+For more reference information, see [T-SQL statements in SQL Analytics](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md).

@@ -19,7 +19,7 @@ This article shows how you can embed Video Indexer widgets in your applications.
 
 Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
-## Widget types
+## Widget types 
 
 ### Cognitive Insights widget
 
@@ -28,7 +28,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |Name|Definition|Description|
 |---|---|---|
 |`widgets`|Strings separated by comma|Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
-|`locale`|A short language code|Controls the insights language. The default value is `en`. <br/> Example: `locale=de`.|
+|`locale`|A short language code|Controls the language of user interface (UI). The default value is `en`. <br/> Example: `locale=de`.|
 |`tab`|The default selected tab|Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 
 ### Player widget
@@ -273,7 +273,7 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 | `custom-index-location`           | Embed VI Insights from a custom external location (can be customer a blob)     |
 | `embed-both-insights`             | Basic usage of VI Insights both player and insights                            |
 | `embed-insights-with-AMP`         | Embed VI Insights widget with a custom Azure Media Player                      |
-| `customize-the-widgets`           | Embed VI widgets with a customized options                                     |
+| `customize-the-widgets`           | Embed VI widgets with customized options                                     |
 | `embed-both-widgets`              | Embed VI Player and Insights and communicate between them                      |
 | `url-generator`                   | Generates widgets custom embed url based on user specified options             |
 | `html5-player`                    | Embed VI Insights with a default HTML5 Video player                            |

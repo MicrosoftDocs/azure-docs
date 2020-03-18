@@ -3,14 +3,14 @@ title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
-ms.author: marsma
+ms.date: 03/02/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -71,6 +71,7 @@ The following sections list available claim resolvers.
 | {OIDC:Prompt} | The `prompt` query string parameter. | login |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:scope} |The `scope`  query string parameter. | openid |
+| {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 
 ### Context
 
@@ -81,7 +82,7 @@ The following sections list available claim resolvers.
 | {Context:DateTimeInUtc} |The date time in UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |The policy deployment mode.  | Production |
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
-
+| {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
 
 ### Non-protocol parameters
 
@@ -112,9 +113,9 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
 
-## Using claim resolvers 
+## Using claim resolvers
 
-You can use claims resolvers with the following elements: 
+You can use claims resolvers with the following elements:
 
 | Item | Element | Settings |
 | ----- | ----------------------- | --------|
@@ -130,7 +131,7 @@ You can use claims resolvers with the following elements:
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |[RelyingParty](relyingparty.md#technicalprofile) technical profile| `OutputClaim`| 2 |
 
-Settings: 
+Settings:
 1. The `IncludeClaimResolvingInClaimsHandling` metadata must be set to `true`.
 1. The input or output claims attribute `AlwaysUseDefaultValue` must be set to `true`.
 
@@ -190,7 +191,7 @@ As a result, Azure AD B2C sends the above parameters to the HTML content page:
 
 ### Content definition
 
-In a [ContentDefinition](contentdefinitions.md) `LoadUri`, you can send claim resolvers to pull content from different places, based on the parameters used. 
+In a [ContentDefinition](contentdefinitions.md) `LoadUri`, you can send claim resolvers to pull content from different places, based on the parameters used.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -219,7 +220,7 @@ With Azure Application Insights and claim resolvers you can gain insights on use
 
 ### Relying party policy
 
-In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, or correlation ID to the relying party application within the JWT. 
+In a [Relying party](relyingparty.md) policy technical profile, you may want to send the tenant ID, or correlation ID to the relying party application within the JWT.
 
 ```XML
 <RelyingParty>

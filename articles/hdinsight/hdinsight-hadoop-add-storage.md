@@ -41,7 +41,7 @@ During processing, the script performs the following actions:
 
 ## Add storage account
 
-Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) to apply the changes with the following considerations:
+Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) to apply the changes with the following considerations:
 
 |Property | Value |
 |---|---|
@@ -59,7 +59,7 @@ When viewing the HDInsight cluster in the Azure portal, selecting the __Storage 
 
 To verify the additional storage use one of the methods shown below:
 
-### Powershell
+### PowerShell
 
 The script will return the Storage Account name(s) associated with the given cluster. Replace `CLUSTERNAME` with the actual cluster name, and then run the script.
 
