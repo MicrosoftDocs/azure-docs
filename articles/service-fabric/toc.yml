@@ -149,7 +149,7 @@
       - name: Resource governance
         href: service-fabric-resource-governance.md
       - name: Probes
-        href: service-fabric-probes-codepackage.md
+        href: probes-codepackage.md
     - name: Reliable Services      
       items:
       - name: Reliable Services overview

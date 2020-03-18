@@ -41,7 +41,7 @@ Additionally, ServiceFabric will raise following probe [Health Reports][health-i
 
 ## Specifying Liveness Probe
 
-You can specify probe in the ApplicationManifest.xml under ServiceMabnifestImport:
+You can specify probe in the ApplicationManifest.xml under ServiceManifestImport:
 
 Probe can either one of :
 
