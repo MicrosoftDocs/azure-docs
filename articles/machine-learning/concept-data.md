@@ -16,7 +16,7 @@ ms.date: 03/18/2020
 
 # Data access in Azure Machine Learning
 
-In this article you learn Azure machine Learning's data access solutions for connecting to myou data in Azure storage and consuming it in machine learning tasks.
+In this article, you learn Azure Machine Learning's data access solutions for connecting to your data in Azure storage, and consuming it in machine learning tasks.
 
 This article assumes you've already created an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
 
