@@ -1,8 +1,8 @@
 ---
 title: Usage and Budget Tracking
 description: Set usage alerts and notifications for budget tracking with Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 03/17/2020
 ms.author: adjohnso
 ---
 # Usage
@@ -54,6 +54,7 @@ Includes:
 * Boot disks and other disks (7.8.0+)
 
 Does NOT Include:
+
 * Other software charges
 * Reserved-VM rates
 * Volume-usage discounts
