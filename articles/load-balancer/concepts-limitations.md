@@ -45,8 +45,11 @@ Basic Load Balancers have limited scope (availability set) can only scale up to 
 * **Load-balancing rules**: Load-Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
 * **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
 * **Outbound rules**: An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard Load Balancer to be translated to the frontend.
-Basic Load Balancer does not support Outbound Rules.
-![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+
+  Basic Load Balancer does not support Outbound Rules.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Transport protocols**: Load Balancer doesn't support ICMP; ICMP pings to a public-facing load balancer will time out. To ping your public-facing load balancer, use TCP Ping
 
 ## <a name = "load-balancer-concepts"></a>Load Balancer concepts
 
