@@ -23,7 +23,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 
-Use [Create and Connect - portal](create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**. 
+Use [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**. 
 
 ## Pause compute
 
