@@ -49,7 +49,7 @@ To find more template samples, see [Azure Quickstart Templates](https://azure.mi
 
 To deploy the template:
 
-1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud Shell.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -70,7 +70,7 @@ To deploy the template:
 
 ## Verify the deployment
 
-To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -84,7 +84,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
