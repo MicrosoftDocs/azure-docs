@@ -41,8 +41,8 @@
       href: users-default-permissions.md
   - name: Architecture
     items:
-  - name: Azure AD architecture
-    href: active-directory-architecture.md
+    - name: Azure AD architecture
+      href: active-directory-architecture.md
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond
