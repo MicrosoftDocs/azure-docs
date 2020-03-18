@@ -48,7 +48,7 @@ You'll use the EncryptFormatAll option, information about this feature is locate
 
 While this method can be done when also encrypting the OS, we're just encrypting Data drives.
 
-This procedure assumes you already reviewed the pre-requisites mentioned here: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-linux and here https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart.
+This procedure assumes you already reviewed the pre-requisites mentioned here: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux and here https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart.
 
 The ADE dual pass version is on deprecation path and should no longer be use on new ADE encryptions.
 
