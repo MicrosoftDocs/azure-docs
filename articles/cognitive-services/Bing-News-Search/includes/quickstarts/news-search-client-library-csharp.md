@@ -1,22 +1,16 @@
 ---
-title: "Quickstart: Perform a news search using the SDK for C# - Bing News Search"
+title: Bing News Search C# client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for news using the Bing News Search SDK for C#, and process the response.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-news-search
-ms.topic: quickstart
-ms.date: 12/12/2019
+ms.topic: include
+ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
 
-# Quickstart: Perform a news search with the Bing News Search SDK for C#
-
-Use this quickstart to begin searching for news with the Bing News Search SDK for C#. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
+Use this quickstart to begin searching for news with the Bing News Search client library for C#. While Bing News Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 
 ## Prerequisites
 
@@ -29,9 +23,9 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-To set up a console application using the Bing News Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.NewsSearch` package.
+To set up a console application using the Bing News Search client library, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.NewsSearch` package.
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
@@ -85,4 +79,4 @@ To set up a console application using the Bing News Search SDK, browse to the `M
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-news-search-single-page-app.md)
