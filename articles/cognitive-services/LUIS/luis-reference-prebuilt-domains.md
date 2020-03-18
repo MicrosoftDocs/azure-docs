@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 #source: https://raw.githubusercontent.com/Microsoft/luis-prebuilt-domains/master/README.md
@@ -22,10 +22,10 @@ This reference provides information about the [prebuilt domains](luis-how-to-use
 
 ## Custom domains per language
 
-The table below summarizes the currently supported domains. Support for English is usually more complete than others. 
+The table below summarizes the currently supported domains. Support for English is usually more complete than others.
 
 | Entity Type       | EN-US      | ZH-CN   | DE    | FR     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
-|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
+|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:|
 | Calendar  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 |Communication  | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
 | Email     | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | ✓  | ✓      | ✓    | ✓    | ✓     | ✓  |
@@ -46,4 +46,4 @@ Prebuilt domains are **not supported** in:
 
 ## Next steps
 
-Learn the [simple entity](reference-entity-simple.md). 
+Learn the [simple entity](reference-entity-simple.md).

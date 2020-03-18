@@ -192,7 +192,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. Within the same file, add the following method **InitializeCosmosClientInstanceAsync**, which reads the configuration and initializes the client.
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
+   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
 
 1. Define the configuration in the project's *appsettings.json* file as shown in the following snippet:
 

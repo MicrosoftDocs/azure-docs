@@ -89,7 +89,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

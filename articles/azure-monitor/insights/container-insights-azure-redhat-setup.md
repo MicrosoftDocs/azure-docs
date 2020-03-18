@@ -108,7 +108,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
     The output resembles the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -192,7 +192,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
     The output resembles the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 

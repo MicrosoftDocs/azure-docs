@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 03/12/2020
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Windows
@@ -42,7 +42,7 @@ IoT Core devices must include the IoT Core- Windows Containers optional feature 
 Get-Service vmcompute
 ```
 
-If the service is present, you should get a successful response with the service status listed as **running**. If the vmcompute service is not found, then your device does not meet the requirements for IoT Edge. Contact your hardware provider to ask about support for this feature.
+If the service is present, you should get a successful response with the service status listed as **running**. If the `vmcompute` service is not found, then your device does not meet the requirements for IoT Edge. Contact your hardware provider to ask about support for this feature.
 
 ### Prepare for a container engine
 
@@ -223,6 +223,18 @@ Uninstall-IoTEdge
 The Uninstall-IoTEdge command does not work on Windows IoT Core. To remove IoT Edge from Windows IoT Core devices, you need to redeploy your Windows IoT Core image.
 
 For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`.
+
+## Verify installation script
+
+The installation commands provided in this article use the Invoke-WebRequest cmdlet to request the installation script from `aka.ms/iotedge-win`. This link points to the`IoTEdgeSecurityDaemon.ps1` script from the most recent [IoT Edge release](https://github.com/Azure/azure-iotedge/releases). You can also download this script, or a version of the script from a specific release, to run the installation commands on your IoT Edge device.
+
+The provided script is signed to increase security. You can verify the signature by downloading the script to your device then running the following PowerShell command:
+
+```powershell
+Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
+```
+
+The output status is **Valid** if the signature is verified.
 
 ## All installation parameters
 

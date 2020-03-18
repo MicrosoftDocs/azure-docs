@@ -1,22 +1,22 @@
 ---
-title: 'Configure Azure AD authentication for Point-to-Site connection to Azure | Microsoft Docs'
-description: In this tutorial, learn how to configure Azure Active Directory authentication for User VPN.
+title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
+description: Learn how to configure Azure Active Directory authentication for User VPN.
 services: virtual-wan
 author: anzaman
 
 ms.service: virtual-wan
-ms.topic: tutorial
-ms.date: 02/07/2019
+ms.topic: conceptual
+ms.date: 03/17/2020
 ms.author: alzam
 
 ---
-# Tutorial: Create a User VPN connection by using Azure Virtual WAN
+# Configure Azure Active Directory authentication for User VPN
 
-This tutorial shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
+This article shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
 
 This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a WAN
@@ -122,7 +122,7 @@ Use the VPN profile to configure your clients.
 To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 #### To download the Azure VPN client

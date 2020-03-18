@@ -36,7 +36,7 @@ What you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install .NET Core](https://www.microsoft.com/net/core/)
+* [Install .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create local .NET Core app
 

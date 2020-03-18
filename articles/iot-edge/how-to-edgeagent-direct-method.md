@@ -4,7 +4,7 @@ description: Monitor and manage an IoT Edge deployment using built-in direct met
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge

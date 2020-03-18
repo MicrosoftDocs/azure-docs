@@ -3,7 +3,7 @@ title: Run custom scripts on Linux VMs in Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -126,7 +126,7 @@ These items should be treated as sensitive data and specified in the extensions 
 * `skipDos2Unix`: (optional, boolean) skip dos2unix conversion of script-based file URLs or script.
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
-  * `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
+* `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
   this field instead if your command contains secrets such as passwords.
 * `script`: (**required** if commandToExecute not set, string)a base64 encoded (and optionally gzip'ed) script executed by /bin/sh.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
@@ -212,7 +212,7 @@ CustomScript uses the following algorithm to execute a script.
 
 CustomScript (version 2.1 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
 To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 

@@ -43,7 +43,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Android Studio.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Step 3: Your app is configured and ready to run
