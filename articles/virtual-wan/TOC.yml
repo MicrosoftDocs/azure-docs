@@ -58,9 +58,9 @@
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
-    - name: Download a VPN profile
-      href: ../vpn-gateway/about-vpn-profile-download.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-    - name: Download global and hub-based profiles
+    - name: Client profile
+      href: about-vpn-profile-download.md
+    - name: Global and hub-based profile
       href: global-hub-profile.md
     - name: Configure OpenVPN clients
       href: ../vpn-gateway/vpn-gateway-howto-openvpn-clients.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
