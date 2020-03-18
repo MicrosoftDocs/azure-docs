@@ -59,10 +59,10 @@ For more detailed steps on how to do this, you can also visit the Azure Digital 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Azure Digital Twins resources:
-* Models: Role assignment dictates control over models uploaded in Azure Digital Twins to generate a graph.
+* Twin types: Role assignment dictates control over twin types uploaded in Azure Digital Twins to generate a graph.
 * Query: Role assignment determines ability to run SQL query operations on twins within the Azure Digital Twins graph.
-* Digital Twin: Role assignment provides control over CRUD operations on digital twin entities in the graph.
-* Twin relationships: Role assignment defines control over do CRUD operations on relationship edges between twins within a graph
+* Digital Twin: Role assignment provides control over CRUD operations on digital twin entities in the twin graph.
+* Twin relationships: Role assignment defines control over do CRUD operations on relationships between digital twins within a twin graph
 * Event routes: Role assignment determines access to route events from Azure Digital Twins to an endpoint service like Event Grid, Event Hub or Service Bus.
 
 ## Next steps
