@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/17/2020
 ms.author: radeltch
 
 ---
@@ -299,7 +299,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    [...]
    <b>SBD_STARTMODE="always"</b>
    [...]
-   <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
    Create the `softdog` configuration file

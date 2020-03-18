@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a SQL pool that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL pool that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
