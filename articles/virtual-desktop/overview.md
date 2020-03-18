@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/12/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -123,6 +123,20 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [Mac](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (Preview)](connect-android.md)
+
+The Remote Desktop clients must have access to the following URLs:
+
+|Address|Outbound port|Purpose|Client(s)|
+|---|---|---|---|
+|*.wvd.microsoft.com|TCP port 443|Service traffic|All|
+|go.microsoft.com|TCP port 443|Microsoft FWLinks|All|
+|aka.ms|TCP port 443|Microsoft URL shortener|All|
+|docs.microsoft.com|TCP port 443|Documentation|All|
+|privacy.microsoft.com|TCP port 443|Privacy statement|All|
+|query.prod.cms.rt.microsoft.com|TCP port 443|Client updates|Windows Desktop|
+
+>[!IMPORTANT]
+>Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to the client sites and resources, and don't include URLs for other services like Azure Active Directory.
 
 ## Supported virtual machine OS images
 

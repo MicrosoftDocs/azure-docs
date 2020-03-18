@@ -49,6 +49,8 @@
     href: front-door-url-rewrite.md
   - name: URL redirect
     href: front-door-url-redirect.md
+  - name: Wildcard domain
+    href: front-door-wildcard-domain.md
 - name: How-to guides
   items:
   - name: Redirect Traffic
