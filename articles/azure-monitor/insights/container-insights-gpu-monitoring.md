@@ -2,7 +2,7 @@
 title: Configure GPU monitoring with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure monitoring Kubernetes clusters with NVIDIA and AMD GPU enabled nodes with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/18/2020
 ---
 
 # Configure GPU monitoring with Azure Monitor for containers
@@ -35,8 +35,8 @@ Azure Monitor for containers includes pre-configured charts for the metrics list
 
 ## Next steps
 
-Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS) 
+- See [Use GPUs for compute-intensive workloads on Azure Kubernetes Service](../../aks/gpu-cluster.md) (AKS) to learn how to deploy an AKS cluster that includes GPU-enabled nodes.
 
-GPU Optimized VM SKUs in Microsoft Azure 
+- Learn more about [GPU Optimized VM SKUs in Microsoft Azure](../../virtual-machines/sizes-gpu.md). 
 
-GPU support in Kubernetes  
+- Review [GPU support in Kubernetes](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/) to learn more about Kubernetes experimental support for managing GPUs across one or more nodes in a cluster.   
