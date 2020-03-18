@@ -31,7 +31,7 @@ A single database has a defined set of compute, memory, IO, and storage resource
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-sql-logical-server/)
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
 
 :::code language="json" source="~/quickstart-templates/101-sql-logical-server/azuredeploy.json" range="1-163" highlight="63-132":::
 
