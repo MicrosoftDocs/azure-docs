@@ -1,6 +1,6 @@
 ---
 title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
-description: Specify the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
+description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -21,7 +21,7 @@ The **Localization** element enables you to support multiple locales or language
 
 ## Sign-up or sign-in page elements
 
-The following Ids are used for a content definition with an ID of `api.signuporsignin`.
+The following IDs are used for a content definition with an ID of `api.signuporsignin`.
 
 | ID | Default value |
 | -- | ------------- |
@@ -87,7 +87,7 @@ The following example localizes the Facebook identity provider to Arabic:
 | **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
-## Sign-up and self asserted pages user interface elements
+## Sign-up and self-asserted pages user interface elements
 
 The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`.
 
@@ -128,7 +128,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **ver_intro_msg** | Verification is necessary. Please click Send button. |
 | **ver_input** | Verification code |
 
-### Sign-up and self asserted pages error messages
+### Sign-up and self-asserted pages error messages
 
 | ID | Default value |
 | -- | ------------- |
@@ -251,6 +251,32 @@ The following are the IDs for a [one time password technical profile](one-time-p
   </LocalizedStrings>
 </LocalizedResources>
 ```
+
+
+## Claims transformations error messages
+
+The following are the IDs for claims transformations error messages:
+
+| ID | Claims transformation | Default value |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
+
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
+
 
 
 

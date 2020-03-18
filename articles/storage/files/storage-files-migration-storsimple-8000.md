@@ -334,7 +334,7 @@ We can bring the cache of the Windows Server up to the state of the appliance an
 RoboCopy command:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -361,6 +361,14 @@ Background:
    :::column-end:::
    :::column span="1":::
       Outputs to console window. Used in conjunction with output to a log file.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user does not have permissions to.
    :::column-end:::
 :::row-end:::
 :::row:::
