@@ -88,7 +88,7 @@ A custom role has the following properties.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple management group or subscriptions that share the same Azure AD directory. This display name must be unique at the scope of the Azure AD directory. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 128. |
+| `Name` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Azure AD directory. This display name must be unique at the scope of the Azure AD directory. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 128. |
 | `Id` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
 | `IsCustom` | Yes | String | Indicates whether this is a custom role. Set to `true` for custom roles. |
 | `Description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 1024. |
@@ -96,7 +96,7 @@ A custom role has the following properties.
 | `NotActions` | No | String[] | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
 | `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
 
 ## Who can create, delete, update, or view a custom role
 
@@ -110,16 +110,16 @@ Just like built-in roles, the `AssignableScopes` property specifies the scopes t
 
 ## Custom role limits
 
-The following list describes the limits custom roles.
+The following list describes the limits for custom roles.
 
 - Each directory can have up to **5000** custom roles.
-- Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, can have up to 2000 custom roles for each directory.
+- Azure Germany and Azure China 21Vianet can have up to 2000 custom roles for each directory.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
-- You can only define one management group in `AssignableScopes` of a custom role.
+- You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
-For more information about custom role limits, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#limitations).
+For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-roles-and-management-groups-preview).
 
 ## Next steps
 - [Create or update Azure custom roles using the Azure portal (Preview)](custom-roles-portal.md)
