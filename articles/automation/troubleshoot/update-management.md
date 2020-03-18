@@ -37,7 +37,7 @@ This error can occur for the following reasons:
 
 2. Solution targeting is misconfigured and the machine is not receiving updates as expected.
 
-You may also notice the machine shows with a status of **Non compliant** under **Compliance**, however **Agent update readiness** is reporting the agent is **Disconnected**.
+You may also notice the machine shows with a status of **Non-compliant** under **Compliance**, however **Agent update readiness** is reporting the agent is **Disconnected**.
 
 ### Resolution
 
@@ -47,7 +47,7 @@ You may also notice the machine shows with a status of **Non compliant** under *
 
 * Go to [Network planning](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for Log Analytic agent to work.
 
-* Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the **Update Management** portal, you'll need to configure the scope configuration to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the **Update Management** portal, you'll need to configure the scope configuration to target the machines. To learn how to configure the scope configuration, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
 * Remove the worker configuration by following the steps [deleting the hybrid runbook worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
 
