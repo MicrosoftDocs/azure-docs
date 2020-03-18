@@ -46390,6 +46390,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-pnp/quickstart-create-pnp-device-windows.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-visual-studio-code-windows/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-create-pnp-device-linux.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-visual-studio-code-linux/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-pnp-visual-studio-code.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-visual-studio-code-windows/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": true

@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack
 
-You also need to complete the [Use a device capability model to create a device](quickstart-create-pnp-device-windows.md) quickstart for Windows. The quickstart shows you how to set up your development environment using Vcpkg and create a sample project.
+You also need to complete the [Use Visual Studio Code modeling and code generation tools](tutorial-visual-studio-code-windows.md) tutorial for Windows. The tutorial shows you how to set up your development environment using Vcpkg and create a sample project.
 
 ## Store a capability model and interfaces
 
@@ -53,7 +53,7 @@ To pass the certification process, you must include and implement the **Device I
 ```
 
 > [!NOTE]
-> If you completed the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device-windows.md), you've already included the **Device Information** interface in your model.
+> If you completed the [Use Visual Studio Code modeling and code generation tools](tutorial-visual-studio-code-windows.md) tutorial, you've already included the **Device Information** interface in your model.
 
 To include the **Device Information** interface in your device model, add the interface ID to the `implements` property of the capability model:
 
@@ -102,7 +102,7 @@ To certify the device, it must enable provisioning through the [Azure IoT Device
 
 1. Choose the DCM file you want to use to generate the device code stub.
 
-1. Enter the project name, such as **sample_device**. This is the name of your device application.
+1. Enter the project name, such as **sample_device**. This value is the name of your device application.
 
 1. Choose **ANSI C** as the language.
 
@@ -145,7 +145,7 @@ You use the Vcpkg package to build the generated device code stub. The applicati
     > [!NOTE]
     > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. After the build completes successfully, enter the DPS credentials (**DPS ID Scope**, **DPS Symmetric Key**, **Device Id**) as parameters for the application. To get the credentials from certification portal, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
+1. After the build completes successfully, enter the DPS credentials (**DPS ID Scope**, **DPS Symmetric Key**, **Device ID**) as parameters for the application. To get the credentials from certification portal, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
 
     ```cmd\sh
     .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
