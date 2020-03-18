@@ -33,10 +33,13 @@ For more information on authentication with subscription keys, access tokens and
 
 ## Environment variables and application configuration
 
-Environment variables are name-value pairs, stored within a specific environment. An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
+Environment variables are name-value pairs, stored within a specific environment. A more secure alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
 
 > [!CAUTION]
 > Do **not** use hardcoded values for sensitive data, doing so is a major security vulnerability.
+
+> [!NOTE]
+> While environment variables are stored in plain text, they are isolated to an environment. If an environment is compromised, so too are the variables with the environment.
 
 ### Set environment variable
 
