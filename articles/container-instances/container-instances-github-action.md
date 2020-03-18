@@ -52,7 +52,7 @@ First, get the resource ID of your resource group. Substitute the name of your g
 
 ```azurecli
 groupId=$(az group show \
-  --name <registry-name> \
+  --name <resource-group-name> \
   --query id --output tsv)
 ```
 
@@ -82,11 +82,11 @@ Output is similar to:
 }
 ```
 
-Save the JSON output because it is used in a later step. Also, take note of the `clientID`, which you need to update the service principal in the next section.
+Save the JSON output because it is used in a later step. Also, take note of the `clientId`, which you need to update the service principal in the next section.
 
 ### Update service principal for registry authentication
 
-Update the Azure service principal credentials to allow push and pull permissions on your container registry. This step allows you to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md). 
+Update the Azure service principal credentials to allow push and pull permissions on your container registry. This step allows you the GitHub workflow to us the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md). 
 
 Get the resource ID of your container registry. Substitute the name of your registry in the following [az acr show][az-acr-show] command:
 
@@ -107,7 +107,9 @@ az role assignment create \
 
 ### Save credentials to GitHub repo
 
-In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets**. Select **Add a new secret** to add the following secrets:
+1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets**. 
+
+1. Select **Add a new secret** to add the following secrets:
 
 |Secret  |Value  |
 |---------|---------|
@@ -115,7 +117,7 @@ In the GitHub UI, navigate to your forked repository and select **Settings** > *
 |`REGISTRY_LOGIN_SERVER`   | The login server name of your registry (all lowercase). Example: *myregistry.azure.cr.io*        |
 |`REGISTRY_USERNAME`     |  The `clientId` from the JSON output from the service principal creation       |
 |`REGISTRY_PASSWORD`     |  The `clientSecret` from the JSON output from the service principal creation |
-| `RESOURCE_GROUP` | Name | The name of the resource group you used to scope the service principal |
+| `RESOURCE_GROUP` | The name of the resource group you used to scope the service principal |
 
 ### Create workflow file
 
@@ -170,7 +172,7 @@ After you commit the workflow file, the workflow is triggered. To review workflo
 
 ![View workflow progress](./media/container-instances-github-action/github-action-progress.png)
 
-When the workflow completes, get information about the container instance named `aci-sampleapp` by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
+When the workflow completes, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
 
 ```azurecli
 az container show \
@@ -188,13 +190,13 @@ FQDN                                   ProvisioningState
 aci-action01.westus.azurecontainer.io  Succeeded
 ```
 
-After the instance is provisioned, navigate to the container's FQDN in your browser to view the web app.
+After the instance is provisioned, navigate to the container's FQDN in your browser to view the running web app.
 
 ![Running web app in browser](./media/container-instances-github-action/github-action-container.png)
 
-## Use the Azure CLI
+## Use Deploy to Azure extension
 
-Alternatively, use the [Deploy to Azure extension](https://github.com/Azure/deploy-to-azure-cli-extension) in the Azure CLI to configure the workflow. The `az container app up` command in the extension takes minimal input parameters from you and creates a GitHub workflow for you in your repository. 
+Alternatively, use the [Deploy to Azure extension](https://github.com/Azure/deploy-to-azure-cli-extension) in the Azure CLI to configure the workflow. The `az container app up` command in the extension takes minimal input parameters from you to set up a workflow to deploy to Azure Container Instances. 
 
 The workflow created by the Azure CLI is similar to the workflow you can [create manually using GitHub](#configure-github-workflow).
 
@@ -228,15 +230,15 @@ az container app up \
   --repository https://github.com/myID/acr-build-helloworld-node
 ```
 
-When prompted, provide your GitHub credentials. The command then creates a personal access token (PAT) to authenticate with your registry. The token has *repo* and *user* scopes on the repo. Alternatively, [create your own PAT](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) with those scopes and supply that when prompted.
+When prompted, provide your GitHub credentials. The command then creates a personal access token (PAT) to authenticate with your registry. The token has *repo* and *user* scopes on the repo. Alternatively, [create your own PAT](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) with those scopes and supply the PAT when prompted.
 
 The command creates:
 
 * Service principal credentials for the workflow
 * Credentials to access the Azure container registry
-* A YAML file to define the GitHub workflow. By default the filename is `main.yml` but you can provide a different filename.
+* A YAML file to define the GitHub workflow. Accept the default filename `main.yml`, or provide a filename you choose.
 
-After you provide input to commit the workflow file to your repo, the workflow is triggered. Output is similar to:
+After you commit the workflow file to your repo, the workflow is triggered. Output is similar to:
 
 ```console
 [...]
@@ -248,7 +250,9 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-The workflow deploys an Azure container instance with the base name of your GitHub repo. In this case, the instance name is *acr-build-helloworld-node*. In your browser, you can browse to the link provided to view the running web app.
+### Validate workflow
+
+The workflow deploys an Azure container instance with the base name of your GitHub repo, in this case, *acr-build-helloworld-node*. In your browser, you can browse to the link provided to view the running web app.
 
 To view the workflow status and results of each step in the GitHub UI, see [Managing a workflow run](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
 
