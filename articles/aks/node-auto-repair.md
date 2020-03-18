@@ -48,4 +48,4 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 
 <!-- LINKS - Internal -->
 [availability-zones]: ./availability-zones.md
-[vm-updates]: ./virtual-machines/maintenance-and-updates.md
+[vm-updates]: ../virtual-machines/maintenance-and-updates.md
