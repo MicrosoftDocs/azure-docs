@@ -797,7 +797,7 @@
     - name: Query
       items:
       - name: Filter data with quick acceleration
-        href: data-lake-storage-query-acceleration-how-to-dotnet.md
+        href: data-lake-storage-query-acceleration-how-to.md
     - name: Transfer
       items:
       - name: AzCopy

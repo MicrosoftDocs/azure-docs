@@ -12,7 +12,7 @@ ms.reviewer: jamsbak
 
 # Filter data by using Azure Data Lake Storage query acceleration
 
-This article shows you how to use .NET and quick query (Preview) to retrieve a subset of data from your storage account. 
+This article shows you how to use .NET and query accelaration (Preview) to retrieve a subset of data from your storage account. 
 
 Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
 
@@ -35,11 +35,13 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above.
 
-- [Apache Maven](https://maven.apache.org/download.cgi).
+- [Apache Maven](https://maven.apache.org/download.cgi). 
 
+  > [!NOTE] 
+  > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
 ---
 
-## Install the packages that enable query acceleration 
+## Install packages 
 
 ### [.NET](#tab/dotnet)
 
@@ -121,7 +123,7 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
    ```
 ---
 
-## Add statements to your code file
+## Add statements
 
 
 ### [.NET](#tab/dotnet)
@@ -136,7 +138,7 @@ using Azure.Storage.QuickQuery;
 using Azure.Storage.QuickQuery.Models;
 ```
 
-Quick query retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these using statements to the top of the code file.
+Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these using statements to the top of the code file.
 
 ```csharp
 using CsvHelper;

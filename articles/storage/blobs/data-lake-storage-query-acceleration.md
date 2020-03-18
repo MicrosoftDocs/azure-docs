@@ -29,7 +29,7 @@ The following diagram illustrates how a typical application uses quick query to 
 
 The quick query feature isn't limited to Data Lake Storage (storage accounts that have the hierarchical namespace enabled on them). Quick query is completely compatible with the blobs in storage accounts that **don't** have a hierarchical namespace enabled on them. This means that you can achieve the same reduction in network latency and compute costs when you process data that you already have stored as blobs in storage accounts.
 
-For an example of how to use quick query in a .NET application, see [Filter data by using Azure Data Lake Storage quick query](data-lake-storage-quick-query-how-to-dotnet.md).
+For an example of how to use quick query in a .NET application, see [Filter data by using Azure Data Lake Storage quick query](data-lake-storage-quick-query-how-to.md).
 
 ## Better performance at a lower cost
 
@@ -49,8 +49,8 @@ Despite the change to the billing model, Quick query's pricing model is designed
 
 ## Next steps
 
-- [Quick query enrollment form](https://aka.ms/adlsquickquerypreview)	
-- [Filter data by using Azure Data Lake Storage quick query](data-lake-storage-quick-query-how-to-dotnet.md)
+- [Quick query enrollment form](https://aka.ms/adlsquickquerypreview)    
+- [Filter data by using Azure Data Lake Storage quick query](data-lake-storage-quick-query-how-to.md)
 - Quick query SQL language reference
 - Quick query REST API reference
 
