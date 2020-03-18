@@ -161,6 +161,60 @@ Any customers associated with these subscriptions will be able to view the offer
 
 ## Plan overview
 
+Each offer must have one or more plans (sometimes referred to as SKUs). You might add multiple plans to support different feature sets at different prices or to customize a specific plan for a limited audience of specific customers. Customers can view the plans that are available to them under the parent offer.
+
+On the **Plan overview** page, select **+ Create new plan**. Then enter a **Plan ID** and a **Plan name**. Both of these values can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. These values may be visible to customers, and they can't be changed after you publish the offer.
+
+Select **Create** once you have entered these values to continue working on your plan. There are three sections to complete: **Plan listing**, **Pricing and availability**, and **Technical configuration**.
+
+### Plan listing
+
+First, enter a **Name** for the plan. This name will be shown to customers in the marketplace.
+
+Next, provide a **Search results summary** for the plan. This is a short description of your plan (up to 100 characters), which may be used in marketplace search results.
+
+Finally, enter a **Description** that provides a more detailed explanation of the plan.
+
+### Pricing and availability
+
+Currently, there is only one pricing model that can be used for Managed Service offer: **Bring your own license (BYOL)**. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.
+
+The **Plan visibility** section lets you indicate if this plan should be private. If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
+
+To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](cloud-partner-portal-azure-private-skus.md).
+
+> [!IMPORTANT]
+> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). You can [remove access to a delegation](../../lighthouse/how-to/onboard-customer.md#remove-access-to-a-delegation) after a customer accepts an offer only if you included an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when you published the offer. You can also reach out to the  customer and ask them to [remove your access](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+
+### Technical configuration
+
+Complete the **Manifest Details** section for your plan. This creates a manifest with authorization information for managing customer resources. This information is required in order to enable Azure delegated resource management.
+
+> [!NOTE]
+> As noted above, the users and roles in your **Authorization** entries will apply to every customer who purchases the plan. If you want to limit access to a specific customer, you'll need to publish a private plan for their exclusive use.
+
+First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
+
+Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers' resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
+
+Finally, add one or more **Authorization** entries to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan, and assign roles that grant specific levels of access.
+
+> [!TIP]
+> In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
+
+For each **Authorization**, you'll need to provide the following. You can then select **New authorization** as many times as needed to add more users and role definitions.
+
+- **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers' resources.
+- **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
+- **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../../role-based-access-control/built-in-roles.md) and [Role support for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+  > [!NOTE]
+  > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.
+- **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user's Role Definition, this field has no effect.)
+
+> [!TIP]
+> To ensure you can [remove access to a delegation](onboard-customer.md#remove-access-to-a-delegation) if needed, include an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+
+Once you've completed the info, you can select **New plan** as many times as you need to create additional plans. When you're done, select **Save**, and then continue to the **Marketplace** section.
 
 
 ## Publish
