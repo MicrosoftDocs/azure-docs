@@ -1,48 +1,38 @@
 ---
 title: Azure Machine Learning vs. Machine Learning Studio (classic)  
-description: How Azure Machine Learning is different from Machine Learning Studio (classic)
+description: What's the difference between Azure Machine Learning and Machine Learning Studio (classic)?
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/29/2019
+ms.date: 03/24/2020
 ---
-
  
-# How Azure Machine Learning differs from Machine Learning Studio (classic)
+# Azure Machine Learning vs Machine Learning Studio (classic)
 
-This article compares the features, capabilities, and interface of Azure Machine Learning to Machine Learning Studio (classic). 
+Azure Machine Learning provides both SDKs **and** the "drag-and-drop" designer to build machine learning models. Studio (classic) only offers a standalone drag-and-drop experience.
 
-## About Machine Learning Studio (classic)
-[Machine Learning Studio (classic)](studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
+We recommend that new users start with Azure Machine Learning for a wide range of cutting-edge machine learning tools. For more information on what Azure Machine Learning has to offer, see [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
 
-## About Azure Machine Learning
+## Quick comparison
 
-Meanwhile, [Azure Machine Learning](overview-what-is-azure-ml.md) provides both a web interface called the designer (preview) **and** several SDKs and CLI to quickly prep data, train and deploy machine learning models. With Azure Machine Learning you get scale, multiple framework support, advanced ML capabilities like automated machine learning and pipeline support.
-
-Azure Machine Learning designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources, is scalable, and is fully integrated into Azure Machine Learning.  
-
-> [!TIP]
-> Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) (preview), which provides drag and drop ML modules __plus__ scalability, version control, and enterprise security.
-
-## Comparison: Azure Machine Learning vs. Machine Learning Studio (classic)
-
-Here is a quick comparison.
-
-||  Azure Machine Learning designer|Studio (classic) |
+| | Azure Machine Learning | Machine Learning Studio (classic) | 
 |---| --- | --- |
-||The designer is in preview, Azure Machine Learning is GA|Generally available (GA) | 
-|Drag-and-drop interface| Yes | Yes|
-|Experiment| Scale with compute target|Scale (10GB training data limit) | 
-|Modules for interface| [Many popular modules](algorithm-module-reference/module-reference.md) | Many |
-|Training compute targets| AML Compute(GPU/CPU)|Proprietary compute target, CPU only|
-|Inferencing compute targets| Azure Kubernetes Service for real-time inference <br/>AML Compute for batch inference|Proprietary web service format, not customizable | 
-|ML Pipeline| Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|Not supported | 
-|ML Ops| Configurable deployment, model and pipeline versioning|Basic model management and deployment | 
-|Model| Standard format, various depends on the training job|Proprietary, non portable format.| 
-|Automated model training|Not yet in the designer, but possible through the interface and SDKs.| No | 
+| Drag and drop interface | Yes - [Azure Machine Learning designer (preview)](concept-designer.md) | Yes | 
+| Experiment | Scale with compute target | Scalable (10-GB training data limit) |
+| Training compute targets | Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](concept-compute-target.md#train))| Proprietary compute target, CPU support only|
+| Inferencing compute targets | Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](how-to-deploy-and-where.md)) | Proprietary web service format, not customizable |
+| ML Pipeline | [Supported](concept-ml-pipelines.md) | Not supported |
+| MLOps | [Configurable deployment](concept-model-management-and-deployment.md) - model, pipeline, and dataset versioning and tracking | Basic model management and deployment |
+| Model format | Standard format depending on training job type | Proprietary format, Studio (classic) only |
+| Automated model training and hyperparameter tuning | [Supported in the SDK and visual workspace](concept-automated-ml.md) | No | 
+
+
+## Migrate from Machine Learning Studio (classic)
+
+Currently, there's no way to migrate Studio (classic) experiments to Azure Machine Learning designer (preview). However, we'll provide a migration path after the designer becomes generally available. Until then, we encourage users to try the designer, which provides a familiar drag-and-drop experience with improved workflow **plus** scalability, version control, and enterprise security.
 
 ## Get started with Azure Machine Learning
 
