@@ -2,14 +2,15 @@
 title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-ms.date: 01/13/2020
+
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
-# Server side encryption of Azure managed disks
+# Server-side encryption of Azure managed disks
 
 Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
 
@@ -25,15 +26,19 @@ The following sections describe each of the options for key management in greate
 
 ## Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
+By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
 
 ## Customer-managed keys
 
 You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. You have to grant access to managed disks in your Key Vault to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
+For premium SSDs, standard SSDs, and standard HDDs: When you disable or delete your key, any VMs with disks using that key will automatically shut down. After this, the VMs will not be usable unless the key is enabled again or you assign a new key.
+
+For ultra disks, when you disable or delete a key, any VMs with ultra disks using the key won't automatically shut down. Once you deallocate and restart the VMs then the disks will stop using the key and then VMs won't come back online. To bring the VMs back online, you must assign a new key or enable the existing key.
+
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM, which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 The following list explains the diagram in even more detail:
@@ -51,15 +56,14 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 ### Supported regions
 
-Only the following regions are currently supported:
-
-- Available as a GA offering in the East US, West US 2, and South Central US regions.
-- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
+[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
+- If this feature is enabled for your disk, you cannot disable it.
+    If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 - Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
@@ -94,28 +98,28 @@ For now, customer-managed keys have the following restrictions:
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.	Create an instance of a DiskEncryptionSet. 
+1.    Create an instance of a DiskEncryptionSet. 
     
-    ```azurecli
-    keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
+        ```azurecli
+        keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
+    
+        keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+    
+        az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
+        ```
 
-    keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+1.    Grant the DiskEncryptionSet resource access to the key vault. 
 
-    az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
-    ```
+        > [!NOTE]
+        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
-1.	Grant the DiskEncryptionSet resource access to the key vault. 
-
-    > [!NOTE]
-    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
-
-    ```azurecli
-    desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-
-    az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-
-    az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
-    ```
+        ```azurecli
+        desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
+    
+        az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
+    
+        az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
+        ```
 
 #### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
