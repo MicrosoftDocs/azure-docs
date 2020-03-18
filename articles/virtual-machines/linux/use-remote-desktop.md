@@ -45,7 +45,7 @@ Next, install xfce using `apt` as follows:
 
 ```bash
 sudo apt-get update
-sudo apt-get install xfce4
+sudo apt-get -y install xfce4
 ```
 
 ## Install and configure a remote desktop server
