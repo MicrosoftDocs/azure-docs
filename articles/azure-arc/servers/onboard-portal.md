@@ -51,6 +51,7 @@ The script to automate the download and installation, and to establish the conne
 ## Install and validate the agent on Windows
 
 ### Install manually
+
 You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. 
 
 > [!NOTE]

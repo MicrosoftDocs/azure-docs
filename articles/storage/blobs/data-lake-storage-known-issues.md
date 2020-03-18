@@ -96,7 +96,7 @@ Use only versions `1.6.0` or higher.There is currently a storage bug 
 
 <a id="explorer-in-portal" />
 
-## Storage Explorer in the Azure Portal
+## Storage Explorer in the Azure portal
 
 ACLs are not yet supported.
 
@@ -106,6 +106,14 @@ ACLs are not yet supported.
 
 Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
 Applications that call Blob APIs will likely work.
+
+## Access control lists (ACL) and anonymous read access
+
+If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+
+## Windows Azure Storage Blob (WASB) driver
+
+Currently, there are several issues associated with using the WASB driver along with accounts that have a hierarchical namespace. We recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your workloads. 
 
 
 

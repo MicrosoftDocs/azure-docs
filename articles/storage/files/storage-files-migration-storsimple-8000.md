@@ -4,25 +4,21 @@ description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure F
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ---
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliance and their cloud service components. It is possible to migrate the data from either of these appliances to an Azure File Sync environment. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
+The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances, and their cloud service components. It is possible to migrate the data from either of these appliances to an Azure File Sync environment. Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
 
-## StorSimple
+StorSimple 8000 series will reach its [end-of-life](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) in December 2022. It is important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync. 
 
-StorSimple is a discontinued Microsoft product. Extended support for this product and its cloud service expires on December 31 2022. It is important to start planning for a migration off of StorSimple right away.
-
-Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
+## Azure File Sync
 
 > [!IMPORTANT]
 > Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
-
-## Azure File Sync
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -242,10 +238,10 @@ During this migration process, you will mount several volume clones to your VM, 
 > [!IMPORTANT]
 > For this to work, a registry key must be set on the server before Azure File Sync is configured.
 
-1. Create a new directory on the system drive of the VM. Azure File Sync information will need to be persisted there instead of on the mounted volume clones. For example: `“C:\syncmetadata”`
+1. Create a new directory on the system drive of the VM. Azure File Sync information will need to be persisted there instead of on the mounted volume clones. For example: `"C:\syncmetadata"`
 2. Open regedit and locate the following registry hive: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Create a new Key of type String, named: ***MetadataRootPath***
-4. Set the full path to the directory you created on the system volume, for example: `C:\syncmetadata”`
+4. Set the full path to the directory you created on the system volume, for example: `C:\syncmetadata"`
 
 ### Configure Azure File Sync on the Azure VM
 
@@ -338,7 +334,7 @@ We can bring the cache of the Windows Server up to the state of the appliance an
 RoboCopy command:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -365,6 +361,14 @@ Background:
    :::column-end:::
    :::column span="1":::
       Outputs to console window. Used in conjunction with output to a log file.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user does not have permissions to.
    :::column-end:::
 :::row-end:::
 :::row:::

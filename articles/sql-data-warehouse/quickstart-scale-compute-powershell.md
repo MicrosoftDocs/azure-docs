@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Scale compute - PowerShell "
-description: Scale compute in SQL pool in PowerShell. Scale out compute for better performance, or scale back compute to save costs.
+title: Scale compute for Synapse SQL pool (Azure PowerShell)
+description: You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -14,9 +14,9 @@ ms.custom: seo-lt-2019
 ---
 
 
-# Quickstart: Scale compute in in Azure Synapse Analytics SQL pool using Azure PowerShell
+# Quickstart: Scale compute for Synapse SQL pool with Azure PowerShell
 
-Scale compute in SQL pool using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
+You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a SQL pool that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL pool that you can scale. If you need to create one, use [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
@@ -63,7 +63,7 @@ Follow these steps to find location information for your data warehouse.
 
 ## Scale compute
 
-In SQL pool, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+In SQL pool, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
 
 To change data warehouse units, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database **mySampleDataWarehouse**, which is hosted in the Resource group **resourcegroupname** on server **sqlpoolservername**.
 

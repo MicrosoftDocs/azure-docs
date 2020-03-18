@@ -119,6 +119,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 
 > [!NOTE]
 > This feature is in Public Preview right now.
+> The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
 
 #### Public Preview of synchronizing temporary passwords and "Force Password Change on Next Logon"
 

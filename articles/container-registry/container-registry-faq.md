@@ -237,7 +237,7 @@ The assignee is then able to authenticate and access images in the registry.
 
 * To pull an image:
 
-  ```console
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -293,28 +293,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 For instance, Fedora 28 Server has the following docker daemon options:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 With `--signature-verification=false` missing, `docker pull` fails with an error similar to:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 To resolve the error:
 1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Restart the Docker daemon service by running the following command:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
@@ -474,9 +471,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 This setting also applies to the `az acr run` command.
 
