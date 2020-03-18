@@ -8,7 +8,7 @@ ms.date: 03/10/2020
 
 # Azure Kubernetes Service (AKS) node auto-repair
 
-AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy. This documentation describes how Azure Kubernetes Service (AKS) monitors worker nodes, and repairs unhealthy worker nodes.  The documentation is to inform AKS operators on the behavior of node repair functionality.
+AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy. This documentation describes how Azure Kubernetes Service (AKS) monitors worker nodes, and repairs unhealthy worker nodes.  The documentation is to inform AKS operators on the behavior of node repair functionality. It is also important to note that Azure platform [performs maintenance on Virtual Machines][vm-updates] that experience issues. AKS and Azure work together to minimize service disruptions for your clusters.
 
 ## How AKS checks for unhealthy nodes
 
@@ -28,11 +28,11 @@ kubectl get nodes
 
 ## How automatic repair works
 
-Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attempts several remediation steps.  The steps are performed in this order:
+This behavior is for Virtual Machine Scale Sets.  Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attempts several remediation steps.  The steps are performed in this order:
 
-1. After the container runtime becomes unresponsive for 10 minutes, the failing runtime daemons and related services are restarted on the node.
-2. If the node does not become available within 10 minutes, the node is rebooted.
-3. If the node is not available within 30 minutes, the node is re-imaged.
+1. After the container runtime becomes unresponsive for 10 minutes, the failing runtime services are restarted on the node.
+2. If the node is not ready within 10 minutes, the node is rebooted.
+3. If the node is not ready within 30 minutes, the node is re-imaged.
 
 > [!Note]
 > If multiple nodes are unhealthy, they are repaired one by one
@@ -45,4 +45,4 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 
 <!-- LINKS - Internal -->
 [availability-zones]: ./availability-zones.md
-
+[vm-updates]: ./virtual-machines/maintenance-and-updates.md
