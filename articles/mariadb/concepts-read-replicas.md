@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 3/18/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -26,7 +26,6 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 The read replica feature uses asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the master and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
-
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
@@ -44,7 +43,6 @@ Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, 
 
 *West US 2 is temporarily unavailable as a cross region replica location.
 
-
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
 
@@ -53,10 +51,9 @@ If you are using cross-region replicas for disaster recovery planning, we recomm
 However, there are limitations to consider: 
 
 * Regional availability: Azure Database for MariaDB is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
-	
+    
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
-
 
 ## Create a replica
 
@@ -89,7 +86,7 @@ Azure Database for MariaDB provides the **Replication lag in seconds** metric in
 
 This metric is calculated using the `seconds_behind_master` metric available in MariaDB's `SHOW SLAVE STATUS` command.
 
-Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+Set an alert to inform you when the replication lag reaches a value that isn't acceptable for your workload.
 
 ## Stop replication
 
