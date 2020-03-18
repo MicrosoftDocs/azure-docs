@@ -28,24 +28,7 @@ Users may have to update their query settings and subscriptions to their own acc
       "type": 9,
       "content": {
         "version": "KqlParameterItem/1.0",
-        "crossComponentResources": [
-          "/subscriptions/1f3fa6d2-851c-4a91-9087-1a050f3a9c38/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-1f3fa6d2-851c-4a91-9087-1a050f3a9c38-eus"
-        ],
         "parameters": [
-          {
-            "id": "f90c348b-4933-4b02-8959-1246d4ceb19c",
-            "version": "KqlParameterItem/1.0",
-            "name": "Subscription",
-            "type": 6,
-            "isRequired": true,
-            "value": "/subscriptions/5c038d14-3833-463f-a492-de956f63f12a",
-            "typeSettings": {
-              "additionalResourceOptions": [
-                "value::1"
-              ],
-              "includeAll": false
-            }
-          },
           {
             "id": "98860972-bc1f-4305-b15e-7c529c8def06",
             "version": "KqlParameterItem/1.0",
@@ -120,12 +103,8 @@ Users may have to update their query settings and subscriptions to their own acc
         "size": 1,
         "showAnalytics": true,
         "title": "Data Type Distribution",
-        "exportToExcelOptions": "visible",
         "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "/subscriptions/5c038d14-3833-463f-a492-de956f63f12a/resourceGroups/Aul-RG/providers/Microsoft.OperationalInsights/workspaces/AUL-Test"
-        ]
+        "resourceType": "microsoft.operationalinsights/workspaces"
       },
       "customWidth": "50",
       "showPin": true,
@@ -145,12 +124,8 @@ Users may have to update their query settings and subscriptions to their own acc
           "durationMs": 0
         },
         "timeContextFromParameter": "TimeRange",
-        "exportToExcelOptions": "visible",
         "queryType": 0,
         "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "/subscriptions/5c038d14-3833-463f-a492-de956f63f12a/resourceGroups/Aul-RG/providers/Microsoft.OperationalInsights/workspaces/AUL-Test"
-        ],
         "gridSettings": {
           "formatters": [
             {
@@ -174,16 +149,6 @@ Users may have to update their query settings and subscriptions to their own acc
                 }
               }
             }
-          ],
-          "labelSettings": [
-            {
-              "columnId": "Type",
-              "label": "Type"
-            },
-            {
-              "columnId": "Count",
-              "label": "Count"
-            }
           ]
         }
       },
@@ -205,12 +170,8 @@ Users may have to update their query settings and subscriptions to their own acc
           "durationMs": 0
         },
         "timeContextFromParameter": "TimeRange",
-        "exportToExcelOptions": "visible",
         "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "/subscriptions/5c038d14-3833-463f-a492-de956f63f12a/resourceGroups/Aul-RG/providers/Microsoft.OperationalInsights/workspaces/AUL-Test"
-        ]
+        "resourceType": "microsoft.operationalinsights/workspaces"
       },
       "customWidth": "50",
       "showPin": true,
@@ -230,12 +191,8 @@ Users may have to update their query settings and subscriptions to their own acc
           "durationMs": 0
         },
         "timeContextFromParameter": "TimeRange",
-        "exportToExcelOptions": "visible",
         "queryType": 0,
         "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "/subscriptions/5c038d14-3833-463f-a492-de956f63f12a/resourceGroups/Aul-RG/providers/Microsoft.OperationalInsights/workspaces/AUL-Test"
-        ],
         "gridSettings": {
           "formatters": [
             {
@@ -258,16 +215,6 @@ Users may have to update their query settings and subscriptions to their own acc
                 }
               }
             }
-          ],
-          "labelSettings": [
-            {
-              "columnId": "Type",
-              "label": "Type"
-            },
-            {
-              "columnId": "Count",
-              "label": "Count"
-            }
           ]
         }
       },
@@ -289,12 +236,8 @@ Users may have to update their query settings and subscriptions to their own acc
           "durationMs": 0
         },
         "timeContextFromParameter": "TimeRange",
-        "exportToExcelOptions": "visible",
         "queryType": 0,
         "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "/subscriptions/5c038d14-3833-463f-a492-de956f63f12a/resourceGroups/Aul-RG/providers/Microsoft.OperationalInsights/workspaces/AUL-Test"
-        ],
         "visualization": "tiles",
         "tileSettings": {
           "titleContent": {
@@ -321,15 +264,6 @@ Users may have to update their query settings and subscriptions to their own acc
       }
     }
   ],
-  "defaultResourceIds": [
-    "/subscriptions/1f3fa6d2-851c-4a91-9087-1a050f3a9c38/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-1f3fa6d2-851c-4a91-9087-1a050f3a9c38-eus",
-    "/subscriptions/1f3fa6d2-851c-4a91-9087-1a050f3a9c38/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-1f3fa6d2-851c-4a91-9087-1a050f3a9c38-eus"
-  ],
-  "fallbackResourceIds": [
-    "/subscriptions/1f3fa6d2-851c-4a91-9087-1a050f3a9c38/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-1f3fa6d2-851c-4a91-9087-1a050f3a9c38-eus",
-    "/subscriptions/1f3fa6d2-851c-4a91-9087-1a050f3a9c38/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-1f3fa6d2-851c-4a91-9087-1a050f3a9c38-eus"
-  ],
-  "styleSettings": {},
   "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
 }
 ```
