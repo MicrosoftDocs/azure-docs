@@ -33,11 +33,11 @@ Error details: Failed to enable the Update solution
 
 This error can occur for the following reasons:
 
-1. The network firewall requirements for the Log Analytics agent were not configured, causing the agent to fail resolving the DNS URLs.
+1. The network firewall requirements for the Log Analytics agent may not be configured correctly, causing the agent to fail resolving the DNS URLs.
 
-2. Solution targeting is misconfigured and machines were not receiving updates as expected.
+2. Solution targeting is misconfigured and the machine is not receiving updates as expected.
 
-3. You have machines that show as **Non compliant** under **Compliance**, however **Agent update readiness** is reporting the agent is **Disconnected**.
+You may also notice the machine shows with a status of **Non compliant** under **Compliance**, however **Agent update readiness** is reporting the agent is **Disconnected**.
 
 ### Resolution
 
