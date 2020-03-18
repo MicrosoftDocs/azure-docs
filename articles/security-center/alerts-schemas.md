@@ -52,7 +52,7 @@ This is the schema of the alert events passed to:
 For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
 For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
 
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
+[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
 
 
 
@@ -65,7 +65,7 @@ To create a Sentinel case or incident using Security Center alerts, you'll need 
 
 For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
 
-[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-loganalyticsworkspace.md)]
+[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
 
@@ -76,7 +76,7 @@ Azure Security Center audits generated Security alerts as events in Azure Activi
 
 You can view the security alerts events in Activity Log by searching for the Activate Alert event as shown:
 
-[![Searching the Activity log for the Activate Alert event](media/alerts-schemas/SampleActivityLogAlert.png)](media/alerts-schemas/SampleActivityLogAlert.png#lightbox)
+[![Searching the Activity log for the Activate Alert event](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
 ### Sample JSON for alerts sent to Azure Activity Log
@@ -178,3 +178,16 @@ Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It pro
 The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 
 ---
+
+
+## Next steps
+
+This article described the schemas that Azure Security Center's threat protection tools use when sending security alert information.
+
+For more information on the ways to access security alerts from outside Security Center, see the following:
+
+- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) - Microsoft's cloud-native SIEM
+- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) - Microsoft's fully managed, real-time data ingestion service
+- Security Center's [continuous export feature](continuous-export.md)
+
+- [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information
