@@ -19,20 +19,11 @@ ms.service: digital-twins
 
 Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
-RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
-
-## Passing information with tokens
-
-Applications gain access to Azure Digital Twins resources using **Shared Access Signature (SAS)** token authentication. In this process, an application presents Azure Digital Twins with a token that has been signed with a "shared" symmetric key, known both to the token issuer and Azure Digital Twins. Azure Digital Twins uses the key on that token to understand what rights to give the application in return. The key is directly associated with a *SAS rule* granting specific access rights, like the permission to receive or send messages.
-
-SAS rules are either configured on the namespace, or directly on an entity like a queue or a topic, allowing for fine grained access control.
+RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). 
 
 ## RBAC through Azure AD
 
-You can use RBAC to grant another layer of permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by **Azure AD**, and receives an OAuth 2.0 token in return. The token can be used to authorize an access request to an Azure Digital Twins instance.
-
-> [!IMPORTANT]
-> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use using Azure AD with your Azure Service Bus applications when possible.
+You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by **Azure AD**, and receives an OAuth 2.0 token in return. The token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
