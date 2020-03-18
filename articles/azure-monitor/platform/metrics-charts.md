@@ -107,6 +107,14 @@ To control the y-axis range, use the “…” chart menu, and select **Edit cha
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
 
+## Change colors of chart lines
+
+After configuring the charts, the lines on chart are automatically assigned a color from a default palette. You may want to change those colors as per your preference.
+
+To change the color of a chart line click on the colored bar in the legend corresponding to the chart and use the color picker dialog which opens to configure the color for the line.
+
+![metric image](./media/metrics-charts/00018.png)
+
 ## Pin charts to dashboards
 
 After configuring the charts, you may want to add it to the dashboards so that you can view it again, possibly in context of other monitoring telemetry, or share with your team.
