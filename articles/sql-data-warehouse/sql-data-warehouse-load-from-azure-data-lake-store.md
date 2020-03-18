@@ -32,7 +32,7 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 To run this tutorial, you need:
 
-* A SQL pool. See [Create a SQL pool and query data](create-data-warehouse-portal.md).
+* A SQL pool. See [Create a SQL pool and query data](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 * A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). For this storage account, you will need to configure or specify one of the following credentials to load: A storage account key, an Azure Directory Application user, or an AAD user which has the appropriate RBAC role to the storage account. 
 
 ##  Create a credential

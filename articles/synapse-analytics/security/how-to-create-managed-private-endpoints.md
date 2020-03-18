@@ -1,5 +1,5 @@
 ---
-title: Create a Managed private endpoint to connect to your data source results. Include the brand.
+title: Create a Managed private endpoint to connect to your data source results.
 description: This article will teach you how to create a Managed private endpoint to your data sources from an Azure Synapse workspace.  
 author: RonyMSFT 
 ms.service: synapse-analytics 
@@ -9,7 +9,7 @@ ms.author: ronytho
 ms.reviewer: jrasnick
 ---
 
-# Create a Managed private endpoint to your data source
+# Create a Managed private endpoint to your data source (preview)
 
 This article will teach you how to create a Managed private endpoint to your data source in Azure. See [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md) to learn more.
 

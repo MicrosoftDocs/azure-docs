@@ -15,9 +15,9 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics allows the different computational engines of a workspace to share databases and Parquet-backed tables between its Apache Spark pools (preview), SQL on-demand (preview) engine, and SQL pools.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools (preview), SQL on-demand (preview) engine, and SQL pools.
 
-Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available to be queried by any of the Azure Synapse workspace Spark pools and can be used from any of the Spark jobs subject to permissions.
+Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
 The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand and in the corresponding `$`-prefixed schemas in the SQL pools that have their metadata synchronization enabled. [Exposing a Spark table in SQL](#exposing-a-spark-table-in-sql) provides more detail on the table synchronization.
 
@@ -92,11 +92,11 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 
 The Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. Since they do not currently have permissions on the objects themselves, the objects can be seen in the object explorer.
 
-The security principal who creates a managed table, is considered the owner of that table and has all the rights to the table as well as the underlying folders and files. In addition, the owner of the database will automatically become co-owner of the table.
+The security principal who creates a managed table is considered the owner of that table and has all the rights to the table as well as the underlying folders and files. In addition, the owner of the database will automatically become co-owner of the table.
 
-If you create a Spark external table or a SQL external table with authentication pass-through, the data is only secured at the folder and file level. If someone queries such an external table, the security identity of the query submitter is passed down to the file system which will check for access rights.
+If you create a Spark or SQL external table with authentication pass-through, the data is only secured at the folder and file levels. If someone queries this type of external table, the security identity of the query submitter is passed down to the file system, which will check for access rights.
 
-For more details on how to set permissions on the folders and files, see [Azure Synapse Analytics shared database](database.md).
+For more information on how to set permissions on the folders and files, see [Azure Synapse Analytics shared database](database.md).
 
 ## Examples
 
@@ -167,7 +167,7 @@ id | name | birthdate
 
 In this example, create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
 
-For example with SparkSQL run:
+For example, with SparkSQL run:
 
 ```sql
 CREATE TABLE mytestdb.myExternalParquetTable
@@ -175,7 +175,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you are using to run this example.
+Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
 
 The previous example creates the table `myExtneralParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
 

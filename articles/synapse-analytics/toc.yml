@@ -402,7 +402,13 @@
     #   href: article-template.md
     # - name: Manage private endpoints
     #   href: article-template.md
-      - name: provision and secure a linked service with Managed Vnet
+    - name: Manage private endpoints
+      items:
+      - name: Set up Managed private endpoints to data sources
+        href: security/how-to-create-managed-private-endpoints.md
+      - name: Connect to Azure Synapse workspace with private endpoints
+        href: security/how-to-connect-to-workspace-with-private-links.md
+      - name: Provision and secure a linked service with Managed Vnet
         href: linked-service.md
     # - name: Enable encryption - portal
     #   href: article-template.md

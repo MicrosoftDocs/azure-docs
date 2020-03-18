@@ -25,7 +25,7 @@ In this tutorial you will:
 
 ## Before you begin
 
-To run this tutorial, you need an Azure account that already has a SQL Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
+To run this tutorial, you need an Azure account that already has a SQL Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## Configure the data source
 

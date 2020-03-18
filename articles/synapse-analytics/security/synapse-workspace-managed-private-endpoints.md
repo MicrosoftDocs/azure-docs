@@ -24,13 +24,15 @@ Azure Synapse supports private links. Private link enables you to access Azure s
 >Managed private endpoints are only supported in Azure Synapse workspaces with a Managed workspace VNet. 
 
 >[!NOTE] 
->It's recommended that you create Managed private endpoints to connect to all your Azure data sources. All outbound traffic from the >Managed workspace VNet will be blocked in the future. 
+>It's recommended that you create Managed private endpoints to connect to all your Azure data sources. All outbound traffic from the >Managed workspace VNet will be blocked in the future.
+
+A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Synapse. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection. If the owner approves the connection, the private link is established. Otherwise, the private link is not established. In either case, the Managed private endpoint will be updated with the status of the connection. Only a Managed private endpoint in an approved state can send traffic to a given private link resource. 
 
 ## Managed private endpoints for SQL Pools and SQL On-demand
 SQL Pools and SQL On-demand are analytic capabilities in your Azure Synapse workspace. These capabilities use multi-tenant infrastructure that is not deployed into the [Managed workspace VNet](./synapse-workspace-managed-vnet.md). When a workspace is created, Azure Synapse creates two Managed private endpoints to SQL Pool and SQL On-demand in that workspace. These two Managed private endpoints are listed in Azure Synapse Studio. Select **Manage** in the left navigation, then select **Managed Virtual Networks** to see then in the Studio. The Managed private endpoint that targets SQL Pool is called *synapse-ws-sql--\<workspacename\>* and the one that targets SQL On-demand is called *synapse-ws-sqlOnDemand--\<workspacename\>*.
 ![Managed private endpoints for SQL Pools and SQL On-demand](../media/security/managed-pe-for-sql-1.png)
 
-These two Managed private endpoints are automatically created for you when your Azure Synapse workspace is created. You do not get charged for these two Managed private endpoints. 
+These two Managed private endpoints are automatically created for you when you create your Azure Synapse workspace. You do not get charged for these two Managed private endpoints. 
 
 ## Next steps
 
