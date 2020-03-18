@@ -9,7 +9,7 @@
   - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
-    href: cheat-sheet.md
+    href: ../synapse-analytics/sql-data-warehouse/cheat-sheet.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Best practices
     href: sql-data-warehouse-best-practices.md
   - name: Capacity limits
@@ -28,9 +28,9 @@
   - name: Create and connect
     items: 
     - name: Portal
-      href: create-data-warehouse-portal.md
+      href: ../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: PowerShell
-      href: create-data-warehouse-powershell.md
+      href: ../synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Pause and resume
     items:
     - name: Portal
@@ -96,7 +96,7 @@
       - name: Overview
         href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Column-level security
-        href: column-level-security.md
+        href: ../synapse-analytics/sql-data-warehouse/column-level-security.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Row-level security
         href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data protection
@@ -240,7 +240,7 @@
     - name: Resource utilization & query activity 
       href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
     - name: Data protection
-      href: backup-and-restore.md
+      href: ../synapse-analytics/sql-data-warehouse/backup-and-restore.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
     - name: Troubleshoot
