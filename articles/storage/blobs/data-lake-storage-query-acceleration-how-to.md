@@ -39,6 +39,7 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
   > [!NOTE] 
   > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
+  
 ---
 
 ## Install packages 
