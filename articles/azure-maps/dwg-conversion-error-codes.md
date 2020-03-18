@@ -12,7 +12,7 @@ manager: philMea
 
 # DWG conversion errors and warnings
 
-The Azure Maps Conversion service lets you convert uploaded DWG designs into map data. However, the DWG files and the manifest describing the DWG files must adhere to the [DWG package requirements](dwg-requirements.md). If a requirement or more aren't met, then the Conversion service will return errors or warnings. This article lists DWG conversion error and warning codes, with recommendation on how to resolve them. We'll also show you some examples that cause the Conversion service to return these codes.
+The Azure Maps Conversion service lets you convert uploaded DWG designs into map data. However, the DWG files and the manifest describing the DWG files must adhere to the [DWG package requirements](dwg-requirements.md). If a requirement or more aren't met, then the Conversion service will return errors or warnings. This article lists DWG conversion error and warning codes, with recommendations on how to resolve them. We'll also describe some examples that cause the Conversion service to return these codes.
 
 ## Codes overview
 
@@ -29,7 +29,7 @@ The table contains the possible error codes you may come across. Click on an err
 | [conflict](#conflict) | [Manifest](#manifest-errors) |
 | [invalidGeoreference](#invalidgeoreference) | [Manifest](#manifest-errors) |
 | [wallError](#wallerrors) | [wall](#wall-errors) |
-| [verticalPenetrationError](#verticalpenetrationerror) | [Vertical Penetration errors](#vertical-penetration-errors) |
+| [verticalPenetrationError](#verticalpenetrationerror) | [Vertical Penetration](#vertical-penetration-errors) |
 
 The table lists the possible warning codes you may meet. Click on a warning category or a specific warning to see more details. The Conversion service will let you convert your designs into map data with warnings, but it's recommended you resolve all warnings. Failing to resolve the warnings could mean your map won't render as expected.
 
