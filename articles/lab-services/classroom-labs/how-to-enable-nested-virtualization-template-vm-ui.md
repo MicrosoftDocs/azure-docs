@@ -154,3 +154,12 @@ The following steps are instruction to add DHCP scope.  In this article, our NAT
 ## Conclusion
 
 Now your template machine is ready to create Hyper-V virtual machines.   See [Create a Virtual Machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions about how to create Hyper-V virtual machines.  Also see the [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.
+
+## Next steps
+
+Next steps are common to setting up any lab.
+
+- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

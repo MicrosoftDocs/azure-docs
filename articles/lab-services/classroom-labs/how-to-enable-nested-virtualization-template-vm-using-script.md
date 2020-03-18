@@ -25,6 +25,8 @@ The steps in this article focus on setting up nested virtualization for Windows 
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab.  Nested virtualization will not work otherwise.  
 
+## Run script
+
 1. If you're using Internet Explorer, you may have to add `https://github.com` to the trusted sites list.
     1. Open Internet Explorer.
     1. Select the gear icon, and choose **Internet options**.  
@@ -66,3 +68,12 @@ The steps in this article focus on setting up nested virtualization for Windows 
 ## Conclusion
 
 Now your template machine is ready to create Hyper-V virtual machines. See [Create a Virtual Machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions on how to create Hyper-V virtual machines. Also, see [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.  
+
+## Next steps
+
+Next steps are common to setting up any lab.
+
+- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
