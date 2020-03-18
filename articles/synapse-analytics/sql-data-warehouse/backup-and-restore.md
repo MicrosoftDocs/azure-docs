@@ -64,7 +64,7 @@ When you drop a SQL pool, a final snapshot is created and saved for seven days. 
 
 ## Geo-backups and disaster recovery
 
-A geo-backup is created once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL pool is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
+A geo-backup is created once per day to a [paired data center](../../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL pool is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
 
 > [!NOTE]
 > If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
@@ -85,9 +85,9 @@ Each snapshot creates a restore point that represents the time the snapshot star
 
 You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (SQL pool)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option.
 
-To restore a data warehouse, see [Restore a SQL pool using the Azure portal](sql-data-warehouse-restore-database-portal.md), [Restore a SQL pool using PowerShell](sql-data-warehouse-restore-database-powershell.md), or [Restore a SQL pool using REST APIs](sql-data-warehouse-restore-database-rest-api.md).
+To restore a data warehouse, see [Restore a SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md).
+To restore a deleted or paused data warehouse, you can [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Cross subscription restore
 
@@ -95,11 +95,11 @@ If you need to directly restore across subscription, vote for this capability [h
 
 ## Geo-redundant restore
 
-You can [restore your SQL pool](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL pool at your chosen performance level.
+You can [restore your SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL pool at your chosen performance level.
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.
 
 ## Next steps
 
-For more information about disaster planning, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
+For more information about disaster planning, see [Business continuity overview](../../sql-database/sql-database-business-continuity.md)

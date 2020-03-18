@@ -47,5 +47,5 @@ You can delete all rows in a table or just a specific extent.
 
 ## Delete individual rows using purge
 
-[Data purge](/azure/kusto/management/data-purge) can be used for deleting individuals rows. Deletion isn't immediate and requires significant system resources. As such, it's only advised for compliance scenarios.  
+[Data purge](/azure/kusto/concepts/data-purge) can be used for deleting individuals rows. Deletion isn't immediate and requires significant system resources. As such, it's only advised for compliance scenarios.  
 
