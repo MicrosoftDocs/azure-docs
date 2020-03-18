@@ -28,7 +28,11 @@ Before you begin, if you don't have an Azure subscription, [create an Azure acco
 
 2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, then navigate to the Azure portal menu. Select **All resources**, find, and select your Azure Maps account.
 
+    <center>
+
     ![ ![Select your Azure Maps account](./media/how-to-manage-private-atlas/select-your-azure-maps-account.png) ](./media/how-to-manage-private-atlas/select-your-azure-maps-account.png)
+
+    </center>
 
 3. Once you're on the Azure Maps account page, navigate to the **Overview** option under the **Private Atlas**.
 
