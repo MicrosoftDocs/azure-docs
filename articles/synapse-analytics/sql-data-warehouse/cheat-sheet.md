@@ -40,7 +40,7 @@ First, load your data into [Azure Data Lake Storage](../../data-factory/connecto
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](../../sql-data-warehouse/design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](../../sql-data-warehouse/design-elt-data-loading.md). 
+Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](../sql-analytics/data-loading-overview.md), and the [Extract, Load, and Transform (ELT) process](../sql-analytics/data-loading-overview.md). 
 
 ## Distributed or replicated tables
 
@@ -103,7 +103,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](..
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-Learn more about [statistics](../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md).
+Learn more about [statistics](../sql-analytics/development-tables-statistics.md).
 
 ## Resource class
 Resource groups are used as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.
