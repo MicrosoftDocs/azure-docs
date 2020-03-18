@@ -1,5 +1,5 @@
 ---
-title: create a .... by using Azure Resource Manager template
+title: Create a .... by using Azure Resource Manager template
 description: Learn how to create an Azure ... by using Azure Resource Manager template.
 services: azure-resource-manager
 author: your-github-account-name
@@ -105,9 +105,11 @@ Notice the resourceType and sort elements in the URL.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the resources. To delete the resource group by using Azure CLI or Azure Powershell:
+When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-# [CLI](#tab/CLI)
+<!--
+
+Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group. Use [Zone pivots](https://review.docs.microsoft.com/help/contribute/zone-pivots?branch=master) if you want to use multiple options.  Here are the samples for Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -116,15 +118,13 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# [PowerShell](#tab/PowerShell)
-
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
----
+-->
 
 ## Next steps
 
