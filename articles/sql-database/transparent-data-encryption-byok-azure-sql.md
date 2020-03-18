@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 02/12/2020
+ms.date: 03/18/2020
 ms.custom: azure-synapse
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
@@ -94,7 +94,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Enable auditing and reporting on all encryption keys: Key vault provides logs that are easy to inject into other security information and event management tools. Operations Management Suite [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
 
-- Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will use
+- Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there is an outage affecting the key vault in the same region.
 
 ### Recommendations when configuring TDE protector
 - Keep a copy of the TDE protector on a secure place or escrow it to the escrow service.
