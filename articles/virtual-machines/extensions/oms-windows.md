@@ -43,6 +43,7 @@ The following table provides a mapping of the version of the Windows Log Analyti
 | 8.0.11072 | 1.0.11072 | Sept 2017 | |
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
 
+
 ### Azure Security Center
 
 Azure Security Center automatically provisions the Log Analytics agent and connects it with the default Log Analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
@@ -95,7 +96,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 >[!NOTE]
 >The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  

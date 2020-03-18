@@ -43,7 +43,7 @@ The following steps walk you through the process of creating the certificates an
 
 ## Prerequisites
 
-An Azure IoT Edge device, configured with [production certificates](how-to-install-production-certificates.md).
+An Azure IoT Edge device, configured with [production certificates](how-to-manage-device-certificates.md).
 
 ## Deploy edgeHub to the gateway
 
