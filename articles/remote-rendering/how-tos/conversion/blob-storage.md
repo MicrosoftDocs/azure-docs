@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Use Azure Blob Storage for model conversion
 
-The [model conversion](model-conversion.md) service requires to retrieve input data and store output data through Azure blob storage. This article describes how to do the most common steps.
+The [model conversion](model-conversion.md) service requires access to Azure blob storage so it can retrieve input data and store output data. This article describes how to do the most common steps.
 
 ## Prepare Azure Storage accounts
 
@@ -29,7 +29,7 @@ The creation of the storage account and the blob containers can be done with one
 
 ## Ensure Azure Remote Rendering can access your storage account
 
-Azure Remote Rending needs to retrieve model data from your storage account and for asset conversion write data back to it.
+Azure Remote Rending needs to retrieve model data from your storage account and write data back to it.
 
 You can grant Azure Remote Rendering access to your storage account in the following two ways:
 

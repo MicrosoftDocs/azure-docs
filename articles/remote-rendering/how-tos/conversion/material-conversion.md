@@ -67,7 +67,7 @@ The Phong model is more accurate and it is used as the *only* model for FBX mate
 
 > Maya uses two custom extensions for FBX by defining custom properties for PBR and Stingray types of a material. These details are not included in the FBX specification, so it's not supported by Azure Remote Rendering currently.
 
-FBX Material uses the Diffuse-Specular-SpecularLevel concept, so to convert from a diffuse texture to an albedo map we need to calculate the other parameters to subtract them from diffuse.
+FBX Materials use the Diffuse-Specular-SpecularLevel concept, so to convert from a diffuse texture to an albedo map we need to calculate the other parameters to subtract them from diffuse.
 
 > All colors and textures in FBX are in sRGB space (also known as Gamma space) but Azure Remote Rendering works with linear space during visualization and at the end of the frame converts everything back to sRGB space. The Azure Remote Rendering asset pipeline converts everything to linear space to send it as prepared data to the renderer.
 
@@ -90,7 +90,7 @@ This table shows how textures are mapped from FBX Materials to Azure Remote Rend
 | ReflectionColor | - |
 | DisplacementColor | - |
 
-The mapping above is the most complex part of the material conversion, due to many assumptions that had to be made. We'll discuss these assumptions below.
+The mapping above is the most complex part of the material conversion, due to many assumptions that have to be made. We discuss these assumptions below.
 
 Some definitions used below:
 
@@ -105,7 +105,7 @@ The brightness formula is described in this [specification](http://www.itu.int/d
 
 ### Roughness
 
-`Roughness` is calculated from `Specular` and `ShininessExponent` using [this formula](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). The formula is an approximation of roughness from Phong specular exponent:
+`Roughness` is calculated from `Specular` and `ShininessExponent` using [this formula](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). The formula is an approximation of roughness from the Phong specular exponent:
 
 ```Cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
@@ -118,7 +118,6 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 The idea here is that we solve the equation: Ax<sup>2</sup> + Bx + C = 0.
 Basically, dielectric surfaces reflect around 4% of light in a specular way, and the rest is diffuse. Metallic surfaces reflect no light in a diffuse way, but all in a specular way.
 This formula has a few drawbacks, because there is no way to distinguish between glossy plastic and glossy metallic surfaces. We assume most of the time the surface has metallic properties, and consequently glossy plastic/rubber surfaces may not look as expected.
-
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -164,7 +163,7 @@ To summarize here, `Albedo` will be very close to the original `Diffuse`, if `Sp
 
 ### Known issues
 
-* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original.
+* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](configure-model-conversion.md#Converting-from-older-FBX-formats,-with-a-Phong-material-model).
 * PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering does not read those additional properties because they are not documented and the format is closed-source.
 
 ## Next steps
