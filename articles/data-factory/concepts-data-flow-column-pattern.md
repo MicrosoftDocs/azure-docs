@@ -48,13 +48,13 @@ Each rule-based mapping requires two inputs: the condition on which to match by 
 
 ![rule-based mapping](media/data-flow/rule-based-mapping.png "Rule-based mapping")
 
-Use `$$` syntax to reference the input name of a matched column. Using the above image as an example, say a user wants to match on all string columns whose names are shorter than six characters. If one incoming column was named `test`, the expression `$$ + '_short'` will rename the column `test_short`. If thats the only mapping that exists, all columns that don't meet the condition will be dropped from the outputted data.
+Use `$$` syntax to reference the input name of a matched column. Using the above image as an example, say a user wants to match on all string columns whose names are shorter than six characters. If one incoming column was named `test`, the expression `$$ + '_short'` will rename the column `test_short`. If that's the only mapping that exists, all columns that don't meet the condition will be dropped from the outputted data.
 
 Patterns match both drifted and defined columns. To see which defined columns are mapped by a rule, click the eyeglasses icon next to the rule. Verify your output using data preview.
 
 ### Regex mapping
 
-If you click the downward chevron icon, you can specify a regex mapping condition. A regex mapping condition matches all column names that match the specified regex condition. This can be used in combination with standard rule-based mappings.
+If you click the downward chevron icon, you can specify a regex-mapping condition. A regex-mapping condition matches all column names that match the specified regex condition. This can be used in combination with standard rule-based mappings.
 
 ![rule-based mapping](media/data-flow/regex-matching.png "Rule-based mapping")
 
@@ -62,11 +62,11 @@ The above example matches on regex pattern `(r)` or any column name that contain
 
 ### Rule-based hierarchies
 
-If your defined projection has a hierarchy, you can use rule-based mapping to map the hierarchies sub-columns. Specify a matching condition and the complex column whose sub-columns you wish to map. Every matched sub-column will be outputted using the 'Name as' rule specified on the right.
+If your defined projection has a hierarchy, you can use rule-based mapping to map the hierarchies subcolumns. Specify a matching condition and the complex column whose subcolumns you wish to map. Every matched subcolumn will be outputted using the 'Name as' rule specified on the right.
 
 ![rule-based mapping](media/data-flow/rule-based-hierarchy.png "Rule-based mapping")
 
-The above example matches on all sub-columns of complex column `a`. `a` contains two sub-columns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
+The above example matches on all subcolumns of complex column `a`. `a` contains two subcolumns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
 
 ## Pattern matching expression values.
 

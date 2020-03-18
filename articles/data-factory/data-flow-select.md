@@ -13,22 +13,22 @@ ms.date: 03/18/2020
 
 Use the select transformation to rename, drop, or reorder columns. This transformation doesn't alter row data, but chooses which columns are propagated downstream. This process is called 
 
-In a select transformation, users can specify fixed mappings, use patterns to do rule-based mapping or enable auto mapping. Fixed and rule-based mappings can both be used within the same select transformation. If a column doesn't match one of the defined mappings, it will be dropped.
+In a select transformation, users can specify fixed mappings, use patterns to do rule-based mapping, or enable auto mapping. Fixed and rule-based mappings can both be used within the same select transformation. If a column doesn't match one of the defined mappings, it will be dropped.
 
 ## Fixed mapping
 
-If there are less than 50 columns defined in your projection, all defined columns will have a fixed mapping by default. A fixed mapping takes a defined, incoming column and maps it an exact name.
+If there are fewer than 50 columns defined in your projection, all defined columns will have a fixed mapping by default. A fixed mapping takes a defined, incoming column and maps it an exact name.
 
 ![Fixed mapping](media/data-flow/fixedmapping.png "Fixed mapping")
 
 > [!NOTE]
 > You can't map or rename a drifted column using a fixed mapping
 
-### Mapping hierarchal columns
+### Mapping hierarchical columns
 
-Fixed mappings can be used to map a sub-column of a hierarchal column to a top level column. If you have a defined hierarchy, use the column dropdown to select a sub-column. The select transformation will create a new column with the value and data type of the sub-column.
+Fixed mappings can be used to map a subcolumn of a hierarchical column to a top-level column. If you have a defined hierarchy, use the column dropdown to select a subcolumn. The select transformation will create a new column with the value and data type of the subcolumn.
 
-![Hierarchal mapping](media/data-flow/select-hierarchy.png "Hierarchal mapping")
+![hierarchical mapping](media/data-flow/select-hierarchy.png "hierarchical mapping")
 
 ## Rule-based mapping
 
@@ -42,13 +42,13 @@ Each rule-based mapping requires two inputs: the condition on which to match by 
 
 ![rule-based mapping](media/data-flow/rule-based-mapping.png "Rule-based mapping")
 
-Use `$$` syntax to reference the input name of a matched column. Using the above image as an example, say a user wants to match on all string columns whose names are shorter than six characters. If one incoming column was named `test`, the expression `$$ + '_short'` will rename the column `test_short`. If thats the only mapping that exists, all columns that don't meet the condition will be dropped from the outputted data.
+Use `$$` syntax to reference the input name of a matched column. Using the above image as an example, say a user wants to match on all string columns whose names are shorter than six characters. If one incoming column was named `test`, the expression `$$ + '_short'` will rename the column `test_short`. If that's the only mapping that exists, all columns that don't meet the condition will be dropped from the outputted data.
 
 Patterns match both drifted and defined columns. To see which defined columns are mapped by a rule, click the eyeglasses icon next to the rule. Verify your output using data preview.
 
 ### Regex mapping
 
-If you click the downward chevron icon, you can specify a regex mapping condition. A regex mapping condition matches all column names that match the specified regex condition. This can be used in combination with standard rule-based mappings.
+If you click the downward chevron icon, you can specify a regex-mapping condition. A regex-mapping condition matches all column names that match the specified regex condition. This can be used in combination with standard rule-based mappings.
 
 ![rule-based mapping](media/data-flow/regex-matching.png "Rule-based mapping")
 
@@ -58,23 +58,23 @@ If you have multiple regex matches in your column name, you can refer to specifi
 
 ### Rule-based hierarchies
 
-If your defined projection has a hierarchy, you can use rule-based mapping to map the hierarchies sub-columns. Specify a matching condition and the complex column whose sub-columns you wish to map. Every matched sub-column will be outputted using the 'Name as' rule specified on the right.
+If your defined projection has a hierarchy, you can use rule-based mapping to map the hierarchies subcolumns. Specify a matching condition and the complex column whose subcolumns you wish to map. Every matched subcolumn will be outputted using the 'Name as' rule specified on the right.
 
 ![rule-based mapping](media/data-flow/rule-based-hierarchy.png "Rule-based mapping")
 
-The above example matches on all sub-columns of complex column `a`. `a` contains two sub-columns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
+The above example matches on all subcolumns of complex column `a`. `a` contains two subcolumns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
 
 ### Parameterization
 
-You can parameterize field mapping using rule-based mapping. Use the keyword ```name``` to match incoming column names against a parameter. For example, if you have a data flow parameter ```mycolumn```, you can create a rule that matches any column name that is equal to ```mycolumn```. You can rename the matched column to a hard-coded string such as 'business key' and reference it explicitly. In this example, the matching condition is ```name == $mycolumn``` and the name condition is 'business key'. 
+You can parameterize column names using rule-based mapping. Use the keyword ```name``` to match incoming column names against a parameter. For example, if you have a data flow parameter ```mycolumn```, you can create a rule that matches any column name that is equal to ```mycolumn```. You can rename the matched column to a hard-coded string such as 'business key' and reference it explicitly. In this example, the matching condition is ```name == $mycolumn``` and the name condition is 'business key'. 
 
 ## Auto mapping
 
-When adding a select transformation, **Auto mapping** can be enabled by switching the Auto mapping slider. With auto mapping, the select transformation maps all incoming columns, excluding duplicates, with the same name as their input. This will include drifted columns which means the output data may contain columns not defined in your schema. For more information on drifted columns, see [schema drift](concepts-data-flow-schema-drift.md).
+When adding a select transformation, **Auto mapping** can be enabled by switching the Auto mapping slider. With auto mapping, the select transformation maps all incoming columns, excluding duplicates, with the same name as their input. This will include drifted columns, which means the output data may contain columns not defined in your schema. For more information on drifted columns, see [schema drift](concepts-data-flow-schema-drift.md).
 
 ![Auto mapping](media/data-flow/automap.png "Auto mapping")
 
-With auto mapping on, the select transformation will honor the skip duplicate settings that are enabled and provide a new alias for the existing columns. Aliasing is useful when doing multiple joins or lookups on the same stream and in self-join scenarios. 
+With auto mapping on, the select transformation will honor the skip duplicate settings and provide a new alias for the existing columns. Aliasing is useful when doing multiple joins or lookups on the same stream and in self-join scenarios. 
 
 ## Duplicate columns
 
@@ -84,7 +84,7 @@ By default, the select transformation drops duplicate columns in both the input 
 
 ## Ordering of columns
 
-The order of mappings determines the order of the output columns. If an input column is mapped multiple times, only the first mapping will be honored. For any duplicate column dropping, the first match will kept.
+The order of mappings determines the order of the output columns. If an input column is mapped multiple times, only the first mapping will be honored. For any duplicate column dropping, the first match will be kept.
 
 ## Data flow script
 
@@ -93,7 +93,7 @@ The order of mappings determines the order of the output columns. If an input co
 ```
 <incomingStream>
     select(mapColumn(
-        each(<hierarchalColumn>, match(<matchCondition>), <nameCondition> = $$), ## Hierarchal rule-based matching
+        each(<hierarchicalColumn>, match(<matchCondition>), <nameCondition> = $$), ## hierarchical rule-based matching
         <fixedColumn>, ## fixed mapping, no rename
         <renamedFixedColumn> = <fixedColumn>, ## fixed mapping, rename
         each(match(<matchCondition>), <nameCondition> = $$), ## rule-based mapping
@@ -105,7 +105,7 @@ The order of mappings determines the order of the output columns. If an input co
 
 ### Example
 
-Below is an example of a select mapping and an accompanying data flow script with it:
+Below is an example of a select mapping and its data flow script:
 
 ![Select script example](media/data-flow/select-script-example.png "Select script example")
 
