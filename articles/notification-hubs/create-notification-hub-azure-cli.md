@@ -58,9 +58,9 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az group create --name spnhubrg --location eastus
    ```
 
-## Create a namespace
+## Create a notification hub namespace
 
-1. Create a notification hub namespace.
+1. Create a namespace for your notification hubs
 
    A namespace contains one or more hubs, and the name must be unique across all Azure subscriptions.  To check the availability of the given service namespace, use the [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability) command.  Run the [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) command to create a namespace.  
 
@@ -72,7 +72,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-2. List keys and connection strings for a namespace access policy.
+2. List keys and connection strings for your namespace access policy.
 
    An access policy named **RootManageSharedAccessKey** is automatically created for a new namespace.  Every access policy has two sets of keys and connection strings.  To list the keys and connection strings for the namespace, run the [az notification-hub namespace authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
 
