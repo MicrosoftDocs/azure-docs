@@ -443,7 +443,7 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 ```
 
  Where:
- - *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/en-us/graph/deployments).
+ - *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/graph/deployments).
 
 2. Next, create a .js file named `graph.js`, which will make a REST call to Microsoft Graph API, and add the following code:
 
