@@ -146,7 +146,7 @@ As you design an ETL process, try running the process on a small test sample. Tr
 
 ## Partner loading solutions
 
-Many of our partners have loading solutions. To find out more, see a list of our [solution partners](sql-data-warehouse-partner-business-intelligence.md). 
+Many of our partners have loading solutions. To find out more, see a list of our [solution partners](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md). 
 
 
 ## Next steps

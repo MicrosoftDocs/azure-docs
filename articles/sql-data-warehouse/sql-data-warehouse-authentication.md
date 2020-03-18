@@ -36,7 +36,7 @@ By default, your connection connects to the *master* database and not your user 
 * Highlight the user database before creating a session in SSDT.
 
 > [!NOTE]
-> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to a SQL pool with SSDT, refer to the [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md) article.
+> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to a SQL pool with SSDT, refer to the [Query with Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md) article.
 > 
 > 
 
@@ -77,4 +77,4 @@ Currently Azure Active Directory users are not shown in SSDT Object Explorer. As
 * Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Next steps
-To start querying with Visual Studio and other applications, see [Query with Visual Studio](sql-data-warehouse-query-visual-studio.md).
+To start querying with Visual Studio and other applications, see [Query with Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md).

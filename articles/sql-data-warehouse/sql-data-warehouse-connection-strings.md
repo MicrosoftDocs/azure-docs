@@ -47,7 +47,7 @@ To start querying your data warehouse with Visual Studio and other applications,
 <!--Image references-->
 
 <!--Azure.com references-->
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Query with Visual Studio]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

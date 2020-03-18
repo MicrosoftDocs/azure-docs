@@ -18,9 +18,9 @@ tag: azure-Synapse
 > [!div class="op_single_selector"]
 > * [Power BI](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [SSMS](sql-data-warehouse-query-ssms.md)
+> * [SSMS](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md)
 > 
 > 
 

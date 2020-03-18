@@ -118,5 +118,5 @@ click on the ***Start*** button on the start job pane.
 
 ## Next steps
 
-For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).
+For an overview of integration, see [Integrate other services](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-integrate.md).
 For more development tips, see [ Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).

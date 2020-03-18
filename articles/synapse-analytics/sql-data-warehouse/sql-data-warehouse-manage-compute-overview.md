@@ -25,7 +25,7 @@ The architecture of data warehouse separates storage and compute, allowing each 
 
 You can scale out or scale back compute by adjusting the [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your SQL pool. Loading and query performance can increase linearly as you add more data warehouse units. 
 
-For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 To perform a scale operation, SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the Compute layer. Each SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
 
@@ -98,7 +98,7 @@ When you resume a SQL pool:
 
 If you always want your SQL pool accessible, consider scaling it down to the smallest size rather than pausing. 
 
-For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
+For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
 ## Drain transactions before pausing or scaling
 
@@ -114,7 +114,7 @@ To automate the compute management operations, see [Manage compute with Azure fu
 
 Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the SQL pool state through various endpoints allows you to correctly implement automation of such operations. 
 
-To check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+To check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## Permissions

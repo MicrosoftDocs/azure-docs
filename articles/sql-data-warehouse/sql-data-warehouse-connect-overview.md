@@ -68,7 +68,7 @@ SQL Data Warehouse standardizes some settings during connection and object creat
 To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[Query with Visual Studio]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
 [Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->

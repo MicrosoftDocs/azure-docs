@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # PowerShell & REST APIs for Azure Synapse Analytics SQL pool
 
-Many Azure Synapse Analytics SQL pool administrative tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL pool.  For some good REST examples, see the article [Manage scalability with REST](sql-data-warehouse-manage-compute-rest-api.md).
+Many Azure Synapse Analytics SQL pool administrative tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL pool.  For some good REST examples, see the article [Manage scalability with REST](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
