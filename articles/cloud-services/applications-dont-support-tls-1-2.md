@@ -344,7 +344,7 @@ Here is an example that shows both the worker role and web role.
 4) In the file explorer, navigate to your desktop where you stored the **TLSsettings.ps1** and **RunTLSSettings.cmd** files 
 5) Select the two files to add them to your Cloud Services project
 
-## Step 6: Enable Copy to Output Directory
+## Step 5: Enable Copy to Output Directory
 
 To ensure the scripts are uploaded with every update pushed from Visual Studio, the setting *Copy to Output Directory* needs to be set to *Copy Always*
 
