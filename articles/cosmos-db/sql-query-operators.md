@@ -36,7 +36,7 @@ Logical operators operate on Boolean values. The following tables show the logic
 
 **OR operator**
 
-Returns `true` when either of the conditions is `true`
+Returns `true` when either of the conditions is `true`.
 
 |  | **True** | **False** | **Undefined** |
 | --- | --- | --- | --- |
@@ -63,6 +63,8 @@ Reverses the value of any Boolean expression.
 | **True** |False |
 | **False** |True |
 | **Undefined** |Undefined |
+
+**Operator Precedence**
 
 The logical operators `OR`, `AND`, and `NOT` have the precedence level shown below:
 
