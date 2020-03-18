@@ -217,7 +217,7 @@ To update a Python package version in an existing environment, specify the versi
 
 ### Debug the image build
 
-The following example uses the [`build()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace-) method to manually create an environment as a Docker image. It monitors the output logs from the image build by using [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). The built image then appears in the workspace's Azure Container Registry instance. This information is helpful for debugging.
+The following example uses the [`build()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace--image-build-compute-none-) method to manually create an environment as a Docker image. It monitors the output logs from the image build by using [`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). The built image then appears in the workspace's Azure Container Registry instance. This information is helpful for debugging.
 
 ```python
 from azureml.core import Image
