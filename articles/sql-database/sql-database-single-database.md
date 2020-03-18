@@ -31,7 +31,7 @@ A single database can be moved into or out of an [elastic pool](sql-database-ela
 
 ## Monitoring and alerting
 
-You use the built-in [performance monitoring](sql-database-performance.md) and [alerting tools](sql-database-insights-alerts-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring.
+You use the built-in [performance monitoring](sql-database-performance-guidance.md) and [alerting tools](sql-database-insights-alerts-portal.md), combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and resource logs](sql-database-metrics-diag-logging.md) for easier monitoring.
 
 ## Availability capabilities
 
