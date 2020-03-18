@@ -67,7 +67,7 @@ Azure currently supports two provisioning agents:
     * Provisioning.DecodeCustomData
     * Provisioning.ExecuteCustomData
 
-When you enable custom data, and execute a script, it will delay the VM reporting that is it ready or that provisioning has succeeded until the script has completed. If the script exceeds the total VM provisioning time allowance of 40 mins, the VM Create will fail. Note, if the script fails to execute, or errors during executing, this is not deemed a fatal provisioning failure, you will need to create a notification path to alert you for the completion state of the script.
+When you enable custom data, and execute a script, it will delay the VM reporting that is it ready or that provisioning has succeeded until the script has completed. If the script exceeds the total VM provisioning time allowance of 40 mins, the VM Create will fail. Note, if the script fails to execute, or errors during executing, it is not deemed a fatal provisioning failure, you will need to create a notification path to alert you for the completion state of the script.
 
 To troubleshoot custom data execution, review */var/log/waagent.log*
 
@@ -79,13 +79,13 @@ To troubleshoot custom data execution, review the troubleshooting [documentation
 
 ## FAQ
 ### Can I update custom data after the VM has been created?
-For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (this will not work for the PS or AZ CLI clients). When you update custom data in the VMSS model, the following will occur:
+For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (this will not work for the PS or AZ CLI clients). When you update custom data in the VMSS model:
 * Existing instances in the VMSS will not get the updated custom data, only until they are reimaged.
 * Existing instances in the VMSS that are upgraded will not get the updated custom data.
 * New instances will receive the new custom data.
 
 ### Can I place sensitive values in custom data?
-We advise **not** to store sensitive data in custom data. For additional information, see [Azure Security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
+We advise **not** to store sensitive data in custom data. For more information, see [Azure Security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
 
 
 ### Is custom data made available in IMDS?
