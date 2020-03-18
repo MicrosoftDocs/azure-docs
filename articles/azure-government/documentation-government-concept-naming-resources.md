@@ -6,8 +6,6 @@ cloud: gov
 author: bernie-msft
 manager: zakramer
 
-ms.assetid: 9790239d-b18b-468d-b539-fb868a85a868
-ms.service: Azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -40,7 +38,7 @@ An example of a virtual machine resource ID is:
 
 
 ## Naming Considerations
-For all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it, customers should avoid names that are sensitive to business/mission functions.  Customers should also avoid names that indicate customer regulatory requirements (e.g., [ITAR](https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-itar?view=o365-worldwide), [CJIS](https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-cjis?view=o365-worldwide), etc.), as applicable.
+For all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it, customers should avoid names that are sensitive to business/mission functions.  Customers should also avoid names that indicate customer regulatory requirements (e.g., [ITAR](https://docs.microsoft.com/microsoft-365/compliance/offering-itar?view=o365-worldwide), [CJIS](https://docs.microsoft.com/microsoft-365/compliance/offering-cjis?view=o365-worldwide), etc.), as applicable.
 
 Customers should understand and take into account the resource naming convention to help ensure  operational security, as Microsoft personnel could use the full resource ID in the following example scenarios:
 
