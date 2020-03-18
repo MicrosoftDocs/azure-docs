@@ -26,6 +26,10 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
+* Install the following VS Code extensions:
+    - [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+    - [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
@@ -40,10 +44,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
-1. Choose an empty folder location for your project and choose **Select**.
+    ![Create a function project](media/durable-functions-create-first-csharp/functions-vscode-create-project.png)
 
-    > [!NOTE]
-    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+1. Choose an empty folder location for your project and choose **Select**.
 
 1. Following the prompts, provide the following information:
 
@@ -62,27 +65,25 @@ The following steps use a template to create the durable function code in your p
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
 
-    ![Create a function](./media/quickstart-js-vscode/create-function.png)
-
 1. Following the prompts, provide the following information:
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a template for your function | DurableFunctionsOrchestration | Create a Durable Functions orchestration |
     | Provide a function name | HelloOrchestration | Name of the class in which functions are created |
-    | Provide a namespace | Company.Function | |
+    | Provide a namespace | Company.Function | Namespace for the generated class |
 
-1. When VS Code prompts you to select a storage account, select **Select storage account**. Following the prompts, provide the following information to create a new storage account in Azure.
+1. When VS Code prompts you to select a storage account, choose **Select storage account**. Following the prompts, provide the following information to create a new storage account in Azure.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select subscription | name of your subscription | Select your Azure subscription |
+    | Select subscription | *name of your subscription* | Select your Azure subscription |
     | Select a storage account | Create a new storage account |  |
-    | Enter the name of the new storage account | a unique name | Name of the storage account to create |
-    | Select a resource group | a unique name | Name of the resource group to create |
-    | Select a location | region | Select a region close to you |
+    | Enter the name of the new storage account | *unique name* | Name of the storage account to create |
+    | Select a resource group | *unique name* | Name of the resource group to create |
+    | Select a location | *region* | Select a region close to you |
 
-A class containing the new functions is added to the project. VS Code also adds the new storage account connection string to *local.settings.json* and a reference to the [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet package to the *.csproj* project file.
+A class containing the new functions is added to the project. VS Code also adds the storage account connection string to *local.settings.json* and a reference to the [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) NuGet package to the *.csproj* project file.
 
 Open the new *HelloOrchestration.cs* file to view the contents. This durable function is a simple function chaining example with the following methods:  
 
@@ -102,7 +103,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
+    ![Azure local output](../media/durable-functions-create-first-csharp/functions-vscode-f5.png)
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
 
@@ -114,7 +115,8 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ```json
     {
-        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "name": "HelloOrchestration",
+        "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
         "runtimeStatus": "Completed",
         "input": null,
         "customStatus": null,
@@ -123,8 +125,8 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2020-03-18T21:54:49Z",
+        "lastUpdatedTime": "2020-03-18T21:54:54Z"
     }
     ```
 
@@ -140,7 +142,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
+        http://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart
 
 1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
