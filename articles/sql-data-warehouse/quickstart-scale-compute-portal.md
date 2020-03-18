@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 
-You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**. This quickstart scales **mySampleDataWarehouse**.
+You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**. This quickstart scales **mySampleDataWarehouse**.
 
 >[!IMPORTANT] 
 >Your SQL pool must be online to scale. 
