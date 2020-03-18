@@ -72,7 +72,9 @@ Before you publish the runbook to make it available in production, you should te
 
    The job status starts as `Queued`, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to `Starting` when a worker claims the job. Finally, the status becomes `Running` when the runbook actually starts to run.
 
-1. When the runbook job completes, the Test pane displays its output. In this case, you see `Hello World`.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. When the runbook job completes, the Test pane displays its output. In this case, you see `Hello World`.
+
+    ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. Close the Test pane to return to the canvas.
 
 ## Step 4 - Publish and start the runbook
@@ -152,9 +154,9 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 1. The `Set-AzContext` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Click **Parameter Set** and then select **SubscriptionId**.
 1. The parameters for this parameter set are displayed on the Activity Parameter Configuration page. Click **SubscriptionID**.
 1. On the Parameter Value page, select **Variable Asset** for the **Data source** field and select **AzureSubscriptionId** from the source list. When finished, click **OK** twice.
-1. Hover over `Login to Azure` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Specify Subscription Id`. 
+1. Hover over `Login to Azure` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Specify Subscription Id`. Your runbook should look like the following at this point.
 
-Your runbook should look like the following at this point: <br>![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-auth-config.png)
+    ![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
 ## Step 7 - Add activity to start a virtual machine
 
@@ -168,9 +170,9 @@ Now you must add a `Start-AzVM` activity to start a virtual machine. You can pic
 1. Select **Name**. Choose **PowerShell expression** for the **Data source** field. For the VM that you use to start this runbook, type in the machine name surrounded with double quotes. Click **OK**.
 1. Select **ResourceGroupName**. Use the value **PowerShell expression** for the **Data source** field, and type in the name of the resource group surrounded with double quotes. Click **OK**.
 1. Click **Test pane** so that you can test the runbook.
-1. Click **Start** to begin the test. Once it completes, make sure that the VM has started. 
+1. Click **Start** to begin the test. Once it completes, make sure that the VM has started. Your runbook should look like the following at this point.
 
-Your runbook should look like the following at this point: <br>![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-startvm.png)
+    ![Runbook authentication configuration](media/automation-first-runbook-graphical/runbook-startvm.png)
 
 ## Step 8 - Add additional input parameters
 
@@ -224,7 +226,9 @@ You can now modify the runbook so that it only attempts to start the VM if it is
      $StatusOut
      ```
 
-1. Create a link from `Get Status` to `Start-AzVM`.<br> ![Runbook with Code Module](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
+1. Create a link from `Get Status` to `Start-AzVM`.
+
+    ![Runbook with Code Module](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. Select the link and, in the Configuration pane, change **Apply condition** to **Yes**. Note that the link becomes a dashed line, indicating that the target activity only runs if the condition resolves to true.  
 1. For **Condition expression**, type `$ActivityOutput['Get Status'] -eq "Stopped"`. `Start-AzVM` now only runs if the VM is stopped.
 1. In the Library control, expand **Cmdlets** and then **Microsoft.PowerShell.Utility**.
@@ -237,7 +241,9 @@ You can now modify the runbook so that it only attempts to start the VM if it is
 1. Select the link to `Notify VM Started` and change **Apply condition** to true.
 1. For the **Condition expression**, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. This `Write-Output` control now only runs if the VM starts successfully.
 1. Select the link to `Notify VM Start Failed` and change **Apply condition** to true.
-1. For the **Condition expression** field, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. This `Write-Output` control now only runs if the VM is not successfully started. Your runbook should look like the following image: <br> ![Runbook with Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
+1. For the **Condition expression** field, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. This `Write-Output` control now only runs if the VM is not successfully started. Your runbook should look like the following image.
+
+    ![Runbook with Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
 1. Save the runbook and open the Test pane.
 1. Start the runbook with the VM stopped, and the machine should start.
 
