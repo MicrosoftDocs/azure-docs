@@ -74,7 +74,7 @@ The utility can pull source data from a local folder or from an Azure blob stora
 The `-creationTimePattern` argument extracts the CreationTime property from the file or blob path. The pattern does not need to reflect the entire item path, just the section enclosing the timestamp you want to use.
 The value of the argument must contain of three sections:
 * Constant test immediately preceding the timestamp, enclosed in single quotes
-* The timestamp format, in standard [.NET DateTime notation](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
+* The timestamp format, in standard [.NET DateTime notation](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)
 * Constant text immediately following the timestamp
 For example, if blob names end with 'historicalvalues19840101.parquet' (the timestamp is four digits for the year, two digits for the month and two digits for the day of month), the corresponding value for the `-creationTimePattern` argument is 'historicalvalues'yyyyMMdd'.parquet'.
 
