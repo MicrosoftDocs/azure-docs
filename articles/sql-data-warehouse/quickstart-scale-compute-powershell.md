@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a SQL pool that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL pool that you can scale. If you need to create one, use [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to create a SQL pool called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
@@ -63,7 +63,7 @@ Follow these steps to find location information for your data warehouse.
 
 ## Scale compute
 
-In SQL pool, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+In SQL pool, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
 
 To change data warehouse units, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the data warehouse units to DW300c for the database **mySampleDataWarehouse**, which is hosted in the Resource group **resourcegroupname** on server **sqlpoolservername**.
 
