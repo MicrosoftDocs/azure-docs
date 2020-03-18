@@ -28,7 +28,7 @@ Use Visual Studio to query a SQL pool within Azure Synapse in just a few minutes
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL pool. To create one, see [Create a SQL pool](sql-data-warehouse-get-started-provision.md).
+* An existing SQL pool. To create one, see [Create a SQL pool](create-data-warehouse-portal).
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
 * The fully qualified SQL server name. To find this information, see [Connect to SQL pool](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 

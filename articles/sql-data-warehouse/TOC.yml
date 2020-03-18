@@ -234,7 +234,7 @@
   - name: Manageability & monitoring
     items:
     - name: Overview
-      href: sql-data-warehouse-overview-manageability-monitoring.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Scale, pause, resume
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Resource utilization & query activity 
@@ -250,7 +250,7 @@
   - name: Integration
     items:
     - name: Overview
-      href: sql-data-warehouse-overview-integrate.md    
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-integrate.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json   
 - name: How-to guides
   items:
   - name: Secure
@@ -300,9 +300,9 @@
     - name: Connect and query
       items:
       - name: Visual Studio SSDT
-        href: sql-data-warehouse-query-visual-studio.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: SSMS
-        href: sql-data-warehouse-query-ssms.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: sqlcmd
         href: sql-data-warehouse-get-started-connect-sqlcmd.md
   - name: Workload management
@@ -322,7 +322,7 @@
     - name: Manage Compute
       href: manage-compute-with-azure-functions.md
     - name: Monitor your workload - Portal 
-      href: sql-data-warehouse-monitor-workload-portal.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Monitor your workload - DMVs 
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
@@ -360,7 +360,7 @@
 - name: Reference
   items:
   - name: Database collation types
-    href: sql-data-warehouse-reference-collation-types.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-collation-types.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: T-SQL
     items:
     - name: Full reference
@@ -374,7 +374,7 @@
   - name: PowerShell cmdlets
     href: sql-data-warehouse-reference-powershell-cmdlets.md
   - name: REST APIs
-    href: sql-data-warehouse-manage-compute-rest-api.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -398,8 +398,8 @@
   - name: Partners
     items:
     - name: Business intelligence
-      href: sql-data-warehouse-partner-business-intelligence.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data integration
-      href: sql-data-warehouse-partner-data-integration.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-integration.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Data management
-      href: sql-data-warehouse-partner-data-management.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-management.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
