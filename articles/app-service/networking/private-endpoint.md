@@ -54,7 +54,7 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This i
 
 
   > [!div class="mx-imgBorder"]
-  > ![Web App Private Endpoint global overview](media/private-endpoint/global-schema-private-endpoint-web-app.png)
+  > ![Web App Private Endpoint global overview](media/private-endpoint/global-schema-web-app.png)
 
 ## DNS
 
