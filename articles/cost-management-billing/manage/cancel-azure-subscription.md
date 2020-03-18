@@ -1,5 +1,5 @@
 ---
-title: Cancel your Azure subscription | Microsoft Docs
+title: Cancel your Azure subscription
 description: Describes how to cancel your Azure subscription, like the Free Trial subscription
 author: bandersmsft
 ms.reviewer: amberb

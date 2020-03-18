@@ -9,7 +9,7 @@ ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ---
 
-# Set up Azure Monitor for your Python application (preview)
+# Set up Azure Monitor for your Python application
 
 Azure Monitor supports distributed tracing, metric collection, and logging of Python applications through integration with [OpenCensus](https://opencensus.io). This article will walk you through the process of setting up OpenCensus for Python and sending your monitoring data to Azure Monitor.
 

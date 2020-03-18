@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
+manager: lizross
 ---
 # Storage options for FSLogix profile containers in Windows Virtual Desktop
 

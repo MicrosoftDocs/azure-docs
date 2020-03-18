@@ -45,7 +45,7 @@ cd docker-django-webapp-linux
 
 ## Build the image from the Docker file
 
-In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run your application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
+In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run your application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host. The last line in the _Dockerfile_, `ENTRYPOINT ["init.sh"]`, invokes `init.sh` to start the SSH service and Python server.
 
 ```Dockerfile
 FROM python:3.4
@@ -69,6 +69,8 @@ COPY init.sh /usr/local/bin/
 	
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```

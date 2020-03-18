@@ -86,7 +86,7 @@ Delete the restored accounts as soon as you are done migrating, because they wil
 Next you can learn about how to restore data from an Azure Cosmos account or learn how to migrate data to an Azure Cosmos account
 
 * To make a restore request, contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [How to restore data from an Azure Cosmos account](how-to-backup-and-restore.md)
+* [How to restore data from an Azure Cosmos account](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)
 * [Use Cosmos DB change feed](change-feed.md) to move data to Azure Cosmos DB.
 * [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data to Azure Cosmos DB.
 
