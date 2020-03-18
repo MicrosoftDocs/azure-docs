@@ -358,7 +358,7 @@ To support these sorts of configurations, Service Fabric includes tags that you 
 </center>
 
 ### Built-in node properties
-Service Fabric defines some default node properties that can be used automatically so you don't have to define them. The default properties defined at each node are **NodeType** and **NodeName**. 
+Service Fabric defines some default node properties that can be used automatically so you don't have to define them. The default properties defined at each node are **NodeType**, **NodeName**, and **NodeTypeName**. 
 
 For example, you can write a placement constraint as `"(NodeType == NodeType03)"`. **NodeType** is a commonly used property. It's useful because it corresponds 1:1 with a type of a machine. Each type of machine corresponds to a type of workload in a traditional n-tier application.
 
