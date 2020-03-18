@@ -111,7 +111,7 @@ The Quickstarts below will help you to get started with the APIs available throu
     >
     
 ### Variations
-* The URI for accessing the Face API in Azure Government is :
+* The URI for accessing the Computer Vision API in Azure Government is :
    - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
    - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
 
