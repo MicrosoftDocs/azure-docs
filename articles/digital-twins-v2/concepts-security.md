@@ -19,11 +19,11 @@ ms.service: digital-twins
 
 Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
-RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). 
+RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD). 
 
 ## RBAC through Azure AD
 
-You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by **Azure AD**, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
+You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
@@ -34,7 +34,7 @@ With Azure AD, access is a two-step process. When a security principal (a user, 
 
 The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an [Azure Function](../azure-functions/functions-overview.md) app, it can use a managed identity to access the resources. 
 
-The authorization step requires that an RBAC role be assigned to the security principal. Azure Digital Twins provides RBAC roles that encompass sets of permissions for Azure Digital Twins resources. The roles that are assigned to a security principal determine the permissions that the principal will have. 
+The authorization step requires that an RBAC role be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have. Azure Digital Twins provides RBAC roles that encompass sets of permissions for Azure Digital Twins resources (described in the next section).
 
 To learn more about roles and role assignments supported in Azure, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
 
@@ -44,25 +44,23 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 * Azure Digital Twins Owner (Preview) – Use this role to give admin controls over Azure Digital Twins resources.
 * Azure Digital Twins Reader (Preview) – Use this role to give read only access to Azure Digital Twins resources.
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. 
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
-For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
-
-You can assign roles in either of two ways:
-* via the access control (IAM) pane for Azure Digital Twins in Azure Portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)).
+You can assign roles in two ways:
+* via the access control (IAM) pane for Azure Digital Twins in Azure Portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, you can also visit the Azure Digital Twins tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
 
 ## Permission scopes
 
-Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
+Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
 
-The following list describes the levels at which you can scope access to Azure Digital Twins resources:
+The following list describes the levels at which you can scope access to Azure Digital Twins resources.
 * Twin types: This role assignment dictates control over twin types uploaded in Azure Digital Twins.
 * Query: This role assignment determines ability to run SQL query operations on twins within the Azure Digital Twins graph.
-* Digital Twin: This role assignment provides control over CRUD operations on digital twin entities in the twin graph.
-* Twin relationships: This role assignment defines control over CRUD operations on relationships between digital twins within a twin graph.
+* Digital Twin: This role assignment provides control over CRUD operations on digital twins in the twin graph.
+* Twin relationships: This role assignment defines control over CRUD operations on relationships between digital twins in the twin graph.
 * Event routes: This role assignment determines permissions to route events from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## Next steps
