@@ -93,13 +93,13 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     + **Provide a group ID**: Choose `com.function`.
 
-    + **Provide an artifact ID**: Choose `JavaVSCode`.
+    + **Provide an artifact ID**: Choose `myFunction`.
 
     + **Provide a version**: Choose `1.0-SNAPSHOT`.
 
     + **Provide a package name**: Choose `com.function`.
 
-    + **Provide a app name**: Choose `JavaVSCode-12345`.
+    + **Provide a app name**: Choose `myFunction-12345`.
     ::: zone-end  
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Select a template for your project's first function**: Choose `HTTP trigger`.
