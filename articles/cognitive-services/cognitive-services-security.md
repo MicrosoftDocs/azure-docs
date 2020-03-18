@@ -7,13 +7,13 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 03/18/2020
 ms.author: dapine
 ---
 
 # Azure Cognitive Services security
 
-< TODO: Add introduction details, consider changing title? >
+Security should be considered a top priority when developing any and all applications. With the onset of artificial intelligence enabled applications, security is even more important. In this article various aspects of Azure Cognitive Services security are outlined, such as the use of transport layer security, authentication, and securely configuring sensitive data.
 
 ## Transport Layer Security (TLS)
 
@@ -83,31 +83,58 @@ To get an environment variable, it must be read into memory. Depending on the la
 
 # [C#](#tab/csharp)
 
+For more information, see <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 ```csharp
-// Get the named env var, and assign it to the value variable
-var value =
-    Environment.GetEnvironmentVariable(
-        "ENVIRONMENT_VARIABLE_KEY");
+using static System.Environment;
+
+class Program
+{
+    static void Main()
+    {
+        // Get the named env var, and assign it to the value variable
+        var value =
+            GetEnvironmentVariable(
+                "ENVIRONMENT_VARIABLE_KEY");
+    }
+}
 ```
 
 # [C++](#tab/cpp)
 
+For more information, see <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 ```cpp
-// Get the named env var, and assign it to the value variable
-auto value =
-    getenv("ENVIRONMENT_VARIABLE_KEY");
+#include <stdlib.h>
+
+int main()
+{
+    // Get the named env var, and assign it to the value variable
+    auto value =
+        getenv("ENVIRONMENT_VARIABLE_KEY");
+}
 ```
 
 # [Java](#tab/java)
 
+For more information, see <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 ```java
-// Get the named env var, and assign it to the value variable
-String value =
-    System.getenv(
-        "ENVIRONMENT_VARIABLE_KEY")
+import java.lang.*;
+
+public class Program {
+   public static void main(String[] args) throws Exception {
+    // Get the named env var, and assign it to the value variable
+    String value =
+        System.getenv(
+            "ENVIRONMENT_VARIABLE_KEY")
+   }
+}
 ```
 
 # [Node.js](#tab/node-js)
+
+For more information, see <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -116,6 +143,8 @@ const value =
 ```
 
 # [Python](#tab/python)
+
+For more information, see <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 import os
@@ -126,6 +155,8 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # [Objective-C](#tab/objective-c)
 
+For more information, see <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 ```objectivec
 // Get the named env var, and assign it to the value variable
 NSString* value =
@@ -133,8 +164,6 @@ NSString* value =
 ```
 
 ---
-
-For more information, see <a href="https://docs.microsoft.com/azure/azure-app-configuration/overview" target="_blank">Azure App Configuration <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Next steps
 
