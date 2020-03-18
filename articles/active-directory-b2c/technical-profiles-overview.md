@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 03/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -37,6 +37,8 @@ A technical profile enables these types of scenarios:
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
 - [Application Insights](../azure-monitor/app/usage-overview.md)
 - [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password.
+- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -  provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). 
+- [SAML token issuer](saml-issuer-technical-profile.md) - Emits a SAML token that is returned back to the relying party application.
 
 ## Technical profile flow
 
