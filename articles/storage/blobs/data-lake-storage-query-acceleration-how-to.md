@@ -12,7 +12,7 @@ ms.reviewer: jamsbak
 
 # Filter data by using Azure Data Lake Storage query acceleration
 
-This article shows you how to use .NET and query accelaration (Preview) to retrieve a subset of data from your storage account. 
+This article shows you how to use .NET and query acceleration (Preview) to retrieve a subset of data from your storage account. 
 
 Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
 
