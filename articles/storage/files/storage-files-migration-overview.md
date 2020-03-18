@@ -91,12 +91,11 @@ The following table classifies Microsoft tools and their current suitability for
 
 This category lists tools that help with planning and executing migrations.
 
-* RoboCopy, from Microsoft Corporation
+* **RoboCopy, from Microsoft Corporation**
 
-    One of the most well-rounded copy tools available, comes out-of-the-box with Microsoft Windows.Due to the many options in this tool, the main [RoboCopy documentation](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) is a helpful source.
-    </br></br>
+    One of the most well-rounded copy tools available, comes out-of-the-box with Microsoft Windows. Due to the many options in this tool, the main [RoboCopy documentation](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) is a helpful source.
 
-* TreeSize, from JAM Software GmbH
+* **TreeSize, from JAM Software GmbH**
 
     Azure File Sync primarily scales with the number of items (files and folders) in a sync scope and less so with the total TiB amount. The tool below can be used to determine the number of files and folders on your Windows Server volumes. Furthermore it can be used to create a perspective before an [Azure File Sync deployment](storage-sync-files-deployment-guide.md) - but also after, when cloud tiering is engaged and you like to see not only the number of items but also in which directories your server cache is used the most.
     This tool (tested version 4.4.1) is compatible with cloud tiered files. It will not cause recall of tiered files during its normal operation.
