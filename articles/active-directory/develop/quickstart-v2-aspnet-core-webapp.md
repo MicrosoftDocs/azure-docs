@@ -65,7 +65,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
