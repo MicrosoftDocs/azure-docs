@@ -113,7 +113,7 @@ After configuring the charts, the lines on chart are automatically assigned a co
 
 To change the color of a chart line click on the colored bar in the legend corresponding to the chart and use the color picker dialog which opens to configure the color for the line.
 
-![metric image](./media/metrics-charts/00018.png)
+![metric image](./media/metrics-charts/018.png)
 
 ## Pin charts to dashboards
 
