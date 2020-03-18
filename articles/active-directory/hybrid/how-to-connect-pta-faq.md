@@ -70,7 +70,7 @@ If you have not configured password writeback for a specific user or if the user
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
 - The Authentication Agents make HTTPS requests over port 443 for all feature operations.
-- The Authentication Agents make HTTP requests over port 80 to download the SSL certificate revocation lists (CRLs).
+- The Authentication Agents make HTTP requests over port 80 to download the TLS/SSL certificate revocation lists (CRLs).
 
      >[!NOTE]
      >Recent updates reduced the number of ports that the feature requires. If you have older versions of Azure AD Connect or the Authentication Agent, keep these ports open as well: 5671, 8080, 9090, 9091, 9350, 9352, and 10100-10120.

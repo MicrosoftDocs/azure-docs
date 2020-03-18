@@ -55,7 +55,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * Azure AD Connect must be installed on Windows Server 2012 or later. This server must be domain joined and may be a domain controller or a member server.
 * The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. You can enable PowerShell transcription if you are using Azure AD Connect wizard to manage sync configuration.
 * If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
-* If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
+* If Active Directory Federation Services is being deployed, you need [TLS/SSL Certificates](#tsl-ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
 * If your global administrators have MFA enabled, then the URL **https://secure.aadcdn.microsoftonline-p.com** must be in the trusted sites list. You are prompted to add this site to the trusted sites list when you are prompted for an MFA challenge and it has not added before. You can use Internet Explorer to add it to your trusted sites.
 * Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
@@ -168,8 +168,8 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
       * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine
       * To validate remote PSH connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PSH session should open to ensure remote PowerShell sessions can be established.
 
-### SSL Certificate Requirements
-* It’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+### TLS/SSL Certificate Requirements
+* It’s strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
 * The certificate must be an X509 certificate.
 * You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
   * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers

@@ -103,7 +103,7 @@ The configuration model in sync is called [declarative provisioning](concept-azu
 
 Azure AD Connect provides several features that simplify federating with Azure AD using AD FS and managing your federation trust. Azure AD Connect supports AD FS on Windows Server 2012R2 or later.
 
-[Update SSL certificate of AD FS farm](how-to-connect-fed-ssl-update.md) even if you are not using Azure AD Connect to manage your federation trust.
+[Update TLS/SSL certificate of AD FS farm](how-to-connect-fed-ssl-update.md) even if you are not using Azure AD Connect to manage your federation trust.
 
 [Add an AD FS server](how-to-connect-fed-management.md#addadfsserver) to your farm to expand the farm as required.
 
