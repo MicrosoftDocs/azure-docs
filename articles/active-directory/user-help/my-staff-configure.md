@@ -45,13 +45,14 @@ To do this, you must have the Helpdesk (Password) Administrator role or a more p
 
 ## Manage a user's phone number (coming soon)
 
-From My staff, open a user's profile. Choose the plus icon in the "Phone number" section. Add a phone number for the user. You can also choose pencil icon to change the phone number. Lastly, you can choose the trashcan icon to delete the phone number from the user's profile. 
+From My staff, open a user's profile. Choose the plus icon in the "Phone number" section. Add a phone number for the user. You can also choose pencil icon to change the phone number. Lastly, you can choose the trashcan icon to delete the phone number from the user's profile.
+
 Depending on your settings, the user can use the phone number you set to sign in with SMS sign in, perform Multi-Factor Authentication, and perform self-service password reset.
-To do this, you must have the Authentication Administrator role or a more privileged role. 
+To do this, you must have the Authentication Administrator role or a more privileged role.
 
 ## Search
 
-You can search for locations and users in your organization. Use the search bar at the top of the My staff experience. You can search across all locations and users in your organization, but you can only make changes to users who are in a location to which you have been given admin permissions. 
+You can search for locations and users in your organization. Use the search bar at the top of the My staff experience. You can search across all locations and users in your organization, but you can only make changes to users who are in a location to which you have been given admin permissions.
  
 You can also search for a user within a location. To do this, use the search bar at the top of the user list.
 
