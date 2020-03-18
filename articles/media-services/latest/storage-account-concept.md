@@ -21,7 +21,7 @@ To start managing, encrypting, encoding, analyzing, and streaming media content 
 
 The Media Services account and all associated storage accounts must be in the same Azure subscription. It's strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
 
-You must have one **Primary** storage account and you can have any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. Blob only accounts aren'tt allowed as **Primary**.
+You must have one **Primary** storage account and you can have any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. Blob only accounts aren't allowed as **Primary**.
 
 We recommend that you use GPv2, so you can take advantage of the latest features and performance. To learn more about storage accounts, see [Azure Storage account overview](../../storage/common/storage-account-overview.md).
 
@@ -47,7 +47,7 @@ To protect your assets at rest, the assets should be encrypted by the storage si
 |[Storage service encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer.|Supported.|
 |[Storage client-side encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault.|Not supported.|
 
-<sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your sssets were created with Media Services v2, which means v3 works with existing storage encrypted assets but won't allow creation of new ones.
+<sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your assets were created with Media Services v2, which means v3 works with existing storage encrypted assets but won't allow creation of new ones.
 
 ## Storage account errors
 
@@ -58,7 +58,7 @@ The following are the primary scenarios that would result in a Media Services ac
 |Issue|Solution|
 |---|---|
 |The Media Services account or attached storage account(s) were migrated to separate subscriptions. |Migrate the storage account(s) or Media Services account so that they're all in the same subscription. |
-|The Media Services account is using an attached storage account in a different subscription as it was an early Media Services account where this was supported. All early Media Services accounts were converted to modern Azure Resources Manager (ARM) based accounts and will have a Disconnected state. |Migrate the storage account or Media Services account so that they're all in the same subscription.|
+|The Media Services account is using an attached storage account in a different subscription as it was an early Media Services account where this was supported. All early Media Services accounts were converted to modern Azure Resources Manager based accounts and will have a Disconnected state. |Migrate the storage account or Media Services account so that they're all in the same subscription.|
 
 ## Azure Storage firewall
 
