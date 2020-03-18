@@ -91,7 +91,7 @@ Follow these steps to clean up resources.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select on your data warehouse.
 
-    ![Clean up resources](./media/quickstart-create-a-workload-classifier-tsql/clean-up-resources.png)
+    ![Clean up resources](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
 
