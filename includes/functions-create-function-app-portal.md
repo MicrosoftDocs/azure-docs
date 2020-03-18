@@ -52,6 +52,6 @@ ms.custom: include file
 
 1. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
-    ![Deployment notification](./media/functions-create-function-app-portal/function-app-create-notification2.png)
-
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
+    ![Deployment notification](./media/functions-create-function-app-portal/function-app-create-notification2.png)

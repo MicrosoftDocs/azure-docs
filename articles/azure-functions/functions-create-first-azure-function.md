@@ -9,11 +9,7 @@ ms.custom: mvc, devcenter, cc996988-fb4f-47
 
 # Create your first function in the Azure portal
 
-Azure Functions lets you run your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP-triggered function in the Azure portal.
-
-For more information about HTTP triggers, see [Azure Functions HTTP triggers and bindings overview](functions-bindings-http-webhook.md).
-
-![Create function app in the Azure portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP triggered function in the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +27,7 @@ You must have a function app to host the execution of your functions. A function
 
 Next, create a function in the new function app.
 
-## <a name="create-function"></a>Create an HTTP-triggered function
+## <a name="create-function"></a>Create an HTTP triggered function
 
 1. Expand your new function app, select the **+** button next to **Functions**, choose **In-portal**, and then select **Continue**.
 
@@ -41,7 +37,7 @@ Next, create a function in the new function app.
 
     ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-   A function is created using a language-specific template for an HTTP-triggered function.
+   A function is created using a language-specific template for an HTTP triggered function.
 
 Now, you can run the new function by sending an HTTP request.
 
@@ -53,7 +49,7 @@ Now, you can run the new function by sending an HTTP request.
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value *&name=&lt;your_name&gt;* to the end of this URL and press Enter to run the request. 
+1. Paste the function URL into your browser's address bar. Add the query string value `&name=<your_name>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 

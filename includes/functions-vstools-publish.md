@@ -29,7 +29,7 @@ ms.custom: include file
 
     | Setting      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: *a-z*, *0-9*, and *-*. |
+    | **Name** | Globally unique name | Name that uniquely identifies your new function app. Accept this name or enter a new name. Valid characters are: `a-z`, `0-9`, and `-`. |
     | **Subscription** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
     | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** | Name of your resource group |  The resource group in which to create your function app. Select an existing resource group from the drop-down list or choose **New** to create a new resource group.|
     | **[Hosting Plan](../articles/azure-functions/functions-scale.md)** | Name of your hosting plan | Select **New** to configure a serverless plan. Make sure to choose the **Consumption** under **Size**. When you publish your project to a function app that runs in a [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan), you pay only for executions of your functions app. Other hosting plans incur higher costs. If you run in a plan other than **Consumption**, you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md). Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or other services your functions access.  |
