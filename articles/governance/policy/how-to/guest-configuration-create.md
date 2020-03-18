@@ -1,6 +1,6 @@
 ---
 title: How to create Guest Configuration policies for Windows
-description: Learn how to create an Azure Policy Guest Configuration policy for Windows using PowerShell.
+description: Learn how to create an Azure Policy Guest Configuration policy for Windows.
 ms.date: 12/16/2019
 ms.topic: how-to
 ---
@@ -22,7 +22,7 @@ effect **auditIfNotExists** is triggered and the machine is considered **non-com
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
 settings inside machines. Remediation of settings inside machines isn't yet available.
 
-Use the following actions to create your own configuration for validating the state of an Azure
+Use the following actions to create your own configuration for validating the state of an Azure or non-Azure 
 machine.
 
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ machine.
 
 ## Install the PowerShell module GuestConfiguration
 
-The process of creating a Guest Configuration artifact, automated testing of he artifact,
+The process of creating a Guest Configuration artifact, automated testing of the artifact,
 creating a policy definition, and publishing the policy,
 is entirely automatable using PowerShell.
 This module can be installed on a machine running Windows, MacOS, or Linux with
@@ -42,6 +42,12 @@ with the
 > Compilation of configurations is not yet supported on Linux.
 
 ### Base requirements
+
+Operating Systems where the module can be installed:
+
+- Linux
+- MacOS
+- Windows
 
 The Guest Configuration resource module requires the following software:
 
@@ -196,7 +202,7 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./DSCConfig
+AuditBitLocker -out ./Config
 ```
 
 Note that the `Node AuditBitlocker` command is not technically required but it produces a file named `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
@@ -216,7 +222,7 @@ Run the following command to create a package using the configuration given in t
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditBitlocker' `
-  -Configuration './DSCConfig/AuditBitlocker.mof'
+  -Configuration './Config/AuditBitlocker.mof'
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the
@@ -245,7 +251,7 @@ Test-GuestConfigurationPackage `
 > `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 >
 > ```azurepowershell-interactive
-> New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./DSCConfig/AuditBitlocker.mof | Test-GuestConfigurationPackage
+> New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 > ```
 
 The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. Note that the commands used in the `publish` function require the `Az.Storage` module.
