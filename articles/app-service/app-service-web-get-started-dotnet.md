@@ -4,8 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying the def
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 03/17/2020
-ms.custom: mvc, devcenter, vs-azure
-ms.custom: seodec18
+ms.custom: mvc, devcenter, vs-azure, seodec18
 ---
 
 # Quickstart: Create an ASP.NET Core web app in Azure
