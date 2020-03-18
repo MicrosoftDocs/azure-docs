@@ -63,7 +63,7 @@ Custom data is placed in *%SYSTEMDRIVE%\AzureData\CustomData.bin* as a binary fi
 On Linux OS's, custom data is passed to the VM via the ovf-env.xml file, which is copied to the */var/lib/waagent* directory during provisioning.  Newer versions of the Microsoft Azure Linux Agent will also copy the base64-encoded data to */var/lib/waagent/CustomData* as well for convenience.
 
 Azure currently supports two provisioning agents:
-* Linux Agent - By default the agent will not process custom data, you will need to build a custom image with it enabled. These are the relevant settings, as per the [documentation](https://github.com/Azure/WALinuxAgent#configuration):
+* Linux Agent - By default the agent will not process custom data, you will need to build a custom image with it enabled. The relevant settings, as per the [documentation](https://github.com/Azure/WALinuxAgent#configuration) are:
     * Provisioning.DecodeCustomData
     * Provisioning.ExecuteCustomData
 
@@ -79,14 +79,14 @@ To troubleshoot custom data execution, review the troubleshooting [documentation
 
 ## FAQ
 ### Can I update custom data after the VM has been created?
-For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (this will not work for the PS or AZ CLI clients). When you update custom data in the VMSS model, this will happen:
+For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (this will not work for the PS or AZ CLI clients). When you update custom data in the VMSS model, the following will occur:
 * Existing instances in the VMSS will not get the updated custom data, only until they are reimaged.
 * Existing instances in the VMSS that are upgraded will not get the updated custom data.
 * New instances will receive the new custom data.
 
 ### Can I place sensitive values in custom data?
-We advise to **not** store sensitive data in custom data. For additional information see [Azure Security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
+We advise **not** to store sensitive data in custom data. For additional information, see [Azure Security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
 
 
 ### Is custom data made available in IMDS?
-No, this is not currently available.
+No, this feature is not currently available.
