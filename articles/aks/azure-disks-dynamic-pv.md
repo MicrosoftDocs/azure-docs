@@ -2,12 +2,9 @@
 title: Dynamically create and use a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
+
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
 ---

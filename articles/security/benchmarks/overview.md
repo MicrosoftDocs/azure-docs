@@ -12,7 +12,7 @@ ms.custom: security-baselines
 
 ---
 
-# Overview of Azure Security Controls
+# Overview of the Azure Security Benchmark
 
 The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
 
@@ -48,4 +48,5 @@ We welcome your detailed feedback and active participation in the Azure Security
 ## Next Steps
 
 - See the first security control: [Network Security](security-control-network-security.md)
+- Read the [Azure Security Benchmark Introduction](introduction.md)
 - Download the [Azure Security Benchmark v1 excel spreadsheet](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

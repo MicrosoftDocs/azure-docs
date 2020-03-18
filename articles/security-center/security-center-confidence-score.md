@@ -44,14 +44,6 @@ To view the data that contributed to Security Center's confidence in an alert:
 Use Security Center’s confidence score to prioritize alert triage in your environment. The confidence score saves you time and effort by automatically investigating alerts, applying industry best practices and intelligent algorithms, and acting as a virtual analyst to determine which threats are real and where you need to focus your attention.
 
 
-## Next steps
-This article explained how to use the confidence score to prioritize alert investigation. To learn more about Security Center, see the following:
-
-* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-
-
-
 <!--Image references-->
 [1]: ./media/security-center-confidence-score/confidence-score.png
 [2]: ./media/security-center-confidence-score/suspicious-confidence-score.png

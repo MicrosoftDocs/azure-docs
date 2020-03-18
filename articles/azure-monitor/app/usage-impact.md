@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights Usage Impact | Microsoft docs
 description: Analyze how different properties potentially impact conversion rates for parts of your apps.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste

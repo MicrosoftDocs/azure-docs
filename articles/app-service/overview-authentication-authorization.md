@@ -54,7 +54,7 @@ For more information, see [Access user claims](app-service-authentication-how-to
 App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as: 
 
 - post to the authenticated user's Facebook timeline
-- read the user's corporate data from the Azure Active Directory Graph API or even the Microsoft Graph
+- read the user's corporate data using the Microsoft Graph API
 
 You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
 

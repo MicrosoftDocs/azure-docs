@@ -4,7 +4,7 @@ description: Learn how to troubleshoot and resolve issues with the Update Manage
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -18,6 +18,68 @@ There's an agent troubleshooter for the Hybrid Worker agent to determine the und
 If you encounter issues while you're trying to onboard the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 The following section highlights specific error messages and possible resolutions for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
+
+## Scenario: You receive the error "Failed to enable the Update solution"
+
+### Issue
+
+When you attempt to enable the Update Management solution in your Automation account, you encounter the following error:
+
+```error
+Error details: Failed to enable the Update solution
+```
+
+### Cause
+
+This error can occur for the following reasons:
+
+1. The network firewall requirements for the Log Analytics agent may not be configured correctly, causing the agent to fail resolving the DNS URLs.
+
+2. Solution targeting is misconfigured and the machine is not receiving updates as expected.
+
+You may also notice the machine shows with a status of **Non-compliant** under **Compliance**, however **Agent update readiness** is reporting the agent is **Disconnected**.
+
+### Resolution
+
+* Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
+
+* Go to [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
+
+* Go to [Network planning](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for Log Analytic agent to work.
+
+* Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the **Update Management** portal, you'll need to configure the scope configuration to target the machines. To learn how to configure the scope configuration, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* Remove the worker configuration by following the steps [deleting the hybrid runbook worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+
+## Scenario: Superseded update indicated as missing in Update Management
+
+### Issue
+
+Old updates are appearing in Update Management in the Azure Account as missing even though they have been superseded. A superseded update is one that doesn't have to be installed because a later update that corrects the same vulnerability is available. Update Management ignores the superseded update and makes it not applicable in favor of the superseding update. For information about a related issue, see [Update is superseded](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### Cause
+
+Superseded updates are not being correctly indicated as declined so that they can be considered not applicable.
+
+### Resolution
+
+When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to **Declined**. To do this for all your updates:
+
+1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../manage-update-multi.md#view-an-update-assessment).
+
+2. Check the superseded update to make sure that it is 100 percent not applicable. 
+
+3. Mark the update as declined unless you have a question about the update. 
+
+4. Select Computers and, in the Compliance column, force a rescan for compliance. See [Manage updates for multiple machines](../manage-update-multi.md).
+
+5. Repeat the steps above for other superseded updates.
+
+6. Run the cleanup wizard to delete files from the declined updates. 
+
+7. For WSUS, manually clean all superseded updates to refresh the infrastructure.
+
+8. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -35,7 +97,7 @@ You experience the following symptoms:
 
 This issue can be caused by local configuration issues or by improperly configured scope configuration.
 
-You might have to reregister and reinstall the Hybrid Runbook Worker.
+You might have to re-register and reinstall the Hybrid Runbook Worker.
 
 You might have defined a quota in your workspace that's been reached and that's preventing further data storage.
 
@@ -173,7 +235,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 This error can occur for one of the following reasons:
 
-* The machine doesn’t exist anymore.
+* The machine doesn't exist anymore.
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
 * There was an update to the MMA that changed the SourceComputerId.
@@ -183,14 +245,17 @@ This error can occur for one of the following reasons:
 
 When applicable, use [dynamic groups](../automation-update-management-groups.md) for your update deployments. Additionally:
 
-* Verify that the machine still exists and is reachable. If it doesn't exist, edit your deployment and remove the machine.
+* Verify that the machine still exists and is reachable. 
+* If the machine doesn't exist, edit your deployment and remove the machine.
 * See the [network planning](../automation-update-management.md#ports) section for a list of ports and addresses that are required for Update Management, and then verify that your machine meets these requirements.
-* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value. 
+* Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
+* Run the following query in Log Analytics to find machines in your environment for which `SourceComputerId` has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   After you find affected machines, edit the update deployments that target those machines, and then remove and re-add them so that `SourceComputerId` reflects the correct value.
+
+* After you find affected machines, edit the update deployments that target those machines, and then remove and re-add them so that `SourceComputerId` reflects the correct value.
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
 

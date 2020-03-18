@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services LiveEvent types | Microsoft Docs
-description: In Azure Media Services, a Live Event can be one of two types, live encoding and pass-through. This article shows a detailed table that compares Live Event types. 
+description: In Azure Media Services, a live event can be set to either a *pass-through* or *live encoding*. This article shows a detailed table that compares Live Event types. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -18,7 +18,9 @@ ms.author: juliako
 ---
 # Live Event types comparison
 
-In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
+In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). 
+
+This articles compares features of the live event types.
 
 ## Types comparison 
 

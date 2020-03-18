@@ -172,7 +172,7 @@ If you see exceptions instead of the "Started TodoApplication" message, check th
 
 ## Configure Azure deployment
 
-Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
+Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
 
 ```xml    
 <plugins> 
@@ -184,7 +184,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.8.0</version>
+        <version>1.9.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -249,7 +249,7 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.8.0:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.9.0:deploy (default-cli) @ spring-todo-app ---
 [INFO] Target Web App doesn't exist. Creating a new one...
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial Fail over StorSimple physical device to same device | Microsoft Docs
+title: Failover and disaster recovery to the same StorSimple 8000 device
 description: Learn how to fail over your StorSimple device to the same device.
 services: storsimple
 documentationcenter: ''

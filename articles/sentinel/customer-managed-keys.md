@@ -3,7 +3,7 @@ title: Set up customer-managed keys in Azure Sentinel| Microsoft Docs
 description: Learn how to set up customer-managed keys (CMK) in Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Set up Azure Sentinel customer-managed key

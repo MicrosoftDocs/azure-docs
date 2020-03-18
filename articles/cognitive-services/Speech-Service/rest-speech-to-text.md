@@ -3,18 +3,18 @@ title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: erhopf
+ms.date: 03/16/2020
+ms.author: dapine
 ---
 
 # Speech-to-text REST API
 
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
 Before using the speech-to-text REST API, understand:
 
@@ -27,9 +27,18 @@ If sending longer audio is a requirement for your application, consider using th
 
 ## Regions and endpoints
 
-These regions are supported for speech-to-text transcription using the REST API. Make sure that you select the endpoint that matches your subscription region.
+The endpoint for the REST API has this format:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ## Query parameters
 
@@ -40,6 +49,7 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
+| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
 
@@ -58,13 +68,13 @@ This table lists required and optional headers for speech-to-text requests.
 
 Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-| Format | Codec | Bitrate | Sample Rate |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 16 kHz, mono |
-| OGG | OPUS | 16-bit | 16 kHz, mono |
+| Format | Codec | Bitrate | Sample Rate  |
+|--------|-------|---------|--------------|
+| WAV    | PCM   | 16-bit  | 16 kHz, mono |
+| OGG    | OPUS  | 16-bit  | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
+>The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Sample request
 
@@ -86,50 +96,43 @@ The HTTP status code for each response indicates success or common errors.
 
 | HTTP status code | Description | Possible reason |
 |------------------|-------------|-----------------|
-| 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.) |
-| 200 | OK | The request was successful; the response body is a JSON object. |
-| 400 | Bad request | Language code not provided, not a supported language, invalid audio file, etc. |
-| 401 | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
-| 403 | Forbidden | Missing subscription key or authorization token. |
+| `100` | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer) |
+| `200` | OK | The request was successful; the response body is a JSON object. |
+| `400` | Bad request | Language code not provided, not a supported language, invalid audio file, etc. |
+| `401` | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
+| `403` | Forbidden | Missing subscription key or authorization token. |
 
 ## Chunked transfer
 
 Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API does not provide partial or interim results.
 
-This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
+This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an `HttpWebRequest` object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
 ```csharp
+var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+request.SendChunked = true;
+request.Accept = @"application/json;text/xml";
+request.Method = "POST";
+request.ProtocolVersion = HttpVersion.Version11;
+request.Host = host;
+request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
+request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
+request.AllowWriteStreamBuffering = false;
 
-    HttpWebRequest request = null;
-    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-    request.SendChunked = true;
-    request.Accept = @"application/json;text/xml";
-    request.Method = "POST";
-    request.ProtocolVersion = HttpVersion.Version11;
-    request.Host = host;
-    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
-    request.AllowWriteStreamBuffering = false;
-
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
+    // Open a request stream and write 1024 byte chunks in the stream one at a time.
     byte[] buffer = null;
     int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
+    using (var requestStream = request.GetRequestStream())
     {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
+        // Read 1024 raw bytes from the input audio file.
         buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
         while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
         {
             requestStream.Write(buffer, 0, bytesRead);
         }
 
-        // Flush
         requestStream.Flush();
     }
 }

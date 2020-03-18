@@ -42,6 +42,8 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for contact objects |● |● |
 | Support for device objects |● | |
 | Allow basic customization for attribute flows |● |● |
+| Sychronize Exchange online attributes |● |● |
+| Synchronize extension attributes 1-15 |● |● |
 | Synchronize customer defined AD attributes (directory extensions) |● | |
 | Support for Password Hash Sync |●|●|
 | Support for Pass-Through Authentication |●||
@@ -56,7 +58,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow advanced customization for attribute flows |● | |
 | Support for writeback (passwords, devices, groups) |● | |
 | Azure AD Domain Services support|● | |
-| Exchange hybrid configuration |● | |
+| [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Support for more than 50,000 objects per AD domain |● | |
 
 ## Next steps 

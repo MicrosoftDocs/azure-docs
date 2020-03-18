@@ -2,11 +2,9 @@
 title: Creating Metric Alerts for Logs in Azure Monitor
 description: Tutorial on creating near-real time metric alerts on popular log analytics data.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: yalavi
 ms.subservice: alerts
 ---
 
@@ -362,7 +360,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 
 Or use deploy Resource Template using Azure CLI:
 
-```CLI
+```azurecli
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
@@ -678,7 +676,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 
 Or use deploy Resource Template using Azure CLI:
 
-```CLI
+```azurecli
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 

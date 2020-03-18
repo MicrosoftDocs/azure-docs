@@ -1,5 +1,5 @@
 ---
-title: Sample - FedRAMP High blueprint - Overview
+title: FedRAMP High blueprint sample overview
 description: Overview of the FedRAMP High blueprint sample. This blueprint sample helps customers assess specific FedRAMP High controls.
 ms.date: 01/31/2020
 ms.topic: sample
