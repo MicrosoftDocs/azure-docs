@@ -163,7 +163,7 @@ To summarize here, `Albedo` will be very close to the original `Diffuse`, if `Sp
 
 ### Known issues
 
-* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](configure-model-conversion.md#Converting-from-older-FBX-formats,-with-a-Phong-material-model).
+* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](configure-model-conversion.md#converting-from-older-fbx-formats,-with-a-phong-material-model).
 * PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering does not read those additional properties because they are not documented and the format is closed-source.
 
 ## Next steps
