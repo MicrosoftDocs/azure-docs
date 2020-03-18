@@ -74,6 +74,13 @@ The following figure shows the Event Hubs stream processing architecture:
 
 ![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
+## Event Hubs on Azure Stack Hub
+Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Streaming and event-based solutions are supported, for both on-premises and Azure cloud processing. Whether your scenario is hybrid (connected), or disconnected, your solution can support processing of events/streams at large scale. Your scenario is only bound by the Event Hubs cluster size, which you can provision according to your needs. 
+
+The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
+
+For more information, see [Event Hubs on Azure Stack Hub overview](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
+
 
 ## Next steps
 

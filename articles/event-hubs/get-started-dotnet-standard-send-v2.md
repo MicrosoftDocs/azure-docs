@@ -116,7 +116,7 @@ This section shows how to write a .NET Core console application that receives me
 
 
 > [!NOTE]
-> If you are running Event Hubs on an Azure Stack Hub version 2002, the highest available version for the Storage service is version 2017-11-09. In this case, change the following code to use the Storage service API version 2017-11-09. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). For more information on the Azure Storage service versions supported on Azure Stack Hub, see [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences). 
+> If you are running [Event Hubs on an Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, change the following code to use the Storage service API version 2017-11-09. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). For more information on the Azure Storage service versions supported on Azure Stack Hub, see [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences). 
 
 ### Create an Azure Storage and a blob container
 In this quickstart, you use Azure Storage as the checkpoint store. Follow these steps to create an Azure Storage account. 
