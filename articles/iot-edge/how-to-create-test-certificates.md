@@ -58,7 +58,7 @@ There are several ways to install OpenSSL, including the following options:
 
    1. Navigate to a directory where you want to install vcpkg. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
 
-   2. Once vcpkg is installed, run the following command from a powershell prompt to install the OpenSSL package for Windows x64. The installation typically takes about 5 minutes to complete.
+   2. Once vcpkg is installed, run the following command from a PowerShell prompt to install the OpenSSL package for Windows x64. The installation typically takes about 5 minutes to complete.
 
       ```powershell
       .\vcpkg install openssl:x64-windows
