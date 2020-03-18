@@ -44,6 +44,7 @@ The following table provides a mapping of the version of the Windows Log Analyti
 | 8.0.11072 | 1.0.11072 | Sept 2017 | |
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
 
+
 ### Azure Security Center
 
 Azure Security Center automatically provisions the Log Analytics agent and connects it with the default Log Analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
