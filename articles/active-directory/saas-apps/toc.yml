@@ -151,6 +151,8 @@
         href: autotaskendpointbackup-tutorial.md
       - name: Autotask Workplace
         href: autotaskworkplace-tutorial.md
+      - name: Aventri
+        href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
     - name: B
@@ -483,8 +485,6 @@
         href: eplatform-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
-      - name: etouches
-        href: etouches-tutorial.md
       - name: Euromonitor Passport
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
@@ -598,8 +598,6 @@
         href: glassfrog-tutorial.md
       - name: GlobalOne
         href: globalone-tutorial.md
-      - name: GoodPractice Toolkit
-        href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
       - name: Gra-Pe
@@ -928,6 +926,8 @@
         href: mindflash-tutorial.md
       - name: MindTickle
         href: mindtickle-tutorial.md
+      - name: Mind Tools Toolkit
+        href: goodpractice-toolkit-tutorial.md
       - name: mindWireless
         href: mindwireless-tutorial.md
       - name: Miro

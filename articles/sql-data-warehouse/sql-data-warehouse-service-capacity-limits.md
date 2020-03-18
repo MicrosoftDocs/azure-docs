@@ -94,4 +94,4 @@ Maximum values allowed for various components of Azure Synapse.
 
 ## Next steps
 
-For recommendations on using Azure Synapse, see the [Cheat Sheet](cheat-sheet.md).
+For recommendations on using Azure Synapse, see the [Cheat Sheet](../synapse-analytics/sql-data-warehouse/cheat-sheet.md).
