@@ -65,7 +65,7 @@ This guide uses the following library:
 
 ## Create your project
 
-Generate your angular application using the following CLI npm commands:
+Generate a new Angular application using the following npm commands:
 
 1. Install the Angular CLI: `npm install -g @angular/cli@8`
 2. Install the Angular Material component library: `npm install @angular/material@8 @angular/cdk@8`
@@ -245,7 +245,7 @@ getProfile() {
 ```
 
 ### acquireTokenSilent, acquireTokenPopup, acquireTokenRedirect
-MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`.
+MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the Interceptor instead for Angular apps, as shown in the previous section. 
 
 #### Get a user token silently
 
@@ -309,9 +309,6 @@ logout() {
 
 
 ## Test your code
-
-
-If you're not using Visual Studio, make sure your web server is started.
 
 1.  Start the web server to listen to the port by running the following commands at a command-line prompt from the application folder:
 
