@@ -9,7 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 03/07/2020
-ms.author: derekolo
+ms.author: derekol
 ---
 
 # Register Peering Service Preview by using the Azure portal
