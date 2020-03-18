@@ -18,7 +18,7 @@ ms.author: juliako
 
 # Streaming Endpoints (Origin) in Azure Media Services
 
-In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs. Make sure to preview the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
+In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs. 
 
 When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You can't delete the **default** Streaming Endpoint. More Streaming Endpoints can be created under the account (see [Quotas and limitations](limits-quotas-constraints.md)).
 
@@ -26,6 +26,8 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video.
 >
 > You're only billed when your Streaming Endpoint is in the running state.
+
+Make sure to also preview the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
 
 ## Naming convention
 
