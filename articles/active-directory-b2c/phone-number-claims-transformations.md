@@ -3,14 +3,14 @@ title: Phone number claims transformations in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for phone number claims transformations in Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.author: marsma
+ms.date: 02/26/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -22,9 +22,39 @@ This article provides reference and examples for using the phone number claims t
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## ConvertPhoneNumberClaimToString
+
+Converts a `phoneNumber` data type into a `string` data type.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | phoneNumber | phoneNumber |  The ClaimType to convert to a string. |
+| OutputClaim | phoneNumberString | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+In this example, the cellPhoneNumber claim with a value type of `phoneNumber` is converted to a cellPhone claim with a value type of `string`.
+
+```XML
+<ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="cellPhone" TransformationClaimType="phoneNumberString" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **phoneNumber**: +11234567890 (phoneNumber)
+- Output claims:
+  - **phoneNumberString**: +11234567890 (string)
+
+
 ## ConvertStringToPhoneNumberClaim
 
-This claim validates the format of the phone number. If it is in a valid format, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
+This claim transformation validates the format of the phone number. If it is in a valid format, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -64,17 +94,18 @@ The self-asserted technical profile that calls the validation technical profile 
 ### Example 1
 
 - Input claims:
-  - **phoneNumberString**: 045 456-7890
+  - **phoneNumberString**: 033 456-7890
   - **country**: DK
 - Output claims:
-  - **outputClaim**: +450546148120
+  - **outputClaim**: +450334567890
 
 ### Example 2
 
 - Input claims:
   - **phoneNumberString**: +1 (123) 456-7890
-- Output claims: 
+- Output claims:
   - **outputClaim**: +11234567890
+
 
 ## GetNationalNumberAndCountryCodeFromPhoneNumberString
 

@@ -79,7 +79,7 @@
      href: system-requirements.md
    - name: Hardware specification
      href: hardware-specification.md
-   - name: Multi-camera synchronization
+   - name: Synchronize multiple devices
      href: multi-camera-sync.md   
    - name: Compare to Kinect for Windows
      href: windows-comparison.md

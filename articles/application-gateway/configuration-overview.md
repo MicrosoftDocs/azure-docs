@@ -123,7 +123,7 @@ Choose HTTP or HTTPS:
 
 - If you choose HTTP, the traffic between the client and the application gateway is unencrypted.
 
-- Choose HTTPS if you want [SSL termination](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) or [end-to-end SSL encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview). The traffic between the client and the application gateway is encrypted. And the SSL connection terminates at the application gateway. If you want end-to-end SSL encryption, you must choose HTTPS and configure the **back-end HTTP** setting. This ensures that traffic is re-encrypted when it travels from the application gateway to the back end.
+- Choose HTTPS if you want [SSL termination](features.md#secure-sockets-layer-ssltls-termination) or [end-to-end SSL encryption](https://docs.microsoft.com/azure/application-gateway/ssl-overview). The traffic between the client and the application gateway is encrypted. And the SSL connection terminates at the application gateway. If you want end-to-end SSL encryption, you must choose HTTPS and configure the **back-end HTTP** setting. This ensures that traffic is re-encrypted when it travels from the application gateway to the back end.
 
 To configure SSL termination and end-to-end SSL encryption, you must add a certificate to the listener to enable the application gateway to derive a symmetric key. This is dictated by the SSL protocol specification. The symmetric key is used to encrypt and decrypt the traffic that's sent to the gateway. The gateway certificate must be in Personal Information Exchange (PFX) format. This format lets you export the private key that the gateway uses to encrypt and decrypt traffic.
 
@@ -252,14 +252,14 @@ Azure Application Gateway uses gateway managed cookies for maintaining user sess
 
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 
-Starting from **17th February 2020**, the [Chromium](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brings a mandate where HTTP cookies without SameSite attribute to be treated as SameSite=Lax. In case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use “SameSite=None; Secure” attributes and it should be sent over HTTPS only. Otherwise, in a HTTP only scenario, the browser won’t send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
+The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) attribute has to be treated as SameSite=Lax. In the case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in a HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
 
-To support this change, Application Gateway (all the SKU types) will be injecting another identical cookie called **ApplicationGatewayAffinityCORS** in addition to the existing **ApplicationGatewayAffinity** cookie, which is similar, but this cookie will now have two more attributes **"SameSite=None; Secure"** added to it so that sticky session can be maintained even for cross-origin requests.
+To support this change, starting February 17th 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky session are maintained even for cross-origin requests.
 
-Please note that the default affinity cookie name is **ApplicationGatewayAffinity** and this can be changed by the users. In case you are using a custom affinity cookie name, an additional cookie will be added with CORS as suffix, for example, **CustomCookieNameCORS**.
+Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. In case you are using a custom affinity cookie name, an additional cookie is added with CORS as suffix. For example, *CustomCookieNameCORS*.
 
 > [!NOTE]
-> It is mandatory that if the attribute **SameSite=None** is set, the cookie also should contain the **Secure** flag and should be sent over **HTTPS**. So if session affinity is required over CORS, you must migrate your workload to HTTPS. 
+> If the attribute *SameSite=None* is set, it is mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS.  If session affinity is required over CORS, you must migrate your workload to HTTPS. 
 Please refer to SSL offload and End-to-End SSL documentation for Application Gateway here – [Overview](ssl-overview.md), [How-to configure SSL offload](create-ssl-portal.md), [How-to configure End-to-End SSL](end-to-end-ssl-portal.md).
 
 ### Connection draining
@@ -305,7 +305,7 @@ This setting lets you configure an optional custom forwarding path to use when t
 
 ### Use for app service
 
-This is a UI only shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe if you don't have one already. (For more information, see the [Pick host name from back-end address](#pick) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member’s address.
+This is a UI only shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe if you don't have one already. (For more information, see the [Pick host name from back-end address](#pick) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member's address.
 
 ### Use custom probe
 
@@ -322,7 +322,7 @@ This feature helps when the domain name of the back end is different from the DN
 
 An example case is multi-tenant services as the back end. An app service is a multi-tenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
 
-By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway’s FQDN, you override the hostname in the original request to the app service’s hostname. To do this, enable the **pick host name from backend address** setting.
+By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
 For a custom domain whose existing custom DNS name is mapped to the app service, you don't have to enable this setting.
 
@@ -337,7 +337,7 @@ For example, if *www.contoso.com* is specified in the **Host name** setting, the
 
 ## Back-end pool
 
-You can point a back-end pool to four types of backend members: a specific virtual machine, a virtual machine scale set, an IP address/FQDN, or an app service. Each back-end pool can point to multiple members of the same type. Pointing to members of different types in the same back-end pool isn't supported.
+You can point a back-end pool to four types of backend members: a specific virtual machine, a virtual machine scale set, an IP address/FQDN, or an app service. 
 
 After you create a back-end pool, you must associate it with one or more request-routing rules. You must also configure health probes for each back-end pool on your application gateway. When a request-routing rule condition is met, the application gateway forwards the traffic to the healthy servers (as determined by the health probes) in the corresponding back-end pool.
 

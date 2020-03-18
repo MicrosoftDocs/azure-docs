@@ -35,11 +35,14 @@ By default, the data in an LA Workspace is retained for 30 days. To see data for
 
 Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data. 
 
-In the monitoring section of your Recovery Services vault, select **Diagnostic settings** and specify the target for the Recovery Services vault's diagnostic data. [Learn more about using diagnostic events](https://aka.ms/AzureBackupDiagnosticDocs).
+In the monitoring section of your Recovery Services vault, select **Diagnostic settings** and specify the target for the Recovery Services vault's diagnostic data. [Learn more about using diagnostic events](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
 
 ![Diagnostics Settings Blade](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup also provides a built-in Azure Policy, which automates the configuration of diagnostic settings for all vaults in a given scope. Refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
+Azure Backup also provides a built-in Azure Policy, which automates the configuration of diagnostic settings for all vaults in a given scope. Refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
+
+> [!NOTE]
+> Once you configure diagnostics, it may take upto 24 hours for the initial data push to complete. Once data starts flowing into the LA Workspace, you may not be able to see data in the reports immediately, since data for the current partial day are not shown in the reports (more details [here](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Hence, it is recommended to start viewing the reports 2 days after you configure your vaults to send data to Log Analytics.
 
 3. **View reports on the Azure portal:**
 
@@ -47,10 +50,11 @@ Once you have configured your vaults to send data to LA, view your backup report
 
 ![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-Clicking this link opens up the Backup Report Workbook. 
+Clicking this link opens up the Backup Report Workbook.
 
 > [!NOTE]
-> Currently, the initial load of the report may take up to 1 minute.
+> * Currently, the initial load of the report may take up to 1 minute.
+> * The Recovery Services vault is merely an entry point for Backup Reports. Once the Backup Reports Workbook opens up from a vault's blade, you will be able to see data aggregated across all your vaults (by selecting the appropriate set of LA Workspaces).
 
 Below is a description of the various tabs that the report contains:
 

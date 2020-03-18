@@ -25,10 +25,13 @@ To complete this quickstart, make sure you have the following prerequisites:
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
-* [A Kafka enabled Event Hubs namespace](event-hubs-create.md)
+
 
 ## Create a Kafka enabled Event Hubs namespace
-When you create a standard tier Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into standard tier Event Hubs. It's not enabled for the basic tier Event Hubs namespace. 
+When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for the namespace is automatically enabled. You can stream events from your applications that use the Kafka protocol into standard tier Event Hubs. Follow step-by-step instructions in the [Create an event hub using Azure portal](event-hubs-create.md) to create a **standard** tier Event Hubs namespace. 
+
+> [!NOTE]
+> Event Hubs for Kafka is available only on **standard** and **dedicated** tiers. The **basic** tier doesn't support Kafka on Event Hubs.
 
 ## Send and receive messages with Kafka in Event Hubs
 

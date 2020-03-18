@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ---
 
@@ -51,6 +51,7 @@ The script to automate the download and installation, and to establish the conne
 ## Install and validate the agent on Windows
 
 ### Install manually
+
 You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. 
 
 > [!NOTE]
@@ -175,10 +176,24 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
     ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
     ```
 
-1. To uninstall the Linux agent, run the following command:
+1. To uninstall the Linux agent, the command to use depends on the Linux operating system.
+
+    - For Ubuntu, run the following command:
 
       ```bash
       sudo apt purge azcmagent
+      ```
+
+    - For RHEL, CentOS, and Amazon Linux, run the following command:
+
+      ```bash
+      sudo yum remove azcmagent
+      ```
+
+    - For SLES, run the following command:
+
+      ```bash
+      sudo zypper remove azcmagent
       ```
 
 ## Next steps

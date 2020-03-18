@@ -80,6 +80,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System.Net.Http;
 
 namespace MyNamespace
 {
@@ -88,10 +89,10 @@ namespace MyNamespace
         private readonly IMyService _service;
         private readonly HttpClient _client;
 
-        public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
+        public HttpTrigger(IMyService service, HttpClient httpClient)
         {
             _service = service;
-            _client = httpClientFactory.CreateClient();
+            _client = httpClient;
         }
 
         [FunctionName("GetPosts")]
@@ -125,7 +126,53 @@ If you need your own logging provider, register a custom type as an `ILoggerProv
 
 > [!WARNING]
 > - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality.
+> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Monitor Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+
+### ILogger<T> and ILoggerFactory
+
+The host will inject `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters will be filtered out of the function logs.  You will need to modify the `host.json` file to opt into additional filters and categories.  The following sample demonstrates adding an `ILogger<HttpTrigger>` with logs that will be exposed by the host.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly ILogger<HttpTrigger> _log;
+
+        public HttpTrigger(ILogger<HttpTrigger> log)
+        {
+            _log = log;
+        }
+
+        [FunctionName("HttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
+
+            // ...
+    }
+}
+```
+
+And a `host.json` file that adds the log filter.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingExcludedTypes": "Request",
+            "samplingSettings": {
+                "isEnabled": true
+            }
+        },
+        "logLevel": {
+            "MyNamespace.HttpTrigger": "Information"
+        }
+    }
+}
+```
 
 ## Function app provided services
 

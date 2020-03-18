@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2019
+ms.date: 03/09/2020
 ms.author: sngun
 ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
 ---
@@ -48,7 +48,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
     |Setting|Suggested value|Description
     |---|---|---|
-    |**Database ID**|Tasks|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
+    |**Database ID**|Tasks|Enter *Tasks* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
     |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
     |**Container ID**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
@@ -135,6 +135,7 @@ The following snippets are all taken from the *cosmos_get_started.py* file.
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
 * Point reads (key value lookups) are performed using the `read_item` method. We print out the [RU charge](request-units.md) of each operation.
+
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
 * A query is performed using SQL query syntax. Because we're using partition key values of ```lastName``` in the WHERE clause, Azure Cosmos DB will efficiently route this query to the relevant partitions, improving performance.

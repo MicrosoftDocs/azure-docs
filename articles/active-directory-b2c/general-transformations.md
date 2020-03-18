@@ -3,14 +3,14 @@ title: General claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: General claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -32,13 +32,13 @@ Copy value of a claim to another. Both claims must be from the same type.
 Use this claims transformation to copy a value from a string or numeric claim, to another claim. The following example copies the externalEmail claim value to email claim.
 
 ```XML
-<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -47,7 +47,7 @@ Use this claims transformation to copy a value from a string or numeric claim, t
 - Input claims:
     - **inputClaim**: bob@contoso.com
 - Output claims:
-    - **outputClaim**: bob@contoso.com 
+    - **outputClaim**: bob@contoso.com
 
 ## DoesClaimExist
 

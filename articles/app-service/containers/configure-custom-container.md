@@ -156,6 +156,8 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 Using a custom container with VNet integration may require additional container configuration. See [Integrate your app with an Azure Virtual Network](../web-sites-integrate-with-vnet.md).
 
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -241,4 +241,4 @@ Similar to the previous section, you can view the Activity log of your Azure Cos
 
 * [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Security controls for Azure Cosmos DB](cosmos-db-security-controls.md)
+* [Security baseline for Azure Cosmos DB](security-baseline.md)

@@ -85,9 +85,6 @@ Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/stor
 
 In addition to the troubleshooting guide, GitHub issues in the blobfuse repository are a helpful way to check on current blobfuse issues and resolutions. For more information, see [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
 
-> [!NOTE]
-> Blobfuse is not currently supported on Debian. See [Supported SKUs](#supported-skus) for more information.
-
 ```csharp
 new PoolAddParameter
 {
@@ -170,7 +167,8 @@ To get the log files for debugging, use [OutputFiles](batch-task-output-files.md
 |---|---|---|---|---|---|---|
 | batch | rendering-centos73 | rendering | :heavy_check_mark: <br>Note: Compatible with CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Note: Compatible with CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Note: Supports A_8 or 9 storage</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
