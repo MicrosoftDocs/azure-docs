@@ -78,7 +78,7 @@ auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
 The [Recognizer class](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) for the Speech SDK for C++ exposes a few methods that you can use for speech recognition.
 
 * Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
-* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user has to connect to handle event to receive recognition results. To stop asynchronous continuous recognition, call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync).
+* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user has to connect to handle event to receive recognition results. To stop asynchronous continuous recognition, call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
 
 > [!NOTE]
 > Learn more about how to [choose a speech recognition mode](../../../how-to-choose-recognition-mode.md).
@@ -125,7 +125,7 @@ switch (result->Reason)
 
 ### Continuous recognition
 
-Continuous recognition is a bit more involved than single-shot recognition. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [StopContinuousRecognitionAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+Continuous recognition is a bit more involved than single-shot recognition. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [StopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
 
 Let's start by defining the input and initializing a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer):
 
@@ -186,7 +186,7 @@ recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
     });
 ```
 
-With everything set up, we can call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
+With everything set up, we can call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
