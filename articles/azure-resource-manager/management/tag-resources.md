@@ -10,8 +10,6 @@ You apply tags to your Azure resources, resource groups, and subscriptions to lo
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
-You can apply Azure Policies to make sure tagging conventions are maintained for your organization. For more information, see [Assign policies for tag compliance](tag-policies.md).
-
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## Required access
@@ -110,10 +108,11 @@ To update the tags for a resource group, use:
 
 ```azurepowershell-interactive
 $tags = @{"Team"="Compliance"; "Environment"="Production"}
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
 Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
 ```
 
-To add tags to a subscription.
+To add tags to a subscription, use:
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Dev"}
@@ -125,10 +124,14 @@ You may have more than one resource with the same name in a resource group. In t
 
 ```azurepowershell-interactive
 $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName examplegroup
-$resource | ForEach-Object { Set-AzResource -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Force }
+$resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Operation Merge }
 ```
 
-### List by tags
+### Inherit tags
+
+To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
+
+### List tags
 
 To see the existing tags for a *resource group*, use:
 
@@ -138,7 +141,7 @@ To see the existing tags for a *resource group*, use:
 
 That script returns the following format:
 
-```powershell
+```output
 Name                           Value
 ----                           -----
 Dept                           IT
@@ -156,6 +159,8 @@ Or, if you have the resource ID for a resource, you can pass that resource ID to
 ```azurepowershell-interactive
 (Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
+
+### List resources by tag
 
 To get *resources that have a specific tag name and value*, use:
 
@@ -175,44 +180,9 @@ To get *resource groups that have a specific tag name and value*, use:
 (Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
-
-```azurepowershell-interactive
-$group = Get-AzResourceGroup -Name examplegroup
-Get-AzResource -ResourceGroupName $group.ResourceGroupName | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag $group.Tags -Force }
-```
-
-To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
-
-```azurepowershell-interactive
-$group = Get-AzResourceGroup -Name examplegroup
-if ($null -ne $group.Tags) {
-    $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
-    foreach ($r in $resources)
-    {
-        $resourcetags = (Get-AzResource -ResourceId $r.ResourceId).Tags
-        if ($resourcetags)
-        {
-            foreach ($key in $group.Tags.Keys)
-            {
-                if (-not($resourcetags.ContainsKey($key)))
-                {
-                    $resourcetags.Add($key, $group.Tags[$key])
-                }
-            }
-            Set-AzResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
-        }
-        else
-        {
-            Set-AzResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
-        }
-    }
-}
-```
-
 ### Remove tags
 
-You can also set **-Operation** to **Delete** to remove specified tags.
+To remove specific tags, use **Update-AzTag** and set **-Operation** to **Delete**.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -231,7 +201,8 @@ Properties :
 To remove all tags, use the [Remove-AzTag](/powershell/module/az.resources/remove-aztag) command.
 
 ```azurepowershell-interactive
-Set-AzResourceGroup -Tag @{} -Name examplegroup
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Remove-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
 ## Azure CLI
@@ -301,32 +272,10 @@ To append a tag to the existing tags on a resource, use:
 az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+### Inherit tags
 
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags $tags --id $id
-done
-```
+To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
-
-```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
-
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  resourcejsontags=$(az resource show --id $id --query tags -o json)
-  resourcetags=$(echo $resourcejsontags | tr -d '"{},' | sed 's/: /=/g')
-  az resource tag --tags $tags$resourcetags --id $id
-done
-```
 
 If your tag names or values include spaces, you must take a couple of extra steps. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
 
