@@ -267,6 +267,8 @@
         href: service-fabric-backup-restore-service-ondemand-backup.md
     - name: Initializer CodePackages
       href: initializer-codepackages.md
+    - name: RunToCompletion
+      href: run-to-completion.md
   - name: Clusters
     items:
     - name: Clusters overview
