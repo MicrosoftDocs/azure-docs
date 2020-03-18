@@ -27,7 +27,7 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 >
 > You're only billed when your Streaming Endpoint is in the running state.
 
-Make sure to also preview the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
+Make sure to also review the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
 
 ## Naming convention
 
