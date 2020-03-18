@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/08/2020
+ms.date: 03/18/2020
 ms.author: mjbrown
 ---
 

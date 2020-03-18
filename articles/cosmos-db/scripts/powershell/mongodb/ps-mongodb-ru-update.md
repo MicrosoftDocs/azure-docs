@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 12/02/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
 ---
 
