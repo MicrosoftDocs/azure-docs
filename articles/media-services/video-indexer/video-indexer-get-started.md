@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: juliako
 ---
