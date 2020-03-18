@@ -52,6 +52,8 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
+[Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
+
 ## App Configuration bootstrap
 
 To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Because connection strings contain credential information, they're considered secrets. These secrets need to be stored in Azure Key Vault, and your code must authenticate to Key Vault to retrieve them.
