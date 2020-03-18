@@ -31,7 +31,7 @@ This quickstart describes how to set up a new Fivetran user to work with an Azur
 
 3. Add the IP address **52.0.2.4** to your server-level firewall to allow incoming connections to your data warehouse instance from Fivetran.
 
-   For more information, see [Create a server-level firewall rule](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
+   For more information, see [Create a server-level firewall rule](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## Set up user credentials
 
