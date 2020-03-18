@@ -7,7 +7,7 @@ ms.custom: sfrev
 ---
 # X.509 Certificate-based authentication in Service Fabric clusters
 
-This article complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md), and goes into the details of certificate-based authentication that the Service Fabric runtime implements to secure a cluster. We assume the reader is familiar with fundamental security concepts, and also with the controls that Service Fabric exposes to control the security of a cluster.  
+This article complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md), and goes into the details of certificate-based authentication in Service Fabric clusters. We assume the reader is familiar with fundamental security concepts, and also with the controls that Service Fabric exposes to control the security of a cluster.  
 
 Topics covered under this title:
 
@@ -19,12 +19,12 @@ Topics covered under this title:
 ## Certificate-based authentication basics
 As a brief refresher, in security, a certificate is an instrument meant to bind information regarding an entity (the subject) to their possession of a pair of asymmetric cryptographic keys, and so constitutes a core construct of public key cryptography. The keys represented by a certificate can be used for protecting data, or for proving the identity of key holders; when used in conjunction with a Public Key Infrastructure (PKI) system, a certificate can represent additional traits of its subject, such as the ownership of an internet domain, or certain privileges granted to it by the issuer of the certificate (known as a Certification Authority, or CA). A common application of certificates is supporting the Transport Layer Security (TLS) cryptographic protocol, allowing for secure communications over a computer network. Specifically, the client and server use certificates to ensure the privacy and integrity of their communication, and also to conduct mutual authentication.
 
-In Service Fabric, the fundamental layer of a cluster (Federation) also builds on TLS (among other protocols) to achieve a reliable, secure network of participating nodes. Connections into the cluster via Service Fabric Client APIs utilize TLS as well to protect traffic, and also to establishing the identities of the parties. Specifically, when used for authentication in Service Fabric, a certificate can be used to prove the following claims:
-  a) the presenter of the certificate credential is in possession of the private key corresponding to the certificate
+In Service Fabric, the fundamental layer of a cluster (Federation) also builds on TLS (among other protocols) to achieve a reliable, secure network of participating nodes. Connections into the cluster via Service Fabric Client APIs use TLS as well to protect traffic, and also to establishing the identities of the parties. Specifically, when used for authentication in Service Fabric, a certificate can be used to prove the following claims:
+  a) the presenter of the certificate credential has possession of the certificate's private key 
   b) the certificate's SHA-1 hash ('thumbprint') matches a declaration included in the cluster definition, or
   c) the certificate's distinguished Subject Common Name matches a declaration included in the cluster definition, and the certificate's issuer is known or trusted.
 
-In the list above, 'b' is colloquially known as 'thumbprint pinning'; in this case, the declaration refers to a specific certificate and the strength of the authentication scheme rests on the premise that it is computationally unfeasible to forge a certificate which produces the same hash value (i.e. thumbprint) as another one, while still being a valid/well-formed object in all other respects. Item 'c' represents an alternative form of declaring a certificate, where the strength of the scheme rests on the combination of the subject of the certificate and the issuing authority. In this case, the declaration refers to a class of certificates - any 2 certificates with the same characteristics are considered fully equivalent. 
+In the list above, 'b' is colloquially known as 'thumbprint pinning'; in this case, the declaration refers to a specific certificate and the strength of the authentication scheme rests on the premise that it is computationally unfeasible to forge a certificate which produces the same hash value as another one, while still being a valid, well-formed object in all other respects. Item 'c' represents an alternative form of declaring a certificate, where the strength of the scheme rests on the combination of the subject of the certificate and the issuing authority. In this case, the declaration refers to a class of certificates - any two certificates with the same characteristics are considered fully equivalent. 
 
 The following sections will explain in depth how the Service Fabric runtime uses and validates certificates to ensure cluster security.
 
@@ -32,19 +32,19 @@ The following sections will explain in depth how the Service Fabric runtime uses
 Before diving into the details of authentication or securing communication channels, it is important to list the participating actors and the corresponding roles they play in a cluster:
 - the Service Fabric runtime, referred to as 'system': the set of services which provide the abstractions and functionality representing the cluster. When referring to in-cluster communication between system instances, we'll use the term 'cluster identity'; when referring to the cluster as the recipient/target of traffic from outside the cluster, we'll use the term 'server identity'.
 - hosted applications, referred to as 'applications': code provided by the owner of the cluster, which is orchestrated and executed in the cluster
-- clients: entities allowed to connect to, and execute functionality in a cluster, according to the cluster configuration. We distinguish between 2 levels of privileges - 'user' and 'admin', respectively. A 'user' client is restricted primarily to read-only operations (but not all read-only functionality), whereas an 'admin' client has unrestricted access to the cluster's functionality. (For more details, please refer to [Security roles in a Service Fabric cluster](service-fabric-cluster-security-roles.md).)
+- clients: entities allowed to connect to, and execute functionality in a cluster, according to the cluster configuration. We distinguish between two levels of privileges - 'user' and 'admin', respectively. A 'user' client is restricted primarily to read-only operations (but not all read-only functionality), whereas an 'admin' client has unrestricted access to the cluster's functionality. (For more details, refer to [Security roles in a Service Fabric cluster](service-fabric-cluster-security-roles.md).)
 - (Azure-only) the Service Fabric services which orchestrate and expose controls for operation and management of Service Fabric clusters, referred to as simply 'service'. Depending on the environment, the 'service' may refer to the Azure Service Fabric Resource Provider, or other Resource Providers owned and operated by the Service Fabric team.
 
-In a secure cluster, each of these roles can be configured with their own, distinct identity, declared as the pairing of a predefined role name and its corresponding credential. Service Fabric supports declaring credentials as certificates or domain-based service principal  . (Windows-/Kerberos-based identities are also supported, but are beyond the scope of this article; please refer to [Windows-based security in Service Fabric clusters](service-fabric-windows-cluster-windows-security.md).) In Azure clusters, client roles may also be declared as [Azure Active Directory-based identities](service-fabric-cluster-creation-setup-aad.md).
+In a secure cluster, each of these roles can be configured with their own, distinct identity, declared as the pairing of a predefined role name and its corresponding credential. Service Fabric supports declaring credentials as certificates or domain-based service principal. (Windows-/Kerberos-based identities are also supported, but are beyond the scope of this article; refer to [Windows-based security in Service Fabric clusters](service-fabric-windows-cluster-windows-security.md).) In Azure clusters, client roles may also be declared as [Azure Active Directory-based identities](service-fabric-cluster-creation-setup-aad.md).
 
-As alluded to above, the Service Fabric runtime defines 2 levels of privilege in a cluster: 'admin' and 'user'. An administrator client and a 'system' component would both operate with 'admin' privileges, and so are undistinguishable from each other. Upon establishing a connection in/to the cluster, an authenticated caller will be granted by the Service Fabric runtime one of the two roles as the base for the subsequent authorization. We'll examine authentication in depth in the following sections.
+As alluded to above, the Service Fabric runtime defines two levels of privilege in a cluster: 'admin' and 'user'. An administrator client and a 'system' component would both operate with 'admin' privileges, and so are undistinguishable from each other. Upon establishing a connection in/to the cluster, an authenticated caller will be granted by the Service Fabric runtime one of the two roles as the base for the subsequent authorization. We'll examine authentication in depth in the following sections.
 
 ## Certificate configuration rules
 ### Validation rules
 The security settings of a Service Fabric cluster describe, in principle, the following aspects:
 - the authentication type; this is a creation-time, immutable characteristic of the cluster. Examples of such settings are 'ClusterCredentialType', 'ServerCredentialType', and allowed values are 'none', 'x509' or 'windows'. This article focuses on the x509-type authentication.
 - the (authentication) validation rules; these settings are set by the cluster owner and describe which credentials shall be accepted for a given role. Examples will be examined in depth immediately below.
-- settings used to tweak or subtly alter the result of authentication; examples here include flags (de)restricting enforcement of certificate revocation lists etc.
+- settings used to tweak or subtly alter the result of authentication; examples here include flags (de-)restricting enforcement of certificate revocation lists etc.
 
 > [!NOTE]
 > Cluster configuration examples provided below are excerpts from the cluster manifest in XML format, as the most-digested format which supports directly the Service Fabric functionality described in this article. The same settings can be expressed directly in the JSON representations of a cluster definition, whether a standalone json cluster manifest, or an Azure Resource Mangement template.
@@ -59,24 +59,24 @@ In the case of thumbprint-based validation rules, the credentials presented by a
   - the certificate is time valid (NotBefore <= now < NotAfter)
   - the certificate's SHA-1 hash matches the declaration, as a case-insensitive string comparison excluding all whitespaces
 
-Any trust errors encountered during chain building/validation will be suppressed for thumbprint-based declarations, with the exception of expired certificates (though provisions exist for that case as well). Specifically, failures related to: revocation status being unknown or offline, untrusted root, invalid key usage, partial chain are considered non-fatal errors; the premise, in this case, is that the certificate is merely an envelope for a key pair - the security lies in the fact that the cluster owner has set in places measure to safeguard the private key.
+Any trust errors encountered during chain building or validation will be suppressed for thumbprint-based declarations, except for expired certificates - although provisions do exist for that case as well. Specifically, failures related to: revocation status being unknown or offline, untrusted root, invalid key usage, partial chain are considered non-fatal errors; the premise, in this case, is that the certificate is merely an envelope for a key pair - the security lies in the fact that the cluster owner has set in places measure to safeguard the private key.
 
 The following excerpt from a cluster manifest exemplifies such a set of thumbprint-based validation rules:
 
 ```xml
-  <Section Name="Security">
-    <Parameter Name="ClusterCredentialType" Value="X509" />
-    <Parameter Name="ServerAuthCredentialType" Value="X509" />
-    <Parameter Name="AdminClientCertThumbprints" Value="d5ec...4264" />
-    <Parameter Name="ClientCertThumbprints" Value="7c8f...01b0" />
-    <Parameter Name="ClusterCertThumbprints" Value="abcd...1234,ef01...5678" />
-    <Parameter Name="ServerCertThumbprints" Value="ef01...5678" />
-  </Section>
+<Section Name="Security">
+  <Parameter Name="ClusterCredentialType" Value="X509" />
+  <Parameter Name="ServerAuthCredentialType" Value="X509" />
+  <Parameter Name="AdminClientCertThumbprints" Value="d5ec...4264" />
+  <Parameter Name="ClientCertThumbprints" Value="7c8f...01b0" />
+  <Parameter Name="ClusterCertThumbprints" Value="abcd...1234,ef01...5678" />
+  <Parameter Name="ServerCertThumbprints" Value="ef01...5678" />
+</Section>
 ```
 
-Each of the entries above refer to a specific identity as described earlier; each entry also allows for specifying multiple values, as comma-separated list of strings. In this example, upon successfully validating the incoming credentials, the presenter of a certificate with the SHA-1 thumbprint 'd5ec...4264' will be granted the 'admin' role; conversely, a caller authenticating with certificate '7c8f...01b0' will be granted a 'user' role, restricted to primarily read-only operations. An inbound caller which presents a certificate whose thumbprint is either 'abcd...1234' or 'ef01...5678' will be accepted as a peer node in the cluster. Lastly, a client connecting to a management endpoint of the cluster will expect the thumbprint of the server certificate to be 'ef01...5678'. 
+Each of the entries above refer to a specific identity as described earlier; each entry also allows for specifying multiple values, as comma-separated list of strings. In this example, upon successfully validating the incoming credentials, the presenter of a certificate with the SHA-1 thumbprint 'd5ec...4264' will be granted the 'admin' role; conversely, a caller authenticating with certificate '7c8f...01b0' will be granted a 'user' role, restricted to primarily read-only operations. An inbound caller that presents a certificate whose thumbprint is either 'abcd...1234' or 'ef01...5678' will be accepted as a peer node in the cluster. Lastly, a client connecting to a management endpoint of the cluster will expect the thumbprint of the server certificate to be 'ef01...5678'. 
 
-As mentioned earlier, Service Fabric does make provisions for accepting expired certificates; the reason is that certificates do have a limited lifetime and, when declared by thumbprint (which refer to specific instances of certificates), allowing a certificate to expire will result in either failure to connect to the cluster, or an outright collapse of the cluster. It is all too easy to forget or neglect rotating a thumbprint-pinned certificate, and unfortunately the recovery from such a situation is extremely difficult.
+As mentioned earlier, Service Fabric does make provisions for accepting expired certificates; the reason is that certificates do have a limited lifetime and, when declared by thumbprint (which refers to a specific certificate instance), allowing a certificate to expire will result in either failure to connect to the cluster, or an outright collapse of the cluster. It is all too easy to forget or neglect rotating a thumbprint-pinned certificate, and unfortunately the recovery from such a situation is difficult.
 
 To that end, the cluster owner can explicitly state that self-signed certificates declared by thumbprint shall be considered valid, as follows:
 
@@ -85,7 +85,7 @@ To that end, the cluster owner can explicitly state that self-signed certificate
     <Parameter Name="AcceptExpiredPinnedClusterCertificate" Value="true" />
   </Section>
 ```
-Note that this behavior does not extend to CA-issued certificates; if that were the case, a revoked, known-to-be-compromised expired certificate could become 'valid' as soon as it would no longer figure in the CA's certificate revocation list, and thus present a security risk. With self-signed certificates, the cluster owner is considered the only party responsible for safeguarding the certificate's private key. This is not the case with CA-issued certificates - the cluster owner may not be aware of how or when their certificate was declared compromised.
+This behavior does not extend to CA-issued certificates; if that were the case, a revoked, known-to-be-compromised expired certificate could become 'valid' as soon as it would no longer figure in the CA's certificate revocation list, and thus present a security risk. With self-signed certificates, the cluster owner is considered the only party responsible for safeguarding the certificate's private key, which is not the case with CA-issued certificates - the cluster owner may not be aware of how or when their certificate was declared compromised.
 
 #### Common name-based certificate validation declarations
 Common name-based declarations take one of the following forms:
@@ -108,7 +108,7 @@ The declarations refer to the server and cluster identities, respectively; note 
 
 In either case, the certificate's chain is built and is expected to be error-free; that is, revocation errors, partial chain or time-invalid trust errors are considered fatal, and the certificate validation will fail. Pinning the issuers will result in considering the 'untrusted root' status as a non-fatal error; despite appearances, this is a stricter form of validation, as it allows the cluster owner to constrain the set of authorized/accepted issuers to their own PKI.
 
-After the certificate chain is built, it is validated against a standard SSL policy with the declared subject as the remote name; a certificate will be considered a match if its subject common name or any of its subject alternative names matches the CN declaration from the cluster manifest. Wildcards are supported in this case, and the string matching is case-insensitive.
+After the certificate chain is built, it is validated against a standard TLS/SSL policy with the declared subject as the remote name; a certificate will be considered a match if its subject common name or any of its subject alternative names matches the CN declaration from the cluster manifest. Wildcards are supported in this case, and the string matching is case-insensitive.
 
 (We should clarify that the sequence described above could be executed for each type of key usage declared by the certificate; if the certificate specifies the client authentication key usage, the chain is built and evaluated first for a client role. In case of success, evaluation completes and validation is successful. If the certificate does not have the client authentication usage, or the validation failed, the Service Fabric runtime will build and evaluate the chain for server authentication.)
 
@@ -139,7 +139,7 @@ The previous section described how authentication works in a certificate-secured
 As with the validation rules, the presentation rules specify a role and the associated credential declaration, expressed either by thumbprint or common name. Unlike the validation rules, common name-based declarations do not have provisions for issuer pinning; this allows for greater flexibility as well as improved performance. The presentation rules are declared in the 'NodeType' section(s) of the cluster manifest, for each distinct node type; the settings are split from the Security sections of the cluster to allow each node type to have its full configuration in a single section. In Azure Service Fabric clusters, the node type certificate declarations default to their corresponding settings in the Security section of the definition of the cluster.
 
 #### Thumbprint-based certificate presentation declarations
-As previously described, the Service Fabric runtime distinguishes between its role as the peer of other nodes in the cluster, and as the server for cluster management operations. In principle these settings can be configured distinctly, but in practice they tend to align. For the remainder of this article, we'll assume the settings match for simplicity.
+As previously described, the Service Fabric runtime distinguishes between its role as the peer of other nodes in the cluster, and as the server for cluster management operations. In principle, these settings can be configured distinctly, but in practice they tend to align. For the remainder of this article, we'll assume the settings match for simplicity.
 
 Let us consider the following excerpt from a cluster manifest:
 ```xml
@@ -153,7 +153,7 @@ Let us consider the following excerpt from a cluster manifest:
     </NodeType>
   </NodeTypes>
 ```
-The 'ClusterCertificate' element demonstrates the full schema, including optional parameters ('X509FindValueSecondary') or those with appropriate defaults ('X509StoreName'); the other declarations show an abbreviated form. The cluster certificate declaration above states that the security settings of nodes of type 'nt1vm' are initialized with certificate 'cc71..1984' as the primary, and the '49e2..19d6' certificate as the secondary; both certificates are expected to be found in the LocalMachine\'My' certificate store (or Linux equivalent of *var/lib/sfcerts*).
+The 'ClusterCertificate' element demonstrates the full schema, including optional parameters ('X509FindValueSecondary') or those with appropriate defaults ('X509StoreName'); the other declarations show an abbreviated form. The cluster certificate declaration above states that the security settings of nodes of type 'nt1vm' are initialized with certificate 'cc71..1984' as the primary, and the '49e2..19d6' certificate as the secondary; both certificates are expected to be found in the LocalMachine\'My' certificate store (or the Linux equivalent path, *var/lib/sfcerts*).
 
 #### Common name-based certificate presentation declarations
 The node type certificates can also be declared by subject common name, as exemplified below:
@@ -210,11 +210,11 @@ As mentioned, certificate validation always implies building and evaluating the 
   * EnforcePrevalidationOnSecurityChanges - boolean, controls the behavior of cluster upgrade upon detecting changes of security settings. If set to 'true', the cluster upgrade will attempt to ensure that at least one of the certificates matching any of the presentation rules can pass a corresponding validation rule. The pre-validation is executed before the new settings are applied to any node, but runs only on the node hosting the primary replica of the Cluster Manager service at the time of initiating the upgrade. As of this writing, the setting has a default of 'false', and will be set to 'true' for new Azure Service Fabric clusters with a runtime version starting with 7.1.
  
 ### End to end scenario (examples)
-We've looked at presentation rules, validation rules and tweaking flags, but how does this all work together? In this section, we'll work through 2 end-to-end examples demonstrating how the security settings can be leveraged for safe cluster upgrades. Note this is not intended to be a comprehensive dissertation on proper certificate management in Service Fabric, look for a companion article on that topic.
+We've looked at presentation rules, validation rules and tweaking flags, but how does this all work together? In this section, we'll work through two end-to-end examples demonstrating how the security settings can be leveraged for safe cluster upgrades. Note this is not intended to be a comprehensive dissertation on proper certificate management in Service Fabric, look for a companion article on that topic.
 
 The separation of presentation and validation rules poses the obvious question (or concern) of whether they can diverge, and what the consequences would be. It is, indeed, possible that a node's selection of an authentication certificate won't pass the validation rules of another node. In fact, this discrepancy is the primary cause of authentication-related incidents. At the same time, the separation of these rules allows for a cluster to continue operating during an upgrade which changes the cluster's security settings. Consider that, by augmenting first the validation rules as a first step, all of the cluster's nodes will converge on the new settings while still using the current credentials. 
 
-Recall that, in a Service Fabric cluster, an upgrade progresses through (up to 5) 'upgrade domains', or UDs. Only nodes in the current UD are being upgraded/changed at a given time, and the upgrade will proceed to the next UD only if the cluster's availability allows it. (Please see [Service Fabric cluster upgrades](service-fabric-cluster-upgrade.md) and other articles on the same topic for more details.) Certificate/security changes are particularly risky, since they can isolate nodes from the cluster, or leave the cluster at the edge of quorum loss.
+Recall that, in a Service Fabric cluster, an upgrade progresses through (up to 5) 'upgrade domains', or UDs. Only nodes in the current UD are being upgraded/changed at a given time, and the upgrade will proceed to the next UD only if the cluster's availability allows it. (Refer to [Service Fabric cluster upgrades](service-fabric-cluster-upgrade.md) and other articles on the same topic for more details.) Certificate/security changes are particularly risky, since they can isolate nodes from the cluster, or leave the cluster at the edge of quorum loss.
 
 We will use the following notation to describe a node's security settings:
 
@@ -254,7 +254,7 @@ Completion of phase 2 also marks the conversion of the cluster to common name-ba
 In a separate article we will address the topic of managing and provisioning certificates into a Service Fabric cluster.
 
 ## Troubleshooting and Frequently Asked Questions
-While debugging authentication-related issues in Service Fabric clusters is not easy, we're hopeful the following hints and tips may help. The easiest way to begin investigations is to examine the Service Fabric event logs on the nodes of the cluster - not necessarily only those showing symptoms, but also nodes which are up but are unable to connect to one of their neighbors. On Windows, events of significance are typically logged under the 'Applications and Services Logs\Microsoft-ServiceFabric\Admin' or 'Operational' channels, respectively. Sometimes it may be helpful to [enable CAPI2 logging](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues), to capture more details regarding the certificate validation, retrieval of CRL/CTL etc. (Please remember to disable it after completing the repro, it can be quite verbose.)
+While debugging authentication-related issues in Service Fabric clusters is not easy, we're hopeful the following hints and tips may help. The easiest way to begin investigations is to examine the Service Fabric event logs on the nodes of the cluster - not necessarily only those showing symptoms, but also nodes which are up but are unable to connect to one of their neighbors. On Windows, events of significance are typically logged under the 'Applications and Services Logs\Microsoft-ServiceFabric\Admin' or 'Operational' channels, respectively. Sometimes it may be helpful to [enable CAPI2 logging](https://docs.microsoft.com/archive/blogs/benjaminperkins/enable-capi2-event-logging-to-troubleshoot-pki-and-ssl-certificate-issues), to capture more details regarding the certificate validation, retrieval of CRL/CTL etc. (Do remember to disable it after completing the repro, it can be quite verbose.)
 
 Typical symptoms that manifest themselves in a cluster experiencing authentication issues are: 
   - nodes are down/cycling 
@@ -297,5 +297,5 @@ Each of the symptoms may be caused by different problems, and the same root caus
     ```C++
     0x80090014	-2146893804	NTE_BAD_PROV_TYPE
     ```
-    To remedy, re-create the cluster certificate using a CAPI1 (e.g. "Microsoft Enhanced RSA and AES Cryptographic Provider") provider. For more details on crypto providers, please refer to [Understanding Cryptographic Providers](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers)
+    To remedy, re-create the cluster certificate using a CAPI1 (e.g. "Microsoft Enhanced RSA and AES Cryptographic Provider") provider. For more details on crypto providers, refer to [Understanding Cryptographic Providers](https://docs.microsoft.com/windows/win32/seccertenroll/understanding-cryptographic-providers)
 
