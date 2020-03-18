@@ -583,7 +583,7 @@ module.exports = df.entity(function(context) {
 
 # [Python](#tab/python)
 
-Durable entities is currently not supported in Python.
+Durable entities are currently not supported in Python.
 
 ---
 
@@ -623,7 +623,7 @@ module.exports = async function (context) {
 
 # [Python](#tab/python)
 
-Durable entities is currently not supported in Python.
+Durable entities are currently not supported in Python.
 
 ---
 
