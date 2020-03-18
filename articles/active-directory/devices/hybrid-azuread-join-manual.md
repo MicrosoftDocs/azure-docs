@@ -106,7 +106,9 @@ You can verify the existence of the object and retrieve the discovery values by 
    ```PowerShell
    $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
-   $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,CN=Configuration,DC=fabrikam,DC=com";
+   $configNC = $([System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()).Schema.Name.Replace("CN=Schema,","")
+
+   $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,$configNC";
 
    $scp.Keywords;
    ```
@@ -147,8 +149,8 @@ For domain controllers running Windows Server 2008 or earlier versions, use the 
    ```PowerShell
    $verifiedDomain = "contoso.com" # Replace this with any of your verified domain names in Azure AD
    $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47" # Replace this with you tenant ID
-   $configNC = "CN=Configuration,DC=corp,DC=contoso,DC=com" # Replace this with your Active Directory configuration naming context
-
+   
+   $configNC = $([System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()).Schema.Name.Replace("CN=Schema,","")
    $de = New-Object System.DirectoryServices.DirectoryEntry
    $de.Path = "LDAP://CN=Services," + $configNC
    $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
