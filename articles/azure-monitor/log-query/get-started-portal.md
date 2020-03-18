@@ -1,22 +1,22 @@
 ---
 title: "Tutorial: Get started with Log Analytics queries"
-description: Learn from this tutorial how to write and manage Azure Monitor log queries in a Log Analytics workspace in the Azure portal.
+description: Learn from this tutorial how to write and manage Azure Monitor log queries using Log Analytics in the Azure portal.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2020
+ms.date: 03/17/2020
 
 ---
 
 # Tutorial: Get started with Log Analytics queries
 
-This tutorial shows you how to use a Log Analytics workspace to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights from your data. 
+This tutorial shows you how to use Log Analytics to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights from your data. 
 
-In this tutorial, you learn how to use a Log Analytics workspace to:
+In this tutorial, you learn how to use Log Analytics to:
 
 > [!div class="checklist"]
-> * Understand the log data schema and tables
+> * Understand the log data schema
 > * Write and run simple queries, and modify the time range for queries
 > * Filter, sort, and group query results
 > * View, modify, and share visuals of query results
@@ -25,8 +25,8 @@ In this tutorial, you learn how to use a Log Analytics workspace to:
 For more information about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).<br/>
 For a detailed tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
 
-## Open a Log Analytics workspace
-To use Azure Monitor or a Log Analytics workspace, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Open Log Analytics
+To use Log Analytics, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
 
@@ -41,9 +41,9 @@ The schema tables appear on the **Tables** tab of the Log Analytics workspace. T
 
 ## Write and run basic queries
 
-A Log Analytics workspace opens with a new blank query in the **Query editor**.
+Log Analytics opens with a new blank query in the **Query editor**.
 
-![Log Analytics workspace](media/get-started-portal/homepage.png)
+![Log Analytics](media/get-started-portal/homepage.png)
 
 ### Write a query
 Azure Monitor log queries use a version of the Kusto query language. Queries can begin with either a table name or a [search](/azure/kusto/query/searchoperator) command. 
@@ -152,7 +152,7 @@ You can change properties of the view, such as x and y axes, or grouping and spl
 You can also set the preferred view in the query itself, using the [render](/azure/kusto/query/renderoperator) operator.
 
 ## Pin results to a dashboard
-To pin a results table or chart from your Log Analytics workspace to a shared Azure dashboard, select **Pin to dashboard** on the top bar. 
+To pin a results table or chart from Log Analytics to a shared Azure dashboard, select **Pin to dashboard** on the top bar. 
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 
