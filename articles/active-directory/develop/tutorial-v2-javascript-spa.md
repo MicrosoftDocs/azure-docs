@@ -103,17 +103,7 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
 
 You now have a simple server to serve your SPA. The intended folder structure at the end of this tutorial is as follows:
 
-.<br />
-└── active-directory-javascript-graphapi-v2/<br />
-    ├── package.json<br />
-    ├── node_modules<br />
-    ├── server.js<br />
-    └── JavaScriptSPA/<br />
-        ├── index.html<br />
-        ├── ui.js<br />
-        ├── authConfig.js<br />
-        ├── graphConfig.js<br />
-        └── authPopup.js<br />
+![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure.png)
 
 ## Create the SPA UI
 
