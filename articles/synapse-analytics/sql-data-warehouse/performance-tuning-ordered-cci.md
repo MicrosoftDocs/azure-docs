@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Performance tuning with ordered clustered columnstore index  
@@ -19,7 +18,7 @@ ms.custom: azure-synapse
 When users query a columnstore table in SQL Analytics, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
 
 ## Ordered vs. non-ordered clustered columnstore index 
-By default, for each SQL Analytics table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment’s value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
+By default, for each SQL Analytics table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment's value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
 
 When creating an ordered CCI, the SQL Analytics engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in SQL Analytics tables, this scenario doesn't happen often.  
 
@@ -116,12 +115,12 @@ Here is an example of an ordered CCI table distribution that has zero segment ov
 ## Create ordered CCI on large tables
 Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
-1.	Create partitions on the target large table (called Table_A).
-2.	Create an empty ordered CCI table (called Table_B) with the same table and partition schema as Table A.
-3.	Switch one partition from Table A to Table B.
-4.	Run ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
-5.	Repeat step 3 and 4 for each partition in Table_A.
-6.	Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
+1.    Create partitions on the target large table (called Table_A).
+2.    Create an empty ordered CCI table (called Table_B) with the same table and partition schema as Table A.
+3.    Switch one partition from Table A to Table B.
+4.    Run ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
+5.    Repeat step 3 and 4 for each partition in Table_A.
+6.    Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
 
 ## Examples
 
