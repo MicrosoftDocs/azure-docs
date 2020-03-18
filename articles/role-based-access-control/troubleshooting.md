@@ -23,12 +23,12 @@ This article answers some common questions about Azure role-based access control
 
 ## Azure role assignments limit
 
-Azure supports up to **2000** role assignments per subscription.
+Azure supports up to **2000** role assignments per subscription. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
 > The **2000** role assignments limit per subscription is fixed and cannot be increased.
 
-If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription. If you are getting close this limit, here are some ways that you can reduce the number of role assignments:
+If you are getting close to this limit, here are some ways that you can reduce the number of role assignments:
 
 - Add users to groups and assign roles to the groups instead. 
 - Combine multiple built-in roles with a custom role. 
@@ -36,7 +36,7 @@ If you get the error message "No more role assignments can be created (code: Rol
 - If you have Azure AD Premium P2, make role assignments eligible in [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) instead of permanently assigned. 
 - Add an additional subscription. 
 
-To help you keep track of your number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. To get the number of role assignments using Azure PowerShell, use the follow commands:
+To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"
