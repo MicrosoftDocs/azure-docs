@@ -3266,6 +3266,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-edge/how-to-install-production-certificates.md",
+      "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
       "redirect_document_id": false
@@ -17045,29 +17050,29 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/sql-data-warehouse/backup-and-restore.md",
-        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/backup-and-restore",
-        "redirect_document_id": true
+      "source_path": "articles/sql-data-warehouse/backup-and-restore.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/backup-and-restore",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/sql-data-warehouse/cheat-sheet.md",
-        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/cheat-sheet",
-        "redirect_document_id": true
+      "source_path": "articles/sql-data-warehouse/cheat-sheet.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/cheat-sheet",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/sql-data-warehouse/column-level-security.md",
-        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/column-level-security",
-        "redirect_document_id": true
+      "source_path": "articles/sql-data-warehouse/column-level-security.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/column-level-security",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/sql-data-warehouse/create-data-warehouse-portal.md",
-        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal",
-        "redirect_document_id": true
+      "source_path": "articles/sql-data-warehouse/create-data-warehouse-portal.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal",
+      "redirect_document_id": true
     },
     {
-        "source_path": "articles/sql-data-warehouse/create-data-warehouse-powershell.md",
-        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell",
-        "redirect_document_id": true
+      "source_path": "articles/sql-data-warehouse/create-data-warehouse-powershell.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell",
+      "redirect_document_id": true
     }, 
     {
       "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
@@ -17078,6 +17083,156 @@
       "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-ctas.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-encryption-tde.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/performance-tuning-result-set-caching.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-result-set-caching",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-tsql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/quickstart-scale-compute-portal.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/quickstart-scale-compute-powershell.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/quickstart-scale-compute-tsql.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-10-0-10106-0.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/design-guidance-for-replicated-tables.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/fivetran-quickstart.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/fivetran-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/gen2-migration-schedule.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/gen2-migration-schedule",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/load-data-wideworldimportersdw.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/manage-compute-with-azure-functions.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/manage-compute-with-azure-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/memory-concurrency-limits.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/pause-and-resume-compute-portal.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/pause-and-resume-compute-powershell.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/performance-tuning-ordered-cci.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
@@ -26289,6 +26444,7 @@
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-integrate",
       "redirect_document_id": false
     },
+
     {
       "source_path": "articles/virtual-machines/linux/deploy-linux-vm-into-existing-vnet-using-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",

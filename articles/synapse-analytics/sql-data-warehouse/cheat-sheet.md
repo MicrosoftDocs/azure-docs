@@ -48,19 +48,19 @@ Use the following strategies, depending on the table properties:
 
 | Type | Great fit for...| Watch out if...|
 |:--- |:--- |:--- |
-| Replicated | • Small dimension tables in a star schema with less than 2 GB of storage after compression (~5x compression) |•	Many write transactions are on table (such as insert, upsert, delete, update)<br></br>•	You change Data Warehouse Units (DWU) provisioning frequently<br></br>•	You only use 2-3 columns but your table has many columns<br></br>•	You index a replicated table |
-| Round Robin (default) | •	Temporary/staging table<br></br> • No obvious joining key or good candidate column |•	Performance is slow due to data movement |
-| Hash | • Fact tables<br></br>•	Large dimension tables |• The distribution key cannot be updated |
+| Replicated | * Small dimension tables in a star schema with less than 2 GB of storage after compression (~5x compression) |*    Many write transactions are on table (such as insert, upsert, delete, update)<br></br>*    You change Data Warehouse Units (DWU) provisioning frequently<br></br>*    You only use 2-3 columns but your table has many columns<br></br>*    You index a replicated table |
+| Round Robin (default) | *    Temporary/staging table<br></br> * No obvious joining key or good candidate column |*    Performance is slow due to data movement |
+| Hash | * Fact tables<br></br>*    Large dimension tables |* The distribution key cannot be updated |
 
 **Tips:**
 * Start with Round Robin, but aspire to a hash distribution strategy to take advantage of a massively parallel architecture.
 * Make sure that common hash keys have the same data format.
-* Don’t distribute on varchar format.
+* Don't distribute on varchar format.
 * Dimension tables with a common hash key to a fact table with frequent join operations can be hash distributed.
 * Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* to analyze any skewness in the data.
 * Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* to analyze data movements behind queries, monitor the time broadcast, and shuffle operations take. This is helpful to review your distribution strategy.
 
-Learn more about [replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md) and [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 ## Index your table
 
@@ -68,9 +68,9 @@ Indexing is helpful for reading tables quickly. There is a unique set of technol
 
 | Type | Great fit for... | Watch out if...|
 |:--- |:--- |:--- |
-| Heap | • Staging/temporary table<br></br>• Small tables with small lookups |• Any lookup scans the full table |
-| Clustered index | • Tables with up to 100 million rows<br></br>• Large tables (more than 100 million rows) with only 1-2 columns heavily used |•	Used on a replicated table<br></br>•	You have complex queries involving multiple join and Group By operations<br></br>•	You make updates on the indexed columns: it takes memory |
-| Clustered columnstore index (CCI) (default) | •	Large tables (more than 100 million rows) | •	Used on a replicated table<br></br>•	You make massive update operations on your table<br></br>•	You overpartition your table: row groups do not span across different distribution nodes and partitions |
+| Heap | * Staging/temporary table<br></br>* Small tables with small lookups |* Any lookup scans the full table |
+| Clustered index | * Tables with up to 100 million rows<br></br>* Large tables (more than 100 million rows) with only 1-2 columns heavily used |*    Used on a replicated table<br></br>*    You have complex queries involving multiple join and Group By operations<br></br>*    You make updates on the indexed columns: it takes memory |
+| Clustered columnstore index (CCI) (default) | *    Large tables (more than 100 million rows) | *    Used on a replicated table<br></br>*    You make massive update operations on your table<br></br>*    You overpartition your table: row groups do not span across different distribution nodes and partitions |
 
 **Tips:**
 * On top of a clustered index, you might want to add a nonclustered index to a column heavily used for filtering. 
@@ -96,7 +96,7 @@ If you're going to incrementally load your data, first make sure that you alloca
 
 We recommend using PolyBase and ADF V2 for automating your ELT pipelines into your data warehouse.
 
-For a large batch of updates in your historical data, consider using a [CTAS](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
+For a large batch of updates in your historical data, consider using a [CTAS](sql-data-warehouse-develop-ctas.md) to write the data you want to keep in a table rather than using INSERT, UPDATE, and DELETE.
 
 ## Maintain statistics
  Until auto-statistics are generally available, manual maintenance of statistics is required. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics. 
@@ -115,7 +115,10 @@ Finally, by using Gen2 of [SQL pool](../../sql-data-warehouse/sql-data-warehouse
 Learn more how to work with [resource classes and concurrency](../../sql-data-warehouse/resource-classes-for-workload-management.md).
 
 ## Lower your cost
-A key feature of Azure Synapse is the ability to [manage compute resources](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](../../sql-data-warehouse/quickstart-scale-compute-portal.md), [Powershell](../../sql-data-warehouse/quickstart-scale-compute-powershell.md), [T-SQL](../../sql-data-warehouse/quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+
+
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoscale now at the time you want with Azure Functions:
 
