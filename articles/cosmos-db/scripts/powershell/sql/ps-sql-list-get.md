@@ -1,6 +1,6 @@
 ---
-title: PowerShell script to list and get operations for Azure Cosmos DB SQL (Core) API
-description: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL (Core) API
+title: PowerShell script to list and get Azure Cosmos DB SQL API resources
+description: Azure PowerShell script - Azure Cosmos DB list and get operations for SQL API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -17,7 +17,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for SQL API")]
 
 ## Clean up deployment
 
