@@ -4,7 +4,7 @@ description: Learn about the advantages that App Service brings to your enterpri
 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
