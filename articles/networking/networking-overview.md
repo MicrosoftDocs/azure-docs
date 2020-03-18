@@ -86,8 +86,6 @@ For more information, see [What is virtual network NAT gateway?](../virtual-netw
 ### <a name="azurepeeringservice"></a> Azure Peering Service
 Azure Peering service enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../peering-service/about.md).
 
-![Azure Peering Service](./media/networking-overview/peering-service.png)
-
 ## <a name="protect"></a>Application protection services
 
 This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
