@@ -15,7 +15,7 @@
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
-      href: learn/quick-collect-azurevm.md
+      href: learn/quick-monitor-azure-vm.md
     - name: Linux computer
       href: learn/quick-collect-linux-computer.md
     - name: Windows computer
@@ -531,6 +531,8 @@
       href: platform/stream-monitoring-data-event-hubs.md 
   - name: Monitor VMs and guest OS
     items: 
+    - name: Monitor Azure virtual machines
+      href: insights/monitor-vm-azure.md
     - name: Agents
       items:
       - name: Agents overview
