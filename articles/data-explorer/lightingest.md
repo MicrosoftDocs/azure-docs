@@ -100,6 +100,8 @@ When used with Azure blobs, `LightIngest` will use certain blob metadata propert
 
 ## Usage examples
 
+<!-- Waiting for Tzvia or Vladik to rewrite the instructions for this example before publishing it
+
 ### Ingesting a specific number of blobs in JSON format
 
 * Ingest two blobs under a specified storage account {Account}, in `JSON` format matching the pattern `.json`
@@ -110,12 +112,12 @@ When used with Azure blobs, `LightIngest` will use certain blob metadata propert
 To use the LightIngest command below:
 1. Create a table command and enter the table name into the LightIngest command, replacing `SampleData`.
 1. Create a mapping command and enter the IngestionMappingRef command, replacing `SampleData_mapping`.
-1. Copy your cluster name and enter it into the LightIngest command, replacing `{Cluster Name and Region}`.
-1. Enter the database name into the LightIngest command, replacing `{Database}`.
+1. Copy your cluster name and enter it into the LightIngest command, replacing `{ClusterandRegion}`.
+1. Enter the database name into the LightIngest command, replacing `{Database name}`.
 1. Replace `{Account}` with your account name and replace `{ROOT_CONTAINER}?{SAS token}` with the appropriate information.
 
     ```
-    LightIngest "Data Source=https://{Cluster name and region}kusto.windows.net;AAD Federated Security=True"  
+    LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True"  
         -db:{Database name} 
         -table:SampleData 
         -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER}?{SAS token}" 
@@ -131,6 +133,7 @@ To use the LightIngest command below:
 
 1. In Azure Data Explorer, open query count.
     ![Injestion result in Azure Data Explorer](media/lightingest/lightingest-showfailure-count.png)
+-->
 
 ### Ingesting blobs using a storage account key or a SAS token
 
@@ -140,7 +143,7 @@ To use the LightIngest command below:
 * Note the different options for specifying the target database and storage account key vs. SAS token
 
 ```
-LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
+LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True"
   -database:DB
   -table:TABLE
   -source:"https://ACCOUNT.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}"
@@ -150,7 +153,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
   -mappingRef:MAPPING
   -limit:10
 
-LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True;Initial Catalog=DB"
+LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True;Initial Catalog=DB"
   -table:TABLE
   -source:"https://ACCOUNT.blob.core.windows.net/{ROOT_CONTAINER}?{SAS token}"
   -prefix:"DIR"
@@ -168,7 +171,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True;In
 * The tool will post the data for ingestion and won't wait for the ingest operations to complete
 
 ```
-LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
+LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True"
   -database:DB
   -table:TABLE
   -source:"https://ACCOUNT.blob.core.windows.net/{ROOT_CONTAINER}?{SAS token}"
@@ -186,7 +189,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
 * The tool will post the data for ingestion and won't wait for the ingest operations to complete
 
 ```
-LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
+LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True"
   -database:DB
   -table:TABLE
   -source:"PATH"
@@ -203,7 +206,7 @@ LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
 * Diagnostics trace files will be written locally under folder `LOGS_PATH`
 
 ```
-LightIngest.exe "https://ingest-{clusterAndRegion}.kusto.windows.net;Fed=True"
+LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True"
   -database:DB
   -table:TABLE
   -source:"PATH"
