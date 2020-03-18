@@ -18,7 +18,7 @@ ms.custom: azure-synapse
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
 
 ## Data warehouse capacity settings
-The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](../../sql-data-warehouse/quickstart-scale-compute-portal.md).
+The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
 
 ### Service Levels
 

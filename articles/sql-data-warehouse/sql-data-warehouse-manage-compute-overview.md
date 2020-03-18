@@ -25,7 +25,7 @@ The architecture of data warehouse separates storage and compute, allowing each 
 
 You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your SQL pool. Loading and query performance can increase linearly as you add more data warehouse units. 
 
-For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+For scale-out steps, see the [Azure portal](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md), [PowerShell](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell.md), or [T-SQL](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 To perform a scale operation, SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the Compute layer. Each SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
 
@@ -106,7 +106,7 @@ We recommend allowing existing transactions to finish before you initiate a paus
 
 When you pause or scale your SQL pool, behind the scenes your queries are canceled when you initiate the pause or scale request. Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly. **Transactional queries, by definition, must either complete in their entirety or rollback their changes.** Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying. For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted. If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), and [Optimizing transactions](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automating compute management
 
@@ -114,7 +114,7 @@ To automate the compute management operations, see [Manage compute with Azure fu
 
 Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the SQL pool state through various endpoints allows you to correctly implement automation of such operations. 
 
-To check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+To check the SQL pool state, see the [PowerShell](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## Permissions

@@ -82,7 +82,7 @@ Access to resources in the shared pool is allocated on an [importance](sql-data-
 
 ## Next steps
 
-- [Quickstart: configure workload isolation](quickstart-configure-workload-isolation-tsql.md)
+- [Quickstart: configure workload isolation](../synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md)
 - [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Convert resource classes to workload groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
 - [Workload Management Portal Monitoring](sql-data-warehouse-workload-management-portal-monitor.md).  
