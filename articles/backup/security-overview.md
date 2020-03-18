@@ -9,12 +9,16 @@ ms.date: 03/12/2020
 
 This article introduces security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 
+## Separation between guest and Azure storage
+
+With Azure Backup,  which includes full IaaS VM backup and SQL/HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  In the case of IaaS VM backup, the backup snapshot creation and storage is done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  In the case of SQL and HANA, the backup extension gets temporary access to write to specific blobs.  In this way existing backups can't be tampered with or deleted by the guest, should it be compromised.
+
 ## Manage and control identity and user access
 
 Azure Backup enables you to manage fine-grained access using [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
 * Azure Backup provides three built-in roles to control backup management operations:
-  * [Backup Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-contributor) - to create and manage backup except deleting Recovery Services vault and giving access to others
+  * [Backup Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-contributor) - to create and manage backup, except deleting Recovery Services vault and giving access to others
   * [Backup Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-operator) - everything a contributor does except removing backup and managing backup policies
   * [Backup Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-reader) - permissions to view all backup management operations
 
