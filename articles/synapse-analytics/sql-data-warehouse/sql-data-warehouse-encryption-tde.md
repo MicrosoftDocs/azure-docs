@@ -31,11 +31,11 @@ To enable TDE, follow the steps below:
 1. Open the database in the [Azure portal](https://portal.azure.com)
 2. In the database blade, click the **Settings** button
 3. Select the **Transparent data encryption** option
-   ![][1]
+   ![portal settings](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
 4. Select the **On** setting
-   ![][2]
+   ![portal settings on](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-on.png)
 5. Select **Save**
-   ![][3]  
+   ![portal settings save](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save.png)  
 
 ## Disabling Encryption
 To disable TDE, follow the steps below:
@@ -43,11 +43,11 @@ To disable TDE, follow the steps below:
 1. Open the database in the [Azure portal](https://portal.azure.com)
 2. In the database blade, click the **Settings** button
 3. Select the **Transparent data encryption** option
-   ![][1]
+   ![portal settings](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png)
 4. Select the **Off** setting
-   ![][4]
+   ![portal settings off](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-off.png)
 5. Select **Save**
-   ![][5]  
+   ![portal setting save 2](./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png)  
 
 ## Encryption DMVs
 Encryption can be confirmed with the following DMVs:

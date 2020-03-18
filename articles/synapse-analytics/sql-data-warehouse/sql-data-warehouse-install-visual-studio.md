@@ -2,7 +2,7 @@
 title: Install Visual Studio 2019 
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for SQL Analytics
 services: sql-data-warehouse
-ms.custom: vs-azure
+ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
 author: kevinvngo
 manager: craigg
@@ -12,7 +12,6 @@ ms.subservice: development
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: azure-synapse
 ---
 
 # Getting started with Visual Studio 2019
@@ -45,15 +44,10 @@ There are times when feature releases for SQL Analytics may not include support 
 
 ## Next steps
 
-Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL pool.
+Now that you have the latest version of SSDT, you're ready to [connect](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md) to your SQL pool.
 
-<!--Anchors-->
 
-<!--Image references-->
 
-<!--Articles-->
-
-[connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 
