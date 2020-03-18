@@ -9,9 +9,9 @@
  ms.author: mimckitt
 ---
 
-# Custom Data and Cloud-Init on Azure Virtual Machines
+# Custom data and Cloud-Init on Azure Virtual Machines
 
-## What is Custom Data?
+## What is Custom data?
 
 Customers often ask how they can inject a script or other metadata into a Microsoft Azure virtual machine at provision time.  In other clouds, this concept is often referred to as user data.  In Microsoft Azure, we have a similar feature called custom data. 
 
