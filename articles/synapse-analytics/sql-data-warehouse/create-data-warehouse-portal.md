@@ -32,17 +32,17 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL pool
 
-Data warehouses are created using SQL pool in Azure Synapse Analytics. A SQL pool is created with a defined set of [compute resources](../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-servers.md).
+Data warehouses are created using SQL pool in Azure Synapse Analytics. A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../../sql-database/sql-database-servers.md).
 
 Follow these steps to create a SQL pool that contains the **AdventureWorksDW** sample data.
 
 1. select **Create a resource** in the upper left-hand corner of the Azure portal.
 
-   ![create a resource in Azure portal](media/create-data-warehouse-portal/create-a-resource.png)
+   ![create a resource in Azure portal](./media/create-data-warehouse-portal/create-a-resource.png)
 
 2. Select **Databases** on the **New** page, and select **Azure Synapse Analytics (formerly SQL DW)** in the **Featured** list.
 
-   ![create empty data warehouse](media/create-data-warehouse-portal/create-a-data-warehouse.png)
+   ![create empty data warehouse](./media/create-data-warehouse-portal/create-a-data-warehouse.png)
 
 3. In **Basics**, provide your subscription, resource group, SQL pool name, and server name:
 
@@ -53,27 +53,27 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
    | **SQL pool name** | Any globally unique name  (An example is *mySampleDataWarehouse*) | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a SQL pool is one type of database. |
    | **Server** | Any globally unique name | Select existing server, or create a new server name, select **Create new**. For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
 
-   ![create a data warehouse basic details](media/create-data-warehouse-portal/create-sql-pool-basics.png)
+   ![create a data warehouse basic details](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
 4. Under **Performance level**, select **Select performance level** to optionally change your configuration with a slider.
 
-   ![change data warehouse performance level](media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
+   ![change data warehouse performance level](./media/create-data-warehouse-portal/create-sql-pool-performance-level.png)  
 
-   For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
+   For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the SQL pool. Provisioning takes a few minutes.
 
-   ![select Review + Create](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
+   ![select Review + Create](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
-   ![select create](media/create-data-warehouse-portal/create-sql-pool-create.png)
+   ![select create](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
 6. On the toolbar, select **Notifications** to monitor the deployment process.
 
-   ![notification](media/create-data-warehouse-portal/notification.png)
+   ![notification](./media/create-data-warehouse-portal/notification.png)
 
 ## Create a server-level firewall rule
 
-The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address.
+The Azure Synapse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md) for your client's IP address.
 
 > [!NOTE]
 > Azure Synapse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
@@ -84,15 +84,15 @@ The Azure Synapse service creates a firewall at the server-level. This firewall 
 
 3. Copy this fully qualified server name for use to connect to your server and its databases in this and other quick starts. To open server settings, select the server name.
 
-   ![find server name](media/create-data-warehouse-portal/find-server-name.png)
+   ![find server name](./media/create-data-warehouse-portal/find-server-name.png)
 
 4. Select **Show firewall settings**.
 
-   ![server settings](media/create-data-warehouse-portal/server-settings.png)
+   ![server settings](./media/create-data-warehouse-portal/server-settings.png)
 
 5. The **Firewall settings** page for the SQL Database server opens.
 
-   ![server firewall rule](media/create-data-warehouse-portal/server-firewall-rule.png)
+   ![server firewall rule](./media/create-data-warehouse-portal/server-firewall-rule.png)
 
 6. To add your current IP address to a new firewall rule, select **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -115,7 +115,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is sqlpoolservername.database.windows.net.
 
-    ![connection information](media/create-data-warehouse-portal/find-server-name-copy.png)
+    ![connection information](./media/create-data-warehouse-portal/find-server-name-copy.png)
 
 ## Connect to the server as server admin
 
@@ -134,13 +134,13 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Password | The password for your server admin account | Password that you specified when you created the server. |
    ||||
 
-   ![connect to server](media/create-data-warehouse-portal/connect-to-server-ssms.png)
+   ![connect to server](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
 3. select **Connect**. The Object Explorer window opens in SSMS. 
 
 4. In Object Explorer, expand **Databases**. Then expand **mySampleDatabase** to view the objects in your new database.
 
-   ![database objects](media/create-data-warehouse-portal/connected-ssms.png) 
+   ![database objects](./media/create-data-warehouse-portal/connected-ssms.png) 
 
 ## Run some queries
 
@@ -156,7 +156,7 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
 3. select **Execute**. The query results show two databases: **master** and **mySampleDataWarehouse**.
 
-   ![Query databases](media/create-data-warehouse-portal/query-databases.png)
+   ![Query databases](./media/create-data-warehouse-portal/query-databases.png)
 
 4. To look at some data, use the following command to see the number of customers with last name of Adams that have three children at home. The results list six customers. 
 
@@ -165,7 +165,7 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
     WHERE LastName = 'Adams' AND NumberChildrenAtHome = 3;
     ```
 
-   ![Query dbo.dimCustomer](media/create-data-warehouse-portal/query-customer.png)
+   ![Query dbo.dimCustomer](./media/create-data-warehouse-portal/query-customer.png)
 
 ## Clean up resources
 
@@ -179,7 +179,7 @@ Follow these steps to clean up resources you no longer need.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select your SQL pool.
 
-   ![Clean up resources](media/create-data-warehouse-portal/clean-up-resources.png)
+   ![Clean up resources](./media/create-data-warehouse-portal/clean-up-resources.png)
 
 2. To pause compute, select the **Pause** button. When the SQL pool is paused, you see a **Resume** button. To resume compute, select **Resume**.
 
@@ -191,4 +191,4 @@ Follow these steps to clean up resources you no longer need.
 
 ## Next steps
 
-To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md) article. 
+To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article. 

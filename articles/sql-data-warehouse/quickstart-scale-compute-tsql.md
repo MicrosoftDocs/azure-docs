@@ -25,7 +25,7 @@ Download and install the newest version of [SQL Server Management Studio](/sql/s
  
 ## Create a data warehouse
 
-Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**. Complete the quickstart to ensure you have a firewall rule and can connect to your data warehouse from within SQL Server Management Studio.
+Use [Quickstart: create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**. Complete the quickstart to ensure you have a firewall rule and can connect to your data warehouse from within SQL Server Management Studio.
 
 ## Connect to the server as server admin
 
@@ -78,7 +78,7 @@ To view the current data warehouse units for your data warehouse:
     ![iew-current-dwu](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## Scale compute
-In Azure Synapse, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+In Azure Synapse, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
 
 To change data warehouse units:
 

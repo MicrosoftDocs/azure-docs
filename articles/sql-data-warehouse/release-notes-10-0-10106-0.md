@@ -161,7 +161,7 @@ Use the version identified to confirm which release has been applied to your SQL
 | | |
 
 ## Next steps
-- [create a SQL pool](./create-data-warehouse-portal.md)
+- [create a SQL pool](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 
 ## More information
 - [Blog - Azure Synapse Analytics](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
