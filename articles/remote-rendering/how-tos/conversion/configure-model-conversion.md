@@ -115,7 +115,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 ### Coordinate system overriding
 
-* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system, to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handedness by inverting the Y-axis direction.
+* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handedness by inverting the Y-axis direction.
 
 ### Vertex format
 
