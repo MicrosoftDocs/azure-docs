@@ -3,14 +3,14 @@ title: Set up sign-in with a Microsoft Account account by using custom policies
 titleSuffix: Azure AD B2C
 description: How to use custom policies to enable Microsoft Account (MSA) as an identity provider using the OpenID Connect (OIDC) protocol.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

@@ -28,7 +28,7 @@ Security Center helps you safeguard virtual machine data in Azure by providing v
 * Endpoint protection recommendations
 * Disk encryption validation
 * Vulnerability assessment and remediation
-* Threat detection
+* Security alerts from the threat protection features
 
 In addition to helping protect your Azure VMs, Security Center also provides security monitoring and management for Cloud Services, App Services, Virtual Networks, and more. 
 

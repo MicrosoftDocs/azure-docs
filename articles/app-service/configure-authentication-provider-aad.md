@@ -23,6 +23,9 @@ Follow these best practices when setting up your app and authentication:
 
 ## <a name="express"> </a>Configure with express settings
 
+> [!NOTE]
+> The **Express** option is not available for government clouds. 
+
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 2. From the left navigation, select **Authentication / Authorization** > **On**.
 3. Select **Azure Active Directory** > **Express**.

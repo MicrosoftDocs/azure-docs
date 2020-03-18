@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS) 
-description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in Azure SQL Data Warehouse for developing solutions.
+description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in SQL Analytics for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,11 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
+ms.custom: azure-synapse
 ---
 
-# CREATE TABLE AS SELECT (CTAS) in Azure SQL Data Warehouse
+# CREATE TABLE AS SELECT (CTAS) in SQL Analytics
 
-This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in Azure SQL Data Warehouse for developing solutions. The article also provides code examples.
+This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in SQL Analytics for developing solutions. The article also provides code examples.
 
 ## CREATE TABLE AS SELECT
 
@@ -118,7 +119,7 @@ DROP TABLE FactInternetSales_old;
 
 ## Use CTAS to work around unsupported features
 
-You can also use CTAS to work around a number of the unsupported features listed below. This method can often prove helpful, because not only will your code be compliant, but it will often run faster on SQL Data Warehouse. This performance is a result of its fully parallelized design. Scenarios include:
+You can also use CTAS to work around a number of the unsupported features listed below. This method can often prove helpful, because not only will your code be compliant, but it will often run faster on SQL Analytics. This performance is a result of its fully parallelized design. Scenarios include:
 
 * ANSI JOINS on UPDATEs
 * ANSI JOINs on DELETEs
@@ -169,7 +170,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL Data Warehouse doesn't support ANSI joins in the `FROM` clause of an `UPDATE` statement, so you can't use the previous example without modifying it.
+SQL Analytics doesn't support ANSI joins in the `FROM` clause of an `UPDATE` statement, so you can't use the previous example without modifying it.
 
 You can use a combination of a CTAS and an implicit join to replace the previous example:
 
@@ -203,7 +204,7 @@ DROP TABLE CTAS_acs;
 
 ## ANSI join replacement for delete statements
 
-Sometimes the best approach for deleting data is to use CTAS, especially for `DELETE` statements that use ANSI join syntax. This is because SQL Data Warehouse doesn't support ANSI joins in the `FROM` clause of a `DELETE` statement. Rather than deleting the data, select the data you want to keep.
+Sometimes the best approach for deleting data is to use CTAS, especially for `DELETE` statements that use ANSI join syntax. This is because SQL Analytics doesn't support ANSI joins in the `FROM` clause of a `DELETE` statement. Rather than deleting the data, select the data you want to keep.
 
 The following is an example of a converted `DELETE` statement:
 
@@ -407,7 +408,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 You can see that type consistency and maintaining nullability properties on a CTAS is an engineering best practice. It helps to maintain integrity in your calculations, and also ensures that partition switching is possible.
 
-CTAS is one of the most important statements in SQL Data Warehouse. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS is one of the most important statements in SQL Analytics. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
 ## Next steps
 

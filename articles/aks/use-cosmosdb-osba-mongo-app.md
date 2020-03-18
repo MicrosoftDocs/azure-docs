@@ -188,7 +188,7 @@ You can use [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) to deploy the 
 
 To enable Azure Dev Spaces in your AKS cluster:
 
-```cmd
+```azurecli
 az aks enable-addons --addons http_application_routing -g MyResourceGroup -n MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
@@ -203,7 +203,7 @@ This command generates several artifacts, including a *charts/* folder, which is
 
 Create a file at the root of your project named *Dockerfile* with this content:
 
-```Dockerfile
+```dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

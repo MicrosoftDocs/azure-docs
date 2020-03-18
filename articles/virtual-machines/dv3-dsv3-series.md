@@ -2,7 +2,7 @@
  title: Dv3 and Dsv3-series - Azure Virtual Machines
  description: Specifications for the Dv3 and Dsv3-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: joelpelley
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -29,6 +29,10 @@ Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
 
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max NICs/Network bandwidth |
 |---|---|---|---|---|---|---|
 | Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
@@ -50,6 +54,10 @@ ACU: 160-190
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|

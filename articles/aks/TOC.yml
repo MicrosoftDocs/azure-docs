@@ -105,8 +105,8 @@
         href: developer-best-practices-pod-security.md
   - name: Quotas and regional limits
     href: quotas-skus-regions.md
-  - name: Migrate from ACS to AKS
-    href: acs-aks-migration.md
+  - name: Migrate to AKS
+    href: aks-migration.md
   - name: Supported Kubernetes version
     href: supported-kubernetes-versions.md
   - name: Security Hardening in host OS
@@ -117,18 +117,14 @@
   items:
   - name: Cluster operations
     items:
-    - name: Create an AKS cluster
-      href: /cli/azure/aks#az-aks-create
-      maintainContext: true
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Process node OS updates
       href: node-updates-kured.md
-    - name: Delete an AKS cluster
-      href: /cli/azure/aks#az-aks-delete
-      maintainContext: true
+    - name: Configure an AKS cluster
+      href: cluster-configuration.md
     - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
@@ -216,7 +212,7 @@
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-    - name: Update cluster service principal credentials
+    - name: Update cluster credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic
       href: limit-egress-traffic.md
@@ -375,6 +371,8 @@
       href: kube-advisor-tool.md
     - name: SSH node access
       href: ssh.md
+    - name: Linux performance tools
+      href: troubleshoot-linux.md
 - name: Reference
   items:
   - name: Azure CLI

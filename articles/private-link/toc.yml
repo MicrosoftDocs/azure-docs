@@ -6,22 +6,18 @@
     href: private-link-overview.md
 - name: Quickstarts
   items:
-  - name: Create a Private Endpoint
-    items: 
-    - name: Azure portal
-      href: create-private-endpoint-portal.md
-    - name: Azure CLI
-      href: create-private-endpoint-cli.md
-    - name: Azure PowerShell
-      href: create-private-endpoint-powershell.md
-  - name: Create a Private Link service
-    items:
-    - name: Azure portal
-      href: create-private-link-service-portal.md
-    - name: Azure PowerShell
-      href: create-private-link-service-powershell.md
-    - name:  Azure CLI
-      href: create-private-link-service-cli.md
+  - name: Create a Private Endpoint - Portal
+    href: create-private-endpoint-portal.md
+  - name: Create a Private Endpoint - PowerShell
+    href: create-private-endpoint-powershell.md
+  - name: Create a Private Endpoint - Azure CLI
+    href: create-private-endpoint-cli.md
+  - name: Create a Private Link service - Portal
+    href: create-private-link-service-portal.md
+  - name: Create a Private Link service - PowerShell
+    href: create-private-link-service-powershell.md
+  - name: Create a Private Link service - Azure CLI
+    href: create-private-link-service-cli.md
 
 - name: Concepts
   items:
@@ -36,6 +32,8 @@
     href: create-private-endpoint-storage-portal.md
   - name: Connect privately to a Cosmos DB account
     href: create-private-endpoint-cosmosdb-portal.md
+  - name: Connect privately to a Web App
+    href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
