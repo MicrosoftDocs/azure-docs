@@ -26,7 +26,7 @@ We have introduced three Azure built-in roles for granting share-level permissio
 You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
 > [!NOTE]
-> Remember to sync your AD credentials to Azure AD if you plan to use your AD for authentication. Password hash sync from AD to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from AD.
+> Remember to sync your AD DS credentials to Azure AD if you plan to use your on-premises AD DS for authentication. Password hash sync from AD DS to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from your on-premises AD DS.
 
 #### Azure portal
 To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
@@ -104,19 +104,19 @@ Use Windows File Explorer to grant full permission to all directories and files 
 3. Click on **Edit..**. button to change permissions
 4. You can change the permission of existing users, or click on **Add...** to grant permissions to new users
 5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and click on **Check Names** to find the full UPN name of the target user.
-7.	Click on **OK**
-8.	In the Security tab, select all permissions you want to grant to the newly add user
-9.	Click on **Apply**
+7.    Click on **OK**
+8.    In the Security tab, select all permissions you want to grant to the newly add user
+9.    Click on **Apply**
 
 ## Mount a file share from a domain-joined VM
 
 The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
 
-Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled AD authentication for Azure Files, use the AD credential. For Azure AD DS authentication, log in with Azure AD credential.
+Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled on-premises AD DS authentication for Azure Files, use your AD DS credential. For Azure AD DS authentication, log in with Azure AD credential.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the AD credentials, or the Azure AD credentials. Single sign-on experience is supported for authentication with either AD or Azure AD DS.
+Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the on-premises AD DS credentials, or the Azure AD credentials. Single sign-on experience is supported for authentication with either on-premises AD DS or Azure AD DS.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
