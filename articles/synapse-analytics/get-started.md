@@ -20,9 +20,9 @@ We recommend this tutorial for anyone starting with Azure Synapse Analytics. It 
 This tutorial uses a stripped down version of the New-York City cabs (Green and Yellow cabs, For Hire Vehicles) and holiday data. 
 
 ## Create and configure a workspace
-The first step to use Synapse Analytics is to provision a workspace. Here is an overview of the steps to follow in the Azure Portal:
+The first step to use Synapse Analytics is to provision a workspace. Here is an overview of the steps to follow in the Azure portal:
 
-1. Navigate to the Azure Portal.
+1. Navigate to the Azure portal.
 2. Search for **Synapse workspaces** and click on the matching entry in the results.
 3. Click on **+ Add**.
 4. Enter your subscription and resource group details.
@@ -39,12 +39,12 @@ The workspace provisioning process will kick off; notifications will indicate th
 Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md)
 
 ## Create analytics pools
-Once the Synapse workspace is deployed, SQL pools and Apache Spark pools can be provisioned to use SQL or open-source analytics on your data. Here are the steps to provision them from the Azure Portal:
+Once the Synapse workspace is deployed, SQL pools and Apache Spark pools can be provisioned to use SQL or open-source analytics on your data. Here are the steps to provision them from the Azure portal:
 
 ### Provisioning a SQL pool
-Here are the steps to provision a SQL pool using the Azure Portal:
+Here are the steps to provision a SQL pool using the Azure portal:
 
-1. Navigate to the Azure Portal.
+1. Navigate to the Azure portal.
 2. Navigate to the workspace searching its name, or by navigating to the **Synapse workspaces** service, and selecting the workspace from the list.
 3. Click on **+ New SQL pool**.
 4. Enter a valid name for the SQL pool.
@@ -58,9 +58,9 @@ Here are the steps to provision a SQL pool using the Azure Portal:
 Once the deployment completes successfully, the SQL pool will be available and ready to use in the workspace.
 
 ### Provisioning an Apache Spark pool
-Here are the steps to provision an Apache Spark pool using the Azure Portal:
+Here are the steps to provision an Apache Spark pool using the Azure portal:
 
-1. Navigate to the Azure Portal.
+1. Navigate to the Azure portal.
 2. Navigate to the workspace searching its name, or by navigating to the **Synapse workspaces** service, and selecting the workspace from the list.
 3. Click on **+ New Apache Spark pool**.
 4. Enter a valid name for the Apache Spark pool.

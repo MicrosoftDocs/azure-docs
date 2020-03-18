@@ -1,5 +1,5 @@
 ---
-title: Provision and secure a Linked Service in Azure Synapse Analytics 
+title: Provision and secure a linked service in Azure Synapse Analytics 
 description: Learn how to provision and secure a linked service with Managed Vnet 
 services: synapse-analytics 
 author: acomet
@@ -35,7 +35,7 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 1. Select **Test connection**, it should fail because the Storage Account does not enable access into it without the creation and approval of a Private Endpoint. In the error message, you should see a link to create a **private endpoint** that you can follow to go to the next part. If you follow that link, skip the next part.
 1. Select **Create** when finished.
 
-## Create Managed private endpoint
+## Create a managed private endpoint
 
 In case, you did not click into the hyperlink when testing the connection above, follow the following path. Now you need to create a managed private endpoint that you will connect to the linked service created above.
 
