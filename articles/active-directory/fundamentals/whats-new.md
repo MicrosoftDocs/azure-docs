@@ -37,7 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## February 2020
 
-### Upcoming changes to Custom Controls
+### Upcoming changes to custom controls
 
 **Type:** Plan for change  
 **Service category:** MFA  
@@ -45,7 +45,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
  
 We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner MFA solutions face the following limitations: they work only after a password has been entered; they don’t serve as MFA for step-up authentication in other key scenarios; and they don’t integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, MFA claims, step up authentication, reporting, and logging. 
 
-Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. While we don’t have a firm date, we’re working closely with customers and providers and will communicate our progress. [Learn more about the planned changes](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. While we don’t have a firm date, we’re working closely with customers and providers and will communicate our progress. [Learn more](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
 
 ### Identity Secure Score - MFA improvement action updates
 
