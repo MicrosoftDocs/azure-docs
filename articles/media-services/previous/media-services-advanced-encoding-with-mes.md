@@ -27,7 +27,7 @@ This topic shows how to customize Media Encoder Standard presets. The [Encoding 
 If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
 > [!NOTE] 
-> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
+> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## Support for relative sizes
 
@@ -240,7 +240,7 @@ The following considerations apply:
 
     You can mix and match notations as you please.
 
-    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content
+    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first "interesting" frame of the content
     NOTE: (Step and Range are ignored when Start is set to {Best})
   * Defaults: Start:{Best}
 * Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES matches JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
@@ -496,24 +496,24 @@ In addition to defining a preset file, you also have to let Media Services know 
 If you are using .NET, add the following two functions to the .NET example defined in [this](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic. The **UploadMediaFilesFromFolder** function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task.
 
 
-	static public IAsset UploadMediaFilesFromFolder(string folderPath)
-	{
-	    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-	
-	    foreach (var af in asset.AssetFiles)
-	    {
-	        // The following code assumes 
-	        // you have an input folder with one MP4 and one overlay image file.
-	        if (af.Name.Contains(".mp4"))
-	            af.IsPrimary = true;
-	        else
-	            af.IsPrimary = false;
-	
-	        af.Update();
-	    }
-	
-	    return asset;
-	}
+    static public IAsset UploadMediaFilesFromFolder(string folderPath)
+    {
+        IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+    
+        foreach (var af in asset.AssetFiles)
+        {
+            // The following code assumes 
+            // you have an input folder with one MP4 and one overlay image file.
+            if (af.Name.Contains(".mp4"))
+                af.IsPrimary = true;
+            else
+                af.IsPrimary = false;
+    
+            af.Update();
+        }
+    
+        return asset;
+    }
 
     static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
     {
@@ -718,7 +718,7 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
     </AACAudio>
 
 ## <a id="deinterlacing"></a>Disable auto de-interlacing
-Customers don’t need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
+Customers don't need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
 
 You can turn the auto de-interlacing off. This option is not recommended.
 
