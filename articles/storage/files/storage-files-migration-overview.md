@@ -24,7 +24,7 @@ The key in any migration is to capture all the applicable file fidelity when mig
 2. **File metadata**: The file meta data has several sub components:
     * file attributes: read-only, for instance
     * file permissions: referred to as *NTFS permissions* or *file and folder ACLs*
-    * timestamps: most notably the *create* and *last modified* timestamps
+    * timestamps: most notably the *create-* and *last modified-* timestamps
     * alternative data stream: a space to store larger amounts of non-standard properties
 
 File fidelity, in a migration, can therefore be defined as the ability to store all applicable file information on the source, the ability to transfer them with the migration tool and the ability to store them on the target storage of the migration.
@@ -38,8 +38,8 @@ The one aspect of files that cannot be stored in a file share at this time, is t
 
 Azure file shares also preserve the file and folder hierarchy. Additionally, they not only allow for NTFS permissions to be stored, but also allowing your AD users (or AAD DS users) to natively access an Azure file share. They use their current identity and get access based on share permissions as well as file and folder ACLs. A behavior not unlike when users connect to an on-premises file share.
 
-* **[Learn more about AD authentication for Azure file shares]**
-* **[Learn more about Azure Active Directory Domain Services (AAD DS) authentication for Azure file shares]**
+* [Learn more about AD authentication for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
+* [Learn more about Azure Active Directory Domain Services (AAD DS) authentication for Azure file shares](storage-files-identity-auth-active-directory-domain-service-enable.md)
 
 ## Migration guides
 
@@ -54,12 +54,12 @@ A scenario without a link does not yet have a published migration guide. Check t
 
 | **Source** | Target: </br>Hybrid deployment | Target: </br>Cloud-only  deployment |
 |:---|:--|:--|
-| Windows Server 2012 R2 and newer | <ul><li>Azure File Sync</li><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 and newer | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync + DataBox](storage-sync-offline-data-transfer.md)</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 and older | <ul><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
 | Network Attached Storage (NAS) | <ul><li>Azure File Sync + RoboCopy</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux / Samba | <ul><li>RoboCopy + Azure File Sync</li></ul> | <ul><li>RoboCopy</li></ul> |
-| StorSimple 8100 / 8600 | <ul><li>Azure File Sync + 8020 Virtual Appliance</li></ul> | |
-| StorSimple 1200 | <ul><li>Azure File Sync</li></ul> | |
+| StorSimple 8100 / 8600 | <ul><li>[Azure File Sync + 8020 Virtual Appliance](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| StorSimple 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 | | | |
 
 ## Migration Toolbox
@@ -68,7 +68,7 @@ A scenario without a link does not yet have a published migration guide. Check t
 
 There are several Microsoft and non-Microsoft file copy tools available. In order to choose the right tool for a migration scenario, there are three fundamental questions one must consider:
 
-1. Does the copy tool support the source and the target location for a given file copy? While this appears to be an obvious requirement, it is worth looking a layer deeper: Does it support your network path and/or available protocols (for instance REST/SMB/NFS) to and from the source and target storage locations?
+1. Does the copy tool support the source and the target location for a given file copy? While this requirement appears to be obvious, it is worth looking a layer deeper: Does it support your network path and/or available protocols (for instance REST/SMB/NFS) to and from the source and target storage locations?
 2. Does the copy tool preserve the necessary file fidelity that is supported by the source/target location? In some cases, your target storage does not support the same fidelity as your source. You have already made the decision that the target storage is sufficient for your needs, hence the copy tool only needs to match the targets file fidelity capabilities.
 3. Does the copy tool have features that make it fit into my migration strategy? For instance, consider if it has options that allow you to minimize your downtime. A good question to ask is: Can I run this copy multiple times on the same, by users actively accessed location? If so, you can reduce the amount of downtime significantly. Compare that to a situation where you can only start the copy when the source stops changing, in order to guarantee a complete copy.
 
