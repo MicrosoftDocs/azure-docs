@@ -28,9 +28,13 @@ This disaster recovery strategy focuses on setting up your primary logic app to 
 
 If you follow good DevOps practices, you already use Azure Resource Manager templates to define and deploy logic apps and their dependent resources These templates give you the capability to use parameter files that specify different configuration values to use for deployment, based on the destination region or environment, such as build, test, and production.
 
-For example, this illustration shows primary and secondary logic apps, which are deployed to separate ISEs in this scenario. A single Resource Manager template defines both logic apps and the dependent resources for deployment. Separate parameter files define the configuration values to use for deployment to each location:
+For example, this illustration shows primary and secondary logic apps, which are deployed to different locations in global multi-tenant Azure for this scenario. A single Resource Manager template defines both logic apps and the dependent resources required by those logic apps for deployment. Separate parameter files define the configuration values to use for deployment to each location:
 
 ![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
+
+This illustration shows the same primary and secondary logic apps, which are deployed to different and separate ISEs for this scenario. A single Resource Manager template defines both logic apps, the dependent resources required by those logic apps, and ISEs to use for deployment. Separate parameter files define the configuration values to use for deployment to each location:
+
+![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations-ise.png)
 
 Your logic apps and locations must meet these requirements:
 
