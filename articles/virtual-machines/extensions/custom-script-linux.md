@@ -126,7 +126,7 @@ These items should be treated as sensitive data and specified in the extensions 
 * `skipDos2Unix`: (optional, boolean) skip dos2unix conversion of script-based file URLs or script.
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
-  * `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
+* `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
   this field instead if your command contains secrets such as passwords.
 * `script`: (**required** if commandToExecute not set, string)a base64 encoded (and optionally gzip'ed) script executed by /bin/sh.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
