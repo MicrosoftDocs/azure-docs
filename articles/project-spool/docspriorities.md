@@ -10,17 +10,10 @@
 ### Docs Deliverables
 
 1. A list of use-cases, ranked by priority. **[done]**
-2. A Table of Contents including:
-   1. Overview **[drafted]**
-   2. Quickstarts
-   3. Tutorials
-   4. Samples - [CLI example](https://docs.microsoft.com/en-us/azure/app-service/samples-cli), RM, Azure PowerShell, Code Samples
-   5. Concepts
-   6. Reference - PowerShell, PS Classic, .NET, REST... 
-   7. Resources - REST, FAQ, Pricing Calculator, Quota, Regional Availability, Release Notes, StackOverflow, Troubleshooting
+2. A Table of Contents **[drafted]**  
 3. A Landing Page **[drafted]**  
-4. An article set for "Add Voice and Video To Your UWP App"
-5. An article set for "Add Voice and Video To Your Web App"
+4. A process that enables stakeholders to contribute raw content.
+
 
 ### Cold Backlog
 

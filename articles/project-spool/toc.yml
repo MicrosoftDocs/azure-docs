@@ -33,8 +33,20 @@
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Concepts
   items:
-  - name: Client and Server
-    href: concepts/client-and-server-concepts.md
+  - name: Communications Technologies
+    items: 
+      - name: WebRTC
+        href: concepts/WebRTC.md
+      - name: VOIP
+        href: concepts/VOIP.md
+      - name: PSTN
+        href: concepts/PSTN.md
+      - name: Signaling
+        href: concepts/Signaling.md
+  - name: Client and Server Architecture
+    href: concepts/client-and-server-architecture.md
+  - name: Rooms
+    href: concepts/Rooms.md
 - name: References
   items:
   - name: Client SDK for C#
