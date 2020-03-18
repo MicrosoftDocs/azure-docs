@@ -114,6 +114,9 @@ To create the virtual network and subnet, follow these steps:
     | Region | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs.
     | | | |
 
+    > [!NOTE]
+    > For production workloads please plan your subnet size according to [Plan subnet size in your VNet](/azure/data-explorer/vnet-deloyment#plan-subnet-size-in-your-vnet)
+
 1. Select **Review + create** to review your cluster details, and **Create** to provision the cluster.
 
 1. When the deployment is complete, select **Go to resource**.
@@ -171,6 +174,8 @@ Create an Azure Data Explorer cluster with a defined set of compute and storage 
 1. When the deployment is complete, select **Go to resource**.
 
     ![Go to resource](media/create-cluster-database-portal/notification-resource.png)
+
+To deploy Azure Data Explorer cluster into your virtual network, use the [Deploy Azure Data Explorer cluster into your VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) Azure Resource Manager template.
 
 ## Clean up resources
 
