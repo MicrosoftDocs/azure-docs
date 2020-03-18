@@ -17,24 +17,37 @@ ms.service: digital-twins
 
 # Secure Azure Digital Twins with role-based access control
 
-Applications gain access to Azure Digital Twins resources using Shared Access Signature (SAS) token authentication. With SAS, applications present a token to ADT that has been signed with a symmetric key known both to the token issuer and ADT (hence "shared") and that key is directly associated with a rule granting specific access rights, like the permission to receive/listen or send messages. SAS rules are either configured on the namespace, or directly on entities such as a queue or topic, allowing for fine grained access control.
+Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
-## Azure Active Directory
+RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md).
 
-**Azure Active Directory (Azure AD)** integration for ADT provides role-based access control (RBAC) for control over access to resources. You can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an ADT instance.
+## Passing information with tokens
 
-To learn more about roles and role assignments supported in Azure, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
-When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be authorized. With Azure AD, access is a two-step process.
+Applications gain access to Azure Digital Twins resources using **Shared Access Signature (SAS)** token authentication. In this process, an application presents Azure Digital Twins with a token that has been signed with a "shared" symmetric key, known both to the token issuer and Azure Digital Twins. Azure Digital Twins uses the key on that token to understand what rights to give the application in return. The key is directly associated with a *SAS rule* granting specific access rights, like the permission to receive or send messages.
 
-1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is https://servicebus.azure.net.
-2. Next, the token is passed as part of a request to the Azure Digital Twins service to authorize access to the specified resource.
+SAS rules are either configured on the namespace, or directly on an entity like a queue or a topic, allowing for fine grained access control.
 
-## Authentication and Authorization
+## RBAC through Azure AD
 
-The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure Function app, it can use a managed identity to access the resources. 
+You can use RBAC to grant another layer of permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by **Azure AD**, and receives an OAuth 2.0 token in return. The token can be used to authorize an access request to an Azure Digital Twins instance.
+
+> [!IMPORTANT]
+> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use using Azure AD with your Azure Service Bus applications when possible.
+
+### Authentication and authorization
+
+With Azure AD, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
+
+1. First, the security principal's identity is *authenticated*, and an OAuth 2.0 token is returned. The resource name to request a token from is https://servicebus.azure.net.
+2. Next, the token is passed as part of a request to the Azure Digital Twins service, to *authorize* access to the specified resource.
+
+The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure Function app, it can use a managed identity to access the resources. 
+
 The authorization step requires that an RBAC role be assigned to the security principal. Azure Digital Twins provides RBAC roles that encompass sets of permissions for Azure Digital Twins resources. The roles that are assigned to a security principal determine the permissions that the principal will have. 
 
-## Built-in RBAC roles for Azure Digital Twins
+To learn more about roles and role assignments supported in Azure, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
+
+### RBAC roles for Azure Digital Twins
 
 Azure provides the below built-in RBAC roles for authorizing access to an Azure Digital Twins resource:
 * Azure Digital Twins Owner (Preview) – Use this role to give admin controls over Azure Digital Twins resources.
@@ -42,21 +55,22 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
-## Resource scope
+You can assign roles using a variety of mechanism:
+* IAM pane for Azure Digital Twins in Azure Portal
+* CLI commands to add or remove a role
+
+For more detailed steps on how to do this, visit the tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
+
+## Best practices: resource scope
 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
+
 The following list describes the levels at which you can scope access to Azure Digital Twins resources:
 * Models: Role assignment dictates control over models uploaded in Azure Digital Twins to generate a graph.
 * Query: Role assignment determines ability to run SQL query operations on twins within the Azure Digital Twins graph.
 * Digital Twin: Role assignment provides control over CRUD operations on digital twin entities in the graph.
 * Twin relationships: Role assignment defines control over do CRUD operations on relationship edges between twins within a graph
 * Event routes: Role assignment determines access to route events from Azure Digital Twins to an endpoint service like Event Grid, Event Hub or Service Bus.
-
-You can assign roles using a variety of mechanism:
-* IAM pane for Azure Digital Twins in Azure Portal (link to tutorial/getting started guide)
-* CLI commands to add or remove a role (link to tutorial/getting started guidel)
-
-For more detailed steps on how to do this, visit the tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
 
 ## Next steps
 
