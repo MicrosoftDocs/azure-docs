@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # How to Configure LVM and RAID on-crypt on a Linux VM
 
-This document is a step by step process about how to perform LVM on crypt and Raid on crypt configurations.
+This document is a step-by-step process about how to perform LVM on crypt and Raid on crypt configurations.
 
 ### Environment
 
@@ -30,8 +30,9 @@ This document is a step by step process about how to perform LVM on crypt and Ra
 - Configure RAID on top of encrypted devices (RAID-on-Crypt)
 
 Once the underlying device(s) are encrypted, then you can create the LVM or RAID structures on top of that encrypted layer. 
-The Physical Volumes (PV) are created on top and those are used to create the corresponding volume group.
-You need to create the volumes and add the required entries on /etc/fstab as any other normal LVM file system. 
+The Physical Volumes (PV) are created on top of the encrypted Layer.
+The Physical Volumes are used to create the volume group.
+You create the volumes and add the required entries on /etc/fstab. 
 
 ![Check disks attached PowerShell](./media/disk-encryption/lvm-raid-on-crypt/000-lvm-raid-crypt-diagram.png)
 
@@ -40,11 +41,16 @@ In a similar way, the RAID device is created on top of the encrypted layer on th
 ### Considerations
 
 The recommended method to use is LVM-on-Crypt.
+
 RAID is considered when LVM can't be used because of specific application/environment limitations.
-You'll use the EncryptFormatAll option, check all the information about this feature here https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms.
+
+You'll use the EncryptFormatAll option, information about this feature is located here: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux#use-encryptformatall-feature-for-data-disks-on-linux-vms.
+
 While this method can be done when also encrypting the OS, we're just encrypting Data drives.
-This procedure assumes you already reviewed and comply with the pre-requisites mentioned here: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-linux and here https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart.
-The ADE dual pass version should no longer be used on new ADE encryptions,it is on deprecation path.
+
+This procedure assumes you already reviewed the pre-requisites mentioned here: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-linux and here https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-cli-quickstart.
+
+The ADE dual pass version is on deprecation path and should no longer be use on new ADE encryptions.
 
 ### Procedure
 
@@ -102,7 +108,7 @@ az vm disk attach \
 -o table
 ```
 #### Verify the disks are attached to the VM:
-Powershell:
+PowerShell:
 ```powershell
 $VM = Get-AzVM -ResourceGroupName ${RGNAME} -Name ${VMNAME}
 $VM.StorageProfile.DataDisks | Select-Object Lun,Name,DiskSizeGB
@@ -123,9 +129,11 @@ lsblk
 #### Configure the disks to be encrypted
 This configuration is done that the operating system level, the corresponding disks are configured for a traditional ADE encryption:
 
-Filesystems are created on top of the disks
-Temporary mount points are created to mount the filesystems
-The Filesystems are configured on /etc/fstab to be mounted at boot time
+Filesystems are created on top of the disks.
+
+Temporary mount points are created to mount the filesystems.
+
+The Filesystems are configured on /etc/fstab to be mounted at boot time.
 
 Check the device letter assigned to the new disks, on this example we're using four data disks
 
@@ -205,15 +213,16 @@ OS Level:
 lsblk
 ```
 ![Check encryption CLI](./media/disk-encryption/lvm-raid-on-crypt/011-lvm-raid-verify-encryption-status-os.png)
-You can notice the file systems were added to /var/lib/azure_disk_encryption_config/azure_crypt_mount (in case of an old encryption) or added to /etc/crypttab file in case or a newer encryption.
+
+The extension will add the filesystems to "/var/lib/azure_disk_encryption_config/azure_crypt_mount" (an old encryption) or added to "/etc/crypttab" (new encryptions).
 
 Do not modify any of these files.
 
 This file is going to be taking care of activating these disks during the boot process so they can be later used by LVM or RAID. 
 
-Do not worry about the mount points on this file, as ADE will lose the ability to get the disks mounted as a normal file system after we do a pvcreate or  mdadm --create on top of those encrypted devices (which will get rid of the file system format we used during the preparation process).
+Do not worry about the mount points on this file, as ADE will lose the ability to get the disks mounted as a normal file system after we do create a physical volume or a raid device on top of those encrypted devices(which will get rid of the file system format we used during the preparation process).
 #### Remove the temp folders and temp fstab entries
-You need to unmount the filesystems on the disks that will be used as part of LVM
+You unmount the filesystems on the disks that will be used as part of LVM
 ```bash
 for disk in c d e f; do umount /tempdata${disk}; done
 ```
@@ -234,10 +243,12 @@ cat /etc/fstab
 ### For LVM-on-Crypt:
 Now that the underlying disks are encrypted, you can proceed to create the LVM structures.
 
-Instead of using the device name, use the /dev/mapper paths for each of the disks to perform a pvcreate (on the crypt layer on top of the disk not on the disk itself).
+Instead of using the device name, use the /dev/mapper paths for each of the disks to create a physical volume (on the crypt layer on top of the disk not on the disk itself).
 ### Configure LVM on top of the encrypted layers
 #### Create the Physical Volumes
-You'll get a warning asking if it is OK to wipe out the filesystem signature. You may continue by entering 'y' or use the echo "y" as shown:
+You'll get a warning asking if it's OK to wipe out the filesystem signature. 
+
+You may continue by entering 'y' or use the echo "y" as shown:
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
 echo "y" | pvcreate /dev/mapper/6712ad6f-65ce-487b-aa52-462f381611a1
@@ -247,11 +258,11 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![pvcreate](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 >[!NOTE] 
 >The /dev/mapper/device names here need to be replaced for your actual values based on the output of lsblk.
-#### Verify the PVs information
+#### Verify the Physical Volumes information
 ```bash
 pvs
 ```
-![check pvs 1](./media/disk-encryption/lvm-raid-on-crypt/015-lvm-raid-pvs.png)
+![check physical volumes 1](./media/disk-encryption/lvm-raid-on-crypt/015-lvm-raid-pvs.png)
 #### Create the Volume Group
 Create the VG using the same devices already initialized
 ```bash
@@ -264,13 +275,13 @@ vgdisplay -v vgdata
 ```bash
 pvs
 ```
-![check pvs 2](./media/disk-encryption/lvm-raid-on-crypt/016-lvm-raid-pvs-on-vg.png)
+![check physical volumes 2](./media/disk-encryption/lvm-raid-on-crypt/016-lvm-raid-pvs-on-vg.png)
 #### Create Logical Volumes
 ```bash
 lvcreate -L 10G -n lvdata1 vgdata
 lvcreate -L 7G -n lvdata2 vgdata
 ``` 
-#### Check the LVs created
+#### Check the Logical Volumes created
 ```bash
 lvdisplay
 lvdisplay vgdata/lvdata1
@@ -298,12 +309,18 @@ mount -a
 lsblk -fs
 df -h
 ```
-![check lvs](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![check logical volumes](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 On this variation of lsblk, we're listing the devices showing the dependencies on reverse order, this option helps to identify the devices grouped by the logical volume instead of the original /dev/sd[disk] device names.
 
-Important: Make sure the nofail option is added to the mount point options of the LVM volumes created on top of an ADE encrypted device. Is important to avoid the OS from getting stuck during the boot process (or in maintenance mode). The encrypted disk will be unlocked at the end of the boot process and the LVM volumes and file systems will be automatically mounted until they're unlocked by ADE, if the nofail option is not used, the OS will never get into the stage where ADE is started, and the data disk(s) are unlocked and mounted.
+Important: Make sure the "nofail" option is added to the mount point options of the LVM volumes created on top of an ADE encrypted device. Is important to avoid the OS from getting stuck during the boot process (or in maintenance mode). 
 
-You can test rebooting the VM and validating the file systems are also automatically getting mounted after boot time. Take under consideration that this process may take several minutes depending on the number of file systems and the sizes
+The encrypted disk are unlock at the end of the boot process, the LVM volumes and file systems will be automatically mounted.
+
+If the nofail option isn't used, the OS will never get into the stage where ADE is started, and the data disk(s) are unlocked and mounted.
+
+You can test rebooting the VM and validating the file systems are also automatically getting mounted after boot time. 
+
+Take under consideration that this process may take several minutes depending on the number of file systems and the sizes
 #### Reboot the VM and verify after reboot
 ```bash
 shutdown -r now
@@ -334,7 +351,7 @@ watch -n1 cat /proc/mdstat
 mdadm --examine /dev/mapper/[]
 mdadm --detail /dev/md10
 ```
-![mdadm status](./media/disk-encryption/lvm-raid-on-crypt/020-lvm-raid-md-details.png)
+![check mdadm](./media/disk-encryption/lvm-raid-on-crypt/020-lvm-raid-md-details.png)
 #### Create a filesystem on top of the new Raid device:
 ```bash
 mkfs.ext4 /dev/md10
@@ -352,13 +369,17 @@ Verify that the new filesystems are mounted
 lsblk -fs
 df -h
 ```
-![mdadm status](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![check mdadm](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
-Important: Make sure the nofail option is added to the mount point options of the RAID volumes created on top of an ADE encrypted device. 
+Important: Make sure the "nofail" option is added to the mount point options of the RAID volumes created on top of an ADE encrypted device. 
 
-This is very important to avoid the OS from getting stuck during the boot process (or in maintenance mode). The encrypted disk will be unlocked at the end of the boot process and the RAID volumes and file systems will be automatically mounted until they're unlocked by ADE, if the nofail option is not used, the OS will never get into the stage where ADE is started, and the data disks are unlocked and mounted.
+Is very important to avoid the OS from getting stuck during the boot process (or in maintenance mode). 
 
-You can test rebooting the VM and validating the file systems are also automatically getting mounted after boot time. Please take under consideration that this process may take several minutes depending on the amount of file systems and the sizes
+The encrypted disk will be unlock at the end of the boot process and the RAID volumes and file systems will be automatically mounted until they're unlocked by ADE, if the nofail option is not used.
+
+The OS will never get into the stage where ADE is started, and the data disks are unlocked and mounted.
+
+You can test rebooting the VM and validating the file systems are also automatically getting mounted after boot time. Take under consideration that this process may take several minutes depending on the number of file systems and the sizes
 ```bash
 shutdown -r now
 ```
