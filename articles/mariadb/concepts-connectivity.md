@@ -6,7 +6,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Handling of transient connectivity errors for Azure Database for MariaDB
