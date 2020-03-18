@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 03/18/2020
 ms.author: juliako
 
 ---
@@ -118,6 +118,10 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
+## See also
+
+[FAQs](requently-asked-questions.md#live-streaming)
 
 ## Next steps
 
