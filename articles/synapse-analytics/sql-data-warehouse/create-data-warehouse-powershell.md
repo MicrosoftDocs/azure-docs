@@ -119,7 +119,7 @@ New-AzSqlDatabase `
 
 Required Parameters are:
 
-* **RequestedServiceObjectiveName**: The amount of [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](../../sql-data-warehouse/memory-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: The amount of [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-concurrency-limits.md).
 * **DatabaseName**: The name of the SQL pool that you're creating.
 * **ServerName**: The name of the server that you're using for creation.
 * **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.
@@ -147,4 +147,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-You've now created a SQL pool, created a firewall rule, connected to your SQL pool, and run a few queries. To learn more, continue to the [Load data into SQL pool](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md) article.
+You've now created a SQL pool, created a firewall rule, connected to your SQL pool, and run a few queries. To learn more, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.

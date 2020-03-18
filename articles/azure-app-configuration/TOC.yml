@@ -92,6 +92,8 @@
   items:
     - name: Enable a feature for a subset of users
       href: howto-feature-filters-aspnet-core.md
+    - name: Use labels for per-environment configuration
+      href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
