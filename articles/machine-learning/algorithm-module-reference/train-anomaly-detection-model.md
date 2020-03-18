@@ -52,3 +52,4 @@ After training is complete:
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 
 See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.
+'
