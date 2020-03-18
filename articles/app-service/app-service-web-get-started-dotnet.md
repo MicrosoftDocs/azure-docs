@@ -83,7 +83,7 @@ Follow these steps to create your App Service and publish your web app:
 
 1. Leave **Application Insights** set to *None*.
 
-1. Select **Create** to start creating the Azure resources.
+1. In the **App Service: Create new** dialog box, select **Create** to start creating the Azure resources.
 
    ![Create new app service](./media/app-service-web-get-started-dotnet/create-new-app-service-vs2019.png)
 
