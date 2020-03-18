@@ -60,42 +60,31 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > > ![Already configured](media/quickstart-v2-javascript/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the code sample
+>[!div renderon="docs"]
+>To run the project with a web server by using Node.js, clone: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular or [download](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip) the core project files. Open the files using an editor such as Visual Studio Code.
 
-To run the project with a web server by using Node.js, clone: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular or [download](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip) the core project files. Open the files using an editor such as Visual Studio Code.
-
-#### Step 3: Configure the JavaScript app
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular/archive/master.zip)
 
 > [!div renderon="docs"]
+>#### Step 3: Configure the JavaScript app
+>
 > In the `src/app` folder, edit `app.module.ts`, and set the `clientId`, and `authority` values under `MsalModule.forRoot`.
-
-> [!div class="sxs-lookup" renderon="portal"]
-> In the `src/app` folder, edit `app.module.ts`, and replace `MsalModule.forRoot` with the following code:
-
-```javascript
-MsalModule.forRoot({
-    auth: {
-        clientId: 'Enter_the_Application_Id_zhere', // This is your client ID
-        authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Info_Here', // This is your tenant info
-        redirectUri: 'Enter_the_Redirect_Uri_Here' // This is your redirect URI
-    },
-    cache: {
-        cacheLocation: 'localStorage',
-        storeAuthStateInCookie: isIE, // set to true for IE 11
-    },
-}, {
-    popUp: !isIE,
-    consentScopes: [
-        'user.read',
-        'openid',
-        'profile',
-    ],
-    unprotectedResources: [],
-    protectedResourceMap: [
-        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
-    ],
-    extraQueryParameters: {}
-})
-```
+>
+>```javascript
+>MsalModule.forRoot({
+>    auth: {
+>        clientId: 'Enter_the_Application_Id_here', // This is your client ID
+>        authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Info_Here', // This is your tenant info
+>        redirectUri: 'Enter_the_Redirect_Uri_Here' // This is your redirect URI
+>    },
+>    cache: {
+>        cacheLocation: 'localStorage',
+>        storeAuthStateInCookie: isIE, // set to true for IE 11
+>    },
+>}, 
+> //... )
+>```
 
 > [!div renderon="portal"]
 > > [!NOTE]
@@ -108,19 +97,22 @@ MsalModule.forRoot({
 >
 >|Value name|About|
 >|---------|---------|
->|Enter_the_Application_Id_Here|In the **overview** page of your application registration, this is >your **application(client) ID** |
->|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global >Azure cloud, simply enter https://login.microsoftonline.com. For national clouds (for example, >China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/>authentication-national-cloud).|
->|Enter_the_Tenant_Info_Here| Set to one of the following options: 1) If your application supports >*accounts in this organizational directory*, replace this value with the **Directory(Tenant) ID** or >**Tenant name** (for example, *contoso.microsoft.com*).2) If your application supports *accounts in >any organizational directory*, replace this value with **organizations**. 3) If your application >supports *accounts in any organizational directory and personal Microsoft accounts*, replace this >value with **common**. 4) To restrict support to *personal Microsoft accounts only*, replace this >value with **consumers**. |
+>|Enter_the_Application_Id_Here|In the **overview** page of your application registration, this is your **application(client) ID** |
+>|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, simply enter https://login.microsoftonline.com. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Tenant_Info_Here| Set to one of the following options: 1) If your application supports *accounts in this organizational directory*, replace this value with the **Directory(Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*).2) If your application supports *accounts in any organizational directory*, replace this value with **organizations**. 3) If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. 4) To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
 >|Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`|
-|cacheLocation  | (Optional) Sets the browser storage for the auth state. The default is >sessionStorage.   |
->|storeAuthStateInCookie  | (Optional) The library that stores the authentication request state. This >state is required to validate the authentication flows in the browser cookies. This cookie is set for >the Internet Explorer and Edge browsers to accommodate those two browsers. For more details, see >[known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
+>|cacheLocation  | (Optional) Sets the browser storage for the auth state. The default is sessionStorage.   |
+>|storeAuthStateInCookie  | (Optional) The library that stores the authentication request state. This state is required to validate the authentication flows in the browser cookies. This cookie is set for the Internet Explorer and Edge browsers to accommodate those two browsers. For more details, see [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
 For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
+>[!div renderon="portal"] 
+>#### Step 3: Run the project 
 
-#### Step 4: Run the project
+>[!div renderon="docs"] 
+>#### Step 4: Run the project
 
 * If you're using Node.js:
 
@@ -142,9 +134,6 @@ After the browser loads the application, select **Login**. The first time that y
 ## How the sample works
 
 ![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
-
-
-
 
 
 ## Next steps
