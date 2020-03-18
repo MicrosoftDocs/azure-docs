@@ -796,7 +796,7 @@
         href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Query
       items:
-      - name: Filter data with quick acceleration
+      - name: Filter data with query acceleration
         href: data-lake-storage-query-acceleration-how-to.md
     - name: Transfer
       items:

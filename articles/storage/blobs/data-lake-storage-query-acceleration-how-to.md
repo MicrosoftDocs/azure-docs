@@ -1,6 +1,6 @@
 ---
 title: Filter data by using Azure Data Lake Storage query acceleration | Microsoft Docs
-description: Use .NET and query acceleration (Preview) to retrieve a subset of data from your storage
+description: Use .NET and query acceleration (preview) to retrieve a subset of data from your storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -63,7 +63,7 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
    > [!div class="mx-imgBorder"]
    > ![Nuget Packages set to all](./media/data-lake-storage-query-acceleration/nuget-package-all.png)
 
-6. Choose the **Browse** tab, select the **Include pre-release** checkbox, and in the search text box, type **Azure.Storage**. 
+6. Choose the **Browse** tab, select the **Include prerelease** checkbox, and in the search text box, type **Azure.Storage**. 
 
       > [!div class="mx-imgBorder"]
    > ![Search for query accelerator packages](./media/data-lake-storage-query-acceleration/nuget-package-search.png)
