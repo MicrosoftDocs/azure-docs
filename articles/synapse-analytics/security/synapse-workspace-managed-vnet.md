@@ -34,7 +34,11 @@ To create a Azure Synapse workspace that has a Managed workspace VNet associated
 ![Enable Managed workspace VNet](../media/security/enable-managed-vnet-1.png)
 
 >[!NOTE] 
->All outbound traffic from the Managed workspace VNet will be blocked in the future. It's recommended that you connect to all your data sources using Managed private endpoints.   
+>All outbound traffic from the Managed workspace VNet will be blocked in the future. It's recommended that you connect to all your data sources using Managed private endpoints.
+
+You can check whether your Azure Synapse workspace is associated to a Managed workspace VNet by selecting **Overview** from Azure portal.   
+
+![Workspace overview in Azure portal](../media/security/enable-managed-vnet-2.png)
 
 ## Next steps
 
