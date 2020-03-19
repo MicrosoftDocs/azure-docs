@@ -30,3 +30,7 @@ zone_pivot_groups: programming-languages-set-twelve
 ::: zone pivot="programming-language-go"
 [!INCLUDE [More samples](../includes/quickstarts/voice-assistants/go/go.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-more"
+[!INCLUDE [More samples](../includes/quickstarts/voice-assistants/more/more.md)]
+::: zone-end

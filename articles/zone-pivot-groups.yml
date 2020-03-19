@@ -168,10 +168,12 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language java
+  - id: programming-language-java
     title: Java
   - id: programming-language-go
     title: Go
+  - id: programming-language-other
+    title: Other languages...
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
