@@ -195,6 +195,10 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 1. Search for and select your QnA Maker resource's app service. It will have the same name as the QnA Maker resource but it will have a different **type** of App Service.
 1. Find **Settings** then select **Configuration**.
 1. On the Configuration pane, select **General settings**, then find **Always on**, and select **On** as the value.
+
+    > [!div class="mx-imgBorder"]
+    > ![On the Configuration pane, select **General settings**, then find **Always on**, and select **On** as the value.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
+
 1. Select **Save** to save the configuration.
 1. You are asked if you want to restart the app to use the new setting. Select **Continue**.
 
