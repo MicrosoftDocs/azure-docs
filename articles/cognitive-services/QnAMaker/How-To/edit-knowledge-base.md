@@ -52,9 +52,9 @@ Add alternate questions to an existing QnA set to improve the likelihood of a ma
 
 ## Linking QnA Sets
 
-Linking QnA sets is provided with follow-up prompts. This is a logical connection between QnA sets, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
+Linking QnA sets is provided with [follow-up prompts](multiturn-conversation.md). This is a logical connection between QnA sets, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
 
-You can't link QnA sets in the answer's metadata. 
+You can't link QnA sets in the answer's metadata.
 
 ## Add metadata
 
