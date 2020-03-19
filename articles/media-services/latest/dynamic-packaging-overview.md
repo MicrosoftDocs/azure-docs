@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/23/2020 
+ms.date: 03/17/2020 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -23,6 +23,9 @@ ms.author: juliako
 Microsoft Azure Media Services can be used to encode many media source file formats. It delivers them via different streaming protocols, with or without content protection, to reach all major devices (like iOS and Android devices). These clients understand different protocols. For example, iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH.
 
 In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. Dynamic Packaging is a feature that comes standard on all Streaming Endpoints (Standard or Premium).
+
+> [!NOTE]
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## <a id="delivery-protocols"/>To prepare your source files for delivery
 
@@ -64,6 +67,9 @@ Your streaming client can specify the following Smooth Streaming formats:
 |---|---|
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2.0 (legacy manifest)|By default, Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the `r-tag`. Clients with these players can use a format that disables the r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
+
+> [!NOTE]
+> Smooth Streaming requires that both audio and video should be present in your stream.
 
 ## On-demand streaming workflow
 
@@ -299,7 +305,4 @@ You can open a support ticket by navigating to [New support request](https://por
 
 ## Next steps
 
-> [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
-
-Learn how to [upload, encode, and stream videos](stream-files-tutorial-with-api.md).
+[Upload, encode, and stream videos](stream-files-tutorial-with-api.md)

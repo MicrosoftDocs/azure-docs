@@ -680,7 +680,7 @@ Or, Azure CLI script in a Bash shell:
 for i in 0 1 2;
 do
   name="linkedTemplate$i";
-  deployment=$(az group deployment show -g examplegroup -n $name);
+  deployment=$(az deployment group show -g examplegroup -n $name);
   ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
   echo "deployment $name returned $ip";
 done
@@ -753,7 +753,7 @@ url=$(az storage blob url \
   --output tsv \
   --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
+az deployment group create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
 ## Example templates

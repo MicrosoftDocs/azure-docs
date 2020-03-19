@@ -50,6 +50,8 @@ Private site access refers to making your app accessible only from a private net
     * Keep in mind that with service endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
 * Private site access is also available within an App Service Environment that's configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
+To learn how to set up private site access, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
+
 ## Virtual network integration
 
 Virtual network integration allows your function app to access resources inside a virtual network. 

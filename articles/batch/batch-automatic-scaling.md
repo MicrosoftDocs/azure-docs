@@ -124,7 +124,7 @@ You can get the value of these service-defined variables to make adjustments tha
 | $NetworkInBytes |The number of inbound bytes. |
 | $NetworkOutBytes |The number of outbound bytes. |
 | $SampleNodeCount |The count of compute nodes. |
-| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count.|
+| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count. For a multi-instance task, $ActiveTasks will include the number of instances set on the task.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |

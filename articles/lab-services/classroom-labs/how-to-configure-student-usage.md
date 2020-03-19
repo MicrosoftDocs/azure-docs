@@ -140,7 +140,7 @@ To do so, follow these steps:
 ## Student accounts
 To add students to a classroom lab, you use their email accounts. The following types of email accounts might be used:
 
-- A student email account that's provided by your university’s Office 365 Azure Active Directory (AAD). 
+- A student email account that's provided by your university's Office 365 Azure Active Directory. 
 - A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
 - A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
@@ -148,7 +148,7 @@ To add students to a classroom lab, you use their email accounts. The following 
 ### Using a non-Microsoft email account
 Students can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the registration requires that students first create a Microsoft account that's linked to their non-Microsoft email address.
 
-Many students might already have a Microsoft account linked to their non-Microsoft email addresses. For example, students already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
+Many students might already have a Microsoft account linked to their non-Microsoft email addresses. For example, students already have a Microsoft account if they have used their email address with Microsoft's other products or services, such as Office, Skype, OneDrive, or Windows.  
 
 When a student clicks on the registration URL to sign in to a classroom, they are prompted for their email address and password. If the student attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the student will receive the following error message: 
 
@@ -169,6 +169,14 @@ On the **Sign-in options** page, select **Sign in with GitHub**.
 ![Sign in with GitHub link](../media/how-to-configure-student-usage/signin-github.png)
 
 Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the student selects **Next**.  The student is then immediately signed in and connected to the classroom lab.
+
+## Export list of users to a CSV file
+
+1. Switch to the **Users** tab.
+2. Select **...** (ellipsis) on the toolbar and then select **Export CSV**. 
+
+    ![Export list of users](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
 
 ## Next steps
 See the following articles:

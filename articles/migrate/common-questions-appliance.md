@@ -2,7 +2,7 @@
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 03/09/2020
 ---
 
 # Azure Migrate appliance: Common questions
@@ -59,7 +59,7 @@ Data that's collected by the Azure Migrate appliance is stored in the Azure loca
 
 Here's more information about how data is stored:
 
-- The data is securely stored in a Microsoft subscription, and it's deleted when you delete the Azure Migrate project.
+- The collected data is securely stored in CosmosDB in a Microsoft subscription. The data is deleted when you delete the Azure Migrate project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
 - If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in the United States in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
 
 ## How much data is uploaded during continuous profiling?
@@ -83,9 +83,13 @@ These steps describe how the appliance connects to VMware vCenter Server:
 3. The appliance collects configuration data about VMs (cores, memory, disks, NICs) and the performance history of each VM for the past month.
 4. The collected metadata is sent to the Azure Migrate: Server Assessment tool (over the internet via HTTPS) for assessment.
 
-## Can I connect the appliance to multiple instances of vCenter Server?
+## Can the Azure Migrate appliance connect to multiple vCenter Servers?
 
-No. There's a one-to-one mapping between an appliance and vCenter Server. To discover VMs on multiple vCenter Server instances, you must deploy multiple appliances.
+No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-appliance.md) and vCenter Server. To discover VMs on multiple vCenter Server instances, you must deploy multiple appliances. 
+
+## Can an Azure Migrate project have multiple appliances?
+A project can have multiple appliances attached to it. However, an appliance can only be associated with one project. 
+
 
 ## How many VMs or servers can I discover with an appliance?
 

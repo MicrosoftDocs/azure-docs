@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 03/13/2020
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -39,7 +39,7 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
+With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Office 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
 
 ### Activities that automatically renew group expiration
 
@@ -132,7 +132,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    ```
 
 1. Configure the expiration settings
-   Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Office 365 groups in the Azure AD organization to 365 days. Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com’
+   Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Office 365 groups in the Azure AD organization to 365 days. Renewal notifications for Office 365 groups without owners will be sent to 'emailaddress@contoso.com'
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -143,7 +143,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
 
    - The policy ID
    - The lifetime for all Office 365 groups in the Azure AD organization is set to 365 days
-   - Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com.’
+   - Renewal notifications for Office 365 groups without owners will be sent to 'emailaddress@contoso.com.'
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy

@@ -405,7 +405,7 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Service Support Administrator." It is "Service Administrator" in the [Azure portal](https://portal.azure.com), the [Microsoft 365 admin center](https://admin.microsoft.com), and the Intune portal.
+> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the exsiting name in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.
 
 ### [SharePoint Administrator](#sharepoint-service-administrator-permissions)
 
@@ -986,18 +986,19 @@ Can manage all aspects of the Exchange product.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
 | microsoft.directory/groups/unified/create | Create Office 365 Groups. |
 | microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
 | microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### External Identity Provider Administrator permissions
 
@@ -1097,7 +1098,6 @@ Can manage all aspects of groups and group settings like naming and expiration p
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### Guest Inviter permissions
 Can invite guest users independent of the ‘members can invite guests’ setting.
@@ -1208,10 +1208,12 @@ Can manage all aspects of the Skype for Business product.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
 
 ### Message Center Privacy Reader permissions
 
@@ -1256,7 +1258,6 @@ Can manage Office apps' cloud services, including policy and settings management
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Read and update What’s New messages visibility. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
@@ -1438,7 +1439,6 @@ Can create and manage all aspects of Microsoft Search settings.
 | microsoft.office365.search/allEntities/allProperties/allTasks | Create and delete all resources, and read and update all properties in microsoft.office365.search. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Search Editor permissions
@@ -1454,7 +1454,6 @@ Can create and manage the editorial content such as bookmarks, Q and As, locatio
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.search/content/allProperties/allTasks | Create and delete content, and read and update all properties in microsoft.office365.search. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### Security Administrator permissions
 
@@ -1503,7 +1502,6 @@ Creates and manages security events.
 | microsoft.azure.advancedThreatProtection/allEntities/read | Read and configure Azure AD Advanced Threat Protection. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Read and configure Security & Compliance Center. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read and configure Windows Defender Advanced Threat Protection. |
 
 ### Security Reader permissions
@@ -1556,18 +1554,19 @@ Can manage all aspects of the SharePoint service.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
 | microsoft.directory/groups/unified/create | Create Office 365 Groups. |
 | microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
 | microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read	| Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Teams Communications Administrator permissions
 
@@ -1737,7 +1736,7 @@ Search Editor | Search editor | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Security Operator | Security operator | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
-Service Support Administrator | Service administrator | f023fd81-a637-4b56-95fd-791ac0226033
+Service Support Administrator | Service support administrator | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint Service Administrator | SharePoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Teams Communications Administrator | Teams Communications Administrator | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
