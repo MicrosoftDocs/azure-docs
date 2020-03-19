@@ -18,10 +18,18 @@ ms.author: chmutali
 
 ms.collection: M365-identity-device-management
 ---
-# Export or import your provisioning configuration by using the Microsoft Graph API
+# Export your provisioning configuration and roll back to a known good state
 
-You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
+## Export and import your provisioning configuration from the Azure portal
+### How can I export my provisioning configuration?
+To export your configuration:
+1. In the [Azure portal](https://portal.azure.com/), on the left navigation panel, select **Azure Active Directory**.
+2. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
+3. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. This will take you to the schema editor. 
+5. Click on download in the command bar at the top of the page to download your schema.
 
+### Disaster recovery - roll back to a known good state
+Exporting and saving your configuration allows you to roll back to a previous version of your configuration. We recommend exporting your provisioning configuration and saving it for later use anytime you make a change to your attribute mappings or scoping filters. All you need to do is open up the JSON file that you downloaded in the steps above, copy the entire contents of the JSON file, replace the entire contents of the JSON payload in the schema editor, and then save. If there is an active provisioning cycle, it will complete and the next cycle will use the updated schema. The next cycle will also be an initial cycle, which reevaluates every user and group based on the new configuration. 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
