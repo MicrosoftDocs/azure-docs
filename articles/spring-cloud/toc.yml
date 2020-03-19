@@ -34,6 +34,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Bind your application to Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Map an existing custom DNS name to Azure Spring Cloud
+      href: spring-cloud-tutorial-custom-domain.md
 - name: Concepts
   items: 
     - name: Understanding Azure Spring Cloud quotas and limits
