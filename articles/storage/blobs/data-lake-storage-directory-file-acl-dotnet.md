@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs (preview)
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 01/09/2020
+ms.date: 03/18/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
@@ -195,6 +195,32 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
     await fileClient.FlushAsync(position: fileSize);
 
 }
+```
+
+> [!TIP]
+> If your file size is large, your code will have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Consider using the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet-preview#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method instead. That way, you can upload the entire file in a single call. 
+>
+> See the next section for an example.
+
+## Upload a large file to a directory
+
+Use the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet-preview#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
+
+```cs
+public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
+{
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
+
+    DataLakeFileClient fileClient = directoryClient.GetFileClient("uploaded-file.txt");
+
+    FileStream fileStream =
+        File.OpenRead("C:\\file-to-upload.txt");
+
+    await fileClient.UploadAsync(fileStream);
+
+}
+
 ```
 
 ## Manage a file ACL
