@@ -41290,6 +41290,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md",
             "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store",
             "redirect_document_id": true
@@ -41360,6 +41365,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-monitor.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-code.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-develop",
             "redirect_document_id": false
@@ -41385,9 +41395,19 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-faq.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-faq",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-load.md",
             "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md",
@@ -41410,9 +41430,19 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-what-is.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-workload.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md",
@@ -41427,6 +41457,11 @@
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md",
             "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw",
             "redirect_document_id": true
         },
         {
@@ -41448,6 +41483,21 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-deleted-dw.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-deleted-dw",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-points.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-points",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore.md",

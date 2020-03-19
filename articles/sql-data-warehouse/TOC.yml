@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Synapse Analytics?
-    href: sql-data-warehouse-overview-what-is.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Azure Synapse Analytics architecture
     href: ../synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Data warehouse units
@@ -15,7 +15,7 @@
   - name: Capacity limits
     href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: FAQ
-    href: sql-data-warehouse-overview-faq.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-faq.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
 - name: Release Notes
   items:
     - name: Recent Release
@@ -60,7 +60,7 @@
   - name: Security
     items:
     - name: Overview
-      href: sql-data-warehouse-overview-manage-security.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Advanced data security
       items:
       - name: Overview
@@ -280,7 +280,7 @@
       - name: New York Taxi 
         href: load-data-from-azure-blob-storage-using-polybase.md
       - name: Contoso 
-        href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Wide World Importers
         href: load-data-wideworldimportersdw.md
   - name: Develop
@@ -324,19 +324,19 @@
     - name: Monitor your workload - Portal 
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Monitor your workload - DMVs 
-      href: sql-data-warehouse-manage-monitor.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Monitor Gen2 cache
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Backup and restore
     items:
     - name: Create restore points
-      href: sql-data-warehouse-restore-points.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-points.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Restore an existing data warehouse
-      href: sql-data-warehouse-restore-active-paused-dw.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Restore a deleted data warehouse 
-      href: sql-data-warehouse-restore-deleted-dw.md
-    - name: Restore from a geo-backup 
-      href: sql-data-warehouse-restore-from-geo-backup.md 
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-deleted-dw.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+    - name: ../synapse-analytics/sql-data-warehouse/Restore from a geo-backup 
+      href: sql-data-warehouse-restore-from-geo-backup.md ?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Integrate
     items:
     - name: Use machine learning
@@ -372,7 +372,7 @@
   - name: System views
     href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: PowerShell cmdlets
-    href: sql-data-warehouse-reference-powershell-cmdlets.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: REST APIs
     href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
 - name: Resources
