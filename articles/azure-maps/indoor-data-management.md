@@ -44,7 +44,7 @@ Follow the processes below to upload your DWG design package:
 
     <center>
 
-    ![data-management](./media/indoor-data-management/specify-content-type.png)
+    ![data-management](./media/tutorial-private-atlas-indoor-map/specify-content-type.png)
 
     </center>
 
@@ -56,7 +56,7 @@ Follow the processes below to upload your DWG design package:
 
     <center>
 
-    ![data-management](./media/indoor-data-management/upload-data-udid.png)
+    ![data-management](./media/tutorial-private-atlas-indoor-map/upload-data-udid.png)
 
     </center>
 
@@ -106,7 +106,7 @@ The steps below show you how to make a data set, and obtain its ID:
 
     <center>
 
-    ![data-management](./media/indoor-data-management/dataset-ID.png)
+    ![data-management](./media/tutorial-private-atlas-indoor-map/dataset-ID.png)
 
     </center>
 
@@ -135,7 +135,7 @@ To create a tile set, follow the steps below:
 
     <center>
 
-    ![data-management](./media/indoor-data-management/tileset-udid.png)
+    ![data-management](./media/tutorial-private-atlas-indoor-map/tileset-udid.png)
 
     </center>
 

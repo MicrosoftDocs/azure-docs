@@ -256,7 +256,7 @@ The following are limitations to keep in mind when using the Azure Maps QGIS plu
 Learn more about Indoor Maps from Azure Maps by reading the following articles:
 
 > [!div class="nextstepaction"]
-> [Indoor Maps data management](indoor-data-management.md)
+> [Private Atlas tutorial](tutorial-private-atlas-indoor-map.md)
 
 > [!div class="nextstepaction"]
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)

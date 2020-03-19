@@ -18,7 +18,7 @@ In this concept article, we will walk you through the workflow for managing your
 
 <center>
 
-![data-management](./media/indoor-data-management/data-management.png)</center>
+![data-management](./media/tutorial-private-atlas-indoor-map/data-management.png)</center>
 
 
 ## Data Ingestion
