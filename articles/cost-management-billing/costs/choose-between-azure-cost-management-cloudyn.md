@@ -20,6 +20,7 @@ Key feature migration for Enterprise Agreement, Pay-As-You-Go, and MSDN offer ca
 
 If you have an offer category not yet migrated, you should continue to use the Cloudyn portal. Everyone else can use Azure Cost Management.
 
+## Recommended services by offer
 
 | Microsoft Azure offers | Recommended cost management service |
 | --- | --- |
@@ -29,6 +30,9 @@ If you have an offer category not yet migrated, you should continue to use the C
 | Microsoft Customer Agreement | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview)|
 | Microsoft Customer Agreement supported by partners | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview)|
 | Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
+
+
+## Available Cost Management features
 
 Some of the following features are available in Cloudyn, but all of them are available now in Azure Cost Management.
 
