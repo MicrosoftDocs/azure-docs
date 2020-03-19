@@ -31,12 +31,12 @@ There are two types of resource classes:
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
 
-- To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-concurrency-limits.md).
+- To view the resource utilization for the resource classes, see [Memory and concurrency limits](../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
 
-Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
+Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
 
 The static resource classes are implemented with these pre-defined database roles:
 

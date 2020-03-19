@@ -3,13 +3,13 @@ title: What is batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
-author: PanosPeriorellis
+author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: panosper
+ms.date: 03/18/2020
+ms.author: wolfma
 ---
 
 # What is batch transcription?
@@ -115,7 +115,7 @@ Use these optional properties to configure transcription:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Specifies sentiment should be added to the utterance. Accepted values are `true` to enable sentiment per utterance and `false` (the default value) to disable it.
+      Specifies if sentiment analysis should be applied to the utterance. Accepted values are `true` to enable and `false` (the default value) to disable it.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -245,7 +245,7 @@ The sentiment feature estimates the sentiment expressed in the audio. The sentim
 - What went well when turning a negative call into a positive direction
 - Identify what customers like and what they dislike about a product or a service
 
-Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription.
+Sentiment is scored per audio segment based on the lexical form. The entire text within that audio segment is used to calculate sentiment. No aggregate sentiment is being calculated for the entire transcription. Currently sentiment analysis is only available for the english language.
 
 A JSON output sample looks like below:
 
