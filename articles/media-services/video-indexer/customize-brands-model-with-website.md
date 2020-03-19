@@ -15,13 +15,13 @@ ms.author: anzaman
 
 # Customize a Brands model with the Video Indexer website
 
-Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Video Indexer detects it as a brand in the content. 
+Video Indexer supports brand detection from speech and visual text during indexing and reindexing of video and audio content. The brand detection feature identifies mentions of products, services, and companies suggested by Bing's brands database. For example, if Microsoft is mentioned in video or audio content or if it shows up in visual text in a video, Video Indexer detects it as a brand in the content.
 
 A custom Brands model allows you to:
 
-- select whether or not Video Indexer detects brands from the Bing brands database.
-- select whether or not Video Indexer excludes certain brands from being detected (essentially creating a black list of brands).
-- select whether or not Video Indexer includes brands that should be part of your model that might not be in Bing's brands database (essentially creating a white list of brands).
+- select if you want Video Indexer to detect brands from the Bing brands database.
+- select if you want Video Indexer to exclude certain brands from being detected (essentially creating a deny list of brands).
+- select if you want Video Indexer to include brands that should be part of your model that might not be in Bing's brands database (essentially creating an accept list of brands).
 
 For a detailed overview, see this [Overview](customize-brands-model-overview.md).
 
@@ -29,7 +29,7 @@ You can use the Video Indexer website to create, use, and edit custom Brands mod
 
 ## Edit Brands model settings
 
-You have the option to set whether or not you want brands from the Bing brands database to be detected. For this, you need to edit the settings of your Brands model.
+You have the option to set whether or not you want brands from the Bing brands database to be detected. To set this option, you need to edit the settings of your Brands model. Follow these steps:
 
 1. Go to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. To customize a model in your account, select the **Content model customization** button on the top-right corner of the page.
