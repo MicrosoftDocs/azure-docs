@@ -215,7 +215,7 @@ az extension add \
 
 For information about finding, installing, and managing extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-### Run `az container up`
+### Run `az container app up`
 
 To run the [az container app up][az-container-app-up] command, provide at minimum:
 
