@@ -6,18 +6,6 @@ ms.date: 03/10/2020
 ms.author: travisw
 ---
 
-## Prerequisites
-
-Before you get started, make sure to:
-
-> [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Set up your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-
-  > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
-
 ## Open your project in Visual Studio
 
 The first step is to make sure that you have your project open in Visual Studio.

@@ -6,18 +6,6 @@ ms.date: 03/20/2020
 ms.author: travisw
 ---
 
-## Prerequisites
-
-Before you get started:
-
-> [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * Make sure that you have access to a microphone for audio capture
-
-  > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
-
 ## Create and configure project
 
 [!INCLUDE [](~/articles/cognitive-services/speech-service/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
