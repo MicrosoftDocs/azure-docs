@@ -4,6 +4,10 @@
 
 Welcome to the Project Spool Contributor Quickstart!
 
+The status of Spool Docs is being tracked in a spreadsheet that can be viewed in the **desktop version of Excel**. You can access this spreadsheet by navigating to the Spool Teams channel > Files > Spool Docs Status.xlsx:
+
+![Edit File](./media/docs-status-spreadsheet.png)
+
 If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.
 
 --------------
