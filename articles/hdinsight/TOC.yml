@@ -19,6 +19,8 @@
         href: ./hdinsight-administer-use-powershell.md
       - name: Create clusters with Runbooks
         href: ./manage-clusters-runbooks.md
+      - name: Apache Ambari email notifications
+        href: ./apache-ambari-email.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
