@@ -79,7 +79,7 @@ Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Stre
 
 The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
 
-For more information, see [Event Hubs on Azure Stack Hub overview](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
+Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
 
 
 ## Next steps
