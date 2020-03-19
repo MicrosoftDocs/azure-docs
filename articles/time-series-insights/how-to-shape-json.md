@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
 ---
 
@@ -141,11 +141,11 @@ Let's take a closer look at how to use [Time Series Instance](./time-series-insi
 
 Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**.
 
-| deviceId	| Type | L1 | L2 | timestamp | series_Flow Rate ft3/s |	series_Engine Oil Pressure psi |
+| deviceId    | Type | L1 | L2 | timestamp | series_Flow Rate ft3/s |    series_Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| `FXXX` | Default_Type | SIMULATOR | Battery System | 2018-01-17T01:17:00Z |	1.0172575712203979 |	34.7 |
-| `FXXX` | Default_Type | SIMULATOR |	Battery System |	2018-01-17T01:17:00Z | 2.445906400680542 |	49.2 |
-| `FYYY` | LINE_DATA	COMMON | SIMULATOR |	Battery System |	2018-01-17T01:18:00Z | 0.58015072345733643 |	22.2 |
+| `FXXX` | Default_Type | SIMULATOR | Battery System | 2018-01-17T01:17:00Z |    1.0172575712203979 |    34.7 |
+| `FXXX` | Default_Type | SIMULATOR |    Battery System |    2018-01-17T01:17:00Z | 2.445906400680542 |    49.2 |
+| `FYYY` | LINE_DATA    COMMON | SIMULATOR |    Battery System |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
 > [!NOTE]
 >  The preceding table represents the query view in the [Time Series Preview Explorer](./time-series-insights-update-explorer.md).

@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 03/12/2020
 ms.custom: seodec18
 ---
 
@@ -41,7 +41,7 @@ Most customers agree that the minimal amount of time required to gain insight is
 * It works fast to connect you to billions of events in your Azure IoT Hub or Azure Event Hubs instances in minutes. 
 * Once connected, you can visualize and analyze billions of events to spot anomalies and discover hidden trends in your data.
 
-Time Series Insights is intuitive and simple to use. You can interact with your data without writing a single line of code. There’s also no new language you're required to learn, although Time Series Insights provides a granular text-based querying language for advanced users who are familiar with SQL. It also provides select-and-click exploration for novices.
+Time Series Insights is intuitive and simple to use. You can interact with your data without writing a single line of code. There's also no new language you're required to learn, although Time Series Insights provides a granular text-based querying language for advanced users who are familiar with SQL. It also provides select-and-click exploration for novices.
 
 Customers can take advantage of the speed to diagnose asset-related issues quickly. They can perform DevOps analysis to get to the root cause of a bug in an IoT solution. They also can identify areas to flag for further investigation as part of their data science initiatives. 
 

@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/12/2020
 ms.custom: seodec18
 ---
 
@@ -94,11 +94,11 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
  
 * **Example 1:**
 
-    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Event Hub with four partitions as the Time Series Insights event source.
+    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They're using an Event Hub with four partitions as the Time Series Insights event source.
 
     * The ingestion rate for their Time Series Insights environment would be: **100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps**.
     * The ingestion rate per partition would be 0.25 MBps.
-    * Contoso Shipping’s ingestion rate would be within the preview scale limitation.
+    * Contoso Shipping's ingestion rate would be within the preview scale limitation.
 
 * **Example 2:**
 
@@ -166,7 +166,7 @@ Time Series Insights Preview saves your cold store data to Azure Blob storage in
 
 ### Data availability
 
-Azure Time Series Insights Preview partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it’s indexed. The amount of data that's being ingested can affect this availability.
+Azure Time Series Insights Preview partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested can affect this availability.
 
 > [!IMPORTANT]
 > During the preview, you might experience a period of up to 60 seconds before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
