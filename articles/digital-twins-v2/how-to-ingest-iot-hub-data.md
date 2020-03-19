@@ -177,6 +177,7 @@ namespace adtIngestFunctionSample
         [FunctionName("Function1")]
         public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
+            await Authenticate(log);
             log.LogInformation(eventGridEvent.Data.ToString());
             if (client!=null)
             {
