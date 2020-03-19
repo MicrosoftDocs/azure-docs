@@ -641,7 +641,7 @@
       - name: General Availability FAQ
         href: insights/vminsights-ga-release-faq.md  
       - name: FAQ
-        href: faq.md#azure-monitor-for-vms-preview
+        href: faq.md#azure-monitor-for-vms
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview

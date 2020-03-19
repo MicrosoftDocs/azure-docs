@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Enable security audit events
           href: security-audit-events.md
+        - name: Analyze audit events with Azure Monitor Workbooks
+          href: use-azure-monitor-workbooks.md
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template

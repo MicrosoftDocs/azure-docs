@@ -125,7 +125,7 @@ The **Composite Resources** feature allows you to use DSC configurations as nest
 ### Manage ConfigurationData when compiling configurations in Azure Automation
 
 **ConfigurationData** allows you to separate structural configuration from any environment-specific
-configuration while using PowerShell DSC. For more information, see [Separating "What" from "Where" in PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx).
+configuration while using PowerShell DSC. For more information, see [Separating "What" from "Where" in PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
 > When compiling in Azure Automation State Configuration, you can use **ConfigurationData** in Azure PowerShell but not in the Azure portal.
