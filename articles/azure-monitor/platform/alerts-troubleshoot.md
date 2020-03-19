@@ -29,7 +29,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
-    This action only looks at Azure Resource Manager role assignments that are at the subscription scope, and of type *User*.  Make sure that you have assigned the Resource Manager role at the subscription level, and not at the resource level or resource group level.
+    This action only looks at Azure Resource Manager role assignments that are at the subscription scope, and of type *User*.  Make sure that you have assigned the role at the subscription level, and not at the resource level or resource group level.
 
 1. **Are your email server and mailbox accepting external emails?**
 
@@ -120,11 +120,13 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
 1. **Did a webhook not trigger?**
 
-    1. **Have the source IP addresses been blocked?**     
-    Whitelist the [IP addresses](action-groups.md#action-specific-information) that the webhook is called from.
+    1. **Have the source IP addresses been blocked?**
+    
+       Whitelist the [IP addresses](action-groups.md#action-specific-information) that the webhook is called from.
 
-    1. **Does your webhook endpoint work correctly?** 
-    Verify the webhook endpoint you have configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload). 
+    1. **Does your webhook endpoint work correctly?**
+
+       Verify the webhook endpoint you have configured is correct and the endpoint is working correctly. Check your webhook logs or instrument its code so you could investigate (for example, log the incoming payload). 
 
     1. **Are you calling Slack or Microsoft Teams?**  
     Each of these endpoints expects a specific JSON format. Follow [these instructions](action-groups-logic-app.md) to configure a logic app action instead.
@@ -176,7 +178,9 @@ If you have received the alert, but believe some of its fields are missing or in
 
 If you can see a fired alert in the portal, but a related action rule did not work as expected, follow these steps: 
 
-1. **Is the action rule enabled?** Check the action rule status column to verify that the related action role is enabled. 
+1. **Is the action rule enabled?** 
+
+    Check the action rule status column to verify that the related action role is enabled. 
 
     ![graphic](media/alerts-troubleshoot/action-rule-status.png) 
 
@@ -233,4 +237,4 @@ If you received an error while trying to create, update or delete an [action rul
 
 ## Next steps
 
-Go back to the [Azure portal](http://portal.azure.com) to check if you've solved your issue with any of the advice above
+Go back to the [Azure portal](https://portal.azure.com) to check if you've solved your issue with any of the advice above
