@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: Deploy a linked template
 
-In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template. You also learn how to secure the linked template by using SAS token. It takes about **12 minutes** to complete.
+In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template that contains the reference to a linked template. When the main template get deployed, it triggers the deployment of the linked template. You also learn how to store and secure the linked template by using SAS token. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 

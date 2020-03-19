@@ -40,7 +40,7 @@ The benefits of deployment script:
 - **A user-assigned managed identity with the contributor's role to the target resource-group**. This identity is used to execute deployment scripts. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
 
   > [!NOTE]
-  > The deployment script engine needs to create a storage account and a container instance in the background.  A user-assigned managed identity with the contributor’s role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
+  > The deployment script engine needs to create a storage account and a container instance in the background.  A user-assigned managed identity with the contributor's role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
 
   To create an identity, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -211,7 +211,7 @@ reference('<ResourceName>').output.text
 
 Different from the PowerShell deployment script, CLI/bash support does not expose a common variable to store script outputs, instead, there is an environment variable called **AZ_SCRIPTS_OUTPUT_PATH** that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell.
 
-Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as { “MyResult”: [ “foo”, “bar”] }.  Storing just the array results, for example [ “foo”, “bar” ], is invalid.
+Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as { "MyResult": [ "foo", "bar"] }.  Storing just the array results, for example [ "foo", "bar" ], is invalid.
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
 

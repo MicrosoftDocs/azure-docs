@@ -3747,6 +3747,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-pipeline.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-security-controls",
       "redirect_document_id": false

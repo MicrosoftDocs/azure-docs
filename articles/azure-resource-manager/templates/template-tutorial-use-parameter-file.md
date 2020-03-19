@@ -131,7 +131,7 @@ You can verify the deployment by exploring the resource groups from the Azure po
 
 Congratulations, you've finished this introduction to deploying templates to Azure. Let us know if you have any comments and suggestions in the feedback section. Thanks!
 
-You're ready to jump into more advanced concepts about templates. The next tutorial goes into more detail about using template reference documentation to help with defining resources to deploy.
+The next tutorial series goes into more detail about deploying templates.
 
 > [!div class="nextstepaction"]
-> [Utilize template reference](template-tutorial-create-encrypted-storage-accounts.md)
+> [Deploy a local template](./deployment-tutorial-local-template.md)

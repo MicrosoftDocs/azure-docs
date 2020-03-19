@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* **A GitHub account**, where you use it to create a repository for your templates. If you don’t have one, you can [create one for free](https://github.com). For more information about using GitHub repositories, see [Build GitHub repositories](/azure/devops/pipelines/repos/github).
+* **A GitHub account**, where you use it to create a repository for your templates. If you don't have one, you can [create one for free](https://github.com). For more information about using GitHub repositories, see [Build GitHub repositories](/azure/devops/pipelines/repos/github).
 * **Install Git**. This tutorial instruction uses *Git Bash* or *Git Shell*. For instructions, see [Install Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
 * (optional) **Visual Studio Code with Resource Manager Tools extension**. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
@@ -43,7 +43,7 @@ GitHub is used to store your project source code including Resource Manager temp
 
 ### Create a GitHub repository
 
-If you don’t have a GitHub account, see [Prerequisites](#prerequisites).
+If you don't have a GitHub account, see [Prerequisites](#prerequisites).
 
 1. Sign in to [GitHub](https://github.com).
 1. Select your account image on the upper right corner, and then select **Your repositories**.
@@ -98,7 +98,7 @@ The azuredeploy.json has been added to the local repository. Next, you upload th
 
     ```bash
     git add .
-    git commit -m “Add web app templates.”
+    git commit -m "Add web app templates."
     git push origin master
     ```
 
@@ -112,7 +112,7 @@ So far, you have created a GitHub repository, and uploaded the templates to the 
 
 ## Create a DevOps project
 
-A DevOps organization is needed before you can proceed to the next procedure.  If you don’t have one, see [Prerequisites](#prerequisites).
+A DevOps organization is needed before you can proceed to the next procedure.  If you don't have one, see [Prerequisites](#prerequisites).
 
 1. Sign in to [Azure DevOps](https://dev.azure.com).
 1. Select a DevOps organization from the left.
@@ -179,6 +179,8 @@ To create a pipeline with a step to deploy a template:
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
+    ![Azure Resource Manager Azure DevOps Azure Pipelines step](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+
 1. Select **Add**.
 
     For more information about the task, see [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment), and [Azure Resource Manager template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
@@ -188,7 +190,7 @@ To create a pipeline with a step to deploy a template:
     ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Select **Save and run**.
-1. Select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.
+1. From the **Save and run** pane, select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.
 1. Verify that the pipeline is executed successfully.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-status.png)
@@ -215,13 +217,13 @@ When you update the template and push the changes to the remote repository, the 
     ```bash
     git pull origin master
     git add .
-    git commit -m “Update the storage account type.”
+    git commit -m "Update the storage account type."
     git push origin master
     ```
 
-    The first command syncs the local repository with the remote repository. Remember the pipeline YAML file was added to the remote repository.
+    The first command (pull) syncs the local repository with the remote repository. The pipeline YAML file was only added to the remote repository. Running the pull command downloads a copy of the YAML file to the local branch.
 
-    With the master branch of the remote repository updated, the pipeline is fired again.
+    The fourth command (push) uploads the revised linkedStorageAccount.json file to the remote repository. With the master branch of the remote repository updated, the pipeline is fired again.
 
 To verify the changes, you can check the Replication property of the storage account.  See [Verify the deployment](#verify-the-deployment).
 

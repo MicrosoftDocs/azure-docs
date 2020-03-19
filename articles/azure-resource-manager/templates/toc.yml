@@ -41,6 +41,7 @@
     - name: 2 - Deploy a linked template
       href: deployment-tutorial-linked-template.md
     - name: 3 - Create a pipeline
+      displayName: Devop
       href: deployment-tutorial-pipeline.md
   - name: Advanced
     items:
@@ -69,9 +70,6 @@
       href: template-tutorial-deploy-sql-extensions-bacpac.md
     - name: Secure artifacts
       href: template-tutorial-secure-artifacts.md
-    - name: Continuous integration with Azure Pipelines
-      displayName: DevOps
-      href: template-tutorial-use-azure-pipelines.md
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
