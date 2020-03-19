@@ -1,6 +1,6 @@
 ---
 title: Use Blob Storage as checkpoint store on Azure Stack Hub
-description: This article describes the differences between using Blob Storage as a checkpoint store in Event Hubs on Azure vs. Event Hubs on Azure Stack Hub.
+description: This article describes how to use Blob Storage as a checkpoint store in Event Hubs on Azure Stack Hub.
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -20,14 +20,14 @@ If you're using Azure Blob Storage as the checkpoint store in an environment tha
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts), 
 - Python - [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/event_processor_blob_storage_example_with_storage_api_version.py), [Asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
 
-If you run Event Hubs receiver that uses Blob Storage without targeting the version that Azure Stack Hub supports, you'll receive the following error message:
+If you run Event Hubs receiver that uses Blob Storage as the checkpoint store without targeting the version that Azure Stack Hub supports, you'll receive the following error message:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format
 ```
 
 ## Sample error message in Python
-For Python, an error of `azure.core.exceptions.HttpResponseError` is passed to the error handler `on_error(partition_context, error)` of `EventHubConsumerClient.receive()`. But, method `receive()` doesn't raise an exception. print(error) will print the following exception information:
+For Python, an error of `azure.core.exceptions.HttpResponseError` is passed to the error handler `on_error(partition_context, error)` of `EventHubConsumerClient.receive()`. But, the method `receive()` doesn't raise an exception. `print(error)` will print the following exception information:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.
@@ -40,18 +40,14 @@ HeaderName:x-ms-version
 HeaderValue:2019-07-07
 ```
 
-The logger that uses synchronous pattern will log two warnings like the following ones:
+The logger will log two warnings like the following ones:
 
 ```bash
 WARNING:azure.eventhub.extensions.checkpointstoreblobaio._blobstoragecsaio: 
 An exception occurred during list_ownership for namespace '<namespace-name>.eventhub.<region>.azurestack.corp.microsoft.com' eventhub 'python-eh-test' consumer group '$Default'. 
 
 Exception is HttpResponseError('The value for one of the HTTP headers is not in the correct format.\nRequestId:f048aee8-a90c-08ba-4ce1-e69dba759297\nTime:2020-03-17T22:04:13.3559296Z\nErrorCode:InvalidHeaderValue\nError:None\nHeaderName:x-ms-version\nHeaderValue:2019-07-07')
-```
 
-The logger that uses asynchronous pattern will log two warnings like the following ones:
-
-```bash
 WARNING:azure.eventhub.aio._eventprocessor.event_processor:EventProcessor instance '26d84102-45b2-48a9-b7f4-da8916f68214' of eventhub 'python-eh-test' consumer group '$Default'. An error occurred while load-balancing and claiming ownership. 
 
 The exception is HttpResponseError('The value for one of the HTTP headers is not in the correct format.\nRequestId:f048aee8-a90c-08ba-4ce1-e69dba759297\nTime:2020-03-17T22:04:13.3559296Z\nErrorCode:InvalidHeaderValue\nError:None\nHeaderName:x-ms-version\nHeaderValue:2019-07-07'). Retrying after 71.45254944090853 seconds
