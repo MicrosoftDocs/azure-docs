@@ -44,7 +44,7 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryption enabled. When you enable replication, Azure copies all the required disk encryption keys and secrets from the source region to the target region in the user context. If you don't have the appropriate permissions, your security administrator can use a script to copy the keys and secrets.
 
 - Site Recovery supports Azure Disk Encryption for Azure VMs that are running Windows.
-- Site Recovery supports Azure Disk Encryption version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schemata for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
+- Site Recovery supports Azure Disk Encryption version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schema for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - For Azure Disk Encryption version 1.1, you have to use the Windows VMs with managed disks.
   - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
