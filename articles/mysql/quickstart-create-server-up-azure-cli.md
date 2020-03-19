@@ -15,7 +15,7 @@ ms.custom: mvc
 > [!IMPORTANT]
 > The [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI command is in preview.
 
-Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) command to create an Azure Database for MySQL server using the Azure CLI. In addition to creating the server, the `az mysql up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. This helps to expedite the development process.
+Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command-line or in scripts. This quickstart shows you how to use the [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) command to create an Azure Database for MySQL server using the Azure CLI. In addition to creating the server, the `az mysql up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. This helps to expedite the development process.
 
 ## Prerequisites
 
