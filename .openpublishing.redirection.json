@@ -18560,6 +18560,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/rhel-images.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-images",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
@@ -49603,6 +49608,11 @@
     {
       "source_path": "articles/postgresql/howto-tls-configurations.md",
       "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md", 
+      "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing", 
       "redirect_document_id": false
     }
   ]
