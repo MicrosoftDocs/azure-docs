@@ -68,7 +68,7 @@ For example, consider database schemas, schema_A for dept A, and schema_B for de
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A and user_B are now locked out from the other dept’s schema.
+User_A and user_B are now locked out from the other dept's schema.
 
 ## Loading to a staging table
 
@@ -139,5 +139,5 @@ No other changes to underlying external data sources are needed.
 ## Next steps
 
 - To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](data-loading-overview.md).
-- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 - To monitor data loads, see [Monitor your workload using DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md).
