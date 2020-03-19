@@ -7,12 +7,10 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.custom: fasttrack-edit
-
+ms.custom: seodec18, fasttrack-edit
 ---
 
-# Azure App Service Hybrid Connections #
+# Azure App Service Hybrid Connections
 
 Hybrid Connections is both a service in Azure and a feature in Azure App Service. As a service, it has uses and capabilities beyond those that are used in App Service. To learn more about Hybrid Connections and their usage outside App Service, see [Azure Relay Hybrid Connections][HCService].
 

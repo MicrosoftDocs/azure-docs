@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/17/2020
+  ms.date: 03/19/2020
   ms.author: dapine
 
 landingContent:
@@ -44,6 +44,10 @@ landingContent:
           url: how-to-custom-speech.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
+    - linkListType: tutorial
+      links:
+        - text: Improve accuracy with tenant models
+          url: tutorial-tenant-model.md
     - linkListType: concept
       links:
         - text: Prepare data for Custom Speech
