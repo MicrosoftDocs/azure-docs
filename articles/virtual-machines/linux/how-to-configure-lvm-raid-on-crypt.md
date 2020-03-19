@@ -1,5 +1,5 @@
 ---
-title: How to Configure LVM and RAID on-crypt on a Linux VM
+title: How to configure LVM and RAID on-crypt on a Linux VM
 description: This article provides instructions on configuring LVM and RAID on crypt on Linux VMs.
 author: jofrance
 ms.service: security
@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 
-# How to Configure LVM and RAID on-crypt on a Linux VM
+# How to configure LVM and RAID on-crypt
 
 This document is a step-by-step process about how to perform LVM on crypt and Raid on crypt configurations.
 
@@ -22,7 +22,7 @@ This document is a step-by-step process about how to perform LVM on crypt and Ra
 - ADE Dual Pass
 
 
-### Scenarios
+## Scenarios
 
 **This scenario is applicable to ADE dual-pass and single-pass extensions.**  
 
@@ -58,8 +58,8 @@ When using the "on crypt" configurations, you'll be following the process outlin
 
 >[!NOTE] 
 >We're using variables throughout the document, replace the values accordingly.
-### General Steps
-####Deploy a VM 
+## General steps
+### Deploy a VM 
 >[!NOTE] 
 >While this is optional we recommend you to apply this on a newly deployed VM.
 
@@ -85,7 +85,7 @@ az vm create \
 --size ${VMSIZE} \
 -o table
 ```
-####Attach disks to the vm:
+### Attach disks to the vm:
 Repeat for $N number of new disks you want to attach to the VM
 PowerShell
 ```powershell
@@ -107,7 +107,7 @@ az vm disk attach \
 --new \
 -o table
 ```
-#### Verify the disks are attached to the VM:
+### Verify the disks are attached to the VM:
 PowerShell:
 ```powershell
 $VM = Get-AzVM -ResourceGroupName ${RGNAME} -Name ${VMNAME}
@@ -126,7 +126,7 @@ OS:
 lsblk 
 ```
 ![Check disks attached portal](./media/disk-encryption/lvm-raid-on-crypt/004-lvm-raid-check-disks-os.png)
-#### Configure the disks to be encrypted
+### Configure the disks to be encrypted
 This configuration is done that the operating system level, the corresponding disks are configured for a traditional ADE encryption:
 
 Filesystems are created on top of the disks.
@@ -142,7 +142,7 @@ lsblk
 ```
 ![Check disks attached os](./media/disk-encryption/lvm-raid-on-crypt/004-lvm-raid-check-disks-os.png)
 
-##### Create a filesystem on top of each disk.
+### Create a filesystem on top of each disk.
 This command iterates an ext4 filesystem creation on each disk defined on the "in" part of the "for" cycle.
 ```bash
 for disk in c d e f; do echo mkfs.ext4 -F /dev/sd${disk}; done |bash
@@ -158,7 +158,7 @@ echo "UUID=${diskuuid} /tempdata${disk} ext4 defaults,nofail 0 0" >> /etc/fstab;
 mount -a; \
 done
 ``` 
-##### Verify the disks are mounted properly:
+### Verify the disks are mounted properly:
 ```bash
 lsblk
 ```
@@ -168,7 +168,7 @@ And configured:
 cat /etc/fstab
 ```
 ![Check fstab](./media/disk-encryption/lvm-raid-on-crypt/007-lvm-raid-verify-temp-fstab.png)
-#### Encrypt the data disks:
+### Encrypt the data disks:
 PowerShell using KEK:
 ```powershell
 $sequenceVersion = [Guid]::NewGuid() 
@@ -195,7 +195,10 @@ az vm encryption enable \
 --encrypt-format-all \
 -o table
 ```
-#### Verify the Encryption Status, continue to the next step only when all the disks are encrypted.
+### Verify the encryption status
+
+Continue to the next step only when all the disks are encrypted.
+
 PowerShell:
 ```powershell
 Get-AzVmDiskEncryptionStatus -ResourceGroupName ${RGNAME} -VMName ${VMNAME}
@@ -221,7 +224,7 @@ Do not modify any of these files.
 This file is going to be taking care of activating these disks during the boot process so they can be later used by LVM or RAID. 
 
 Do not worry about the mount points on this file, as ADE will lose the ability to get the disks mounted as a normal file system after we do create a physical volume or a raid device on top of those encrypted devices(which will get rid of the file system format we used during the preparation process).
-#### Remove the temp folders and temp fstab entries
+### Remove the temp folders and temp fstab entries
 You unmount the filesystems on the disks that will be used as part of LVM
 ```bash
 for disk in c d e f; do umount /tempdata${disk}; done
@@ -230,7 +233,7 @@ And remove the /etc/fstab entries:
 ```bash
 vi /etc/fstab
 ```
-#### Verify that the disks are not mounted and that the entries on /etc/fstab were removed
+### Verify that the disks are not mounted and that the entries on /etc/fstab were removed
 ```bash
 lsblk
 ```
@@ -240,12 +243,12 @@ And configured:
 cat /etc/fstab
 ```
 ![Check temp fstab entries are removed](./media/disk-encryption/lvm-raid-on-crypt/013-lvm-raid-verify-fstab-temp-removed.png)
-### For LVM-on-Crypt:
+## For LVM-on-crypt
 Now that the underlying disks are encrypted, you can proceed to create the LVM structures.
 
 Instead of using the device name, use the /dev/mapper paths for each of the disks to create a physical volume (on the crypt layer on top of the disk not on the disk itself).
 ### Configure LVM on top of the encrypted layers
-#### Create the Physical Volumes
+#### Create the physical volumes
 You'll get a warning asking if it's OK to wipe out the filesystem signature. 
 
 You may continue by entering 'y' or use the echo "y" as shown:
@@ -258,17 +261,17 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![pvcreate](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 >[!NOTE] 
 >The /dev/mapper/device names here need to be replaced for your actual values based on the output of lsblk.
-#### Verify the Physical Volumes information
+#### Verify the physical volumes information
 ```bash
 pvs
 ```
 ![check physical volumes 1](./media/disk-encryption/lvm-raid-on-crypt/015-lvm-raid-pvs.png)
-#### Create the Volume Group
+#### Create the volume group
 Create the VG using the same devices already initialized
 ```bash
 vgcreate vgdata /dev/mapper/
 ```
-### Check the VG information
+### Check the volume group information
 ```bash
 vgdisplay -v vgdata
 ```
@@ -276,19 +279,19 @@ vgdisplay -v vgdata
 pvs
 ```
 ![check physical volumes 2](./media/disk-encryption/lvm-raid-on-crypt/016-lvm-raid-pvs-on-vg.png)
-#### Create Logical Volumes
+#### Create logical volumes
 ```bash
 lvcreate -L 10G -n lvdata1 vgdata
 lvcreate -L 7G -n lvdata2 vgdata
 ``` 
-#### Check the Logical Volumes created
+#### Check the logical volumes created
 ```bash
 lvdisplay
 lvdisplay vgdata/lvdata1
 lvdisplay vgdata/lvdata2
 ```
 ![check lvs](./media/disk-encryption/lvm-raid-on-crypt/017-lvm-raid-lvs.png)
-#### Create filesystems on top of the LV structures
+#### Create filesystems on top of the logical volume(s) structure(s)
 ```bash
 echo "yes" | mkfs.ext4 /dev/vgdata/lvdata1
 echo "yes" | mkfs.ext4 /dev/vgdata/lvdata2
@@ -329,7 +332,7 @@ shutdown -r now
 lsblk
 df -h
 ```
-### For RAID-on-Crypt:
+## For RAID-on-Crypt
 Now the underlying disks are encrypted you can continue to create the RAID structures, same as LVM, instead of using the device name, use the /dev/mapper paths for each of the disks.
 
 #### Configure RAID on top of the encrypted layer of the disks
@@ -345,7 +348,7 @@ mdadm --create /dev/md10 \
 ![mdadm create](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 >[!NOTE] 
 >The /dev/mapper/device names here need to be replaced for your actual values based on the output of lsblk.
-#### Check/monitor the raid creation:
+#### Check/monitor the RAID creation:
 ```bash
 watch -n1 cat /proc/mdstat
 mdadm --examine /dev/mapper/[]
@@ -388,7 +391,7 @@ And when you can log in:
 lsblk
 df -h
 ```
-## Next Steps
+## Next steps
 
 - [Azure Disk Encryption troubleshooting](disk-encryption-troubleshooting.md)
 
