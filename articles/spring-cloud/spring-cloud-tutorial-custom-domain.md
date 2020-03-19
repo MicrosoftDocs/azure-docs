@@ -12,7 +12,7 @@ ms.author: brendm
 This example imports certificate to vault and then applies the cert to domain.
 
 ## Prerequisites
-* An application deployed to Azure Spring Cloud (see[Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](articles\spring-cloud\spring-cloud-quickstart-launch-app-portal.md), or use an existing app)
+* An application deployed to Azure Spring Cloud (see[Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal.md), or use an existing app)
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
 *  A private certificate from a third-party provider. The certificate must match the domain.
 
