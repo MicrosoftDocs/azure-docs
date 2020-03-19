@@ -23,7 +23,7 @@ Azure SQL Database can be configured using <a href="/cli/azure">Azure CLI</a>.
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-## [Single database & elastic pools](#tab/single-database)
+# [Single database & elastic pools](#tab/single-database)
 
 | | |
 |---|---|
@@ -49,7 +49,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 Learn more about the [single database Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
 
-## [Managed Instance](#tab/managed-instance)
+# [Managed Instance](#tab/managed-instance)
 
 The following table includes links to Azure CLI script examples for Azure SQL Database - Managed Instance.
 
