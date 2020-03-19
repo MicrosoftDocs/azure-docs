@@ -31,7 +31,7 @@ For more information about the Form Recognizer Sample Labeling Tool, review the 
 
 ### Labeling value types
 
-Value types are now available for labeling. These value types are currently supported: 
+Value types are now available for use with the Form Recognizer Sample Labeling Tool. These value types are currently supported: 
 
 * String
 * Number 
