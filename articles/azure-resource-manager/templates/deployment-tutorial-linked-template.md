@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: Deploy a linked template
 
-In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template that contains the reference to a linked template. When the main template get deployed, it triggers the deployment of the linked template. You also learn how to store and secure the linked template by using SAS token. It takes about **12 minutes** to complete.
+In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template that contains the reference to a linked template. When the main template gets deployed, it triggers the deployment of the linked template. You also learn how to store and secure the linked template by using SAS token. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Save a copy of the main template to your local computer with the .json extension
 
 The following PowerShell script creates a storage account, creates a container, and copies the linked template from a github repository to the container. A copy of the linked template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
 
-Select **Try-it** to open the Cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
+Select **Try-it** to open the Cloud Shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
 > [!IMPORTANT]
 > Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
