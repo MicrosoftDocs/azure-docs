@@ -162,6 +162,14 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+  id: programming-languages-set-twelve
+  prompt: Choose a programming language
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language java
+    title: Java
+  - id: programming-language-go
+    title: Go
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
