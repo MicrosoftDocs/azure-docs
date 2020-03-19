@@ -193,7 +193,7 @@ def upload_file_to_directory():
 ```
 
 > [!TIP]
-> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append_data** method. Consider using the **DataLakeFileClient.upload_data** method method instead. That way, you can upload the entire file in a single call. 
+> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append_data** method. Consider using the **DataLakeFileClient.upload_data** method instead. That way, you can upload the entire file in a single call. 
 
 ## Upload a large file to a directory
 
