@@ -17,7 +17,7 @@ ms.custom: oldportal;it-pro;
 ---
 # Delegate user management with My staff (preview)
 
-**My staff** enables administrators to delegate user management tasks to work team managers, such as store managers, to help their team members access the applications that they need to be productive. When a team member can't access an application because they forgot their password, productivity is lost. Not only does this impact team productivity, but it drives up helpdesk costs and causes a bottleneck in the organizational structure.  With My Staff, a user who can't access their account can re-gain access in just a couple of clicks, with no helpdesk or IT staff required.
+**My staff** enables administrators to delegate user management tasks to work team managers, such as store managers, to help their team members access the applications that they need to be productive. When a team member can't access an application because they forgot their password, productivity is lost. Not only does this impact team productivity, but it drives up helpdesk costs and causes a bottleneck in the organizational structure.  With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
 
 ## Manage your staff in My Staff
 
@@ -25,11 +25,11 @@ Accessing your staff and locations (if you manage more than one) is simple. You 
 
 Locations and the users in a location are determined by your IT administrator and you cannot change them.
 
-## Reset a user's password
+## Reset a user password
 
 If your organization has given you the appropriate permissions, you can reset password for your staff members.
 
-1. [Open My staff](aka.ms/mystaff).
+1. [Open My staff](https://aka.ms/mystaff).
 1. In the **Apps** menu, select **Admin**.
 1. Select **Reset password**.
 1. Select one or more users, and touch **Select**.

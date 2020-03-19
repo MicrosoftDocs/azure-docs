@@ -17,13 +17,13 @@ ms.custom: oldportal;it-pro;
 ---
 # My staff user management delegation (preview)
 
-**My staff** enables work team managers, such as store managers, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a team manager. With My staff, a user who can't access their account can re-gain access in just a couple of clicks – no helpdesk or IT staff required.
+**My staff** enables work team managers, such as store managers, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a team manager. With My staff, a user who can't access their account can regain access in just a couple of clicks – no helpdesk or IT staff required.
 
 Before you configure My staff for your organization, we recommend that you review this documentation as well as the [team manager documentation](my-staff-team-manager.md) to ensure you understand the functionality and impact of this feature on your users. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
 
 ## How My staff works
 
-My staff is based on administrative Units (AUs), which are a container of resources over which a user is given scoped administrative control. In My staff, AUs are used to define a set of users such as a store or department; for example, a team manager assigned to a role that is scoped to one or more AUs. In the screenshot below, the user has been granted the Authentication Administrative role, and the three AUs are the role scope.
+My staff is based on administrative units (AUs), which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. In My staff, AUs are used to define a subset of an organization's users such as a store or department. Then, for example, a team manager could be assigned to a role whose scope is one or more AUs. In the example below, the user has been granted the Authentication Administrative role, and the three AUs are the scope of the role.
 
 ![My staff where a user has been assigned to the Authentication Administrator role](media/my-staff-configure/example-user.png)
 
