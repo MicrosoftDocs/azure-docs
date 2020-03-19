@@ -19,7 +19,7 @@ Before you proceed with this article, ensure that you've installed FarmBeats and
 
 To ingest sensor telemetry data, visit [ingest historical telemetry data](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Before you proceed, you also need to ensure you are familiar with FarmBeats REST APIs as you will query ingested telemetry using the APIs. For more details on FarmBeats APIs, see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Datahub endpoint**.
+Before you proceed, you also need to ensure you are familiar with FarmBeats REST APIs as you will query ingested telemetry using the APIs. For more information on FarmBeats APIs, see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Datahub endpoint**.
 
 ## Query ingested sensor telemetry data
 
@@ -104,7 +104,7 @@ In the above example response, the queried sensor telemetry gives data for two t
 
 ### Query using Azure Time Series Insights (TSI)
 
-FarmBeats leverages [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query and visualize data at IoT scale--data that's highly contextualized and optimized for time series.
+FarmBeats leverages [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) to ingest, store, query, and visualize data at IoT scale--data that's highly contextualized and optimized for time series.
 
 Telemetry data is received on an EventHub and then processed and pushed to a TSI environment within FarmBeats resource group. Data can then be directly queried from the TSI. For more information, see [TSI documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer)
 
@@ -113,7 +113,7 @@ Follow the steps to visualize data on TSI:
 1. Go to **Azure Portal** > **FarmBeats DataHub resource group** > select **Time Series Insights** environment (tsi-xxxx) > **Data Access Policies**. Add user with Reader or Contributor access.
 2. Go to the **Overview** page of **Time Series Insights** environment (tsi-xxxx) and select the **Time Series Insights Explorer URL**. You'll now be able to visualize the ingested telemetry.
 
-Apart from storing, querying and visualization of telemetry, TSI also enables integration to a Power BI dashboard. For more information [see here]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
+Apart from storing, querying and visualization of telemetry, TSI also enables integration to a Power BI dashboard. For more information, see [here]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 
 ## Next steps
 
