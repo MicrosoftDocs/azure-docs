@@ -1,5 +1,5 @@
 ---
-title: Filter data by using Azure Data Lake Storage query acceleration | Microsoft Docs
+title: Filter data by using Azure Data Lake Storage query acceleration (preview) | Microsoft Docs
 description: Use .NET and query acceleration (preview) to retrieve a subset of data from your storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ---
 
-# Filter data by using Azure Data Lake Storage query acceleration
+# Filter data by using Azure Data Lake Storage query acceleration (preview)
 
 This article shows you how to use .NET and query acceleration (Preview) to retrieve a subset of data from your storage account. 
 
