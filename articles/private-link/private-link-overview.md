@@ -58,7 +58,7 @@ Azure Private Link provides the following benefits:
 |  |Azure Service Bus | All public regions      |   Preview   |
 |  |Azure Relay | All public regions      |   Preview   |
 |  |Azure Event Grid| All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Web Apps | EAST US, WEST US2      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
