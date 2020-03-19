@@ -123,7 +123,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 
 ## Azure Resource Manager template
-To create an activity log rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log rule:
+To create an activity log alert rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert  rule:
 
 ```json
 {
