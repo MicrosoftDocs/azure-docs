@@ -111,7 +111,7 @@ If using a Linux client, use the following command to mount the SMB share. The "
 Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 * Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
-*  While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
+* While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 * If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 * We recommend that:
   * You don't use both SMB and NFS at the same time.
@@ -119,9 +119,10 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 
   In these cases, the final outcome can't be determined.
 * Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
-* Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
-After you've connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
+> [!IMPORTANT] Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
+
+After you connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     
     robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
@@ -201,7 +202,6 @@ The following sample shows the output of the robocopy command to copy files to t
         Files :        17        17         0         0         0         0
         Bytes :     3.9 k     3.9 k         0         0         0         0          
     C:\Users>
-       
 
 To optimize the performance, use the following robocopy parameters when copying the data.
 
@@ -209,13 +209,12 @@ To optimize the performance, use the following robocopy parameters when copying 
 |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
 |    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |
 
-
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
 Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
-    
+
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
@@ -228,6 +227,8 @@ In each case, make sure that the share and folder names, and the data size follo
 
 ## Copy data via SMB
 
+To copy data via SMB:
+
 1. If using a Windows host, use the following command to connect to the SMB shares:
 
     `\\<IP address of your device>\ShareName`
@@ -238,6 +239,8 @@ In each case, make sure that the share and folder names, and the data size follo
 For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via SMB](data-box-deploy-copy-data.md).
 
 ## Copy data via NFS
+
+To copy data via NFS:
 
 1. If using an NFS host, use the following command to mount the NFS shares on your Data Box:
 
@@ -250,6 +253,8 @@ For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box via 
 
 ## Copy data via REST
 
+To copy data via REST:
+
 1. To copy data using Data Box Blob storage via REST APIs, you can connect over *http* or *https*.
 2. To copy data to Data Box Blob storage, you can use AzCopy.
 
@@ -257,12 +262,16 @@ For step-by-step instructions, go to [Tutorial: Copy data to Azure Data Box Blob
 
 ## Copy data via data copy service
 
-1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box, go to **Manage > Copy data > Create**. 
+To copy data via data copy service:
+
+1. To copy data by using the data copy service, you need to create a job. In the local web UI of your Data Box, go to **Manage > Copy data > Create**.
 2. Fill out the parameters and create a job.
 
 For step-by-step instructions, go to [Tutorial: Use the data copy service to copy data into Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
 
 ## Copy data to managed disks
+
+To copy data managed disks:
 
 1. When ordering the Data Box device, you should have selected managed disks as your storage destination.
 2. You can connect to Data Box via SMB or NFS shares.
@@ -272,7 +281,6 @@ For step-by-step instructions, go to [Tutorial: Use Data Box to import data as m
 
 ::: zone-end
 
-
 ::: zone target="docs"
 
 ## Next steps
@@ -280,10 +288,10 @@ For step-by-step instructions, go to [Tutorial: Use Data Box to import data as m
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+>
 > * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
@@ -291,4 +299,3 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
 
 ::: zone-end
-
