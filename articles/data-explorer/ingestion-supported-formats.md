@@ -55,5 +55,5 @@ must be specified as an ingestion property because it cannot be inferred.
 
 ## Next steps
 
-* Learn more about [data ingestion](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview)
+* Learn more about [data ingestion](/azure/data-explorer/ingest-data-overview)
 * Learn more about [Azure Data Explorer data ingestion properties](ingestion-properties.md)
