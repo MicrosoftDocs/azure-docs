@@ -12,13 +12,15 @@ manager: philMea
 
 # DWG package requirements
 
-The Azure Maps Conversion API allows you to convert a DWG design package, for a single facility, into map data set. This article helps you understand the DWG package requirements for the Conversion API.
+The Azure Maps Conversion API allows you to convert a DWG design package, for a single facility, into map data set. This article describes the DWG package requirements for the Conversion API.
 
 ## Prerequisites
 
 You may choose any CAD software to produce your DWG package.
 
-You'll also need to acquaint yourself with the following terms before we explain the DWG package requirements.
+The Azure Maps Conversion API, which consumes the DWG package, has been developed and tested using AutoCAD 2019. With AC1032 as the internal format version for the DWG files. Regardless of the CAD software you choose, you're encouraged to select AC1032 for the internal DWG file version.  
+
+Acquaint yourself with the following terms before we explain the DWG package requirements.
 
 | Term  | Definition |
 |:-------|:------------|
@@ -28,23 +30,19 @@ You'll also need to acquaint yourself with the following terms before we explain
 | Feature | An object that combines a geometry with additional metadata information |
 | Feature Classes | A common blueprint for features. For example, a Unit is a feature class, and an office is a feature |
 
-## Package format
+## Package structure
 
-A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility and be zipped in a single archive file. The archive must have a .zip extension.
-
-The Azure Maps Conversion API, which consumes the DWG package, has been developed and tested using AutoCAD 2019.With AC1032 as the internal format version for the DWG files. You're encouraged to use the same internal file format version.
-
-The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
+A DWG package consists of DWG files and a manifest file for a single facility. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
 
 ## DWG files requirements
 
-A single DWG file is required for each level of the facility. And all data for a level must be contained in a single DWG file. Any external references (xrefs) must be bound to the parent drawing. Additionally, each DWG file:
+A single DWG file is required for each level of the facility. And the level's data must be contained in a single DWG file. Any external references (xrefs) must be bound to the parent drawing. Additionally, each DWG file:
 
-* Must define the _Exterior_ and _Unit_ layers. It's recommended that each level also defines the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
+* Must define the _Exterior_ and _Unit_ layers. It may optionally define the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
 * Must not contain features from multiple levels
 * Must not contain features from multiple facilities
 
-The Azure Maps Conversion Service can extract the following feature classes from the DWG files:
+The Azure Maps Conversion Service can extract the following feature classes from a DWG file:
 
 * Levels
 * Units
@@ -53,16 +51,16 @@ The Azure Maps Conversion Service can extract the following feature classes from
 * Walls
 * Vertical Penetrations 
 
-A DWG layer must contain features of a single class. Classes can't share a layer. For example, units and walls can't share a layer.
+A DWG layer must contain features of a single class, and classes must not share a layer. For example, units and walls can't share a layer.
 
 Moreover:
 
-* The origins of drawings for all DWG files, of a facility, must align to the same latitude and longitude.
-* Each level must be in the same orientation
-* Self-intersecting polygons will be repaired automatically. A warning will be raised so the repair results can be inspected manually. It's highly recommended to inspect the repair results as they may not match the expected results.
+* The origins of drawings for all DWG files must align to the same latitude and longitude.
+* Each level must be in the same orientation as the other levels
+* Self-intersecting polygons will be automatically repaired, and the Conversion API will raise a warning. It is recommended to manually inspect the repaired results as they may not match the expected results. 
 * All CAD entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
-The table below outlines the supported entity types for each layer. The layer ignores any non-supported entity types.
+The table below outlines the supported entity types for each layer. If a layer contains unsupported entity types, then the Conversion API will ignore these entities.  
 
 | Layer | Supported entity types |
 | :----- | :-------------------|
@@ -78,9 +76,9 @@ The next sections detail the requirements for each layer.
 
 ### Exterior layer
 
-The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer.
+The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-Regardless of how many entity drawings are in the exterior layer, the [resulting facility data set](tutorial-private-atlas-indoor-map.md#data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
+Regardless of how many entity drawings are in the exterior layer, the [resulting facility data set](tutorial-private-atlas-indoor-map.md#data-sets) will contain only one level feature for each DWG file. Additionally:
 
 * Exteriors must be drawn as Polygon, PolyLine (closed), Circle
 
@@ -90,7 +88,7 @@ If the layer contains multiple overlapping PolyLines, then the PolyLines will be
 
 ### Units layer
 
-The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices and hallways. The Units layer should adhere to the following requirements:
+The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. The Units layer should adhere to the following requirements:
 
 * Units must be drawn as Polygon, PolyLine (closed), Circle
 * Units must fall inside the bounds of the facility exterior perimeter
@@ -108,13 +106,13 @@ The DWG file for each level may contain a layer that defines the physical extent
 
 ### Doors layer
 
-A DWG layer containing doors may be included in the package. To create a DWG layer for doors, each door must overlap the edge of a unit from the unit layer.
+You may include a DWG layer containing doors. Each door must overlap the edge of a unit from the unit layer. Each facility level can have a separate doors layer since each level is in a separate DWG file.
 
-Doors won't be rendered on the resulting map, as drawn in the CAD software. However, the doors will be drawn according to the Azure Maps styling rules for the opening features.
+Doors from the layer won't be rendered on the resulting map as they appear in the CAD software. They'll be drawn according to the Azure Maps styling rules for the opening features. 
 
 ### Zones layer
 
-The DWG file for each level may contain a zone layer that defines the physical extents of zones.
+The DWG file for each level may contain a zone layer that defines the physical extents of zones. A zone can be an indoor empty space or a back yard. 
 
 * Zones must be drawn as Polygon, PolyLine (closed), Circle
 * Zones may overlap
@@ -140,11 +138,9 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 
 ## Manifest file requirements
 
-The zip file must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. As indicated by the name, the manifest file is a JSON text file. It defines DWG file names, georeferencing information, and facility details.
+The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the Conversion API to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored. 
 
-The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip file. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space.  
-
-Only the files identified by the manifest will be ingested by the Conversion API. Files that are in the zip file, but aren't properly listed in the manifest, will be ignored. Make sure that your file names are spelled correctly.
+The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space. 
 
 Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the Conversion API. 
 
@@ -224,7 +220,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |nameAlt|    string|    false|    Alternate Name |
 |nameSubtitle|    string    |false|    Subtitle |
 |addressRoomNumber|    string|    false|    Room/Unit/Apartment/Suite number of the unit|
-|verticalPenetrationCategory|    string|    false|    Vertical Penetration Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). When this property is defined, the resulting feature will be Vertical Penetration (VRT), meaning it can be used to navigate to other VRT features in levels above or below it. |
+|verticalPenetrationCategory|    string|    false| Vertical Penetration is a [Category](https://aka.ms/pa-indoor-spacecategories) Name. When this property is defined, the resulting feature will have a Vertical Penetration (VRT) style.it can be used to navigate to other VRT features in the levels above or below it.  |
 |verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`.|
 | nonWheelchairAccessible  | bool | false | indicates if the unit is accessible by wheelchair |
 | nonPublic | bool | false | Indicates if the unit is open to the public |
