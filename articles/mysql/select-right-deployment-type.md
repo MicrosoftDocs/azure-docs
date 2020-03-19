@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 12/02/2019
 ---
 
 # Choose the right MySQL Server option in Azure

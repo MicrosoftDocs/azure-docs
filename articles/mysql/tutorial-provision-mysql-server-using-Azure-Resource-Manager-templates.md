@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
-ms.date: 3/18/2020
+ms.date: 12/02/2019
 ms.custom: mvc
 ---
 
@@ -72,28 +72,28 @@ To get the JSON template reference for an Azure Database for MySQL server, go to
 }
 ```
 In this request, the values that need to be customized are:
-+    `name` - Specify the name of your MySQL Server (without domain name).
-+    `location` - Specify a valid Azure data center region for your MySQL Server. For example, westus2.
-+    `properties/version` - Specify the MySQL server version to deploy. For example, 5.6 or 5.7.
-+    `properties/administratorLogin` - Specify the MySQL admin login for the server. The admin sign-in name cannot be azure_superuser, admin, administrator, root, guest, or public.
-+    `properties/administratorLoginPassword` - Specify the password for the MySQL admin user specified above.
-+    `properties/sslEnforcement` - Specify Enabled/Disabled to enable/disable sslEnforcement.
-+    `storageProfile/storageMB` - Specify the max provisioned storage size required for the server in megabytes. For example, 5120.
-+    `storageProfile/backupRetentionDays` - Specify the desired backup retention period in days. For example, 7. 
-+    `storageProfile/geoRedundantBackup` - Specify Enabled/Disabled depending on Geo-DR requirements.
-+    `sku/tier` - Specify Basic, GeneralPurpose, or MemoryOptimized tier for deployment.
-+    `sku/capacity` - Specify the vCore capacity. Possible values include 2, 4, 8, 16, 32 or 64.
-+    `sku/family` - Specify Gen5 to choose hardware generation for server deployment.
-+    `sku/name` - Specify TierPrefix_family_capacity. For example B_Gen5_1, GP_Gen5_16, MO_Gen5_32. See the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
-+    `resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
-+    `tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
++	`name` - Specify the name of your MySQL Server (without domain name).
++	`location` - Specify a valid Azure data center region for your MySQL Server. For example, westus2.
++	`properties/version` - Specify the MySQL server version to deploy. For example, 5.6 or 5.7.
++	`properties/administratorLogin` - Specify the MySQL admin login for the server. The admin sign-in name cannot be azure_superuser, admin, administrator, root, guest, or public.
++	`properties/administratorLoginPassword` - Specify the password for the MySQL admin user specified above.
++	`properties/sslEnforcement` - Specify Enabled/Disabled to enable/disable sslEnforcement.
++	`storageProfile/storageMB` - Specify the max provisioned storage size required for the server in megabytes. For example, 5120.
++	`storageProfile/backupRetentionDays` - Specify the desired backup retention period in days. For example, 7. 
++	`storageProfile/geoRedundantBackup` - Specify Enabled/Disabled depending on Geo-DR requirements.
++	`sku/tier` - Specify Basic, GeneralPurpose, or MemoryOptimized tier for deployment.
++	`sku/capacity` - Specify the vCore capacity. Possible values include 2, 4, 8, 16, 32 or 64.
++	`sku/family` - Specify Gen5 to choose hardware generation for server deployment.
++	`sku/name` - Specify TierPrefix_family_capacity. For example B_Gen5_1, GP_Gen5_16, MO_Gen5_32. See the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
++	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
++	`tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
 
 If you are looking to build an Azure Resource Manager template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in Azure Quickstart GitHub Gallery first and build on top of it. 
 
-If you a'e new to Azure Resource Manager templates and would like to try it, you can start by following these steps:
-+    Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
-+    Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
-+    Use Azure CLI to create the Azure MySQL server using the following commands
+If you are new to Azure Resource Manager templates and would like to try it, you can start by following these steps:
++	Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
++	Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
++	Use Azure CLI to create the Azure MySQL server using the following commands
 
 You may use the Azure Cloud Shell in the browser, or Install Azure CLI on your own computer to run the code blocks in this tutorial.
 
@@ -106,9 +106,9 @@ az group deployment create -g $ ExampleResourceGroup   --template-file $ {templa
 ```
 
 ## Get the connection information
-    o connect to your server, you need to provide host information and access credentials.
-    ``azurecli-interactive
-    z mysql server show --resource-group myresourcegroup --name mydemoserver
+To connect to your server, you need to provide host information and access credentials.
+```azurecli-interactive
+az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
@@ -148,7 +148,7 @@ mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## Create a blank database
-Once you're connected to the server, create a blank database.
+Once you’re connected to the server, create a blank database.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
@@ -164,9 +164,9 @@ Now that you know how to connect to the Azure Database for MySQL database, compl
 First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
-    id serial PRIMARY KEY, 
-    name VARCHAR(50), 
-    quantity INTEGER
+	id serial PRIMARY KEY, 
+	name VARCHAR(50), 
+	quantity INTEGER
 );
 ```
 
