@@ -80,7 +80,7 @@ The following image is an example of how you can write a PySpark query using the
 
 You cannot reference data or variables directly across different languages in a Synapse Studio notebook. In Spark, a temporary table can be referenced across languages. Here is an example of how to read a `Scala` DataFrame in `PySpark` and `SparkSQL` using a Spark temp table as a workaround.
 
-1. In Cell 1, read a DataFrame from SQL DW connector using Scala and create a temporary table.
+1. In Cell 1, read a DataFrame from SQL pool connector using Scala and create a temporary table.
 
    ```scala
    %%scala
@@ -207,7 +207,7 @@ You can specify the timeout duration, the number, and the size of executors to g
 
 ## Bring data to a notebook
 
-You can load data from Azure Blob Storage, Azure Data Lake Store Gen 2, and SQL Data Warehouse as shown in the code samples below.
+You can load data from Azure Blob Storage, Azure Data Lake Store Gen 2, and SQL pool as shown in the code samples below.
 
 ### Read a CSV from Azure Data Lake Store Gen2 as a Spark DataFrame
 
