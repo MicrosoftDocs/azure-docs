@@ -18,9 +18,9 @@ ms.author: chmutali
 
 ms.collection: M365-identity-device-management
 ---
-# Export or import your provisioning configuration by using the Microsoft Graph API
+# Export your provisioning configuration and roll back to a known good state
 
-You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
+## Export and import your provisioning configuration from the Azure portal
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
