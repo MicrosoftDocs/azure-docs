@@ -49260,6 +49260,54 @@
       "source_path": "articles/power-bi-embedded/index.md",
       "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
       "redirect_document_id": false
+<<<<<<< HEAD
+=======
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service.md",
+      "redirect_url": "/azure/cognitive-services/speech-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/access-api-portal.md",
+      "redirect_url": "/azure/media-services/latest/access-api-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/access-api-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/access-api-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-portal.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mariadb/howto-tls-configurations.md",
+      "redirect_url": "/azure/mariadb/howto-configure-ssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/howto-tls-configurations.md",
+      "redirect_url": "/azure/mysql/howto-configure-ssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/postgresql/howto-tls-configurations.md",
+      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md", 
+      "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing", 
+      "redirect_document_id": false
+>>>>>>> c4c92a4f3d551c32e614585630979bd6436ca697
     }
   ]
 }
