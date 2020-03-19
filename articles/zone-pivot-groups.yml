@@ -162,7 +162,7 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-  id: programming-languages-set-twelve
+- id: programming-languages-set-twelve
   title: Programming languages
   prompt: Choose a programming language
   pivots:
