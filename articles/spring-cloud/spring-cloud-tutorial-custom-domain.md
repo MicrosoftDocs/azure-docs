@@ -17,7 +17,7 @@ This example imports a certificate from a third-party provider to the key vault 
 *  A private certificate from a third-party provider. The certificate must match the domain.
 
 ## Import Certificate 
- Upload your certificate to key vault, then import it to Azure Spring Cloud.  [Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an service that safeguards cryptographic keys and secrets used by cloud applications and services. It is the storage of choice for Azure Spring Cloud certificates.
+ Upload your certificate to key vault, then import it to Azure Spring Cloud.  [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an service that safeguards cryptographic keys and secrets used by cloud applications and services. It is the storage of choice for Azure Spring Cloud certificates.
  For information about importing a certificate, see [Import a certificate
 ](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate).
 
