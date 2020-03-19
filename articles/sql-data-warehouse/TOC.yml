@@ -218,17 +218,17 @@
   - name: Workload management
     items:
     - name: Overview
-      href: sql-data-warehouse-workload-management.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Workload classification
-      href: sql-data-warehouse-workload-classification.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Workload importance
-      href: sql-data-warehouse-workload-importance.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-importance.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Workload isolation
-      href: sql-data-warehouse-workload-isolation.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Workload management monitoring
-      href: sql-data-warehouse-workload-management-portal-monitor.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Memory & concurrency limits
-      href: memory-concurrency-limits.md
+      href: ../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Resource classes
       href: ../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Manageability & monitoring
@@ -244,9 +244,9 @@
     - name: Recommendations 
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Troubleshoot
-      href: sql-data-warehouse-troubleshoot.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Maintenance schedules
-    href: maintenance-scheduling.md
+    href: ../synapse-analytics/sql-data-warehouse/maintenance-scheduling.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Integration
     items:
     - name: Overview
@@ -294,7 +294,7 @@
       - name: Install Visual Studio SSDT
         href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Source control integration
-        href: sql-data-warehouse-source-control-integration.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-source-control-integration.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Continuous integration and deployment
         href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Connect and query
@@ -308,7 +308,7 @@
   - name: Workload management
     items:
     - name: Analyze your workload
-      href: analyze-your-workload.md 
+      href: ../synapse-analytics/sql-data-warehouse/analyze-your-workload.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json 
     - name: Manage and monitor workload importance
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json 
     - name: Configure workload importance
@@ -320,7 +320,7 @@
     - name: Upgrade to Gen2
       href: ../synapse-analytics/sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Manage Compute
-      href: manage-compute-with-azure-functions.md
+      href: ../synapse-analytics/sql-data-warehouse/manage-compute-with-azure-functions.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Monitor your workload - Portal 
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Monitor your workload - DMVs 
@@ -394,7 +394,7 @@
   - name: Support
     href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Videos
-    href: sql-data-warehouse-videos.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Partners
     items:
     - name: Business intelligence
