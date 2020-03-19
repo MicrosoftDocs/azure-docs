@@ -201,7 +201,7 @@ The following steps use a template to create the durable function code in your p
 
 1. Right-click the project in Visual Studio and select **Add** > **New Azure Function**.
 
-    ![Add new function](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
+    ![Add new function](./media/durable-functions-create-first-csharp/functions-vs-add-function.png)
 
 1. Verify **Azure Function** is selected from the add menu, type a name for your C# file, and then select **Add**.
 
