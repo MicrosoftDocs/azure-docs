@@ -155,7 +155,7 @@ The functionalities of the parser are:
 
 ### Twin type parsing example
 
-The following twin types are defined in the service (the `urn:contosocom:example:coffeeMaker` twin type is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that twin type):
+The following twin types are defined in the service (the `urn:contosocom:example:coffeeMaker` twin type is using the *capability model* syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that twin type):
 
 ```json
 {

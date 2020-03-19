@@ -38,7 +38,7 @@ To generate an SDK, you will need:
 * [Node.js](https://nodejs.org) as a pre-requisite to Autorest
 * The OpenAPI (swagger) file that contains the [Azure Digital Twins API definitions](https://msazure.visualstudio.com/One/_git/Azure-IoT-DigitalTwins-Main?path=%2Fproducts%2Fswagger%2Fexternal-data-plane%2Fpreview%2F2020-03-01-preview%2Fdigitaltwins.json&version=GBmaster&_a=contents).
 
-If you have node installed, you can make sure that you have the right version of Autorest installed using:
+If you have Node.js installed, you can make sure that you have the right version of AutoRest installed using:
 ```bash
 npm install -g autorest@2.0.4413
 ```
@@ -71,11 +71,11 @@ This section explains how to build a separate project.
 * Use the name "ADTApi" as the project name
 * In Solutions Explorer, right-select the *ADTApi* project of the generated solution and choose *Add > Existing Item...*
 * Find the folder where you generated the SDK and select the C# files at the root level
-* Press "OK"
+* Press "Ok"
 * Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
 * Name the folder "Models"
-* Right-select the Models folder in Solutions Explorer and select *Add > Existing Item...*
-* Select the C# files in the Models folder of the generated SDK and press Ok
+* Right-select the *Models* folder in Solutions Explorer and select *Add > Existing Item...*
+* Select the C# files in the *Models* folder of the generated SDK and press "Ok"
 
 To build the SDK successfully, you need to add references to:
 * Microsoft.Rest.ClientRuntime and 

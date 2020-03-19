@@ -53,21 +53,21 @@ az configure --defaults location="West Central US"
 
 Before we can create an Azure Digital Twins instance, you will need an existing resource group. If you don't have one in your subscription, you can create one with:
 ```bash
-az group create -n <your-rg-name>
+az group create -n <your-resource-group-name>
 ```
 
 And now you are ready to create your Azure Digital Twins instance:
 ```bash
-az dt create --name <your-instance-name> -g <your-rg-name>
+az dt create --name <your-instance-name> -g <your-resource-group-name>
 ```
 
 Before you can use the instance, there is one more step: you need to set up access control for the newly created instance. 
 
 ## Assign a role to the instance
 
-To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation copmmand, You can get it by running:
+To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation command, You can get it by running:
 ```bash
-az dt show --name <your-instance-name> -g <your-rg-name>
+az dt show --name <your-instance-name> -g <your-resource-group-name>
 ```
 
 The output will contain a very long string named "id" that will begin with the letters "/subscriptions/…". Use that string in the command below: 

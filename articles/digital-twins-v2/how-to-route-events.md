@@ -254,7 +254,7 @@ These notifications are triggered when a Digital Twins Definition Language (DTDL
 | specversion    | 1.0 |
 | type    | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
 | datacontenttype    | application/json |
-| subject    | ID of the twin type, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
+| subject    | ID of the twin type, in the form `urn:<domain>:<unique twin type identifier>:<twin type version number>` |
 | time    | Timestamp for when the operation occurred on the twin type |
 | sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
 | sequencetype    | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |

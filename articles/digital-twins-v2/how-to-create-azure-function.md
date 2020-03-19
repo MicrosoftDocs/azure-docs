@@ -96,8 +96,8 @@ using Azure Digital TwinsApi;
 
 First, add: 
 * The Azure Digital Twins app ID
-* The URL for your Azure Digital Twins service instance 
-* A variable to hold your Azure Digital Twins service client instance
+* The URL for your Azure Digital Twins instance 
+* A variable to hold your Azure Digital Twins client instance
 to the functions project.
 
 Also change the function signature to be asynchronous.
@@ -137,11 +137,11 @@ public async static Task Authenticate(ILogger log)
         {
             BaseUri = new Uri(AdtInstanceUrl)
         };
-        log.LogInformation($"Azure Digital Twins service client connection created.");
+        log.LogInformation($"Azure Digital Twins client connection created.");
     }
     catch (Exception e)
     {
-        log.LogError($"Azure Digital Twins service client connection failed.");
+        log.LogError($"Azure Digital Twins client connection failed.");
     }
 }
 ```
@@ -196,11 +196,11 @@ namespace adtIngestFunctionSample
                 {
                     BaseUri = new Uri(AdtInstanceUrl)
                 };
-                log.LogInformation($"Azure Digital Twins service client connection created.");
+                log.LogInformation($"Azure Digital Twins client connection created.");
             }
             catch (Exception e)
             {
-                log.LogError($"Azure Digital Twins service client connection failed.");
+                log.LogError($"Azure Digital Twins client connection failed.");
             }
         }
     }

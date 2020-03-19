@@ -222,11 +222,11 @@ namespace adtIngestFunctionSample
                 {
                     BaseUri = new Uri(AdtInstanceUrl)
                 };
-                log.LogInformation($"Azure Digital Twins service client connection created.");
+                log.LogInformation($"Azure Digital Twins client connection created.");
             }
             catch (Exception e)
             {
-                log.LogError($"Azure Digital Twins service client connection failed.");
+                log.LogError($"Azure Digital Twins client connection failed.");
             }
         }
     }

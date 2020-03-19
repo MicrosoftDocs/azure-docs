@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Authenticate against Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: See how to authenticate against an Azure Digital Twins service.
+description: See how to authenticate against the Azure Digital Twins service.
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020

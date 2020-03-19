@@ -31,10 +31,10 @@ To create a twin, you use the DigitalTwins.Add method on the service client:
 await client.DigitalTwins.AddAsync("myNewTwinID", initData);
 ```
 
-To create a twin instance, you need to provide:
-* The desired ID for the twin
+To create a digital twin, you need to provide:
+* The desired ID for the digital twin
 * The twin type you want to use 
-* Initial values for all properties of the twin (in this preview)
+* Initial values for all properties of the digital twin (in this preview)
 
 ### Initialize properties
 
@@ -51,7 +51,7 @@ Dictionary<string, object> moonData = new Dictionary<string, object>()
 };
 ```
 
-One mandatory property for a digital twin instance is the twin type. This can be set using the property "$model" in the metadata section of the initialization data:
+One mandatory property for a digital twin is the twin type. This can be set using the property "$model" in the metadata section of the initialization data:
 ```csharp
 // Define the model type for the twin to be created
 Dictionary<string, object> meta = new Dictionary<string, object>()
@@ -74,7 +74,7 @@ The following code sample shows a function that creates a twin of type room and 
 ```csharp
 public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
 {
-    // Define the model type for the twin to be created
+    // Define the twin type (model) for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
     {
       { "$model", "urn:example:Room:2" }
@@ -165,7 +165,7 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 
 static async Task<bool> CreateRoom(string id, double temperature, double humidity)
 {
-    // Define the model type for the twin to be created
+    // Define the twin type (model) for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
             { "$model", "urn:example:Room:2" }
@@ -195,7 +195,7 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
     string type = "urn:example:Building:3";
     if (makeFloor==true)
         type = "urn:example:Floor:2";
-    // Define the model type for the twin to be created
+    // Define the twin type (model) for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
             { "$model", type }
