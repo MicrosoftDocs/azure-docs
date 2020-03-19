@@ -94,7 +94,7 @@ When an identity associated with an application running on a VM attempts to acce
 
 ### Enable identity-based authentication
 
-You can enable identity-based authentication with either Azure AD DS (GA) or AD (preview) for Azure file shares on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up you file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) and guidance for AD (preview) in our other article, [Enable Active Directory authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
+You can enable identity-based authentication with either Azure AD DS (GA) or AD (preview) for Azure file shares on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up your file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) and guidance for AD (preview) in our other article, [Enable Active Directory authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
 
 ### Configure share-level permissions for Azure Files
 

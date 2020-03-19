@@ -97,7 +97,7 @@
     - name: Live Events and Live Outputs 
       href: live-events-outputs-concept.md    
       displayName: vanity, ingest 
-    - name: Recommended live encoders
+    - name: Tested on-premises live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
@@ -113,7 +113,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video 
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
@@ -202,20 +202,13 @@
   - name: Get started
     items:
     - name: Create an account
-      items:
-      - name: With portal
-        href: create-account-portal.md
-      - name: With CLI
-        href: create-account-cli-how-to.md  
-        displayName: storage
+      href: create-account-howto.md
+      displayName: portal, cli, storage
     - name: Reset the account credentials
       href: cli-reset-account-credentials.md   
-    - name: Access APIs
-      items:
-      - name: With portal
-        href: access-api-portal.md   
-      - name: With CLI
-        href: access-api-cli-how-to.md
+    - name: Access API
+      displayName: portal, cli
+      href: access-api-howto.md   
     - name: Scale Media Reserved Units
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset
@@ -290,7 +283,9 @@
       href: job-error-codes.md         
   - name: Stream live
     items:
-    - name: Become an on-premises encoder partner
+    - name: Live event with portal and Wirecast
+      href: live-events-wirecast-quickstart.md    
+    - name: Verify your on-premises encoder 
       href: become-on-premises-encoder-partner.md      
     - name: Live Event error codes
       href: live-event-error-codes.md    
@@ -342,6 +337,7 @@
   - name: Troubleshoot
     items:
     - name: Frequently asked questions
+      displayName: faqs
       href: frequently-asked-questions.md      
     - name: Error codes
       items:
@@ -357,7 +353,7 @@
     href: https://aka.ms/ams-v3-rest-sdk
     displayName: schema
   - name: REST
-    href: https://aka.ms/ams-v3-rest-ref 
+    href: https://docs.microsoft.com/rest/api/media/ 
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref    
   - name: SDKs

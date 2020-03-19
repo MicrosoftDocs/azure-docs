@@ -97,7 +97,49 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 
 ## Collected data - VMware
 
+### Collected application dependencies metadata - VMware Windows VM
+
+Here's the connection data that the appliance collects from each VM enabled for agentless dependency analysis. This data is sent to Azure.
+
+**Data** | **Command used** 
+--- | --- 
+Local port | netstat
+Local IP address | netstat
+Remote port | netstat
+Remote IP address | netstat
+TCP connection state | netstat
+Process ID | netstat
+No. of active connections | netstat
+
+Here's the process data that the appliance collects from each VM enabled for agentless dependency analysis. This data is sent to Azure.
+
+**Data** | **WMI class** | **WMI class property**
+--- | --- | ---
+Process name | Win32_Process | ExecutablePath
+Process arguments | Win32_Process | CommandLine
+Application name | Win32_Process | VersionInfo.ProductName parameter of ExecutablePath property
+
+
+### Collected application dependencies metadata - VMware Linux VM
+
+Here's the connection and process data that the appliance collects from each VM enabled for agentless dependency analysis. This data is sent to Azure.
+
+**Data** | **Command used** 
+--- | ---
+Local port | netstat 
+Local IP address | netstat 
+Remote port | netstat 
+Remote IP address | netstat 
+TCP connection state | netstat 
+No. of active connections | netstat
+Process ID  | netstat 
+Process name | ps
+Process arguments | ps
+Application name | dpkg or rpm
+
+
 ### Collected performance data-VMware
+
 
 Here's the VMware VM performance data that the appliance collects and sends to Azure.
 

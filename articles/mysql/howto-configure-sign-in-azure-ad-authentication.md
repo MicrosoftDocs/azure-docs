@@ -200,7 +200,7 @@ Most drivers are supported, however make sure to use the settings for sending th
 
 ## Next steps
 
-* Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL - Single Server](concepts-azure-ad-authentication.md)
+* Review the overall concepts for [Azure Active Directory authentication with Azure Database for MySQL](concepts-azure-ad-authentication.md)
 
 <!--Image references-->
 
