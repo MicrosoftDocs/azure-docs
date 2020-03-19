@@ -132,9 +132,13 @@
   items:
   - name: Linux support
     href: linux-overview.md
-  - name: PowerShell
+  - name: PowerShell (Spring 2020)
+    href: /powershell/module/az.desktopvirtualization
+  - name: PowerShell (Fall 2019)
     href: /powershell/windows-virtual-desktop/overview
-  - name: REST API
+  - name: REST API (Spring 2020)
+    href: /rest/api/desktopvirtualization/
+  - name: REST API (Fall 2019)
     href: /rest/api/virtual-desktop/
   - name: Supported RDP file settings
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
