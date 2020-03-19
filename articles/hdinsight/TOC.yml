@@ -482,9 +482,9 @@
         - name: Advanced analytics for HDInsight
           href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
       - name: Manage
-      items:
-      - name: Use empty edge nodes
-        href: ./hdinsight-apps-use-edge-node.md
+        items:
+        - name: Use empty edge nodes
+          href: ./hdinsight-apps-use-edge-node.md
     - name: Troubleshoot
       items:
       - name: Common issues
