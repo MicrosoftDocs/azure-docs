@@ -1,5 +1,5 @@
 ---
-title: Sign in users in Angular single-page apps | Azure
+title: Sign in users in Angular single-page apps
 titleSuffix: Microsoft identity platform
 description: Learn how an Angular app can an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
