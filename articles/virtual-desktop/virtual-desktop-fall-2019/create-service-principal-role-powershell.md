@@ -12,6 +12,9 @@ manager: lizross
 ---
 # Tutorial: Create service principals and role assignments by using PowerShell
 
+>[!IMPORTANT]
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article]().
+
 Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop, you can create a service principal to:
 
 - Automate specific Windows Virtual Desktop management tasks.

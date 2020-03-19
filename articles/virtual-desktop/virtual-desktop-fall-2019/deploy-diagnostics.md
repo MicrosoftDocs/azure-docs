@@ -13,6 +13,9 @@ manager: lizross
 
 # Deploy the diagnostics tool
 
+>[!IMPORTANT]
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article]().
+
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
 - Look up diagnostic activities (management, connection, or feed) for a single user over a period of one week.

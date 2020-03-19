@@ -12,6 +12,12 @@ manager: lizross
 ---
 # Expand an existing host pool with new session hosts
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article]().
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
 This article will tell you how you can expand an existing host pool with new session hosts.
