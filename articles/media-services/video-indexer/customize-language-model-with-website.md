@@ -54,14 +54,15 @@ The training process can take a few minutes. Once the training is done, you see 
 
 ### Using a Language model on a new video
 
-To use your Language model on a new video, do one of the following:
+To use your Language model on a new video, do one of the following actions:
 
-* Click on the **Upload** button on the top of the page 
+* Select the **Upload** button on the top of the page.
 
-    ![Upload](./media/customize-language-model/upload.png)
-* Drop your audio or video file in the circle or browse for your file
+    ![Upload button Video Indexer](./media/customize-language-model/upload.png)
 
-    ![Upload](./media/customize-language-model/upload2.png)
+* Drop your audio or video file into the circle or browse for your file.
+
+    ![Upload media file Video Indexer](./media/customize-language-model/upload2.png)
 
 This will give you the option to select the **Video source language**. Click on the drop-down and select a Language model that you created from the list. It should say the language of your Language model and the name that you gave it in parentheses.
 
@@ -71,15 +72,15 @@ Click the **Upload** option in the bottom of the page, and your new video will b
 
 To use your Language model to reindex a video in your collection, go to your **Account videos** on the [Video Indexer](https://www.videoindexer.ai/) home page and hover over the name of the video that you want to reindex.
 
-You see options to edit your video, delete you video, and reindex your video. Click on the option to reindex your video.
+You'll see options to edit your video, delete you video, and reindex your video. Select the option to reindex your video.
 
-![Reindex](./media/customize-language-model/reindex1.png)
+![Reindex with Video Indexer](./media/customize-language-model/reindex1.png)
 
-This gives you the option to select the **Video source language** to reindex your video with. Click on the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
+This gives you the option to select the **Video source language** to reindex your video with. Select the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
 
-![Reindex](./media/customize-language-model/reindex.png)
+![Choose video source language—Reindex a video with Video Indexer](./media/customize-language-model/reindex.png)
 
-Click the **Re-index** button, and your video will be reindexed using you Language model.
+Select the **Re-index** button and your video will be reindexed using your Language model.
 
 ## Edit a Language model
 
