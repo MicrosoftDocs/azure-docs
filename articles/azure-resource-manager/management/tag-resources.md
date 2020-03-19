@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/19/2020
 ---
 # Use tags to organize your Azure resources, resource groups and subscriptions
 
@@ -28,7 +28,7 @@ The following example applies a set of tags to a storage account:
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
-$resource = Get-AzResource -resourcename demoStorage -resourcegroup demoGroup
+$resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
 New-AzTag -ResourceId $resource.id -Tag $tags
 ```
 
@@ -64,13 +64,30 @@ $tags = @{"Dept"="Finance"; "Status"="Normal"}
 Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
 ```
 
-Notice all four tags have been applied to the resource.
+Notice that the two new tags were added to the two existing tags.
 
 ```output
 Properties :
         Name         Value
         ===========  ==========
         Status       Normal
+        Dept         Finance
+        Team         Compliance
+        Environment  Production
+```
+
+If you provide a new value for a tag and use the merge operation, the old value is replaced. The following example changes the Status tag from Normal to Green.
+
+```azurepowershell-interactive
+$tags = @{"Status"="Green"}
+Update-AzTag -ResourceId $resource.id -Tag $tags -Operation Merge
+```
+
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        Status       Green
         Dept         Finance
         Team         Compliance
         Environment  Production
@@ -107,17 +124,44 @@ New-AzTag -ResourceId $resourceGroup.ResourceId -tag $tags
 To update the tags for a resource group, use:
 
 ```azurepowershell-interactive
-$tags = @{"Team"="Compliance"; "Environment"="Production"}
+$tags = @{"CostCenter"="00123"; "Environment"="Production"}
 $resourceGroup = Get-AzResourceGroup -Name demoGroup
 Update-AzTag -ResourceId $resourceGroup.ResourceId -Tag $tags -Operation Merge
 ```
 
-To add tags to a subscription, use:
+```output
+Properties :
+        Name         Value
+        ===========  ==========
+        CostCenter   00123
+        Environment  Production
+        Status       Normal
+        Dept         Finance
+```
+
+To add a new set of tags to a subscription, use:
 
 ```azurepowershell-interactive
 $tags = @{"CostCenter"="00123"; "Environment"="Dev"}
 $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+New-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags
+```
+
+To update the tags for a subscription, use:
+
+```azurepowershell-interactive
+$tags = @{"Team"="Web Apps"}
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Update-AzTag -ResourceId "/subscriptions/$subscription" -Tag $tags -Operation Merge
+```
+
+```output
+Properties :
+        Name         Value
+        ===========  ========
+        Environment  Dev
+        CostCenter   00123
+        Team         Web Apps
 ```
 
 You may have more than one resource with the same name in a resource group. In that case, you can set each resource with the following commands:
@@ -133,56 +177,52 @@ To apply tags from a subscription or resource group to the resources, see [Azure
 
 ### List tags
 
-To see the existing tags for a *resource group*, use:
+To get the tags for a resource, resource group, or subscription, use the [Get-AzTag](/powershell/module/az.resources/get-aztag) command and pass in the entity.
+
+To see the tags for a resource, use:
 
 ```azurepowershell-interactive
-(Get-AzResourceGroup -Name examplegroup).Tags
+$resource = Get-AzResource -Name demoStorage -ResourceGroup demoGroup
+Get-AzTag -ResourceId $resource.id
 ```
 
-That script returns the following format:
-
-```output
-Name                           Value
-----                           -----
-Dept                           IT
-Environment                    Test
-```
-
-To see the existing tags for a *resource that has a specified name and resource group*, use:
+To see the tags for a resource group, use:
 
 ```azurepowershell-interactive
-(Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+$resourceGroup = Get-AzResourceGroup -Name demoGroup
+Get-AzTag -ResourceId $resourceGroup.ResourceId
 ```
 
-Or, if you have the resource ID for a resource, you can pass that resource ID to get the tags.
+To see the tags for a subscription, use:
 
 ```azurepowershell-interactive
-(Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
+$subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
+Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
 ### List resources by tag
 
-To get *resources that have a specific tag name and value*, use:
+To get resources that have a specific tag name and value, use:
 
 ```azurepowershell-interactive
-(Get-AzResource -Tag @{ "Dept"="Finance"}).Name
+(Get-AzResource -Tag @{ "CostCenter"="00123"}).Name
 ```
 
-To get *resources that have a specific tag name*, use:
+To get resources that have a specific tag name with any tag value, use:
 
 ```azurepowershell-interactive
 (Get-AzResource -TagName "Dept").Name
 ```
 
-To get *resource groups that have a specific tag name and value*, use:
+To get resource groups that have a specific tag name and value, use:
 
 ```azurepowershell-interactive
-(Get-AzResourceGroup -Tag @{ "Dept"="Finance" }).ResourceGroupName
+(Get-AzResourceGroup -Tag @{ "CostCenter"="00123" }).ResourceGroupName
 ```
 
 ### Remove tags
 
-To remove specific tags, use **Update-AzTag** and set **-Operation** to **Delete**.
+To remove specific tags, use **Update-AzTag** and set **-Operation** to **Delete**. Pass in the tags you want to delete.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
