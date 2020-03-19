@@ -4,16 +4,16 @@ description: In this tutorial, you learn how to create an Azure notification hub
 services: notification-hubs
 author: dbradish-microsoft
 manager: barbkess
-editor: jwargo
+editor: sethmanheim
 
 ms.service: notification-hubs
 ms.devlang: azurecli
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 03/10/2020
+ms.date: 03/19/2020
 ms.author: dbradish
-ms.reviewer: jowargo
-ms.lastreviewed: 03/xx/2020
+ms.reviewer: sethm
+ms.lastreviewed:
 ---
 
 # Quickstart: Create an Azure notification hub using the Azure CLI
