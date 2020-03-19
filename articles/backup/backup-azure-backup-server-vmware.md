@@ -90,11 +90,11 @@ If you have secure boundaries within your organization, and don't want to use th
 
 1. Copy and paste the following text into a .txt file.
 
-```text
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
+    ```text
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+    "IgnoreCertificateValidation"=dword:00000001
+    ```
 
 2. Save the file on the Azure Backup Server machine with the name **DisableSecureAuthentication.reg**.
 
@@ -129,7 +129,7 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 | Datastore.AllocateSpace                                      |                                                           |                                             |
 | Datastore.Browse datastore                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
 | Datastore.Low-level file operations                          | Global.Manage custom attributes                           | Datastore.AllocateSpace                     |
-| Datastore cluster.Configure a datatstore cluster             | Global.Set custom attribute                               | VirtualMachine.Config.ChangeTracking        |
+| Datastore cluster.Configure a datastore cluster             | Global.Set custom attribute                               | VirtualMachine.Config.ChangeTracking        |
 | Global.Disable methods                                       | Host.Local operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
 | Global.Enable methods                                        | Network. Assign network                                   | VirtualMachine.State.CreateSnapshot         |
 | Global.Licenses                                              | Resource. Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
@@ -236,7 +236,7 @@ Add the vCenter Server to Azure Backup Server.
 
 5. In **Specify Credential**, select the credential that you created earlier.
 
-    ![Specify credential](./media/backup-azure-backup-server-vmware/identify-creds.png)
+    ![Specify credentials](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
 6. Click **Add** to add the VMware server to the servers list. Then click **Next**.
 
@@ -330,9 +330,21 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
     ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
+## VMware parallel backups
+
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3, all your VMWare VMs backups within a single protection group are parallel, leading to faster VM backups. All VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
+
+You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
+
+**Key Path**: `Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Key Type**: DWORD (32-bit) value.
+
+> [!NOTE]
+> You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMWare performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
+
 ## VMWare vSphere 6.7
 
-To back up vSphere 6.7, do the following:
+To back up vSphere 6.7, do the following steps:
 
 - Enable TLS 1.2 on DPM Server
 
@@ -359,6 +371,126 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
 "SystemDefaultTlsVersions"=dword:00000001
 "SchUseStrongCrypto"=dword:00000001
+```
+
+## Exclude disk from VMware VM backup
+
+> [!NOTE]
+> This feature is applicable for MABS V3 UR1.
+
+With MABS V3 UR1, you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft System Center\DPM\DPM\bin folder`.
+
+To configure the disk exclusion, follow the steps below:
+
+### Identify the VMWare VM and disk details to be excluded
+
+  1. On the VMware console, go to VM settings for which you want to exclude the disk.
+  2. Select the disk that you want to exclude and note the path for that disk.
+
+        For example, to exclude the Hard Disk 2 from the TestVM4, the path for Hard Disk 2 is **[datastore1] TestVM4/TestVM4\_1.vmdk**.
+
+        ![Hard disk to be excluded](./media/backup-azure-backup-server-vmware/test-vm.png)
+
+### Configure MABS Server
+
+Navigate to the MABS server where the VMware VM is configured for protection to configure disk exclusion.
+
+  1. Get the details of the VMware host that is protected on the MABS server.
+
+        ```powershell
+        $psInfo = get-DPMProductionServer
+        $psInfo
+        ```
+
+        ```output
+        ServerName   ClusterName     Domain            ServerProtectionState
+        ----------   -----------     ------            ---------------------
+        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+        ```
+
+  2. Select the VMware host and list the VMs protection for the VMware host.
+
+        ```powershell
+        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+        $vmDsInfo
+        ```
+
+        ```output
+        Computer     Name     ObjectType
+        --------     ----     ----------
+        Vcentervm1  TestVM2      VMware
+        Vcentervm1  TestVM1      VMware
+        Vcentervm1  TestVM4      VMware
+        ```
+
+  3. Select the VM for which you want to exclude a disk.
+
+        ```powershell
+        $vmDsInfo[2]
+        ```
+
+        ```output
+        Computer     Name      ObjectType
+        --------     ----      ----------
+        Vcentervm1   TestVM4   VMware
+        ```
+
+  4. To exclude the disk, navigate to the `Bin` folder and run the *ExcludeDisk.ps1* script with the following parameters:
+
+        > [!NOTE]
+        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but does not update the exclusion list. Ensure there are no jobs in progress before stopping the service.
+
+     **To add/remove the disk from exclusion, run the following command:**
+
+      ```powershell
+      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+      ```
+
+     **Example**:
+
+     To add the disk exclusion for TestVM4, run the following command:
+
+       ```powershell
+      C:\Program Files\Microsoft System Center\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+      ```
+
+      ```output
+       Creating C:\Program Files\Microsoft System Center\DPM\DPM\bin\excludedisk.xml
+       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+       ```
+
+  5. Verify that the disk has been added for exclusion.
+
+     **To view the existing exclusion for specific VMs, run the following command:**
+
+        ```powershell
+        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+        ```
+
+     **Example**
+
+        ```powershell
+        C:\Program Files\Microsoft System Center\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        ```
+
+        ```output
+        <VirtualMachine>
+        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+        </VirtualMachine>
+        ```
+
+     Once you configure the  protection for this VM, the excluded disk won't be listed during protection.
+
+        > [!NOTE]
+        > If you are performing these steps for an already protected VM, you need to run the consistency check manually after adding the disk for exclusion.
+
+### Remove the disk from exclusion
+
+To remove the disk from exclusion, run the following command:
+
+```powershell
+PS C:\Program Files\Microsoft System Center\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## Next steps

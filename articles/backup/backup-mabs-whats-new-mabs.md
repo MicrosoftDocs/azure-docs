@@ -16,7 +16,7 @@ To achieve the scale and performance by MBS we recommend using a small percentag
 ## VMWare parallel backups
 
 With MABS V3 UR1, all your VMWare VMs backup within a single protection group will be parallel, leading to 25% faster VM backups.
-With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [backing up VMWare with MABS](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-vmware).
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [VMware parallel backups](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
 
 ## Support for ReFS volumes and ReFS volumes with deduplication enabled
 
@@ -32,7 +32,7 @@ With MABS V3 UR1, you can backup the ReFS volumes and workloads deployed on the 
 
 ## Disk exclusion for VMware VM backup
 
-With MABS V3 UR1, you can exclude specific disks from a VMware VM backup. Learn more about [backing up VMWare with MABS](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-vmware).
+With MABS V3 UR1, you can exclude specific disks from a VMware VM backup. Learn more about [excluding disks from VMware VM backup](backup-azure-backup-server-vmware.md#exclude-disk-from-vmware-vm-backup).  
 
 ## Support for additional layer of authentication to delete online backup
 
@@ -42,7 +42,7 @@ With MABS V3 UR1, an additional a layer of authentication is added for critical 
 
 MABS V3 UR1 includes a new parameter **[-CheckReplicaFragmentation]**. The new parameter calculates the fragmentation percentage for a replica, and is included in the **Copy-DPMDatasourceReplica** cmdlet.
 
-## What's new in MABS V3
+## What's new in MABS V3 RTM
 
 Microsoft Azure Backup Server version 3 (MABS V3) is the latest upgrade, and includes critical bug fixes, Windows Server 2019 support, SQL 2017 support, and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
 

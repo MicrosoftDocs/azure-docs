@@ -212,8 +212,12 @@
       href: sap-hana-db-manage.md
   - name: Azure Backup Server (MABS)
     items:
-    - name: Azure Backup Server protection matrix
-      href: backup-mabs-protection-matrix.md
+    - name: Protection matrices
+      items:
+      - name: MABS V3 UR1 protection matrix
+        href: backup-mabs-protection-matrix.md
+      - name: MABS V3 RTM protection matrix
+        href: backup-mabs-protection-v3-rtm.md
     - name: Install or upgrade
       items:
       - name: Install Azure Backup Server
