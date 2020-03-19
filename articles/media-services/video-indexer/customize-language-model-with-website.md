@@ -86,35 +86,35 @@ Select the **Re-index** button and your video will be reindexed using your Langu
 
 You can edit a Language model by changing its name, adding files to it, and deleting files from it.
 
-If you add or delete files from the Language model, you will have to train the model again by clicking in the green **Train** option.
+If you add or delete files from the Language model, you'll have to train the model again by clicking in the green **Train** option.
 
 ### Rename the Language model
 
-You can change the name of the Language model by clicking **...** on the right side of the Language model and selecting **Rename**. 
+You can change the name of the Language model by selecting the ellipsis (**...**) button on the right side of the Language model and selecting **Rename**.
 
 Type in the new name and hit enter.
 
 ### Add files
 
-To add a text file, click **Add file**. This opens up your file explorer.
+To add a text file, select **Add file**. This opens up your file explorer.
 
 Navigate to and select the text file. You can add multiple text files to a Language model.
 
-You can also add a text file by clicking on the **...** button on the right side of the Language model and selecting **Add file**.
+You can also add a text file by selecting the ellipsis (**...**) button on the right side of the Language model and selecting **Add file**.
 
 ### Delete files
 
-To delete a file from the Language model, click the **...** button on the right side of the text file and select **Delete**. This brings up a new window telling you that the deletion cannot be undone. Click the **Delete** option in the new window.
+To delete a file from the Language model, select the ellipsis (**...**) button on the right side of the text file and select **Delete**. This brings up a new window telling you that the deletion can't be undone. Select the **Delete** option in the new window.
 
 This action removes the file completely from the Language model.
 
 ## Delete a Language model
 
-To delete a Language model from your account, click the **...** button on the right side of the Language model and select **Delete**.
+To delete a Language model from your account, select the ellipsis (**...**) button on the right side of the Language model and select **Delete**.
 
-This brings up a new window telling you that the deletion cannot be undone. Click the **Delete** option in the new window.
+This brings up a new window telling you that the deletion can't be undone. Select the **Delete** option in the new window.
 
-This action removes the Language model completely from your account. Any video that was using the deleted Language model will keep the same index until you re-index the video. If you re-index the video, you can assign a new Language model to the video. Otherwise,  Video Indexer will use its default model to re-index the video. 
+This action removes the Language model completely from your account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise,  Video Indexer will use its default model to reindex the video.
 
 ## Customize Language models by correcting transcripts
 
