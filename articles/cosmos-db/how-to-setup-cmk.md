@@ -16,6 +16,8 @@ ROBOTS: noindex, nofollow
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
 
+![Layers of encryption around customer data](./media/how-to-setup-cmk/cmk-intro.png)
+
 You must store customer-managed keys in [Azure Key Vault](../key-vault/key-vault-overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
