@@ -79,6 +79,10 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
+For more information on the Azure Resource Manager template used in this example see:
+
+- [Quickstart: Create a NAT gateway - Resource Manager template](quickstart-create-nat-gateway-template.md)
+- [Virtual Network NAT](https://azure.microsoft.com/en-us/resources/templates/101-nat-gateway-1-vm/)
 
 ## Design Guidance
 
