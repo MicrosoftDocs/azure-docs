@@ -10,6 +10,8 @@ ms.date: 03/04/2020
 
 # Mapping data flow video tutorials
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
@@ -101,6 +103,8 @@ As updates are constantly made to the product, some features have added or diffe
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
 
 [Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
+
+[Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ## Mapping data flow scenarios
 

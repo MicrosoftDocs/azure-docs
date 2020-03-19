@@ -16,6 +16,8 @@ ms.author: jingwang
 ---
 #  Preserve metadata and ACLs using copy activity in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 When you use Azure Data Factory copy activity to copy data from source to sink, in the following scenarios, you can also preserve the metadata and ACLs along.
 
 ## <a name="preserve-metadata"></a> Preserve metadata for lake migration

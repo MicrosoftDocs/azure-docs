@@ -26,8 +26,8 @@ A data warehouse workload refers to all operations that transpire in relation to
 - Exporting data from the data warehouse
 
 The performance capacity of a data warehouse is determined by the [data warehouse units](../synapse-analytics/sql-analytics/resource-consumption-models.md).
-- To view the resources allocated for all the performance profiles, see [Memory and concurrency limits]memory-concurrency-limits.md).
-- To adjust capacity, you can [scale up or down](quickstart-scale-compute-portal.md).
+- To view the resources allocated for all the performance profiles, see [Memory and concurrency limits](../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
+- To adjust capacity, you can [scale up or down](../synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal.md).
 
 ## Workload management concepts
 In the past, for SQL Analytics in Azure Synapse you managed the query performance through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  

@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice:
-ms.date: 10/15/2019
+ms.date: 03/10/2020
 ms.author: ruxu 
 ms.reviewer: 
 ---
@@ -28,7 +28,7 @@ This article describes how to use notebooks in Azure Synapse Studio.
 
 There are two ways to create a notebook. You can create a new notebook or import an existing notebook to an Azure Synapse workspace from the **Object Explorer**. Azure Synapse Studio notebooks can recognize standard Jupyter Notebook IPYNB files.
 
-![Import notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![synapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## Develop notebooks
 
@@ -40,22 +40,13 @@ There are multiple ways to add a new cell to your notebook.
 
 1. Expand the upper left **+ Cell** button, and select **Add code cell** or **Add text cell**.
 
-   ![Add cell with cell button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
+    ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
 2. Hover over the space between two cells and select **Add code** or **Add text**.
 
-   ![Add cell between space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
+    ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
-3. Access the notebook cell menu at the far right by selecting the ellipses **...**. Then, select one of the following menu options:
-
-   * **Insert code cell above**
-   * **Insert code cell below**
-   * **Insert text cell above**
-   * **Insert code text cell below**
-
-   ![Add cell from ellipsis](./media/apache-spark-development-using-notebooks/synapse-add-cell-3.png)
-
-4. Use [Shortcut keys](#shortcut-keys-under-command-mode).
+3. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
 
 ### Set a primary language
 
@@ -68,11 +59,11 @@ Azure Synapse Studio notebooks support four spark languages:
 
 You can set the primary language for new added cells from the dropdown list in the top command bar.
 
-![Default Synapse language](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
+   ![default-synapse-language](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
 
 ### Use multiple languages
 
-You can use multiple languages in one notebook by specifying the correct language magic command at the beginning of a cell. The following table lists the available magic commands.
+You can use multiple languages in one notebook by specifying the correct language magic command at the beginning of a cell. The following table lists the  magic commands to switch cell languages.
 
 |Magic command |Language | Description |  
 |---|------|-----|
@@ -81,9 +72,9 @@ You can use multiple languages in one notebook by specifying the correct languag
 |%%sql| SparkSQL | Execute a **SparkSQL** query against Spark Context.  |
 |%%csharp | Spark.NET C# | Execute a **Spark.NET C#** query against Spark Context. |
 
-The following image is an example of how you can write a Scala query using the **%%spark** magic command or a SparkSQL query with the **%%sql** magic command in a **pyspark** notebook. Notice that the primary language for the notebook is set to PySpark.
+The following image is an example of how you can write a PySpark query using the **%%pyspark** magic command or a SparkSQL query with the **%%sql** magic command in a **Spark(Scala)** notebook. Notice that the primary language for the notebook is set to Scala.
 
-![spark_magic](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### Use temp tables to reference data across languages
 
@@ -93,7 +84,7 @@ You cannot reference data or variables directly across different languages in a 
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW    connector predefined type")
+   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
@@ -124,43 +115,95 @@ The IntelliSense features are at different levels of maturity for different lang
 |SparkSQL|Yes|Yes|-|-|-|-|-|-|
 |Spark.NET (C#)|Yes|-|-|-|-|-|-|-|
 
+### Format text cell with toolbar buttons
+
+You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text, inserting code snippets, inserting unordered list, inserting ordered list and inserting image from URL.
+
+  ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+
+### Undo cell operations
+Click the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
+
+   ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+
+### Move a cell
+
+Select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Move cell up** or **Move cell down** to move the current cell. 
+
+You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Ctrl+Alt+↑** to move up the current cell. Press **Ctrl+Alt+↓** to move the current cell down.
+
+   ![move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
+
+### Delete a cell
+
+To delete a cell, select the ellipses (...) to access the additional cell actions menu at the far right then select **Delete cell**. 
+
+You can also use [shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **D,D** to delete the current cell.
+  
+   ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
+
+### Collapse a cell input
+Click the arrow button at the bottom of the current cell to collapse it. To expand it, click the arrow button while the cell is collapsed.
+
+   ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
+
+### Collapse a cell output
+
+Click the **collapse output** button at the upper left of the current cell output to collapse it. To expand it, click the **Show cell output** while the cell output is collapsed.
+
+   ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
+
 ## Run notebooks
 
 You can run the code cells in your notebook individually or all at once. The status and progress of each cell is represented in the notebook.
 
-### Run cells
+### Run a cell
 
 There are several ways to run the code in a cell.
 
 1. Hover on the cell you want to run and select the **Run Cell** button or press **Ctrl+Enter**.
 
-   <img src="./media/apache-spark-development-using-notebooks/synapse-run-cell.png" alt="run-cell" width="80"/>
+   ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
-2. To Access the notebook cell menu at the far right, select the ellipses (**...**). Then, select **Run cell**.
 
-   <img src="./media/apache-spark-development-using-notebooks/synapse-add-cell-3.png" alt="run-cell-2" width="200"/>
+2. To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cell**.
 
-3. Select the **Run All** button to run all the cells in current notebook in sequence.
+   ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
+   
+3. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **Shift+Enter** to run the current cell and select the cell below. Press **Alt+Enter** to run the current cell and insert a new cell below.
 
-   <img src="./media/apache-spark-development-using-notebooks/synapse-run-all.png" alt="run-all-cell" width="80"/>
+
+### Run all cells
+Click the **Run All** button to run all the cells in current notebook in sequence.
+
+   ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
+
+### Run all cells above or below
+
+To Access the additional cell actions menu at the far right, select the ellipses (**...**). Then, select **Run cells above** to run all the cells above the current in sequence. Select **Run cells below** to run all the cells below the current in sequence.
+
+   ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
+
 
 ### Cell status indicator
 
 A step-by-step cell execution status is displayed beneath the cell to help you see its current progress. Once the cell run is complete, an execution summary with the total duration and end time are shown and kept there for future reference.
 
-<img src="./media/apache-spark-development-using-notebooks/synapse-cell-status.png" alt="cell-status" width="500"/>
+![cell-status](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
 ### Spark progress indicator
 
 Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 
-![spark_progress_indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
+
+![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
 ### Spark session config
 
-You can specify the number and the size of executors to give to the current Spark session in **Configure session**. You must restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
+You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
-![spark_session_config](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+![session-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+
 
 ## Bring data to a notebook
 
@@ -211,7 +254,7 @@ df = spark.read.option("header", "true") \
 
 You can access data in the primary storage account directly. There's no need to provide the secret keys. In Data Explorer, right-click on a file and select **New notebook** to see a new notebook with data extractor auto-generated.
 
-<img src="./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png" alt="data-to-cell" width="800"/>
+![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
 ## Visualize data in a notebook
 
@@ -221,64 +264,40 @@ A tabular results view is provided with the option to create a bar chart, line c
 
 The output of **%%sql** magic commands appear in the rendered table view by default. You can call **display(`<DataFrame name>`)** on Spark DataFrames or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
 
-![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   ![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
 ### DisplayHTML()
 
 You can render HTML or interactive libraries, like **bokeh**, using the **displayHTML()**.
 
-The following image is an example of how you can visualize the passengers drop off density of New York City green taxi data using **bokeh**.
+The following image is an example of plotting glyphs over a map using **bokeh**.
 
-![bokeh example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
+   ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
+   
 
-The following code sample was used to create the image above.
+Run the following sample code to draw the image above.
 
 ```python
-# import plotting pacakges
-from bokeh.plotting import figure, show, output_file
+from bokeh.plotting import figure, output_file
 from bokeh.tile_providers import get_provider, Vendors
-from bokeh.models import BoxZoomTool
-from bokeh.embed import components, file_html
+from bokeh.embed import file_html
 from bokeh.resources import CDN
+from bokeh.models import ColumnDataSource
 
-# define a base image
-NYC = x_range, y_range = ((-8242000,-8210000), (4965000,4990000))
+tile_provider = get_provider(Vendors.CARTODBPOSITRON)
 
-plot_width = int(750)
-plot_height = int(plot_width//1.2)
+# range bounds supplied in web mercator coordinates
+p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
+           x_axis_type="mercator", y_axis_type="mercator")
+p.add_tile(tile_provider)
 
-def base_plot(tools='pan, wheel_zoom, reset', plot_width=plot_width, plot_height=plot_height, **plot_args):
- p = figure(tools=tools, plot_width=plot_width, plot_height=plot_height,
- x_range=x_range, y_range=y_range, x_axis_type="mercator", y_axis_type="mercator")
+# plot datapoints on the map
+source = ColumnDataSource(
+    data=dict(x=[ -8800000, -8500000 , -8800000],
+              y=[4200000, 4500000, 4900000])
+)
 
- tile_provider = get_provider(Vendors.CARTODBPOSITRON)
- p.add_tile(tile_provider)
-
- p.axis.visible = True
- p.xgrid.grid_line_color = None
- p.ygrid.grid_line_color = None
-
- p.xaxis.axis_label = "drop off longtitude"
- p.yaxis.axis_label = "drop off latitude"
- return p
-
-options = dict(line_color=None, fill_color='blue', size=3)
-
-p = base_plot()
-
-# sample data to plot
-samples = nyc_green_taxi_df.sample(True, 0.001, seed=10)
-
-# convert geographical coordinates (longtitude,latitude) to web mercator coordinates
-samplesmercator = samples.withColumn('dropoffLongitudemer',col('dropoffLongitude')*6378137 * 3.14159 / 180)\
- .withColumn('dropoffLatitudemer',log(tan((col('dropoffLatitude')+90) * 3.14159/360))*6378137)
-
-# convert spark dataframe columns to list
-x = samplesmercator.select('dropoffLongitudemer').rdd.flatMap(lambda x:x).collect()
-y = samplesmercator.select('dropoffLatitudemer').rdd.flatMap(lambda x:x).collect()
-
-# draw pick up points on
-p.circle(x=x, y=y, **options)
+p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
 
 # create an html document that embeds the Bokeh plot
 html = file_html(p, CDN, "my plot1")
@@ -294,15 +313,24 @@ You have the option to save a single notebook or all notebooks in your workspace
 
 1. To save changes you made to a single notebook, select the **Publish** button on the notebook command bar.
 
-   <img src="./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png" alt="publish-notebook" width="80"/>
+   ![publish-notebook](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
 
 2. To save all notebooks in your workspace, select the **Publish all** button on the workspace command bar. 
 
-   <img src="./media/apache-spark-development-using-notebooks/synapse-publish-all.png" alt="publish-all" width="120"/>
+   ![publish-all](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
 
 In the notebook properties, you can configure whether to include the cell output when saving.
 
-<img src="./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png" alt="notebook-properties" width="300"/>
+   ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
+
+## Magic commands
+You can use your familiar Jupyter magic commands in Azure Synapse Studio notebooks. Check the list below as the current available magic commands. Tell us your use cases on GitHub so that we can continue to build out more magic commands to meet your needs.
+
+Available line magics:
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+
+Available cell magics:
+[%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 ## Shortcut keys
 
@@ -310,11 +338,11 @@ Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user i
 
 1. A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to click outside of a cell's editor area.
 
-   <img src="./media/apache-spark-development-using-notebooks/synapse-command-mode2.png" alt="command-mode" width="600" />
+   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
 2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you cant type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
-
-   <img src="./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png" alt="edit mode" width="600"/>
+   
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
 ### Shortcut keys under command mode
 
@@ -330,7 +358,9 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 |Insert cell below| B |
 |Extend selected cells above| Shift+Up |
 |Extend selected cells below| Shift+Down|
-|Delete selected cells|D, D|
+|Move cell up| Ctrl+Alt+↑ |
+|Move cell down| Ctrl+Alt+↓ |
+|Delete selected cells| D, D |
 |Switch to edit mode| Enter |
 
 ### Shortcut keys under edit mode

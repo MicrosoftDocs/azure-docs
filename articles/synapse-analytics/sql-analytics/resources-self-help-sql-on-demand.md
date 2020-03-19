@@ -1,7 +1,7 @@
 ---
-title: SQL on-demand self-help
-description: This section contains information that can help you troubleshoot problems with SQL on-demand
-services: synapse-analytics
+title: SQL on-demand Preview) self-help
+description: This section contains information that can help you troubleshoot problems with SQL on-demand (preview).
+services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics 
 ms.topic: overview
@@ -11,9 +11,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick
 ---
 
-# Self-help for SQL on-demand
+# Self-help for SQL on-demand (preview)
 
-This article contains information about how to troubleshoot most frequent problems with SQL on-demand in Azure Synapse Analytics.
+This article contains information about how to troubleshoot most frequent problems with SQL on-demand (preview) in Azure Synapse Analytics.
 
 ## SQL on-demand is grayed out in Synapse Studio
 

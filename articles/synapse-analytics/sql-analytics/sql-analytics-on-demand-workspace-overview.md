@@ -1,5 +1,5 @@
 ---
-title: SQL on-demand | Microsoft Docs
+title: SQL on-demand (preview)
 description: Learn about SQL Analytics on-demand in Azure Synapse Analytics.
 services: sql-datawarehouse
 author: vvasic-msft
@@ -9,9 +9,9 @@ ms.date: 10/24/2019
 ms.author: vvasic
 ms.reviewer: jrasnick
 ---
-# SQL on-demand in Azure Synapse Analytics
+# SQL on-demand (preview) in Azure Synapse Analytics
 
-Every Azure Synapse Analytics workspace comes with SQL on-demand endpoints that you can use to query data in the lake.
+Every Azure Synapse Analytics workspace (preview) comes with SQL on-demand (preview) endpoints that you can use to query data in the lake.
 
 SQL on-demand is a query service over the data in your data lake. It enables you to democratize access to all your data by providing a familiar T-SQL syntax to query data in place, without a need to copy or load data into a specialized store. In addition, the T-SQL interface enables seamless connectivity from the widest range of business intelligence and ad-hoc querying tools, as well as the most popular drivers.  
 
@@ -19,7 +19,7 @@ SQL on-demand is a distributed data processing system, built for large scale of 
 
 SQL on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data scanned by queries you run, hence this model is a true pay-per-use model.  
 
-If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can [query any Spark tables](development-storage-files-spark-tables.md) you’ve created in the process, directly from SQL on-demand. Use Private Link to bring SQL on-demand endpoint into your private virtual network by mapping it to a private IP address. Keep your data secured using familiar SQL-based security mechanisms.  
+If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can [query any Spark tables](development-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use Private Link to bring SQL on-demand endpoint into your private virtual network by mapping it to a private IP address. Keep your data secured using familiar SQL-based security mechanisms.  
 
 ## Who is SQL on-demand for
 
@@ -131,7 +131,7 @@ SQL on-demand authentication refers to how users prove their identity when conne
 
 Authorization refers to what a user can do within a SQL on-demand database, and is controlled by your user account's database role memberships and object-level permissions.
 
-If SQL Authentication is used, SQL user exists only in SQL on-demand and permissions are scoped to the objects in SQL on-demand. Access to securable objects in other services (such as Azure Storage) can’t be granted to SQL user directly since it only exists in scope of SQL on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
+If SQL Authentication is used, SQL user exists only in SQL on-demand and permissions are scoped to the objects in SQL on-demand. Access to securable objects in other services (such as Azure Storage) can't be granted to SQL user directly since it only exists in scope of SQL on-demand. The SQL user needs to use one of the [supported authorization types](development-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
 
 If AAD authentication is used, a user can log in into SQL on-demand and other services, like Azure Storage, can grant permissions to the AAD user. 
 
@@ -141,7 +141,7 @@ A user that is logged into SQL on-demand service must be authorized to access an
 
 - **Shared access signature (SAS)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
 
-- **User Identity** (also known as “pass-through”) is authorization type where the identity of the AAD user that logged into SQL on-demand is used to authorize the access to data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses AAD user that logged into SQL on-demand, therefore it’s not supported for SQL user type.
+- **User Identity** (also known as "pass-through") is authorization type where the identity of the AAD user that logged into SQL on-demand is used to authorize the access to data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses AAD user that logged into SQL on-demand, therefore it's not supported for SQL user type.
 
 
 ## Next steps

@@ -1,7 +1,7 @@
 ---
-title: Synapse Analytics SQL resource consumption | Microsoft Docs
-description: Learn about SQL Analytics consumption models in Synapse Analytics.
-services: synapse-analytics
+title: Synapse Analytics SQL resource consumption
+description: Learn about SQL Analytics consumption models in Azure Synapse Analytics.
+services: synapse analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -10,15 +10,15 @@ ms.author: vvasic
 ms.reviewer: jrasnick  
 ---
 
-# Synapse Analytics SQL resource consumption
+# Azure Synapse Analytics SQL resource consumption
 
-This article describes resource consumption models of SQL Analytics on-demand and SQL Analytics pool.
+This article describes resource consumption models of SQL on-demand (preview) and SQL pool.
 
-## SQL Analytics on-demand
+## SQL on-demand
 
-SQL Analytics on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
+SQL on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
 
-## SQL Analytics pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
+## SQL pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
@@ -107,8 +107,8 @@ To view the current DWU setting:
 
 ```sql
 SELECT  db.name [Database]
-,	    ds.edition [Edition]
-,	    ds.service_objective [Service Objective]
+,        ds.edition [Edition]
+,        ds.service_objective [Service Objective]
 FROM    sys.database_service_objectives   AS ds
 JOIN    sys.databases                     AS db ON ds.database_id = db.database_id
 ;
@@ -210,4 +210,4 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 ## Next steps
 
-To learn more about managing performance, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md) and [Memory and concurrency limits](../../sql-data-warehouse/memory-concurrency-limits.md).
+To learn more about managing performance, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md) and [Memory and concurrency limits](../sql-data-warehouse/memory-concurrency-limits.md).

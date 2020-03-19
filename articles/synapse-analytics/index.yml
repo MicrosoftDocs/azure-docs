@@ -26,6 +26,14 @@ landingContent:
         links:
           - text: What is Azure Synapse?
             url: overview-cheat-sheet.md
+          - text: What is SQL pool?
+            url: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          - text: What is Spark pool?
+            url: spark/apache-spark-overview.md
+          - text: What is SQL Analytics on-demand?
+            url: sql-analytics/on-demand.md
+          - text: Differences between SQL Analytics pool and on-demand
+            url: sql-analytics/overview-features.md
       # - linkListType: architecture
       #   links:
       #     - text: Azure Synapse architecture
@@ -40,8 +48,18 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: Create a workspace
+            url: quickstart-create-workspace.md
           - text: Create a SQL pool (data warehouse)
             url: quickstart-create-sql-pool.md
+          - text: Create a Spark pool
+            url: quickstart-create-apache-spark-pool.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Synapse studio
+            url: quickstart-synapse-studio.md
+          - text: Analyze files on Azure storage
+            url: quickstart-sql-on-demand.md
   #         # - text: linktext2
   #         #   url: file2.md
 
@@ -60,11 +78,11 @@ landingContent:
             url: ./data-integration/data-integration-data-lake.md
       - linkListType: tutorial
         links:
-          - text: Load data from Azure Blob storage
+          - text: Load data from Azure Blob storage to SQL pool
             url: ./data-integration/data-integration-sql-pool.md
 
   # Card
-  - title: Performance tuning
+  - title: Performance tuning in SQL pool
     linkLists:
       - linkListType: overview
         links:
@@ -82,7 +100,7 @@ landingContent:
           #   url: file2.md
 
   # Card
-  - title: Manage and monitor
+  - title: Manage and monitor SQL pool
     linkLists:
       - linkListType: overview
         links:

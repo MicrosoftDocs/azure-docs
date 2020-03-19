@@ -14,6 +14,8 @@ ms.date: 07/31/2018
 
 # Transform data in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 > [!div class="op_single_selector"]
 > * [Mapping data flow](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  

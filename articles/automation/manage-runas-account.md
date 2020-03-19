@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 Run As accounts in Azure Automation provide authentication for managing resources in Azure using the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory (AD) and assigns the Contributor role to this user at the subscription level. For runbooks that use Hybrid Runbook Workers on Azure virtual machines, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead of Run As accounts to authenticate to your Azure resources.
 
-The service principal for a Run as Account does not have permissions to read Azure AD by default. If you want to add permissions to read or manage Azure AD you'll need to grant the permissions on the service principal under **API permissions**. To learn more, see [Add permissions to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+The service principal for a Run as Account does not have permissions to read Azure AD by default. If you want to add permissions to read or manage Azure AD, you'll need to grant the permissions on the service principal under **API permissions**. To learn more, see [Add permissions to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
@@ -28,25 +28,25 @@ Azure Automation uses two types of Run As accounts:
 
 ### Run As account
 
-The Run As account manages [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) resources. It performs the following tasks.
+The Run As account manages [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) resources. It does the following tasks.
 
 * Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change the certificate setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
   
-* Creates an Automation certificate asset named **AzureRunAsCertificate** in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
+* Creates an Automation certificate asset named `AzureRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
   
-* Creates an Automation connection asset named **AzureRunAsConnection** in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
+* Creates an Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
 
 ### Azure Classic Run As Account
 
-The Azure Classic Run As account manages [Classic deployment model](../azure-resource-manager/management/deployment-models.md) resources.You must be a co-administrator on the subscription to create or renew this type of account.
+The Azure Classic Run As account manages [Classic deployment model](../azure-resource-manager/management/deployment-models.md) resources. You must be a co-administrator on the subscription to create or renew this type of account.
 
 The Azure Classic Run As account performs the following tasks.
 
   * Creates a management certificate in the subscription.
 
-  * Creates an Automation certificate asset named **AzureClassicRunAsCertificate** in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
+  * Creates an Automation certificate asset named `AzureClassicRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
 
-  * Creates an Automation connection asset named **AzureClassicRunAsConnection** in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
+  * Creates an Automation connection asset named `AzureClassicRunAsConnection` in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
 
 ## <a name="permissions"></a>Run As account permissions
 
@@ -54,11 +54,11 @@ This section defines permissions for both regular Run As accounts and Classic Ru
 
 ### Permissions to configure Run As accounts
 
-To create or update a Run As account, you must have specific privileges and permissions. An Application administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
+To create or update a Run As account, you must have specific privileges and permissions. An Application administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet, and permissions needed:
 
 |Task|Cmdlet  |Minimum Permissions  |Where you set the permissions|
 |---|---------|---------|---|
-|Create Azure AD Application|[New-AzADApplication](/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Application Developer role<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > App Registrations |
+|Create Azure AD Application|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Application Developer role<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > App Registrations |
 |Add a credential to the application.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | Application Administrator or Global Administrator<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > App Registrations|
 |Create and get an Azure AD service principal|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | Application Administrator or Global Administrator<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > App Registrations|
 |Assign or get the RBAC role for the specified principal|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | User Access Administrator or Owner, or have the following permissions:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Subscription](../role-based-access-control/role-assignments-portal.md)</br>Home > Subscriptions > \<subscription name\> - Access Control (IAM)|
@@ -67,9 +67,9 @@ To create or update a Run As account, you must have specific privileges and perm
 
 <sup>1</sup> Non-administrator users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option on the User settings page is set to **Yes**. If the application registration setting is **No**, the user performing this action must be as defined in this table.
 
-If you aren't a member of the subscription's Active Directory instance before you're added to the Global Administrator role of the subscription, you're added as a guest. In this situation, you receive a **You do not have permissions to create…** warning on the Add Automation Account page. 
+If you aren't a member of the subscription's Active Directory instance before you're added to the Global Administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the Add Automation Account page. 
 
-If you are a member of the subscription's Active Directory instance when the Global Administrator role is assigned, you can also receive a **You do not have permissions to create…** warning on the Add Automation Account page. In this case, you can request removal from the subscription's Active Directory instance and then request to be re-added, so that you become a full user in Active Directory. 
+If you are a member of the subscription's Active Directory instance when the Global Administrator role is assigned, you can also receive a `You do not have permissions to create…` warning on the Add Automation Account page. In this case, you can request removal from the subscription's Active Directory instance and then request to be re-added, so that you become a full user in Active Directory.
 
 To verify that the situation producing the error message has been remedied:
 
@@ -84,31 +84,31 @@ To configure or renew Classic Run As accounts, you must have the Co-administrato
 
 ## Creating a Run As account in Azure portal
 
-Perform the following steps to update your Azure Automation account in the Azure portal. You must create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.
+Perform the following steps to update your Azure Automation account in the Azure portal. Create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.
 
 1. Log in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
 2. Search for and select **Automation Accounts**.
-3. On the Automation Accounts page, select your Automation account from the list of Automation accounts.
+3. On the Automation Accounts page, select your Automation account from the list.
 4. In the left pane, select **Run As Accounts** in the account settings section.
 5. Depending on which account you require, select either **Azure Run As Account** or **Azure Classic Run As Account**. 
-6. Depending on the account of interest, use the Add Azure Run As or Add Azure Classic Run As Account pane. After reviewing the overview information, click **Create** to proceed with Run As account creation.
+6. Depending on the account of interest, use the **Add Azure Run As** or **Add Azure Classic Run As Account** pane. After reviewing the overview information, click **Create**.
 6. While Azure creates the Run As account, you can track the progress under **Notifications** from the menu. A banner is also displayed stating that the account is being created. The process can take a few minutes to complete.
 
 ## Creating a Run As account using PowerShell
 
 The following list provides the requirements to create a Run As account in PowerShell. These requirements apply to both types of Run As accounts.
 
-* Windows 10 or Windows Server 2016 with Azure Resource Manager modules 3.4.1 and later. The PowerShell script does not support earlier versions of Windows.
+* Windows 10 or Windows Server 2016 with Azure Resource Manager modules 3.4.1 and later. The PowerShell script doesn't support earlier versions of Windows.
 * Azure PowerShell 1.0 and later. For information about the PowerShell 1.0 release, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* An Automation account, which is referenced as the value for the *AutomationAccountName* and *ApplicationDisplayName* parameters.
-* Permissions equivalent to what is listed in [Required permissions to configure Run As accounts](#permissions).
+* An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
+* Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](#permissions).
 
-To get the values for *SubscriptionId*, *ResourceGroupName*, and *AutomationAccountName*, which are required parameters for the PowerShell script, complete the next steps.
+To get the values for `SubscriptionId`, `ResourceGroupName`, and  , which is required parameters for the PowerShell script, complete the next steps.
 
 1. In the Azure portal, select **Automation Accounts**.
 1. On the Automation Accounts page, select your Automation account.
 1. In the account settings section, select **Properties**.
-1. Note the values for **NAME**, **SUBSCRIPTION ID**, and **RESOURCE GROUP** on the Properties page. These values correspond to the values for the *AutomationAccountName*, *SubscriptionId*, and *ResourceGroupName* PowerShell script parameters, respectively.
+1. Note the values for **NAME**, **SUBSCRIPTION ID**, and **RESOURCE GROUP** on the Properties page. These values correspond to the values for the `AutomationAccountName`, `SubscriptionId`, and `ResourceGroupName` PowerShell script parameters, respectively.
 
    ![Automation account properties page](media/manage-runas-account/automation-account-properties.png)
 
@@ -305,16 +305,16 @@ Save the script on your computer using the filename **New-RunAsAccount.ps1**.
 ```
 
 >[!NOTE]
->**Add-AzAccount** and **Add-AzureRMAccount** are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
+>`Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
 ### Execute the PowerShell script
 
 1. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-1. From the elevated command-line shell, go to the folder that contains the script you created in step 1.
-1. Execute the script by using the parameter values for the configuration you require.
-1. If creating a Classic Run As account, after the script is executed, upload the public certificate (.cer filename extension) to the management store for the subscription in which the Automation account has been created.
+1. From the elevated command line shell, go to the folder that contains your script.
+1. Execute the script by using the parameter values for the configuration that you require.
+1. If creating a Classic Run As account, after the script is executed, upload the public certificate (**.cer** filename extension) to the management store for the subscription in which the Automation account has been created.
 
-After the script has executed, you will be prompted to authenticate with Azure. Sign in with an account that is a member of the subscription administrators role and co-administrator of the subscription.
+After the script has executed, you're prompted to authenticate with Azure. Sign in with an account that's a member of the subscription administrators role and co-administrator of the subscription.
 
 #### Create a Run As account by using a self-signed certificate
 
@@ -334,7 +334,7 @@ After the script has executed, you will be prompted to authenticate with Azure. 
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
 ```
 
-If you have created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure portal](../azure-api-management-certs.md).
+If you've created a Classic Run As account with an enterprise public certificate (**.cer** file), use this certificate. See [Uploading a management API certificate to the Azure portal](../azure-api-management-certs.md).
 
 #### Create a Run As account and a Classic Run As account by using a self-signed certificate in the Azure Government cloud
 
@@ -342,7 +342,7 @@ If you have created a Classic Run As account with an enterprise public certifica
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
 ```
 
-If you have created a Classic Run As account with a self-signed public certificate (.cer file), the script creates and saves it to the temporary files folder on your computer. It can be found in the user profile **%USERPROFILE%\AppData\Local\Temp**, which you used to execute the PowerShell session.
+If you've created a Classic Run As account with a self-signed public certificate (**.cer** file), the script creates and saves it to the temporary files folder on your computer. It can be found in the user profile `%USERPROFILE%\AppData\Local\Temp`, which you used to execute the PowerShell session.
 
 ## Deleting a Run As or Classic Run As account
 
@@ -366,7 +366,7 @@ This section describes how to delete a Run As or Classic Run As account. When yo
 
 ## <a name="cert-renewal"></a>Renewing a self-signed certificate
 
-The self-signed certificate that you have created for the Run As account expires one year from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it at any time before it expires. 
+The self-signed certificate that you have created for the Run As account expires one year from the date of creation. At some point before your Run As account expires, you must renew the certificate. You can renew it any time before it expires. 
 
 When you renew the self-signed certificate, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, aren't negatively affected. The certificate remains valid until its expiration date.
 
@@ -435,7 +435,7 @@ To control the targeting of Automation against resources in Azure, you can run t
 >[!IMPORTANT]
 >After you run the **Update-AutomationRunAsAccountRoleAssignments.ps1** script, runbooks that access Key Vault through the use of Run As accounts no longer work. Before running the script, you should review runbooks in your account for calls to Azure Key Vault. To enable access to Key Vault from Azure Automation runbooks, you must [add the Run As account to Key Vault's permissions](#add-permissions-to-key-vault).
 
-If you need to restrict further what the Run As service principal can do, you can add other resource types to the **NotActions** element of the custom role definition. The following example restricts access to `Microsoft.Compute/*`. If you add this resource type to **NotActions** for the role definition, the role will not be able to access any Compute resource. To learn more about role definitions, see [Understand role definitions for Azure resources](../role-based-access-control/role-definitions.md).
+If you need to restrict,  further what the Run As service principal can do, you can add other resource types to the `NotActions` element of the custom role definition. The following example restricts access to `Microsoft.Compute/*`. If you add this resource type to `NotActions` for the role definition, the role will not be able to access any Compute resource. To learn more about role definitions, see [Understand role definitions for Azure resources](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzRoleDefinition -Name 'Automation RunAs Contributor'
@@ -443,7 +443,7 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-You can determine if the service principal used by your Run As account is in the Contributor role definition or a custom one. To do this:
+You can determine if the service principal used by your Run As account is in the Contributor role definition or a custom one. 
 
 1. Go to your Automation account and select **Run As Accounts** in the account settings section.
 2. Select **Azure Run As Account**. 
@@ -455,7 +455,7 @@ You can also determine the role definition used by the Run As accounts for multi
 
 ### Add permissions to Key Vault
 
-You can allow Azure Automation to verify if Key Vault and your Run As account service principal are using a custom role definition. To do this, you must:
+You can allow Azure Automation to verify if Key Vault and your Run As account service principal are using a custom role definition. You must:
 
 * Grant permissions to Key Vault.
 * Set the access policy.
@@ -464,14 +464,14 @@ You can use the [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](http
 
 ## Resolving misconfiguration issues for Run As accounts
 
-Some configuration items necessary for a Run As or Classic Run As account to perform properly might have been deleted or created improperly during initial setup. Some instances of misconfiguration include:
+Some configuration items necessary for a Run As or Classic Run As account might have been deleted or created improperly during initial setup. Possible instances of misconfiguration include:
 
 * Certificate asset
 * Connection asset
 * Run As account removed from the Contributor role
 * Service principal or application in Azure AD
 
-For such misconfiguration instances, the Automation account detects the changes and displays a status of **Incomplete** on the Run As Accounts properties pane for the account.
+For such misconfiguration instances, the Automation account detects the changes and displays a status of `Incomplete` on the Run As Accounts properties pane for the account.
 
 ![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

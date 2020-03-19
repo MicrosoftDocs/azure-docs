@@ -1,6 +1,6 @@
 ---
 title: Using Multi-factor AAD authentication
-description: Azure Synapse SQL Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
+description: SQL Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -10,8 +10,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick
 ---
 
-# Using Multi-factor AAD authentication with Azure Synapse SQL Analytics (SSMS support for MFA)
-Azure Synapse SQL Analytics support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 
+# Using Multi-factor AAD authentication with SQL Analytics (SSMS support for MFA)
+
+SQL Analytics support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 
 
 **Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 

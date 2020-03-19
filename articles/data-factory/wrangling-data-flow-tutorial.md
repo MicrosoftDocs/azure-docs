@@ -11,6 +11,8 @@ ms.date: 11/01/2019
 
 # Prepare data with wrangling data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ## Create a wrangling data flow
 
 There are two ways to create a wrangling data flow in Azure Data Factory. One way is to click the plus icon and select **Data Flow** in the factory resources pane.

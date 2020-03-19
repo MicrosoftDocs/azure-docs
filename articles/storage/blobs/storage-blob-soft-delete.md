@@ -15,6 +15,8 @@ ms.subservice: blobs
 
 Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## How soft delete works
 
 When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. This protection extends to blob data that is erased as the result of an overwrite.

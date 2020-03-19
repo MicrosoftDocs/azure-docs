@@ -16,7 +16,7 @@ tag: azure-Synapse
 
 # Analyze data with Azure Machine Learning
 > [!div class="op_single_selector"]
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../synapse-analytics/sql-analytics/get-started-connect-sqlcmd.md) 
@@ -33,7 +33,7 @@ This tutorial uses Azure Machine Learning to build a predictive machine learning
 ## Prerequisites
 To step through this tutorial, you need:
 
-* A SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](sql-data-warehouse-load-sample-databases.md).
+* A SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](sql-data-warehouse-load-sample-databases.md).
 
 ## 1. Get the data
 The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
