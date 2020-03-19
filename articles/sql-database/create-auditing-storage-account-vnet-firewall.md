@@ -74,7 +74,7 @@ The sample scripts in this section require you to update the script before you r
 
 To configure SQL Audit to write events to a storage account behind a VNet or Firewall:
 
-1. Register your Azure SQL Database server with Azure Active Directory (AAD). Use either PowerShell or REST API.
+1. Register your Azure SQL Database server with Azure Active Directory (Azure AD). Use either PowerShell or REST API.
 
    **PowerShell**
    
@@ -108,7 +108,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    }
    ```
 
-2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL database that you registered with Azure Active Directory (AAD) as in the previous step.
+2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL database that you registered with Azure Active Directory (Azure AD) as in the previous step.
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to [Azure built-in roles](../role-based-access-control/built-in-roles.md).
