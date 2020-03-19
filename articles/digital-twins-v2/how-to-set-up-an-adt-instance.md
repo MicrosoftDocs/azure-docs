@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 Ok, you just got access to the preview for the new version of Azure Digital Twins. How do you create and set up an Azure Digital Twins instance? 
 
-THis how-to will walk you through the basic steps.
+This how-to will walk you through the basic steps.
 
 Prerequisites:
 
