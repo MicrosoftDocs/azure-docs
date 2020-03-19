@@ -22,7 +22,7 @@ Auditing also:
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 > [!NOTE] 
-> This topic applies to Azure SQL server, and to both SQL Database and Azure Synapse Analytics databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
+> This topic applies to both Azure SQL Database, and Azure Synapse Analytics databases. For simplicity, SQL Database is used when referring to both Azure SQL Database and Azure Synapse Analytics.
 
 ## <a id="subheading-1"></a>Overview
 
