@@ -32,6 +32,10 @@
     - name: Data ingestion overview
       displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
       href: ingest-data-overview.md
+    - name: Data ingestion properties
+      href: ingestion-properties.md
+    - name: Formats for data ingestion
+      href: ingestion-supported-formats.md
   - name: Kusto Query Language
     items:
     - name: Quick reference guide
@@ -60,6 +64,8 @@
       href: ingest-data-one-click.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
+    - name: Install and use LightIngest
+      href: lightingest.md    
     - name: Event Hub
       items:
       - name: Azure portal
@@ -154,6 +160,8 @@
       href: sisense.md
     - name: Redash
       href: redash.md
+    - name: Kibana (K2Bridge connector)
+      href: k2bridge.md
   - name: Secure
     items:
     - name: Manage cluster security
@@ -233,7 +241,13 @@
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
-        href: data-factory-command-activity.md   
+        href: data-factory-command-activity.md
+    - name: Microsoft Flow connector
+      items:
+      - name: Microsoft Flow connector
+        href: flow.md
+      - name: Microsoft Flow connector usage examples
+        href: flow-usage.md
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python

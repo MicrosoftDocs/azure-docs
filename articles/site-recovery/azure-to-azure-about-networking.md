@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
 
 ---
@@ -47,6 +47,8 @@ If you are using a URL-based firewall proxy to control outbound connectivity, al
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
+*.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
+*.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
 
 ## Outbound connectivity for IP address ranges
 
@@ -58,6 +60,8 @@ If you are using an NSG to control outbound connectivity, these service tags nee
 - Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 - Create an EventsHub service tag based NSG rule for the target region, allowing access to Site Recovery monitoring.
 - Create an AzureSiteRecovery service tag based NSG rule for allowing access to Site Recovery service in any region.
+- Create an AzureKeyVault service tag based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
+- Create a GuestAndHybridManagement service tag based NSG rule. This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 ## Example NSG configuration
