@@ -65,7 +65,7 @@ In the example above, we have defined an ingress resource named `go-server-ingre
 > [!NOTE] 
 > In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
 
-## SSL Redirect
+## TLS Redirect
 
 Application Gateway [can be configured](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview)
 to automatically redirect HTTP URLs to their HTTPS counterparts. When this
