@@ -1,35 +1,30 @@
 ---
-title: "Quickstart: Search for videos using the SDK for Node.js - Bing Video Search"
+title: Bing Video Search JavaScript client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send video search requests using the Bing Video Search SDK for Node.js
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-video-search
-ms.topic: quickstart
-ms.date: 12/09/2019
+ms.topic: include
+ms.date: 03/19/2020
 ms.author: aahi
 ---
 
-# Quickstart: Perform a video search with the Bing Video Search SDK for Node.js
-
-Use this quickstart to begin searching for news with the Bing Video Search SDK for Node.js. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). It contains more annotations and features.
+Use this quickstart to begin searching for news with the Bing Video Search client library for JavaScript. While Bing Video Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). It contains more annotations and features.
 
 ## Prerequisites
 
 - [Node.js](https://www.nodejs.org/)
 
-To set up a console application using the Bing Video Search SDK:
+To set up a console application using the Bing Video Search client library:
 * Run `npm install ms-rest-azure` in your development environment.
 * Run `npm install azure-cognitiveservices-videosearch` in your development environment.
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
-1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the Bing Video Search SDK, and `CognitiveServicesCredentials` module. Create a variable for your subscription key. 
+1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the Bing Video Search client library, and `CognitiveServicesCredentials` module. Create a variable for your subscription key. 
     
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
