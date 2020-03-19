@@ -351,6 +351,9 @@ To add AKS in a virtual network to your workspace, use the following steps:
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
 
+> [!WARNING]
+> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
+
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
 1. Select __Compute__ on the left.
