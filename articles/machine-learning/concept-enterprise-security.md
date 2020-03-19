@@ -118,7 +118,11 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 > | Azure Container Registry in a virtual network | ✔ | |
 > | Customer Managed Keys for workspace | ✔ | |
 > 
+
+> [!WARNING]
 > Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+> 
+> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
 ## Data encryption
 
