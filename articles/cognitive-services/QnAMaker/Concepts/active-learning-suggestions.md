@@ -2,7 +2,7 @@
 title: Active learning suggestions - QnA Maker
 description: Active learning suggestions allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair.
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 03/19/2020
 ---
 # Active learning suggestions
 
@@ -26,6 +26,10 @@ Active learning is triggered based on the scores of the top few answers returned
 Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
 
 Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. There isn't an API to manage suggestions.
+
+## Turn on active learning
+
+By default, active learning is **off**. [Turn on active learning](../How-To/improve-knowledge-base.md#turn-on-active-learning-to-see-suggestions) to see suggested alternate question in your knowledge base.
 
 ## How QnA Maker's implicit feedback works
 
