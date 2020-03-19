@@ -181,7 +181,7 @@ Users can be members of multiple resource classes. When a user belongs to more t
 ## Recommendations
 
 >[!NOTE]
->Consider leveraging workload management capabilities ([workload isolation](../../sql-data-warehouse/sql-data-warehouse-workload-isolation.md), [classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md) and [importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
+>Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
 >
 >
 

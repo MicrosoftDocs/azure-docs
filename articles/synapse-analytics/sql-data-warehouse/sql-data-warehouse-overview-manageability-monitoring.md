@@ -23,8 +23,8 @@ SQL Analytics allows you to provision a data warehouse via SQL pool. The article
 * [Understand what metrics and logs are available  in the Azure portal](sql-data-warehouse-concept-resource-utilization-query-activity.md)
 * [Learn about  backup and restore capabilities](backup-and-restore.md)
 * [Learn about built-in intelligence and recommendations](sql-data-warehouse-concept-recommendations.md)
-* [Learn about maintenance periods and what is available to minimize downtime of your data warehouse](../../sql-data-warehouse/maintenance-scheduling.md)
-* [Find common troubleshooting guidance](../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md)
+* [Learn about maintenance periods and what is available to minimize downtime of your data warehouse](maintenance-scheduling.md)
+* [Find common troubleshooting guidance](sql-data-warehouse-troubleshoot.md)
 
 
 ## Next steps

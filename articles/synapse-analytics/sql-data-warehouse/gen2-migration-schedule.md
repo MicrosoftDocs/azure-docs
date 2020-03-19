@@ -36,7 +36,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 ## Automatic upgrade process
 
-Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the SQL pool, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](../../sql-data-warehouse//maintenance-scheduling.md#view-a-maintenance-schedule)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the SQL pool, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](maintenance-scheduling.md#view-a-maintenance-schedule)
 
 The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
@@ -117,7 +117,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 ## Next steps
 
 - [Upgrade steps](upgrade-to-latest-generation.md)
-- [Maintenance windows](../../sql-data-warehouse/maintenance-scheduling.md)
+- [Maintenance windows](maintenance-scheduling.md)
 - [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)

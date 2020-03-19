@@ -91,7 +91,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
+[Troubleshooting]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
