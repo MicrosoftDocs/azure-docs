@@ -205,7 +205,8 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/user2.png)
 
-    > NOTE: The user will get the notification and they must accept the invitation to activate the account.
+    > [!NOTE]
+    > The user will receive the notification and must accept the invitation to activate the account.
 
 ### Test single sign-on
 
