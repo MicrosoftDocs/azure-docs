@@ -106,7 +106,7 @@ The following JSON is an example request:
 
 You can use the `WITH` clause to create a JSON serialized DataFrame that can be passed as input to your Azure Machine Learning UDF as shown below.
 
-The following query creates a DataFrame by selectng the necessary fields and uses the DataFrame as input to the Azure Machine Learning UDF.
+The following query creates a DataFrame by selecting the necessary fields and uses the DataFrame as input to the Azure Machine Learning UDF.
 
 ```SQL
 WITH 
