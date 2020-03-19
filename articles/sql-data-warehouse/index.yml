@@ -25,11 +25,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Synapse?
-            url: sql-data-warehouse-overview-what-is.md
+            url: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md
       - linkListType: architecture
         links:
           - text: Azure Synapse architecture
-            url: massively-parallel-processing-mpp-architecture.md
+            url: /azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture.md
           - text: Tips and best practices
             url: cheat-sheet.md
           - text: Reference Architecture
@@ -93,7 +93,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Monitor your workload using DMVs
-            url: sql-data-warehouse-manage-monitor.md
+            url: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor.md
           - text: Manage and monitor workload importance
             url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
 
@@ -103,7 +103,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Understand the basics of securing your data warehouse
-            url: sql-data-warehouse-overview-manage-security.md
+            url: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md
           # - text: linktext2
           #   url: file2.md
       - linkListType: how-to-guide
