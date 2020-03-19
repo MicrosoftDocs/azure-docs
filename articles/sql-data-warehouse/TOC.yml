@@ -175,9 +175,6 @@
         href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       # - name: Data types
       #   href: sql-data-warehouse-tables-data-types.md
-
-      - name: Data types
-        href: sql-data-warehouse-tables-data-types.md
       - name: Distributed tables
         href: sql-data-warehouse-tables-distribute.md
       - name: Table constraints 

@@ -22,7 +22,7 @@ Learn about managing compute resources in Azure Synapse Analytics SQL pool. Lowe
 The architecture of data warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
 
 ## Scaling compute
-You can scale out or scale back compute by adjusting the [data warehouse units](../synapse-analytics/sql-analytics/resource-consumption-models.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
+You can scale out or scale back compute by adjusting the [data warehouse units](../sql-analytics/resource-consumption-models.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
 
 For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -105,7 +105,7 @@ We recommend allowing existing transactions to finish before you initiate a paus
 
 When you pause or scale your SQL pool, behind the scenes your queries are canceled when you initiate the pause or scale request. Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly. **Transactional queries, by definition, must either complete in their entirety or rollback their changes.** Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying. For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted. If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-See also [Understanding transactions](../synapse-analytics/sql-analytics/development-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+See also [Understanding transactions](../sql-analytics/development-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automating compute management
 

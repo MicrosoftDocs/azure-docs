@@ -411,5 +411,5 @@ CTAS is one of the most important statements in SQL Analytics. Make sure you tho
 
 ## Next steps
 
-For more development tips, see the [development overview](../synapse-analytics/sql-analytics/development-overview.md).
+For more development tips, see the [development overview](../sql-analytics/development-overview.md).
 
