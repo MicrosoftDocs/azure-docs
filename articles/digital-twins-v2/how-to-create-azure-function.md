@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create Azure Functions apps for Azure Digital Twins
 
-This article walks you through creating an [Azure Function](../azure-functions/functions-overview.md) for use with Azure Digital Twins. Here is a quick look of the steps it contains:
+This article walks you through creating an [Azure Function](../azure-functions/functions-overview.md) for use with Azure Digital Twins. Here is a quick look at the steps it contains:
 
 1. Create an Azure Function app in Visual Studio
 2. Write an Azure Function with an Event Grid trigger
