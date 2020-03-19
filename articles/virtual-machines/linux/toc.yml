@@ -524,6 +524,8 @@
       href: create-cli-availability-zone.md
   - name: Use automation tools
     items:
+    - name: Custom data
+      href: ../custom-data.md
     - name: Ansible
       items:
       - name: Install and configure
