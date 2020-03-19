@@ -1,22 +1,12 @@
 ---
 title: Create shared VM images with Azure PowerShell 
 description: Learn how to use Azure PowerShell to create a shared virtual machine image in Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
+services: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
-ms.date: 05/06/2019
+ms.date: 03/18/2020
 ms.author: cynthn
-ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
@@ -35,97 +25,16 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 |----------|------------|
 | **Managed image** | This is a basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image definition** | Image definitions are created within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. For more information, see [Scaling](/azure/virtual-machines/windows/shared-image-galleries#scaling).
 
-## Before you begin
 
-To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
-
-When working through this article, replace the resource group and VM names where needed.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
 
  
-## Create VMs from an image
-
-Once the image version is complete, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
-
-This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *South Central US* datacenter.
-
-
-```azurepowershell-interactive
-$resourceGroup = "myResourceGroup"
-$location = "South Central US"
-$vmName = "myVMfromImage"
-
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-# Create a resource group
-New-AzResourceGroup -Name $resourceGroup -Location $location
-
-# Network pieces
-$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
-  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
-  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
-$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 -Access Allow
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
-$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
-  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-```
-
-If your image was of a generalized VM.
-
-```azurepowershell-interactive
-# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
-Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
-Set-AzVMSourceImage -Id $imageVersion.Id | `
-Add-AzVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine
-New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
-```
-
-If your image was of a specialized VM. ***Get-cred isn't used in this case - not sure how to handle**
-
-```azurepowershell-interactive
-# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
-
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
-Set-AzVMSourceImage -Id $imageVersion.Id | `
-Add-AzVMNetworkInterface -Id $nic.Id
-
-# Create a virtual machine
-New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
-```
-
-And, if your image contained a data disk, you need to create a disk from the image and attach it to the VM. 
-
-```azurepowershell-interactive
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $resourceGroup 
-$lun = $imageVersion.StorageProfile.DataDiskImages.Lun
-
-Add-AzVMDataDisk `
-   -CreateOption FromImage `
-   -SourceImageUri $imageversion.Id `
-   -Lun $lun `
-   -Caching $imageVersion.StorageProfile.DataDiskImages.HostCaching `
-   -DiskSizeInGB $imageVersion.StorageProfile.DataDiskImages.SizeInGB `
-   -VM $vm
-```
-
-
-
-
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
