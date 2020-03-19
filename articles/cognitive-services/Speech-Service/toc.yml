@@ -18,8 +18,10 @@
       href: index-speech-to-text.yml
     - name: Overview
       items:
-        - name: What is speech-to-text?
+        - name: What is real-time speech-to-text?
           href: speech-to-text.md
+        - name: What is batch speech-to-text?
+          href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md
     - name: Quickstart
@@ -40,6 +42,7 @@
           href: how-to-custom-speech.md
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
+          displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Improve accuracy with Phrase Lists
           href: how-to-phrase-lists.md
         - name: Improve accuracy with tenant models
@@ -95,8 +98,6 @@
           items:
             - name: Speech-to-text REST API
               href: rest-speech-to-text.md
-            - name: Batch transcription REST API
-              href: batch-transcription.md
     - name: Resources
       items:
         - name: Language support

@@ -90,5 +90,5 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 
 ## Next steps
-For more information, see [Manage compute](sql-data-warehouse-manage-compute-overview.md).
+For more information, see [Manage compute](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
