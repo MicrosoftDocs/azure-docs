@@ -246,7 +246,7 @@ myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
 ```
 
-Alternatively, you can specify a custom Dockerfile. It is simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies.
+You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies.
 
 ```python
 # Specify docker steps as a string. Alternatively, load the string from a file.
@@ -262,11 +262,11 @@ myenv.docker.base_dockerfile = dockerfile
 
 ### Use user-managed dependencies
 
-In some situations, your custom base image may already contain an Python environment with packages that you want to use.
+In some situations, your custom base image may already contain a Python environment with packages that you want to use.
 
-By default, Azure Machine Learning service will build a Conda environment with the dependecies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image. 
+By default, Azure Machine Learning service will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image. 
 
-To use your own installed packages, set the parameter `Environment.python.user_managed_dependencies = True`. You must ensure that the base image contains a Python interpreter, and has the packages your training script needs.
+To use your own installed packages, set the parameter `Environment.python.user_managed_dependencies = True`. Ensure that the base image contains a Python interpreter, and has the packages your training script needs.
 
 For example, to run in a base Miniconda environment that has NumPy package installed, first specify a Dockerfile with a step to install the package. Then set the user-managed dependencies to `True`. 
 
