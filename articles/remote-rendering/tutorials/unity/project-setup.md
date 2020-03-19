@@ -127,6 +127,8 @@ Select the **Main Camera** node.
 
 ## Validate project setup
 
+Perform the following steps to validate that the project settings are correct.
+
 1. Choose the ValidateProject entry from the RemoteRendering menu in the Unity editor toolbar.
 1. Use the ValidateProject window to check for and fix project settings where necessary.
 
