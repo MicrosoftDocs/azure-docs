@@ -23,6 +23,6 @@ This example imports certificate to vault and then applies the cert to domain.
 In the custom domain table, select **Add ssl binding**.
 
 ## See also
-* [What is Azure Key Vault?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview)
-* [Manage storage account keys with Key Vault and the Azure CLI](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-storage-keys)
-* [About keys, secrets, and certificates](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates)
+* [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Manage storage account keys with Key Vault and the Azure CLI](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)
+* [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
