@@ -178,3 +178,6 @@ The left menu provides different pages for configuring your app.
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
+
+> [!div class="nextstepaction"]
+> [Setup HTTPS on ASP.NET Core app](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/proxy-load-balancer?view=aspnetcore-2.1)
