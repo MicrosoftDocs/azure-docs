@@ -60,6 +60,8 @@
       href: ingest-data-one-click.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
+    - name: Install and use LightIngest
+      href: lightingest.md    
     - name: Event Hub
       items:
       - name: Azure portal

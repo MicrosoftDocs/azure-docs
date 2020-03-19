@@ -136,6 +136,8 @@
     href: feature-hashing.md
   - name: Preprocess Text
     href: preprocess-text.md
+  - name: Latent Dirichlet Allocation
+    href: latent-dirichlet-allocation.md
 - name: Recommendation
   items: 
   - name: Evaluate Recommender
