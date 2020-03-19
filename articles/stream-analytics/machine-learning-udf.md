@@ -8,9 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ---
-# Integrate Azure Stream Analytics with Azure Machine Learning
+# Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
 
 You can implement machine learning models as a user-defined function (UDF) in your Azure Stream Analytics jobs to do real-time scoring and predictions on your streaming input data. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) allows you to use any popular open-source tool, such as Tensorflow, scikit-learn, or PyTorch, to prep, train, and deploy models.
+
+> [!NOTE]
+> This functionality is in public preview. You can access this feature on the Azure portal only by using the [Stream Analytics portal preview link](https://aka.ms/asaportalpreview). This functionality is also available in the latest version of [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 ## Prerequisites
 
