@@ -34,8 +34,13 @@ You can use Azure Blob Storage as a checkpoint store. For an example of using Bl
 ## Blob Storage on Azure Stack Hub
 If you're using Azure Blob Storage as the checkpoint store in an environment that supports a different version of Storage Blob SDK than the ones that are typically available on Azure, you'll need to use code to change the Storage service API version to the specific version supported by that environment. For example, if you're running [Event Hubs on an Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, you'll need to use the code to change the Storage service API version to 2017-11-09. For an example on how to target a specific Storage API version, see these samples on GitHub: [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java). [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts), Python - [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/event_processor_blob_storage_example_with_storage_api_version.py), [Asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
 
-If you run Event Hubs receiver that uses Blob Storage without targeting the version that Azure Stack Hub supports, you'll receive an exception. 
+If you run Event Hubs receiver that uses Blob Storage without targeting the version that Azure Stack Hub supports, you'll receive the following error message:
 
+```bash
+The value for one of the HTTP headers is not in the correct format
+```
+
+### Sample error message in Python
 For Python, an error of `azure.core.exceptions.HttpResponseError` is passed to the error handler `on_error(partition_context, error)` of `EventHubConsumerClient.receive()`. But, method `receive()` doesn't raise an exception. print(error) will print the following exception information:
 
 ```bash
@@ -70,3 +75,4 @@ The exception is HttpResponseError('The value for one of the HTTP headers is not
 
 ## Next steps
 
+See the following article learn about partitioning and checkpointing: [Balance partition load across multiple instances of your application](event-processor-balance-partition-load.md)
