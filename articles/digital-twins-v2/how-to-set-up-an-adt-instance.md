@@ -20,7 +20,7 @@ ms.service: digital-twins
 ## Introduction
 Ok, you just got access to the preview for the new version of Azure Digital Twins. How do you create and set up an ADT instance? 
 
-THis how-to will walk you through the basic steps.
+This how-to will walk you through the basic steps.
 
 Prerequisites:
 
