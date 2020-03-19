@@ -15,6 +15,8 @@
     href: web-query-data.md
 - name: Tutorials
   items:
+  - name: Write queries
+    href: write-queries.md
   - name: E2E programmatic Blob ingestion
     items:
       - name: C#
@@ -59,12 +61,12 @@
     - name: Azure Resource Manager template
       href: create-cluster-database-resource-manager.md
   - name: Ingest data
-    items:
+    items: 
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
-    - name: Install and use LightIngest
+    - name: Using LightIngest
       href: lightingest.md    
     - name: Event Hub
       items:
@@ -112,8 +114,6 @@
       href: ingest-json-formats.md  
   - name: Query data
     items:
-    - name: Write queries
-      href: write-queries.md
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
