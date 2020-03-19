@@ -100,7 +100,7 @@ az role assignment create \
 
 A parameterized sample image configuration template has been created for you to use. Download the sample .json file and configure it with the variables you set earlier.
 
-```console
+```bash
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateLinux.json
@@ -112,7 +112,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 
 You can modify this example .json as needed. For example, you can increase the value of `buildTimeoutInMinutes` to allow for longer running builds. You can edit the file in Cloud Shell using  a text editor like `vi`.
 
-```console
+```bash
 vi helloImageTemplateLinux.json
 ```
 
@@ -184,7 +184,7 @@ az vm create \
 
 Get the IP address from the output of creating the VM and use it to SSH to the VM.
 
-```console
+```bash
 ssh azureuser@<pubIp>
 ```
 
@@ -205,7 +205,7 @@ Type `exit` when you are done to close the SSH connection.
 
 In the Image Builder Template, in the 'Properties', you will see the source image, customization script it runs, and where it is distributed.
 
-```console
+```bash
 cat helloImageTemplateLinux.json
 ```
 

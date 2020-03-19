@@ -80,7 +80,7 @@ subscriptionID=<Your subscription ID>
 
 Create the resource groups for both the image and the script storage.
 
-```azurecli-interactive
+```console
 # create resource group for image template
 az group create -n $imageResourceGroup -l $location
 # create resource group for the script storage
