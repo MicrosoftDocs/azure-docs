@@ -24,7 +24,7 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ### March 2020
 
-+ New stable Management REST API (2020-03-13) is now available. 
++ New stable [Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) is now available. 
 
 ### February 2020
 

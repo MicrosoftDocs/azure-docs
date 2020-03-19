@@ -22,7 +22,7 @@ This article describes guidance and best practices as you develop your data ware
 - [Performance tuning with result set caching](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-result-set-caching)
 
 ## Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
 
 ## Maintain statistics
 Azure SQL Data Warehouse can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up-to-date. 
@@ -69,7 +69,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
+[Create table as select (CTAS)]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
@@ -84,13 +84,13 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
-[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
+[Load data with PolyBase]:../synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
 [Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
-[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[Optimizing transactions]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
 [LABEL]: ./sql-data-warehouse-develop-label.md
 

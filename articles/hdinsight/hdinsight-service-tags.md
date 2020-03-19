@@ -71,6 +71,7 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | Azure Government | USDoD Central   | HDInsight.USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
+| &nbsp; | USGov Arizona | HDInsight.USGovArizona |
 
 ### Use multiple regional service tags
 
