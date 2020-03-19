@@ -95,7 +95,6 @@ A P2S configuration defines the parameters for connecting remote clients.
 
    **Public Certificate Data** - Base-64 encoded X.509 certificate data.
   
-   ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Click **Create** to create the configuration.
 
 ## <a name="edit"></a>Edit hub assignment
