@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -118,11 +118,17 @@ For optimal performance, make sure your network meets the following requirements
 
 The following Remote Desktop clients support Windows Virtual Desktop:
 
-* [Windows](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
 * [Mac](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (Preview)](connect-android.md)
+
+> [!IMPORTANT]
+> Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
+
+> [!IMPORTANT]
+> Windows Virtual Desktop doesn't yet support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
 
 The Remote Desktop clients must have access to the following URLs:
 
