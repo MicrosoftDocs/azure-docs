@@ -31,8 +31,7 @@ In the next window, enter information about the data source. In this example, we
 ![Enter target data source details](../media/security/managed-private-endpoint-4.png)
 
 ## Step 5: Verify that your Managed private endpoint was successfully created
-After your request is submitted, you will see the status of your request. Verify that your Managed private endpoint was created successfully by checking its *Provisioning State*. You can see that the Managed private endpoint to the ADLS gen2 account was successfully created. You can also see that the *Approval State* is *Pending*. The owner of the resource to which you are creating a Managed private endpoint must approve or deny the request before the private link is established or not. 
-
+After your request is submitted, you will see the status of your request. Verify that your Managed private endpoint was created successfully by checking its *Provisioning State*. You may need to wait 1 minute and select **Refresh** to update the provisioning state. You can see that the Managed private endpoint to the ADLS gen2 account was successfully created. You can also see that the *Approval State* is *Pending*. The owner of the target resource can approve or deny the private endpoint connection request. If the owner approves the private endpoint connection request then a private link is established. If denied, then a private link is not established.
 ![Managed private endpoint creation request status](../media/security/managed-private-endpoint-5.png)
 
 
