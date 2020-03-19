@@ -25,7 +25,7 @@ Assign a system-assigned identity that is tied to your cluster, and is deleted i
 ### Add a system-assigned identity using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. [Create an Azure Data Explorer cluster](/azure/data-explorer/create-cluster-database-portal#create-a-cluster)
+1. [Create an Azure Data Explorer cluster](/azure/data-explorer/create-cluster-database-portal#create-a-cluster) or use an existing Azure Data Explorer cluster.
 1. Select **Settings** > **Identity** in left pane of portal.
 1. In the **Identity** pane > **System assigned** tab:
    1. Move the **Status** slider to **On**.
@@ -34,7 +34,9 @@ Assign a system-assigned identity that is tied to your cluster, and is deleted i
 
     ![Add system assigned identity](media/managed-identities/turn-system-assigned-identity-on.png)
 
-1. After a few minutes, the resulting screen shows **Object ID** and **Role assignments**.
+1. After a few minutes, the screen shows: 
+  * **Object ID** - used for customer managed keys 
+  * **Role assignments** - click link to assign relevant roles
 
     ![System assigned identity on](media/managed-identities/system-assigned-identity-on.png)
 
