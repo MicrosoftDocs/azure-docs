@@ -33,17 +33,20 @@ The steps that follow explain how to create an example virtual machine with mult
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
 ```bash
-	
 #!/bin/sh
 	
 RgName="myResourceGroup"
 Location="westcentralus"
 az group create --name $RgName --location $Location
 	
-# Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
-# do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-# of IP addresses unique to each Azure region. Download and view the file from
-# https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists the ranges for each region.
+# Create a public IP address resource with a static IP address using
+# the `--allocation-method Static` option.
+# If you do not specify this option, the address is allocated dynamically.
+# The address is assigned to the resource from a pool
+# of IP addresses unique to each Azure region.
+# Download and view the file from
+# https://www.microsoft.com/en-us/download/details.aspx?id=41653
+# that lists the ranges for each region.
 
 PipName="myPublicIP"
 
@@ -72,8 +75,10 @@ az network vnet create \
 --subnet-name $VnetSubnetName \
 --subnet-prefix $VnetSubnetPrefix
 
-# Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
-# first IP configuration with a static private IP address and will associate the public IP address resource to it.
+# Create a network interface connected to the subnet and associate the
+# public IP address to it. Azure will create the first IP configuration
+# with a static private IP address and will associate the
+# public IP address resource to it.
 
 NicName="MyNic1"
 az network nic create \
@@ -85,8 +90,10 @@ az network nic create \
 --vnet-name $VnetName \
 --public-ip-address $PipName
 	
-# Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
-# static public IP address and a static private IP address.
+# Create a second public IP address, a second IP configuration,
+# and associate it to the NIC.
+# This configuration has a static public IP address
+# and a static private IP address.
 
 az network public-ip create \
 --resource-group $RgName \
@@ -102,7 +109,8 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and	# no public IP address.
+# Create a third IP configuration, and associate it to the NIC.
+# This configuration has a static private IP address and no public IP address.
 
 az network nic ip-config create \
 --resource-group $RgName \
@@ -110,30 +118,35 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.6 \
 --name IPConfig-3
 
-# Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
-# to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
-# article: https://docs.microsoft.com/azure/virtual-network/virtual-network-deploy-multinic-arm-cli.
+# Note: Though this article assigns all IP configurations to a single NIC,
+# you can also assign multiple IP configurations to any NIC in a VM.
+# To learn how to create a VM with multiple NICs, read the Create a VM with
+# multiple NICs article:
+# https://docs.microsoft.com/azure/virtual-network/virtual-network-deploy-multinic-arm-cli.
 
 # Create a VM and attach the NIC.
 
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location eastcentralus` command to get a full list
+# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes
+# article.
+# The script fails if the VM size is not supported in the location you select.
+# Run the `azure vm sizes --location eastcentralus` command to get a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
 
-# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-# `az vm image list` command.
+# Replace the value for the OsImage variable value with a value for *urn*
+# from the output returned by entering the `az vm image list` command.
 
 OsImage="credativ:Debian:8:latest"
 
 Username="adminuser"
 
-# Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
-# line and you'll be prompted for the password you want to configure for the VM.
+# Replace the following value with the path to your public key file.
+# If you're creating a Windows VM, remove the following line and
+# you'll be prompted for the password you want to configure for the VM.
 
 SshKeyValue="~/.ssh/id_rsa.pub"
 
@@ -255,7 +268,8 @@ You can add additional private and public IP addresses to an existing Azure netw
 	az network nic ip-config list \
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
-	--query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
+	--query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" \
+	--output table
     ```
 
 	Returned output: <br>
