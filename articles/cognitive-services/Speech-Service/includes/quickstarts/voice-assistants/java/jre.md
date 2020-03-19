@@ -1,9 +1,9 @@
 ---
-author: erhopf
+author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
+ms.date: 03/20/2020
+ms.author: travisw
 ---
 
 ## Prerequisites

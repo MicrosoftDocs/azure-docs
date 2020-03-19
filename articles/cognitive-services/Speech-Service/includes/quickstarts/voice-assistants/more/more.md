@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/13/2020
-ms.author: dapine
+ms.date: 03/20/2020
+ms.author: travisw
 ---
 
 ## Additional language and platform support
