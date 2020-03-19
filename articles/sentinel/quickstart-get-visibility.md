@@ -7,9 +7,9 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
-ms.author: yelevin, fasttrack-edit
+ms.author: yelevin
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 ---
 
