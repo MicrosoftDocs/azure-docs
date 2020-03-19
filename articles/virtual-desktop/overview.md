@@ -135,6 +135,7 @@ The Remote Desktop clients must have access to the following URLs:
 |Address|Outbound port|Purpose|Client(s)|
 |---|---|---|---|
 |*.wvd.microsoft.com|TCP port 443|Service traffic|All|
+|*.servicebus.windows.net|TCP port 443|Troubleshooting data|All|
 |go.microsoft.com|TCP port 443|Microsoft FWLinks|All|
 |aka.ms|TCP port 443|Microsoft URL shortener|All|
 |docs.microsoft.com|TCP port 443|Documentation|All|
