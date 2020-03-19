@@ -8,7 +8,6 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019

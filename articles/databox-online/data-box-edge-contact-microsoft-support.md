@@ -8,7 +8,6 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.subservice:
 ---
 
 # Open a support ticket for Azure Data Box Edge and Azure Data Box Gateway
