@@ -1666,7 +1666,7 @@
       - name: Airstack
         href: airstack-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
-        href: amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on
+        href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
