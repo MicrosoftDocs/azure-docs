@@ -71,7 +71,7 @@
     - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning
-      href: How-To/turn-on-active-learning.md
+      href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base

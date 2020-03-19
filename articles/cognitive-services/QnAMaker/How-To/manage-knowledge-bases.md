@@ -98,7 +98,7 @@ Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Bef
 
 If you share your knowledge base with collaborators,](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB.
 
-## Next step
+## Next steps
 
 Learn about [managing the language](language-knowledge-base.md) of all knowledge bases in a resource.
 
