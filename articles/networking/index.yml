@@ -244,7 +244,7 @@ conceptualContent:
           itemType: tutorial
           text:  Secure your virtual WAN using Azure Firewall Manager
       footerLink: 
-        url: ../firewall/index.yml
+        url: ../firewall-manager/index.yml
         text: See more 
 
     - title: Web application firewall
