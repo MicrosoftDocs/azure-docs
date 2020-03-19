@@ -14,7 +14,7 @@ ms.author: travisw
 
 ## Create and configure a project
 
-[!INCLUDE [](~/articles/cognitive-services/speech-service/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## Create user interface
 

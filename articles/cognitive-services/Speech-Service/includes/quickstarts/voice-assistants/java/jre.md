@@ -8,7 +8,7 @@ ms.author: travisw
 
 ## Create and configure project
 
-[!INCLUDE [](~/articles/cognitive-services/speech-service/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 Additionally, to enable logging, update the _pom.xml_ file to include the following dependency:
 
