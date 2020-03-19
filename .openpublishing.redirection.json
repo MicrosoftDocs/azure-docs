@@ -41005,6 +41005,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-data-warehouse/massively-parallel-processing-mpp-architecture.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/memory-concurrency-limits.md",
             "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/memory-concurrency-limits",
             "redirect_document_id": true
@@ -41110,6 +41115,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/resource-classes-for-workload-management.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/service-maintenance.md",
             "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
             "redirect_document_id": false
@@ -41125,6 +41135,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-authentication.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-backups.md",
             "redirect_url": "/azure/sql-data-warehouse/backup-and-restore",
             "redirect_document_id": false
@@ -41137,6 +41152,11 @@
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md",
             "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment",
             "redirect_document_id": true
         },
         {
@@ -41170,8 +41190,18 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-create-database-tsql.md",
             "redirect_url": "/sql/t-sql/statements/create-database-azure-sql-data-warehouse",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket",
             "redirect_document_id": true
         },
         {
@@ -41220,6 +41250,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is",
             "redirect_document_id": false
@@ -41238,6 +41273,11 @@
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-azure-machine-learning.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md",
@@ -41455,9 +41495,19 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/sql-data-warehouse/striim-quickstart.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/striim-quickstart",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/tutorial-elastic-query-with-sql-database-and-sql-data-warehouse.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-overview-integrate",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-data-warehouse/upgrade-to-latest-generation.md",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/upgrade-to-latest-generation",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",

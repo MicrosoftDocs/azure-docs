@@ -5,7 +5,7 @@
   - name: What is Azure Synapse Analytics?
     href: sql-data-warehouse-overview-what-is.md
   - name: Azure Synapse Analytics architecture
-    href: massively-parallel-processing-mpp-architecture.md
+    href: ../synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Data warehouse units
     href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
@@ -13,7 +13,7 @@
   - name: Best practices
     href: sql-data-warehouse-best-practices.md
   - name: Capacity limits
-    href: sql-data-warehouse-service-capacity-limits.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
@@ -84,7 +84,7 @@
     - name: Authentication
       items:
       - name: Overview
-        href: sql-data-warehouse-authentication.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Azure Active Directory
         href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Logins and users
@@ -176,15 +176,15 @@
       - name: Data types
         href: sql-data-warehouse-tables-data-types.md
       - name: Distributed tables
-        href: sql-data-warehouse-tables-distribute.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Table constraints 
-        href: sql-data-warehouse-table-constraints.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Indexes
-        href: sql-data-warehouse-tables-index.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Identity
-        href: sql-data-warehouse-tables-identity.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Partitions
-        href: sql-data-warehouse-tables-partition.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Replicated tables
         href: design-guidance-for-replicated-tables.md
       - name: Statistics
@@ -230,7 +230,7 @@
     - name: Memory & concurrency limits
       href: memory-concurrency-limits.md
     - name: Resource classes
-      href: resource-classes-for-workload-management.md
+      href: ../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Manageability & monitoring
     items:
     - name: Overview
@@ -244,7 +244,7 @@
     - name: Recommendations 
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Troubleshoot
-      href: sql-data-warehouse-troubleshoot.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Maintenance schedules
     href: maintenance-scheduling.md
   - name: Integration
@@ -296,7 +296,7 @@
       - name: Source control integration
         href: sql-data-warehouse-source-control-integration.md
       - name: Continuous integration and deployment
-        href: sql-data-warehouse-continuous-integration-and-deployment.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Connect and query
       items:
       - name: Visual Studio SSDT
@@ -318,7 +318,7 @@
   - name: Manage and monitor
     items:
     - name: Upgrade to Gen2
-      href: upgrade-to-latest-generation.md
+      href: ../synapse-analytics/sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Manage Compute
       href: manage-compute-with-azure-functions.md
     - name: Monitor your workload - Portal 
@@ -326,7 +326,7 @@
     - name: Monitor your workload - DMVs 
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
-      href: sql-data-warehouse-how-to-monitor-cache.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Backup and restore
     items:
     - name: Create restore points
@@ -340,15 +340,15 @@
   - name: Integrate
     items:
     - name: Use machine learning
-      href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Build data pipelines
       items:
       - name: Connect with Fivetran
         href: fivetran-quickstart.md
       - name: Get started with Striim
-        href: striim-quickstart.md
+        href: ../synapse-analytics/sql-data-warehouse/striim-quickstart.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: Add an Azure Stream Analytics job
-        href: sql-data-warehouse-integrate-azure-stream-analytics.md
+        href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
@@ -366,11 +366,11 @@
     - name: Full reference
       href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Azure Synapse Analytics TSQL language elements
-      href: sql-data-warehouse-reference-tsql-language-elements.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Azure Synapse Analytics TSQL statements
-      href: sql-data-warehouse-reference-tsql-statements.md
+      href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: System views
-    href: sql-data-warehouse-reference-tsql-system-views.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: PowerShell cmdlets
     href: sql-data-warehouse-reference-powershell-cmdlets.md
   - name: REST APIs
@@ -392,7 +392,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
   - name: Support
-    href: sql-data-warehouse-get-started-create-support-ticket.md
+    href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Videos
     href: sql-data-warehouse-videos.md
   - name: Partners
