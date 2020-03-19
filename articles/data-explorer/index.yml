@@ -26,7 +26,7 @@ landingContent:
         links:
           - text: What is Azure Data Explorer? (19:47)
             url: https://youtu.be/D_AJk2lAepw
-          - text: Kusto Query Language (KQL) from Scratch
+          - text: "Pluralsight: Kusto Query Language (KQL) from Scratch"
             url: https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch
 
   # Card
@@ -80,11 +80,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Query data with the web UI
+          - text: Query data with the Web UI
             url: web-query-data.md
       - linkListType: tutorial
         links:
-          - text: Write queries
+          - text: Write KQL queries
             url: write-queries.md
       - linkListType: how-to-guide
         links:
@@ -96,9 +96,9 @@ landingContent:
             url: time-series-analysis.md
       - linkListType: reference
         links:
-          - text: Quick reference
+          - text: KQL quick reference
             url: kql-quick-reference.md
-          - text: Query Language
+          - text: Kusto Query Language
             url: https://docs.microsoft.com/azure/kusto/query/
 
   # Card
