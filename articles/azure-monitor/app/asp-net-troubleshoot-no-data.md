@@ -245,5 +245,9 @@ For more information,
 - [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
+## How to remove Application Insights
+
+Learn how to remove Application Insights in Visual Studio by following the steps provide in the removal [article](../../azure-monitor/app/remove-application-insights.md).
+
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
