@@ -49418,6 +49418,11 @@
       "source_path": "articles/postgresql/howto-tls-configurations.md", 
       "redirect_url": "/azure/postgresql/concepts-ssl-connection-security", 
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md", 
+      "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing", 
+      "redirect_document_id": false
     }
   ]
 }
