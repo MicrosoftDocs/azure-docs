@@ -83,7 +83,7 @@ You now have an Azure Digital Twins instance ready to go.
 
 Start learning about the key elements of your Azure Digital Twins instance:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
-* [Create a twin type](concepts-twin-type.md)
+* [Create a twin type](concepts-twin-types.md)
 
 Or, see how to set up Azure Digital Twins to ingest data from IoT Hub:
 * [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
