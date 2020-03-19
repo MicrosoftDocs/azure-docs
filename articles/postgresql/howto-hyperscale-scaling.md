@@ -47,6 +47,11 @@ table, just call it on a representative table from each colocation group.
 
 ## Increase or decrease vCores on nodes
 
+> [!NOTE]
+> This feature is currently in preview — to request a change in vCores for
+nodes in your server group, please [contact Azure
+support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 In addition to adding new nodes, you can increase the capabilities of existing
 nodes. Adjusting compute capacity up and down can be useful for performance
 experiments as well as short- or long-term changes to traffic demands.
