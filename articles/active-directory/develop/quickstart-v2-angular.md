@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Learn how an Angular app can call an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
 author: jasonnutter
-manager: DarylThayil
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
@@ -19,7 +19,7 @@ ms.author: janutter
 
 # Quickstart: Sign in users and get an access token in an Angular SPA
 
-In this quickstart, you use a code sample to learn how an Angular single-page application (SPA) can sign in users who have personal accounts, work accounts, or school accounts. An Angular SPA can also get an access token to call the Microsoft Graph API or any web API.
+In this quickstart, you use a code sample to learn how an Angular single-page application (SPA) can sign in users who have personal Microsoft accounts, and work accounts and school accounts. An Angular SPA can also get an access token to call the Microsoft Graph API or any web API.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > //... )
 >```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
@@ -136,12 +136,10 @@ After the browser loads the application, select **Login**. The first time you si
 
 ## Next steps
 
-Go to the [Angular Tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular) to learn how to sign in a user and acquire tokens.
-
-Browse the MSAL repo for documentation, FAQ, issues, and more:
-
 > [!div class="nextstepaction"]
-> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> Go to the [Angular Tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular) to learn how to sign in a user and acquire tokens.
+
+Browse the [MSAL repo](https://github.com/AzureAD/microsoft-authentication-library-for-js) for documentation, FAQ, issues, and more.
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey:
 
