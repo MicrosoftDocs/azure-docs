@@ -219,29 +219,29 @@ A *webhook* trigger provides the capability for your logic app to subscribe to a
 
 From a disaster recovery perspective, set up primary and secondary instances that use webhook triggers to play active-passive roles because only one instance should receive events or messages from the subscribed endpoint.
 
-![Create watchdog and health check logic apps](./media/business-continuity-disaster-recovery-guidance/check-location-watchdog-health-check-logic-apps.png)
-
 ## Assess primary instance health
 
-For your disaster recovery strategy to work, you need to have ways that you can perform these tasks:
+For your disaster recovery strategy to work, your solution needs ways to perform these tasks:
 
-* [Check the primary instance's availability](#check-primary-availability).
-* [Monitor the primary instance's health](#monitor-primary-health).
-* [Enable the secondary instance](#enable-secondary).
+* [Check the primary instance's availability](#check-primary-availability)
+* [Monitor the primary instance's health](#monitor-primary-health)
+* [Enable the secondary instance](#enable-secondary)
 
-This section describes one solution that you can use outright or as a foundation for your own design.
+This section describes one solution that you can use outright or as a foundation for your own design. Here's a high-level visual overview for this solution:
+
+![Create watchdog logic app that monitors a health-check logic app in the primary location](./media/business-continuity-disaster-recovery-guidance/check-location-health-watchdog.png)
 
 <a name="check-primary-availability"></a>
 
 ### Check primary instance availability
 
-To determine whether an instance is available, running, and able to work, you can call a logic app that's in the same location. If this logic app successfully responds, the underlying infrastructure for the Azure Logic Apps service in that region is available and working. If the logic app fails to respond, you can assume that the location is no longer healthy.
+To determine whether the primary instance is available, running, and able to work, you can create a "health-check" logic app that's in the same location as the primary instance. You can then call this health- check app from an alternate location. If the health-check app successfully responds, the underlying infrastructure for the Azure Logic Apps service in that region is available and working. If the health-check app fails to respond, you can assume that the location is no longer healthy.
 
 For this task, create a basic health-check logic app that performs these tasks:
 
-1. Call the logic app that you want to check by using the Request trigger.
+1. Receives a call from the watchdog app by using the Request trigger.
 
-1. Respond with whether the checked logic app still works by using the Response action.
+1. Respond with a status indicating whether the checked logic app still works by using the Response action.
 
    > [!IMPORTANT]
    > The health-check logic app must use a Response action so that the app responds synchronously, not asynchronously.
@@ -258,13 +258,13 @@ To monitor the primary instance's health and call the health-check logic app, cr
 > Make sure that your watchdog logic app is in a *location that differs from primary location*. If the 
 > Logic Apps service in the primary location experiences problems, your watchdog logic app might not run.
 
-For this task, create a watchdog logic app that performs these tasks:
+For this task, in the secondary location, create a watchdog logic app that performs these tasks:
 
 1. Run based on a fixed or scheduled recurrence by using the Recurrence trigger.
 
    You can set the recurrence to a value that below the tolerance level for your recovery time objective (RTO).
 
-1. Call the health-check logic app in the primary location by using the HTTP action.
+1. Call the health-check logic app in the primary location by using the HTTP action, for example:
 
 <a name="enable-secondary"></a>
 
