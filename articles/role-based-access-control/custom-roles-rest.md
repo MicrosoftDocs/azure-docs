@@ -159,7 +159,6 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
@@ -225,7 +224,6 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
@@ -310,7 +308,6 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
     > | --- | --- |
     > | `subscriptions/{subscriptionId}` | Subscription |
     > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
