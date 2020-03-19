@@ -22,13 +22,6 @@ ms.collection: M365-identity-device-management
 
 ## Export and import your provisioning configuration from the Azure portal
 
-### How can I export my provisioning configuration?
-To export your configuration:
-1. In the [Azure portal](https://portal.azure.com/), on the left navigation panel, select **Azure Active Directory**.
-2. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
-3. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. This will take you to the schema editor. 
-5. Click on download in the command bar at the top of the page to download your schema.
-
 ### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
