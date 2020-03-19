@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 03/19/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -62,12 +62,12 @@ Configure and test Azure AD SSO with iProva using a test user called **B.Simon**
 To configure and test Azure AD SSO with iProva, complete the following building blocks:
 
 1. **[Retrieve configuration information from iProva](#retrieve-configuration-information-from-iprova)** - as a preparation for the next steps.
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Create iProva test user](#create-iprova-test-user)** - to have a counterpart of B.Simon in iProva that is linked to the Azure AD representation of user.
-1. **[Configure iProva Single Sign-On](#configure-iprova-single-sign-on)** - to configure the Single Sign-On settings on application side.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure iProva SSO](#configure-iprova-sso)** - to configure the Single Sign-On settings on application side.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Retrieve configuration information from iProva
 
