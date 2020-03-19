@@ -1,7 +1,7 @@
 ---
 title: Data in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning interacts with your data and how it's utilized across your machine learning experiments.
+description: Learn how Azure Machine Learning securely connects to your data, and uses that data for machine learning tasks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,22 +9,27 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 
-#Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
+# Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
 # Data access in Azure Machine Learning
 
-In this article, you learn Azure Machine Learning's data access solutions for connecting to your data in Azure storage, and consuming it in machine learning tasks.
+Azure Machine Learning makes it easy to connect to your data in the cloud.  It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
 
-This article assumes you've already created an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
+*    Versioning and tracking of data lineage
+*    Data labeling 
+*    Data drift monitoring
+*    Interoperability with Pandas and Spark DataFrames
 
-When you're ready to use the data in your Azure storage solution, we recommend the following data delivery workflow. 
+## Data workflow
 
-1. Create an Azure Machine Learning datastore to store connection information to your Azure storage.
+When you're ready to use the data in your cloud-based storage solution, we recommend the following data delivery workflow. This workflow assumes you have an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
 
-2. From that datastore, create an Azure Machine Learning dataset to point to a specific file(s) in your underlying storage. 
+1. Create an [Azure Machine Learning datastore](#datastores) to store connection information to your Azure storage.
+
+2. From that datastore, create an [Azure Machine Learning dataset](#datasets) to point to a specific file(s) in your underlying storage. 
 
 3. To use that dataset in your machine learning experiment you can either
     1. Mount it to your experiment's compute target for model training.
@@ -33,7 +38,7 @@ When you're ready to use the data in your Azure storage solution, we recommend t
 
     1. Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](concept-designer.md).
 
-4. Create dataset monitors for your model output dataset to detect for data drift. 
+4. Create [dataset monitors](#data-drift) for your model output dataset to detect for data drift. 
 
 5. If data drift is detected, update your input dataset and retrain your model accordingly.
 
@@ -45,7 +50,7 @@ The following diagram provides a visual demonstration of this recommended workfl
 
 Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage service. 
 
-Supported Azure storage services that can be registered as datastores:
+Supported cloud-based storage services in Azure that can be registered as datastores:
 
 + Azure Blob Container
 + Azure File Share
@@ -60,7 +65,7 @@ Supported Azure storage services that can be registered as datastores:
 
 Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your data, so no extra storage cost is incurred. To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
-Datasets can be created from local files, public urls, Azure Open Datasets, or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file.  
+Datasets can be created from local files, public urls, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file.  
 
 The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
@@ -97,13 +102,14 @@ Labeling large amounts of data has often been a headache in machine learning pro
 
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
-+ Create a [data labeling project](how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
+Create a [data labeling project](how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
 
 <a name="drift"></a>
 
 ## Data drift
 
 In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
+
 See the [Create a dataset monitor](how-to-monitor-datasets.md) article, to learn more about how to detect and alert to data drift on new data in a dataset.
 
 ## Next steps 
