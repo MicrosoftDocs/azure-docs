@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 02/10/2020
+ms.date: 03/12/2020
 ms.author: dapine
 ---
 
@@ -17,12 +17,12 @@ ms.author: dapine
 The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), or [REST APIs](rest-apis.md).
 
 > [!IMPORTANT]
-> The Speech service has replaced Bing Speech API, Translator Speech, and Custom Speech. See _How-to guides > Migration_ for migration instructions.
+> The Speech service has replaced Bing Speech API and Translator Speech. See _How-to guides > Migration_ for migration instructions.
 
 These features make up the Speech service. Use the links in this table to learn more about common use cases for each feature or browse the API reference.
 
 | Service | Feature | Description | SDK | REST |
-| ------- | ------- | ----------- | --- | ---- |
+|---------|---------|-------------|-----|------|
 | [Speech-to-Text](speech-to-text.md) | Speech-to-text | Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch Transcription](batch-transcription.md) | Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service, which uses same endpoint as customization and model management. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
 | | [Multi-device Conversation](multi-device-conversation.md) | Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation| Yes | No |
@@ -38,7 +38,7 @@ These features make up the Speech service. Use the links in this table to learn 
 We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. This table contains the most popular quickstarts for each feature. Use the left-hand navigation to explore additional languages and platforms.
 
 | Speech-to-text (SDK) | Text-to-Speech (SDK) | Translation (SDK) |
-| -------------------- | -------------------- | ----------------- |
+|----------------------|----------------------|-------------------|
 | [Recognize speech from an audio file](quickstarts/speech-to-text-from-file.md) | [Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md) | [Translate speech to text](quickstarts/translate-speech-to-text.md) |
 | [Recognize speech with a microphone](quickstarts/speech-to-text-from-microphone.md) | [Synthesize speech to a speaker](quickstarts/text-to-speech.md) | [Translate speech to multiple target languages](quickstarts/translate-speech-to-text-multiple-languages.md) |
 | [Recognize speech stored in blob storage](quickstarts/from-blob.md) | [Async synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Translate speech-to-speech](quickstarts/translate-speech-to-speech.md) |

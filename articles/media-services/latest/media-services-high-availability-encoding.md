@@ -38,8 +38,8 @@ By following the guidelines and best-practices described in the article, you wil
     * [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (which supports Media Services events natively).
 
     You can also consume Event Grid events via Azure Functions.
-*    When you create a [job](transforms-jobs-concept.md):
-    
+* When you create a [job](transforms-jobs-concept.md):
+
     * Randomly select an account from the list of currently used accounts (this list will normally contain both accounts but if issues are detected it may only contain one account). If the list is empty, raise an alert so an operator can investigate.
     * General guidance is you need one [media reserved unit](media-reserved-units-cli-how-to.md) per [JobOutput](https://docs.microsoft.com/rest/api/media/jobs/create#joboutputasset) (unless you are using [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) where 3 media reserved units per JobOutput is recommended).
     * Get the count of media reserved units (MRUs) for the chosen account. If the current **media reserved units** count isn't already at the maximum value, add the number of the MRUs needed by the job and update the service. If your job submission rate is high and you are frequently querying the MRUs to find you are at the maximum, use a distributed cache for the value with a reasonable timeout.

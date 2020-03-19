@@ -14,6 +14,8 @@ ms.date: 01/05/2018
 ---
 # Create Azure Machine Learning Studio (classic) experiments from working examples in Azure AI Gallery
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Learn how to start with example experiments from [Azure AI Gallery](https://gallery.azure.ai/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 
 The gallery has example experiments by the Microsoft Azure Machine Learning Studio (classic) team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.

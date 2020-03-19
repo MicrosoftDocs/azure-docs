@@ -237,11 +237,11 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-
 > [!IMPORTANT]
 > Copy the value of the `id` entry, as it is used in the next section.
 
 To see a more comprehensive template for a dataset, use the following command:
+
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -311,7 +311,7 @@ The `-t` parameter stores a reference to this run in a JSON file, and will be us
 
 As the training run processes, it streams information from the training session on the remote compute resource. Part of the information is similar to the following text:
 
-```text
+```output
 Predict the test set
 Accuracy is 0.9185
 ```
@@ -374,7 +374,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
-The `inferenceConfig.yml` file provides information on how to use the model for inference. For example, it references the entry script (`score.py`) and software dependencies. 
+The `inferenceConfig.yml` file provides information on how to use the model for inference. For example, it references the entry script (`score.py`) and software dependencies.
 
 For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
@@ -423,7 +423,7 @@ az ml service run -n myservice -d @testdata.json
 > [!TIP]
 > If you use PowerShell, use the following command instead:
 >
-> ```powershell
+> ```azurecli-interactive
 > az ml service run -n myservice -d `@testdata.json
 > ```
 

@@ -64,7 +64,7 @@ Organizations can choose to use the device identity as part of their Conditional
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-This setting applies to the following client apps:
+This setting applies to the following iOS and Android apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -77,6 +77,7 @@ This setting applies to the following client apps:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

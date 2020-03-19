@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
+manager: lizross
 ---
 # Tutorial: Set up service alerts
 
