@@ -12,7 +12,7 @@ ms.date: 03/18/2020
 
 # Create a new Managed Service offer
 
-This topic explains how to create a new Managed Service offer. These offers enable a customer who purchases the offer to onboard resources for [Azure delegated resource management](../../lighthouse/azure-delegated-resource-management.md).
+This topic explains how to create a new Managed Service offer. These offers enable a customer who purchases the offer to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. Note that competencies.....
 
