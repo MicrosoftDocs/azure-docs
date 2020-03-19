@@ -63,8 +63,8 @@
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
   - name: User-defined functions
     items:
-    - name: Azure ML UDF
-      href: stream-analytics-define-outputs.md
+    - name: Machine learning UDF
+      href: machine-learning-udf.md
     - name: C# UDF
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Optimize your Stream Analytics job

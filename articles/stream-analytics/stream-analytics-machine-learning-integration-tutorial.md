@@ -11,10 +11,11 @@ ms.custom: seodec18
 ---
 
 # Perform sentiment analysis with Azure Stream Analytics and Azure Machine Learning Studio (classic)
-> [!TIP]
-> It is highly recommended to use [Azure Machine Learning Service UDFs](azuremlservice-udf.md) instead of Azure Machine Learning Studio (classic) UDF for improved performance and reliability.
 
 This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning Studio (classic). You use a Machine Learning sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score in real time. Using the Cortana Intelligence Suite lets you accomplish this task without worrying about the intricacies of building a sentiment analytics model.
+
+> [!TIP]
+> It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Azure Machine Learning Studio (classic) UDF for improved performance and reliability.
 
 You can apply what you learn from this article to scenarios such as these:
 
