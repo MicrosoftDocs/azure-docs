@@ -52,11 +52,13 @@ You need to modify the file `Packages/manifest.json` that is located in your Uni
    ],
   "dependencies": {
     "com.microsoft.azure.remote-rendering": "0.1.11",
+    "com.unity.render-pipelines.universal": "7.2.1",
     ...existing dependencies...
   }
 }
 ```
 
+The Universal render pipeline package is optional but recommended for performance reasons.
 After you modified and saved the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
 
 ![confirm package imports](media/confirm-packages.png)
@@ -97,7 +99,7 @@ Select the **Main Camera** node.
     ![change project quality settings](media/settings-quality.png)
 
 1. Select **Graphics** on the left.
-1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*
+1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal render pipeline is not used.
 
     ![changing project graphics settings](media/settings-graphics-lwrp.png)
     Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:
