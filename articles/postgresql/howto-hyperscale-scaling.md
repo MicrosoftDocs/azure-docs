@@ -48,7 +48,7 @@ table, just call it on a representative table from each colocation group.
 ## Increase or decrease vCores on nodes
 
 > [!NOTE]
-> This feature is currently in preview — to request a change in vCores for
+> This feature is currently in preview. To request a change in vCores for
 nodes in your server group, please [contact Azure
 support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
