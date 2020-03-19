@@ -39,12 +39,12 @@ Prior to completing this example, you need to complete the following prerequisit
 2. In the Azure portal, navigate to your IoT Hub instance. Under *Events*, create a subscription to your Azure function. 
   - Select *Telemetry* as the event type
   - Add a filter if desired, using Event Grid filtering
-3. Create at least one Azure Function to process events from IoT Hub. See [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
+3. Create at least one Azure Function to process events from IoT Hub. See [Work with Azure Functions](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
 
 
 ## Create an Azure Function in Visual Studio
 
-In this section, you'll add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+In this section, you'll add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [Work with Azure Functions](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton code is:
 
