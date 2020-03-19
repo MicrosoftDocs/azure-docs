@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Probes
-description: How to model liveness probe in Azure Service Fabric using application and service manifest files.
+title: Azure Service Fabric probes
+description: How to model Liveness Probe in Azure Service Fabric using application and service manifest files.
 
 ms.topic: conceptual
 ms.date: 3/12/2020
