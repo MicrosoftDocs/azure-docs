@@ -85,12 +85,12 @@ Once you understand the requirements for your lab account, you are ready to set 
 
    When creating a lab account, you may find it helpful to familiarize yourself with the Azure resources involved; refer to the following list for more information and guidance on creating these resources:
 
-   - [Subscription](administrator-guide.md:subscription)
-   - [Resource Group](administrator-guide.md:resource-group)
-   - [Lab Account](administrator-guide.md:lab-account)
-   - [Classroom Lab](administrator-guide.md:classroom-lab)
-   - [Selecting a Region\Location](administrator-guide.md:regions-or-locations)
-   - [Naming Guidance for Resources](administrator-guide.md:naming)
+   - [Subscription](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
+   - [Resource Group](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
+   - [Lab Account](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
+   - [Classroom Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
+   - [Selecting a Region\Location](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
+   - [Naming Guidance for Resources](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
 
 2. **Add users to the Lab Creator role**
 
