@@ -118,6 +118,9 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 > | Azure Container Registry in a virtual network | ✔ | |
 > | Customer Managed Keys for workspace | ✔ | |
 
+> [!IMPORTANT]
+> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+
 ## Data encryption
 
 ### Encryption at rest
