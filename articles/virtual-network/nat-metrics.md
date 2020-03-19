@@ -26,9 +26,6 @@ Azure Virtual Network NAT gateway resources provide multi-dimensional metrics. Y
 
 *Figure: Virtual Network NAT for outbound to Internet*
 
->[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
-
 ## Metrics
 
 NAT gateway resources provide the following multi-dimensional metrics in Azure Monitor:
@@ -52,8 +49,10 @@ Resource Health isn't supported.
 
 ## Next steps
 
-- Learn about [Virtual Network NAT](nat-overview.md)
-- Learn about [NAT gateway resource](nat-gateway-resource.md)
-- Learn about [Azure Monitor](../azure-monitor/overview.md)
-- Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+* Learn about [Virtual Network NAT](nat-overview.md)
+* Learn about [NAT gateway resource](nat-gateway-resource.md)
+* Learn about [Azure Monitor](../azure-monitor/overview.md)
+* Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
+
 

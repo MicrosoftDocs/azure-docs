@@ -8,6 +8,8 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Premium vs. basic tiers
+    href: premium-basic-tiers.md
 - name: Quickstarts
   expanded: true
   items:
@@ -19,8 +21,8 @@
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Portal
       href: blob-event-quickstart-portal.md
-    - name: Resource Manager template
-      displayName: arm, resource manager template
+    - name: ARM template
+      displayName: Resource Manager
       href: blob-event-quickstart-template.md
   - name: Custom events
     items:
@@ -96,8 +98,16 @@
   items:
   - name: Event Grid concepts
     href: concepts.md
-  - name: Security and authentication
-    href: security-authentication.md
+  - name: System topics
+    href: system-topics.md
+  - name: Security 
+    items: 
+    - name: Authentication
+      href: security-authentication.md
+    - name: Authorization 
+      href: security-authorization.md
+    - name: Network security
+      href: network-security.md
   - name: Delivery and retry
     href: delivery-and-retry.md
   - name: Event filtering
@@ -114,6 +124,12 @@
     href: geo-disaster-recovery.md
 - name: How-to guides
   items:
+  - name: Configure private endpoints (preview)
+    href: configure-private-endpoints.md
+  - name: Configure IP firewall (preview)
+    href: configure-firewall.md
+  - name: Update pricing tier
+    href: update-tier.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint

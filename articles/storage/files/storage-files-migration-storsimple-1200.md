@@ -4,16 +4,21 @@ description: Learn how to migrate a StorSimple 1200 series virtual appliance to 
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ---
 
 # StorSimple 1200 migration to Azure File Sync
 
-StorSimple 1200 series is a virtual appliance that is run in an on-premises data center. It is possible to migrate the data from this appliance to an Azure File Sync environment. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
+StorSimple 1200 series is a virtual appliance that is run in an on-premises data center. It is possible to migrate the data from this appliance to an Azure File Sync environment. Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
+
+StorSimple 1200 series will reach its [end-of-life](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) in December 2022.  It is important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync. 
 
 ## Azure File Sync
+
+> [!IMPORTANT]
+> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -103,11 +108,43 @@ Run the first local copy to your Windows Server target folder:
 The following RoboCopy command will recall files from your StorSimple Azure storage to your local StorSimple and then move them over to the Windows Server target folder. The Windows Server will sync it to the Azure file share(s). As the local Windows Server volume gets full, cloud tiering will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the StorSimple virtual appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 
 ```console
-Robocopy /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
 
+:::row:::
+   :::column span="1":::
+      /MT
+   :::column-end:::
+   :::column span="1":::
+      Allows for RoboCopy to run multi-threaded. Default is 8, max is 128.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /UNILOG:<file name>
+   :::column-end:::
+   :::column span="1":::
+      Outputs status to LOG file as UNICODE (overwrites existing log).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /TEE
+   :::column-end:::
+   :::column span="1":::
+      Outputs to console window. Used in conjunction with output to a log file.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user does not have permissions to.
+   :::column-end:::
+:::row-end:::
 :::row:::
    :::column span="1":::
       /MIR

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ---
 
 # Auto-train a time-series forecast model
@@ -23,7 +23,7 @@ In this article, you learn how to train a time-series forecasting regression mod
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors.
+You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors.
 
 This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
 
@@ -113,7 +113,7 @@ For forecasting tasks, automated machine learning uses pre-processing and estima
 
 The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. The following table explains each parameter and its usage.
 
-| Param | Description | Required |
+| Parameter&nbsp;name | Description | Required |
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||

@@ -38,7 +38,7 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
 
 Follow these steps to create a Speech resource and connect it with Speech Studio.
 
-1. Follow these instructions to [sign up for an Azure account](get-started.md#new-resource) and [create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
+1. Follow these instructions to [sign up for an Azure account](get-started.md#new-resource) and [create a Speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Make sure that your pricing tier is set to **S0**. If you are using one of the Neural voices, make sure that you create your resource in a [supported region](regions.md#standard-and-neural-voices).
 2. Sign into [Audio Content Creation](https://aka.ms/audiocontentcreation).
 3. Select an existing project, or click **Create New**.
 4. You can modify your subscription at any time with the **Settings** option, located in the top nav.

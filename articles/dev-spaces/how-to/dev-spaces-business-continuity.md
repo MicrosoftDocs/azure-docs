@@ -21,11 +21,9 @@ Enabling Dev Spaces on AKS clusters in different regions allows you to resume us
 
 For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-For information about deploying an AKS cluster that is compatible with Azure Dev Spaces, see [Create a Kubernetes cluster using Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
 ### Enable Dev Spaces via the Azure portal
 
-Click the **Dev Spaces** navigation item under the properties of each cluster in the Azure portal. Then choose the option to enable Dev Spaces.
+Select the **Dev Spaces** menu item under the settings of each cluster in the Azure portal. Then choose the option to enable Dev Spaces and save.
 
 ![Enabling Dev Spaces via Azure portal](../media/common/enable-dev-spaces.jpg)
 
@@ -47,7 +45,7 @@ You should deploy the most recent versions of your baseline set of services to c
 
 ## Select the correct AKS cluster to use for Dev Spaces
 
-Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in Dev Spaces.
+Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in child dev spaces.
 
 Select a different cluster with the following CLI command:
 
