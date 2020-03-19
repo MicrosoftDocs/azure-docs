@@ -3,7 +3,7 @@
 title: Authenticate against Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: See how to authenticate against the Azure Digital Twins service.
-author: cschorm
+author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
@@ -62,7 +62,7 @@ Depending on your scenario, you may need to make additional changes to the app r
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
 
-The easiest way to set up these settings is in the portal. For more information about this process, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2).
+The easiest way to set up these settings is in the portal. For more information about this process, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/graph/auth-register-app-v2).
 
 ## Client app authentication code
 

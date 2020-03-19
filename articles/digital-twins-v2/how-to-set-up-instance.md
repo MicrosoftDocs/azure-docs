@@ -3,7 +3,7 @@
 title: Create an Azure Digital Twins instance
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service.
-author: cschorm
+author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
@@ -83,7 +83,7 @@ You now have an Azure Digital Twins instance ready to go.
 
 Start learning about the key elements of your Azure Digital Twins instance:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
-* [Create a twin type](concepts-twin-typw.md)
+* [Create a twin type](concepts-twin-type.md)
 
 Or, see how to set up Azure Digital Twins to ingest data from IoT Hub:
 * [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

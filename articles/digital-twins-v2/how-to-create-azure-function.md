@@ -3,7 +3,7 @@
 title: Create an Azure Function for Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: See how to create an Azure Function that can access and be triggered by Azure digital twins.
-author: cschorm
+author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to

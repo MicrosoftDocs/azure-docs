@@ -38,7 +38,7 @@ To create a digital twin in this preview release, you need to provide:
 ### Initialize properties
 
 All non-optional properties and components of Azure digital twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twin-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
 
 It is possible to construct a serializable parameter object, like in the following example: 
 
