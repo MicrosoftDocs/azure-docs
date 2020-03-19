@@ -16945,6 +16945,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
       "redirect_document_id": false
@@ -35199,12 +35204,7 @@
       "source_path": "articles/multi-factor-authentication/end-user/index.md",
       "redirect_url": "/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/networking/index.md",
-      "redirect_url": "/azure/networking/networking-overview",
-      "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
       "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
