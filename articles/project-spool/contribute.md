@@ -6,17 +6,11 @@ Welcome to the Project Spool Contributor Quickstart!
 
 If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.
 
-We have three paths available for contributors:
-
- - **The Happy Path**: This is the easiest way to contribute **minimal updates** to **existing docs**.
- - **The Slightly Less Happy Path**: This is the process we'll follow for **image insertion**, **substantial content edits**, and **new files**.
- - **The Shortcut**: You send me the content that you want to add, and I'll add it.
-  
 --------------
 
-## The Happy Path
+## Contribute Content
 
-The simple way to contribute changes to our docs is to click "edit" on any page within our repo (you're viewing our repo now!):
+Click "edit" on any page within our docs (like this page) to add content:
 
 ![Edit File](./media/edit-click.png)
 
@@ -30,9 +24,13 @@ Once you've made your changes, click Commit with the "direct" option selected:
 
 I'll then be notified, and I'll merge your changes into the docs.
 
+To preview your markdown, you can use Visual Studio Code. The TBD extension will allow you to preview docs UI components (code snippets, inline tabs, platform selectors, alerts). The Docs Components Demo shows you some commonly used components.
+
+To add **new docs** or **images to existing docs**, feel free to ping Mick. 
+
 -----------------
 
-## The Slightly Less Happy Path
+## Technical Details
 
 ### Our Azure Docs Contribution Process
 
@@ -54,7 +52,7 @@ The numbers in the above diagram correspond to the following numbered annotation
 *Note: PRs from **[6]** to **[4]** will always be built and validated, but they won't be passed off to the Azure docs editorial team until we sign off on them with a comment that says "#sign-off".  This will tell our merge bot ("PR Merger") to pass the baton along.  We will only do this when our content is mature.*
 
 
-### Getting Started
+### Power User Instructions
 
 To begin contributing: 
 
@@ -99,7 +97,3 @@ Finally, click the sync button to push your changes up and kick off the staging:
 - **If you are familiar with git** and have any feedback regarding this process, I'm completely open to suggestions, as I'm learning git as I go.
 
 ---------
-
-## The Shortcut
-
-Feel free to email me (mikben@microsoft.com) the content you'd like to add and I'll make sure it's integrated into our repository.
