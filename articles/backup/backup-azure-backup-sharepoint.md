@@ -30,7 +30,7 @@ To back up SharePoint farm you configure protection for SharePoint by using Conf
 
 ## Monitoring
 
-To monitor the backup job, follow the instructions in [Montioring DPM backup](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
+To monitor the backup job, follow the instructions in [Monitoring DPM backup](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
 
 ## Restore SharePoint data
 
