@@ -91,7 +91,8 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
 
     For example, if copying `SampleFile.txt` and `Samplefile.Txt`, the case will be preserved in the name when copied to Data Box but the second file will overwrite the first one as these are considered the same file.
 
-> [!IMPORTANT] Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 

@@ -120,7 +120,8 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
   In these cases, the final outcome can't be determined.
 * Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
-> [!IMPORTANT] Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 After you connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     

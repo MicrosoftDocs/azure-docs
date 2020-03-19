@@ -149,7 +149,8 @@ Once you are connected to the Data Box Blob storage, the next step is to copy da
 * While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 * If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
-> [!IMPORTANT] Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 In this tutorial, AzCopy is used to copy data to Data Box Blob storage. You can also use Azure Storage Explorer (if you prefer a GUI-based tool) or a partner software to copy the data.
 
