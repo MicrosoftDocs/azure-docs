@@ -77,7 +77,7 @@ Here is an example of a typical twin type, written as a DTDL interface:
             "target": "urn:contosocom:example:Moon:1"
         },
         {
-            "type": "Component",
+            "@type": "Component",
             "name": "deepestCrater",
             "schema": "urn:contosocom:example:Crater:1"
         }
@@ -151,7 +151,7 @@ The following example reimagines the *Planet* twin type from the earlier DTDL ex
         }
         ,
         {
-            "type": "Component",
+            "@type": "Component",
             "name": "deepestCrater",
             "schema": "urn:contosocom:example:Crater:1"
         }

@@ -16,7 +16,7 @@ Mapping Data Flows in Azure Data Factory provide a code-free interface to design
 When designing and testing Data Flows from the ADF UX, make sure to switch on debug mode to execute your data flows in real time without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
 This video shows some sample timings transforming data with data flows:
-> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
+> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw/player]
 
 ## Monitoring data flow performance
 

@@ -176,6 +176,8 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
