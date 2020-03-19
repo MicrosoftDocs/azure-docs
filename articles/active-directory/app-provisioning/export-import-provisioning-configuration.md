@@ -19,7 +19,6 @@ ms.author: chmutali
 ms.collection: M365-identity-device-management
 ---
 # Export your provisioning configuration and roll back to a known good state
-
 ## Export and import your provisioning configuration from the Azure portal
 
 ### How can I export my provisioning configuration?
@@ -38,14 +37,14 @@ Exporting and saving your configuration allows you to roll back to a previous ve
 ## Export and import your provisioning configuration by using the Microsoft Graph API
 You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
 
-### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
+## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
-1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g., if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Microsoft Graph Explorer operations.
 
    ![Workday App Service Principal ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
-### Step 2: Sign into Microsoft Graph Explorer
+## Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
@@ -54,7 +53,7 @@ You can use the Microsoft Graph API and the Microsoft Graph Explorer to export y
 
 1. Upon successful sign-in, you will see the user account details in the left-hand pane.
 
-### Step 3: Retrieve the Provisioning Job ID of the Provisioning App
+## Step 3: Retrieve the Provisioning Job ID of the Provisioning App
 
 In the Microsoft Graph Explorer, run the following GET query replacing [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
@@ -76,7 +75,7 @@ In the Microsoft Graph Explorer, run the following GET query, replacing [service
 
 Copy the JSON object from the response and save it to a file to create a backup of the schema.
 
-### Step 5: Import the Provisioning Schema
+## Step 5: Import the Provisioning Schema
 
 > [!CAUTION]
 > Perform this step only if you need to modify the schema for configuration that cannot be changed using the Azure portal or if you need to restore the configuration from a previously backed up file with valid and working schema.
