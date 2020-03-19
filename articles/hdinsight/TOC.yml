@@ -274,7 +274,8 @@
       href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
     - name: Create Apache Spark cluster - Azure CLI
       href: ./spark/apache-spark-create-cluster-cli.md
-    - name: Create Apache Spark cluster - Template
+    - name: Create Apache Spark cluster - ARM Template
+      displayName: Resource Manager
       href: ./spark/apache-spark-jupyter-spark-sql.md
   - name: Tutorials
     items:
