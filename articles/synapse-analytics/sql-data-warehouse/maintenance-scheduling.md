@@ -49,9 +49,9 @@ By default, all newly created data warehouse instances have an eight-hour primar
 
 To view the maintenance schedule that has been applied to your Synapse SQL pool, complete the following steps:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com/).
-2.	Select the Synapse SQL pool that you want to view. 
-3.	The selected Synapse SQL pool opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule**.
+1.    Sign in to the [Azure portal](https://portal.azure.com/).
+2.    Select the Synapse SQL pool that you want to view. 
+3.    The selected Synapse SQL pool opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule**.
 
 ![Overview blade](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
@@ -64,9 +64,9 @@ A maintenance schedule can be updated or changed at any time. If the selected in
 The primary and secondary windows must have separate day ranges. An example is a primary window of Tuesday–Thursday and a secondary of window of Saturday–Sunday.
 
 To change the maintenance schedule for your Synapse SQL pool, complete the following steps:
-1.	Sign in to the [Azure portal](https://portal.azure.com/).
-2.	Select the Synapse SQL pool that you want to update. The page opens on the overview blade. 
-3.	Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary** link on the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.  
+1.    Sign in to the [Azure portal](https://portal.azure.com/).
+2.    Select the Synapse SQL pool that you want to update. The page opens on the overview blade. 
+3.    Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary** link on the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.  
 
     ![Overview blade options](./media/maintenance-scheduling/maintenance-change-option.png)
 
@@ -89,7 +89,7 @@ During preview, some regions might not yet support the full set of available **D
    ![Message about region availability](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## Next steps
-- [Learn more](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) about creating, viewing, and managing alerts by using Azure Monitor.
-- [Learn more](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) about webhook actions for log alert rules.
-- [Learn more](../monitoring-and-diagnostics/monitoring-action-groups.md) Creating and managing Action Groups.
+- [Learn more](../../azure-monitor/platform/alerts-metric.md) about creating, viewing, and managing alerts by using Azure Monitor.
+- [Learn more](../..//azure-monitor/platform/alerts-log-webhook.md) about webhook actions for log alert rules.
+- [Learn more](../..//azure-monitor/platform/action-groups.md) Creating and managing Action Groups.
 - [Learn more](../../service-health/service-health-overview.md) about Azure Service Health.
