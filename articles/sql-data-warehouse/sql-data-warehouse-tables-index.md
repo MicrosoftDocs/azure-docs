@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Indexing tables in SQL Analytics
@@ -226,7 +225,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 Sign in as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements. Be sure that this user has ALTER permission to the tables where the index is being rebuilt. These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table [using CTAS](sql-data-warehouse-develop-ctas.md). Which way is best? For large volumes of data, CTAS is usually faster than [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). For smaller volumes of data, ALTER INDEX is easier to use and won't require you to swap out the table.
+Alternatively, instead of rebuilding the index, you could copy the table to a new table [using CTAS](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md). Which way is best? For large volumes of data, CTAS is usually faster than [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). For smaller volumes of data, ALTER INDEX is easier to use and won't require you to swap out the table.
 
 ```sql
 -- Rebuild the entire clustered index
