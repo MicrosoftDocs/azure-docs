@@ -74,7 +74,10 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 ### [Java](#tab/java)
 
-1. Create directory in the root of your project. The examples in this article assume that the name of the directory is **lib**.
+1. Create directory in the root of your project. The root directory is the directory that contains the **pom.xml** file.
+
+   > [!NOTE]
+   > The examples in this article assume that the name of the directory is **lib**.
 
 2. Download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java). 
 
@@ -105,21 +108,21 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
        <artifactId>azure-storage-blob</artifactId>
        <version>12.5.0-beta.1</version>
        <scope>system</scope>
-       <systemPath>${basedir}/lib/azure-storage-blob-12.5.0-beta.1.jar</systemPath>
+       <systemPath>${project.basedir}/lib/azure-storage-blob-12.5.0-beta.1.jar</systemPath>
    </dependency>
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-storage-common</artifactId>
        <version>12.5.0-beta.1</version>
        <scope>system</scope>
-       <systemPath>${basedir}/lib/azure-storage-common-12.5.0-beta.1.jar</systemPath>
+       <systemPath>${project.basedir}/lib/azure-storage-common-12.5.0-beta.1.jar</systemPath>
    </dependency>
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-storage-quickquery</artifactId>
        <version>12.0.0-beta.1</version>
        <scope>system</scope>
-       <systemPath>${basedir}/lib/azure-storage-quickquery-12.0.0-beta.1.jar</systemPath>
+       <systemPath>${project.basedir}/lib/azure-storage-quickquery-12.0.0-beta.1.jar</systemPath>
    </dependency>
    ```
 ---
@@ -157,6 +160,12 @@ import com.azure.storage.common.*;
 import com.azure.storage.quickquery.*;
 import com.azure.storage.quickquery.models.*;
 import java.io.*;
+```
+
+The examples presented in this article also depend on these `import` statements.
+
+```java
+import com.azure.storage.blob.ProgressReceiver;
 ```
 
 ---
@@ -266,7 +275,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
         BlobQuickQueryClient qqClient = new BlobQuickQueryClientBuilder(blobClient)
             .buildClient();
         /* Open the query input stream. */
-        InputStream stream = qqClient.openInputStream(expression, input, output, requestConditions, errorReceiver, progressReceiver);
+        InputStream stream = qqClient.openInputStream(query, input, output, requestConditions, errorReceiver, progressReceiver);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream);
 
         /* Read from stream like you normally would. */
@@ -305,7 +314,7 @@ static async Task QueryPublishDates(BlockBlobClient blob)
 static void QueryPublishDates(BlobClient blobClient)
 {
     String expression = "SELECT PublicationYear FROM BlobStorage";
-    await DumpQueryCsv(blob, query, true);
+    await DumpQueryCsv(blobClient, expression, true);
 }
 ```
 
