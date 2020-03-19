@@ -100,6 +100,10 @@ To configure a storage account behind a virtual network or firewall you will nee
 
 We recommend you to be [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) in order to grant to the managed identity the role 'storage blob data contributor'. To learn more about permissions and role-based access control, see [What is role-based access control (RBAC) for Azure resources?](../role-based-access-control/overview.md) and [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
+#### Log audits to storage account behind VNet or firewall
+
+You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](create-auditing-storage-account-vnet-firewall.md).
+
 ### <a id="audit-log-analytics-destination">Audit to Log Analytics destination</a>
   
 To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
@@ -194,10 +198,6 @@ If you chose to write audit logs to an Azure storage account, there are several 
   - View blob auditing logs programmatically:
 
     - [Query Extended Events Files](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
-
-## Log audits to storage account behind VNet or firewall
-
-You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](create-auditing-storage-account-vnet-firewall.md).
 
 ## <a id="subheading-5"></a>Production practices
 
