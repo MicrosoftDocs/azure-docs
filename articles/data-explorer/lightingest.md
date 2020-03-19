@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ---
 
-# LightIngest
+# Install and use LightIngest
 
 LightIngest is a command-line utility for ad-hoc data ingestion into Azure Data Explorer.
 The utility can pull source data from a local folder or from an Azure blob storage container.
@@ -29,7 +29,7 @@ The utility can pull source data from a local folder or from an Azure blob stora
 1. Navigate to the extracted *tools* directory on your computer.
 1. Delete the existing location information from the location bar.
     
-      ![Delete location information](media/lightingest/lightingest-locationbar.png)
+      ![Delete location information](media/lightingest/lightingest-location-bar.png)
 
 1. Enter `cmd` and press **Enter**.
 1. At the command prompt, enter `LightIngest.exe` followed by the relevant command-line argument.
@@ -93,6 +93,7 @@ For example, if blob names end with 'historicalvalues19840101.parquet' (the time
 
 ## Blob metadata properties
 When used with Azure blobs, `LightIngest` will use certain blob metadata properties to augment the ingestion process.
+
 |Metadata property                            | Usage                                                                           |
 |---------------------------------------------|---------------------------------------------------------------------------------|
 |`rawSizeBytes`, `kustoUncompressedSizeBytes` | If set, will be interpreted as the uncompressed data size                       |
@@ -128,11 +129,10 @@ To use the LightIngest command below:
         -cr:10.0 
         -dontWait:true
     ```
-
-     ![Injestion result](media/lightingest/lightingest-cmd-line-result.png)
-
+     
 1. In Azure Data Explorer, open query count.
-    ![Injestion result in Azure Data Explorer](media/lightingest/lightingest-showfailure-count.png)
+
+    ![Injestion result in Azure Data Explorer](media/lightingest/lightingest-show-failure-count.png)
 -->
 
 ### Ingesting blobs using a storage account key or a SAS token
