@@ -61,7 +61,7 @@
     - name: Azure Resource Manager template
       href: create-cluster-database-resource-manager.md
   - name: Ingest data
-    items:
+    items: 
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
