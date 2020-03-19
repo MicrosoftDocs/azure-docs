@@ -101,7 +101,7 @@ The diagram below shows a replicated table that is cached on the first distribut
 ![Replicated table](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Replicated table") 
 
 ## Next steps
-Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL pool](./sql-data-warehouse-get-started-provision.md) and [load sample data](./sql-data-warehouse-load-sample-databases.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL pool](create-data-warehouse-portal.md) and [load sample data](load-data-from-azure-blob-storage-using-polybase.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
 
 * [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

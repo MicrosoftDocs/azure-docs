@@ -33,7 +33,7 @@ This tutorial uses Azure Machine Learning to build a predictive machine learning
 ## Prerequisites
 To step through this tutorial, you need:
 
-* A SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](sql-data-warehouse-load-sample-databases.md).
+* A SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## 1. Get the data
 The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
@@ -85,7 +85,7 @@ To clean the data, drop some columns that are not relevant for the model. To do 
    ![Remove unnecessary columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png)
 
 ## 3. Build the model
-We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the “Two-Class” algorithms for this binary classification problem.
+We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the "Two-Class" algorithms for this binary classification problem.
 
 1. Drag the **Split** module into the canvas.
 2. In the properties pane, enter 0.8 for Fraction of rows in the first output dataset.
