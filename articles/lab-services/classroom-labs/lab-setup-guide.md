@@ -1,5 +1,5 @@
 ---
-title: Accelerated classroom lab setup guide | Microsoft Docs
+title: Accelerated classroom lab setup guide | Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2019
+ms.date: 3/18/2020
 ms.author: spelluru
 
 ---
@@ -47,8 +47,8 @@ Before you setup a new lab, you should consider the following questions:
     Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
 
     > [!NOTE]
-    > Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs; keep in mind that you can always scale up to using a larger compute size later.
-
+    > Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
+    
 1. **What dependencies does the class have on external Azure or network resources?**
 
     If your lab VMs need to use external resources, such as a database, file share, licensing server, etc. you will need to coordinate with your administrators to ensure that your lab has access to these resources.

@@ -1,5 +1,5 @@
 ---
-title: Accelerated lab account setup guide | Microsoft Docs
+title: Accelerated lab account setup guide | Azure Lab Services
 description: This guide helps administrators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2019
+ms.date: 3/18/2020
 ms.author: spelluru
 
 ---
@@ -66,11 +66,6 @@ To understand how to configure your lab account based on your school's needs, yo
     - **Do the lab VMs need access to other on-prem resources, such as a file share, database, etc.?**
 
         > [!NOTE]
-        > If you plan to use Azure Marketplace images, the cost of the OS license is bundled into the pricing for Lab Services, so you do *not* need provide licenses for the OS itself.  However, for using additional software\applications that are installed, you would need to provide a license as appropriate.
-
-    - **Do the lab VMs need access to other on-prem resources, such as a file share, database, etc.?**
-
-        > [!NOTE]
         >  A VNet needs to be created to provide access to on-prem resources, typically using a site-to-site Virtual Network Gateway.  If you don't have a VNet configured, additional time will need to be invested for this.  More information on how to set this up is provided below.
 
     - **Do the lab VMs need access to other Azure resources that are located within a VNet?**
@@ -90,26 +85,26 @@ Once you understand the requirements for your lab account, you are ready to set 
 
    When creating a lab account, you may find it helpful to familiarize yourself with the Azure resources involved; refer to the following list for more information and guidance on creating these resources:
 
-   - [Subscription](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
-   - [Resource Group](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
-   - [Lab Account](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
-   - [Classroom Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
-   - [Selecting a Region\Location](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
-   - [Naming Guidance for Resources](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
+   - [Subscription](administrator-guide.md:subscription)
+   - [Resource Group](administrator-guide.md:resource-group)
+   - [Lab Account](administrator-guide.md:lab-account)
+   - [Classroom Lab](administrator-guide.md:classroom-lab)
+   - [Selecting a Region\Location](administrator-guide.md:regions-or-locations)
+   - [Naming Guidance for Resources](administrator-guide.md:naming)
 
-1. **Add users to the Lab Creator role**
+2. **Add users to the Lab Creator role**
 
    Refer to the how-to guide on [adding users to the Lab Creator role](https://docs.microsoft.com/azure/lab-services/classroom-labs/add-lab-creator) for instructions.
 
    Also, for more information on the different roles that can be assigned to suers that will manage lab lab accounts and labs, see the [guide on managing identity](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#manage-identity).
 
-1. **Connect to a peer VNet**
+3. **Connect to a peer VNet**
 
    Refer to the how-to guide on [connecting your lab's network with a peer VNet](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) for instructions.
 
    You may also need to refer to instructions on [configuring the lab VMs address range](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
 
-1. **Enable\Review images**
+4. **Enable\Review images**
 
     Refer to the how-to guide on [enabling Marketplace images for lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images) for instructions.
 
