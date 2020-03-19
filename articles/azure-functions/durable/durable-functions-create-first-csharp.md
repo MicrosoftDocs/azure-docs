@@ -177,7 +177,7 @@ The Azure Functions template creates a project that can be published to a functi
 
 1. In Visual Studio, select **New** > **Project** from the **File** menu.
 
-1. In the **Add a new project** dialog, search for `functions`, choose the **Azure Functions** template, and select **Next**. 
+1. In the **Create a new project** dialog, search for `functions`, choose the **Azure Functions** template, and select **Next**. 
 
     ![New project dialog to create a function in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
@@ -189,7 +189,7 @@ The Azure Functions template creates a project that can be published to a functi
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions 2.0 <br />(.NET Core) | Creates a function project that uses the version 2.0 runtime of Azure Functions, which supports .NET Core. Azure Functions 1.0 supports the .NET Framework. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
+    | **Version** | Azure Functions 3.0 <br />(.NET Core) | Creates a function project that uses the version 3.0 runtime of Azure Functions, which supports .NET Core 3.1. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
     | **Template** | Empty | Creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 
@@ -207,10 +207,7 @@ The following steps use a template to create the durable function code in your p
 
 1. Select the **Durable Functions Orchestration** template and then select **Ok**
 
-    ![Select durable template](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
-
-> [!NOTE]
-> This template currently creates a durable function using an older 1.x version of the extension. See the [Durable Functions Versions](durable-functions-versions.md) article for information about how to upgrade to the newer 2.x versions of Durable Functions.
+    ![Select durable template](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)
 
 A new durable function is added to the app.  Open the new .cs file to view the contents. This durable function is a simple function chaining example with the following methods:  
 
