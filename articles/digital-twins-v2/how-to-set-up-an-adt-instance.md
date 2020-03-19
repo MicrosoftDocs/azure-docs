@@ -44,7 +44,7 @@ az login
 
 Next, set your working subscription to the whitelisted subscription that has access to Azure Digital Twins:
 ```bash
-az account set -s <your-whitelisted-subscription-id>
+az account set -s <your-whitelisted-subscription-ID>
 ```
 To make life easier, let's set a default location for all resources to be created for the rest of this walk-through:
 ```bash
@@ -65,14 +65,14 @@ Before you can use the instance, there is one more step: you need to set up acce
 
 ## Assign a role to the instance
 
-To assign a role, you need the resource id of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation copmmand, You can get it by running:
+To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation copmmand, You can get it by running:
 ```bash
 az dt show --name <your-instance-name> -g <your-rg-name>
 ```
 
 The output will contain a very long string named "id" that will begin with the letters "/subscriptions/…". Use that string in the command below: 
 ```bash
-az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <your-AD-email> --scope <resource-instance-id>
+az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <your-AAD-email> --scope <resource-instance-ID>
 ```
 
 You should also take note of the "hostname" value returned by az dt show, as you will need this value later.

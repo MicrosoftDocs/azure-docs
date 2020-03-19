@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Ingest telemetry from IoT Hub
 
-Azure Digital Twins is driven with data from IoT and other sources by calling digital twin apis to set properties or fire telemetry events on twins. Once the initial property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
+Azure Digital Twins is driven with data from IoT and other sources by calling digital twin APIs to set properties or fire telemetry events on twins. Once the initial property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
 This how-to document walks through an example of ingesting telemetry from IoT Hub.
 
@@ -61,19 +61,19 @@ static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent,
 }
 ```
 
-As a first step, we need to extract the part of the device message we are interested in from the EventGridEvent. 
+As a first step, we need to extract the part of the device message we are interested in from the Event Grid event. 
 
-This code depends on the connected device. FOr a simple device that sends telemetry as JSON, it might look like the following code that extracts the device id that sent the message and a temperature value from the message.
+This code depends on the connected device. FOr a simple device that sends telemetry as JSON, it might look like the following code that extracts the device ID that sent the message and a temperature value from the message.
 
 ```csharp
 JObject job = eventGridEvent.Data as JObject;
-string devid = (string)job["systemProperties"].ToObject<JObject>().Property("iothub-connection-device-id").Value;
+string devid = (string)job["systemProperties"].ToObject<JObject>().Property("iothub-connection-device-ID").Value;
 double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Value;
 ```
 
 Once we have this value, we need to find the parent of the twin that is associated with the device (remember, in this scenarios we want to update the *parent* of the twin representing the device with a property from the device)
 
-To do this, we use the Azure Digital Twins APIs to access the incoming relationships to the device representing twin (which we assume has the same id as the device). From the incoming relationship, we get the id of the parent:
+To do this, we use the Azure Digital Twins APIs to access the incoming relationships to the device representing twin (which we assume has the same ID as the device). From the incoming relationship, we get the ID of the parent:
 
 For simplicity, we will assume in the sample code below that there is only a single incoming relationship, but of course there could more than that.
 
@@ -83,12 +83,12 @@ IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(d
 if (relPage != null) {
     IncomingEdge ie = relPage.FirstOrDefault();
     if (ie!=null) {
-        // ie.sourceId now is the id of the parent
+        // ie.sourceId now is the ID of the parent
     }
 }
 ```
 
-Now that we have the id of the parent twin, we can patch that twin. To do this, we write code as this:
+Now that we have the ID of the parent twin, we can patch that twin. To do this, we write code as this:
 ```csharp
 // See the utility class defined further down in this file
 JsonPatch jp = new JsonPatch();
@@ -96,7 +96,7 @@ jp.AppendReplaceOp("/Temperature", 85);
 await client.DigitalTwins.UpdateAsync(id, jp.Document);
 ```
 
-The example above uses a simple helper class to create a Json Patch
+The example above uses a simple helper class to create a JSON Patch
 
 ```csharp
 public class JsonPatch
@@ -148,7 +148,7 @@ public class JsonPatch
 
 The entire function in context:
 ```csharp
-// Default URL for triggering event grid function in the local environment.
+// Default URL for triggering Event Grid function in the local environment
 // http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 using System;
 using Microsoft.Azure.WebJobs;
@@ -171,7 +171,7 @@ namespace adtIngestFunctionSample
     public static class Function1
     {
         const string AdtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
-        const string AdtInstanceUrl = "<your-adt-instance-url>";
+        const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
         static AzureDigitalTwinsAPIClient client;
 
         [FunctionName("Function1")]
@@ -183,7 +183,7 @@ namespace adtIngestFunctionSample
                 try
                 {
                     JObject job = eventGridEvent.Data as JObject;
-                    string devid = (string)job["systemProperties"].ToObject<JObject>().Property("iothub-connection-device-id").Value;
+                    string devid = (string)job["systemProperties"].ToObject<JObject>().Property("<IoT-Hub-connection-device-ID>").Value;
                     double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Value;
 
                     var relPage = await client.DigitalTwins.ListIncomingEdgesAsync(devid);
@@ -281,5 +281,5 @@ namespace adtIngestFunctionSample
 
 ## Debug Azure function apps locally
 
-It is possible to debug Azure FUnctions with an EventGridTrigger locally. See [Azure Function Event Grid Trigger Local Debugging](https://docs.microsoft.com/en-us/azure/azure-functions/functions-debug-event-grid-trigger-local) for more information.
+It is possible to debug Azure Functions with an Event Grid trigger locally. See [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md) for more information.
   

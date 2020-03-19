@@ -30,12 +30,12 @@ One route should allow multiple notifications and event types to be selected.
 
 If there is no route, no messages are routed outside of Azure Digital Twins. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
 
-**Note**: In private preview, filters are not supported. Please use an event grid as an endpoint with n event grid subscription filter to use selective messaging.
+**Note**: In private preview, filters are not supported. Please use Event Grid as an endpoint with an Event Grid subscription filter to use selective messaging.
 
 In SDK form:
 
 ```csharp
-await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointId"));
+await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointID"));
 ```
 );`
 
@@ -208,7 +208,7 @@ These notifications are triggered when any relationship edge of an Azure digital
 | source    | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
 | specversion    | 1.0 |
 | type    | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
-| subject    | ID of the relationship edge, like `<twinid>/relationships/<relationshipName>/<edged>` |
+| subject    | ID of the relationship edge, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
 | time    | Timestamp for when the operation occurred on the relationship edge |
 | sequence, sequencetype    | See earlier detail on notification headers |
 

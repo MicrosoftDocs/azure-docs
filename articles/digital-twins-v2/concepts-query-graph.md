@@ -65,7 +65,7 @@ The following code snippet illustrates this call from the client app:
 
 ```csharp
 var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
-client.BaseUri = new Uri(<your-adt-instance-url>);
+client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
 
 QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
 QueryResult result = await client.Query.QueryTwinsAsync(spec);

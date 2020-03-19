@@ -201,12 +201,12 @@ static async Task ListOutgoingRelationships(string id)
 }
 ```
 
-You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the "target" field from the relationship returned and use it as the id for your next call to DigitalTwins.GetById. 
+You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the `target` field from the relationship returned and use it as the ID for your next call to `DigitalTwins.GetById`. 
 
 ## Delete Relationships
 
 You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
-You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship id). ALl three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship ids do NOT need to be globally unique.
+You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship ID). All three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
 
 
 ## Find incoming relationships
@@ -238,7 +238,7 @@ static async Task FindAndDeleteIncomingRelationships(string id)
             string relId = r.EdgeId;
             string relName = r.Relationship;
             string source = r.SourceId;
-            // Need twin id, relationshipname and edgeid to uniquely identify a particular relationship
+            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
             await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
             Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
         }

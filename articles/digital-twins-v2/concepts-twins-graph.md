@@ -28,7 +28,7 @@ Before you can create a digital twin in an Azure Digital Twins service instance,
 
 After creating and uploading a twin type, your client app can create instance of the type. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this type (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
-Below a snippet of client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate a twin of type *Room*.
+Below is a snippet of client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate a twin of type *Room*.
 
 In the private preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
 

@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Deploy Azure Digital Twins alongside other services
 
-Azure Digital Twins is typically used together with other services. Azure Digital Twins receives data from upstream services such as IoT Hub that is used to deliver telemetry. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics and other use cases. 
+Azure Digital Twins is typically used together with other services. Azure Digital Twins receives data from upstream services such as IoT Hub, which is used to deliver telemetry. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics and other use cases. 
 
 ## Data ingress
 
@@ -40,7 +40,7 @@ Endpoints are attached to Azure Digital Twins using management APIs or the Porta
 
 There are many other services where you may wish to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to an endpoint.
 
-For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.md) and want to correlate location with your Azure Digital Twins twin graph, you will utilize an Azure Function alongside an Event Grid to establish communication between all the services in your deployment.
+For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.md) and want to correlate location with your Azure Digital Twins twin graph, you will utilize an Azure Function alongside Event Grid to establish communication between all the services in your deployment.
 
 ## Next steps
 

@@ -26,7 +26,7 @@ The Azure Digital Twins API surface can be broadly divided into the following ca
 
 * **DigitalTwinsModels** - The DigitalTwinsModels category provides APIs are used to manage the [twin types](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
-* **Query* - The Query category lets developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships
+* **Query** - The Query category lets developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md) through the system, as well as to downstream services.
 
 ## Generate Azure Digital Twins SDKs (preview)
@@ -69,23 +69,23 @@ This section explains how to do build a separate project.
 
 * Create a new visual studio solution for a C# class library
 * Use the name Azure Digital TwinsApi as the project name
-* In Solutions Explorer, right-click the Azure Digital TwinsApi project of the generated solution and select Add>Existing Item...
+* In Solutions Explorer, right-select the Azure Digital TwinsApi project of the generated solution and choose *Add > Existing Item...*
 * Find the folder where you generated the SDK and select the C# files at the root level
-* Click OK
-* Add a folder to the project (right-click on the project in solution explorer, and select Add>New Folder)
+* Press "OK"
+* Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
 * Name the folder "Models"
-* Right-click the Models folder in Solutions Explorer and select Add>Existing Item...
+* Right-select the Models folder in Solutions Explorer and select *Add > Existing Item...*
 * Select the C# files in the Models folder of the generated SDK and press Ok
 
 To build the SDK successfully, you need to add references to:
 * Microsoft.Rest.ClientRuntime and 
 * Microsoft.Rest.ClientRuntime.Azure
 
-To do so, open Tools>NuGet Package Manager>Manage NuGet Packages for Solution...
+To do so, open *Tools > NuGet Package Manager > Manage NuGet Packages for Solution...*.
 
 * In the panel, make sure the Browse tab is selected
-* Search for Microsoft.Rest
-* Select the ClientRuntime and ClientRuntime.Azure packages and add them to your solution
+* Search for "Microsoft.Rest"
+* Select the *ClientRuntime* and *ClientRuntime.Azure* packages and add them to your solution
 
 You can now build the project, and include it as a project reference in any Azure Digital Twins application you wish to write
 
@@ -101,11 +101,7 @@ All SDK functions come in synchronous and asynchronous versions
 
 This is subject to change after private preview.
 
-Generally, we aim to return strongly typed objects from REST api calls. However, because Azure Digital Twins lets users define their own types for twins (effectively, custom types), we have no way to pre-define static return data for many Azure Digital Twins calls. Instead, we return strongly typed wrapper types where applicable, but the twin-related data (custom types) itself is in form of JSON.Net objects, wherever the data type "object" appears in the API signatures. You can cast these objects appropriately.
-
-### Azure SDK guideline compliance
-
-Unlike the Autorest-generated SDK, the future official SDK will conform to the [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and specifically for C# [the C# SDK guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+Generally, we aim to return strongly typed objects from REST API calls. However, because Azure Digital Twins lets users define their own types for twins (effectively, custom types), we have no way to pre-define static return data for many Azure Digital Twins calls. Instead, we return strongly typed wrapper types where applicable, but the twin-related data (custom types) itself is in form of Json.NET objects, wherever the data type "object" appears in the API signatures. You can cast these objects appropriately.
 
 ### Error handling
 
