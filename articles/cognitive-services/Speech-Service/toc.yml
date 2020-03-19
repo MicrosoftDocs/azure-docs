@@ -45,12 +45,14 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Improve accuracy with Phrase Lists
           href: how-to-phrase-lists.md
-        - name: Improve accuracy with tenant models
-          href: tutorial-tenant-model.md
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
           href: how-to-automatic-language-detection.md
+    - name: Tutorials
+      items:
+        - name: Improve accuracy with tenant models
+          href: tutorial-tenant-model.md
     - name: Customization
       items:
         - name: Prepare data for Custom Speech
