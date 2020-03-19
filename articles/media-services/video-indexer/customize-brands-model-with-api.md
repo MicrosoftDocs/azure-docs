@@ -155,11 +155,11 @@ The response provides a list of all of the brands in your account and each of th
 ```
 
 > [!NOTE]
-> The brand named *Example* is in the *Include* list for Video Indexer to detect, and the brand named *Example2* is in the *Exclude* list, so Video Indexer will not detect it.
+> The brand named *Example* is in the *Include* list for Video Indexer to detect, and the brand named *Example2* is in the *Exclude* list, so Video Indexer won't detect it.
 
 ## Get Brands model settings
 
-The [get brands settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands are not enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
+The [get brands settings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API returns the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
 ### Response
 
@@ -173,17 +173,17 @@ The response shows whether Bing brands are enabled following the format of the e
 ```
 
 > [!NOTE]
-> **useBuiltIn** being set to true represents that Bing brands are enabled. If *useBuiltin* is false, Bing brands are disabled. The **state** value can be ignored as it has been deprecated.
+> `useBuiltIn` being set to true represents that Bing brands are enabled. If `useBuiltin` is false, Bing brands are disabled. The `state` value can be ignored because it has been deprecated.
 
 ## Update Brands model settings
 
-The [update brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands are not enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
+The [update brands](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) API updates the Brands model settings in the specified account. The Brands model settings represent whether detection from the Bing brands database is enabled or not. If Bing brands aren't enabled, Video Indexer will only detect brands from the custom Brands model of the specified account.
 
-The **useBuiltIn** flag set to true represents that Bing brands are enabled. If *useBuiltin* is false, Bing brands are disabled.
+The `useBuiltIn` flag set to true means that Bing brands are enabled. If `useBuiltin` is false, Bing brands are disabled.
 
 ### Response
 
-There is no returned content when the Brands model setting is updated successfully.
+There's no returned content when the Brands model setting is updated successfully.
 
 ## Next steps
 
