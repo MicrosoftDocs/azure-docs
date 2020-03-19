@@ -2,7 +2,7 @@
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/19/2020
 ---
 
 # Edit QnA sets in your knowledge base
@@ -49,6 +49,12 @@ If you need to find the QnA set ID, you can find it in two places:
 Add alternate questions to an existing QnA set to improve the likelihood of a match to a user query.
 
 ![Add Alternate Questions](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
+
+## Linking QnA Sets
+
+Linking QnA sets is provided with follow-up prompts. This is a logical connection between QnA sets, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
+
+You can't link QnA sets in the answer's metadata. 
 
 ## Add metadata
 
