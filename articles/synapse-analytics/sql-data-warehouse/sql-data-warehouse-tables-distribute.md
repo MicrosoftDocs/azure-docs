@@ -165,7 +165,7 @@ To see if queries are experiencing data movement, you can look at the query plan
 ## Resolve a distribution column problem
 It is not necessary to resolve all cases of data skew. Distributing data is a matter of finding the right balance between minimizing data skew and data movement. It is not always possible to minimize both data skew and data movement. Sometimes the benefit of having the minimal data movement might outweigh the impact of having data skew.
 
-To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload. You can use the steps in the [Query monitoring](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) article to monitor the impact of skew on query performance. Specifically, look for how long it takes large queries to complete on individual distributions.
+To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload. You can use the steps in the [Query monitoring](sql-data-warehouse-manage-monitor.md) article to monitor the impact of skew on query performance. Specifically, look for how long it takes large queries to complete on individual distributions.
 
 Since you cannot change the distribution column on an existing table, the typical way to resolve data skew is to re-create the table with a different distribution column.  
 

@@ -19,7 +19,7 @@ Learn how to authenticate to SQL Analytics in Azure Synapse by using Azure Activ
 
 To connect to a SQL pool, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
-For more information on security and how to enable connections to your data warehouse, see [securing a database documentation](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+For more information on security and how to enable connections to your data warehouse, see [securing a database documentation](sql-data-warehouse-overview-manage-security.md).
 
 ## SQL authentication
 To connect to SQL pool, you must provide the following information:

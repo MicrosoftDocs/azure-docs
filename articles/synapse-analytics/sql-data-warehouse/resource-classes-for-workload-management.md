@@ -589,5 +589,5 @@ GO
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in SQL Analytics](./../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](../../sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

@@ -85,7 +85,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 [Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
 [Load data with PolyBase]:../synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
+[Monitor your workload using DMVs]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
 [Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute

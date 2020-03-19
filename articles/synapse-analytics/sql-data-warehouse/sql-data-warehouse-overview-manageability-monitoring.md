@@ -28,4 +28,4 @@ SQL Analytics allows you to provision a data warehouse via SQL pool. The article
 
 
 ## Next steps
-For How-to guides, see [Monitor and tune your SQL pool](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md).
+For How-to guides, see [Monitor and tune your SQL pool](sql-data-warehouse-manage-monitor.md).

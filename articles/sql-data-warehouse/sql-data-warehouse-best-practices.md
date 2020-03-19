@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Best practices for SQL Analytics in Azure Synapse Analytics (formerly SQL DW)
 
-This article is a collection of best practices to help you to achieve optimal performance from your [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
+This article is a collection of best practices to help you to achieve optimal performance from your [SQL Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) deployment.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth. The sequence of topics is in the order of importance. 
 
 ## Reduce cost with pause and scale
 
@@ -161,7 +161,7 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 [Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
 [Load data with PolyBase]:../synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
+[Monitor your workload using DMVs]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
 [Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute

@@ -16,7 +16,7 @@ tags: azure-synapse
 
 # Azure Synapse Analytics release notes
 
-This article summarizes the new features and improvements in the recent releases of [SQL Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in Azure Synapse. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+This article summarizes the new features and improvements in the recent releases of [SQL Analytics](sql-data-warehouse-overview-what-is.md) in Azure Synapse. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## Check your Azure Synapse version
 

@@ -42,11 +42,11 @@ The matrix below describes scenarios based on the values of the cache metrics:
 | **High Cache used percentage** |          Scenario 1           |          Scenario 2          |
 | **Low Cache used percentage**  |          Scenario 3           |          Scenario 4          |
 
-**Scenario 1:** You are optimally using your cache. [Troubleshoot](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) other areas that may be slowing down your queries.
+**Scenario 1:** You are optimally using your cache. [Troubleshoot](sql-data-warehouse-manage-monitor.md) other areas that may be slowing down your queries.
 
 **Scenario 2:** Your current working data set cannot fit into the cache which causes a low cache hit percentage due to physical reads. Consider scaling up your performance level and rerun your workload to populate the cache.
 
-**Scenario 3:** It is likely that your query is running slow due to reasons unrelated to the cache. [Troubleshoot](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) other areas that may be slowing down your queries. You can also consider [scaling down your instance](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) to reduce your cache size to save costs. 
+**Scenario 3:** It is likely that your query is running slow due to reasons unrelated to the cache. [Troubleshoot](sql-data-warehouse-manage-monitor.md) other areas that may be slowing down your queries. You can also consider [scaling down your instance](sql-data-warehouse-manage-monitor.md) to reduce your cache size to save costs. 
 
 **Scenario 4:** You had a cold cache which could be the reason why your query was slow. Consider rerunning your query as your working dataset should now be in cached. 
 
@@ -54,4 +54,4 @@ The matrix below describes scenarios based on the values of the cache metrics:
 > If the cache hit percentage or cache used percentage isn't updating after rerunning your workload, your working set can already be residing in memory. Only clustered columnstore tables are cached.
 
 ## Next steps
-For more information on general query performance tuning, see [Monitor query execution](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution).
+For more information on general query performance tuning, see [Monitor query execution](sql-data-warehouse-manage-monitor.md#monitor-query-execution).

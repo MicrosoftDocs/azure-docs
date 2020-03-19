@@ -512,4 +512,4 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 
 ## Next steps
 
-For further improve query performance, see [Monitor your workload](sql-data-warehouse-manage-monitor.md)
+For further improve query performance, see [Monitor your workload](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor.md)
