@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Authenticate against the twins API
+title: Authenticate against Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: See how to authenticate against an ADT service
+description: See how to authenticate against an Azure Digital Twins service.
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,25 +15,26 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Authenticating against ADT
+# Authenticate against Azure Digital Twins
 
 > [!TIP]
-> To learn how to create an ADT instance, please see [How to Set Up an ADT Instance](how-to-set-up-an-adt-instance.md)
+> To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
-Before you can issue API calls against your ADT instance, you will need to authenticate. 
+Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. 
 
 There are two pieces to that:
 * Creating an app registration
 * Writing authentication code in a client app
 
-## Create an App Registration
+## Create an app registration
+
 *** This section is preliminary ***
 
-To authenticate against ADT in Azure from an app, you need to set up an app registration in Active Directory.
+To authenticate against Azure Digital Twins in Azure from an app, you need to set up an app registration in Active Directory.
 
-This app registration is where you configure access permissions to the ADT API. Your client app authenticates against the app registration, which in turn has configured access permissions to the ADT APIs.
+This app registration is where you configure access permissions to the Azure Digital Twins API. Your client app authenticates against the app registration, which in turn has configured access permissions to the Azure Digital Twins APIs.
 
-To create an app registration you need to provide the resource ids for the Azure ADT APIs and the baseline permissions to the API:
+To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs and the baseline permissions to the API:
 ```json
 requiredResourceAccess":[
   {
@@ -47,16 +48,16 @@ requiredResourceAccess":[
 ]
 ``` 
 
-In your working directory, save this json snippets as file manifest.json.
+In your working directory, save this JSON snippet as file *manifest.json*.
 
 Then run:
 ```bash
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url <one-or-more-reply-urls>
+az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url <one-or-more-reply-URLs>
 ```
 
-For a desktop or console app, a typical reply urls would be "http://localhost"
+For a desktop or console app, a typical reply URL would be "http://localhost".
 
-You will need the id of this app registration (also known as the client id) when you authenticate against the ADT APIs.
+You will need the ID of this app registration (also known as the client ID) when you authenticate against the Azure Digital Twins APIs.
 
 Depending on your scenario, you may need to make additional changes to the app registration. In particular, you may need to:
 * Activate public client access
@@ -65,15 +66,15 @@ Depending on your scenario, you may need to make additional changes to the app r
 
 These settings are easiest set up in the portal. See [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
 
-## Authentication Code in an App
+## Client app authentication code
 
-To follow the example in this section, you will need the SDK library as described in the [API how-to document](how-to-use-api.md).
+To follow the example in this section, you will need the SDK library as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 To authenticate a .NET app with Azure services, you can use the following minimal code:
 
 ```csharp
 private string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
-private string clientId = "your-app-registration-id";
+private string clientId = "<your-app-registration-ID>";
 private AuthenticationResult authResult;
 static async Task Authenticate()
 {
@@ -95,7 +96,7 @@ static async Task Authenticate()
 }
 ```
 
-Note that this sample is the most minimal code for authentication using the MSAL authentication library. THere are many more options you can use to implement for example caching and several other authentication flows. For more information see [Overview of Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) 
+Note that this sample is the most minimal code for authentication using the MSAL authentication library. There are many more options you can use to implement for example caching and several other authentication flows. For more information see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 
 You will need to have references to the following libraries, which you can find on NuGet:
 * Microsoft.Identity.Client. This is the MSAL client library.
@@ -108,21 +109,21 @@ A complete example that creates an API client:
 using Microsoft.Identity.Client;
 using Microsoft.Rest;
 using Microsoft.Rest.Azure;
-using ADTApi; // The SDK library as built in the using-apis how-to
+using Azure Digital TwinsApi; // The SDK library as built in the using-apis how-to
 ...
 ...
 
-namespace ADTGettingStarted
+namespace Azure Digital TwinsGettingStarted
 {
     class Program
     {
-        private const string clientId = "your-app-registration";
-        // THe ADT API resource id
+        private const string clientId = "<your-app-registration>";
+        // The Azure Digital Twins API resource ID
         private const string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
         private static AuthenticationResult authResult;
 
         private static AzureDigitalTwinsAPIClient client;
-        private const string adtInstanceUrl = "your-app-id";
+        private const string adtInstanceUrl = "<your-app-ID>";
 
         static async Task Main(string[] args)
         {
@@ -137,7 +138,7 @@ namespace ADTGettingStarted
                 client.BaseUri = new Uri(adtInstanceUrl);
                 Console.WriteLine($"Service client created – ready to go");
 
-                //... your app code using adt apis here ...
+                //... your app code using Azure Digital Twins APIs here ...
             }
         }
 

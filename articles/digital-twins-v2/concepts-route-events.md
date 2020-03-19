@@ -67,16 +67,18 @@ Event routes are created in a client application with the following [Azure Digit
 
 ```csharp
 await client.EventRoutes.AddAsync("<name-for-the-new-route>", 
-                                   new EventRoute("<endpointId>"));
+                                   new EventRoute("<endpoint-ID>"));
 ```
 
-* The `endpointId` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
+* The `endpoint-ID` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to EventRoutes.Add also takes a **filter** parameter. However, in private preview, this filter parameter does nothing. We recommend to use an event grid as the endpoint, and the event grid subscription filter during preview.  
+The event route object passed to `EventRoutes.Add` also takes a **filter** parameter. However, during the preview release, this filter parameter does nothing. We recommend to use Event Grid as the endpoint, and the Event Grid subscription filter during preview.  
 
 ### Types of event messages
 
-[!INCLUDE [digital-twins-v2-notifications.md](../../includes/digital-twins-v2-notifications.md)]
+Different types of events in IoT Hub and Azure Digital Twins produce different types of notification messages, as described below.
+
+[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Create Twins and Relationships
+title: Create twins and relationships
 titleSuffix: Azure Digital Twins
 description: See how to combine Azure Digital Twins concepts to build out a full graph representation, as well as modify and delete when necessary.
 author: baanders
@@ -15,30 +15,31 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create Twins and Relationship
+# Create digital twins and relationships
 
-Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in the [How to Use APIs](how-to-use-apis.md) section.
+Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 This section assumes that you: 
-* Already have a working instance of ADT set up, with appropriate access permissions. See [How to Set Up an ADT Instance](how-to-set-up-an-adt-instance.md) for more information.
+* Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [Create an Azure Digital Twins instance](how-to-set-up-instance.md) for more information.
 
-* Know how to authenticate against ADT and how to create a service client object. See [How to Authenticate against ADT](how-to-authenticate.md) for more information.
+* Know how to authenticate against Azure Digital Twins and how to create a service client object. See [Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
 
 ## Create a twin graph (preview)
+
 To create a twin, you use the DigitalTwins.Add method on the service client:
 ```csharp
-await client.DigitalTwins.AddAsync("myNewTwinId", initData);
+await client.DigitalTwins.AddAsync("myNewTwinID", initData);
 ```
 
 To create a twin instance, you need to provide:
-* The desired id for the twin
+* The desired ID for the twin
 * The twin type you want to use 
 * Initial values for all properties of the twin (in this preview)
 
 ### Initialize properties
 
 All non-optional properties and components of Azure digital twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
-The Twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Twin Graph COncepts](concepts-twin-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twin-graph.md) for a description of the JSON format for a twin.
 
 A serializable parameter object can be constructed for example as in the following example: 
 
@@ -66,7 +67,7 @@ Dictionary<string, object> initData = new Dictionary<string, object>()
 };
 ```
 
-### Creating a Twin
+### Create a digital twin
 
 The following code sample shows a function that creates a twin of type room and initializes it:
 
@@ -98,16 +99,16 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-### Creating Relationships
+### Create relationships
 
 Relationships are created with `DigitalTwins.AddEdge'. To create a relationship, you need to specify:
-* The source twin id - the twin the relationship originates from
-* The target twin id - the twin the relationship arrives at
+* The source twin ID - the twin where the relationship originates
+* The target twin ID - the twin where the relationship arrives
 * A relationship name
 * A relationship ID
 
 The relationship ID must be unique within the given source twin and relationship name. It does not need to be globally unique.
-As an example, within the twin "foo" and the relationship "contains" the relationship id must be unique.
+As an example, within the twin "foo" and the relationship "contains" the relationship ID must be unique.
 
 ```csharp
 static async Task<bool> AddRelationship(string source, string relationship, string id, string target)
@@ -129,9 +130,9 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 ```
 
 
-### Creating a Simple Twin Hierarchy 
+### Create a digital twin hierarchy 
 
-The following snippet is a more complete sample that creates a simple hierarchy of twins with relationships.
+The following snippet is a more complete sample that creates a basic hierarchy of twins with relationships.
 ```csharp
 static async Task CreateTwins()
 {
@@ -298,8 +299,9 @@ public class RelationshipRecord
 }
 ```
 
-## Deleting Twins
-You can delete twins using `DigitalTwins.Delete(id)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
+## Delete digital twins
+
+You can delete twins using `DigitalTwins.Delete(ID)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
 
 Here is example code:
 
@@ -340,7 +342,7 @@ static async Task FindAndDeleteOutgoingRelationships(string id)
         {
             string relId = r.Value<string>("$edgeId");
             string relName = r.Value<string>("$relationship");
-            // Need twin id, relationshipname and edgeid to uniquely identify a particular relationship
+            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
             await client.DigitalTwins.DeleteEdgeAsync(id, relName, relId);
             Console.WriteLine($"Deleting relationship {relId} from {id}");
         }
@@ -375,7 +377,7 @@ static async Task FindAndDeleteIncomingRelationships(string id)
             string relId = r.EdgeId;
             string relName = r.Relationship;
             string source = r.SourceId;
-            // Need twin id, relationshipname and edgeid to uniquely identify a particular relationship
+            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
             await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
             Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
         }
@@ -386,7 +388,8 @@ static async Task FindAndDeleteIncomingRelationships(string id)
     }
 }
 ```
-### Delete ALl Twins
+### Delete all digital twins
+
 The following example shows how to delete all twins in the system:
 ```csharp
 static async Task DeleteAllTwins()

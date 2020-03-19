@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Retrieving, Updating and Deleting Twins and Relationships
+title: Retrieve, update and delete digital twins and relationships
 titleSuffix: Azure Digital Twins
-description: See how to retrieve, update and delete individual twins and relationships
+description: See how to retrieve, update and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Retrieving, Updating and Deleting Twins and Relationships
+# Retrieve, update and delete digital twins and relationships
 
-Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
+Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
 ## Get twin data for an entire digital twin
 
@@ -158,7 +158,7 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
-## List Relationships
+## List relationships
 
 To access relationships, you can write:
 
@@ -201,15 +201,17 @@ static async Task ListOutgoingRelationships(string id)
 }
 ```
 
-You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the "target" field from the relationship returned and use it as the id for your next call to DigitalTwins.GetById. 
+You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the `target` field from the relationship returned and use it as the ID for your next call to `DigitalTwins.GetById`. 
 
-## Deleting Relationships
+## Delete Relationships
+
 You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
-You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship id). ALl three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship ids do NOT need to be globally unique.
+You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship ID). All three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
 
 
-## Incoming Relationships
-ADT also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
+## Find incoming relationships
+
+Azure Digital Twins also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
 
 A similar example to the above one for outgoing relationships - this code finds and deletes all incoming relationships to a twin.
 ```csharp
@@ -237,7 +239,7 @@ static async Task FindAndDeleteIncomingRelationships(string id)
             string relId = r.EdgeId;
             string relName = r.Relationship;
             string source = r.SourceId;
-            // Need twin id, relationshipname and edgeid to uniquely identify a particular relationship
+            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
             await client.DigitalTwins.DeleteEdgeAsync(source, relName, relId);
             Console.WriteLine($"Deleting incoming relationship {relId} from {source}");
         }
@@ -252,5 +254,5 @@ static async Task FindAndDeleteIncomingRelationships(string id)
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin type](how-to-manage-model.md)
+* [Manage a twin type](how-to-manage-twin-type.md)
 * [Manage a twin graph](how-to-manage-graph.md)

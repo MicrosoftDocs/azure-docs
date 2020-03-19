@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Use the Azure Digital Twins APIs
 titleSuffix: Azure Digital Twins
-description: Understand details of the Azure Digital Twins API surface
+description: Understand details of the Azure Digital Twins API surface.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -18,33 +18,33 @@ ms.service: digital-twins
 # Developer overview of Azure Digital Twins APIs
 
 > [!TIP]
-> * To learn how to create an ADT instance, please see [How to Set Up an ADT Instance](how-to-set-up-an-adt-instance.md)
-> * To learn how to authenticate and connect to an instance, please see [How to Authenticate Against an ADT Instance](how-to-authenticate.md)
+> * To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+> * To learn how to authenticate and connect to an instance, please see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
 
 This article gives a brief overview of the API surface of Azure Digital Twins. 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
-* **DigitalTwinsModels** - The DigitalTwinsModels category provides APIs are used to manage the [twin types](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
+* **DigitalTwinsModels** - The DigitalTwinsModels category provides APIs are used to manage the [twin types](concepts-twin-types.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
-* **Query* - The Query category lets developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships
+* **Query** - The Query category lets developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md) through the system, as well as to downstream services.
 
-## Generating Azure Digital Twins SDKs (preview)
+## Generate Azure Digital Twins SDKs (preview)
 
-For private preview, Azure Digital Twins does not ship with an SDK. You can either use the REST APIs directly, or you can generate an SDK using Autorest. We will provide official SDKs for ADT at a later date. 
+For private preview, Azure Digital Twins does not ship with an SDK. You can either use the REST APIs directly, or you can generate an SDK using Autorest. We will provide official SDKs for Azure Digital Twins at a later date. 
 
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest). Make sure you use version 2.0.4413.
 * [Node.js](https://nodejs.org) as a pre-requisite to Autorest
-* The OpenAPI (swagger) file that contains the [ADT API definitions](https://msazure.visualstudio.com/One/_git/Azure-IoT-DigitalTwins-Main?path=%2Fproducts%2Fswagger%2Fexternal-data-plane%2Fpreview%2F2020-03-01-preview%2Fdigitaltwins.json&version=GBmaster&_a=contents).
+* The OpenAPI (swagger) file that contains the [Azure Digital Twins API definitions](https://msazure.visualstudio.com/One/_git/Azure-IoT-DigitalTwins-Main?path=%2Fproducts%2Fswagger%2Fexternal-data-plane%2Fpreview%2F2020-03-01-preview%2Fdigitaltwins.json&version=GBmaster&_a=contents).
 
 If you have node installed, you can make sure that you have the right version of Autorest installed using:
 ```bash
 npm install -g autorest@2.0.4413
 ```
 
-To run Autorest against the ADT swagger file:
-* Copy the ADT swagger file in a working directory
+To run Autorest against the Azure Digital Twins swagger file:
+* Copy the Azure Digital Twins swagger file in a working directory
 * On a command prompt, switch to that working directory
 * Run autorest:
 
@@ -52,57 +52,59 @@ To run Autorest against the ADT swagger file:
 autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-As a result, you will see a new folder named ADTApi in your working directory. The generated SDK files will have the namespace ADTApi, which we will continue to use in the examples in the how-to section.
+As a result, you will see a new folder named *ADTApi* in your working directory. The generated SDK files will have the namespace *ADTApi*, which we will continue to use in the examples in the how-to section.
 
 See [Adding the SDK to a Visual Studio Project] below for instructions how to build the SDK as a C# class library that can be included into other projects.
 
 Autorest supports a wide range of language code generators. We have so far only tested the SDK generation with C# and Typescript.
 
 
-## Adding the SDK to a Visual Studio Project
+## Add the SDK to a Visual Studio Project
 
-You can include the C# files generated by Autorest directly into a .NET solution. However, as you will likely need the ADT SDK in several separate projects (your client apps, Azure Functions apps etc.), we recommend that you build a separate project (a .NET class library) from the generated files. You can then include this class library project into your other solutions as a project reference.
+You can include the C# files generated by Autorest directly into a .NET solution. However, as you will likely need the Azure Digital Twins SDK in several separate projects (your client apps, Azure Functions apps etc.), we recommend that you build a separate project (a .NET class library) from the generated files. You can then include this class library project into your other solutions as a project reference.
 
-This section explains how to do build a separate project.
+This section explains how to build a separate project.
 
 [ToDo]Add screen shots
 
 * Create a new visual studio solution for a C# class library
-* Use the name ADTApi as the project name
-* In Solutions Explorer, right-click the ADTApi project of the generated solution and select Add>Existing Item...
+* Use the name "ADTApi" as the project name
+* In Solutions Explorer, right-select the *ADTApi* project of the generated solution and choose *Add > Existing Item...*
 * Find the folder where you generated the SDK and select the C# files at the root level
-* Click OK
-* Add a folder to the project (right-click on the project in solution explorer, and select Add>New Folder)
+* Press "OK"
+* Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
 * Name the folder "Models"
-* Right-click the Models folder in Solutions Explorer and select Add>Existing Item...
+* Right-select the Models folder in Solutions Explorer and select *Add > Existing Item...*
 * Select the C# files in the Models folder of the generated SDK and press Ok
 
 To build the SDK successfully, you need to add references to:
 * Microsoft.Rest.ClientRuntime and 
 * Microsoft.Rest.ClientRuntime.Azure
 
-To do so, open Tools>NuGet Package Manager>Manage NuGet Packages for Solution...
+To do so, open *Tools > NuGet Package Manager > Manage NuGet Packages for Solution...*.
 
 * In the panel, make sure the Browse tab is selected
-* Search for Microsoft.Rest
-* Select the ClientRuntime and ClientRuntime.Azure packages and add them to your solution
+* Search for "Microsoft.Rest"
+* Select the *ClientRuntime* and *ClientRuntime.Azure* packages and add them to your solution
 
-You can now build the project, and include it as a project reference in any ADT application you wish to write
+You can now build the project, and include it as a project reference in any Azure Digital Twins application you wish to write
 
-## General Usage Guidelines for the Generated C# SDK
+## General usage guidelines
 
-### Synchronous and Asynchronous Calls
+Aim to abide by the following guidelines when using the generated C# SDK.
+
+### Synchronous and asynchronous calls
+
 All SDK functions come in synchronous and asynchronous versions
 
-### Typed and Untyped Data - Use of JSON.Net
+### Typed and untyped data
+
 This is subject to change after private preview.
 
-Generally, we aim to return strongly typed objects from REST api calls. However, because ADT lets users define their own types for twins (effectively, custom types), we have no way to pre-define static return data for many ADT calls. Instead, we return strongly typed wrapper types where applicable, but the twin-related data (custom types) itself is in form of JSON.Net objects, wherever the data type "object" appears in the API signatures. You can cast these objects appropriately.
+Generally, we aim to return strongly typed objects from REST API calls. However, because Azure Digital Twins lets users define their own types for twins (effectively, custom types), we have no way to pre-define static return data for many Azure Digital Twins calls. Instead, we return strongly typed wrapper types where applicable, but the twin-related data (custom types) itself is in form of Json.NET objects, wherever the data type "object" appears in the API signatures. You can cast these objects appropriately.
 
-### Azure SDK Guideline Compliance
-Unlike the Autorest-generated SDK, the future official SDK will conform to the [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and specifically for C# [the C# SDK guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+### Error handling
 
-### Error Handling
 Whenever an error occurs in the SDK, the SDK will throw an exception, even for errors such as 404, and so on. It is therefore important to encapsulate all API calls with try/catch blocks.
 
 ```csharp
@@ -118,16 +120,17 @@ catch (ErrorResponseException e)
 ```
 
 ### Paging
+
 Autorest generates two types of paging patterns for the SDK:
-* One for all APIs except the query API
-* One for the query API
+* One for all APIs except the Query API
+* One for the Query API
 
 The non-query paging pattern works as follows:
 There are two versions of each call
 * A version to make the initial call (e.g. DigitalTwins.ListEdges())
 * A version to get subsequent pages, suffixed with "Next" (e.g. DigitalTwins.ListEdgesNext())
 
-A more complete code snippet shows how to retrieve a list of outgoing relationships from ADT:
+A more complete code snippet shows how to retrieve a list of outgoing relationships from Azure Digital Twins:
 ```csharp
 try
 {
@@ -160,7 +163,7 @@ catch (ErrorResponseException e)
 }
 ```
 
-The second pattern is only generated for the query API. It uses a continuationToken explicitly.
+The second pattern is only generated for the Query API. It uses a `continuationToken` explicitly.
 An example:
 
 ```csharp
@@ -197,6 +200,6 @@ try
 ## Next steps
 
 See how to use the APIs to manage twin types, digital twins, and twin graphs:
-* [Manage a twin type](how-to-manage-model.md)
+* [Manage a twin type](how-to-manage-twin-type.md)
 * [Manage an individual digital twin](how-to-manage-twin.md)
 * [Manage a twin graph](how-to-manage-graph.md)
