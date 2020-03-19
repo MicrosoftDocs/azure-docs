@@ -32,8 +32,8 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 
    ![Open Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
 1. In the **Select environment** drop-down menu, choose **Bash**.
-1. List your subscriptions by typing the command `az account list --output table`. Note the Id of the subscription that you will use for this project.
-1. Set the subscription you will use for this project and set the subscriptioID variable which will be used later.
+1. List your subscriptions by typing the command `az account list --output table`. Note the ID of the subscription that you will use for this project.
+1. Set the subscription you will use for this project and set the subscriptionID variable which will be used later.
 
     ```cli
     subscriptionID="<SUBSCRIPTION ID>"
