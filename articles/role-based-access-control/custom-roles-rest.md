@@ -162,9 +162,9 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
-1. Within the request body, in the `assignableScopes` property, replace *{roleDefinitionId}* with the GUID identifier.
+1. Within the request body, replace *{roleDefinitionId}* with the GUID identifier.
 
-1. Replace *{subscriptionId}* with your subscription identifier.
+1. In the `assignableScopes` property, replace *{subscriptionId}* with your subscription identifier. Or specify a resource group.
 
 1. In the `actions` property, add the operations that the role allows to be performed.
 
