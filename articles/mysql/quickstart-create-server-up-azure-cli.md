@@ -29,7 +29,7 @@ You'll need to login to your account using the [az login](/cli/azure/authenticat
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription ID** property from the **az login** output for your subscription into the subscription ID placeholder.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -59,7 +59,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup should be retained. Unit is days.
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
 location | westus2 | The Azure location for the server.
-ssl-enforcement | Disabled | Whether ssl should be enabled or not for this server.
+ssl-enforcement | Disabled | Whether SSL should be enabled or not for this server.
 storage-size | 5120 | The storage capacity of the server (unit is megabytes).
 version | 5.7 | The MySQL major version.
 admin-user | System generated | The username for the administrator login.
