@@ -52,6 +52,8 @@ While we recommend that you use datasets to import data, you can also use the [I
 
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
+[!NOTE]
+> If the data has many columns, you may encounter "Validation failed due to size limitation" in Import Data Module. That's because the columns excludes maxmium module parameter length after encode. In this case we recommend to [register the dataset in Datasets UI](how-to-create-register-datasets.md#use-the-ui), which can avoid the error.  
 
 ## Supported sources
 

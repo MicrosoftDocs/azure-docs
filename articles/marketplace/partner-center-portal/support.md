@@ -22,9 +22,9 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 1. Sign in to the [Commercial Marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
 
-1. In the upper menu on the right side of the page, select the **Support** icon. 
+2. In the upper menu on the right side of the page, select the **Support** icon. 
  
-1. The **Help and support** pane will appear from the right-hand side of the page. 
+3. The **Help and support** pane will appear from the right-hand side of the page. 
  
    ![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
 
@@ -32,11 +32,11 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
    ![Help and support from Home page](./media/homepage-help-support.png)
 
-1. Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
+4. Select **[Documentation](../index.yml)** to review comprehensive answers to questions and resources. 
 
-1. Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
+5. Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
 
-1. Select **[Additional help](https://aka.ms/marketplacepublishersupport)** to open a **New support request** ticket.  
+6. Select **[Additional help](https://aka.ms/marketplacepublishersupport)** to open a **New support request** ticket.  
 
 ## How to open a support ticket
 

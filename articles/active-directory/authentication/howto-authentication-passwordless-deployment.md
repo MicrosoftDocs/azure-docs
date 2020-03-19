@@ -128,7 +128,7 @@ See [Best practices for a pilot](https://aka.ms/deploymentplans) on the deployme
 
 ## Plan passwordless authentication with the Microsoft Authenticator app
 
-The Microsoft Authenticator app is a free download from Google Play or the Apple App Store. [Learn more about downloading the Microsoft Authenticator app](https://www.microsoft.com/account/authenticator?cmp=h66ftb_42hbak). Have users download the Microsoft Authenticator app. and follow the directions to enable phone sign in. 
+The Microsoft Authenticator app is a free download from Google Play or the Apple App Store. [Learn more about downloading the Microsoft Authenticator app](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Have users download the Microsoft Authenticator app. and follow the directions to enable phone sign in. 
 
 It turns any iOS or Android phone into a strong, passwordless credential. Users sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone, and then using biometrics or a PIN to confirm. [See details on how the Microsoft Authenticator app works](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
 

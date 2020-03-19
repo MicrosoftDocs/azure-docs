@@ -167,14 +167,12 @@ Depending on business logic of custom STS, different claims are issued in the JW
 
 ### Question
 
-For Widevine security levels, in Google’s [Widevine DRM Architecture Overview doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentation,
-it defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md),
+For Widevine security levels, the Google’s "Widevine DRM Architecture Overview" doc defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md),
 five different security levels are outlined. What is the relationship or mapping between the two different sets of security levels?
 
 ### Answer
 
-In Google’s [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf),
-it defines the following three security levels:
+The Google’s "Widevine DRM Architecture Review" doc defines the following three security levels:
 
 1.  Security Level 1: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.
 2.  Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
@@ -182,7 +180,7 @@ it defines the following three security levels:
 
 At the same time, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
 
-1.  Software-based whitebox crypto is required.
+1.  Software-based white-box crypto is required.
 2.  Software crypto and an obfuscated decoder is required.
 3.  The key material and crypto operations must be performed within a hardware backed TEE.
 4.  The crypto and decoding of content must be performed within a hardware backed TEE.

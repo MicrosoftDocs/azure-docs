@@ -1,9 +1,9 @@
 ---
-author: erhopf
+author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: erhopf
+ms.date: 03/10/2020
+ms.author: dapine
 ---
 
 ## Prerequisites

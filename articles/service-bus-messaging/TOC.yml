@@ -101,9 +101,11 @@
         - name: Authenticate with managed identities for Azure resources 
           href: service-bus-managed-service-identity.md
         - name: Authenticate from an application 
-          href: authenticate-application.md
+          href: authenticate-application.md      
     - name: Built-in security controls
       href: service-bus-messaging-security-controls.md
+    - name: Network security
+      href: network-security.md
 - name: How-to guides
   items:
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
@@ -152,10 +154,6 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
-      - name: Use firewalls
-        href: service-bus-ip-filtering.md
-      - name: Virtual Network service endpoints
-        href: service-bus-service-endpoints.md
       - name: Dead-letter queues
         href: service-bus-dead-letter-queues.md
       - name: Prefetch messages
@@ -203,7 +201,13 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure customer-managed keys for encryption at rest
+    - name: Configure firewalls
+      href: service-bus-ip-filtering.md
+    - name: Configure virtual network service endpoints
+      href: service-bus-service-endpoints.md
+    - name: Configure private endpoints (preview)
+      href: private-link-service.md
+    - name: Configure customer-managed keys
       href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:

@@ -38,7 +38,7 @@ All resources must be deployed in the same resource group.
 
 Create the resource group in the location that you select. This example shows the creation of a resource group named cdn in the East US location.
 
-```bash
+```azurecli-interactive
 az group create --name cdn --location eastus
 ```
 
@@ -185,7 +185,7 @@ Deploy the template using Azure CLI. You will be prompted for 2 inputs:
 
 **endpointOriginHostName** - the endpoint that will be served through the CDN, for example, cdndemo.azurewebsites.net.
 
-```bash
+```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
@@ -193,7 +193,7 @@ az group deployment create --resource-group cdn --template-file arm-cdn.json
 
 ## View the CDN profile
 
-```bash
+```azurecli-interactive
 az cdn profile list --resource-group cdn -o table
 ```
 
@@ -201,7 +201,7 @@ az cdn profile list --resource-group cdn -o table
 
 ## View the CDN Endpoint for the profile standard-microsoft
 
-```bash
+```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
@@ -213,7 +213,7 @@ Use the HostName to view the content. For example, access https://cdndemo-azurew
 
 Deleting the resource group will automatically remove all of the resources that were deployed in it.
 
-```bash
+```azurecli-interactive
 az group delete --name cdn
 ```
 

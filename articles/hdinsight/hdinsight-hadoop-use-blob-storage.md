@@ -20,11 +20,11 @@ In this article, you learn how Azure Storage works with HDInsight clusters. To l
 > [!IMPORTANT]  
 > Storage account kind **BlobStorage** can only be used as secondary storage for HDInsight clusters.
 
-| Storage account kind | Supported services | Supported performance tiers | Supported access tiers |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (general-purpose v2)  | Blob     | Standard                    | Hot, Cool, Archive\*   |
-| Storage (general-purpose v1)   | Blob     | Standard                    | N/A                    |
-| BlobStorage                    | Blob     | Standard                    | Hot, Cool, Archive\*   |
+| Storage account kind | Supported services | Supported performance tiers |Not supported performance tiers| Supported access tiers |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (general-purpose v2)  | Blob     | Standard                    |Premium| Hot, Cool, Archive\*   |
+| Storage (general-purpose v1)   | Blob     | Standard                    |Premium| N/A                    |
+| BlobStorage                    | Blob     | Standard                    |Premium| Hot, Cool, Archive\*   |
 
 We don't recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. The default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 

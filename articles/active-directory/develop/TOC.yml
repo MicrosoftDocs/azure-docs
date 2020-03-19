@@ -1,11 +1,11 @@
-- name: Microsoft identity platform (Azure Active Directory for developers)
+- name: Microsoft identity platform documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
   - name: Evolution of Microsoft identity platform
-    href: about-microsoft-identity-platform.md  
+    href: about-microsoft-identity-platform.md
 - name: Quickstarts
   expanded: true
   items:
@@ -237,7 +237,7 @@
       - name: Calling a web API
         href: scenario-mobile-call-api.md
       - name: Move to production
-        href: scenario-mobile-production.md      
+        href: scenario-mobile-production.md
   - name: Microsoft Authentication Library (MSAL)
     items:
     - name: Overview
@@ -305,7 +305,7 @@
       - name: Initialize applications - JavaScript
         href: msal-js-initializing-client-applications.md
     - name: Handle errors and exceptions
-      href: msal-handling-exceptions.md        
+      href: msal-handling-exceptions.md
     - name: Logging
       href: msal-logging.md
     - name: Single sign-on
@@ -343,14 +343,14 @@
         - name: MSAL.NET
           items:
           - name: Web browsers
-            href: msal-net-web-browsers.md              
+            href: msal-net-web-browsers.md
         - name: MSAL.js
           items:
           - name: Considerations - IE
             href: msal-js-use-ie-browser.md
           - name: Known issues - IE and Microsoft Edge
             href: msal-js-known-issues-ie-edge-browsers.md
-          - name: Known issues - Safari 
+          - name: Known issues - Safari
             href: msal-js-known-issues-safari-browser.md
         - name: Troubleshoot SSL issues (MSAL iOS/macOS)
           href: ssl-issues.md
@@ -359,7 +359,7 @@
     items:
     - name: Application types and OAuth 2.0
       displayName: App types, OAuth
-      href: v2-app-types.md      
+      href: v2-app-types.md
     - name: OAuth 2.0 and OpenID Connect protocols
       items:
       - name: OAuth 2.0 and OpenID Connect
@@ -507,7 +507,7 @@
           - name: Pass custom state in authentication requests
             href: msal-js-pass-custom-state-authentication-request.md
           - name: Prompt behavior
-            href: msal-js-prompt-behavior.md 
+            href: msal-js-prompt-behavior.md
       - name: MSAL for iOS and macOS
         items:
           - name: MSAL for iOS and macOS differences

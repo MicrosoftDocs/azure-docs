@@ -58,7 +58,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results and also to reduce the need for cleanup.  Temporary tables utilize local storage to offer fast performance.  For more information, see  [Temporary tables](sql-data-warehouse-tables-temporary.md).
 
 ### External table
-An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
+An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 ## Data types
 SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
@@ -74,7 +74,7 @@ For more information, see [Design guidance for distributed tables](sql-data-ware
 ### Replicated tables
 A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables since joins on replicated tables do not require data movement. Replication requires extra storage, though, and is not practical for large tables. 
 
-For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md).
+For more information, see [Design guidance for replicated tables](../synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables.md).
 
 ### Round-robin tables
 A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  However, queries can require more data movement than the other distribution methods. 
@@ -339,4 +339,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw.md).
