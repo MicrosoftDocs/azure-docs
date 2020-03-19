@@ -15,8 +15,8 @@ Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB c
 
 This tutorial provides two ways to retrieve connection string information:
 
-- [The quickstart method](#QuickstartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers
-- [The custom connection string method](#GetCustomConnection), for use with other drivers
+- [The quickstart method](#Get-the-MongoDB-connection-string-by-using-the-quick-start), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers
+- [The custom connection string method](#Get-the-MongoDB-connection-string-to-customize), for use with other drivers
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This tutorial provides two ways to retrieve connection string information:
 1. In an Internet browser, sign in to the [Azure portal](https://portal.azure.com).
 2. In the **Azure Cosmos DB** blade, select the API.
 3. In the left pane of the account blade, click **Quick start**.
-4. Choose your platform (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). If you don't see your driver or tool listed, don't worry--we continuously document more connection code snippets. Please comment below on what you'd like to see. To learn how to craft your own connection, read [Get the account's connection string information](#GetCustomConnection).
+4. Choose your platform (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). If you don't see your driver or tool listed, don't worry--we continuously document more connection code snippets. Please comment below on what you'd like to see. To learn how to craft your own connection, read [Get the account's connection string information](#Get-the-MongoDB-connection-string-to-customize).
 5. Copy and paste the code snippet into your MongoDB app.
 
     ![Quick start blade](./media/connect-mongodb-account/QuickStartBlade.png)
