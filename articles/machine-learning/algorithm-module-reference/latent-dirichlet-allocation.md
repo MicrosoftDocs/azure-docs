@@ -67,7 +67,8 @@ This module requires a dataset that contains a column of text, either raw or pre
 
     + Values in the feature topic matrix will be represented as a probability where `P(word|topic)`.
 
-    > **_ATTENTION:_** In Azure Machine Learning designer (preview), because the library that we based, scikit-learn, no longer support unnormalized *doc_topic_distr* output from version 0.19, therefore, in this module, **Normalize** parameter can only be applied to **Feature Topic matrix** output, **Transformed dataset** output is always normalized.
+    > [!NOTE] 
+    > In Azure Machine Learning designer (preview), because the library that we based, scikit-learn, no longer support unnormalized *doc_topic_distr* output from version 0.19, therefore, in this module, **Normalize** parameter can only be applied to **Feature Topic matrix** output, **Transformed dataset** output is always normalized.
 
 7. Select the option, **Show all options**, and then set it to TRUE if you want to view and then set additional advanced parameters.
 
