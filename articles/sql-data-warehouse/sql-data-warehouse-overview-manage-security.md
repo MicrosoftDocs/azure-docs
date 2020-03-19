@@ -18,8 +18,8 @@ tags: azure-synapse
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)
 > * [Authentication](sql-data-warehouse-authentication.md)
-> * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> * [Encryption (Portal)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde.md)
+> * [Encryption (T-SQL)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
@@ -91,7 +91,7 @@ Transparent Data Encryption (TDE) helps protect against the threat of malicious 
 
 In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used is AES-256. For a general description of TDE, see [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15).
 
-You can encrypt your database using the [Azure portal](sql-data-warehouse-encryption-tde.md) or [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
+You can encrypt your database using the [Azure portal](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde.md) or [T-SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Next steps
 For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
