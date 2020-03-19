@@ -6,10 +6,9 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build a PHP and MySQL app in Azure
 
 > [!NOTE]
@@ -180,7 +179,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  ...	+  
+  ...    +  
   -  < Output has been truncated for readability >
 }
 ```
