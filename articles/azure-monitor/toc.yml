@@ -971,6 +971,8 @@
       href: platform/grafana-plugin.md
   - name: Alerting
     items:
+    - name: Troubleshoot alerts
+      href: platform/alerts-troubleshoot.md
     - name: Application alert rules
       items:
       - name: Availability
@@ -995,7 +997,7 @@
         href: platform/alerts-log-query.md
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
-      - name: Troubleshooting
+      - name: Troubleshoot log alerts
         href: platform/alert-log-troubleshoot.md
     - name:  Activity log alert rules
       items:
