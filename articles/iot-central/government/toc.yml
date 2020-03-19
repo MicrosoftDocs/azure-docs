@@ -91,7 +91,7 @@
           href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
 - name: Resources
   items:
-    - name: Azure IoT
+    - name: Azure IoT services
       items:
       - name: IoT Hub
         href: /azure/iot-hub

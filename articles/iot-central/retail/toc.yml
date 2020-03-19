@@ -117,7 +117,7 @@
   items:
     - name: Support and help options
       href: /azure/iot-fundamentals/iot-support-help
-    - name: Azure IoT
+    - name: Azure IoT services
       items:
       - name: IoT Hub
         href: /azure/iot-hub
@@ -135,6 +135,8 @@
         href: /azure/azure-maps
       - name: Time Series Insights
         href: /azure/time-series-insights
+    - name: Azure IoT SDKs
+      items:
       - name: IoT Service SDKs
         href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
       - name: IoT Device SDKs
