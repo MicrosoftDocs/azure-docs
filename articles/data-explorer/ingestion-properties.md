@@ -11,7 +11,11 @@ ms.date: 03/19/2020
 
 # Azure Data Explorer data ingestion properties 
 
-Data ingestion is the process by which data is added to a table and is made available for query in Azure Data Explorer. The following table describes the properties supported by Azure Data Explorer. You add properties to the ingestion command after the `with` keyword.
+Data ingestion is the process by which data is added to a table and is made available for query in Azure Data Explorer. You add properties to the ingestion command after the `with` keyword.
+
+## Ingestion properties
+
+The following table lists the properties supported by Azure Data Explorer, describes them, and provides examples: 
 
 |Property              |Description                                              |Example                                             |
 |----------------------|---------------------------------------------------------|----------------------------------------------------|
