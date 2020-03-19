@@ -30,6 +30,10 @@
   items:
   - name: Administrator guide
     href: administrator-guide.md
+  - name: Accelerated lab account set up guide
+    href: lab-account-setup-guide.md
+  - name: Accelerated lab set up guide
+    href: lab-setup-guide.md
   - name: Classroom labs - class types
     items:
     - name: Class types overview
