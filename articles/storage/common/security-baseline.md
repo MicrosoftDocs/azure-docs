@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Storage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

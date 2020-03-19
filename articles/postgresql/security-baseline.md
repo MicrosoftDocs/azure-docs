@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Database for PostgreSQL Single Se
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -378,7 +378,7 @@ Understand access management for Azure Database for PostgreSQL: https://docs.mic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3823).
 
-**Guidance**: Azure Active Directory does not have the concept of default passwords.
+**Guidance**: Azure Active Directory and Azure Database for PostgreSQL do not have the concept of default passwords.
 
 Upon creation of the Azure Database for PostgreSQL resource itself, Azure forces the creation of an administrative user with a strong password. However, once the PostgreSQL instance has been created, you may use the first server admin account you created account to create additional users and grant administrative access to them. When creating these accounts, ensure you configure a different, strong password for each account.
 
@@ -411,7 +411,7 @@ Understand how to create admin users in Azure Database for PostgreSQL: https://d
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3825).
 
-**Guidance**: Signing into Azure Database for PosgreSQL is supported both using username/password configured directly in the database, as well as using an Azure Active Directory (AD) identity and utilizing an Azure AD token to connect. When using an Azure AD token, different methods are supported, such as an Azure AD user, an Azure AD group, or an Azure AD application connecting to the database.
+**Guidance**: Signing into Azure Database for PostgreSQL is supported both using username/password configured directly in the database, as well as using an Azure Active Directory (AD) identity and utilizing an Azure AD token to connect. When using an Azure AD token, different methods are supported, such as an Azure AD user, an Azure AD group, or an Azure AD application connecting to the database.
 
 Separately, control plane access for PostgreSQL is available via REST API and supports SSO. To authenticate, set the Authorization header for your requests to a JSON Web Token that you obtain from Azure Active Directory.
 
@@ -672,7 +672,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-How to configure user access with SQL for Azure Database for PostgreSQL: https: //docs.microsoft.com/azure/postgresql/howto-create-users
+How to configure user access with SQL for Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-create-users
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -707,6 +707,7 @@ AskAzureDBforPostgreSQL@service.microsoft.com.
 Understand encryption at-rest for Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/concepts-security
 
 Understand encryption at-rest for Azure Database for PostgreSQL using customer-managed keys: https://docs.microsoft.com/azure/postgresql/concepts-data-encryption-postgresql
+
 
 **Azure Security Center monitoring**: Not applicable
 
