@@ -25,7 +25,7 @@ This module takes a column of text, and generates these outputs:
 
 + A transformation, which you can save and reapply to new text used as input
 
-This module uses the scikit-learn library. For more information about scikit-learn, see the [GitHub repository](https://github.com/scikit-learn/scikit-learn) which includes tutorials and an explanation of the algorithm.
+This module uses the scikit-learn library. For more information about scikit-learn, see the [GitHub repository, which includes tutorials and an explanation of the algorithm.
 
 ### More about Latent Dirichlet Allocation (LDA)
 
@@ -37,7 +37,7 @@ A generative model can be preferable because it avoids making any strong assumpt
 
 + The implementation in this module is based on the [scikit-learn library](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/decomposition/_lda.py) for LDA.
 
-For more information, see the [Technical notes](#bkmk_AboutLDA) section.
+For more information, see the [Technical notes](#technical-notes) section.
 
 ## How to configure Latent Dirichlet Allocation
 
@@ -105,13 +105,12 @@ The module has two outputs:
 
 + **Feature topic matrix**: The leftmost column contains the extracted text feature, and there is a column for each category containing the score for that feature in that category.
 
-For details, see [Example of LDA results](#bkmk_Understanding).
 
 ### LDA transformation
 
-This module also outputs the *transformation* that applies LDA to the dataset, as an [ITransform interface](itransform-interface.md).
+This module also outputs the *LDA transformation* that applies LDA to the dataset.
 
-You can save this transformation and re-use it for other datasets. This might be useful if you have trained on a large corpus and want to reuse the coefficients or categories.
+You can save this transformation by register dataset under **Outputs+logs** tab in the right pane of the module and reuse it for other datasets. This might be useful if you have trained on a large corpus and want to reuse the coefficients or categories.
 
 ### Refining an LDA model or results
 
@@ -137,7 +136,7 @@ The accuracy of models based on LDA can often be improved by using natural langu
 
 + Named entity recognition
 
-For more information, see [Preprocess Text](preprocess-text.md) and [Named Entity Recognition](named-entity-recognition.md).
+For more information, see [Preprocess Text](preprocess-text.md).
 
 In the designer, you can also use R or Python libraries for text processing: [Execute R Script](execute-r-script.md),  [Execute Python Script](execute-python-script.md)
 
