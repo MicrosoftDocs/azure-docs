@@ -18,7 +18,7 @@ ms.author: rohink
 
 Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you might need to allow the virtual machines (VMs), and other resources deployed in a virtual network to communicate with each other. Although you can enable communication by using IP addresses, it is much simpler to use names that can be easily remembered, and do not change. 
 
-When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of two methods:
+When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of three methods:
 
 * [Azure DNS private zones](../dns/private-dns-overview.md)
 * [Azure-provided name resolution](#azure-provided-name-resolution)
