@@ -116,6 +116,12 @@ For information on putting the key vault in the virtual network, see [Use a key 
 
 For information on enabling Private Link for the key vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/private-link-service).
 
+## Using Azure Kubernetes Services
+
+To secure the Azure Kubernetes services used by your workspace, put it inside a virtual network. For more information, see [Use Azure Kubernetes Services with your workspace](how-to-enable-virtual-network.md#aksvnet).
+
+> [!WARNING]
+> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
 
 ## Azure Container Registry
 
