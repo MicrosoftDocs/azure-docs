@@ -15,7 +15,7 @@ ms.author: yushwang
 
 This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>About IPsec and IKE policy parameters for Azure VPN gateways
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.

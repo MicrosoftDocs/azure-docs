@@ -179,7 +179,7 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 - **Service bus**: Azure Migrate Server Migration uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault).   
 
 
 ## Track and monitor
@@ -243,7 +243,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
+1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
 2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/06/2019
+ms.date: 03/06/2020
 ms.custom: seodec18
 
 ---
 
 
 # Manage access to an Azure Machine Learning workspace
-[!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to manage access to an Azure Machine Learning workspace. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources. Users in your Azure Active Directory are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
@@ -108,6 +108,62 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
 
 For more information on the operations (actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+
+## Frequently asked questions
+
+
+### Q. What are the permissions needed to perform various actions in the Azure Machine Learning service?
+
+The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. As an example if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically. All paths in this table are **relative paths** to `Microsoft.MachineLearningServices/`.
+
+| Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
+|---|---|---|---|
+| Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
+| Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
+| Create new Notebook VM | Not required | Owner or contributor | Not possible |
+| Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
+| Data plane activity like submitting run, accessing data, deploying model or publishing pipeline | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/*/write` <br/> Note that you also need a datastore registered to the workspace to allow MSI to access data in your storage account. |
+
+
+### Q. How do I list all the custom roles in my subscription?
+
+In the Azure CLI, run the following command.
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+### Q. How do I find the role definition for a role in my subscription?
+
+In the Azure CLI, run the following command. Note that `<role-name>` should be in the same format returned by the command above.
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+### Q. How do I update a role definition?
+
+In the Azure CLI, run the following command.
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+Note that you need to have permissions on the entire scope of your new role definition. For example if this new role has a scope across three subscriptions, you need to have permissions on all three subscriptions. 
+
+> [!NOTE]
+> Role updates can take 15 minutes to an hour to apply across all role assignments in that scope.
+### Q. Can I define a role that prevents updating the workspace Edition? 
+
+Yes, you can define a role that prevents updating the workspace Edition. Since the workspace update is a PATCH call on the workspace object, you do this by putting the following action in the `"NotActions"` array in your JSON definition: 
+
+`"Microsoft.MachineLearningServices/workspaces/write"`
+
+### Q. What permissions are needed to perform quota operations in a workspace? 
+
+You need subscription level permissions to perform any quota related operation in the workspace. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope. 
+
 
 ## Next steps
 

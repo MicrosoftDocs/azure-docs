@@ -1,7 +1,6 @@
 ---
 title: Overview of log queries in Azure Monitor | Microsoft Docs
 description: Answers common questions related to log queries and gets you started in using them.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

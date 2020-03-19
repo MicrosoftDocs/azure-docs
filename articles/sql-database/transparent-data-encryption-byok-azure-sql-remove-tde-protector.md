@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/12/2019
+ms.date: 02/24/2020
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
@@ -37,11 +37,11 @@ For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 This how-to guide describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-azure-sql.md).
 
-The following procedures should only be done in extreme cases or in test environments. Review the how-to guide carefully, as deleting actively used TDE protectors from Azure Key Vault can result in **data loss**.
+The following procedures should only be done in extreme cases or in test environments. Review the how-to guide carefully, as deleting actively used TDE protectors from Azure Key Vault will result in **database unavailability**.
 
 If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it’s best to delete the key.
 
-Keep in mind that once the TDE protector is deleted in Key Vault, **all connections to the encrypted databases under the server are blocked, and these databases go offline and get dropped within 24 hours**. Old backups encrypted with the compromised key are no longer accessible.
+Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
 
 The following steps outline how to check the TDE Protector thumbprints still in use by Virtual Log Files (VLF) of a given database.
 The thumbprint of the current TDE protector of the database, and the database ID can be found by running:
@@ -174,6 +174,8 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
 2. Back up the key material of the TDE protector in Key Vault.
 3. Remove the potentially compromised key from Key Vault
+
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## Next steps
 

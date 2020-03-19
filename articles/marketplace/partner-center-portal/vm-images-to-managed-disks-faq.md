@@ -52,6 +52,10 @@ We recommend moving the images on the scheduled date. However, if you have conce
 
 Updates to the VM images cannot be made during the move.
 
-## Next steps
+### Will the publishing process change after my VM Image is moved to Managed Disk?
 
-Visit the [virtual machine offer publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) page.
+No, the publishing process will remain the same. 
+
+### Can the publisher move their offers to Managed Disk?
+
+No, the publishers cannot move their offers to Managed Disk. They will have to wait and their images will be moved automatically. We will send notifications to the publisher before we make any changes.

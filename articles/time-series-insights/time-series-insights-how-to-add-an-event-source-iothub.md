@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.custom: seodec18
 ---
 
@@ -49,7 +49,7 @@ To add a new consumer group to your IoT hub:
 
 1. In the left menu, select **All resources**. Select your Time Series Insights environment.
 
-1. Under **Environment Topology**, select **Event Sources**, and then select **Add**.
+1. Under **Settings**, select **Event Sources**, and then select **Add**.
 
    [![Select Event Sources, and then select the Add button](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 

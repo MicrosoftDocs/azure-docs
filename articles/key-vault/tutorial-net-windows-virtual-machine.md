@@ -6,6 +6,7 @@ author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
@@ -31,13 +32,13 @@ The tutorial shows you how to:
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## About Managed Service Identity
 
@@ -114,7 +115,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -154,9 +155,9 @@ dotnet run
 
 ### Install the packages
 
- From the console window, install the .NET packages required for this quickstart:
+From the console window, install the .NET packages required for this quickstart:
 
- ```console
+```console
 dotnet add package System.IO;
 dotnet add package System.Net;
 dotnet add package System.Text;
@@ -177,10 +178,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Edit the class file to contain the code in the following two-step process:
+Edit the class file to contain the code in the following three-step process:
 
 1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
-1. Pass the token to your key vault, and then fetch your secret. 
+2. Pass the token to your key vault, and then fetch your secret. 
+3. Add the vault name and secret name to the request.
 
 ```csharp
  class Program
@@ -201,9 +203,10 @@ Edit the class file to contain the code in the following two-step process:
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();

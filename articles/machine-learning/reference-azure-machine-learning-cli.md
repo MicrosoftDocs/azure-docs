@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 11/05/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
 ---
 
@@ -29,7 +29,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Prerequisites
 
-* To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -171,7 +171,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset register -f mydataset.json
     ```
 
-    For information on the format of the JSON file used to define the dataset, use `az ml dataset --show-template`.
+    For information on the format of the JSON file used to define the dataset, use `az ml dataset register --show-template`.
 
     For more information, see [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 

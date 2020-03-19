@@ -3,7 +3,7 @@ title: Configure your security solution to connect CEF data to Azure Sentinel Pr
 description: Learn how to configure your security solution to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # STEP 2: Configure your security solution to send CEF messages

@@ -2,11 +2,11 @@
 title: Azure Disk Encryption scenarios on Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs for various scenarios
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
-
 ms.custom: seodec18
 
 ---
@@ -404,6 +404,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Dynamic volumes.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
+- Moving an encrypted VMs to another subscription.
 - Kernel Crash Dump (kdump).
 
 ## Next steps

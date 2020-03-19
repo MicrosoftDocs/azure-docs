@@ -38,7 +38,7 @@ The steps in the next section describe how to configure Redis persistence on you
 
 ## Enable Redis persistence
 
-Redis persistence is enabled on the **Redis data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
+Redis persistence is enabled on the **Data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Data persistence** blade is accessed from the **Resource menu** for your cache.
 
 ![Redis settings][redis-cache-settings]
 
@@ -125,7 +125,7 @@ For both RDB and AOF persistence:
 * If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
 ### Can I change the RDB backup frequency after I create the cache?
-Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see Configure Redis persistence.
+Yes, you can change the backup frequency for RDB persistence on the **Data persistence** blade. For instructions, see Configure Redis persistence.
 
 ### Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?
 The RDB persistence backup frequency interval does not start until the previous backup process has completed successfully. If the backup frequency is 60 minutes and it takes a backup process 15 minutes to successfully complete, the next backup won't start until 75 minutes after the start time of the previous backup.

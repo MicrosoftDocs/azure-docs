@@ -5,10 +5,10 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) authoring client library for Node.js to:
@@ -19,7 +19,7 @@ Use the Language Understanding (LUIS) authoring client library for Node.js to:
 * Train and publish an app.
 * Delete app
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Authoring Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Authoring Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [Runtime Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 ## Authenticate the client
 
-Create an [CognitiveServicesCredentials]() object with your key, and use it with your endpoint to create an [LUISAuthoringClient]() object.
+Create an [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) object with your key, and use it with your endpoint to create an [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) object.
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 
@@ -183,7 +183,7 @@ Publish the LUIS app using the [app.publish](https://docs.microsoft.com/javascri
 
 ## Delete a Language Understanding app
 
-Publish the LUIS app using the [app.deleteMethod](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) method. This deletes the current app.
+Delete the LUIS app using the [app.deleteMethod](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) method. This deletes the current app.
 
 [!code-javascript[Publish LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringDeleteApp&highlight=2)]
 

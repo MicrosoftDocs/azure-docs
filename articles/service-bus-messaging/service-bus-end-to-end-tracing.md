@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
-description: Overview of Service Bus client diagnostics and end-to-end tracing
+description: Overview of Service Bus client diagnostics and end-to-end tracing (client through all the services that are involved in processing.)
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

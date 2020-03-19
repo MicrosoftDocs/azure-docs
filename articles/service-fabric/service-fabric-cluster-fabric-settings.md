@@ -84,6 +84,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |TargetReplicaSetSize |Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ClusterManager. |
 |UpgradeHealthCheckInterval |Time in seconds, default is 60 |Dynamic|The frequency of health status checks during a monitored application upgrades |
 |UpgradeStatusPollInterval |Time in seconds, default is 60 |Dynamic|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call |
+|CompleteClientRequest | Bool, default is false |Dynamic| Complete client request when accepted by CM. |
 
 ## Common
 
@@ -563,6 +564,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
+|NodeLoadsOperationalTracingEnabled | Bool, default is true |Dynamic|Config that enables Node Load operational structural trace in the event store. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, default is Common::TimeSpan::FromSeconds(20) | Dynamic|Specify timespan in seconds. The interval with which to trace node loads to event store for each service domain. |
 
 ## ReconfigurationAgent
 
@@ -663,7 +666,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableFirewallRuleForDomainProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for domain profile |
 |DisableFirewallRuleForPrivateProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for private profile | 
 |DisableFirewallRuleForPublicProfile| bool, default is TRUE | Static|Indicates if firewall rule should not be enabled for public profile |
-| EnforceLinuxMinTlsVersion | bool, default is FALSE | Dynamic | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
+| EnforceLinuxMinTlsVersion | bool, default is FALSE | Static | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
 |FabricHostSpn| string, default is "" |Static| Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It is the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account |
 |IgnoreCrlOfflineError|bool, default is FALSE|Dynamic|Whether to ignore CRL offline error when server-side verifies incoming client certificates |
 |IgnoreSvrCrlOfflineError|bool, default is TRUE|Dynamic|Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates. |
@@ -672,6 +675,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SettingsX509StoreName| string, default is "MY"| Dynamic|X509 certificate store used by fabric for configuration protection |
 |UseClusterCertForIpcServerTlsSecurity|bool, default is FALSE|Static|Whether to use cluster certificate to secure IPC Server TLS transport unit |
 |X509Folder|string, default is /var/lib/waagent|Static|Folder where X509 certificates and private keys are located |
+|TLS1_2_CipherList| string| Static|If set to a non-empty string; overrides the supported cipher list for TLS1.2 and below. See the 'openssl-ciphers' documentation for retrieving the supported cipher list and the list format Example of strong cipher list for TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Applies to Linux only. |
 
 ## Security/AdminClientX509Names
 
@@ -823,7 +827,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, default is ""| Static |The network name to use when setting up a container network.|
-|ContainerNetworkSetup|bool, default is FALSE| Static |Whether to set up a container network.|
+|ContainerNetworkSetup|bool, default is FALSE (Linux) and default is TRUE (Windows)| Static |Whether to set up a container network.|
 |FabricDataRoot |String | Not Allowed |Service Fabric data root directory. Default for Azure is d:\svcfab |
 |FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|

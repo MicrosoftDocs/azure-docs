@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 02/25/2020
 ms.author: areddish
 ---
 
@@ -21,14 +21,14 @@ This article shows you how to get started using the Custom Vision Java SDK to bu
 
 - A Java IDE of your choice
 - [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
-- Maven installed
+- [Maven](https://maven.apache.org/) installed
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
 
 To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These packages are included in the sample project you'll download, but you can access them individually here.
 
-You can install the Custom Vision SDK from maven central repository:
+You can find the Custom Vision SDK in the maven central repository:
 
 - [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
@@ -39,7 +39,10 @@ This Java project creates a new Custom Vision image classification project named
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-The program is configured to store your key data as environment variables. Set these variables by navigating to the **Vision/CustomVision** folder in PowerShell. Then enter the commands:
+The program is configured to reference your key data as environment variables. Navigate to the **Vision/CustomVision** folder and enter the following PowerShell commands to set the environment variables. 
+
+> [!NOTE]
+> If you're using a non-Windows operating system, see [Configure environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) for instructions.
 
 ```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
@@ -84,9 +87,9 @@ The prediction endpoint, represented by the `predictor` object here, is the refe
 
 ## Run the application
 
-To compile and run the solution using maven, run the following command in the project directory in PowerShell:
+To compile and run the solution using maven, navigate to the project directory (**Vision/CustomVision**) in a command prompt and execute the run command:
 
-```powershell
+```bash
 mvn compile exec:java
 ```
 

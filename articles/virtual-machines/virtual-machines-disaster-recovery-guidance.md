@@ -1,24 +1,15 @@
 ---
-title: Disaster recovery scenarios for Azure VMs | Microsoft Docs
+title: Disaster recovery scenarios 
 description: Learn what to do in the event that an Azure service disruption impacts Azure virtual machines.
-services: virtual-machines
-documentationcenter: ''
-author: kmouss
-manager: gwallace
-editor: ''
-
-ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
+author: cynthn
 ms.service: virtual-machines
-ms.workload: virtual-machines
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: gwallace
-ms.custom: H1Hack27Feb2017
+ms.author: cynthn
+#pmcontact:
 
 ---
-# What to do in the event that an Azure service disruption impacts Azure VMs
+# What if an Azure service disruption impacts Azure VMs
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
 
 Microsoft provides a Service Level Agreement (SLA) for its services as a commitment for uptime and connectivity. The SLA for individual Azure services can be found at [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).

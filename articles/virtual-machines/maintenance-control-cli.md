@@ -1,15 +1,13 @@
 ---
-title: Maintenance control for Azure virtual machines
-description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control.
-services: virtual-machines-linux
+title: Maintenance control 
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
-
 ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
+#pmcontact: shants
 ---
 
 # Preview: Control updates with Maintenance Control and the Azure CLI
@@ -28,13 +26,13 @@ With maintenance control, you can:
 > Maintenance Control is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
+>
 
 ## Limitations
 
 - VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
 - After 35 days, an update will automatically be applied.
-- User must have **Resource Owner** access.
+- User must have **Resource Contributor** access.
 
 
 ## Install the maintenance extension
@@ -148,6 +146,23 @@ az maintenance assignment list \
 
 Use `az maintenance update list` to see if there are pending updates. Update --subscription to be the ID for the subscription that contains the VM.
 
+If there are no updates, the command will return an error message, which will contain the text: `Resource not found...StatusCode: 404`.
+
+If there are updates, only one will be returned, even if there are multiple updates pending. The data for this update will be returned in an object:
+
+```text
+[
+  {
+    "impactDurationInSec": 9,
+    "impactType": "Freeze",
+    "maintenanceScope": "Host",
+    "notBefore": "2020-03-03T07:23:04.905538+00:00",
+    "resourceId": "/subscriptions/9120c5ff-e78e-4bd0-b29f-75c19cadd078/resourcegroups/DemoRG/providers/Microsoft.Compute/hostGroups/demoHostGroup/hosts/myHost",
+    "status": "Pending"
+  }
+]
+  ```
+
 ### Isolated VM
 
 Check for pending updates for an isolated VM. In this example, the output is formatted as a table for readability.
@@ -179,7 +194,7 @@ az maintenance update list \
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates.
+Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update.
 
 ### Isolated VM
 
@@ -188,7 +203,7 @@ Create a request to apply updates to an isolated VM.
 ```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myMaintenanceRG\
+   --resource-group myMaintenanceRG \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute
@@ -202,7 +217,7 @@ Apply updates to a dedicated host.
 ```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myHostResourceGroup \
+   --resource-group myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
@@ -214,9 +229,21 @@ az maintenance applyupdate create \
 
 You can check on the progress of the updates using `az maintenance applyupdate get`. 
 
-### Isolated VM
+You can use `default` as the update name to see results for the last update, or replace `myUpdateName` with the name of the update that was returned when you ran `az maintenance applyupdate create`.
 
-Replace `myUpdateName` with the name of the update that was returned when you ran `az maintenance applyupdate create`.
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
+LastUpdateTime will be the time when the update got complete, either initiated by you or by the platform in case self-maintenance window was not used. If there has never been an update applied through maintenance control it will show default value.
+
+### Isolated VM
 
 ```azurecli-interactive
 az maintenance applyupdate get \
@@ -224,7 +251,7 @@ az maintenance applyupdate get \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
-   --apply-update-name myUpdateName 
+   --apply-update-name default 
 ```
 
 ### Dedicated host
@@ -238,7 +265,7 @@ az maintenance applyupdate get \
    --provider-name Microsoft.Compute \
    --resource-parent-name myHostGroup \ 
    --resource-parent-type hostGroups \
-   --apply-update-name default \
+   --apply-update-name myUpdateName \
    --query "{LastUpdate:lastUpdateTime, Name:name, ResourceGroup:resourceGroup, Status:status}" \
    --output table
 ```

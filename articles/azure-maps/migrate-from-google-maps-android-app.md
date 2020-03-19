@@ -13,21 +13,21 @@ ms.custom:
 
 # Migrate an Android app from Google Maps
 
-The Azure Maps Android SDK has an API interface that is very similar to the Web SDK. If you have developed with one of these SDKs, many of the same concepts, best practices and architectures apply, and you should be able to easily transfer your knowledge from one to the other.
+The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply.
 
 The Azure Maps Android SDK supports a minimum Android version of API 21: Android 5.0.0 (Lollipop).
 
-All examples provided in Java, however Kotlin can also be used with the Azure Maps Android SDK.
+All examples are provided in Java; however, you can use Kotlin with the Azure Maps Android SDK.
 
-Also see the [How-to guides for the Azure Maps Android SDK](how-to-use-android-map-control-library.md) for more information on developing with this SDK.
+For more information on developing with the Android SDK by Azure Maps, see the [How-to guides for the Azure Maps Android SDK](how-to-use-android-map-control-library.md).
 
 ## Load a map
 
-Loading a map in an Android app using Google or Azure Maps consists of many of the same steps. When using either SDK you must:
+Loading a map in an Android app using Google or Azure Maps consists of similar steps. When using either SDK, you must:
 
 - Get an API or subscription key to access either platform.
 - Add some XML to an Activity to specify where the map should be rendered and how it should be laid out.
-- Forward all the life-cycle methods from the Activity containing the map view to the corresponding ones in map class. In particular, you must forward on the following methods:
+- Override all the life-cycle methods from the Activity containing the map view to the corresponding methods in the map class. In particular, you must override the following methods:
     - `onCreate(Bundle)`
     - `onStart()`
     - `onResume()`
@@ -36,7 +36,7 @@ Loading a map in an Android app using Google or Azure Maps consists of many of t
     - `onDestroy()`
     - `onSaveInstanceState(Bundle)`
     - `onLowMemory()`
-- Wait for the map to be ready before trying to access it programmatically.
+- Wait for the map to be ready before trying to access and program it.
 
 **Before: Google Maps**
 
@@ -63,7 +63,7 @@ To display a map using the Google Maps SDK for Android, the following steps woul
             android:layout_height="match_parent"/>
     ```
 
-1.  In the **MainActivity.java** file you will need to add imports for the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. A `MapView` instance can be retrieved from the map fragment by using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.java** file as follows:
+1.  In the **MainActivity.java** file, you will need to import the Google Maps SDK. Forward all the life-cycle methods from the activity containing the map view to the corresponding ones in map class. Retrieve a `MapView` instance from the map fragment using the `getMapAsync(OnMapReadyCallback)` method. The `MapView` automatically initializes the maps system and the view. Edit the **MainActivity.java** file as follows:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -138,7 +138,7 @@ To display a map using the Google Maps SDK for Android, the following steps woul
     }
     ```
 
-When ran in an application, the map control will load as follows.
+When you run an application, the map control loads as in the following image.
 
 <center>
 
@@ -148,9 +148,9 @@ When ran in an application, the map control will load as follows.
 
 To display a map using the Azure Maps SDK for Android, the following steps need to be done:
 
-1. Open the top-level **build.gradle** file and add the following code to the **all projects**, **repositories** block section:
+1. Open the top-level **build.gradle** file and add the following code to the **all projects** block section:
 
-    ```
+    ```JAVA
     maven {
             url "https://atlas.microsoft.com/sdk/android"
     }
@@ -162,23 +162,23 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
     2. Add the following code to the Android section:
 
-        ```
+        ```java
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
+    3. Update your dependencies block. Add a new implementation dependency line for the latest Azure Maps Android SDK:
 
-        ```
+        ```java
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
         > [!Note]
-        > The Azure Maps Android SDK is regularly being upgraded and enhanced. You can see the [Getting started with Android map control](how-to-use-android-map-control-library.md) documentation, to get the latest Azure Maps implementation version number. Also, you can set the version number from "0.2" to "0+" to have it always point to the latest version.
+        > The Azure Maps Android SDK is regularly upgraded and enhanced. You can see the [Getting started with Android map control](how-to-use-android-map-control-library.md) to get the latest Azure Maps version number. Also, you can set the version number from "0.2" to "0+" to have your code always point to the latest version.
     
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
-3. Add a map fragment to the main activity (res \> layout \> activity\_main.xml):
+3. Add a map fragment to the main activity (resources \> layout \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -197,15 +197,15 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
     </FrameLayout>
     ```
 
-4. In the **MainActivity.java** file you will need to:
+4. In the **MainActivity.java** file you'll need to:
     
-    * add imports for the Azure Maps SDK
-    * set your Azure Maps authentication information
-    * get the map control instance in the **onCreate** method
+    * Imports the Azure Maps SDK
+    * Set your Azure Maps authentication information
+    * Get the map control instance in the **onCreate** method
 
-    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won't have to add your authentication information on every view. 
+     Set the authentication information in the `AzureMaps` class using the `setSubscriptionKey` or `setAadProperties` methods. This global update, ensure that you add your authentication information to every view.
 
-    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly, call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
+    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These methods must be called directly from the contained Activity. To correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. Call the respective map control method.
 
     * `onCreate(Bundle)` 
     * `onStart()` 
@@ -297,7 +297,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
     }
     ```
 
-If you run your application, the map control will load as follows.
+If you run your application, the map control will load as in the following image.
 
 <center>
 
@@ -306,15 +306,15 @@ If you run your application, the map control will load as follows.
 Notice that the Azure Maps control supports zooming out more and provides more of a world view.
 
 > [!TIP]
-> If using an Android emulator in Windows, the map may not render due to conflicts with OpenGL and software accelerated graphics rendering. The following has worked for some to resolve this issue. Open the AVD Manager and select the virtual device to edit. In the **Emulated Performance** section, set the **Graphics** option to **Hardware**.
+> If you are using an Android emulator on a Windows machine, the map may not render due to conflicts with OpenGL and software accelerated graphics rendering. The following has worked, for some people, to resolve this issue. Open the AVD Manager and select the virtual device to edit. Scroll down in the **Verify Configuration** panel. In the **Emulated Performance** section, set the **Graphics** option to **Hardware**.
 
 ## Localizing the map
 
-If your audience is spread across multiple countries or speak different languages, localization is important.
+Localization is important if your audience is spread across multiple countries or speak different languages.
 
 **Before: Google Maps**
 
-The language of the map can be set in the `onCreate` method of the main activity by adding the following code before setting the context view of the map. The following limits the language to French using the language code "fr".
+Add the following code to the `onCreate` method to set the language of the map. The code must be added before setting the context view of the map. The "fr" language code limits the language to French.
 
 ```java
 String languageToLoad = "fr";
@@ -334,7 +334,7 @@ Here is an example of Google Maps with the language set to "fr".
 
 **After: Azure Maps**
 
-Azure Maps provides three different ways of setting the language and regional view of the map. The first option is to pass the language and regional view information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This will set default language and regional view across all Azure Maps controls loaded in your app. The following limits the language to French using the language code "fr-FR".
+Azure Maps provides three different ways to set the language and the regional view of the map. The first option is to pass the language and regional view information to the `AzureMaps` class. This option uses the static `setLanguage` and `setView` methods globally. Meaning, the default language and regional view are set across all Azure Maps controls loaded in your app. This example sets French using the "fr-FR" language code.
 
 ```java
 static {
@@ -349,7 +349,7 @@ static {
 }
 ```
 
-The second option is to pass the language and view information into the map control XML.
+The second option is to pass the language and view information to the map control XML code.
 
 ```xml
 <com.microsoft.azure.maps.mapcontrol.MapControl
@@ -361,7 +361,7 @@ The second option is to pass the language and view information into the map cont
     />
 ```
 
-The third option is to programmatically set the language and regional view of the map using the maps `setStyle` method. This can be done at any time to change the language and regional view of the map.
+The third option is to program the language and regional map view using the maps `setStyle` method. This option updates the language and regional view anytime the code executes.
 
 ```java
 mapControl.onReady(map -> {
@@ -376,18 +376,15 @@ Here is an example of Azure Maps with the language set to "fr-FR".
 
 ![Azure Maps localization](media/migrate-google-maps-android-app/azure-maps-localization.png)</center>
 
-A complete list of supported languages and regional views is documented [here](supported-languages.md).
+Review the complete list of [Supported languages](supported-languages.md).
 
 ## Setting the map view
 
-Dynamic maps in both Azure and Google Maps can be programmatically moved to new geographic locations by calling the appropriate methods. The examples below show how to make the map display satellite aerial imagery, center the map over a location with coordinates (latitude: 35.0272, longitude: -111.0225) and change the zoom level to 15 in Google Maps.
-
-> [!NOTE]
-> Google Maps uses tiles that are 256 pixels in dimensions while Azure Maps uses a larger 512 pixel tile. This reduces the number of network requests needed by Azure Maps to load the same map area as Google Maps. However, due to the way tile pyramids work in map controls, the larger tiles in Azure Maps means that to achieve that same viewable area as a map in Google Maps, you need to subtract the zoom level used in Google Maps by 1 when using Azure Maps.
+Dynamic maps in both Azure Maps and Google Maps can be programmatically moved to new geographic locations by calling the appropriate methods. Let's make the map display satellite aerial imagery, center the map over a location with coordinates, and change the zoom level. For this example, we'll use latitude: 35.0272, longitude: -111.0225, and zoom level of 15.
 
 **Before: Google Maps**
 
-The camera of Google Maps map control can be programmatically moved using the `moveCamera` method which allows you to specify the center of the map and a zoom level. The `setMapType` method can be used to change the type of map that is displayed.
+The camera of Google Maps map control can be programmatically moved using the `moveCamera` method. The `moveCamera` method allows you to specify the center of the map and a zoom level. The `setMapType` method changes the type of map to displayed.
 
 ```java
 @Override
@@ -403,9 +400,12 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Google Maps set view](media/migrate-google-maps-android-app/google-maps-set-view.png)</center>
 
+> [!NOTE]
+> Google Maps uses tiles that are 256 pixels in dimensions while Azure Maps uses a larger 512 pixel tile. This reduces the number of network requests needed by Azure Maps to load the same map area as Google Maps. To achieve that same viewable area as a map in Google Maps, you need to subtract the zoom level used in Google Maps by one when using Azure Maps. 
+
 **After: Azure Maps**
 
-As noted previously, to achieve the same viewable area in Azure Maps, subtract the zoom level used in Google Maps by one, in this case use a zoom level of 14.
+As noted previously, to achieve the same viewable area in Azure Maps subtract the zoom level used in Google Maps by one. In this case, use a zoom level of 14.
 
 The initial map view can be set in XML attributes on the map control.
 
@@ -421,7 +421,7 @@ The initial map view can be set in XML attributes on the map control.
     />
 ```
 
-The map view can be update programmatically using the maps `setCamera`
+The map view can be programmed using the maps `setCamera`
 and `setStyle` methods.
 
 ```java
@@ -444,7 +444,7 @@ mapControl.onReady(map -> {
 
 ## Adding a marker
 
-Point data is often rendered on the map using an image on the map. These images are often referred to as markers, pushpins, pins, or symbols. The following examples render point data as markers on the map at (latitude: 51.5, longitude: -0.2).
+Point data is often rendered using an image on the map. These images are referred to as markers, pushpins, pins, or symbols. The following examples render point data as markers on the map at latitude: 51.5, longitude: -0.2.
 
 **Before: Google Maps**
 
@@ -465,7 +465,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **After: Azure Maps**
 
-In Azure Maps point data can be rendered on the map by first adding the data to a data source and then connecting that data source to a symbol layer. The data source optimizes the management of spatial data in the map control and the symbol layer specifies how to render point data using as an image and/or text.
+In Azure Maps, render point data on the map by first adding the data to a data source. Then, connecting that data source to a symbol layer. The data source optimizes the management of spatial data in the map control. The symbol layer specifies how to render point data using as an image or text.
 
 ```java
 mapControl.onReady(map -> {
@@ -487,18 +487,18 @@ mapControl.onReady(map -> {
 
 ## Adding a custom marker
 
-Custom images can be used to represent points on a map. The following image is used in the below examples use a custom image to display a point on the map at (latitude: 51.5, longitude: -0.2) and offsets the position of the marker so that the point of the pushpin icon aligns with the correct position on the map.
+Custom images can be used to represent points on a map. The map in examples below uses a custom image to display a point on the map. The point is at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
 
 <center>
 
 ![yellow pushpin image](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
 ylw\_pushpin.png</center>
 
-In both examples the above image is added to the drawable folder of the apps resources.
+In both examples, the above image is added to the drawable folder of the apps resources.
 
 **Before: Google Maps**
 
-With Google Maps, custom images can be used for markers by loading them through the marker's `icon` option. To align the point of the image to the coordinate, the `anchor` option can be used. The anchor is relative to dimensions of the image, in this case 0.2 units wide, and 1 unit high.
+With Google Maps, custom images can be used for markers. Load custom images using the marker's `icon` option. To align the point of the image to the coordinate, use the `anchor` option. The anchor is relative to the dimensions of the image. In this case, the anchor is 0.2 units wide, and 1 unit high.
 
 ```java
 @Override
@@ -517,7 +517,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **After: Azure Maps**
 
-Symbol layers in Azure Maps support custom images as well, but the image needs to be loaded into the map resources first and assigned a unique ID. The symbol layer can then reference this ID. The symbol can be offset to align to the correct point on the image by using the `iconOffset` option. Note that the icon offset is in pixels. By default, the offset is relative to the bottom-center of the image, but this can be adjusted using the `iconAnchor` option. This example sets the `iconAnchor` option to `"center"` and uses an icon offset to move the image five pixels to the right and 15 pixels up to align with the point of the pushpin image.
+Symbol layers in Azure Maps support custom images, but first, the image needs to be loaded to the map resources and assigned a unique ID. Then, the symbol layer needs to reference this ID. Offset the symbol to align to the correct point on the image using the `iconOffset` option. The icon offset is in pixels. By default, the offset is relative to the bottom-center of the image, but this offset value can be adjusted using the `iconAnchor` option. This example sets the `iconAnchor` option to `"center"`. It uses an icon offset to move the image five pixels to the right and 15 pixels up to align with the point of the pushpin image.
 
 ```java
 mapControl.onReady(map -> {
@@ -549,7 +549,7 @@ Polylines are used to represent a line or path on the map. The following example
 
 **Before: Google Maps**
 
-With Google Maps, a polyline can be created using the `PolylineOptions` class and added to the map using the `addPolyline` method. The stroke color can be set using the `color` option, the stroke width is set using the width option, and a stroke dash array can be set using the `pattern` option.
+With Google Maps, render a polyline using the `PolylineOptions` class. Add the polyline to the map using the `addPolyline` method. Set the stroke color using the `color` option. Set the stroke width using the `width` option. Add a stroke dash array using the `pattern` option.
 
 ```java
 @Override
@@ -577,7 +577,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 **After: Azure Maps**
 
-In Azure Maps, polylines are called LineString or MultiLineString objects. These objects can be added to a data source and rendered using a line layer. Note that the stroke width and dash array "pixel" units align with the Azure Maps Web SDK in that using the same values in both SDKs produce the same results.
+In Azure Maps, polylines are called `LineString` or `MultiLineString` objects. Add these objects to a data source and render them using a line layer. Set the stroke width using the `strokeWidth` option. Add a stroke dash array using the `strokeDashArray` option.
+
+The stroke width and the dash array "pixel" units in the Azure Maps Web SDK, is the same as in the Google Maps service. Both accept the same values to produce the same results.
 
 ```java
 mapControl.onReady(map -> {
@@ -608,11 +610,11 @@ mapControl.onReady(map -> {
 
 ## Adding a polygon
 
-Polygons are used to represent an area on the map. The following examples show how to create a polygon that forms a triangle based on the center coordinate of the map.
+Polygons are used to represent an area on the map. The next examples show you how to create a polygon. This polygon forms a triangle based on the center coordinate of the map.
 
 **Before: Google Maps**
 
-With Google Maps, a polygon can be created using the `PolygonOptions` class and added to the map using the `addPolygon` method. The fill and stroke colors can be set using the `fillColor` and `strokeColor` option, the stroke width is set using the `strokeWidth` option.
+With Google Maps, render a polygon using the `PolygonOptions` class. Add the polygon to the map using the `addPolygon` method. Set the fill and stroke colors using the `fillColor` and `strokeColor` options, respectively. Set the stroke width using the `strokeWidth` option.
 
 ```java
 @Override
@@ -640,7 +642,9 @@ public void onMapReady(GoogleMap googleMap) {
 
 **After: Azure Maps**
 
-In Azure Maps, Polygon and MultiPolygon objects can be added to a data source and rendered on the map using layers. The area of a polygon can be rendered in a polygon layer. The outline of a polygon can be rendered using a line layer. Note that the stroke width and dash array "pixel" units align with the Azure Maps Web SDK in that using the same values in both SDKs produce the same results.
+In Azure Maps, add `Polygon` and `MultiPolygon` objects to a data source and render them on the map using layers. Render the area of a polygon in a polygon layer. Render the outline of a polygon using a line layer. Set the stroke color and width using the `strokeColor` and `strokeWidth` options.
+
+The stroke width and dash array "pixel" units in Azure Maps Web SDK align with the respective units in Google Maps. Both accept the same values and produce the same results.
 
 ```java
 mapControl.onReady(map -> {
@@ -676,13 +680,13 @@ mapControl.onReady(map -> {
 
 ## Overlay a tile layer
 
-Tile layers, also known as Image overlays in Google Maps, allow you to overlay layer images that have been broken up into smaller tiled images that align with the maps tiling system. This is a common way to overlaying layer images or very large data sets.
+ Use Tile layers to overlay layer images that have been broken up into smaller tiled images, which align with the maps tiling system. This approach is a common way of overlaying layer images or large data sets. Tile layers are known as Image overlays in Google Maps.
 
 The following examples overlay a weather radar tile layer from Iowa Environmental Mesonet of Iowa State University. The tiles are 256 pixels in size.
 
 **Before: Google Maps**
 
-With Google Maps, a tile layer can be overlaid on top of the map use the `TileOverlayOptions` class and added to the map using the `addTileLauer` method. To make the tiles semi-transparent, the `transparency` option is set to 0.2, or 20% transparent.
+With Google Maps, a tile layer can be overlaid on top of the map. Use the `TileOverlayOptions` class. Add the tile layer to the map using the `addTileLauer` method. To make the tiles semi-transparent, the `transparency` option is set to 0.2, or 20% transparent.
 
 ```java
 @Override
@@ -715,10 +719,10 @@ public void onMapReady(GoogleMap googleMap) {
 
 **After: Azure Maps**
 
-In Azure Maps, a tile layer can be added to the map in much the same way as any other layer. A formatted URL that has x, y, and zoom placeholders; `{x}`, `{y}`, `{z}` respectively is used to tell the layer where to access the tiles. Tile layers in Azure Maps also support `{quadkey}`, `{bbox-epsg-3857}` and `{subdomain}` placeholders. To make the tile layer semi-transparent, an opacity value of 0.8 is used. Note that opacity and transparency, although similar, use inverted values. To convert between them simply subtract their value from the number one.
+A tile layer can be added to the map in a similar way as any other layer. A formatted URL that has x, y, and zoom placeholders; `{x}`, `{y}`, `{z}` respectively is used to tell the layer where to access the tiles. Also, tile layers in Azure Maps support `{quadkey}`, `{bbox-epsg-3857}`, and `{subdomain}` placeholders. To make the tile layer semi-transparent, an opacity value of 0.8 is used. Opacity and transparency, although similar, use inverted values. To convert between both options, subtract their value from the number one.
 
 > [!TIP]
-> In Azure Maps layers can easily be rendered below other layers, including base map layers. Often it is desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes in a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels the following code can be used:
+> In Azure Maps, it's convenient to render layers below other layers, including base map layers. Also, it's often desirable to render tile layers below the map labels so that they are easy to read. The `map.layers.add` method takes a second parameter which is the id of the layer in which to insert the new layer below. To insert a tile layer below the map labels, the following code can be used:
 > `map.layers.add(myTileLayer, "labels");`
 
 ```java
@@ -738,11 +742,11 @@ mapControl.onReady(map -> {
 
 ## Show traffic
 
-Traffic data can be overlaid both Azure and Google maps.
+Both Azure Maps and Google maps have options to overlay traffic data.
 
 **Before: Google Maps**
 
-With Google Maps, traffic flow data can be overlaid on top of the map by passing true into the map's `setTrafficEnabled` method.
+With Google Maps, traffic flow data can be overlaid on top of the map by passing true to the map's `setTrafficEnabled` method.
 
 ```java
 @Override
@@ -759,7 +763,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **After: Azure Maps**
 
-Azure Maps provides several different options for displaying traffic. Traffic incidents, such as road closures and accidents can be displayed as icons on the map. Traffic flow, color coded roads, can be overlaid on the map and the colors can be modified to be based relative to the posted speed limit, relative to the normal expected delay, or absolute delay. Incident data in Azure Maps is updated every minute and flow data every two minutes.
+Azure Maps provides several different options for displaying traffic. Traffic incidents, such as road closures and accidents can be displayed as icons on the map. Traffic flow and color coded roads can be overlaid on the map. The colors can be modified to appear relative to the posted speed limit, relative to the normal expected delay, or the absolute delay. Incident data in Azure Maps is updated every minute, and flow data is updated every two minutes.
 
 ```java
 mapControl.onReady(map -> {

@@ -69,7 +69,6 @@ You can use Event Grid for both input and output of events in CloudEvents schema
 |--------------------|---------------------
 | CloudEvents format | CloudEvents format
 | Event Grid format  | CloudEvents format
-| CloudEvents format | Event Grid format
 | Event Grid format  | Event Grid format
 
 For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
@@ -105,8 +104,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-The current version of CloudEvents doesn't support batching of events. To publish events with CloudEvent schema to a topic, publish each event individually.
 
 ### Output schema
 

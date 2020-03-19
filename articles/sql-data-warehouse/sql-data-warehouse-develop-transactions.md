@@ -20,7 +20,7 @@ Tips for implementing transactions in Azure SQL Data Warehouse for developing so
 As you would expect, SQL Data Warehouse supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
 
 ## Transaction isolation levels
-SQL Data Warehouse implements ACID transactions. However, the isolation level of the transactional support is limited to READ UNCOMMITTED; this level cannot be changed. If READ UNCOMMITTED is a concern, you can implement a number of coding methods to prevent dirty reads of data. The most popular methods use both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data are also a popular approach.  
+SQL Data Warehouse implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) for details.
 
 ## Transaction size
 A single data modification transaction is limited in size. The limit is applied per distribution. Therefore, the total allocation can be calculated by multiplying the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each row. For variable length columns, consider taking an average column length rather than using the maximum size.
@@ -70,7 +70,7 @@ In the table below the following assumptions have been made:
 
 The transaction size limit is applied per transaction or operation. It is not applied across all concurrent transactions. Therefore each transaction is permitted to write this amount of data to the log. 
 
-To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) article.
+To optimize and minimize the amount of data written to the log, please refer to the [Transactions best practices](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md) article.
 
 > [!WARNING]
 > The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
@@ -195,5 +195,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md).
+To learn more about optimizing transactions, see [Transactions best practices](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md).
 

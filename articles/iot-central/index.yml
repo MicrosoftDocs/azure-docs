@@ -18,67 +18,67 @@ highlightedContent:
   items: 
     - title: What is IoT Central? 
       itemType: overview # controls the icon image and super-title text 
-      url: ./preview/overview-iot-central.md
+      url: ./core/overview-iot-central.md
     - title: What are application templates? 
       itemType: concept 
       url: ./core/concepts-app-templates.md
       
     - title: Azure IoT Central Architecture
       itemType: architecture
-      url: ./preview/concepts-architecture.md
+      url: ./core/concepts-architecture.md
     - title: Create a new application 
       itemType: quickstart
-      url: ./preview/quick-deploy-iot-central.md
+      url: ./core/quick-deploy-iot-central.md
     - title: Define a device type and add a device 
       itemType: tutorial
-      url: ./preview/howto-set-up-template.md
+      url: ./core/howto-set-up-template.md
     - title: Monitor your devices
       itemType: tutorial 
-      url: ./preview/tutorial-create-telemetry-rules.md
+      url: ./core/tutorial-create-telemetry-rules.md
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
-    - title: Get connected (preview features)
+    - title: Get connected
       links: 
-        - url: ./preview/howto-set-up-template.md
+        - url: ./core/howto-set-up-template.md
           itemType: how-to-guide
           text: Set up a device template 
-        - url: ./preview/tutorial-connect-pnp-device.md
+        - url: ./core/tutorial-connect-pnp-device.md
           itemType: tutorial
-          text: Connect an IoT Plug and Play device
+          text: Connect an IoT Plug and Play (preview) device
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
-    - title: Stay connected (preview features)
+    - title: Stay connected
       links: 
-        - url: ./preview/tutorial-use-device-groups.md
+        - url: ./core/tutorial-use-device-groups.md
           itemType: how-to-guide
           text: Use device groups
-        - url: ./preview/howto-manage-devices.md
+        - url: ./core/howto-manage-devices.md
           itemType: how-to-guide 
           text: Manage your devices 
         - url: ./core/howto-run-a-job.md
           itemType: concept
           text: How to run a job 
-        - url: ./preview/howto-create-analytics.md
+        - url: ./core/howto-create-analytics.md
           itemType: how-to-guide
           text: Analyze your device data
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
-    - title: Transform (preview features)
+    - title: Transform
       links: 
-        - url: ./preview/tutorial-create-telemetry-rules.md
+        - url: ./core/tutorial-create-telemetry-rules.md
           itemType: how-to-guide
           text: Create a telemetry rule 
-        - url: ./preview/howto-export-data.md
+        - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Configure continuous data export
+          text: Export data to destinations in Azure
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
 # productDirectory section (optional)

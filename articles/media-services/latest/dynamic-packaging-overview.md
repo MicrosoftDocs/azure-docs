@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/17/2019 
+ms.date: 03/17/2020 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -24,20 +24,12 @@ Microsoft Azure Media Services can be used to encode many media source file form
 
 In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. Dynamic Packaging is a feature that comes standard on all Streaming Endpoints (Standard or Premium).
 
+> [!NOTE]
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+
 ## <a id="delivery-protocols"/>To prepare your source files for delivery
 
-To take advantage of Dynamic Packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [Asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services Dynamic Packaging. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the following streaming media protocols:
-
-|Protocol|Example|
-|---|---|
-|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
-
-If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
+To take advantage of Dynamic Packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [Asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services Dynamic Packaging. From this set of MP4 files, you can use Dynamic Packaging to deliver video via the streaming media protocols described below.
 
 > [!TIP]
 > One way to get the MP4 and streaming configuration files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -45,6 +37,39 @@ If you plan to protect your content by using Media Services dynamic encryption, 
 To make videos in the encoded asset available to clients for playback, you have to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you've chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
+
+If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types).
+
+### HLS protocol
+
+Your streaming client can specify the following HLS formats:
+
+|Protocol|Example|
+|---|---|
+|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
+|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+### MPEG-DASH protocol
+
+Your streaming client can specify the following MPEG-DASH formats:
+
+|Protocol|Example|
+|---|---|
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+
+### Smooth Streaming protocol
+
+Your streaming client can specify the following Smooth Streaming formats:
+
+|Protocol|Notes/examples| 
+|---|---|
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Smooth Streaming 2.0 (legacy manifest)|By default, Smooth Streaming manifest format contains the repeat tag (r-tag). However, some players do not support the `r-tag`. Clients with these players can use a format that disables the r-tag:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
+
+> [!NOTE]
+> Smooth Streaming requires that both audio and video should be present in your stream.
 
 ## On-demand streaming workflow
 
@@ -71,7 +96,7 @@ See the list of Media Encoder Standard [formats and codecs](media-encoder-standa
 
 ## Live streaming workflow
 
-A live event can be one of two types: pass-through or live encoding. 
+A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). 
 
 Here's a common workflow for live streaming with Dynamic Packaging:
 
@@ -280,7 +305,4 @@ You can open a support ticket by navigating to [New support request](https://por
 
 ## Next steps
 
-> [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
-
-Learn how to [upload, encode, and stream videos](stream-files-tutorial-with-api.md).
+[Upload, encode, and stream videos](stream-files-tutorial-with-api.md)

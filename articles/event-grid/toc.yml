@@ -8,6 +8,8 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Premium vs. basic tiers
+    href: premium-basic-tiers.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,13 +17,13 @@
     items:
     - name: Azure CLI
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: PowerShell
+    - name: Azure PowerShell
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Portal
       href: blob-event-quickstart-portal.md
-    - name: Template
-      displayName: arm, resource manager template 
-      href: blob-event-quickstart-template.md      
+    - name: ARM template
+      displayName: Resource Manager
+      href: blob-event-quickstart-template.md
   - name: Custom events
     items:
     - name: Azure CLI
@@ -96,8 +98,16 @@
   items:
   - name: Event Grid concepts
     href: concepts.md
-  - name: Security and authentication
-    href: security-authentication.md
+  - name: System topics
+    href: system-topics.md
+  - name: Security 
+    items: 
+    - name: Authentication
+      href: security-authentication.md
+    - name: Authorization 
+      href: security-authorization.md
+    - name: Network security
+      href: network-security.md
   - name: Delivery and retry
     href: delivery-and-retry.md
   - name: Event filtering
@@ -105,13 +115,21 @@
   - name: Event Domains
     href: event-domains.md
   - name: Event sources
+    displayName: Azure subscriptions, Container registry, Custom topics, Event Hubs, IoT Hub, Key Vault, Media Services, Resource groups, Service Bus, Storage, Maps, App Configuration, Signal R, Machine Learning
     href: event-sources.md
   - name: Event handlers
+    displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
     href: event-handlers.md
   - name: Geo disaster recovery
     href: geo-disaster-recovery.md
 - name: How-to guides
   items:
+  - name: Configure private endpoints (preview)
+    href: configure-private-endpoints.md
+  - name: Configure IP firewall (preview)
+    href: configure-firewall.md
+  - name: Update pricing tier
+    href: update-tier.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
@@ -136,8 +154,10 @@
     href: how-to-event-domains.md
   - name: Implement client-side failover
     href: custom-disaster-recovery.md
-  - name: Troubleshoot errors  
-    href: troubleshoot-errors.md    
+  - name: Troubleshoot errors
+    href: troubleshoot-errors.md
+  - name: Enable diagnostic logs for a topic
+    href: enable-diagnostic-logs-topic.md
 - name: Reference
   items:
   - name: Azure CLI

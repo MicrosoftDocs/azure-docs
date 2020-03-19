@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/01/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -423,6 +423,20 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+### Define the variables
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
+```
+
 ### Configure a virtual network
 
 Before you can join your Azure-SSIS IR to a virtual network, you need to configure the virtual network. To automatically configure virtual network permissions and settings for your Azure-SSIS IR to join the virtual network, add the following script:
@@ -458,26 +472,15 @@ The [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md) article 
 1. Configure the Azure-SSIS IR to join the virtual network. 
 1. Start the Azure-SSIS IR. 
 
-### Define the variables
-
-```powershell
-$ResourceGroupName = "<your Azure resource group name>"
-$DataFactoryName = "<your Data Factory name>" 
-$AzureSSISName = "<your Azure-SSIS IR name>"
-# Specify the information about your classic or Azure Resource Manager virtual network.
-$VnetId = "<your Azure virtual network resource ID>"
-$SubnetName = "<the name of subnet in your virtual network>"
-```
-
 ### Stop the Azure-SSIS IR
 
 You have to stop the Azure-SSIS IR before you can join it to a virtual network. This command releases all of its nodes and stops billing:
 
 ```powershell
 Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                            -DataFactoryName $DataFactoryName `
-                                            -Name $AzureSSISName `
-                                            -Force 
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force 
 ```
 
 ### Configure virtual network settings for the Azure-SSIS IR to join
@@ -510,11 +513,20 @@ To join your Azure-SSIS IR to a virtual network, run the `Set-AzDataFactoryV2Int
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Type Managed `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
+}
 ```
 
 ### Start the Azure-SSIS IR
@@ -523,10 +535,9 @@ To start the Azure-SSIS IR, run the following command:
 
 ```powershell
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
-
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 ```
 
 This command takes 20 to 30 minutes to finish.

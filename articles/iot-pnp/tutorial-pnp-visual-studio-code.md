@@ -230,7 +230,7 @@ To create a model file that specifies the interfaces your IoT Plug and Play devi
           "name": "deviceinfo"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 

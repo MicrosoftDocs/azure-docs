@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 3/13/2020
 ms.author: raynew
 ---
 
@@ -131,6 +131,8 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 | login.microsoftonline.com | Provides authorization and authentication to Site Recovery service URLs. |
 | *.hypervrecoverymanager.windowsazure.com | Allows the VM to communicate with the Site Recovery service. |
 | *.servicebus.windows.net | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+| *.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
+| *.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
 
 ### Outbound connectivity for IP address ranges
 
@@ -142,18 +144,22 @@ Please note that details of network connectivity requirements can be found in  [
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD).<br/><br/> If Azure AD addresses are added in future you need to create new Network Security Group (NSG) rules.  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 #### Target region rules
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD.<br/><br/> If Azure AD addresses are added in future you need to create new NSG rules.  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 
 #### Control access with NSG rules

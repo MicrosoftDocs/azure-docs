@@ -31,6 +31,22 @@ For information about the support policy for Azure VMs, see [Microsoft server so
 >1. The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required to be done and followed on the Guest OS to prepare the image prior the migration.
 
+## System File Checker (SFC) command
+
+### Run Windows System File Checker utility (run sfc /scannow) on OS prior to generalization step of creating customer OS image
+
+The System File Checker (SFC) command is used to verify and replace Windows system files.
+
+To run the SFC command:
+
+1. Open an elevated CMD prompt as Administrator.
+1. Type `sfc /scannow` and select **Enter**.
+
+    ![System File Checker](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+After the SFC scan is completed, try to install Windows Updates and restart the computer.
+
 ## Convert the virtual disk to a fixed size and to VHD
 
 If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section:
@@ -248,7 +264,13 @@ Make sure the following settings are configured correctly for remote access:
    ```PowerShell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
-5. If the VM  will be part of a domain, check the following Azure AD policies to make sure the former settings aren't reverted. 
+5. Create a rule for the Azure platform network:
+
+   ```PowerShell
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Inbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow -EdgeTraversalPolicy Allow
+    New-NetFirewallRule -DisplayName "AzurePlatform" -Direction Outbound -RemoteAddress 168.63.129.16 -Profile Any -Action Allow
+   ``` 
+6. If the VM  will be part of a domain, check the following Azure AD policies to make sure the former settings aren't reverted. 
 
     | Goal                                 | Policy                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -405,7 +427,7 @@ System Preparation Tool (Sysprep) is a process you can run to reset a Windows in
 
 You typically run Sysprep to create a template from which you can deploy several other VMs that have a specific configuration. The template is called a *generalized image*.
 
-If you want to create only one VM from one disk, you don’t have to use Sysprep. Instead, you can create the VM from a *specialized image*. For information about how to create a VM from a specialized disk, see:
+If you want to create only one VM from one disk, you don't have to use Sysprep. Instead, you can create the VM from a *specialized image*. For information about how to create a VM from a specialized disk, see:
 
 - [Create a VM from a specialized disk](create-vm-specialized.md)
 - [Create a VM from a specialized VHD disk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)

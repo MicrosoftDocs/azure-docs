@@ -6,7 +6,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Handle transient errors and connect efficiently to Azure Database for MySQL
@@ -90,7 +90,7 @@ public class SimpleTestOnBorrowExample {
             // The pool itself doesn't timeout the query, it is still up to the JDBC driver to enforce query timeouts. 
             // A value less than or equal to zero will disable this feature.
           p.setValidationQueryTimeout(1);
-            // set other usefull pool properties.
+            // set other useful pool properties.
           DataSource datasource = new DataSource();
           datasource.setPoolProperties(p);
 

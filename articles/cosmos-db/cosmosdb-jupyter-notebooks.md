@@ -8,7 +8,7 @@ author: markjbrown
 ms.author: mjbrown
 ---
 
-# Built-in Jupyter notebooks support in Azure Cosmos DB
+# Built-in Jupyter notebooks support in Azure Cosmos DB (preview)
 
 Jupyter notebook is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. Azure Cosmos DB supports built-in Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and Table. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. The Jupyter notebooks run within the Azure Cosmos accounts and they enable developers to perform data exploration, data cleaning, data transformations, numerical simulations, statistical modeling, data visualization, and machine learning.
 

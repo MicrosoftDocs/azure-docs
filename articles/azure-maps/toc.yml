@@ -101,11 +101,11 @@
     items:
     - name: Map control
       items:
-      - name: Getting started with web map control
+      - name: Use the Azure Maps map control
         href: how-to-use-map-control.md
       - name: Create a map
         href: map-create.md
-      - name: Change style of the map
+      - name: Change the style of the map
         href: choose-map-style.md
       - name: Add controls to the map
         href: map-add-controls.md
@@ -165,6 +165,22 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
+    - name: Spatial IO module 
+      items:
+      - name: Use the spatial IO module
+        href: how-to-use-spatial-io-module.md
+      - name: Add a simple data layer
+        href: spatial-io-add-simple-data-layer.md
+      - name: Read and write spatial data
+        href: spatial-io-read-write-spatial-data.md
+      - name: Add an OGC map layer
+        href: spatial-io-add-ogc-map-layer.md
+      - name: Connect to a WFS service
+        href: spatial-io-connect-wfs-service.md
+      - name: Leverage core operations
+        href: spatial-io-core-operations.md
+      - name: Supported data format details
+        href: spatial-io-supported-data-format-details.md
     - name: Web SDK supported browsers
       href: supported-browsers.md
   - name: Develop with the Android SDK
@@ -181,6 +197,8 @@
       href: display-feature-information-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
+    - name: Show traffic data 
+      href: how-to-show-traffic-android.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference
@@ -233,6 +251,8 @@
     href: /azure/templates/microsoft.maps/accounts
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure Maps terms of use
     href: https://azure.microsoft.com/support/legal/
   - name: Azure Maps pricing
@@ -268,7 +288,7 @@
     - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /azure/iot-central/iot-support-help
   - name: Platform services
     items:
     - name: IoT Hub
@@ -283,7 +303,7 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: IoT Edge
       href: /azure/iot-edge

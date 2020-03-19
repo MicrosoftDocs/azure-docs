@@ -1,21 +1,15 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Go - QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This Go REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
-services: cognitive-services
-author: diberry
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
 ms.date: 12/16/2019
-ms.author: diberry
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: conceptual
 ---
 
 # Quickstart: Create a knowledge base in QnA Maker using Go
 
-This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
+This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/knowledge-base.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
 This quickstart calls QnA Maker APIs:
 * [Create KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
@@ -45,7 +39,7 @@ After the preceding required dependencies, add the required constants to access 
 
 Set the following values:
 
-* `<your-qna-maker-subscription-key>` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.
+* `<your-qna-maker-subscription-key>` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.
 * `{your-resource-name}` - Your **resource name** is used to construct the authoring endpoint URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This is not the same URL used to query the prediction endpoint.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
