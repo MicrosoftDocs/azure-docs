@@ -78,7 +78,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
 

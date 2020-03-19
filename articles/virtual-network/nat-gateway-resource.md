@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 03/14/2020
 ms.author: allensu
 ---
 
@@ -35,7 +35,7 @@ Configuring and using NAT gateway is intentionally made simple:
 NAT gateway resource:
 - Create regional or zonal (zone-isolated) NAT gateway resource,
 - Assign IP addresses,
-- Modify idle timeout (optional).
+- Modify TCP idle timeout (optional).
 
 Virtual network:
 - Configure virtual network subnet to use a NAT gateway.
@@ -309,7 +309,7 @@ NAT gateway resources interact with IP and IP transport headers of UDP and TCP f
 
 ### Timers
 
-Idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+TCP idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 The following timers are used for SNAT port release:
 
