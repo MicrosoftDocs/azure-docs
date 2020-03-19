@@ -30,7 +30,7 @@ The [create a brand](https://api-portal.videoindexer.ai/docs/services/operations
 Some other parameters that you can set in the body:
 
 * The `referenceUrl` value can be any reference websites for the brand, such as a link to its Wikipedia page.
-* The `tags` value is a list of tags for the brand. This shows up in the brand's *Category* field in the Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
+* The `tags` value is a list of tags for the brand. This tag shows up in the brand's *Category* field in the Video Indexer website. For example, the brand "Azure" can be tagged or categorized as "Cloud".
 
 ### Response
 
