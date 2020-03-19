@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 3/18/2020
 ---
 
 # Audit Logs in Azure Database for MariaDB

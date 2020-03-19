@@ -9617,7 +9617,7 @@ Azure service: [Storage](../storage/index.yml)
 
 ## Microsoft.StorSimple
 
-Azure service: [StorSimple](../storsimple/index.md)
+Azure service: [StorSimple](../storsimple/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
