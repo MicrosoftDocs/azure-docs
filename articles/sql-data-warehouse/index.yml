@@ -87,7 +87,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Learn to manage and monitor your data warehouse
-            url: sql-data-warehouse-overview-manageability-monitoring.md
+            url: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       #     - text: linktext2
       #       url: file2.md
       - linkListType: how-to-guide

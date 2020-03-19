@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Using IDENTITY to create surrogate keys in SQL Analytics
@@ -30,8 +29,8 @@ You can define a table as having the IDENTITY property when you first create the
 
 ```sql
 CREATE TABLE dbo.T1
-(	C1 INT IDENTITY(1,1) NOT NULL
-,	C2 INT NULL
+(    C1 INT IDENTITY(1,1) NOT NULL
+,    C2 INT NULL
 )
 WITH
 (   DISTRIBUTION = HASH(C2)
@@ -52,8 +51,8 @@ The following example is an illustration:
 
 ```sql
 CREATE TABLE dbo.T1
-(	C1 INT IDENTITY(1,1)	NOT NULL
-,	C2 VARCHAR(30)				NULL
+(    C1 INT IDENTITY(1,1)    NOT NULL
+,    C2 VARCHAR(30)                NULL
 )
 WITH
 (   DISTRIBUTION = HASH(C2)
@@ -114,8 +113,8 @@ VALUES (-1,'UNKNOWN')
 
 SET IDENTITY_INSERT dbo.T1 OFF;
 
-SELECT 	*
-FROM	dbo.T1
+SELECT     *
+FROM    dbo.T1
 ;
 ```
 
@@ -130,8 +129,8 @@ The following example highlights the basic pattern:
 ```sql
 --CREATE TABLE with IDENTITY
 CREATE TABLE dbo.T1
-(	C1 INT IDENTITY(1,1)
-,	C2 VARCHAR(30)
+(    C1 INT IDENTITY(1,1)
+,    C2 VARCHAR(30)
 )
 WITH
 (   DISTRIBUTION = HASH(C2)
@@ -142,8 +141,8 @@ WITH
 --Use INSERT..SELECT to populate the table from an external table
 INSERT INTO dbo.T1
 (C2)
-SELECT 	C2
-FROM	ext.T1
+SELECT     C2
+FROM    ext.T1
 ;
 
 SELECT *
