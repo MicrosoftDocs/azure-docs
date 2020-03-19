@@ -119,9 +119,9 @@
       items:
       - name: Azure SQL Auditing
         href: sql-database-auditing.md
-      - name: Audit to storage account
+      - name: To storage behind VNet or firewall
         href: create-auditing-storage-account-vnet-firewall.md
-      - name: Audit Log Format
+      - name: Audit log format
         href: sql-database-audit-log-format.md
 
     - name: Security management

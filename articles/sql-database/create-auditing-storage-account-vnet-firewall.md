@@ -52,9 +52,9 @@ Connect to [Azure portal](https://portal.azure.com) with your subscription. Navi
   >
   >If you do not see this message, then storage account is not behind a VNet.
 
-3. Select the number of days for the retention period. Then click **OK**. Logs older than the retention period are deleted.
+4. Select the number of days for the retention period. Then click **OK**. Logs older than the retention period are deleted.
 
-4. Select **Save** on your auditing settings.
+5. Select **Save** on your auditing settings.
 
 You have successfully configured audit to write to a storage account behind a VNet or firewall. 
 
@@ -74,38 +74,38 @@ The sample scripts in this section require you to update the script before you r
 
 To configure SQL Audit to write events to a storage account behind a VNet or Firewall:
 
-1. Register your Azure SQL Database server with Azure Active Directory (AAD):
+1. Register your Azure SQL Database server with Azure Active Directory (AAD). Use either PowerShell or REST API.
 
-  - In PowerShell
-
+   **PowerShell**
+   
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId <subscriptionId>
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <sql database server> -AssignIdentity
    ```
    
-  - In [REST API](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
 
-  Sample Request
+   Sample request
 
    ```html
    PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<sql database server>?api-version=2015-05-01-preview
    ```
 
-  Request Body
+   Request body
 
    ```json
    {
-  "identity": {
-             "type": "SystemAssigned",
-             },
-  "properties": {
-    "fullyQualifiedDomainName": "<sql database server>.database.windows.net",
-    "administratorLogin": "<administrator login>",
-    "administratorLoginPassword": "<complex password>",
-    "version": "12.0",
-    "state": "Ready"
-  }
+   "identity": {
+              "type": "SystemAssigned",
+              },
+   "properties": {
+     "fullyQualifiedDomainName": "<sql database server>.database.windows.net",
+     "administratorLogin": "<administrator login>",
+     "administratorLoginPassword": "<complex password>",
+     "version": "12.0",
+     "state": "Ready"
+   }
    ```
 
 2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL database that you registered with Azure Active Directory (AAD) as in the previous step.
@@ -115,13 +115,13 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 
 3. Configure [Azure SQL server's blob auditing policy](/rest/api/sql/server%20auditing%20settings/createorupdate), without specifying a *storageAccountAccessKey*:
 
-  Sample Request
+   Sample request
 
    ```html
    PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure sql database server>?api-version=2017-03-01-preview
    ```
 
-  Request Body
+   Request body
 
    ```json
    {
@@ -135,5 +135,5 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 ## Next steps
 
 - [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.](sql-database-vnet-service-endpoint-rule-powershell.md)
-- [Virtual Network Rules: Operations](/api/sql/virtualnetworkrules) with REST APIs
+- [Virtual Network Rules: Operations with REST APIs](/rest/api/sql/virtualnetworkrules)
 - [Use virtual network service endpoints and rules for database servers](sql-database-vnet-service-endpoint-rule-overview.md)
