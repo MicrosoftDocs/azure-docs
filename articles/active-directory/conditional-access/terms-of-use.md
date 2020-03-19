@@ -245,7 +245,7 @@ The following procedure describes how to add a terms of use language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joined, the device ID is used to enforce the terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
@@ -274,7 +274,11 @@ If a user is using Windows 10 and Microsoft Edge, they will receive a message si
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-### Join an Android device
+### Register an iOS device
+
+If a user is using an iOS device, they will be prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### Register an Android device
 
 If a user is using an Android device, they will be prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -25,7 +25,7 @@ Blob storage offers three types of resources:
 
 The following diagram shows the relationship between these resources.
 
-![relationship between Account Blob and Container resource](./media/storage-blobs-introduction/blob1.png)
+![Diagram showing the relationship between a storage account, containers, and blobs](./media/storage-blobs-introduction/blob1.png)
 
 ### Storage accounts
 

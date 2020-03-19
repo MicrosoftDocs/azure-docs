@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/12/2020
 ms.author: dapine
 ---
 
@@ -58,8 +58,9 @@ class Program
  
     static async Task Main()
     {
-        // For non-Windows 10 users.
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+        // Cognitive Services follows security best practices.
+        // If you experience connectivity issues, see:
+        // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls
  
         await TranscribeAsync();
     }

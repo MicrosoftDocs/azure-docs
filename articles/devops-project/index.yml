@@ -5,7 +5,7 @@ summary: Azure DevOps Projects presents a simplified experience where you bring 
 
 metadata:
   title: Azure DevOps Projects documentation
-  description: Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+  description: Bring your existing code and Git repository or choose a sample app to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 

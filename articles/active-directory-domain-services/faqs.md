@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
 
 ---
@@ -32,6 +32,7 @@ This page answers frequently asked questions about Azure Active Directory Domain
 * [Can I add domain controllers to an Azure AD Domain Services managed domain?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Can guest users invited to my directory use Azure AD Domain Services?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Does Azure AD Domain Services include high availability options?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.
@@ -70,6 +71,10 @@ No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../a
 
 ### Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
 No. After you create an Azure AD Domain Services managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+
+### Does Azure AD Domain Services include high availability options?
+
+Yes. Each Azure AD Domain Services managed domain includes two domain controllers. You don't manage or connect to these domain controllers, they're part of the managed service. If you deploy Azure AD Domain Services into a region that supports Availability Zones, the domain controllers are distributed across zones. In regions that don't support Availability Zones, the domain controllers are distributed across Availability Sets. You have no configuration options or management control over this distribution. For more information, see [Availability options for virtual machines in Azure](../virtual-machines/windows/availability.md).
 
 ## Administration and operations
 
