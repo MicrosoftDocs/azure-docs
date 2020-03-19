@@ -77,10 +77,10 @@ A *sentinel key* is a special key used to signal when configuration has changed.
                 config.AddAzureAppConfiguration(options =>
                 {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .ConfigureRefresh(refresh =>
+                           .ConfigureRefresh(refresh =>
                                 {
                                     refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                            .SetCacheExpiration(new TimeSpan(0, 0, 1));
+                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
                                 });
                 });
             })
@@ -97,12 +97,12 @@ A *sentinel key* is a special key used to signal when configuration has changed.
                 {
                     var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
-                    {   
+                    {
                         options.Connect(settings["ConnectionStrings:AppConfig"])
-                                .ConfigureRefresh(refresh =>
+                               .ConfigureRefresh(refresh =>
                                     {
                                         refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                               .SetCacheExpiration(new TimeSpan(0, 0, 1));
+                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
                                     });
                     });
                 })
@@ -110,14 +110,14 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     ```
     ---
 
-    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the sentinel key changes. 
-    
-    Also, the `SetCacheExpiration` method overrides the default cache expiration time of 30 seconds, specifying a time of 1 second instead.
+    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the sentinel key changes.
 
-    > [!WARNING]
-    > Use higher cache expiration times in production to avoid unnecessary requests to App Configuration.
-    
-    To actually trigger a refresh operation, configure a refresh middleware for the application to refresh the configuration data when any change occurs.
+    Also, the `SetCacheExpiration` method overrides the default cache expiration time of 30 seconds, specifying a time of 5 minutes instead. This reduces the number of requests made to App Configuration.
+
+    > [!NOTE]
+    > For testing purposes, you may want to lower the cache expiration time.
+
+    To actually trigger a refresh operation, you'll need to configure a refresh middleware for the application to refresh the configuration data when any change occurs. You'll see how to do this in step #4.
 
 2. Add a *Settings.cs* file that defines and implements a new `Settings` class.
 
@@ -312,7 +312,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 1. After the build successfully completes, run the following command to run the web app locally:
 
         dotnet run
-1. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
+1. Open a browser window, and go to the URL shown in the `dotnet run` output.
 
     ![Launching quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 

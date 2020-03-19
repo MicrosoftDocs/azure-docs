@@ -69,11 +69,13 @@ You can provide access to App Configuration for web apps or functions by using a
 
 ## Reduce requests made to App Configuration
 
-If your application consistently experiences HTTP status code 429, consider redesigning it to reduce the number of requests made.
+Excessive requests to App Configuration can result in throttling or overage charges. To reduce the number of requests made:
 
 * Increase the refresh timeout, especially if your configuration values do not change frequently. Specify a new refresh timeout using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
+
+* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. See [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event) for more information
 
 ## Next steps
 
