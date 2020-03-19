@@ -17,16 +17,8 @@ ms.author: travisw
 
 [!INCLUDE [dotnet](./dotnet.md)]
 
-# [Unity](#tab/unity)
-
-[!INCLUDE [unity](./unity.md)]
-
 # [UWP](#tab/uwp)
 
 [!INCLUDE [uwp](./uwp.md)]
-
-# [Xamarin](#tab/xaml)
-
-[!INCLUDE [xamarin](./xamarin.md)]
 
 ***
