@@ -65,7 +65,7 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 ### ARRServiceUnity
 
-`ARRServiceUnity` is an optional component to streamline setup and session management. It contains options to automatically stop its session when the application is exiting or play mode is exited in the editor, as well as automatically renew the session lease when needed. It caches data such as the session properties (see its `LastProperties` variable), and exposes easy to use events for session state changes.
+`ARRServiceUnity` is an optional component to streamline setup and session management. It contains options to automatically stop its session when the application is exiting or play mode is exited in the editor, as well as automatically renew the session lease when needed. It caches data such as the session properties (see its `LastProperties` variable), and exposes events for session state changes and session errors.
 
 There can't be more than one instance of `ARRServiceUnity` at a time. It's meant for getting you started quicker by implementing some common functionality. For a larger application it may be preferable to do those things yourself, though.
 
