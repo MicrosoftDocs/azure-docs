@@ -64,8 +64,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is a Secure Score?
-            url: security-center-secure-score.md
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
           - text: Customize your security recommendations
