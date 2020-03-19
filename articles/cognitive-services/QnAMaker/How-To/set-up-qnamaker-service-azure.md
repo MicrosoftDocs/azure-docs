@@ -183,7 +183,7 @@ QnA Maker's **App Service** resource uses the Cognitive Search resource. In orde
 
 If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
 
-Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
+Learn more about how to configure the App Service [Application settings](../../../app-service/configure-common.md#configure-app-settings).
 
 ## Configure App service idle setting to avoid timeout
 
@@ -202,6 +202,7 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 1. Select **Save** to save the configuration.
 1. You are asked if you want to restart the app to use the new setting. Select **Continue**.
 
+Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
 ## Delete Azure resources
 
