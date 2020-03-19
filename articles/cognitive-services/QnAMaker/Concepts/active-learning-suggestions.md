@@ -29,7 +29,10 @@ Once questions are suggested in the QnA Maker portal, you need to review and acc
 
 ## Turn on active learning
 
-By default, active learning is **off**. [Turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) to see suggested alternate question in your knowledge base.
+By default, active learning is **off**.
+To use active learning:
+* You need to [turn on active learning](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) so that QnA Maker collects alternate questions for your knowledge base.
+* To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
 
 ## How QnA Maker's implicit feedback works
 
