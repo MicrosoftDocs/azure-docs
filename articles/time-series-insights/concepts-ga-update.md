@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ---
 
-# Data access policies
+# GA Update
 
 This article describes...
 
