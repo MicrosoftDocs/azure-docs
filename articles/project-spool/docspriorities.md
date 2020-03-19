@@ -12,7 +12,7 @@
 1. A list of use-cases, ranked by priority. **[done]**
 2. A Table of Contents **[drafted]**  
 3. A Landing Page **[drafted]**  
-4. A process that enables stakeholders to contribute raw content.
+4. A process that enables stakeholders to contribute raw content and continuously provide feedback. **[drafted]**
 
 
 ### Cold Backlog
@@ -31,7 +31,17 @@
 ### Docs Weekly Digest
 
 
-#### 3/12:
+#### 3/19:
+
+- **Done**
+  - Table of Contents improved
+  - Reference docs instructions revised / simplified: [Link](https://review.docs.microsoft.com/en-us/azure/project-spool/automatingreferencedocs?branch=pr-en-us-104477). 
+  - Built out our Docs Tracker spreadsheet to track status / ownership of docs: [link](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn)
+
+- **Planned**
+  - socialize / improve upon our docs contribution process
+  - socialize / improve upon our reference docs automation process
+
 
 - **Done**
   - Table of Contents scaffolded
