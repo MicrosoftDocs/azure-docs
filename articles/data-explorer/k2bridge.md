@@ -122,17 +122,17 @@ By default, K2Bridges's Helm chart references a publicly available image located
         `--set service.type=LoadBalancer`
     
         Then run:
-
-           ```bash
-           kubectl get service -w -n k2bridge
-           ```   
+        ```bash
+        kubectl get service -w -n k2bridge
+        ```
         The output should look like: 
 
         ```bash
         NAME            TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
         kibana-kibana   LoadBalancer   xx.xx.xx.xx   <pending>      5601:30128/TCP   4m24s
         ```
-        You can then use the generated EXTERNAL-IP that appears, and use it to access Kibana by opening a browser to: `\<EXTERNAL-IP>:5601`.
+        You can then use the generated EXTERNAL-IP that appears, and use it to access Kibana by opening a browser to: 
+`<EXTERNAL-IP>:5601`.
 
 1. Configure index patterns to access your data:  
 In a new Kibana instance:
