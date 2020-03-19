@@ -16945,6 +16945,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
       "redirect_document_id": false
