@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Protect a Node.js web API using Azure Active Directory B2C and grant access to SPA"
+title: "Tutorial: Protect a Node.js web API using Azure AD B2C and grant access to a single-page application (SPA)"
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to use Active Directory B2C to protect a Node.js web API and call it from a single-page application.
 services: active-directory-b2c
@@ -7,29 +7,31 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 07/24/2019
+ms.date: 03/20/2020
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ---
 
-# Tutorial: Protect a Node.js Web API using Azure Active Directory B2C and grant access to SPA
+# Tutorial: Protect and grant access to a Node.js web API from a single-page application with Azure AD B2C
 
 This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C)-protected Node.js web API from a single-page application.
 
-In this tutorial, you learn how to:
+In this tutorial, the second in two-part series:
 
 > [!div class="checklist"]
-> * Add a web API application
-> * Configure scopes for a web API
+> * Create a web API application registration in your Azure AD B2C tenant
+> * Configure scopes for the web API
 > * Grant permissions to the web API
-> * Configure the sample to use the application
+> * Modify a web API code sample to work with your tenant
+
+In the first tutorial in this series, you downloaded the code sample and modified it to sign in users with a user flow in your Azure AD B2C tenant.
 
 ## Prerequisites
 
-* Complete the steps and prerequisites in [Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C](tutorial-single-page-app.md).
-* [Visual Studio Code](https://code.visualstudio.com/)
+* Complete the steps and prerequisites in [Tutorial: Enable authentication in a single-page application with Azure AD B2C](tutorial-single-page-app.md)
+* [Visual Studio Code](https://code.visualstudio.com/) or another code editor
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Add a web API application
@@ -70,7 +72,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 1. Modify the file to reflect your tenant name, the application ID of the web API application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `tenantIdGuid` and `clientId` values):
 
     ```javascript
-    var clientID = "<your-webapi-application-ID>"; 
+    var clientID = "<your-webapi-application-ID>";
     var b2cDomainHost = "fabrikamb2c.b2clogin.com";
     var tenantIdGuid = "<your-webapi-tenant-ID>";
     var policyName = "B2C_1_signupsignin1";

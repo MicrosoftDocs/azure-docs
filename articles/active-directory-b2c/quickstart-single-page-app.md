@@ -76,9 +76,8 @@ The sample single-page application includes an access token in the request to th
 
 In this quickstart, you used a sample single-page application to:
 
-- Sign in with a custom login page
 - Sign in with a social identity provider
-- Create an Azure AD B2C user account
+- Create an Azure AD B2C user account (created automatically at sign-in)
 - Call a web API protected by Azure AD B2C
 
 Get started creating your own Azure AD B2C tenant.
