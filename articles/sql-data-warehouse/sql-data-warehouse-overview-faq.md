@@ -97,7 +97,7 @@ A: Orc, RC, Parquet, and flat delimited text
 
 Q: What data sources can I connect to using PolyBase? 
 
-A: [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) and [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+A: [Azure Data Lake Storage](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md) and [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
 Q: Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS? 
 
