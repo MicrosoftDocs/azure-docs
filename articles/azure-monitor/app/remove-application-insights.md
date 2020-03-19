@@ -1,6 +1,6 @@
 ---
 title: Remove Application Insights in Visual Studio - Azure Monitor 
-description: How to remove Application Insights SDK (ASP.NET) in Visual Studio. 
+description: How to remove Application Insights SDK for ASP.NET and .NET Core in Visual Studio. 
 ms.topic: conceptual
 ms.date: 03/16/2020
 
@@ -8,7 +8,7 @@ ms.date: 03/16/2020
 
 # How to remove Application Insights in Visual Studio
 
-This article will show you how to remove the ASP.NET Application Insights SDK in Visual Studio.
+This article will show you how to remove the ASP.NET and .NET Core Application Insights SDK in Visual Studio.
 
 ## Option 1: Using the Package Management Console
 
