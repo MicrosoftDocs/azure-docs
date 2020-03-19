@@ -184,7 +184,7 @@ Here is an example of a relationship formatted as a JSON object:
 
 ## Next steps
 
-See how to manage graph elements with Twin APIs:
+See how to manage graph elements with Azure Digital Twin APIs:
 * [Manage an individual digital twin](how-to-manage-twin.md)
 * [Manage a twin graph](how-to-manage-graph.md)
 

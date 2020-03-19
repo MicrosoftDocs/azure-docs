@@ -284,4 +284,8 @@ namespace adtIngestFunctionSample
 ## Debug Azure function apps locally
 
 It is possible to debug Azure Functions with an Event Grid trigger locally. For more information about this, see [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md).
-  
+
+## Next steps
+
+Read about data ingress and egress with Azure Digital Twins:
+* [Deploy Azure Digital Twins](concepts-deployment.md)

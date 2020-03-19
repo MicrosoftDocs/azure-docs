@@ -16,3 +16,7 @@ ms.service: digital-twins
 ---
 
 # Understand security best practices
+
+## Next steps
+
+Walk through the steps to [Authenticate against Azure Digital Twins](how-to-authenticate.md).

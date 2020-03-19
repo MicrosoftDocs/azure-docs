@@ -187,4 +187,4 @@ These are the current limitations on using `JOIN` in the Azure Digital Twins Que
 
 ## Next steps
 
-Learn about the [Azure Digital Twins APIs](how-to-use-apis.md), which are used to run queries on the twin graph.
+Learn about the [Azure Digital Twins Query API](how-to-use-apis.md), which is used to run queries on the twin graph.

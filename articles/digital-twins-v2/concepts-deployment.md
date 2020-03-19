@@ -44,5 +44,11 @@ For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.m
 
 ## Next steps
 
+See how to set up an instance of Azure Digital Twins:
+* [Create an Azure Digital Twins instance](how-to-set-up-instance.md)
+
+See how to set up Azure Digital Twins to ingest data from IoT Hub:
+* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+
 Learn more about endpoints and routing events to external services:
 * [Route events to external services](concepts-route-events.md)

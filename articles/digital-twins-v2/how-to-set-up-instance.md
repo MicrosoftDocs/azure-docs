@@ -78,3 +78,12 @@ az role assignment create --role "Azure Digital Twins Owner (Preview)" --assigne
 Take note of the "hostname" value returned by `az dt show`, as you will need this value later.
 
 You now have an Azure Digital Twins instance ready to go.
+
+## Next steps
+
+Start learning about the key elements of your Azure Digital Twins instance:
+* [Create digital twins and the twin graph](concepts-twins-graph.md)
+* [Create a twin type](concepts-twin-typw.md)
+
+Or, see how to set up Azure Digital Twins to ingest data from IoT Hub:
+* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create Azure Functions apps for Azure Digital Twins
 
-This article walks you through creating an Azure Function for use with Azure Digital Twins. Here is a quick look of the steps it contains:
+This article walks you through creating an [Azure Function](../azure-functions/functions-overview.md) for use with Azure Digital Twins. Here is a quick look of the steps it contains:
 
 1. Create an Azure Function app in Visual Studio
 2. Write an Azure Function with an Event Grid trigger
@@ -250,3 +250,11 @@ The output will contain a long string named "id" that will begin with the letter
 ```bash
 az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <ID-for-your-function> --scope <resource-instance-ID>
 ```
+
+## Next steps
+
+Read more about roles and security in Azure Digital Twins:
+* [Secure Azure Digital Twins solutions](concepts-security.md)
+
+See how to use an Azure Function to ingest IoT Hub data into Azure Digital Twins:
+* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

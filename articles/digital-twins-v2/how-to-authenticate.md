@@ -20,9 +20,7 @@ ms.service: digital-twins
 > [!TIP]
 > To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
-Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. 
-
-There are two pieces to that:
+Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. This involves two pieces:
 * Creating an app registration
 * Writing authentication code in a client app
 
@@ -163,3 +161,8 @@ namespace Azure Digital TwinsGettingStarted
     }
 }
 ```
+
+## Next steps
+
+See how to make API calls to your Azure Digital Twin instance:
+* [Manage an individual digital twin](how-to-manage-twin.md)
