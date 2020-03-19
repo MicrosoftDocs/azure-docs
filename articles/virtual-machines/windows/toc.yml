@@ -585,6 +585,8 @@
         href: create-portal-availability-zone.md
   - name: Use automation tools
     items:
+    - name: Custom data
+      href: ../custom-data.md
     - name: Chef
       href: chef-automation.md
     - name: Publish Web App from Visual Studio
