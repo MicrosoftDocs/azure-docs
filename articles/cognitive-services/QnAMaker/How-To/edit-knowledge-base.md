@@ -85,6 +85,12 @@ Periodically select **Save and train** after making edits to avoid losing change
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
+## When to use rich-text editing versus markdown
+
+[Rich-text editing](#add-an-editorial-qna-set) of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
+
+[Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../Quickstarts/batch-testing.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
