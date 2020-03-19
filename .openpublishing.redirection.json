@@ -17009,6 +17009,11 @@
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/security/fundamentals/choose-ad-authn.md",
+      "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
