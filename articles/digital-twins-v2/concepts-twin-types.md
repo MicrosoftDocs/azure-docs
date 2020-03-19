@@ -97,7 +97,7 @@ The fields of the DTDL document are defined as follows:
 
 ### Schema options
 
-As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types — `integer`, `double`, `string`, and `Boolean` — and others such as `DateTime` and `Duration`. 
+As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and others such as `DateTime` and `Duration`. 
 
 In addition to primitive types, *Property* and *Telemetry* fields can have the following four complex types:
 * `Object`
@@ -170,7 +170,7 @@ The extending interface cannot change any of the definitions of the parent inter
 DTDL and Azure Digital Twins twin types have several constraints while in preview:
 * While the DTDL language specification allows for inline definitions of interfaces, this is not supported in the current version of the Azure Digital Twins service.
 * Azure Digital Twins does not support complex type definitions in separate documents, or as inline definitions. Complex types must be defined in a `schemas` section within an interface document. The definitions are only valid inside the interface that contains them.
-* Azure Digital Twins currently only allows a single level of component nesting ⁠— so an interface that is used as a component cannot have any further components itself.  
+* Azure Digital Twins currently only allows a single level of component nesting—so an interface that is used as a component cannot have any further components itself.  
 * Azure Digital Twins does not currently support the execution of commands on Azure digital twins.
 * Azure Digital Twins does not support standalone relationships (that is, relationships defined as independent graph elements). All relationships must be defined inline as part of a twin type.
 
@@ -180,4 +180,4 @@ Learn about creating digital twins based on twin types:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
 
 Or, see how a twin type is managed with the DigitalTwinsModels APIs:
-* [[Manage a twin type](how-to-manage-twin-type.md)
+* [Manage a twin type](how-to-manage-twin-type.md)

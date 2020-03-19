@@ -51,12 +51,12 @@ To make life easier, let's set a default location for all resources to be create
 az configure --defaults location="West Central US"
 ```
 
-Before we can create an Azure Digital Twins instance, you will need an existing resource group. If you don't have one in your subscription, you can create one with:
+Before you can create an Azure Digital Twins instance, you will need an existing resource group. If you don't have one in your subscription, you can create one with:
 ```bash
 az group create -n <your-resource-group-name>
 ```
 
-And now you are ready to create your Azure Digital Twins instance:
+Now, you are ready to create your Azure Digital Twins instance:
 ```bash
 az dt create --name <your-instance-name> -g <your-resource-group-name>
 ```

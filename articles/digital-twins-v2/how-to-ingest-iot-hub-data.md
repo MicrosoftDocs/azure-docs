@@ -19,31 +19,31 @@ ms.service: digital-twins
 
 Azure Digital Twins is driven with data from IoT and other sources, by calling [DigitalTwins APIs](how-to-use-apis.md) to set properties or fire telemetry events on twins. Once the initial property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
-This how-to document walks through an example of ingesting telemetry from IoT Hub.
+This how-to document walks through an example of ingesting telemetry from [IoT Hub](../iot-hub/about-iot-hub.md).
 
 ## Goals
 
-This how-to outlines how to send messages from IoT Hub to Azure Digital Twins using an Azure Function. In this example we have:
-* A thermometer device in IoT Hub with a known ID
-* A twin to represent the device with a matching ID (or any ID that you can map to from the ID of the device. It is of course possible to provide more sophisticated mappings, for example with a mapping table, but in this example we assume a simple ID match)
-* A twin representing a room. Whenever a temperature telemetry event is sent by the thermometer device, we want to have the temperature property of the room twin update. Hence, we need to map from a telemetry event on a device to a property setter on a logical twin.
+This how-to outlines how to send messages from IoT Hub to Azure Digital Twins using an Azure Function. This example contains:
+* A thermometer device in IoT Hub with a known ID.
+* A twin to represent the device with a matching ID (or any ID that you can map to from the ID of the device. It is certainly possible to provide more sophisticated mappings, like with a mapping table, but this example assumes a straightforward ID match).
+* A twin representing a room. Whenever a temperature telemetry event is sent by the thermometer device, the temperature property of the room twin should update. Hence, you will map from a telemetry event on a device to a property setter on a logical twin.
 
-In this example, we will assume a twin representing the device that we can identify with an ID match. We will then use topology information from the graph to find the room twin, and set a property on that twin. This is just one of many possible configurations and matching strategies - just one example out of many possible ones.
+In this example, you will work with a twin representing a device that can be identified with an ID match. You will then use topology information from the graph to find the room twin, and set a property on that twin. This is just one of many possible configurations and matching strategies—just one example out of many possible ones.
 
 [![Ingest Overview](media/how-to-ingest-iot-hub-data/ingestingEvents.png)](media/how-to-ingest-iot-hub-data/ingestingEvents.png)
 
 ## Setup overview
 
-To create this example you need to: 
-* Create an IoT Hub
-* Create (at least one) Azure Function to process events from IoT Hub. See [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
+Prior to completing this example, you need to: 
+* Create an IoT hub. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
+* Create at least one Azure Function to process events from IoT Hub. See [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
 * In the Events blade of your IoT Hub instance, create a subscription to your Azure function. 
-  * Select Telemetry as the event type
-  * Add a filter if so desired, using Event Grid filtering
+  - Select *Telemetry* as the event type
+  - Add a filter if desired, using Event Grid filtering
 
 ## Create an Azure Function in Visual Studio
 
-In this section, we add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+In this section, you'll add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton code is:
 
@@ -61,9 +61,9 @@ static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent,
 }
 ```
 
-As a first step, we need to extract the part of the device message we are interested in from the Event Grid event. 
+The first step is to extract the relevant part of the device message from the Event Grid event. 
 
-This code depends on the connected device. FOr a simple device that sends telemetry as JSON, it might look like the following code that extracts the device ID that sent the message and a temperature value from the message.
+This code depends on the connected device. For a simple device that sends telemetry as JSON, it might look like the following code that extracts the device ID that sent the message and a temperature value from the message.
 
 ```csharp
 JObject job = eventGridEvent.Data as JObject;
@@ -71,11 +71,11 @@ string devid = (string)job["systemProperties"].ToObject<JObject>().Property("iot
 double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Value;
 ```
 
-Once we have this value, we need to find the parent of the twin that is associated with the device (remember, in this scenarios we want to update the *parent* of the twin representing the device with a property from the device)
+Once you have this value, you can find the parent of the twin that is associated with the device (remember, the goal in this scenario is to update the *parent* of the twin representing the device with a property from the device).
 
-To do this, we use the Azure Digital Twins APIs to access the incoming relationships to the device representing twin (which we assume has the same ID as the device). From the incoming relationship, we get the ID of the parent:
+To do this, use the Azure Digital Twins APIs to access the incoming relationships to the device-representing twin (which you can assume in this case has the same ID as the device). From the incoming relationship, you can find the ID of the parent with the code snippet below.
 
-For simplicity, we will assume in the sample code below that there is only a single incoming relationship, but of course there could more than that.
+For simplicity, you can assume in the sample that there is only a single incoming relationship (while in reality there could more).
 
 ```csharp
 IPage<IncomingEdge> relPage = await client.DigitalTwins.ListIncomingEdgesAsync(devid);
@@ -88,7 +88,7 @@ if (relPage != null) {
 }
 ```
 
-Now that we have the ID of the parent twin, we can patch that twin. To do this, we write code as this:
+Now that you have the ID of the parent twin, you can patch that twin. To do this, the code looks like this:
 ```csharp
 // See the utility class defined further down in this file
 JsonPatch jp = new JsonPatch();
@@ -96,7 +96,7 @@ jp.AppendReplaceOp("/Temperature", 85);
 await client.DigitalTwins.UpdateAsync(id, jp.Document);
 ```
 
-The example above uses a simple helper class to create a JSON Patch
+The example above uses a helper class to create a JSON Patch:
 
 ```csharp
 public class JsonPatch

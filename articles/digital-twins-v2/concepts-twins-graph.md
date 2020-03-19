@@ -30,7 +30,7 @@ After creating and uploading a twin type, your client app can create an instance
 
 Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis.md) to instantiate a twin of type *Room*.
 
-In the private preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
+In the current preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
 
 ```csharp
 public Task<boolean> CreateRoom(string id, double temperature, double humidity) 

@@ -99,7 +99,7 @@ static async Task Authenticate()
 Note that this sample is the most minimal code for authentication using the MSAL authentication library. There are many more options you can use to implement for example caching and several other authentication flows. For more information see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 
 You will need to have references to the following libraries, which you can find on NuGet:
-* Microsoft.Identity.Client. This is the MSAL client library.
+* Microsoft.Identity.Client (this is the MSAL client library)
 * *Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * System.Security.Cryptography.ProtectedData
@@ -136,7 +136,7 @@ namespace Azure Digital TwinsGettingStarted
                 TokenCredentials tk = new TokenCredentials(authResult.AccessToken);
                 client = new AzureDigitalTwinsAPIClient(tk);
                 client.BaseUri = new Uri(adtInstanceUrl);
-                Console.WriteLine($"Service client created – ready to go");
+                Console.WriteLine($"Service client created — ready to go");
 
                 //... your app code using Azure Digital Twins APIs here ...
             }

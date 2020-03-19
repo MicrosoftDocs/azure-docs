@@ -138,10 +138,12 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
- This operation will only succeed if the digital twin being modified after application of the patch is conformant with the new twin type. For example:
-* Imagine an Azure digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
-* The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
-* After the patch, the digital twin must have both a temperature and humidity property. The patch thus needs to be:
+This operation will only succeed if the digital twin being modified after application of the patch is conformant with the new twin type. For example:
+1. Imagine an Azure digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
+2. The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
+3. After the patch, the digital twin must have both a temperature and humidity property. 
+
+The patch thus needs to be:
 
 ```json
 [

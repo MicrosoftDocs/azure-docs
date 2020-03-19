@@ -30,7 +30,7 @@ One route should allow multiple notifications and event types to be selected.
 
 If there is no route, no messages are routed outside of Azure Digital Twins. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
 
-**Note**: In private preview, filters are not supported. Please use Event Grid as an endpoint with an Event Grid subscription filter to use selective messaging.
+**Note**: During this preview, filters are not supported. Please use Event Grid as an endpoint with an Event Grid subscription filter to use selective messaging.
 
 In SDK form:
 
@@ -98,9 +98,9 @@ Notifications are made up of two parts: the header and the body.
 
 ### Notification headers
 
-In this section, we will discuss and illustrate notification message headers as key-value pairs and the message body as JSON. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently. This section discusses the format for telemetry messages, regardless of the specific protocol and serialization chosen.
+In this section, you will learn about notification message headers as key-value pairs, and the message bodies as JSON. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently as well. This section discusses the format for telemetry messages, regardless of the specific protocol and serialization chosen.
 
-We aspire to have notifications conform to the CloudEvents standard. For practical reasons, we suggest a phased approach to CloudEvents conformance.
+Some notifications conform to the CloudEvents standard. CloudEvents conformance is as follows.
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
 * Notifications emitted from Azure digital twin based on twin types conform to CloudEvents
@@ -115,8 +115,8 @@ All Azure digital twins are emitting notifications, regardless of whether they r
 #### Notification triggers
 
 These notifications are triggered when:
-* An Azure digital twin is created (proxy or not)
-* An Azure digital twin is deleted (proxy or not)
+* An Azure digital twin is created
+* An Azure digital twin is deleted
 * A proxy is attached to an IoT Hub device
 * A proxy is detached from its associated IoT Hub device
 
@@ -281,7 +281,7 @@ For and `Model.Decom`, the body of the patch will be in JSON patch format, like 
 
 These notifications are triggered when an Azure digital twin is being updated, like:
 * When property values or metadata changes.
-* When digital twin or component metadata changes. An example of this scenario is changing the twin type of a twin.
+* When digital twin or component metadata changes. An example of this scenario is changing the twin type of a digital twin.
 
 #### Properties
 

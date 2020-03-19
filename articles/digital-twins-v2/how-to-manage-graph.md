@@ -17,11 +17,10 @@ ms.service: digital-twins
 
 # Create digital twins and relationships
 
-Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
+Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This example uses an AutoRest-generated SDK, as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 This section assumes that you: 
 * Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [Create an Azure Digital Twins instance](how-to-set-up-instance.md) for more information.
-
 * Know how to authenticate against Azure Digital Twins and how to create a service client object. See [Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
 
 ## Create a twin graph (preview)
@@ -102,8 +101,8 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 ### Create relationships
 
 Relationships are created with `DigitalTwins.AddEdge'. To create a relationship, you need to specify:
-* The source twin ID - the twin where the relationship originates
-* The target twin ID - the twin where the relationship arrives
+* The source twin ID (the twin where the relationship originates)
+* The target twin ID (the twin where the relationship arrives)
 * A relationship name
 * A relationship ID
 

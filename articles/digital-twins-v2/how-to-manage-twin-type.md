@@ -136,7 +136,7 @@ Twin types are not necessarily returned in exactly the document form they were u
 
 ## Parse twin types
 
-As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides twin type access to the DTDL definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
+As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides twin type access to the DTDL definitions—effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
 
 To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these twin type documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow is as follows.
 1. You retrieve all (or, potentially, some) DTDL documents from the service.

@@ -180,7 +180,7 @@ In the example above, note how *reportedCondition* is a property of the *service
 ### Limitations
 
 These are the current limitations on using `JOIN` in the Azure Digital Twins Query Store Language:
-* No subqueries are supported within the `FROM` statement.
+* No sub-queries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Additional runtime limitations may be exposed, such as restricting how many levels of `JOIN` can be included.
 * During the preview release, only one level of `JOIN` is supported.
