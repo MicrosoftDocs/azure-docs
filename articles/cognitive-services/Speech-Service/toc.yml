@@ -416,12 +416,6 @@
           items:
             - name: 'Create a custom voice assistant'
               href: quickstarts/voice-assistants.md
-            - name: 'C# (UWP)'
-              href: quickstart-voice-assistant-csharp-uwp.md
-            - name: 'Java (Windows, macOS, Linux)'
-              href: quickstart-voice-assistant-java-jre.md
-            - name: Java (Android)
-              href: quickstart-voice-assistant-java-android.md
         - name: Tutorials
           items:
             - name: Voice enable your bot with Speech SDK
