@@ -81,7 +81,7 @@ To optimize and minimize the amount of data written to the log, please refer to 
 > 
 
 ## Transaction state
-SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
+SQL pool uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
 > The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.

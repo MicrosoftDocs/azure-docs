@@ -68,7 +68,7 @@ For example, consider database schemas, schema_A for dept A, and schema_B for de
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A and user_B are now locked out from the other dept’s schema.
+User_A and user_B are now locked out from the other dept's schema.
 
 ## Loading to a staging table
 
@@ -84,7 +84,7 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SQLBulkCopy API or BCP
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL Data Warehouse. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
+As mentioned before, loading with PolyBase will provide the highest throughput with Synapse SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
 
 ## Handling loading failures
 
@@ -138,6 +138,6 @@ No other changes to underlying external data sources are needed.
 
 ## Next steps
 
-- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](data-loading-overview.md).
-- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL pool](data-loading-overview.md).
+- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to SQL pool](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 - To monitor data loads, see [Monitor your workload using DMVs](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md).

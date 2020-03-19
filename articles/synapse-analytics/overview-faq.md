@@ -45,7 +45,7 @@ A: Azure Synapse has the following capabilities:
 
 ### Q: How does Azure Synapse Analytics relate to Azure SQL Data Warehouse
 
-A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform. This platform combines data exploration, ingestion, transformation, preparation, and serving analytics layer.
+A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform, which includes SQL pool as the data warehouse solution. This platform combines data exploration, ingestion, transformation, preparation, and serving analytics layer.
 
 ## Use cases
 

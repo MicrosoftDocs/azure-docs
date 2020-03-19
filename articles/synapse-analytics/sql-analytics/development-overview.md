@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ---
 
 # Design decisions and coding techniques for SQL Analytics features in Azure Synapse Analytics
-In this article, you'll find a list of resources for the SQL pools and SQL on-demand (preview) functions of SQL Analytics. The recommended articles are split up into two sections: Key design decisions and Development and coding techniques.
+In this article, you'll find a list of resources for SQL pool and SQL on-demand (preview) functions of SQL Analytics. The recommended articles are split up into two sections: Key design decisions and Development and coding techniques.
 
 The goal of these articles is to help you develop the optimal technical approach for the SQL Analytics components within Synapse Analytics.
 

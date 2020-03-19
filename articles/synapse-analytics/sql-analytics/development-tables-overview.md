@@ -204,7 +204,7 @@ You can create a table as a new empty table. You can also create and populate a 
 | T-SQL Statement | Description |
 |:----------------|:------------|
 | [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7) | Creates an empty table by defining all the table columns and options. |
-| [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15) | Creates an external table. The definition of the table is stored in SQL Data Warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
+| [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15) | Creates an external table. The definition of the table is stored in SQL pool. The table data is stored in Azure Blob storage or Azure Data Lake Storage. |
 | [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
 | [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
 
