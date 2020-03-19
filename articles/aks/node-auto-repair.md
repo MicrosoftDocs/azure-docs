@@ -31,6 +31,9 @@ kubectl get nodes
 
 ## How automatic repair works
 
+> [!Note]
+> AKS takes repair action on nodes with the user account **aks-remediator**.
+
 This behavior is for **Virtual Machine Scale Sets**.  Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attempts several remediation steps.  The steps are performed in this order:
 
 1. After the container runtime becomes unresponsive for 10 minutes, the failing runtime services are restarted on the node.
