@@ -43,7 +43,7 @@ A JSON document providing usable input for this skill could be:
       {
         "text": "The brown fox jumps over the dog",
         "itemsToInsert": ["quick", "lazy"],
-        "offsets": [3, 28],
+        "offsets": [3, 28]
       }
     }
   ]

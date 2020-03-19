@@ -1,10 +1,11 @@
-- name: Front Door Service Documentation
+- name: Front Door Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Front Door Service?
+  - name: What is Azure Front Door?
     href: front-door-overview.md    
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a Front Door
     href: quickstart-create-front-door.md
@@ -48,6 +49,8 @@
     href: front-door-url-rewrite.md
   - name: URL redirect
     href: front-door-url-redirect.md
+  - name: Wildcard domain
+    href: front-door-wildcard-domain.md
 - name: How-to guides
   items:
   - name: Redirect Traffic

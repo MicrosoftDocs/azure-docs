@@ -1,5 +1,5 @@
 ---
-title: Failover and disaster recovery for your StorSimple 8000 series device | Microsoft Docs
+title: Failover and disaster recovery for StorSimple 8000 series devices
 description: Learn how to fail over your StorSimple device to itself, another physical device, or a cloud appliance.
 services: storsimple
 documentationcenter: ''

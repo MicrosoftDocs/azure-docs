@@ -39,6 +39,8 @@
   items:
   - name: Basics
     items:
+    - name: Application Gateway features
+      href: features.md
     - name: How Application Gateway works
       href: how-application-gateway-works.md
     - name: Application Gateway components

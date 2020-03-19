@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
+ms.date: 03/12/2020
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory
@@ -40,7 +40,7 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 >Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) with ODBC driver download and connection string configurations.
 
 > [!IMPORTANT]
-> If you copy data by using the Azure Data Factory integration runtime, configure an [Azure SQL Server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
+> If you copy data by using the Azure Data Factory integration runtime, configure an [Azure SQL Server firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) so that Azure services can access the server.
 > If you copy data by using a self-hosted integration runtime, configure the Azure SQL Server firewall to allow the appropriate IP range. This range includes the machine's IP that's used to connect to Azure SQL Database.
 
 ## Get started
@@ -256,6 +256,7 @@ To copy data from Azure SQL Database, the following properties are supported in 
 | sqlReaderQuery | This property uses the custom SQL query to read data. An example is `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Points to note:**
 
@@ -584,6 +585,10 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 Settings specific to Azure SQL Database are available in the **Settings** tab of the sink transformation.
 
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
+
+![Key Columns](media/data-flow/keycolumn.png "Key Columns")
+
+The column name that you pick as the key here will be used by ADF as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
 **Table action:** Determines whether to recreate or remove all rows from the destination table prior to writing.
 * None: No action will be done to the table.

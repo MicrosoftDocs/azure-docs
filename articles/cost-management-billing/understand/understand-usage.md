@@ -2,17 +2,14 @@
 title: Understand your detailed usage and charges | Microsoft Docs
 description: Learn how to read and understand your detailed usage and charges
 author: bandersmsft
-manager: micflan
+ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/24/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # Understand the terms in your Azure usage and charges file
 
 The detailed usage and charges file contains daily rated usage based on negotiated rates,

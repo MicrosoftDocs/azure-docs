@@ -3,7 +3,7 @@ title: Hunting capabilities in Azure Sentinel| Microsoft Docs
 description: This article describes how to use the Azure Sentinel hunting capabilities.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -16,7 +16,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
-ms.author: rkarlin
+ms.author: yelevin
 ---
 
 # Hunt for threats with Azure Sentinel

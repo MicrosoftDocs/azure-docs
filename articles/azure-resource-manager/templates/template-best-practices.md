@@ -150,7 +150,7 @@ The following information can be helpful when you work with [variables](template
 
 * Include variables for resource names that must be unique.
 
-* Use a [copy loop in variables](create-multiple-instances.md#variable-iteration) to create a repeated pattern of JSON objects.
+* Use a [copy loop in variables](copy-variables.md) to create a repeated pattern of JSON objects.
 
 * Remove unused variables.
 

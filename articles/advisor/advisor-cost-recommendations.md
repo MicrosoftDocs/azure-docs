@@ -43,6 +43,9 @@ Azure Advisor will detect Azure Data Factory pipelines that repeatedly fail and 
 ## Use Standard Snapshots for Managed Disks
 To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. This option is the default option for Managed Disks snapshots. Azure Advisor will identify snapshots that are stored Premium Storage and recommend migrating your snapshot from Premium to Standard Storage. [Learn more about Managed Disk pricing](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
+## Utilize Lifecycle Management
+Azure Advisor will utilize intelligence regarding your Azure blob storage object count, total size, and transactions to detect if one or more of your storage accounts would be best suited to enable lifecycle management to tier data. It will prompt you to create Lifecycle Management rules to automatically tier your data to Cool or Archive to optimize your storage costs while retaining your data in Azure blob storage for application compatibility.
+
 ## How to access Cost recommendations in Azure Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

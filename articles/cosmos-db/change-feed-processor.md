@@ -44,6 +44,7 @@ Where the first parameter is a distinct name that describes the goal of this pro
 
 An example of a delegate would be:
 
+
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
 Finally you define a name for this processor instance with `WithInstanceName` and which is the container to maintain the lease state with `WithLeaseContainer`.

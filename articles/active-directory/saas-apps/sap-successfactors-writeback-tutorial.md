@@ -177,8 +177,8 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-* [Learn how to export and import your provisioning configurations](../manage-apps/export-import-provisioning-configuration.md)
+* [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)
 
