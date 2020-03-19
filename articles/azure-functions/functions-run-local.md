@@ -74,7 +74,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 1. If you don't plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
-# [MacOS](#tab/macos)
+# [macOS](#tab/macos)
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
