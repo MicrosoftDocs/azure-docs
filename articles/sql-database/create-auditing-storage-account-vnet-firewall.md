@@ -1,6 +1,6 @@
 ---
-title: Audit to storage account under VNet and firewall 
-description: Configure auditing to write database events on a storage account under virtual network and firewall
+title: Audit to storage account behind VNet and firewall 
+description: Configure auditing to write database events on a storage account behind virtual network and firewall
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 03/08/2020
 ms.custom: azure-synapse
 ---
-# Write audit to a storage account under VNet and firewall
+# Write audit to a storage account behind VNet and firewall
 
 Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supports writing database events to an [Azure Storage account](../storage/common/storage-account-overview.md) behind a virtual network and firewall. 
 
@@ -27,7 +27,7 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 
 ## Prerequisites
 
-For audit to write to a storage account under a VNet or firewall, the following prerequisites are required:
+For audit to write to a storage account behind a VNet or firewall, the following prerequisites are required:
 
 > [!div class="checklist"]
 > * A general-purpose v2 storage account. If you have a general-purpose v1 or blob storage account, [upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md). For more information, see [Types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
@@ -46,21 +46,21 @@ Connect to [Azure portal](https://portal.azure.com) with your subscription. Navi
 3. Open **Storage details** 
 
   > [!NOTE]
-  > If the selected Storage account is under VNet, you will see the following message:
+  > If the selected Storage account is behind VNet, you will see the following message:
   >
   >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
   >
-  >If you do not see this message, then storage account is not under VNet.
+  >If you do not see this message, then storage account is not behind a VNet.
 
 3. Select the number of days for the retention period. Then click **OK**. Logs older than the retention period are deleted.
 
 4. Select **Save** on your auditing settings.
 
-You have succesfully configured audit to write to a storage account under a VNet or firewall. 
+You have successfully configured audit to write to a storage account behind a VNet or firewall. 
 
 ## Configure with REST commands
 
-As an alternative to using the Azure portal, you can use REST commands to configure audit to write database events on a storage account under a VNet and Firewall. 
+As an alternative to using the Azure portal, you can use REST commands to configure audit to write database events on a storage account behind a VNet and Firewall. 
 
 The sample scripts in this section require you to update the script before you run them. Replace the following values in the scripts:
 

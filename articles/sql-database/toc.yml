@@ -117,7 +117,7 @@
 
     - name: Auditing
       items:
-      - name: Get started with SQL Database auditing
+      - name: Azure SQL auditing
         href: sql-database-auditing.md
       - name: Audit to storage account
         href: create-auditing-storage-account-vnet-firewall.md
