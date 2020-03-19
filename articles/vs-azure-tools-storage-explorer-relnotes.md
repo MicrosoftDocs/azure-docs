@@ -1198,7 +1198,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Azure Stack accounts backed by AAD, Storage Explorer will now retrieve Azure Stack subscriptions when 'Target Azure Stack' is enabled. You no longer need to create a custom login environment.
 * Several shortcuts were added to enable faster navigation. These include toggling various panels and moving between editors. See the View menu for more details.
 * Storage Explorer feedback now lives on GitHub. You can reach our issues page by clicking the Feedback button in the bottom left or by going to [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Feel free to make suggestions, report issues, ask questions, or leave any other form of feedback.
-* If you are running into SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore SSL certificate errors.
+* If you are running into TLS/SSL Certificate issues and are unable to find the offending certificate, you can now launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore TLS/SSL certificate errors.
 * There is now a 'Download' option in the context menu for blob and file items.
 * Improved accessibility and screen reader support. If you rely on accessibility features, see our [accessibility documentation](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) for more information.
 * Storage Explorer now uses Electron 1.8.3
@@ -1623,7 +1623,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * You can now sign-in to Azure Active Directory (AAD) based Azure Stack accounts.
 * You can now upload archive files over 32MB to Premium storage accounts
 * Improved accessibility support
-* You can now add trusted Base-64 encoded X.509 SSL certificates by going to Edit -&gt; SSL Certificates -&gt; Import Certificates
+* You can now add trusted Base-64 encoded X.509 TLS/SSL certificates by going to Edit -&gt; SSL Certificates -&gt; Import Certificates
 
 #### Fixes
 
