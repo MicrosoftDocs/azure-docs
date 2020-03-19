@@ -8,14 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/19/2020
 ms.author: pafarley
 
 ---
 
 # What's new in Form Recognizer?
 
-This article highlights the major changes that come with new versions of the Form Recognizer API.
+The Form Recognizer service is updated on an ongoing basis. Use this article to stay up-to-date with feature enhancements, fixes, and documentation updates.
+
+## March 2020 
+
+### Extraction Enhancements and bug fixes
+
+This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. In addition, we've fixed several bugs, including a fix that allows users to submit a file URL as the source to the [`analyzeForm`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) and [`analyzeLayout`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync) APIs. 
+ 
+### Form Recognizer Sample Labeling Tool is now open source
+
+The Form Recognizer Sample Labeling Tool is now available as an open source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
+
+For more information about the Form Recognizer Sample Labeling Tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
+### Labeling value types
+
+Value types are now available for labeling. These value types are currently supported: 
+
+* String
+* Number 
+* Integer
+* Date 
+* Time
+
+### Table visualization 
+
+The Form Recognizer Labeling Tool now displays tables that were recognized in the document. This lets you to view the tables that have been recognized and extracted from the document, prior to labeling and analyzing with the Form Recognizer Sample Labeling Tool. This feature can be toggled on/off using the layers option. 
+
+> [!IMPORTANT]
+> Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, please label each cell as a value.
+
+## January 2020
 
 > [!NOTE]
 > The quickstarts and guides in this doc set always use the latest version of the API, unless they specify otherwise.
@@ -58,4 +89,4 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)* .
