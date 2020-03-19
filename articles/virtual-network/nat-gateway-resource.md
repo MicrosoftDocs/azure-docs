@@ -58,7 +58,7 @@ NAT is recommended for most workloads unless you have a specific dependency on [
 
 You can migrate from standard load balancer scenarios, including [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP and prefix can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
 
-The following example is a snippet from a Azure Resource Manager template.  This template deploys several resources, including a NAT gateway.  The template has the following parameters in this example:
+The following example is a snippet from an Azure Resource Manager template.  This template deploys several resources, including a NAT gateway.  The template has the following parameters in this example:
 
 - **natgatewayname** -  Name of the NAT gateway.
 - **location** - Azure region where resource is located.
@@ -79,7 +79,7 @@ Scenarios that don't use availability zones will be regional (no zone specified)
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
-For more information on the Azure Resource Manager template used in this example see:
+For more information on the Azure Resource Manager template used in this example, see:
 
 - [Quickstart: Create a NAT gateway - Resource Manager template](quickstart-create-nat-gateway-template.md)
 - [Virtual Network NAT](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
