@@ -10,10 +10,10 @@ ms.service: notification-hubs
 ms.devlang: azurecli
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 03/19/2020
+ms.date: 03/17/2020
 ms.author: dbradish
 ms.reviewer: sethm
-ms.lastreviewed:
+ms.lastreviewed: 03/18/2020
 ---
 
 # Quickstart: Create an Azure notification hub using the Azure CLI
