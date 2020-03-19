@@ -83,7 +83,7 @@ Backups that occur before the retention period are automatically purged based on
 Azure SQL Database computes your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to calculate your consumption at the end of each month. After the database is dropped, consumption decreases as backups age. After backups become older than the retention period, billing stops.
 
    > [!IMPORTANT]
-   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and recreating a database can frequently save on storage and compute costs, it might increase backup storage costs because Microsoft retains a backup for the specified retention period (which is 7 days at minimum) for each dropped database, every time it's dropped.
+   > Backups of a database are retained for the specified retention period, even if the database has been dropped. While dropping and re-creating a database can frequently save on storage and compute costs, it might increase backup storage costs because Microsoft retains a backup for the specified retention period (which is 7 days at minimum) for each dropped database, every time it's dropped.
 
 ### Monitor consumption
 
