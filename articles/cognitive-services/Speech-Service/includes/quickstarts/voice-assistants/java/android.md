@@ -12,6 +12,19 @@ ms.date: 11/05/2019
 ms.author: travisw
 ---
 
+## Prerequisites
+
+Before you get started, make sure to:
+
+> [!div class="checklist"]
+> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=android)
+> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Make sure that you have access to a microphone for audio capture
+
+  > [!NOTE]
+  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+
 ## Create and configure a project
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]

@@ -10,7 +10,9 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: travisw
+zone_pivot_groups: programming-languages-set-nine
 ---
+
 
 # Quickstart: Create a custom voice assistant
 

@@ -19,15 +19,3 @@ After satisfying a few prerequisites, connecting your custom voice assistant tak
 > * Create a `DialogServiceConnector` object using the `BotFrameworkConfig` object from above.
 > * Using the `DialogServiceConnector` object, start the listening process for a single utterance.
 > * Inspect the `ActivityReceivedEventArgs` returned.
-
-## Prerequisites
-
-Before you get started, make sure to:
-
-> [!div class="checklist"]
-> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp)
-> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-
-  > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
