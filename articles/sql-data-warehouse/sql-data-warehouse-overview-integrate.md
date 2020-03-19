@@ -29,7 +29,7 @@ Power BI integration allows you to combine the compute power of a data warehouse
 * **Direct Connect**: A more advanced connection with logical pushdown against a data warehouse provisioned using SQL pool. Pushdown provides faster analysis on a larger scale.
 * **Open in Power BI**: The 'Open in Power BI' button passes instance information to Power BI for a simplified way to connect.
 
-For more information, see [Integrate with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), or the [Power BI documentation](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
+For more information, see [Integrate with Power BI](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md), or the [Power BI documentation](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
 
 ## Azure Data Factory
 Azure Data Factory gives users a managed platform to create complex extract and load pipelines. SQL pool integration with Azure Data Factory includes:

@@ -3,7 +3,6 @@ title: Model interpretability in automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your automated ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
