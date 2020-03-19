@@ -34,7 +34,7 @@ To authenticate against Azure Digital Twins in Azure from an app, you need to se
 
 This app registration is where you configure access permissions to the Azure Digital Twins API. Your client app authenticates against the app registration, which in turn has configured access permissions to the Azure Digital Twins APIs.
 
-To create an app registration, you need to provide the resource IDs for the Azure Azure Digital Twins APIs and the baseline permissions to the API:
+To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs and the baseline permissions to the API:
 ```json
 requiredResourceAccess":[
   {
