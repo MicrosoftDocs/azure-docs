@@ -1,14 +1,13 @@
-*Note: This is a temporary page.  **This will not be published.***
+*Note: This is a temporary page.  **This will not be published**.  If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.*
 
 ## Intro
 
-Welcome to the Project Spool Contributor Quickstart!
+The status of Spool Docs is being tracked in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=AYC94P).
 
-The status of Spool Docs is being tracked in a spreadsheet that can be viewed in the **desktop version of Excel**. You can access this spreadsheet by navigating to the Spool Teams channel > Files > Spool Docs Status.xlsx:
+You may need to open it in the **desktop version of Excel**. You can access this spreadsheet by navigating to the Spool Teams channel > Files > Spool Docs Status.xlsx:
 
 ![Edit File](./media/docs-status-spreadsheet.png)
 
-If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.
 
 --------------
 
@@ -31,6 +30,7 @@ I'll then be notified, and I'll merge your changes into the docs.
 To preview your markdown, you can use Visual Studio Code. The TBD extension will allow you to preview docs UI components (code snippets, inline tabs, platform selectors, alerts). The Docs Components Demo shows you some commonly used components.
 
 To add **new docs** or **images to existing docs**, feel free to ping Mick. 
+
 
 -----------------
 
