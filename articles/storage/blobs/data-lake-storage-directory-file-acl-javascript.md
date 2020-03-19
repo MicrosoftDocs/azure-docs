@@ -3,7 +3,7 @@ title: Use JavaScript for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 description: Use Azure Storage Data Lake client library for JavaScript to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 12/18/2019
+ms.date: 03/18/2020
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
