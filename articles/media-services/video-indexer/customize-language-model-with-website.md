@@ -122,27 +122,28 @@ Video Indexer supports automatic customization of Language models based on the a
 
 1. To make corrections to a transcript, open up the video that you want to edit from your Account Videos. Select the **Timeline** tab.
 
-    ![Customize language model](./media/customize-language-model/timeline.png)
-1. Click on the pencil icon to edit the transcript of your transcription. 
+    ![Customize language model timeline tab—Video Indexer](./media/customize-language-model/timeline.png)
 
-    ![Customize language model](./media/customize-language-model/edits.png)
+1. Select the pencil icon to edit the transcript of your transcription.
 
-    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to re-train the specific Language model that was used to index this video. 
+    ![Customize language model edit transcription—Video Indexer](./media/customize-language-model/edits.png)
+
+    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to retrain the specific Language model that was used to index this video.
     
-    If you did not specify a Language model when indexing this video, then all edits for this video will be stored in a default Language model called Account adaptations within the detected language of the video. 
+    If you didn't specify a Language model when indexing this video, all edits for this video will be stored in a default Language model called "Account adaptations" within the detected language of the video.
     
     In case multiple edits have been made to the same line, only the last version of the corrected line will be used for updating the Language model.  
     
     > [!NOTE]
-    > Only textual corrections are used for the customization. This means that corrections that do not involve actual words (for example, punctuation marks or spaces) are not included. 
+    > Only textual corrections are used for the customization. Corrections that don't involve actual words (for example, punctuation marks or spaces) aren't included.
     
-1. You will see transcript corrections show up in the Language tab of the Content model customization page.
+1. You'll see transcript corrections show up in the Language tab of the Content model customization page.
 
-    ![Customize language model](./media/customize-language-model/customize.png)
+    ![Customize language model—Video Indexer](./media/customize-language-model/customize.png)
 
-   To look at the "From transcript edits" file for each of your Language models, click on it to open it. 
+   To look at the "From transcript edits" file for each of your Language models, select it to open it.
 
-    ![From transcript edits](./media/customize-language-model/from-transcript-edits.png)
+    ![From transcript edits—Video Indexer](./media/customize-language-model/from-transcript-edits.png)
 
 ## Next steps
 
