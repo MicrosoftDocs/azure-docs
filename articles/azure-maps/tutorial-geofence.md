@@ -161,7 +161,8 @@ Once the Postman app is installed, follow these steps to upload the construction
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 
