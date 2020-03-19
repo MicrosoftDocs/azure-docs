@@ -4,13 +4,11 @@ description: "Provides PowerShell scripts to create and manage Virtual Service e
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
-ms.service: sql-database
 ms.date: 03/12/2019
 tags: azure-synapse
 ---

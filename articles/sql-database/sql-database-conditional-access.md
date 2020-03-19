@@ -4,8 +4,6 @@ description: Learn how to configure Conditional Access for Azure SQL Database an
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
-ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
@@ -37,7 +35,7 @@ The following steps show how to configure SQL Database to enforce a Conditional 
 
 4. Select **Cloud apps**, click **Select apps**. You see all apps available for Conditional Access. Select **Azure SQL Database**, at the bottom click **Select**, and then click **Done**.  
    ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
-   If you can’t find **Azure SQL Database** listed in the following third screenshot, complete the following steps:   
+   If you can't find **Azure SQL Database** listed in the following third screenshot, complete the following steps:   
    - Sign in to your Azure SQL DB/DW instance using SSMS with an AAD admin account.  
    - Execute `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
    - Sign in to AAD and verify that Azure SQL Database and Azure Synapse are listed in the applications in your AAD.  
