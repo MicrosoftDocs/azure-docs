@@ -1,18 +1,19 @@
 ---
-author: IEvangelist
+author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
-ms.author: dapine
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
+Before you get started:
 
-[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * Make sure that you have access to a microphone for audio capture
 
 ## Add sample code
 
@@ -24,89 +25,11 @@ ms.author: dapine
 
 1. Replace all code in `Main.java` with the following snippet:
 
-   ```java
-   package speechsdk.quickstart;
-
-   import java.util.concurrent.Future;
-   import com.microsoft.cognitiveservices.speech.*;
-
-   /**
-    * Quickstart: recognize speech using the Speech SDK for Java.
-    */
-   public class Main {
-
-       /**
-        * @param args Arguments are ignored in this sample.
-        */
-       public static void main(String[] args) {
-           try {
-               // Replace below with your own subscription key
-               String speechSubscriptionKey = "YourSubscriptionKey";
-
-               // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
-               String serviceRegion = "YourServiceRegion";
-
-               // Replace below with your own filename.
-               String audioFileName = "whatstheweatherlike.wav";
-
-               int exitCode = 1;
-               SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
-               assert(config != null);
-
-               AudioConfig audioInput = AudioConfig.fromWavFileInput(audioFileName);
-               assert(audioInput != null);
-
-               SpeechRecognizer reco = new SpeechRecognizer(config, audioInput);
-               assert(reco != null);
-
-               System.out.println("Recognizing first result...");
-
-               Future<SpeechRecognitionResult> task = reco.recognizeOnceAsync();
-               assert(task != null);
-
-               SpeechRecognitionResult result = task.get();
-               assert(result != null);
-
-               switch (result.getReason()) {
-                   case ResultReason.RecognizedSpeech: {
-                           System.out.println("We recognized: " + result.getText());
-                           exitCode = 0;
-                       }
-                       break;
-                   case ResultReason.NoMatch:
-                       System.out.println("NOMATCH: Speech could not be recognized.");
-                       break;
-                   case ResultReason.Canceled: {
-                           CancellationDetails cancellation = CancellationDetails.fromResult(result);
-                           System.out.println("CANCELED: Reason=" + cancellation.getReason());
-        
-                           if (cancellation.getReason() == CancellationReason.Error) {
-                               System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
-                               System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                               System.out.println("CANCELED: Did you update the subscription info?");
-                           }
-                       }
-                       break;
-               }
-
-               reco.close();
-
-               System.exit(exitCode);
-           } catch (Exception ex) {
-               System.out.println("Unexpected exception: " + ex.getMessage());
-
-               assert(false);
-               System.exit(1);
-           }
-       }
-   }
-   ```
+   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
-
-1. Replace the string `whatstheweatherlike.wav` with your own filename.
+1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -116,12 +39,9 @@ ms.author: dapine
 ## Build and run the app
 
 Press F11, or select **Run** > **Debug**.
-The first 15 seconds of speech input from your audio file will be recognized and logged in the console window.
+The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
-   ```text
-   Recognizing first result...
-   We recognized: What's the weather like?
-   ```
+![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-07-console-output.png)
 
 ## Next steps
 
