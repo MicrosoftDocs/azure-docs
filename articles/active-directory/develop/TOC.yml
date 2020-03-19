@@ -71,10 +71,10 @@
   - name: Single-page apps
     displayName: SPA
     items:
-    - name: JavaScript
-      href: tutorial-v2-javascript-spa.md
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: JavaScript
+      href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
     - name: ASP.NET
