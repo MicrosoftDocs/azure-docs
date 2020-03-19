@@ -16,6 +16,8 @@ Only the following regions currently support incremental snapshots as a GA offer
 - Central US
 - East US
 - East US 2
+- South Central US
+- West US 2
 - Canada East
 - Canada Central
 - North Europe
