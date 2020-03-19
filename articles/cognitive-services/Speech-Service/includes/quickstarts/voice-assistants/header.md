@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: travisw
 ---
 

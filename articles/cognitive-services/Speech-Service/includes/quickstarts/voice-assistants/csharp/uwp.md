@@ -2,7 +2,7 @@
 author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/20/2020
 ms.author: travisw
 ---
 
