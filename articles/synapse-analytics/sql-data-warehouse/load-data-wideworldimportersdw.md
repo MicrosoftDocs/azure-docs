@@ -193,7 +193,7 @@ The first step toward loading data is to login as LoaderRC60.
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL pool, see the [loading overview](../../sql-data-warehouse/design-elt-data-loading.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL pool, see the [loading overview](../sql-analytics/data-loading-overview.md).
 
 Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a global Azure Blob.
 

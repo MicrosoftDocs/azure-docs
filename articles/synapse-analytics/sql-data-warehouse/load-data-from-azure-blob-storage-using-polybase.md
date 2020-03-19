@@ -208,7 +208,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure Storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](../../sql-data-warehouse/design-elt-data-loading.md).
+You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure Storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](../sql-analytics/data-loading-overview.md).
 
 Run the following SQL scripts and specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
 
@@ -637,4 +637,4 @@ You did these things:
 Advance to the development overview to learn how to migrate an existing database to Azure Synapse Analytics.
 
 > [!div class="nextstepaction"]
-> [Design decisions to migrate an existing database to Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-develop.md)
+> [Design decisions to migrate an existing database to Azure Synapse Analytics](../sql-analytics/development-overview.md)
