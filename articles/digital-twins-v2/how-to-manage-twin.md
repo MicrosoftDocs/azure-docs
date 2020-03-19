@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Retrieve, update and delete digital twins and relationships
 
-Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
+Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
 ## Get twin data for an entire digital twin
 
@@ -210,6 +210,7 @@ You need to specify the source twin (the twin the relationship originates from, 
 
 
 ## Find incoming relationships
+
 Azure Digital Twins also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
 
 A similar example to the above one for outgoing relationships - this code finds and deletes all incoming relationships to a twin.

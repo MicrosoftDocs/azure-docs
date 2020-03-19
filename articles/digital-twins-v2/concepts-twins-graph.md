@@ -28,7 +28,7 @@ Before you can create a digital twin in an Azure Digital Twins service instance,
 
 After creating and uploading a twin type, your client app can create instance of the type. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this type (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
-Below is a snippet of client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate a twin of type *Room*.
+Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis.md) to instantiate a twin of type *Room*.
 
 In the private preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
 
@@ -66,7 +66,7 @@ Twins are connected into a twin graph by their relationships. The relationships 
 
 For example, twin type *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships between an instance of type Floor and any instance of type Room or a sub-type of type Room. 
 
-Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
+Here is some example client code that uses the [DigitalTwins APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

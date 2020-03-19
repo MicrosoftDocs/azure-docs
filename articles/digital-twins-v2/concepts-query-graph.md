@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Recall that the center of Azure Digital Twins is the **twin graph**, constructed from [digital twins](concepts-twins-graph.md) and relationships. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins **Query APIs**. These let developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
+To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. These let developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
 
 ## Query language features
 
@@ -60,7 +60,7 @@ AND T.roomSize > 50
 > [!TIP]
 > The ID of an Azure digital twin is queried using the metadata field `$dtId`.
 
-Once you have decided on a query string, you execute it by making a call to the Query APIs.
+Once you have decided on a query string, you execute it by making a call to the Query API.
 The following code snippet illustrates this call from the client app:
 
 ```csharp

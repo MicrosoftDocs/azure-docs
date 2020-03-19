@@ -86,7 +86,7 @@ To be able to access Azure Digital Twins from your Azure Function, add the Azure
 
 Alternatively, you can also add the generated code from Autorest directly to the function app project.
 
-Once you have added a reference to the project or added the classes, you can access the Azure Digital Twins Api after adding the following line to your project:
+Once you have added a reference to the project or added the classes, you can access the Azure Digital Twins API after adding the following line to your project:
 
 ```csharp
 using Azure Digital TwinsApi;

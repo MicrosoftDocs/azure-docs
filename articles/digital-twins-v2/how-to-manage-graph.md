@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create digital twins and relationships
 
-Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in the [How to Use APIs](how-to-use-apis.md) section.
+Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 This section assumes that you: 
 * Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [Create an Azure Digital Twins instance](how-to-set-up-instance.md) for more information.

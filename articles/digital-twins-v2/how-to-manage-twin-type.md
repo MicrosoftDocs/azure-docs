@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage your Azure Digital Twins twin type set
 
-Azure Digital Twins **Model Management APIs** are APIs used to manage the twin types that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the twin types that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
 
 ## Create twin types
 

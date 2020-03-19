@@ -179,5 +179,5 @@ DTDL and Azure Digital Twins twin types have several constraints while in previe
 Learn about creating digital twins based on twin types:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
 
-Or, see how a twin type is managed with the Model Management APIs:
+Or, see how a twin type is managed with the DigitalTwinsModels APIs:
 * [[Manage a twin type](how-to-manage-twin-type.md)

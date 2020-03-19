@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Route telemetry and event data to outside services
 
-Azure Digital Twins **EventRoute APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
+Azure Digital Twins **EventRoutes APIs** let developers wire-up event flow throughout the system, as well as to downstream services.
 
 ## Routes
 
@@ -214,7 +214,7 @@ These notifications are triggered when any relationship edge of an Azure digital
 
 #### Body
 
-This section includes payload in a JSON format for creating and deleting a relationship edge. It uses the same format as a `GET` request for a relationship edge via the Relationship API. "Updating a relationship" means properties of the relationship edge have changed. 
+This section includes payload in a JSON format for creating and deleting a relationship edge. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](how-to-use-apis.md). "Updating a relationship" means properties of the relationship edge have changed. 
 For `Edge.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 Here is an example of a create or delete edge notification:
 
