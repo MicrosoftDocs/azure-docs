@@ -241,13 +241,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. After the build is complete, use the following command to run the web app locally:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

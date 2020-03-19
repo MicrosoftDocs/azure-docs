@@ -44,9 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?
 
-The current method of enabling Azure Monitor for VMs uses performance counters in your workspace. The new method stores this data in a new table, named `InsightsMetrics`.
-
-Once we update our user interface to use the data in the `InsightsMetrics` table, we will update our documentation, and communicate this announcement via multiple channels, including displaying a banner in the Azure portal. At that point, you may choose to disable these [performance counters](vminsights-enable-overview.md#performance-counters-enabled) in your workspace if you no longer need to use them. 
+The previous method of enabling Azure Monitor for VMs used performance counters in your workspace. The current version stores this data in a table named `InsightsMetrics`. You may choose to disable these performance countersin your workspace if you no longer need to use them. 
 
 >[!NOTE]
 >If you have Alert Rules that reference these counters in the `Perf` table, you need to update them to reference new data stored in the `InsightsMetrics` table. Refer to our documentation for example log queries that you can use that refer to this table.

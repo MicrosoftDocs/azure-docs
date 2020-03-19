@@ -338,6 +338,7 @@ Some properties can only be set when you create the scale set. These properties 
 - Availability Zones
 - Image reference publisher
 - Image reference offer
+- Image reference sku
 - Managed OS disk storage account type
 
 ### Properties that can only be changed based on the current value
