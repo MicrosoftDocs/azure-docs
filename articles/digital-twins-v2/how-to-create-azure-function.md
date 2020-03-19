@@ -223,7 +223,7 @@ On the following page, enter the desired name for the new function app, a resour
 
 ## Set up security
 
-The Azure function skeleton shown above requires a bearer token to be passed to it in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, we need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app.
+The Azure function skeleton shown above requires a bearer token to be passed to it in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, we need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
 To set this up, go to the portal and navigate to your function app.
 
@@ -234,3 +234,16 @@ In the *Platform features* tab, select *Identity*:
 [![Visual Studio function MSI](media/how-to-create-azure-function/vs-azfn-msi2.png)](media/how-to-create-azure-function/vs-azfn-msi2.png)
 
 On the identity page, set the *Status* toggle to *On*. 
+
+### Access roles
+Because ADT uses RBAC to control access, you also need to add a role for each function that you want to allow to access ADT.
+
+To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it when you created your instance, you can retrieve it using this command:
+```bash
+az dt show --name <your-instance-name> -g <your-rg-name>
+```
+
+The output will contain a very long string named "id" that will begin with the letters "/subscriptions/…". Use that string in the command below: 
+```bash
+az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <id-for-your-function> --scope <resource-instance-ID>
+```
