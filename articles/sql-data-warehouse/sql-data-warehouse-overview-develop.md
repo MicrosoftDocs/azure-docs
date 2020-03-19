@@ -19,7 +19,7 @@ ms.reviewer: igorstan
 The following articles highlight concepts and design decisions for developing a distributed data warehouse using the SQL Analytics capability in Azure Synapse:
 
 * [connections](sql-data-warehouse-connect-overview.md)
-* [concurrency](resource-classes-for-workload-management.md)
+* [concurrency](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md)
 * [transactions](sql-data-warehouse-develop-transactions.md)
 * [user-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
 * [table distribution](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md)

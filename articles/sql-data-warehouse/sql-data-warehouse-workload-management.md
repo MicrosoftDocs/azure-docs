@@ -31,7 +31,7 @@ The performance capacity of a data warehouse is determined by the [data warehous
 
 
 ## Workload management concepts
-In the past, for SQL Analytics in Azure Synapse you managed the query performance through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
+In the past, for SQL Analytics in Azure Synapse you managed the query performance through [resource classes](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
 
 For example, granting an ad-hoc user role membership to smallrc allowed that user to consume 100% of the memory on the system.  With resource classes, there is no way to reserve and ensure resources are available for critical workloads.
 

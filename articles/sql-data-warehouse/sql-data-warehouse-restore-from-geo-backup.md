@@ -21,7 +21,7 @@ In this article, you learn to restore your SQL pool from a geo-backup through Az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL pool is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each SQL pool is hosted by a SQL server (for example, myserver.database.windows.net) which has a default DTU quota. Verify that the SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore from an Azure geographical region through PowerShell
 

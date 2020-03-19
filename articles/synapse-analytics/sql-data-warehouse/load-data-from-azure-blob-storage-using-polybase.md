@@ -157,9 +157,9 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) and [resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md) configured . 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) and [resource class](resource-classes-for-workload-management.md) configured . 
 
-It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
+It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
 Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class. 
 
@@ -180,7 +180,7 @@ Since you are currently connected as the server admin, you can create logins and
 
     ![New query on sample data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
-5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;

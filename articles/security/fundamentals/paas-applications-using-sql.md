@@ -49,7 +49,7 @@ Azure SQL databases can be configured to use one of two types of authentication:
 To learn more about Azure AD authentication, see:
 
 - [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
-- [Authentication to Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Authentication to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Token-based authentication support for Azure SQL DB using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md)
 
 > [!NOTE]

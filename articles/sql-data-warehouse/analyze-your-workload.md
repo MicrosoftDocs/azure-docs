@@ -19,7 +19,7 @@ Techniques for analyzing your SQL Analytics workload in Azure Synapse Analytics.
 
 ## Resource Classes
 
-SQL Analytics provides resource classes to assign system resources to queries.  For more information on resource classes, see [Resource classes & workload management](resource-classes-for-workload-management.md).  Queries will wait if the resource class assigned to a query needs more resources than are currently available.
+SQL Analytics provides resource classes to assign system resources to queries.  For more information on resource classes, see [Resource classes & workload management](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).  Queries will wait if the resource class assigned to a query needs more resources than are currently available.
 
 ## Queued query detection and other DMVs
 

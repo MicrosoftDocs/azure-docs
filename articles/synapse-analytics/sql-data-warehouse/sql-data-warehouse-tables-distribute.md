@@ -16,7 +16,7 @@ ms.custom: seo-lt-2019, azure-synapse
 # Guidance for designing distributed tables in SQL Analytics
 Recommendations for designing hash-distributed and round-robin distributed tables in SQL Analytics.
 
-This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see [SQL Analytics massively parallel processing (MPP) architecture](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md). 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see [SQL Analytics massively parallel processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md). 
 
 ## What is a distributed table?
 A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.  
@@ -33,7 +33,7 @@ As part of table design, understand as much as possible about your data and how 
 
 
 ### Hash distributed
-A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions). 
+A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](massively-parallel-processing-mpp-architecture.md#distributions). 
 
 ![Distributed table](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distributed table")  
 

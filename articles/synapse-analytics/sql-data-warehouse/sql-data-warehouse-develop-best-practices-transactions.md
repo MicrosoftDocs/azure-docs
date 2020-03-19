@@ -172,7 +172,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using SQL Analytics workload management features. For more information, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+> Re-creating large tables can benefit from using SQL Analytics workload management features. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 > 
 > 
 

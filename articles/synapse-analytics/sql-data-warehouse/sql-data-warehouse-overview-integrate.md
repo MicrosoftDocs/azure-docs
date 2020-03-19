@@ -45,13 +45,13 @@ Azure Machine Learning is a fully managed analytics service, which allows you to
 * **Read Data:** Drive models at scale using T-SQL against SQL pool.
 * **Write Data:** Commit changes from any model back to SQL pool.
 
-For more information, see [Integrate with Azure Machine Learning](../../sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
+For more information, see [Integrate with Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
 
 ## Azure Stream Analytics
 Azure Stream Analytics is a complex, fully managed infrastructure for processing and consuming event data generated from Azure Event Hub.  Integration with SQL pool allows for streaming data to be effectively processed and stored alongside relational data enabling deeper, more advanced analysis.  
 
 * **Job Output:** Send output from Stream Analytics jobs directly to SQL pool.
 
-For more information, see [Integrate with Azure Stream Analytics](../../sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md).
+For more information, see [Integrate with Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md).
 
 

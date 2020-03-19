@@ -17,7 +17,7 @@ tags: azure-synapse
 # Secure a database in Azure Synapse
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)
-> * [Authentication](sql-data-warehouse-authentication.md)
+> * [Authentication](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 > * [Encryption (Portal)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde.md)
 > * [Encryption (T-SQL)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-encryption-tde-tsql.md)
 > 
@@ -60,7 +60,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 To give a user permission to perform additional operations such as creating logins or creating new databases, assign the user to the `Loginmanager` and `dbmanager` roles in the master database. 
 
-For more information on these additional roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database](../sql-database/sql-database-manage-logins.md).  For more information on connecting using Azure Active Directory, see [Connecting by using Azure Active Directory Authentication](sql-data-warehouse-authentication.md).
+For more information on these additional roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database](../sql-database/sql-database-manage-logins.md).  For more information on connecting using Azure Active Directory, see [Connecting by using Azure Active Directory Authentication](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md).
 
 ## Authorization
 Authorization refers to what you can do within a database once you are authenticated and connected. Authorization privileges are determined by role memberships and permissions. As a best practice, you should grant users the least privileges necessary. To manage roles, you can use the following stored procedures:

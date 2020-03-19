@@ -68,7 +68,7 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Create a support ticket]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

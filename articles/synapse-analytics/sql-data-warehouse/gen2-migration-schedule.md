@@ -51,7 +51,7 @@ You can choose to self-upgrade by following these steps on an existing Gen1 SQL 
 
 There are two options when conducting a self-upgrade.  You can either upgrade your current SQL pool in-place or you can restore a Gen1 SQL pool into a Gen2 instance.
 
-- [Upgrade in-place](../../sql-data-warehouse/upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 SQL pool to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
+- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 SQL pool to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
 - [Upgrade from restore point](../../sql-data-warehouse/sql-data-warehouse-restore-points.md) - Create a user-defined restore point on your current Gen1 SQL pool and then restore directly to a Gen2 instance. The existing Gen1 SQL pool will stay in place. Once the restore has been completed, your Gen2 SQL pool will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
    - Step 1: From the Azure portal, [create a user-defined restore point](../../sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md).
@@ -64,9 +64,9 @@ To expedite the background data migration process, you can immediately force dat
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
-If you encounter any issues with your SQL pool, create a [support request](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
+If you encounter any issues with your SQL pool, create a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
 
-For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-latest-generation.md).
+For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 ## Migration frequently asked questions
 
@@ -76,7 +76,7 @@ For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-
 
 **Q: How will the upgrades affect my automation scripts?**
 
-- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](../../sql-data-warehouse/upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
 **Q: How long does a self-upgrade normally take?**
 
@@ -100,7 +100,7 @@ For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-
 - A: If you are running a DW600 or DW1200 on Gen1, it is advised to use DW500c or DW1000c respectively since Gen2 provides more memory, resources, and higher performance than Gen1.
 
 **Q: Can I disable geo-backup?**
-- A: No. Geo-backup is an enterprise feature to preserve your SQL pool availability in the event a region becomes unavailable. Open a [support request](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) if you have further concerns.
+- A: No. Geo-backup is an enterprise feature to preserve your SQL pool availability in the event a region becomes unavailable. Open a [support request](sql-data-warehouse-get-started-create-support-ticket.md) if you have further concerns.
 
 **Q: Is there a difference in T-SQL syntax between Gen1 and Gen2?**
 
@@ -116,11 +116,11 @@ For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-
 
 ## Next steps
 
-- [Upgrade steps](../../sql-data-warehouse/upgrade-to-latest-generation.md)
+- [Upgrade steps](upgrade-to-latest-generation.md)
 - [Maintenance windows](../../sql-data-warehouse/maintenance-scheduling.md)
 - [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Review Before you begin a migration](../../sql-data-warehouse/upgrade-to-latest-generation.md#before-you-begin)
-- [Upgrade in-place and upgrade from a restore point](../../sql-data-warehouse/upgrade-to-latest-generation.md)
+- [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
+- [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](../../sql-data-warehouse/sql-data-warehouse-restore-points.md)
 - [Learn How to restore to Gen2](../../sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md)
 - [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)

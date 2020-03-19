@@ -19,7 +19,7 @@ This article gives recommendations for designing replicated tables in your SQL A
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see the [architecture](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md) article. 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 

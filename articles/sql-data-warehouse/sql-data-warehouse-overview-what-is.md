@@ -49,7 +49,7 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 
 ## Next steps
 
-- Explore [Azure Synapse architecture](massively-parallel-processing-mpp-architecture.md)
+- Explore [Azure Synapse architecture](../synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a SQL pool](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Load sample data](sql-data-warehouse-load-sample-databases.md).
 - Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
@@ -57,6 +57,6 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 Or look at some of these other Azure Synapse resources.  
 * Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 * Submit a [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
-* [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
+* [Create a support ticket](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md)
 * Search [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 * Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

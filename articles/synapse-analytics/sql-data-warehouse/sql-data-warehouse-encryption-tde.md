@@ -16,7 +16,7 @@ ms.custom: seo-lt-2019
 # Get started with Transparent Data Encryption (TDE)
 > [!div class="op_single_selector"]
 > * [Security Overview](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
-> * [Authentication](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+> * [Authentication](sql-data-warehouse-authentication.md)
 > * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 > 

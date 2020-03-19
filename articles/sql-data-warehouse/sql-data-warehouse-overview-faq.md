@@ -65,7 +65,7 @@ A. For help with developing with Azure Synapse, you can ask questions on our [St
 
 Q. How do I submit a support ticket?
 
-A. [Support Tickets](sql-data-warehouse-get-started-create-support-ticket.md) can be filed through Azure portal.
+A. [Support Tickets](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) can be filed through Azure portal.
 
 ## SQL language/feature support 
 

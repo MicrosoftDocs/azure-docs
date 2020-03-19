@@ -125,12 +125,12 @@ SQL Analytics uses resource groups as a way to allocate memory to queries.  Out 
 
 Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will see no benefit.  On the flip side, utilizing larger resource classes reduces concurrency, so you will want to take this impact into consideration before moving all of your users to a large resource class.
 
-See also [Resource classes for workload management](resource-classes-for-workload-management.md)
+See also [Resource classes for workload management](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md)
 
 ## Use Smaller Resource Class to Increase Concurrency
 If you are noticing that user queries seem to have a long delay, it could be that your users are running in larger resource classes and are consuming many concurrency slots causing other queries to queue up.  To see if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
-See also [Resource classes for workload management](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
+See also [Resource classes for workload management](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## Other resources
 Also see our [Troubleshooting][Troubleshooting] article for common issues and solutions.
@@ -144,7 +144,7 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Create a support ticket]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

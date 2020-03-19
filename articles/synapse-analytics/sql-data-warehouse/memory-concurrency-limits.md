@@ -73,7 +73,7 @@ To ensure each query has enough resources to execute efficiently, SQL Analytics 
 
 **Static resource classes**
 
-The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md).  
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by staticrc10 | Slots used by staticrc20 | Slots used by staticrc30 | Slots used by staticrc40 | Slots used by staticrc50 | Slots used by staticrc60 | Slots used by staticrc70 | Slots used by staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
@@ -96,7 +96,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 **Dynamic resource classes**
 
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -123,5 +123,5 @@ When there are not enough concurrency slots free to start query execution, queri
 ## Next steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
-* [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md)
+* [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](../../sql-data-warehouse/analyze-your-workload.md)

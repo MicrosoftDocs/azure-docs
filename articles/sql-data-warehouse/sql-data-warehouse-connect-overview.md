@@ -69,7 +69,7 @@ To connect and query with Visual Studio, see [Query with Visual Studio][Query wi
 
 <!--Articles-->
 [Query with Visual Studio]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Authentication to Azure SQL Data Warehouse]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

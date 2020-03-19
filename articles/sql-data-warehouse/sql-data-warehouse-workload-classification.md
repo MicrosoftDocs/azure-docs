@@ -21,7 +21,7 @@ This article explains the workload classification process of assigning a workloa
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Workload management classification allows workload policies to be applied to requests through assigning [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) and [importance](sql-data-warehouse-workload-importance.md).
+Workload management classification allows workload policies to be applied to requests through assigning [resource classes](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md#what-are-resource-classes) and [importance](sql-data-warehouse-workload-importance.md).
 
 While there are many ways to classify data warehousing workloads, the simplest and most common classification is load and query. You load data with insert, update, and delete statements.  You query the data using selects. A data warehousing solution will often have a workload policy for load activity, such as assigning a higher resource class with more resources. A different workload policy could apply to queries, such as lower importance compared to load activities.
 

@@ -62,7 +62,7 @@ ORDER BY total_elapsed_time DESC;
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) waits query with a type of UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
+Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) waits query with a type of UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md) or [Resource classes for workload management](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
 
 To simplify the lookup of a query in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) table, use [LABEL](https://msdn.microsoft.com/library/ms190322.aspx) to assign a comment to your query, which can be looked up in the sys.dm_pdw_exec_requests view.
 
@@ -213,7 +213,7 @@ If you have a query that is consuming a large amount of memory or have received 
 
 The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so the data volume will not exceed the 1TB per node tempdb limit. You can also scale your cluster to a larger size which will spread the tempdb size across more nodes reducing the tempdb on each individual node.
 
-In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into tempdb causing queries to fail.  Consider running with a larger [resource class](resource-classes-for-workload-management.md) to avoid spilling into tempdb.
+In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into tempdb causing queries to fail.  Consider running with a larger [resource class](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md) to avoid spilling into tempdb.
 
 ## Monitor memory
 

@@ -16,7 +16,7 @@ ms.custom: seo-lt-2019
 # Connect to Azure Synapse Analytics with Visual Studio and SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](../../sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../../sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -74,4 +74,4 @@ Now that a connection has been established to your database, let's write a query
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](../../sql-data-warehouse/sql-data-warehouse-authentication.md).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](sql-data-warehouse-authentication.md).

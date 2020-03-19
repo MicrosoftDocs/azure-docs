@@ -87,7 +87,7 @@ You can either keep the restored data warehouse and the current one, or delete o
 
 To restore a data warehouse, see [Restore a SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted or paused data warehouse, you can [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+To restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Cross subscription restore
 

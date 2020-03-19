@@ -215,7 +215,7 @@ Once your tables have been loaded with some data, follow the below steps to iden
 
 One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view returns an ALTER INDEX REBUILD statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.
 
-Below is an example of how to allocate more memory to a user by increasing their resource class. To work with resource classes, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+Below is an example of how to allocate more memory to a user by increasing their resource class. To work with resource classes, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
