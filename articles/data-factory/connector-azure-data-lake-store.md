@@ -400,7 +400,7 @@ In the sink transformation, you can write to either a container or folder in Azu
    * **Default**: Allow Spark to name files based on PART defaults.
    * **Pattern**: Enter a pattern that enumerates your output files per partition. For example, **loans[n].csv** will create loans1.csv, loans2.csv, and so on.
    * **Per partition**: Enter one file name per partition.
-   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder.
+   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it will be overridden.
    * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Please be aware that te merge operation can possibly fail based upon node size. This option is not recommended for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotes
