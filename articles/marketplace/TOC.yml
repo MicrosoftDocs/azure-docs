@@ -472,8 +472,8 @@
           href: ./partner-center-portal/create-new-business-central-offer.md
     - name: Managed Services offers
       items:
-      - name: Create a Managed Services offer
-        href: ./partner-center-portal-create-new-managed-services-offer.md
+      - name: Create a Managed Service offer
+        href: ./partner-center-portal/create-new-managed-service-offer.md
     - name: SaaS offers
       items:
       - name: SaaS offer creation checklist

@@ -1,7 +1,8 @@
 ---
-title: Create a new Managed Services offer in the Commercial Marketplace 
-description: How to create a new Managed Services offer for listing or selling in Azure Marketplace using the Commercial Marketplace portal on Microsoft Partner Center. 
+title: Create a new Managed Service offer in the Commercial Marketplace 
+description: How to create a new Managed Service offer for listing or selling in Azure Marketplace using the Commercial Marketplace portal on Microsoft Partner Center. 
 author: JnHs 
+ms.author: jenhayes
 manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ---
 
-# Create a new Managed Services offer
+# Create a new Managed Service offer
 
-This topic explains how to create a new Managed Services offer. These offers enable a customer who purchases the offer to onboard resources for [Azure delegated resource management](../../../lighthouse/azure-delegated-resource-management.md).
+This topic explains how to create a new Managed Service offer. These offers enable a customer who purchases the offer to onboard resources for [Azure delegated resource management](../../lighthouse/azure-delegated-resource-management.md).
 
-To begin creating Managed Services offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. Note that competencies.....
+To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. Note that competencies.....
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
@@ -22,7 +23,7 @@ To begin creating Managed Services offers, ensure that you first [Create a Partn
 
 ## Create a new offer
 
-Select the **+ New offer** button, then select the **Managed Services** menu item. The **New offer** dialog box will appear.
+Select the **+ New offer** button, then select the **Managed Service** menu item. The **New offer** dialog box will appear.
 
 ### Offer ID and alias
 
@@ -181,7 +182,7 @@ Currently, there is only one pricing model that can be used for Managed Service 
 
 The **Plan visibility** section lets you indicate if this plan should be private. If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
 
-To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](cloud-partner-portal-azure-private-skus.md).
+To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer.
 
 > [!IMPORTANT]
 > Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). You can [remove access to a delegation](../../lighthouse/how-to/onboard-customer.md#remove-access-to-a-delegation) after a customer accepts an offer only if you included an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when you published the offer. You can also reach out to the  customer and ask them to [remove your access](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
