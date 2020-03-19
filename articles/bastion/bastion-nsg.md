@@ -49,7 +49,7 @@ Azure Bastion is deployed specifically to the AzureBastionSubnet.
 
 If you create and apply an NSG to ***AzureBastionSubnet***, make sure you have added the following rules in your NSG. If you do not add these rules, the NSG creation/update will fail:
 
-* **Control plane connectivity:** Inbound on 443 from GatewayManager
+* **Control plane connectivity:** Inbound on 443 from GatewayManager and Internet
 * **Diagnostics logging and others:** Outbound on 443 to AzureCloud. Regional tags within this service tag are not supported yet.
 * **Target VM:** Outbound for 3389 and 22 to VirtualNetwork
 
