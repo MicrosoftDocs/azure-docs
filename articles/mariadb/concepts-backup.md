@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 3/18/2020
 ---
 
 # Backup and restore in Azure Database for MariaDB

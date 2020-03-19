@@ -38,9 +38,6 @@ This article outlines, for IoT Central:
 - Device capability models must have all the interfaces defined inline in the same file.
 - Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
-    > [!NOTE]
-    > Contact technical support for access to create a Preview application with support for IoT Plug and Play devices.
-
 ## Personas
 
 The IoT Central documentation refers to four personas who interact with an IoT Central application:

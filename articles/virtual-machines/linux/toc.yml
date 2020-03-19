@@ -317,6 +317,8 @@
           href: disk-encryption-isolated-network.md
         - name: How to verify encryption status
           href: how-to-verify-encryption-status.md
+        - name: How to configure LVM RAID on crypt
+          href: how-to-configure-lvm-raid-on-crypt.md
         - name: Disk encryption troubleshooting
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
