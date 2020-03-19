@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Authenticate against the twins API
 titleSuffix: Azure Digital Twins
-description: See how to authenticate against an ADT service
+description: See how to authenticate against an Azure Digital Twins service
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,12 +15,12 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Authenticating against ADT
+# Authenticating against Azure Digital Twins
 
 > [!TIP]
-> To learn how to create an ADT instance, please see [How to Set Up an ADT Instance](how-to-set-up-an-adt-instance.md)
+> To learn how to create an Azure Digital Twins instance, please see [How to Set Up an Azure Digital Twins Instance](how-to-set-up-an-adt-instance.md)
 
-Before you can issue API calls against your ADT instance, you will need to authenticate. 
+Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. 
 
 There are two pieces to that:
 * Creating an app registration
@@ -29,11 +29,11 @@ There are two pieces to that:
 ## Create an App Registration
 *** This section is preliminary ***
 
-To authenticate against ADT in Azure from an app, you need to set up an app registration in Active Directory.
+To authenticate against Azure Digital Twins in Azure from an app, you need to set up an app registration in Active Directory.
 
-This app registration is where you configure access permissions to the ADT API. Your client app authenticates against the app registration, which in turn has configured access permissions to the ADT APIs.
+This app registration is where you configure access permissions to the Azure Digital Twins API. Your client app authenticates against the app registration, which in turn has configured access permissions to the Azure Digital Twins APIs.
 
-To create an app registration you need to provide the resource ids for the Azure ADT APIs and the baseline permissions to the API:
+To create an app registration you need to provide the resource ids for the Azure Azure Digital Twins APIs and the baseline permissions to the API:
 ```json
 requiredResourceAccess":[
   {
@@ -56,7 +56,7 @@ az ad app create --display-name <name-for-your-app> --native-app --required-reso
 
 For a desktop or console app, a typical reply urls would be "http://localhost"
 
-You will need the id of this app registration (also known as the client id) when you authenticate against the ADT APIs.
+You will need the id of this app registration (also known as the client id) when you authenticate against the Azure Digital Twins APIs.
 
 Depending on your scenario, you may need to make additional changes to the app registration. In particular, you may need to:
 * Activate public client access
@@ -108,16 +108,16 @@ A complete example that creates an API client:
 using Microsoft.Identity.Client;
 using Microsoft.Rest;
 using Microsoft.Rest.Azure;
-using ADTApi; // The SDK library as built in the using-apis how-to
+using Azure Digital TwinsApi; // The SDK library as built in the using-apis how-to
 ...
 ...
 
-namespace ADTGettingStarted
+namespace Azure Digital TwinsGettingStarted
 {
     class Program
     {
         private const string clientId = "your-app-registration";
-        // THe ADT API resource id
+        // THe Azure Digital Twins API resource id
         private const string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
         private static AuthenticationResult authResult;
 

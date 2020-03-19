@@ -209,7 +209,7 @@ You need to specify the source twin (the twin the relationship originates from, 
 
 
 ## Incoming Relationships
-ADT also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
+Azure Digital Twins also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
 
 A similar example to the above one for outgoing relationships - this code finds and deletes all incoming relationships to a twin.
 ```csharp

@@ -20,9 +20,9 @@ ms.service: digital-twins
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in the [How to Use APIs](how-to-use-apis.md) section.
 
 This section assumes that you: 
-* Already have a working instance of ADT set up, with appropriate access permissions. See [How to Set Up an ADT Instance](how-to-set-up-an-adt-instance.md) for more information.
+* Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [How to Set Up an Azure Digital Twins Instance](how-to-set-up-an-adt-instance.md) for more information.
 
-* Know how to authenticate against ADT and how to create a service client object. See [How to Authenticate against ADT](how-to-authenticate.md) for more information.
+* Know how to authenticate against Azure Digital Twins and how to create a service client object. See [How to Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
 
 ## Create a twin graph (preview)
 To create a twin, you use the DigitalTwins.Add method on the service client:

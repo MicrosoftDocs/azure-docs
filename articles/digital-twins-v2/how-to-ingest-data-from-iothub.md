@@ -17,12 +17,12 @@ ms.service: digital-twins
 
 # Ingesting Telemetry from IoT Hub
 
-Azure Digital Twins is driven with data from IoT and other sources by calling digital twin apis to set properties or fire telemetry events on twins. Once the initial property change or telemetry event arrives inside of ADT, all further event propagation and processing happens inside of ADT.
+Azure Digital Twins is driven with data from IoT and other sources by calling digital twin apis to set properties or fire telemetry events on twins. Once the initial property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
 This how-to document walks through an example of ingesting telemetry from IoT Hub.
 
 ## Goals
-This how-to outlines how to send messages from IoT Hub to ADT using an Azure Function. In this example we have:
+This how-to outlines how to send messages from IoT Hub to Azure Digital Twins using an Azure Function. In this example we have:
 * A thermometer device in IoT Hub with a known ID
 * A twin to represent the device with a matching ID (or any ID that you can map to from the ID of the device. It is of course possible to provide more sophisticated mappings, for example with a mapping table, but in this example we assume a simple ID match)
 * A twin representing a room. Whenever a temperature telemetry event is sent by the thermometer device, we want to have the temperature property of the room twin update. Hence, we need to map from a telemetry event on a device to a property setter on a logical twin.
@@ -35,13 +35,13 @@ In this example, we will assume a twin representing the device that we can ident
 
 To create this example you need to: 
 * Create an IoT Hub
-* Create (at least one) Azure Function to process events from IoT Hub. See [How to create an Azure Function for ADT](how-to-create-an-azfn-for-adt.md) for a skeleton Azure Function that can connect to ADT and call ADT API functions.   
+* Create (at least one) Azure Function to process events from IoT Hub. See [How to create an Azure Function for Azure Digital Twins](how-to-create-an-azfn-for-adt.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
 * In the Events blade of your IoT Hub instance, create a subscription to your Azure function. 
   * Select Telemetry as the event type
   * Add a filter if so desired, using Event Grid filtering
 
 ## Creating an Azure Function in VS
-In this section, we add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [How to create an Azure Function for ADT](how-to-create-an-azfn-for-adt.md). The skeleton handles authentication and creates a service client, ready for you to process data and call ADT APIs in response. 
+In this section, we add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [How to create an Azure Function for Azure Digital Twins](how-to-create-an-azfn-for-adt.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton code is:
 
@@ -71,7 +71,7 @@ double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Va
 
 Once we have this value, we need to find the parent of the twin that is associated with the device (remember, in this scenarios we want to update the *parent* of the twin representing the device with a property from the device)
 
-To do this, we use the ADT APIs to access the incoming relationships to the device representing twin (which we assume has the same id as the device). From the incoming relationship, we get the id of the parent:
+To do this, we use the Azure Digital Twins APIs to access the incoming relationships to the device representing twin (which we assume has the same id as the device). From the incoming relationship, we get the id of the parent:
 
 For simplicity, we will assume in the sample code below that there is only a single incoming relationship, but of course there could more than that.
 
@@ -157,8 +157,8 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Microsoft.Rest;
 using Newtonsoft.Json.Linq;
-using ADTApi;
-using ADTApi.Models;
+using Azure Digital TwinsApi;
+using Azure Digital TwinsApi.Models;
 using Microsoft.Azure.Services.AppAuthentication;
 using System.Linq;
 using System.Collections.Generic;
@@ -220,11 +220,11 @@ namespace adtIngestFunctionSample
                 {
                     BaseUri = new Uri(AdtInstanceUrl)
                 };
-                log.LogInformation($"ADT service client connection created.");
+                log.LogInformation($"Azure Digital Twins service client connection created.");
             }
             catch (Exception e)
             {
-                log.LogError($"ADT service client connection failed.");
+                log.LogError($"Azure Digital Twins service client connection failed.");
             }
         }
     }

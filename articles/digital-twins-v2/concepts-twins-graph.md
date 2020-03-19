@@ -20,11 +20,11 @@ ms.service: digital-twins
 In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. An Azure digital twin is an instance of one of your user-created [twin types](concepts-models.md). It can be connected to other Azure digital twins via relationships to form a **twin graph**.
 
 > [!TIP]
-> The terms "Azure Digital Twins instance", "ADT service" or "ADT instance" refer to the entire Azure Digital Twins service instance. The terms "digital twin(s)" or "twin instances", or just "twins" refer to individual twin nodes inside that ADT instance. 
+> The terms "Azure Digital Twins instance", "Azure Digital Twins service" or "Azure Digital Twins instance" refer to the entire Azure Digital Twins service instance. The terms "digital twin(s)" or "twin instances", or just "twins" refer to individual twin nodes inside that Azure Digital Twins instance. 
 
 ## Creating Digital Twin Instances
 
-Before you can create a digital twin in an ADT service instance, you need to have a *twin type* uploaded to the service. A twin type describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
+Before you can create a digital twin in an Azure Digital Twins service instance, you need to have a *twin type* uploaded to the service. A twin type describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
 
 After creating and uploading a twin type, your client app can create instance of the type. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this type (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
@@ -64,7 +64,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 
 Twins are connected into a twin graph by their relationships. The relationships that a  twin can have are defined as part of the twin type.  
 
-For example, twin type *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, ADT will allow you to create *contains* relationships between an instance of type Floor and any instance of type Room or a sub-type of type Room. 
+For example, twin type *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships between an instance of type Floor and any instance of type Room or a sub-type of type Room. 
 
 Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 
