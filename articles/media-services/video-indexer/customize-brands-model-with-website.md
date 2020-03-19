@@ -1,11 +1,10 @@
 ---
 title: Customize a Brands model with the Video Indexer website
 titleSuffix: Azure Media Services
-description: This article shows how to customize a Brands model with the Video Indexer website.
+description: Learn how to customize a Brands model with the Video Indexer website.
 services: media-services
 author: anikaz
 manager: johndeu
-
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
