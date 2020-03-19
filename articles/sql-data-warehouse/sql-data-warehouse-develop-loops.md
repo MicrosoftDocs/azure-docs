@@ -14,7 +14,7 @@ ms.custom: seo-lt-2019
 ---
 
 # Using T-SQL loops in SQL Data Warehouse
-Tips for using T-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
+Tips for using T-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions, as Azure SQL Data Warehouse does not support cursors.
 
 ## Purpose of WHILE loops
 

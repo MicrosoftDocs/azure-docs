@@ -10,8 +10,7 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Troubleshooting connectivity issues
