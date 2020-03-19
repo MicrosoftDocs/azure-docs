@@ -57,7 +57,7 @@ For details, see [Moving a Media Services account between subscriptions](media-s
 
 ## Live streaming 
 
-### How can I ensure a live event is stopped if the end user just closes a browser instead of clicking the end broadcast button?
+### How to stop the live stream after the broadcast is done?
 
 You can approach it from a client side or a server side.
 
