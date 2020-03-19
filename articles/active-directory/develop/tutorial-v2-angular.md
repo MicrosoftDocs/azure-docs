@@ -57,9 +57,9 @@ This guide uses the following library:
 
 ## Prerequisites
 
-* To run this tutorial, you need a local web server, such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core)
+* To run this tutorial, you need a local web server, such as [Node.js](https://nodejs.org/en/download/)
 
-* If you're using Node.js to run the project, install an integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
+* Install an integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
 
 * Instructions in this guide are based on Node.js
 
@@ -67,11 +67,13 @@ This guide uses the following library:
 
 Generate a new Angular application using the following npm commands:
 
-1. Install the Angular CLI: `npm install -g @angular/cli@8`
-2. Install the Angular Material component library: `npm install @angular/material@8 @angular/cdk@8`
-3. Generate a new Angular app: `ng new my-application --routing=true --style=css`
-4. Install msal and msal angular in your application: `npm install msal@beta @azure/msal-angular@beta `
-5. To add a new page (such as a the home, profile page): `ng generate component page-name`
+```Bash
+npm install -g @angular/cli@8                    # Install the Angular CLI
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI) 
+ng new my-application --routing=true --style=css # Generate a new Angular app
+npm install msal@beta @azure/msal-angular@beta   # Install MSAL and MSAL Angular in your application
+ng generate component page-name                  # To add a new page (such as a the home, profile page)
+```
 
 ## Register your application
 
@@ -263,10 +265,13 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+Where `scopes` contains scopes being requested to be returned in the access token for the API.
 
-> |Where  |  |
-> |---------|---------|
-> | `scopes`   | Contains scopes being requested to be returned in the access token for API. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`).|
+For example:
+
+* `["user.read"]` for Microsoft Graph
+* `["<Application ID URL>/scope"]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`)
+
 
   #### Get a user token interactively
 
@@ -306,7 +311,8 @@ logout() {
 }
 ```
 
-
+#### Add UI 
+Checkout the [sample application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) for a simple example of how to add UI using the Angular Material component library. 
 
 ## Test your code
 
