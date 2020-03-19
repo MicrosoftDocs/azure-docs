@@ -336,7 +336,7 @@
     - name: Restore a deleted data warehouse 
       href: ../synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-deleted-dw.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: ../synapse-analytics/sql-data-warehouse/Restore from a geo-backup 
-      href: sql-data-warehouse-restore-from-geo-backup.md ?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+      href: sql-data-warehouse-restore-from-geo-backup.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Integrate
     items:
     - name: Use machine learning

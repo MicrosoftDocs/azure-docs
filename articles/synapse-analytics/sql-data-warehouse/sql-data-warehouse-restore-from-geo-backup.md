@@ -38,7 +38,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](https://docs.
 4. Get the data warehouse you want to recover.
 5. Create the recovery request for the data warehouse.
 6. Verify the status of the geo-restored data warehouse.
-7. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+7. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
