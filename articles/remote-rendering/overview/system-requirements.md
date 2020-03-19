@@ -69,7 +69,7 @@ The following software must be installed:
 For development with Unity, install
 
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-* Install these components in Unity:
+* Install these modules in Unity:
   * **UWP** - Universal Windows Platform Build Support
   * **IL2CPP** - Windows Build Support (IL2CPP)
 

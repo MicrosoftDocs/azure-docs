@@ -30,6 +30,9 @@ The following software must be installed:
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
+  * Install these modules in Unity:
+    * **UWP** - Universal Windows Platform Build Support
+    * **IL2CPP** - Windows Build Support (IL2CPP)
 
 ## Clone the sample app
 
