@@ -22,33 +22,35 @@ You can use the Video Indexer website to create and edit custom Language models 
 
 ## Create a Language model
 
-1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-2. To customize a model in your account, click on the **Content model customization** button on the top-right corner of the page.
+1. Go to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+2. To customize a model in your account, select the **Content model customization** button on the top-right corner of the page.
 
-   ![Customize content model](./media/content-model-customization/content-model-customization.png)
+   ![Customize content model in Video Indexer](./media/content-model-customization/content-model-customization.png)
 
 3. Select the **Language** tab.
 
-    You see a list of supported languages. 
+    You see a list of supported languages.
 
-    ![Customize language model](./media/customize-language-model/customize-language-model.png)
+    ![List of languages models in Video Indexer](./media/customize-language-model/customize-language-model.png)
 
-4. Under the language that you want, click **Add model**.
+4. Under the language that you want, select **Add model**.
 5. Type in the name for the Language model and hit enter.
 
     This creates the model and gives the option to upload text files to the model.
-6. To add a text file, click **Add file**. This opens up your file explorer.
+
+6. To add a text file, select **Add file**. This opens up your file explorer.
 
 7. Navigate to and select the text file. You can add multiple text files to a Language model.
 
-    You can also add a text file by clicking on the **...** button on the right side of the Language model and selecting **Add file**.
-8. Once you are done uploading the text files, click on the green **Train** option.
+    You can also add a text file by selecting the **...** button on the right side of the Language model and selecting **Add file**.
 
-    ![Train language model](./media/customize-language-model/train-model.png)
+8. Once you're done uploading the text files, select the green **Train** option.
+
+    ![Train language model in Video Indexer](./media/customize-language-model/train-model.png)
 
 The training process can take a few minutes. Once the training is done, you see **Trained** next to the model. You can preview, download, and delete the file from the model.
 
-![Trained language model](./media/customize-language-model/preview-model.png)
+![Trained language model in Video Indexer](./media/customize-language-model/preview-model.png)
 
 ### Using a Language model on a new video
 
