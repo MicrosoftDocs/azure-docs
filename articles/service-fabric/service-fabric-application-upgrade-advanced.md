@@ -17,7 +17,7 @@ Similarly, service types can be removed from an application as part of an upgrad
 
 For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint is removed after the instance goes down, which results in forced connection closures.
 
-To avoid this, configure the *RequestDrain* (preview) feature by adding a replica *instance close delay duration* in the service configuration. This ensures that the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down.
+To avoid this, configure the *RequestDrain* (preview) feature by adding an *instance close delay duration* in the service configuration. This ensures that the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down.
 
 ### Service configuration
 
