@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# - Speech service"
+title: "Quickstart: Create a custom voice assistant (C#) - Speech service"
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
