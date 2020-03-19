@@ -5,7 +5,7 @@ author: mayanknayar
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/18/2020
 ms.author: manayar
 
 ---
