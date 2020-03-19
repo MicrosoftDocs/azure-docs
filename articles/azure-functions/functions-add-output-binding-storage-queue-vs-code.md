@@ -50,7 +50,11 @@ Because you are using a Queue storage output binding, you must have the Storage 
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+Your project has been configured to use [extension bundles](../articles/azure-functions/functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+
+Extension bundles is enabled in the host.json file at the root of the project, which looks like the following:
+
+:::code language="json" source="~/functions-quickstart-java/functions-quickstarts-java/blob/master/functions-add-output-binding-storage-queue/host.json":::
 
 ::: zone-end
 
