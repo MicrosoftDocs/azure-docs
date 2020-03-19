@@ -1,5 +1,5 @@
 ---
-title: Accelerated classroom lab set up guide | Azure Lab Services
+title: Accelerated Classroom Lab Setup Guide Azure | Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -17,65 +17,67 @@ ms.author: spelluru
 
 ---
 
-# Classroom Lab Set Up Guide
+# Classroom Lab Setup Guide
 
 The process for publishing a lab to your students can take up to several hours depending on the number of virtual machines (VMs) that will be created in your lab.  You should give yourself at least a day to set up a lab to ensure that it's working properly and to allow enough time to publish students' VMs.
 
-## Understand your class's lab requirements
+## Understand Your Class's Lab Requirements
 
 Before you set up a new lab, you should consider the following questions:
 
-1. **What software requirements does the class have?**
+**What software requirements does the class have?**
 
-    Based on your class's learning objectives, you should decide which OS, applications, tools, etc. need to be installed on the lab's VMs.   To set up lab VMs, you have three options:
+Based on your class's learning objectives, you should decide which OS, applications, tools, etc. need to be installed on the lab's VMs.   To set up lab VMs, you have three options:
 
-   - **Use an Azure Marketplace image** – The Marketplace provides hundreds of images that you can use when creating a lab.  For some classes, a marketplace image may already contain everything that you need for your class.
+- **Use an Azure Marketplace image** – The Marketplace provides hundreds of images that you can use when creating a lab.  For some classes, a marketplace image may already contain everything that you need for your class.
 
-   - **Create a new custom image** - You may create your own custom image by using a marketplace image as a starting point and customizing it by installing additional software, making configuration changes, etc.
+- **Create a new custom image** - You may create your own custom image by using a marketplace image as a starting point and customizing it by installing additional software, making configuration changes, etc.
 
-   - **Use an existing custom image** - You may reuse existing custom images that you previously created or that were created by other administrators\faculty at your school; this requires your administrators to have configured a Shared Image Gallery which is a repository for saving custom images.
+- **Use an existing custom image** - You may reuse existing custom images that you previously created or that were created by other administrators\faculty at your school; this requires your administrators to have configured a Shared Image Gallery which is a repository for saving custom images.
 
-    > [!NOTE]
-    > Your administrators are responsible for enabling Marketplace and custom images so that you can use them; you will need to coordinate with your IT department to ensure that images that you need are enabled.  Custom images that you create are automatically enabled for use within labs that you own.
+> [!NOTE]
+> Your administrators are responsible for enabling Marketplace and custom images so that you can use them; you will need to coordinate with your IT department to ensure that images that you need are enabled.  Custom images that you create are automatically enabled for use within labs that you own.
 
-1. **What hardware requirements does the class have?**
+**What hardware requirements does the class have?**
 
-   There are a variety of compute sizes that you can choose from that includes:
-    - Nested virtualization sizes so that you can give access to students to a VM that is capable of hosting multiple nested VMs; for example, this compute size is often used for Networking courses.
-    - GPU sizes so that your students can use computer-intensive types of applications, such as for Artificial Intelligence and Machine Learning.
+There are a variety of compute sizes that you can choose from that includes:
 
-    Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
+- Nested virtualization sizes so that you can give access to students to a VM that is capable of hosting multiple nested VMs; for example, this compute size is often used for Networking courses.
 
-    > [!NOTE]
+- GPU sizes so that your students can use computer-intensive types of applications, such as for Artificial Intelligence and Machine Learning.
+
+Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
+
+> [!NOTE]
     > Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
 
-1. **What dependencies does the class have on external Azure or network resources?**
+**What dependencies does the class have on external Azure or network resources?**
 
-    If your lab VMs need to use external resources, such as a database, file share, licensing server, etc. you will need to coordinate with your administrators to ensure that your lab has access to these resources.
+If your lab VMs need to use external resources, such as a database, file share, licensing server, etc. you will need to coordinate with your administrators to ensure that your lab has access to these resources.
 
-    For access to Azure resources that are *not* secured by a virtual network, then you can access these resources via the public internet without any additional configuration by your administrators.
+For access to Azure resources that are *not* secured by a virtual network, then you can access these resources via the public internet without any additional configuration by your administrators.
+
+> [!NOTE]
+> You should consider whether you can reduce your lab's dependencies to external resources by providing the resource directly on the VM.  For example, to eliminate the need to read data from an external database, you could install the database directly on the VM.  
+
+**How will costs be controlled?**
+
+Lab Services uses a pay-as-you go pricing model which means that you only pay for the time that a lab VM is running.  To control costs, you have three options that are typically used in conjunction with one another:
+
+- **Schedule** - A schedule allows you to automatically control when your labs' VMs are started and shut down.
+- **Quota** - The quota controls the number of hours that students will have access to a VM outside of the scheduled hours.  If the quota is reached while a student is using it, the VM is automatically shut down and the student is not able to restart the VM unless the quota is increased.
+- **Auto-shutdown** - When enabled, the auto-shutdown setting causes Windows VMs to automatically shut down after a certain length of time once a student has disconnected from their RDP session.  By default, this setting is disabled.  
 
     > [!NOTE]
-    > You should consider whether you can reduce your lab's dependencies to external resources by providing the resource directly on the VM.  For example, to eliminate the need to read data from an external database, you could install the database directly on the VM.  
+    > This setting currently only exists for Windows.
 
-1. **How will costs be controlled?**
-
-   Lab Services uses a pay-as-you go pricing model which means that you only pay for the time that a lab VM is running.  To control costs, you have three options that are typically used in conjunction with one another:
-
-   - **Schedule** - A schedule allows you to automatically control when your labs' VMs are started and shut down.
-   - **Quota** - The quota controls the number of hours that students will have access to a VM outside of the scheduled hours.  If the quota is reached while a student is using it, the VM is automatically shut down and the student is not able to restart the VM unless the quota is increased.
-   - **Auto-shutdown** - When enabled, the auto-shutdown setting causes Windows VMs to automatically shut down after a certain length of time once a student has disconnected from their RDP session.  By default, this setting is disabled.  
-
-        > [!NOTE]
-        > This setting currently only exists for Windows; Linux support is coming soon.
-
-1. **How will students connect to their VM?**
+**How will students connect to their VM?**
     
-    For RDP to Windows VMs, we recommend students use [Microsoft Remote Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  Remote Desktop client supports Macs, Chromebooks, and Windows.
+For RDP to Windows VMs, we recommend students use [Microsoft Remote Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  Remote Desktop client supports Macs, Chromebooks, and Windows.
 
-    For Linux VMs, students may use either SSH or RDP.   To connect using RDP, you are responsible for installing and configuring the necessary RDP and GUI packages.  More details on this is provided below.
+For Linux VMs, students may use either SSH or RDP.   To connect using RDP, you are responsible for installing and configuring the necessary RDP and GUI packages.  More details on this is provided below.
 
-## Set up your lab
+## Set Up Your Lab
 
 Once you understand the requirements for your class's lab, you are ready to set it up.  Follow the links in this section to see how to set up your lab.
 
