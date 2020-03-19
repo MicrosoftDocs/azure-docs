@@ -45,7 +45,7 @@
       href: howto-deploy-prometheus.md
     - name: Manage projects in an Azure Red Hat OpenShift cluster
       href: howto-manage-projects.md
-      name: Create a private Azure Red Hat OpenShift cluster
+    - name: Create a private Azure Red Hat OpenShift cluster
       href: howto-create-private-cluster.md
     - name: Monitoring and logging
       items:

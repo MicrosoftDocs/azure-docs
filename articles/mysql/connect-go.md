@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data
