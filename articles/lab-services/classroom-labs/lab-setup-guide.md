@@ -1,5 +1,5 @@
 ---
-title: Accelerated classroom lab setup guide | Azure Lab Services
+title: Accelerated classroom lab set up guide | Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.author: spelluru
 
 ---
 
-# Classroom Lab Setup Guide
+# Classroom Lab Set Up Guide
 
 The process for publishing a lab to your students can take up to several hours depending on the number of virtual machines (VMs) that will be created in your lab.  You should give yourself at least a day to set up a lab to ensure that it's working properly and to allow enough time to publish students' VMs.
 
 ## Understand your class's lab requirements
 
-Before you setup a new lab, you should consider the following questions:
+Before you set up a new lab, you should consider the following questions:
 
 1. **What software requirements does the class have?**
 
@@ -48,7 +48,7 @@ Before you setup a new lab, you should consider the following questions:
 
     > [!NOTE]
     > Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
-    
+
 1. **What dependencies does the class have on external Azure or network resources?**
 
     If your lab VMs need to use external resources, such as a database, file share, licensing server, etc. you will need to coordinate with your administrators to ensure that your lab has access to these resources.
@@ -60,7 +60,7 @@ Before you setup a new lab, you should consider the following questions:
 
 1. **How will costs be controlled?**
 
-   AzLabs uses a pay-as-you go pricing model which means that you only pay for the time that a lab VM is running.  To control costs, you have three options that are typically used in conjunction with one another:
+   Lab Services uses a pay-as-you go pricing model which means that you only pay for the time that a lab VM is running.  To control costs, you have three options that are typically used in conjunction with one another:
 
    - **Schedule** - A schedule allows you to automatically control when your labs' VMs are started and shut down.
    - **Quota** - The quota controls the number of hours that students will have access to a VM outside of the scheduled hours.  If the quota is reached while a student is using it, the VM is automatically shut down and the student is not able to restart the VM unless the quota is increased.
@@ -70,6 +70,7 @@ Before you setup a new lab, you should consider the following questions:
         > This setting currently only exists for Windows; Linux support is coming soon.
 
 1. **How will students connect to their VM?**
+    
     For RDP to Windows VMs, we recommend students use [Microsoft Remote Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  Remote Desktop client supports Macs, Chromebooks, and Windows.
 
     For Linux VMs, students may use either SSH or RDP.   To connect using RDP, you are responsible for installing and configuring the necessary RDP and GUI packages.  More details on this is provided below.

@@ -1,5 +1,5 @@
 ---
-title: Accelerated lab account setup guide | Azure Lab Services
+title: Accelerated lab account set up guide | Azure Lab Services
 description: This guide helps administrators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 
-# Lab Account Setup Guide
+# Lab Account Set Up Guide
 
 The first step that needs to be completed by administrators is to set up a lab account within your Azure subscription.  A lab account is a container for your classroom labs and only takes a few minutes to set up.
 
@@ -57,7 +57,7 @@ To understand how to configure your lab account based on your school's needs, yo
   
 1. **Do the lab's virtual machines (VMs) need to have access to other Azure or on-prem resources?**
 
-    When you setup a lab account, you also have the option to peer with a virtual network (VNet).  To decide whether you need to peer with a VNet, consider the following questions:
+    When you set up a lab account, you also have the option to peer with a virtual network (VNet).  To decide whether you need to peer with a VNet, consider the following questions:
     - **Do you need to provide access to a licensing server?**
   
         > [!NOTE]
