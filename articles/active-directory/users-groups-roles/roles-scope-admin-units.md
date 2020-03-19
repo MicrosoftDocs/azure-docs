@@ -221,7 +221,7 @@ Example:
       "@odata.id":"https://graph.microsoft.com/beta/users/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
     }
 
-## Scoping administrators on Administrative Units
+## Assign a role with AU scope
 
 ### Azure portal
 
@@ -268,7 +268,7 @@ The highlighted section may be changed as required for the specific environment.
     Request body
     {}
 
-## Listing users in an administrative unit
+## List users in an administrative unit
 
 ### Azure portal
 
@@ -306,7 +306,7 @@ This will help you get all the members of the administrative unit. If you want t
     Request body
     {}
 
-## Listing groups in an administrative unit
+## List groups in an administrative unit
 
 ### Azure portal
 
