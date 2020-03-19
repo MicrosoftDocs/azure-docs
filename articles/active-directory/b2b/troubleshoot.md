@@ -8,8 +8,7 @@ ms.topic: troubleshooting
 ms.date: 03/19/2020
 tags: active-directory
 ms.author: mimart
-author: v-miegge
-manager: dcscontentpm
+author: msmimart
 ms.reviewer: mal
 ms.custom:
   - it-pro
