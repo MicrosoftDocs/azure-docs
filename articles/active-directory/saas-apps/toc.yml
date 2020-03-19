@@ -742,6 +742,8 @@
         href: ip-platform-tutorial.md
       - name: iPass SmartConnect
         href: ipasssmartconnect-tutorial.md
+      - name: iPoint Service Provider - Toyota QA
+        href: ipoint-service-provider-toyota-tutorial.md
       - name: iProva
         href: iprova-tutorial.md
       - name: IQNavigator VMS
