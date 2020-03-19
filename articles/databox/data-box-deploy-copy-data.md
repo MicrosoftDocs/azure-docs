@@ -14,7 +14,7 @@ ms.localizationpriority: high
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs" 
+::: zone target="docs"
 
 # Tutorial: Copy data to Azure Data Box via SMB
 
@@ -33,10 +33,10 @@ This tutorial describes how to connect to and copy data from your host computer 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-
 
 ## Prerequisites
 
@@ -45,15 +45,16 @@ Before you begin, make sure that:
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
-    - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 
 ## Connect to Data Box
 
 Based on the storage account selected, Data Box creates up to:
-- Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium storage.
-- One share for blob storage account.
+
+* Three shares for each associated storage account for GPv1 and GPv2.
+* One share for premium storage.
+* One share for blob storage account.
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -83,7 +84,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Block blob - `\\10.126.76.172\devicemanagertest1_BlockBlob`
     - Azure Page blob - `\\10.126.76.172\devicemanagertest1_PageBlob`
     - Azure Files - `\\10.126.76.172\devicemanagertest1_AzFile`
-    
+
 4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
 
     ```
@@ -98,7 +99,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
     
