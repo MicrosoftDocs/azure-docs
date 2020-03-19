@@ -60,7 +60,7 @@ Use the following strategies, depending on the table properties:
 * Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* to analyze any skewness in the data.
 * Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* to analyze data movements behind queries, monitor the time broadcast, and shuffle operations take. This is helpful to review your distribution strategy.
 
-Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](sql-data-warehouse-tables-distribute.md).
 
 ## Index your table
 
@@ -80,7 +80,7 @@ Indexing is helpful for reading tables quickly. There is a unique set of technol
 * Based on the incremental load frequency and size, you want to automate when you reorganize or rebuild your indexes. Spring cleaning is always helpful.
 * Be strategic when you want to trim a row group. How large are the open row groups? How much data do you expect to load in the coming days?
 
-Learn more about [indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
+Learn more about [indexes](sql-data-warehouse-tables-index.md).
 
 ## Partitioning
 You might partition your table when you have a large fact table (greater than 1 billion rows). In 99 percent of cases, the partition key should be based on date. Be careful to not overpartition, especially when you have a clustered columnstore index.
@@ -88,7 +88,7 @@ You might partition your table when you have a large fact table (greater than 1 
 With staging tables that require ELT, you can benefit from partitioning. It facilitates data lifecycle management.
 Be careful not to overpartition your data, especially on a clustered columnstore index.
 
-Learn more about [partitions](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).
+Learn more about [partitions](sql-data-warehouse-tables-partition.md).
 
 ## Incremental load
 

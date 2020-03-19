@@ -40,7 +40,7 @@ Based on the availability chart above, we'll be scheduling automated upgrades fo
 
 The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
-You can also expedite the data file upgrade process by running [Alter Index rebuild](../../sql-data-warehouse/sql-data-warehouse-tables-index.md) on all primary columnstore tables using a larger SLO and resource class after the restart.
+You can also expedite the data file upgrade process by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables using a larger SLO and resource class after the restart.
 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
@@ -59,7 +59,7 @@ There are two options when conducting a self-upgrade.  You can either upgrade yo
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
-To expedite the background data migration process, you can immediately force data movement by running [Alter Index rebuild](../../sql-data-warehouse/sql-data-warehouse-tables-index.md) on all primary columnstore tables you'd be querying at a larger SLO and resource class.
+To expedite the background data migration process, you can immediately force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables you'd be querying at a larger SLO and resource class.
 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.

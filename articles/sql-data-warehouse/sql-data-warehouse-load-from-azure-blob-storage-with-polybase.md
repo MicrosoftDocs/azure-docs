@@ -269,7 +269,7 @@ ORDER BY
 
 ## Optimize columnstore compression
 
-By default, the SQL Analytics data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
+By default, the SQL Analytics data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows. 
 
@@ -281,7 +281,7 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-For more information on maintaining columnstore indexes, see the [manage columnstore indexes](sql-data-warehouse-tables-index.md) article.
+For more information on maintaining columnstore indexes, see the [manage columnstore indexes](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md) article.
 
 ## Optimize statistics
 

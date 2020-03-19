@@ -305,7 +305,7 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 
 ## SQL Data Warehouse limits
 
-For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## Storage limits
 

@@ -22,9 +22,9 @@ The following articles highlight concepts and design decisions for developing a 
 * [concurrency](resource-classes-for-workload-management.md)
 * [transactions](sql-data-warehouse-develop-transactions.md)
 * [user-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
-* [table distribution](sql-data-warehouse-tables-distribute.md)
-* [table indexes](sql-data-warehouse-tables-index.md)
-* [table partitions](sql-data-warehouse-tables-partition.md)
+* [table distribution](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md)
+* [table indexes](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md)
+* [table partitions](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md)
 * [CTAS](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md)
 * [statistics](sql-data-warehouse-tables-statistics.md)
 
@@ -41,4 +41,4 @@ The following articles feature specific coding techniques, tips, and recommendat
 * [variable assignment](sql-data-warehouse-develop-variable-assignment.md)
 
 ## Next steps
-For more reference information, see [T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [T-SQL statements](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).

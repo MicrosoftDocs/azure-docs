@@ -47,7 +47,7 @@ A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not int
 
 Q. What are SQL Analytics capacity limits?
 
-A. See our current [capacity limits](sql-data-warehouse-service-capacity-limits.md) page. 
+A. See our current [capacity limits](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md) page. 
 
 Q. Why is my Scale/Pause/Resume taking so long?
 

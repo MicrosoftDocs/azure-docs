@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## Optimizing with partition switching
-If faced with large-scale modifications inside a [table partition](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
+If faced with large-scale modifications inside a [table partition](sql-data-warehouse-tables-partition.md), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
 
 The steps to perform a partition switch are as follows:
 

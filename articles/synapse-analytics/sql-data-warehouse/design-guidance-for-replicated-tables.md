@@ -180,7 +180,7 @@ To create a replicated table, use one of these statements:
 - [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
 - [CREATE TABLE AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
-For an overview of distributed tables, see [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 
 
 

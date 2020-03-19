@@ -148,11 +148,11 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 [Create table as select (CTAS)]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexes]: ./sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
+[Table distribution]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md
+[Table indexes]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md
+[Causes of poor columnstore index quality]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Table partitioning]:../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]: ./guidance-for-loading-data.md

@@ -93,7 +93,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time.  If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution](sql-data-warehouse-tables-distribute.md) article explains why data must be moved to solve a query. The article also explains some distribution strategies to minimize data movement.
+When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time.  If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md) article explains why data must be moved to solve a query. The article also explains some distribution strategies to minimize data movement.
 
 To investigate further details about a single step, the *operation_type* column of the long-running query step and note the **Step Index**:
 
@@ -298,4 +298,4 @@ ORDER BY
 
 ## Next steps
 
-For more information about DMVs, see [System views](sql-data-warehouse-reference-tsql-system-views.md).
+For more information about DMVs, see [System views](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md).
