@@ -49,8 +49,6 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 
 1. Download the data and scripts for this tutorial from the [HDInsight sales insights ETL repository](https://github.com/Azure-Samples/hdinsight-sales-insights-etl) by entering the following commands in Cloud Shell:
 
-TODO: CHANGE THE CODEFENCE
-
     ```cli
     git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
     cd hdinsight-sales-insights-etl
