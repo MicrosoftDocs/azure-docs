@@ -145,10 +145,10 @@ To use the parser library, you provide a set of DTDL documents to the library. T
 4. You can use the parser APIs to analyze the twin types included in the document set. 
 
 The functionalities of the parser are:
-* Get all interfaces implemented (the content of the extends section)
-* Get all properties, telemetry, commands, components, and relationships declared in the twin type. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account
-* Get all complex twin type definitions
-* Ascertain if a twin type is assignable from another twin type 
+* Get all implemented twin type interfaces (the contents of the interface's `extends` section).
+* Get all properties, telemetry, commands, components, and relationships declared in the twin type. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account.
+* Get all complex twin type definitions.
+* Determine whether a twin type is assignable from another twin type.
 
 > [!NOTE]
 > IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same twin type for both PnP and Azure Digital Twins syntax.

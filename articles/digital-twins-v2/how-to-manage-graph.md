@@ -20,8 +20,8 @@ ms.service: digital-twins
 Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This example uses an AutoRest-generated SDK, as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 This section assumes that you: 
-* Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [Create an Azure Digital Twins instance](how-to-set-up-instance.md) for more information.
-* Know how to authenticate against Azure Digital Twins and how to create a service client object. See [Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
+* Already have a working instance of Azure Digital Twins, with appropriate access permissions. For more information about this step, see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+* Know how to authenticate against Azure Digital Twins and how to create a service client object. For more information about authentication, see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
 
 ## Create a twin graph (preview)
 
@@ -30,17 +30,17 @@ To create a twin, you use the DigitalTwins.Add method on the service client:
 await client.DigitalTwins.AddAsync("myNewTwinID", initData);
 ```
 
-To create a digital twin, you need to provide:
+To create a digital twin in this preview release, you need to provide:
 * The desired ID for the digital twin
 * The twin type you want to use 
-* Initial values for all properties of the digital twin (in this preview)
+* Initial values for all properties of the digital twin
 
 ### Initialize properties
 
 All non-optional properties and components of Azure digital twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
 The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twin-graph.md) for a description of the JSON format for a twin.
 
-A serializable parameter object can be constructed for example as in the following example: 
+It is possible to construct a serializable parameter object, like in the following example: 
 
 ```csharp
 Dictionary<string, object> moonData = new Dictionary<string, object>()

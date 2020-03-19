@@ -25,21 +25,22 @@ This how-to document walks through an example of ingesting telemetry from [IoT H
 
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins using an Azure Function. This example contains:
 * A thermometer device in IoT Hub with a known ID.
-* A twin to represent the device with a matching ID (or any ID that you can map to from the ID of the device. It is certainly possible to provide more sophisticated mappings, like with a mapping table, but this example assumes a straightforward ID match).
+* A twin to represent the device with a matching ID (or any ID that you can map to from the ID of the device. It is possible to provide more sophisticated mappings, like with a mapping table, but this example uses a straightforward ID match).
 * A twin representing a room. Whenever a temperature telemetry event is sent by the thermometer device, the temperature property of the room twin should update. Hence, you will map from a telemetry event on a device to a property setter on a logical twin.
 
 In this example, you will work with a twin representing a device that can be identified with an ID match. You will then use topology information from the graph to find the room twin, and set a property on that twin. This is just one of many possible configurations and matching strategies—just one example out of many possible ones.
 
 [![Ingest Overview](media/how-to-ingest-iot-hub-data/ingestingEvents.png)](media/how-to-ingest-iot-hub-data/ingestingEvents.png)
 
-## Setup overview
+## Prerequisites
 
-Prior to completing this example, you need to: 
-* Create an IoT hub. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-* Create at least one Azure Function to process events from IoT Hub. See [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
-* In the Events blade of your IoT Hub instance, create a subscription to your Azure function. 
+Prior to completing this example, you need to complete the following prerequisites.
+1. Create an IoT hub. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
+2. In the Azure portal, navigate to your IoT Hub instance. Under *Events*, create a subscription to your Azure function. 
   - Select *Telemetry* as the event type
   - Add a filter if desired, using Event Grid filtering
+3. Create at least one Azure Function to process events from IoT Hub. See [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
+
 
 ## Create an Azure Function in Visual Studio
 
@@ -282,5 +283,5 @@ namespace adtIngestFunctionSample
 
 ## Debug Azure function apps locally
 
-It is possible to debug Azure Functions with an Event Grid trigger locally. See [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md) for more information.
+It is possible to debug Azure Functions with an Event Grid trigger locally. For more information about this, see [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md).
   

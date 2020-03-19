@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Recall that the center of Azure Digital Twins is the **twin graph**, constructed from [digital twins](concepts-twins-graph.md) and relationships. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
 
-To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. These let developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
+To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
 
 ## Query language features
 
@@ -38,7 +38,7 @@ Here are the operations available in Azure Digital Twins Query Store language:
 
 ## Basic query syntax
 
-Here are some sample queries that perform two possible query operations and illustrate the query language structure.
+Here are some sample queries that illustrate the query language structure and perform two possible query operations.
 
 Get Azure digital twins by properties (including ID and metadata):
 ```sql
@@ -112,8 +112,8 @@ When querying based on digital twins' relationships, Azure Digital Twins Query S
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction here from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
-Recall that with the Azure Digital Twins [twin type](concepts-twin-types.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` operation is a little different from the general SQL `JOIN` operation, as relationships in this case cannot be queried independently and must be tied to a twin.
-To mark this difference, the keyword `RELATED` is used within the `JOIN` clause to reference a twin's set of relationships. 
+Recall that with the Azure Digital Twins [twin type](concepts-twin-types.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
+To mark this difference, the keyword `RELATED` is used in the `JOIN` clause to reference a twin's set of relationships. 
 
 The following section gives several examples of what this looks like.
 
@@ -180,7 +180,7 @@ In the example above, note how *reportedCondition* is a property of the *service
 ### Limitations
 
 These are the current limitations on using `JOIN` in the Azure Digital Twins Query Store Language:
-* No sub-queries are supported within the `FROM` statement.
+* No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
 * Additional runtime limitations may be exposed, such as restricting how many levels of `JOIN` can be included.
 * During the preview release, only one level of `JOIN` is supported.

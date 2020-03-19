@@ -36,7 +36,9 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, Azure Maps, storage, and analytics solutions.
 
-During the current preview release, they are also used to handle events within the twin graph and send data from Azure digital twin to Azure digital twin. This is done by connecting event routes to compute resources such as [Azure Functions](../azure-functions/functions-overview.md) that define how twins should receive and respond to events. Note that events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins twin graph in response to an event passed via event route must either:
+During the current preview release, they are also used to handle events within the twin graph and send data from Azure digital twin to Azure digital twin. This is done by connecting event routes to compute resources such as [Azure Functions](../azure-functions/functions-overview.md) that define how twins should receive and respond to events. 
+
+Events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins twin graph in response to an event passed via event route must either:
 * know the digital twin it wants to modify in advance, or
 * use a query or navigation through the twin graph to find the appropriate target. 
 
@@ -72,7 +74,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>",
 
 * The `endpoint-ID` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to `EventRoutes.Add` also takes a **filter** parameter. However, during the preview release, this filter parameter does nothing. We recommend to use Event Grid as the endpoint, and the Event Grid subscription filter during preview.  
+The event route object passed to `EventRoutes.Add` also takes a **filter** parameter. However, during the preview release, this filter parameter does nothing. We recommend using Event Grid as the endpoint, and the Event Grid subscription filter during preview.  
 
 ### Types of event messages
 

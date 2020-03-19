@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Retrieve, update and delete digital twins and relationships
+title: Retrieve, update, and delete digital twins and relationships
 titleSuffix: Azure Digital Twins
-description: See how to retrieve, update and delete individual twins and relationships.
+description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Retrieve, update and delete digital twins and relationships
+# Retrieve, update, and delete digital twins and relationships
 
 Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
@@ -208,7 +208,7 @@ You can use retrieved relationships to navigate to other twins in your graph. SI
 ## Delete Relationships
 
 You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
-You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship ID). All three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
+In the first parameter, you specify the source twin (the twin the relationship originates from). The other parameters are the relationship name, and the relationship's ID. All of these parameters are needed, because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
 
 
 ## Find incoming relationships

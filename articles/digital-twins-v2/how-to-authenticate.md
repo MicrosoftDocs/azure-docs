@@ -64,7 +64,7 @@ Depending on your scenario, you may need to make additional changes to the app r
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
 
-These settings are easiest set up in the portal. See [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
+The easiest way to set up these settings is in the portal. For more information about this process, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2).
 
 ## Client app authentication code
 
@@ -96,7 +96,7 @@ static async Task Authenticate()
 }
 ```
 
-Note that this sample is the most minimal code for authentication using the MSAL authentication library. There are many more options you can use to implement for example caching and several other authentication flows. For more information see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
+This sample is the most minimal code for authentication using the MSAL authentication library. There are many more options you can use, to implement things like caching and other authentication flows. For more information, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 
 You will need to have references to the following libraries, which you can find on NuGet:
 * Microsoft.Identity.Client (this is the MSAL client library)

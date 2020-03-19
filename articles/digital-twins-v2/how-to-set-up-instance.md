@@ -37,7 +37,7 @@ https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI
 
 To create an Azure Digital Twins instance, open a command prompt or PowerShell window.
 
-First, you need to log in into your Azure account:
+First, you need to log into your Azure account:
 ```bash
 az login
 ```
@@ -61,19 +61,20 @@ Now, you are ready to create your Azure Digital Twins instance:
 az dt create --name <your-instance-name> -g <your-resource-group-name>
 ```
 
-Before you can use the instance, there is one more step: you need to set up access control for the newly created instance. 
+Before you can use the instance, there is one more step: setting up access control for the newly created instance. 
 
 ## Assign a role to the instance
 
-To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation command, You can get it by running:
+To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you did not record it earlier from the output of the creation command, you can get it now by running:
 ```bash
 az dt show --name <your-instance-name> -g <your-resource-group-name>
 ```
 
-The output will contain a very long string named "id" that will begin with the letters "/subscriptions/…". Use that string in the command below: 
+The output will contain a long string named "id" that will begin with the letters "/subscriptions/…". Use that string in the command below: 
 ```bash
 az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <your-AAD-email> --scope <resource-instance-ID>
 ```
 
-You should also take note of the "hostname" value returned by az dt show, as you will need this value later.
-All set! You now have an Azure Digital Twins instance ready to go.
+Take note of the "hostname" value returned by `az dt show`, as you will need this value later.
+
+You now have an Azure Digital Twins instance ready to go.

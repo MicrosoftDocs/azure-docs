@@ -64,7 +64,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 
 Twins are connected into a twin graph by their relationships. The relationships that a  twin can have are defined as part of the twin type.  
 
-For example, twin type *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships between an digital twin of type *Floor* and any digital twin of type *Room* (including sub-types of type *Room*). 
+For example, twin type *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships between a digital twin of type *Floor* and any digital twin of type *Room* (including subtypes of type *Room*). 
 
 Here is some example client code that uses the [DigitalTwins APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 

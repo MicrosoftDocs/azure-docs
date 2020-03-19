@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **twin types**.
 
-A twin type is similar to a **class** in an object oriented programming language, defining a  data shape for one particular concept in your real work environment. Twin types have a name (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this sort of entity in your environment can do. Twin types are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+A twin type is similar to a **class** in an object-oriented programming language, defining a  data shape for one particular concept in your real work environment. Twin types have a name (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this sort of entity in your environment can do. Twin types are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for writing twin types
 
@@ -36,7 +36,7 @@ The technical term for a twin type's DTDL implementation is its **interface**. A
 * **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on an Azure digital twin; it is effectively represented as a stream of data events to be sent somewhere.
 * **Command** - Commands represent methods that can be executed on an Azure digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
 * **Relationship** - Relationships let you represent how an Azure digital twin can be involved with other Azure digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. 
-* **Component** - Components allow you to build your twin type interface as an assembly of other interfaces, if desired. An example of a component may be a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a twin type for a *phone*. You must first define an interface for *frontCamera* as though it were its own twin type.
+* **Component** - Components allow you to build your twin type interface as an assembly of other interfaces, if desired. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a twin type for a *phone*. You must first define an interface for *frontCamera* as though it were its own twin type, and then you can reference it when defining *Phone*.
 
 >[!TIP] 
 > Use a **component** to describe something that is an integral part of your solution, but that does not need to have a separate identity, or the need to be created, deleted, or rearranged independently. If you want entities to have an independent existence in the twin graph, represent them as separate twins connected by a **relationship**.
@@ -163,7 +163,7 @@ In this example, *CelestialBody* contributes a name, a mass, and a telemetry to 
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
-The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot re-define a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it is also declared as a `double`.
+The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it is also declared as a `double`.
 
 ### Preview constraints
 
