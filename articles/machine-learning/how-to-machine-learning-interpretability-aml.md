@@ -3,7 +3,6 @@ title: Model interpretability for local and remote runs
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -289,7 +288,7 @@ The following plots provide a global view of the trained model along with its pr
 |----|-----------|
 |Data Exploration| Displays an overview of the dataset along with prediction values.|
 |Global Importance|Shows top K (configurable K) important features globally. Helps understanding of underlying model's global behavior.|
-|Explanation Exploration|Demonstrates how a feature affects a change in model’s prediction values, or the probability of prediction values. Shows impact of feature interaction.|
+|Explanation Exploration|Demonstrates how a feature affects a change in model's prediction values, or the probability of prediction values. Shows impact of feature interaction.|
 |Summary Importance|Uses local, feature importance values across all data points to show the distribution of each feature's impact on the prediction value.|
 
 [![Visualization Dashboard Global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
