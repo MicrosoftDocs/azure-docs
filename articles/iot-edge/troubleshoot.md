@@ -60,7 +60,7 @@ Run the `support-bundle` command with the `--since` flag to specify how long fro
   ```
 
 > [!WARNING]
-> Output from the `support-bundle` command can contain information such as host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
+> Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
 ## Standard diagnostic steps
 
