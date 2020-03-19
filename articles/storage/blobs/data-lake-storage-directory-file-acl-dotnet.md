@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs (preview)
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 03/17/2020
+ms.date: 03/18/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2

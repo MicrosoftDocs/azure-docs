@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 Java SDK for files & ACLs (preview)
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 11/24/2019
+ms.date: 03/18/2020
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
@@ -235,7 +235,7 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append** method. Consider using the **DataLakeFileClient** method method instead. That way, you can upload the entire file in a single call. 
+> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append** method. Consider using the **DataLakeFileClient.uploadFromFile** method instead. That way, you can upload the entire file in a single call. 
 >
 > See the next section for an example.
 
