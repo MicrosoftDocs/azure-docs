@@ -414,6 +414,8 @@
           href: direct-line-speech.md
         - name: Quickstarts
           items:
+            - name: 'Create a custom voice assistant'
+              href: quickstarts/voice-assistants.md
             - name: 'C# (UWP)'
               href: quickstart-voice-assistant-csharp-uwp.md
             - name: 'Java (Windows, macOS, Linux)'
