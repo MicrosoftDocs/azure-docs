@@ -185,7 +185,7 @@ If you create a QnA service through Azure Resource Manager templates, you can cr
 
 Learn more about how to configure the App Service [General settings](../../app-service/configure-common.md#configure-general-settings).
 
-## Configure App service idle setting
+## Configure App service idle setting to avoid timeout
 
 The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically timeout. For QnA Maker, this means your prediction runtime appears to timeout when called by your client application, such as a chat bot.
 
