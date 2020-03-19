@@ -44,7 +44,11 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
 
 This example uses an account key to create a **DataLakeServiceClient** instance that represents the storage account. 
 
@@ -62,6 +66,29 @@ except Exception as e:
 - Replace the `storage_account_name` placeholder value with the name of your storage account.
 
 - Replace the `storage_account_key` placeholder value with your storage account access key.
+
+### Connect by using Azure Active Directory (AD)
+
+First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+Then, you can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application. 
+
+This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) for more examples.
+
+```python
+def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
+    
+    try:  
+        global service_client
+
+        credential = ClientSecretCredential(tenant_id, client_id, client_secret)
+
+        service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
+            "https", storage_account_name), credential=credential)
+    
+    except Exception as e:
+        print(e)
+```
 
 ## Create a file system
 

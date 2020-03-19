@@ -49,17 +49,13 @@ import com.azure.storage.file.datalake.models.PathPermissions;
 import com.azure.storage.file.datalake.models.RolePermissions;
 ```
 
-If you plan to authenticate your client application by using Azure AD, then add these imports statements to your code file.
-
-```java
-import com.azure.identity.ClientSecretCredential;
-import com.azure.identity.ClientSecretCredentialBuilder;
-import com.azure.core.credential.TokenCredential;
-````
-
 ## Connect to the account 
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
 
 This example creates an instance of the **DataLakeServiceClient** by using an account key.
 
@@ -78,8 +74,33 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
     return builder.buildClient();
 }      
-
 ```
+
+### Connect by using Azure Active Directory (Azure AD)
+
+First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+Then, you can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application. 
+
+This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity)) for more examples.
+
+```java
+static public DataLakeServiceClient GetDataLakeServiceClient
+    (String accountName, String clientId, String ClientSecret, String tenantID){
+
+    String endpoint = "https://" + accountName + ".dfs.core.windows.net";
+        
+    ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+    .clientId(clientId)
+    .clientSecret(ClientSecret)
+    .tenantId(tenantID)
+    .build();
+           
+    DataLakeServiceClientBuilder builder = new DataLakeServiceClientBuilder();
+    return builder.credential(clientSecretCredential).endpoint(endpoint).buildClient();
+ } 
+```
+
 ## Create a file system
 
 A file system acts as a container for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.

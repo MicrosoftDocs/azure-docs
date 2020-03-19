@@ -42,7 +42,11 @@ const AzureStorageDataLake = require("@azure/storage-file-datalake");
 
 ## Connect to the account 
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
 
 This example creates an instance of the **DataLakeServiceClient** by using an account key.
 
@@ -62,6 +66,26 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 ```
 > [!NOTE]
 > This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD). For guidance on how to do that, see the [Azure Storage File Data Lake client library for JavaScript](https://www.npmjs.com/package/@azure/storage-file-datalake) readme file. 
+
+### Connect by using Azure Active Directory (AD)
+
+First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+Then, you can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application. 
+
+This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) for more examples.
+
+```javascript
+function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
+
+  const credential = new ClientSecretCredential(tenantID, clientID, clientSecret);
+  
+  const datalakeServiceClient = new DataLakeServiceClient(
+      `https://${accountName}.dfs.core.windows.net`, credential);
+
+  return datalakeServiceClient;             
+}
+```
 
 ## Create a file system
 

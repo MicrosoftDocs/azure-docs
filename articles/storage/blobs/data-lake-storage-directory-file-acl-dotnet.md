@@ -43,7 +43,11 @@ using Azure;
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. 
+
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
 
 This example creates an instance of the [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) by using an account key.
 
@@ -59,6 +63,29 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
     dataLakeServiceClient = new DataLakeServiceClient
         (new Uri(dfsUri), sharedKeyCredential);
 }
+```
+
+### Connect by using Azure Active Directory (AD)
+
+First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+Then, you can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application. 
+
+This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the  [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) for more examples.
+
+```cs
+public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
+    String accountName, String clientID, string clientSecret, string tenantID)
+{
+
+    TokenCredential credential = new ClientSecretCredential(
+        tenantID, clientID, clientSecret, new TokenCredentialOptions());
+
+    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
+
+    dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
+}
+
 ```
 
 ## Create a file system
