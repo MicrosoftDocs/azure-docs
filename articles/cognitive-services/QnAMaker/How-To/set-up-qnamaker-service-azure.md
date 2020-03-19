@@ -187,7 +187,7 @@ Learn more about how to configure the App Service [Application settings](../../.
 
 ## Configure App service idle setting to avoid timeout
 
-The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically timeout. For QnA Maker, this means your prediction runtime generateAnswers API occasionally times out after periods of no traffic.
+The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically timeout if the service is idle. For QnA Maker, this means your prediction runtime generateAnswer API occasionally times out after periods of no traffic.
 
 In order to keep the prediction endpoint app loaded even when there is no traffic, set the idle to always on.
 
