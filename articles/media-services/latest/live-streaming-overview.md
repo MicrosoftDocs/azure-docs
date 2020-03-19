@@ -115,13 +115,13 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
+## Frequently asked questions
+
+See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
+
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
-
-## See also
-
-[FAQs](frequently-asked-questions.md#live-streaming)
 
 ## Next steps
 
