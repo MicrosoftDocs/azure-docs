@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 03/18/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit
 # Using Private Endpoints for Azure Web App (Preview)
 
 > [!Note]
-> The preview is available in East US region for all PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
+> The preview is available in East US and West US 2 regions for all PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -48,7 +48,7 @@ From a security perspective:
 - The NIC of the Private Endpoint cannot have an NSG associated.
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint: see [Disable network policies for private endpoints][disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
-- You can reduce the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. But adding a Web App Service Endpoint in your subnet will let you reach any Web App hosted in the same deployment stamp and exposed to the Internet.
+- You can reduce the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. But adding a Web App Private Endpoint in your subnet will let you reach any Web App hosted in the same deployment stamp and exposed to the Internet.
 
 In the Web HTTP logs of your Web App, you will find the client source IP. This is implemented using the TCP Proxy protocol, forwarding the client IP property up to the Web App. For more information, see [Getting connection Information using TCP Proxy v2][tcpproxy].
 
