@@ -18,13 +18,13 @@ ms.service: digital-twins
 # Developer overview of Azure Digital Twins APIs
 
 > [!TIP]
-> * To learn how to create an Azure Digital Twins instance, please see [How to Set Up an Azure Digital Twins Instance](how-to-set-up-an-adt-instance.md)
-> * To learn how to authenticate and connect to an instance, please see [How to Authenticate Against an Azure Digital Twins Instance](how-to-authenticate.md)
+> * To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+> * To learn how to authenticate and connect to an instance, please see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
 
 This article gives a brief overview of the API surface of Azure Digital Twins. 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
-* **DigitalTwinsModels** - The DigitalTwinsModels category provides APIs are used to manage the [twin types](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
+* **DigitalTwinsModels** - The DigitalTwinsModels category provides APIs are used to manage the [twin types](concepts-twin-types.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](concepts-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md) through the system, as well as to downstream services.
@@ -200,6 +200,6 @@ try
 ## Next steps
 
 See how to use the APIs to manage twin types, digital twins, and twin graphs:
-* [Manage a twin type](how-to-manage-model.md)
+* [Manage a twin type](how-to-manage-twin-type.md)
 * [Manage an individual digital twin](how-to-manage-twin.md)
 * [Manage a twin graph](how-to-manage-graph.md)

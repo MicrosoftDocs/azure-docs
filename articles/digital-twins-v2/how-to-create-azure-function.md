@@ -33,17 +33,17 @@ To create an Azure Function for Azure Digital Twins, you need to follow these st
 
 In Visual Studio 2019, select *File > New Project*.
 
-[![VS New Project](media/how-to-create-azfn/vs-new-azfn-project.png)](media/how-to-create-azfn/vs-new-azfn-project.png)
+[![Visual Studio new project](media/how-to-create-azure-function/vs-new-azfn-project.png)](media/how-to-create-azure-function/vs-new-azfn-project.png)
 
 Search for the Azure Functions template and press "Next".
 
-[![VS Configure Project](media/how-to-create-azfn/vs-azfn-project-config.png)](media/how-to-create-azfn/vs-azfn-project-config.png)
+[![Visual Studio configure project](media/how-to-create-azure-function/vs-azfn-project-config.png)](media/how-to-create-azure-function/vs-azfn-project-config.png)
 
 Specify a name for the function app and press "Create"
 
-[![VS New Project](media/how-to-create-azfn/vs-azfn-project-trigger.png)](media/how-to-create-azfn/vs-azfn-project-trigger.png)
-
 Select the Event Grid trigger and press "Create".
+
+[![Visual Studio project trigger](media/how-to-create-azure-function/vs-azfn-project-trigger.png)](media/how-to-create-azure-function/vs-azfn-project-trigger.png)
 
 ## Function app code
 
@@ -80,7 +80,7 @@ See [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-
 
 ### Add the Azure Digital Twins SDK to your function app
 
-In [How to Use Azure Digital Twins APIs](how-to-use-apis.md) we explain how to generate the Azure Azure Digital Twins SDK using Autorest and compile it as a re-usable project.
+In [Use the Azure Digital Twins APIs](how-to-use-apis.md) we explain how to generate the Azure Digital Twins SDK using Autorest and compile it as a re-usable project.
 
 To be able to access Azure Digital Twins from your Azure Function, add the Azure Digital Twins SDK project to the function app. You can do that by right-selecting *Dependencies* in the Solution Explorer and choosing *Add Reference...*.
 
@@ -213,11 +213,11 @@ To publish the function app to Azure, right-select the functions project (not th
 
 The following tab will appear:
 
-[![VS Publish Function](media/how-to-create-azfn/vs-azfn-publish.png)](media/how-to-create-azfn/vs-azfn-publish.png)
+[![Visual Studio publish function](media/how-to-create-azure-function/vs-azfn-publish.png)](media/how-to-create-azure-function/vs-azfn-publish.png)
 
 Select the desired Azure Functions plan (if in doubt, initially use the default consumption plan). Note that using Azure Functions will incur charges beyond Azure Digital Twins.
 
-[![VS Publish Function](media/how-to-create-azfn/vs-azfn-publish2.png)](media/how-to-create-azfn/vs-azfn-publish2.png)
+[![Visual Studio publish function](media/how-to-create-azure-function/vs-azfn-publish2.png)](media/how-to-create-azure-function/vs-azfn-publish2.png)
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
 
@@ -227,10 +227,10 @@ The Azure function skeleton shown above requires a bearer token to be passed to 
 
 To set this up, go to the portal and navigate to your function app.
 
-[![VS Function MSI](media/how-to-create-azfn/vs-azfn-msi1.png)](media/how-to-create-azfn/vs-azfn-msi1.png)
+[![Visual Studio function MSI](media/how-to-create-azure-function/vs-azfn-msi1.png)](media/how-to-create-azure-function/vs-azfn-msi1.png)
 
 In the *Platform features* tab, select *Identity*:
 
-[![VS Function MSI](media/how-to-create-azfn/vs-azfn-msi2.png)](media/how-to-create-azfn/vs-azfn-msi2.png)
+[![Visual Studio function MSI](media/how-to-create-azure-function/vs-azfn-msi2.png)](media/how-to-create-azure-function/vs-azfn-msi2.png)
 
 On the identity page, set the *Status* toggle to *On*. 

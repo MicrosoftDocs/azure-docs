@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create an Azure Digital Twins instance
+# Set up an Azure Digital Twins instance
 
 ## Introduction
 

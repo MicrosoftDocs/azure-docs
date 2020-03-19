@@ -112,7 +112,7 @@ When querying based on digital twins' relationships, Azure Digital Twins Query S
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction here from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
-Recall that with the Azure Digital Twins [twin type](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` operation is a little different from the general SQL `JOIN` operation, as relationships in this case cannot be queried independently and must be tied to a twin.
+Recall that with the Azure Digital Twins [twin type](concepts-twin-types.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` operation is a little different from the general SQL `JOIN` operation, as relationships in this case cannot be queried independently and must be tied to a twin.
 To mark this difference, the keyword `RELATED` is used within the `JOIN` clause to reference a twin's set of relationships. 
 
 The following section gives several examples of what this looks like.

@@ -20,9 +20,9 @@ ms.service: digital-twins
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in the [How to Use APIs](how-to-use-apis.md) section.
 
 This section assumes that you: 
-* Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [How to Set Up an Azure Digital Twins Instance](how-to-set-up-an-adt-instance.md) for more information.
+* Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [Create an Azure Digital Twins instance](how-to-set-up-instance.md) for more information.
 
-* Know how to authenticate against Azure Digital Twins and how to create a service client object. See [How to Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
+* Know how to authenticate against Azure Digital Twins and how to create a service client object. See [Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
 
 ## Create a twin graph (preview)
 
@@ -39,7 +39,7 @@ To create a twin instance, you need to provide:
 ### Initialize properties
 
 All non-optional properties and components of Azure digital twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Twin Graph COncepts](concepts-twin-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twin-graph.md) for a description of the JSON format for a twin.
 
 A serializable parameter object can be constructed for example as in the following example: 
 

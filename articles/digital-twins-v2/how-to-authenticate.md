@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Authenticate against the twins API
+title: Authenticate against Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: See how to authenticate against an Azure Digital Twins service.
 author: cschorm
@@ -18,7 +18,7 @@ ms.service: digital-twins
 # Authenticate against Azure Digital Twins
 
 > [!TIP]
-> To learn how to create an Azure Digital Twins instance, please see [How to Set Up an Azure Digital Twins Instance](how-to-set-up-an-adt-instance.md).
+> To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
 Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. 
 
@@ -68,7 +68,7 @@ These settings are easiest set up in the portal. See [Register an application wi
 
 ## Client app authentication code
 
-To follow the example in this section, you will need the SDK library as described in the [API how-to document](how-to-use-apis.md).
+To follow the example in this section, you will need the SDK library as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 To authenticate a .NET app with Azure services, you can use the following minimal code:
 

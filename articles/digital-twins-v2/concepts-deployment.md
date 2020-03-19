@@ -27,7 +27,7 @@ Azure Digital Twins does not have a built-in IoT Hub. You can use an existing Io
 
 To ingest data from IoT Hub into Azure Digital Twins, you use an [Azure Function](../azure-functions/functions-overview.md). Learn more about using this pattern in a [tutorial](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
 
-Also see [How to Ingest Data from IoT Hub](how-to-ingest-data-from-iothub.md).
+Also see [How to ingest data from IoT Hub](how-to-ingest-iot-hub-data.md).
 
 ## Egress services
 

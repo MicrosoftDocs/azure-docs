@@ -90,7 +90,7 @@ Life-cycle notifications message
 
 Recall the types of notifications that can be generated and used for event routing:
 
-[!INCLUDE [digital-twins-v2-notifications.md](../../includes/digital-twins-v2-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
 Notifications allow the solution backend to be notified when below actions are happening. The sections that follow describe the types of notifications emitted by IoT Hub and Azure Digital Twins, or other Azure IoT services. 
 
@@ -110,7 +110,7 @@ Services have to add a sequence number on all the notifications to indicate orde
 
 ### Digital twin life-cycle notifications
 
-All Azure digital twins are emitting notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](concepts-iothub-devices.md) or not.
+All Azure digital twins are emitting notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not.
 
 #### Notification triggers
 
@@ -243,7 +243,7 @@ Here is an example of an update edge notification to update a property:
 
 ### Digital twin type change notifications
 
-These notifications are triggered when a Digital Twins Definition Language (DTDL) [twin type](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
+These notifications are triggered when a Digital Twins Definition Language (DTDL) [twin type](concepts-twin-types.md) is uploaded, reloaded, patched, decommissioned, or deleted.
 
 #### Properties
 

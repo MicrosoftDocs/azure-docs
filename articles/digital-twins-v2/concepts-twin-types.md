@@ -180,4 +180,4 @@ Learn about creating digital twins based on twin types:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
 
 Or, see how a twin type is managed with the Model Management APIs:
-* [[Manage a twin type](how-to-manage-model.md)
+* [[Manage a twin type](how-to-manage-twin-type.md)

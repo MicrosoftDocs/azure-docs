@@ -30,20 +30,20 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins us
 
 In this example, we will assume a twin representing the device that we can identify with an ID match. We will then use topology information from the graph to find the room twin, and set a property on that twin. This is just one of many possible configurations and matching strategies - just one example out of many possible ones.
 
-[![Ingest Overview](media/how-to-ingest/ingestingEvents.png)](media/how-to-ingest/ingestingEvents.png)
+[![Ingest Overview](media/how-to-ingest-iot-hub-data/ingestingEvents.png)](media/how-to-ingest-iot-hub-data/ingestingEvents.png)
 
 ## Setup overview
 
 To create this example you need to: 
 * Create an IoT Hub
-* Create (at least one) Azure Function to process events from IoT Hub. See [How to create an Azure Function for Azure Digital Twins](how-to-create-an-azfn-for-adt.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
+* Create (at least one) Azure Function to process events from IoT Hub. See [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md) for a skeleton Azure Function that can connect to Azure Digital Twins and call Azure Digital Twins API functions.   
 * In the Events blade of your IoT Hub instance, create a subscription to your Azure function. 
   * Select Telemetry as the event type
   * Add a filter if so desired, using Event Grid filtering
 
 ## Create an Azure Function in Visual Studio
 
-In this section, we add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [How to create an Azure Function for Azure Digital Twins](how-to-create-an-azfn-for-adt.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+In this section, we add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [Create an Azure Function for Azure Digital Twins](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton code is:
 

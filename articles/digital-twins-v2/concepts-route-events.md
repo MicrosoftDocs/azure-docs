@@ -78,7 +78,7 @@ The event route object passed to `EventRoutes.Add` also takes a **filter** param
 
 Different types of events in IoT Hub and Azure Digital Twins produce different types of notification messages, as described below.
 
-[!INCLUDE [digital-twins-v2-notifications.md](../../includes/digital-twins-v2-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
 ## Next steps
 
