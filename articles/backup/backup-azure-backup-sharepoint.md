@@ -14,12 +14,6 @@ Backing up SharePoint to Azure with DPM is a very similar process to backing up 
 
 For a list of supported SharePoint versions and the DPM versions required to back them up see [What can DPM back up?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019#applications-backup)
 
-DPM - System Center 2012 R2 supports backup to Azure from Update Rollup 5. Update Rollup 5 provides the ability to protect a SharePoint farm to Azure if the farm is configured by using SQL AlwaysOn.
-
-Azure Backup for DPM supports the following scenarios:
-
-Recovery is supported for farm, database, and file or list item from disk recovery points.  Farm and database recovery are supported from Azure recovery points. |
-
 ## Before you start
 
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
@@ -32,14 +26,7 @@ Additional prerequisites and limitations can be found on the [Back up SharePoint
 
 ## Configure backup
 
-To configure the backup for your SharePoint farm, see [Configure Backup](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) in the DPM documentation.
-
-
-## Back up a SharePoint farm by using DPM
-
-After you have configured DPM and the SharePoint farm as explained previously, SharePoint can be protected by DPM.
-
-For instructions on how to back up your SharePoint farm with DPM, see [ ]()
+To back up SharePoint farm you configure protection for SharePoint by using ConfigureSharePoint.exe and then create a protection group in DPM. For instructions, see [Configure Backup](https://docs.microsoft.com//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) in the DPM documentation.
 
 ## Monitoring
 
@@ -82,4 +69,5 @@ If you have more than one front-end web server, and want to switch the server th
 
 ## Next steps
 
-
+* [Azure Backup Server and DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
+* [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md)
