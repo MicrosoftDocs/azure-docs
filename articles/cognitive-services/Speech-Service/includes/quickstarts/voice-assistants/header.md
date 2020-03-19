@@ -25,8 +25,8 @@ After satisfying a few prerequisites, connecting your custom voice assistant tak
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Set up your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp)
 > * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
   > [!NOTE]
