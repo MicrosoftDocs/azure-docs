@@ -19,7 +19,7 @@ In this document, you learn how to use Azure Private Link with your Azure Machin
 > [!IMPORTANT]
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
 >
-> Azure Machine Learning compute instances are not supported in a workspace where Private Link is enabled.
+> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
 
 ## Create a workspace that uses a private endpoint
 
