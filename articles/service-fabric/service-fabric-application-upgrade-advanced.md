@@ -45,7 +45,7 @@ There are several ways to configure the delay on the service side.
 
 ### Client configuration
 
-To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore, as they will go down soon.
 
 ### Optional upgrade overrides
@@ -66,6 +66,10 @@ The delay duration only applies to the invoked upgrade instance and does not oth
 >
 >
 
+> [!NOTE]
+> This feature can be configured in existing services using Update-ServiceFabricService cmdlet as mentioned above, when the cluster code version is 7.1.XXX or above.
+>
+>
 
 ## Manual upgrade mode
 
