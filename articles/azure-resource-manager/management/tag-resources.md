@@ -200,7 +200,7 @@ $subscription = (Get-AzSubscription -SubscriptionName "Example Subscription").Id
 Get-AzTag -ResourceId "/subscriptions/$subscription"
 ```
 
-### List resources by tag
+### List by tag
 
 To get resources that have a specific tag name and value, use:
 
@@ -247,7 +247,49 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ## Azure CLI
 
-To see the existing tags for a *resource group*, use:
+### Apply tags
+
+When adding tags to a resource group or resource, you can either overwrite the existing tags or append new tags to existing tags.
+
+To overwrite the tags on a resource, use:
+
+```azurecli-interactive
+az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+To append a tag to the existing tags on a resource, use:
+
+```azurecli-interactive
+az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+To overwrite the existing tags on a resource group, use:
+
+```azurecli-interactive
+az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+```
+
+To append a tag to the existing tags on a resource group, use:
+
+```azurecli-interactive
+az group update -n examplegroup --set tags.'Status'='Approved'
+```
+
+Currently, Azure CLI doesn't support applying tags to subscriptions.
+
+### Inherit tags
+
+To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
+
+### List tags
+
+To see the existing tags for a resource, use:
+
+```azurecli-interactive
+az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+```
+
+To see the existing tags for a resource group, use:
 
 ```azurecli-interactive
 az group show -n examplegroup --query tags
@@ -262,16 +304,12 @@ That script returns the following format:
 }
 ```
 
-Or, to see the existing tags for a *resource that has a specified name, type, and resource group*, use:
+### List by tag
+
+To get all the resources that have a particular tag and value, use `az resource list`:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
-```
-
-When looping through a collection of resources, you might want to show the resource by resource ID. A complete example is shown later in this article. To see the existing tags for a *resource that has a specified resource ID*, use:
-
-```azurecli-interactive
-az resource show --id <resource-id> --query tags
+az resource list --tag Dept=Finance
 ```
 
 To get resource groups that have a specific tag, use `az group list`:
@@ -280,42 +318,7 @@ To get resource groups that have a specific tag, use `az group list`:
 az group list --tag Dept=IT
 ```
 
-To get all the resources that have a particular tag and value, use `az resource list`:
-
-```azurecli-interactive
-az resource list --tag Dept=Finance
-```
-
-When adding tags to a resource group or resource, you can either overwrite the existing tags or append new tags to existing tags.
-
-To overwrite the existing tags on a resource group, use:
-
-```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
-```
-
-To append a tag to the existing tags on a resource group, use:
-
-```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
-```
-
-To overwrite the tags on a resource, use:
-
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-To append a tag to the existing tags on a resource, use:
-
-```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-### Inherit tags
-
-To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
-
+### Handling spaces
 
 If your tag names or values include spaces, you must take a couple of extra steps. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
 
@@ -335,11 +338,11 @@ IFS=$origIFS
 
 ## ARM templates
 
-To tag a resource during deployment, add the `tags` element to the resource you're deploying. Provide the tag name and value.
+You can tag resources, resource groups, and subscriptions during deployment with an ARM template. 
 
-### Apply a literal value to the tag name
+### Apply literal values
 
-The following example shows a storage account with two tags (`Dept` and `Environment`) that are set to literal values:
+The following example deploys a storage account with two tags (`Dept` and `Environment`) that are set to literal values:
 
 ```json
 {
@@ -373,9 +376,9 @@ The following example shows a storage account with two tags (`Dept` and `Environ
 
 To set a tag to a datetime value, use the [utcNow function](../templates/template-functions-string.md#utcnow).
 
-### Apply an object to the tag element
+### Apply an object
 
-You can define an object parameter that stores several tags, and apply that object to the tag element. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that is applied to the tag element.
+You can define an object parameter that stores several tags, and apply that object to the tag element. This approach provides more flexibility than the previous example because the object can have any properties. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that is applied to the tag element.
 
 ```json
 {
@@ -411,7 +414,7 @@ You can define an object parameter that stores several tags, and apply that obje
 }
 ```
 
-### Apply a JSON string to the tag name
+### Apply a JSON string
 
 To store many values in a single tag, apply a JSON string that represents the values. The entire JSON string is stored as one tag that can't exceed 256 characters. The following example has a single tag named `CostCenter` that contains several values from a JSON string:  
 
@@ -476,6 +479,61 @@ To apply tags from a resource group to a resource, use the [resourceGroup](../te
         }
     ]
 }
+```
+
+### Apply tags to resource groups or subscriptions
+
+You can add tags to a resource group or subscription by deploying the **Microsoft.Resources/tags** resource type. The tags are applied to the target resource group or subscription for the deployment. Each time you deploy the template you replace any tags there were previously applied.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "tagName": {
+            "type": "string",
+            "defaultValue": "TeamName"
+        },
+        "tagValue": {
+            "type": "string",
+            "defaultValue": "AppTeam1"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/tags",
+            "name": "default",
+            "apiVersion": "2019-10-01",
+            "dependsOn": [],
+            "properties": {
+                "tags": {
+                    "[parameters('tagName')]": "[parameters('tagValue')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+To apply the tags to a resource group, use either PowerShell or Azure CLI. Deploy to the resource group that you want to tag.
+
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName exampleGroup -TemplateFile https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+```azurecli-interactive
+az deployment group create --resource-group exampleGroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+To apply the tags to a subscription, use either PowerShell or Azure CLI. Deploy to the subscription that you want to tag.
+
+```azurepowershell-interactive
+New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
+```
+
+```azurecli-interactive
+az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
 ## Portal
