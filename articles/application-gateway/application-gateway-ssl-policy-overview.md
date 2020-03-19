@@ -13,7 +13,7 @@ ms.author: amsriva
 
 You can use Azure Application Gateway to centralize TLS/SSL certificate management and reduce encryption and decryption overhead from a back-end server farm. This centralized TLS handling also lets you specify a central TLS policy that's suited to your organizational security requirements. This helps you meet compliance requirements as well as security guidelines and recommended practices.
 
-The TLS policy includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during an TLS handshake. Application Gateway offers two mechanisms for controlling TLS policy. You can use either  a predefined policy or a custom policy.
+The TLS policy includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. Application Gateway offers two mechanisms for controlling TLS policy. You can use either  a predefined policy or a custom policy.
 
 ## Predefined TLS policy
 
@@ -106,4 +106,4 @@ Application Gateway v2 does not currently support the following ciphers:
 
 ## Next steps
 
-If you want to learn to configure an TLS policy, see [Configure TLS policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+If you want to learn to configure a TLS policy, see [Configure TLS policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
