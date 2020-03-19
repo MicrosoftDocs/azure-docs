@@ -599,8 +599,8 @@
         items:
         - name: Change feed
           href: cassandra-change-feed.md
-        - name: Store and manage Spring Data
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Store and manage Spring Data 
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Cassandra & Spark
           items:
           - name: Introduction
