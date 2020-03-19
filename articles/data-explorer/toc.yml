@@ -34,6 +34,10 @@
     - name: Data ingestion overview
       displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
       href: ingest-data-overview.md
+    - name: Data ingestion properties
+      href: ingestion-properties.md
+    - name: Formats for data ingestion
+      href: ingestion-supported-formats.md
   - name: Kusto Query Language
     items:
     - name: Quick reference guide
