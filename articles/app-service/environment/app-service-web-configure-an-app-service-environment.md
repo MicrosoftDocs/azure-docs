@@ -125,7 +125,7 @@ Within the ASE blade, there is a **Settings** section that contains several impo
 
 ![Settings blade and Properties][4]
 
-**Settings** > **IP Addresses**: When you create an IP Secure Sockets Layer (SSL) app in your ASE, you need an IP SSL address. In order to obtain one, your ASE needs IP SSL addresses that it owns that can be allocated. When an ASE is created, it has one IP SSL address for this purpose, but you can add more. There is a charge for additional IP SSL addresses, as shown in [App Service pricing][AppServicePricing] (in the section on SSL connections). The additional price is the IP SSL price.
+**Settings** > **IP Addresses**: When you create an IP Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), app in your ASE, you need an IP TLS address. In order to obtain one, your ASE needs IP TLS addresses that it owns that can be allocated. When an ASE is created, it has one IP TLS address for this purpose, but you can add more. There is a charge for additional IP TLS addresses, as shown in [App Service pricing][AppServicePricing] (in the section on TLS connections). The additional price is the IP TLS price.
 
 **Settings** > **Front End Pool** / **Worker Pools**: Each of these resource pool blades offers the ability to see information only on that resource pool, in addition to providing controls to fully scale that resource pool.  
 
@@ -136,7 +136,7 @@ The base blade for each resource pool provides a chart with metrics for that res
 ### Portal scale capabilities
 There are three scale operations:
 
-* Changing the number of IP addresses in the ASE that are available for IP SSL usage.
+* Changing the number of IP addresses in the ASE that are available for IP TLS usage.
 * Changing the size of the compute resource that is used in a resource pool.
 * Changing the number of compute resources that are used in a resource pool, either manually or through autoscaling.
 

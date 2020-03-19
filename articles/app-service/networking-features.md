@@ -34,7 +34,7 @@ For any given use case, there can be a few ways to solve the problem.  The right
  
 | Inbound use cases | Feature |
 |---------------------|-------------------|
-| Support IP-based SSL needs for your app | app assigned address |
+| Support IP-based TLS needs for your app | app assigned address |
 | Not shared, dedicated inbound address for your app | app assigned address |
 | Restrict access to your app from a set of well-defined addresses | Access Restrictions |
 | Restrict access to my app from resources in a VNet | Service Endpoints </br> ILB ASE </br> Private endpoint (Preview) |
@@ -68,16 +68,16 @@ App Service has a number of endpoints that are used to manage the service.  Thos
 
 ### App assigned address 
 
-The app assigned address feature is an offshoot of the IP-based SSL capability and is accessed by setting up SSL with your app. This feature can be used for IP-based SSL calls but it can also be used to give your app an address that only it has. 
+The app assigned address feature is an offshoot of the IP-based TLS capability and is accessed by setting up TLS with your app. This feature can be used for IP-based TLS calls but it can also be used to give your app an address that only it has. 
 
 ![App assigned address diagram](media/networking-features/app-assigned-address.png)
 
 When you use an app assigned address, your traffic still goes through the same front-end roles that handle all of the incoming traffic into the App Service scale unit. The address that is assigned to your app however, is only used by your app. The use cases for this feature are to:
 
-* Support IP-based SSL needs for your app
+* Support IP-based TLS needs for your app
 * Set a dedicated address for your app that is not shared with anything else
 
-You can learn how to set an address on your app with the tutorial on [Configuring IP based SSL][appassignedaddress]. 
+You can learn how to set an address on your app with the tutorial on [Add a TLS/SSL certificate in Azure App Service][appassignedaddress]. 
 
 ### Access Restrictions 
 

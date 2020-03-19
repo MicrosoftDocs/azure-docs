@@ -83,9 +83,9 @@ In an ASE, you can scale an App Service plan up to 100 instances. An ASE can hav
 
 ## IP addresses ##
 
-App Service has the ability to allocate a dedicated IP address to an app. The capability to allocate a dedicated IP to an app is available after you configure an IP-based SSL, as described in [Bind an existing custom SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add additional IP addresses to be used for an IP-based SSL.
+App Service has the ability to allocate a dedicated IP address to an app. The capability to allocate a dedicated IP to an app is available after you configure an IP-based TLS, as described in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add additional IP addresses to be used for an IP-based TLS.
 
-With an external ASE, you can configure IP-based SSL for your app in the same manner that you do in the multitenant App Service. There is always one spare address in the ASE up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
+With an external ASE, you can configure IP-based TLS for your app in the same manner that you do in the multitenant App Service. There is always one spare address in the ASE up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
 
 ## Front-end scaling ##
 

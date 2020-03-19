@@ -36,7 +36,7 @@ With an ILB ASE, you can do things such as:
 
 There are some things that you can't do when you use an ILB ASE:
 
--   Use IP-based SSL.
+-   Use IP-based TLS.
 -   Assign IP addresses to specific apps.
 -   Buy and use a certificate with an app through the Azure portal. You can obtain certificates directly from a certificate authority and use them with your apps. You can't obtain them through the Azure portal.
 

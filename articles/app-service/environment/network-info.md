@@ -122,7 +122,7 @@ An ASE has a few IP addresses to be aware of. They are:
 - **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
 - **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the VNet, which aren't routed down a VPN.
 - **ILB IP address**: The ILB IP address only exists in an ILB ASE.
-- **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
+- **App-assigned IP-based TLS addresses**: Only possible with an External ASE and when IP-based TLS is configured.
 
 All these IP addresses are visible in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
 
@@ -133,9 +133,9 @@ All these IP addresses are visible in the Azure portal from the ASE UI. If you h
 
 ### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with an SSL binding in Azure App Service](../configure-ssl-bindings.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS binding in Azure App Service](../configure-ssl-bindings.md).
 
-When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
+When an app has its own IP-based TLS address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 
 ## Network Security Groups ##
 
