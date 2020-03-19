@@ -183,7 +183,7 @@ QnA Maker's **App Service** resource uses the Cognitive Search resource. In orde
 
 If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
 
-Learn more about how to configure the App Service [General settings](../../app-service/configure-common.md#configure-general-settings).
+Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
 ## Configure App service idle setting to avoid timeout
 
