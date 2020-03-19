@@ -39,6 +39,8 @@ You can add private and public IP addresses to an Azure network interface by com
 1. Browse to the Azure portal at https://portal.azure.com and sign into it, if necessary.
 2. In the portal, click **More services** > type *virtual machines* in the filter box, and then click **Virtual machines**.
 3. In the **Virtual machines** pane, click the VM you want to add IP addresses to. Navigate to **Networking** Tab. Click **Network interface** on the page. As shown in the picture below: 
+
+
 	![Add a public IP address to a VM](./media/virtual-network-multiple-ip-addresses-portal/figure200319.png)
 4. In the **Network interface** pane, click the **IP configurations**.
 
