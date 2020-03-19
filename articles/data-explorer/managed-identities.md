@@ -32,7 +32,7 @@ Assign a system-assigned identity that is tied to your cluster, and is deleted i
 1. In the **Security** tab > **System assigned identity**, select **On**. To remove the system assigned identity, select **Off**.
 2. Select **Next:Tags>** or **Review + create** to create the cluster.
 
-![Add system assigned identity to new cluster](media/managed-identities/turn-system-assigned-identity-new-cluster.png)
+    ![Add system assigned identity to new cluster](media/managed-identities/system-assigned-identity-new-cluster.png)
 
 #### Existing Azure Data Explorer cluster
 
