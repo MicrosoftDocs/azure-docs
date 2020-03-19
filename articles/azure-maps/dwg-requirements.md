@@ -28,9 +28,13 @@ You'll also need to acquaint yourself with the following terms before we explain
 | Feature | An object that combines a geometry with additional metadata information |
 | Feature Classes | A common blueprint for features. For example, a Unit is a feature class, and an office is a feature |
 
-## Package structure
+## Package format
 
-A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility and be zipped in a single folder.  The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
+A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility and be zipped in a single archive file. The archive must have a .zip extension.
+
+The Azure Maps Conversion API, which consumes the DWG package, has been developed and tested using AutoCAD 2019.With AC1032 as the internal format version for the DWG files. You're encouraged to use the same internal file format version.
+
+The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
 
 ## DWG files requirements
 
@@ -62,11 +66,11 @@ The table below outlines the supported entity types for each layer. The layer ig
 
 | Layer | Supported entity types |
 | :----- | :-------------------|
-| Exterior | Polygon, PolyLine (closed) |
-| Units |  Polygon, PolyLine (closed) |
-| Walls  | Polygon, PolyLine (closed) |
+| Exterior | Polygon, PolyLine (closed), Circle |
+| Units |  Polygon, PolyLine (closed), Circle |
+| Walls  | Polygon, PolyLine (closed), Circle |
 | Doors | Polygon, PolyLine, Line, CircularArc, Circle |
-| Zones | Polygon, PolyLine (closed) |
+| Zones | Polygon, PolyLine (closed), Circle |
 | UnitLabel | Text (single line) |
 | ZoneLabel | Text (single line) |
 
@@ -78,8 +82,9 @@ The DWG file for each level must contain a layer to define that level's perimete
 
 Regardless of how many entity drawings are in the exterior layer, the [resulting facility data set](indoor-data-management.md#data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
 
-* Must contain at least one closed PolyLine, which defines the exterior perimeter of the building at that level
-* Must not contain multiple PolyLines
+* Exteriors must be drawn as Polygon, PolyLine (closed), Circle
+
+* Exteriors may overlap, but will be dissolved into one geometry
 
 If the layer contains multiple overlapping PolyLines, then the PolyLines will be dissolved into a single Level feature. Alternatively, if the layer contains multiple non_overlapping PolyLines, the resulting Level feature will have a multi-polygonal representation.
 
@@ -87,11 +92,10 @@ If the layer contains multiple overlapping PolyLines, then the PolyLines will be
 
 The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices and hallways. The Units layer should adhere to the following requirements:
 
-* Units must be drawn as closed PolyLines
+* Units must be drawn as Polygon, PolyLine (closed), Circle
 * Units must fall inside the bounds of the facility exterior perimeter
 * Units must not partially overlap
 * Units must not contain any self-intersecting geometry
-* Units must not overlap
 
  Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
@@ -99,7 +103,7 @@ The DWG file for each level should define a layer containing units.  Units are n
 
 The DWG file for each level may contain a layer that defines the physical extents of walls, columns, and other building structure.
 
-* Walls must be drawn as closed PolyLines
+* Walls must be drawn as Polygon, PolyLine (closed), Circle
 * The wall layer(s) should only contain geometry that's interpreted as building structure
 
 ### Doors layer
@@ -110,13 +114,13 @@ Doors won't be rendered on the resulting map, as drawn in the CAD software. Howe
 
 ### Zones layer
 
-The DWG file for each level may contain a zone layer that defines the physical extents of zones. A Zone layer:
+The DWG file for each level may contain a zone layer that defines the physical extents of zones.
 
-* Must be drawn as closed PolyLines
-* May overlap
-* May fall inside or outside the facility's exterior perimeter
+* Zones must be drawn as Polygon, PolyLine (closed), Circle
+* Zones may overlap
+* Zones may fall inside or outside the facility's exterior perimeter
 
-Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#zonelabel-layer) for more details.
+Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
 
 ### UnitLabel layer
 
@@ -318,7 +322,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 ## Next steps
 
-Once your DWG package meets the requirements, you may use the Conversion API to convert the DWG file into a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
+Once your DWG package meets the requirements, you may use the Conversion API to convert the DWG file into a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Azure Maps Indoor Maps SDK by reading the following articles:
 
 > [!div class="nextstepaction"]
 > [Indoor Maps data management](indoor-data-management.md)
