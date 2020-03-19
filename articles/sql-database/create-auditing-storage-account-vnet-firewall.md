@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supports writing database events to an [Azure Storage account](../storage/common/storage-account-overview.md) behind a virtual network and firewall. 
 
-This article explains two ways to configure Azure SQL Server and Azure storage account for this option. The first uses the Azure Portal, the second uses REST.
+This article explains two ways to configure Azure SQL Server and Azure storage account for this option. The first uses the Azure portal, the second uses REST.
 
 ### Background
 
@@ -74,7 +74,7 @@ The sample scripts in this section require you to update the script before you r
 
 To configure SQL Audit to write events to a storage account behind a VNet or Firewall:
 
-1. Register your Azure SQL Datababase server with Azure Active Directory (AAD):
+1. Register your Azure SQL Database server with Azure Active Directory (AAD):
 
   - In PowerShell
 
