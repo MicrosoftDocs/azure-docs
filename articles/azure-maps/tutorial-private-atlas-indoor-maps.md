@@ -3,7 +3,7 @@ title: Indoor map data management in Azure Maps.| Microsoft Docs
 description: Learn about data management for indoor Maps in Azure Maps
 author: farah-alyasari
 ms.author: v-faalya
-ms.date: 03/06/2020
+ms.date: 03/19/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
