@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Authenticate against the twins API
 titleSuffix: Azure Digital Twins
-description: See how to authenticate against an Azure Digital Twins service
+description: See how to authenticate against an Azure Digital Twins service.
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Authenticating against Azure Digital Twins
+# Authenticate against Azure Digital Twins
 
 > [!TIP]
 > To learn how to create an Azure Digital Twins instance, please see [How to Set Up an Azure Digital Twins Instance](how-to-set-up-an-adt-instance.md)
@@ -26,7 +26,8 @@ There are two pieces to that:
 * Creating an app registration
 * Writing authentication code in a client app
 
-## Create an App Registration
+## Create an app registration
+
 *** This section is preliminary ***
 
 To authenticate against Azure Digital Twins in Azure from an app, you need to set up an app registration in Active Directory.
@@ -65,7 +66,7 @@ Depending on your scenario, you may need to make additional changes to the app r
 
 These settings are easiest set up in the portal. See [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
 
-## Authentication Code in an App
+## Client app authentication code
 
 To follow the example in this section, you will need the SDK library as described in the [API how-to document](how-to-use-api.md).
 

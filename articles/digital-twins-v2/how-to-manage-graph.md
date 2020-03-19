@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Create Twins and Relationships
+title: Create twins and relationships
 titleSuffix: Azure Digital Twins
 description: See how to combine Azure Digital Twins concepts to build out a full graph representation, as well as modify and delete when necessary.
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create Twins and Relationship
+# Create digital twins and relationships
 
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in the [How to Use APIs](how-to-use-apis.md) section.
 
@@ -25,6 +25,7 @@ This section assumes that you:
 * Know how to authenticate against Azure Digital Twins and how to create a service client object. See [How to Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
 
 ## Create a twin graph (preview)
+
 To create a twin, you use the DigitalTwins.Add method on the service client:
 ```csharp
 await client.DigitalTwins.AddAsync("myNewTwinId", initData);
@@ -66,7 +67,7 @@ Dictionary<string, object> initData = new Dictionary<string, object>()
 };
 ```
 
-### Creating a Twin
+### Create a digital twin
 
 The following code sample shows a function that creates a twin of type room and initializes it:
 
@@ -98,7 +99,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-### Creating Relationships
+### Create relationships
 
 Relationships are created with `DigitalTwins.AddEdge'. To create a relationship, you need to specify:
 * The source twin id - the twin the relationship originates from
@@ -129,9 +130,9 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 ```
 
 
-### Creating a Simple Twin Hierarchy 
+### Create a digital twin hierarchy 
 
-The following snippet is a more complete sample that creates a simple hierarchy of twins with relationships.
+The following snippet is a more complete sample that creates a basic hierarchy of twins with relationships.
 ```csharp
 static async Task CreateTwins()
 {
@@ -298,7 +299,8 @@ public class RelationshipRecord
 }
 ```
 
-## Deleting Twins
+## Delete digital twins
+
 You can delete twins using `DigitalTwins.Delete(id)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
 
 Here is example code:
@@ -386,7 +388,8 @@ static async Task FindAndDeleteIncomingRelationships(string id)
     }
 }
 ```
-### Delete ALl Twins
+### Delete all digital twins
+
 The following example shows how to delete all twins in the system:
 ```csharp
 static async Task DeleteAllTwins()

@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Azure Digital Twins **Model Management APIs** are APIs used to manage the twin types that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
 
-## Creating twin types
+## Create twin types
 
 Consider an example in which a hospital wants to digitally represent their rooms, complete with sensors to monitor traffic into/out of the rooms and handwashing stations in each room.
 The first step towards the solution is to create twin types to represent aspects of the hospital. Twin types for Azure Digital Twins are written in DTDL. A patient room might be described as:
@@ -153,7 +153,7 @@ The functionalities of the parser are:
 > [!NOTE]
 > IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same twin type for both PnP and Azure Digital Twins syntax.
 
-### An example
+### Twin type parsing example
 
 The following twin types are defined in the service (the `urn:contosocom:example:coffeeMaker` twin type is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that twin type):
 

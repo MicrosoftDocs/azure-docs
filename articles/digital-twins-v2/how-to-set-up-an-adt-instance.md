@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: 
+title: Create an Azure Digital Twins instance
 titleSuffix: Azure Digital Twins
-description: See how to set up an Azure Digital Twins service
+description: See how to set up an instance of the Azure Digital Twins service.
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,9 +15,10 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Creating an Azure Digital Twins Instance
+# Create an Azure Digital Twins instance
 
 ## Introduction
+
 Ok, you just got access to the preview for the new version of Azure Digital Twins. How do you create and set up an Azure Digital Twins instance? 
 
 THis how-to will walk you through the basic steps.
@@ -27,12 +28,13 @@ Prerequisites:
 * Access to a subscription that is whitelisted with access to Azure Digital Twins
 * Access to the [Azure CLI extensions for Digital Twins preview](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)
 
-## Preparation
+## Prepare
 
 Install the Azure CLI extensions for Azure Digital Twins. The instructions are here:
 https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI
 
-## Creating an Azure Digital Twins Instance
+## Create an Azure Digital Twins instance
+
 To create an Azure Digital Twins instance, open a command prompt or PowerShell window.
 
 First, you need to log in into your Azure account:
@@ -61,7 +63,8 @@ az dt create --name <your-instance-name> -g <your-rg-name>
 
 Before you can use the instance, there is one more step: you need to set up access control for the newly created instance. 
 
-## Assigning a role to the instance
+## Assign a role to the instance
+
 To assign a role, you need the resource id of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation copmmand, You can get it by running:
 ```bash
 az dt show --name <your-instance-name> -g <your-rg-name>

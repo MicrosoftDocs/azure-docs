@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Azure Digital Twins is typically used together with other services. Azure Digital Twins receives data from upstream services such as IoT Hub that is used to deliver telemetry. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics and other use cases. 
 
-## Data Ingress
+## Data ingress
 
 Azure Digital Twins can be driven with data from [IoT Hub](../iot-hub/about-iot-hub.md). This allows to collect telemetry from physical devices in your environment and process this data using the digital twins graph in the cloud.
 

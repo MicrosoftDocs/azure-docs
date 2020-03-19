@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Create an Azure FUnction for Azure Digital Twins
+title: Create an Azure Function for Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: How to create an Azure Function that can be triggered by Azure Digital Twins and access Azure Digital Twins
+description: See how to create an Azure Function that can access and be triggered by Azure digital twins.
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Creating Azure Functions for Azure Digital Twins
+# Create Azure Functions apps for Azure Digital Twins
 
 To create an Azure Function for Azure Digital Twins, you need to follow these steps:
 
@@ -29,7 +29,7 @@ To create an Azure Function for Azure Digital Twins, you need to follow these st
   * The IoT system topics used by IoT Hub to send telemetry and other device events
   * An event grid receiving messages from other services
 
-## Creating a Functions App with Visual Studio
+## Create an Azure Functions app with Visual Studio
 
 In Visual Studio 2019, select File>New Project.
 
@@ -45,7 +45,7 @@ Specify a name for the functions app and click "Create"
 
 Select the Event Grid Trigger and press Create.
 
-## The Azure Function
+## Function app code
 
 The generated Azure Function will look as follows: 
 
@@ -72,13 +72,14 @@ namespace adtIngestFunctionSample
 }
 ```
 
-### Running and Debugging Azure Functions
+### Run and debug the function app
 
 You can, at this point, compile and run the Azure Function. While Azure Functions eventually are intended to run in the cloud, you can also run and debug Azure FUnctions locally.
 
 See [Azure Function Event Grid Trigger Local Debugging](https://docs.microsoft.com/en-us/azure/azure-functions/functions-debug-event-grid-trigger-local) for more information.
 
-### Adding the Azure Digital Twins SDK to your Functions App
+### Add the Azure Digital Twins SDK to your function app
+
 In [How to Use Azure Digital Twins APIs](how-to-use-apis.md) we explain how to generate the Azure Azure Digital Twins SDK using Autorest and compile it as a re-usable project.
 
 To be able to access Azure Digital Twins from your Azure Function, add the Azure Digital Twins SDK project to the Functions app. YOu can do that by right-clicking on Dependencies in the Solution Explorer and selecting "Add Reference...".
@@ -91,7 +92,8 @@ Once you have added a reference to the project or added the classes, you can acc
 using Azure Digital TwinsApi;
 ```
 
-### Setting up authentication against Azure Digital Twins
+### Set up authentication against Azure Digital Twins
+
 First, add: 
 * The Azure Digital Twins app ID
 * The URL for your Azure Digital Twins service instance 
@@ -205,7 +207,8 @@ namespace adtIngestFunctionSample
 }
 ```
 
-### Publish the Functions App
+### Publish the function app
+
 To publish the functions app to Azure, right click the functions project in solution explorer (not the solution) and select Publish().
 
 The following tab will appear:
@@ -218,7 +221,8 @@ Select the desired Azure Functions plan (if in doubt, initially use the default 
 
 On the following page, enter the desired name for the new Functions app, a resource group, and other details.
 
-## Setting Up Security
+## Set up security
+
 The Azure function skeleton shown above requires a bearer token to be passed to it in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, we need to set up [Managed Service Identity (MSI)](https://azure.microsoft.com/en-us/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/) for the functions app.
 
 To set this up, go to the portal and navigate to your Functions app

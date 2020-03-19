@@ -39,7 +39,7 @@ await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointId"));
 ```
 );`
 
-## Message Examples
+## Message examples
 
 In order to explain the message routing query, here are two sample messages of telemetry and notification:
 
@@ -112,7 +112,7 @@ Services have to add a sequence number on all the notifications to indicate orde
 
 All Azure digital twins are emitting notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](concepts-iothub-devices.md) or not.
 
-#### Trigger
+#### Notification triggers
 
 These notifications are triggered when:
 * An Azure digital twin is created (proxy or not)

@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Ingest Telemetry from IoT Hub
+title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
-description: How to ingest messages from IoT Hub
+description: See how to ingest messages from IoT Hub.
 author: cschorm
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,13 +15,14 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Ingesting Telemetry from IoT Hub
+# Ingest telemetry from IoT Hub
 
 Azure Digital Twins is driven with data from IoT and other sources by calling digital twin apis to set properties or fire telemetry events on twins. Once the initial property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
 This how-to document walks through an example of ingesting telemetry from IoT Hub.
 
 ## Goals
+
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins using an Azure Function. In this example we have:
 * A thermometer device in IoT Hub with a known ID
 * A twin to represent the device with a matching ID (or any ID that you can map to from the ID of the device. It is of course possible to provide more sophisticated mappings, for example with a mapping table, but in this example we assume a simple ID match)
@@ -31,7 +32,7 @@ In this example, we will assume a twin representing the device that we can ident
 
 [![Ingest Overview](media/how-to-ingest/ingestingEvents.png)](media/how-to-ingest/ingestingEvents.png)
 
-## Setup Overview
+## Setup overview
 
 To create this example you need to: 
 * Create an IoT Hub
@@ -40,7 +41,8 @@ To create this example you need to:
   * Select Telemetry as the event type
   * Add a filter if so desired, using Event Grid filtering
 
-## Creating an Azure Function in VS
+## Create an Azure Function in Visual Studio
+
 In this section, we add specific code to process IoT telemetry events from IoT Hub to the skeleton function presented in [How to create an Azure Function for Azure Digital Twins](how-to-create-an-azfn-for-adt.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton code is:
@@ -277,7 +279,7 @@ namespace adtIngestFunctionSample
 }
 ```
 
-## Local Debugging of Azure Functions
+## Debug Azure function apps locally
 
 It is possible to debug Azure FUnctions with an EventGridTrigger locally. See [Azure Function Event Grid Trigger Local Debugging](https://docs.microsoft.com/en-us/azure/azure-functions/functions-debug-event-grid-trigger-local) for more information.
   

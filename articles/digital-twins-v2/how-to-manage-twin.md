@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Retrieving, Updating and Deleting Twins and Relationships
+title: Retrieve, update and delete digital twins and relationships
 titleSuffix: Azure Digital Twins
-description: See how to retrieve, update and delete individual twins and relationships
+description: See how to retrieve, update and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Retrieving, Updating and Deleting Twins and Relationships
+# Retrieve, update and delete digital twins and relationships
 
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
@@ -158,7 +158,7 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
-## List Relationships
+## List relationships
 
 To access relationships, you can write:
 
@@ -203,12 +203,13 @@ static async Task ListOutgoingRelationships(string id)
 
 You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the "target" field from the relationship returned and use it as the id for your next call to DigitalTwins.GetById. 
 
-## Deleting Relationships
+## Delete Relationships
+
 You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
 You need to specify the source twin (the twin the relationship originates from, the relationship name, and the relationship id). ALl three are required because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship ids do NOT need to be globally unique.
 
 
-## Incoming Relationships
+## Find incoming relationships
 Azure Digital Twins also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
 
 A similar example to the above one for outgoing relationships - this code finds and deletes all incoming relationships to a twin.

@@ -22,7 +22,7 @@ In an Azure Digital Twins solution, the entities in your environment are represe
 > [!TIP]
 > The terms "Azure Digital Twins instance", "Azure Digital Twins service" or "Azure Digital Twins instance" refer to the entire Azure Digital Twins service instance. The terms "digital twin(s)" or "twin instances", or just "twins" refer to individual twin nodes inside that Azure Digital Twins instance. 
 
-## Creating Digital Twin Instances
+## Creating digital twin instances
 
 Before you can create a digital twin in an Azure Digital Twins service instance, you need to have a *twin type* uploaded to the service. A twin type describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
 
