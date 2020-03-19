@@ -65,7 +65,7 @@
     href: service-bus-tutorial-topics-subscriptions-portal.md
   - name: Update inventory - CLI
     href: service-bus-tutorial-topics-subscriptions-cli.md
-  - name: Respond to Service Bus events received via Event Grid
+  - name: Respond to events via Event Grid
     href: service-bus-to-event-grid-integration-example.md
 - name: Samples
   items:
