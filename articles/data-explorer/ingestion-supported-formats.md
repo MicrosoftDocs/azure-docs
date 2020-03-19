@@ -18,7 +18,7 @@ Data ingestion is the process by which data is added to a table and is made avai
 |avro     |`.avro`     |An [Avro container file](https://avro.apache.org/docs/current/). The following codes are supported: `null`, `deflate` (`snappy` is currently not supported).|
 |CSV      |`.csv`      |A text file with comma-separated values (`,`). See [RFC 4180: _Common Format and MIME Type for Comma-Separated Values (CSV) Files_](https://www.ietf.org/rfc/rfc4180.txt).|
 |JSON     |`.json`     |A text file with JSON objects delimited by `\n` or `\r\n`. See [JSON Lines (JSONL)](http://jsonlines.org/).|
-|multijson|`.multijson`|A text file with a JSON array of property bags (each representing a record), or any number of property bags delimited by whitespace, `\n` or `\r\n`. Each property bag can be spread on multiple lines. (This format is preferred over `JSON`, unless the data is non-property bags.)|
+|multijson|`.multijson`|A text file with a JSON array of property bags (each representing a record), or any number of property bags delimited by whitespace, `\n` or `\r\n`. Each property bag can be spread on multiple lines. This format is preferred over `JSON`, unless the data is non-property bags.|
 |orc      |`.orc`      |An [Orc file](https://en.wikipedia.org/wiki/Apache_ORC).|
 |parquet  |`.parquet`  |A [Parquet file](https://en.wikipedia.org/wiki/Apache_Parquet).|
 |psv      |`.psv`      |A text file with pipe-separated values (<code>&#124;</code>).|
@@ -39,13 +39,12 @@ Blobs and files can be compressed through any of the following compression algor
 |Zip        |.zip     |
 
 Indicate compression by appending the extension to the name of the blob or file.
- 
+
 For example:
-* `MyData.csv.zip` indicates a blob or a file formatted as CSV, compressed with ZIP (either as an archive or as a single file)
+* `MyData.csv.zip` indicates a blob or a file formatted as CSV, compressed with ZIP (archive or a single file)
 * `MyData.csv.gz` indicates a blob or a file formatted as CSV, compressed with GZip
 
-Blob or file names that don't include the format extensions but just compression
-(for example, `MyData.zip`) are also supported. In this case, the file format
+Blob or file names that don't include the format extensions but just compression (for example, ) is also supported. In this case, the file format
 must be specified as an ingestion property because it cannot be inferred.
 
 > [!NOTE]
@@ -56,5 +55,5 @@ must be specified as an ingestion property because it cannot be inferred.
 
 ## Next steps
 
-* Learn more about [data ingestion](https://docs.microsoft.com/azure/kusto/management/data-ingestion/)
+* Learn more about [data ingestion](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview)
 * Learn more about [Azure Data Explorer data ingestion properties](ingestion-properties.md)
