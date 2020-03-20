@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Best practices for Azure Maps Route Service
+# Best practices for Azure Maps Route service
 
 The Route Directions and Route Matrix APIs in Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. Users can also request specialized routes and details for walkers, bicyclists, and commercial vehicles like trucks. In this article, we'll share the best practices to call Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route), and you'll learn how-to:
 
@@ -32,7 +32,7 @@ For information about authentication in Azure Maps, see [Manage authentication i
 
 This article uses the [Postman app](https://www.postman.com/downloads/) to build REST calls, but you can choose any API development environment.
 
-## Choose between Route directions and Matrix routing
+## Choose between Route Directions and Matrix Routing
 
 The Route Directions APIs return instructions including the travel time and the coordinates for a route path. The Route Matrix API lets you calculate the travel time and distances for a set of routes that are defined by origin and destination locations. For every given origin, the Matrix API calculates the cost (travel time and distance) of routing from that origin to every given destination. All of these APIs allow you to specify parameters such as the desired departure time, arrival times, and the vehicle type, like car or truck. They all use real-time or predictive traffic data accordingly to return the most optimal routes.
 
@@ -51,7 +51,7 @@ Consider calling Matrix Routing API if your scenario is to:
 
 Here is a comparison to show some capabilities of the Route Directions and Matrix APIs:
 
-| Azure Maps API | Max number of queries in the request | Avoid Areas | Truck and Electric Vehicle Routing | waypoints and Traveling Salesman | Supporting Points |
+| Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | waypoints and Traveling Salesman optimization | Supporting points |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Get Route Directions | 1 | | X | X | |
 | Post Route Directions | 1 | X | X | X | X |
@@ -76,7 +76,7 @@ If you include the **computeTravelTimeFor=all** parameter in your request, then 
 
 The next sections demonstrate how to make calls to the Route APIs using the discussed parameters.
 
-### Sample Query
+### Sample query
 
 In the first example below the departure time is set to the future, at the time of writing.
 
@@ -99,7 +99,7 @@ The response contains a summary element, like the one below. Because the departu
 },
 ```
 
-### Sample Query
+### Sample query
 
 In the second example below, we have a real-time routing request, where departure time is now. It's not explicitly specified in the URL because it's the default value.
 
@@ -130,7 +130,7 @@ The following image shows the `points` element.
 
 <center>
 
-![point list](media/how-to-use-best-practices-for-routing/points-list-hidden.png)
+![point list](media/how-to-use-best-practices-for-routing/points-list-hidden-img.png)
 
 </center>
 
@@ -138,17 +138,17 @@ Expand the `point` element to see the list of coordinates for the path:
 
 <center>
 
-![point list](media/how-to-use-best-practices-for-routing/points-list.png)
+![point list](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 </center>
 
-The Route Directions APIs support different formats of instructions that can be used by specifying the **instructionsType** parameter. To format instructions for easy computer processing, use **instructionsType=coded**. Use **instructionsType=tagged** to display instructions as text for the user. Also, instructions can be formatted as text where some elements of the instructions are marked, and the instruction is presented with special formatting. For more information, see the [list of supported instruction types](https://nam06.safelinks.protection.outlook.com/GetUrlReputation).
+The Route Directions APIs support different formats of instructions that can be used by specifying the **instructionsType** parameter. To format instructions for easy computer processing, use **instructionsType=coded**. Use **instructionsType=tagged** to display instructions as text for the user. Also, instructions can be formatted as text where some elements of the instructions are marked, and the instruction is presented with special formatting. For more information, see the [list of supported instruction types](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 When instructions are requested, the response returns a new element named `guidance`. The `guidance` element holds two pieces of information: turn-by-turn directions and summarized instructions.
 
 <center>
 
-![Instructions type](media/how-to-use-best-practices-for-routing/instructions-type.png)
+![Instructions type](media/how-to-use-best-practices-for-routing/instructions-type-img.png)
 
 </center>
 
@@ -156,13 +156,13 @@ The `instructions` element holds turn-by-turn directions for the trip, and the `
 
 <center>
 
-![Turn by turn instructions](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn.png)
+![Turn by turn instructions](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
 </center>
 
 <center>
 
-![Summarized Instructions](media/how-to-use-best-practices-for-routing/instructions-summary.png)
+![Summarized Instructions](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
 
 </center>
 
@@ -170,7 +170,7 @@ The `instructions` element holds turn-by-turn directions for the trip, and the `
 
 Azure Maps Routing APIs support commercial vehicle routing, covering commercial trucks routing. The APIs consider specified limits. Such as, the height and weight of the vehicle, and if the vehicle is carrying hazardous cargo. For example, if a vehicle is carrying flammable, the routing engine avoid certain tunnels that are near residential areas.
 
-### Sample Query
+### Sample query
 
 The sample request below queries a route for a commercial truck. The truck is carrying class 1 hazardous waste material.
 
@@ -182,11 +182,11 @@ The Route API returns directions that accommodate the dimensions of the truck an
 
 <center>
 
-![Truck with class 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste.png)
+![Truck with class 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
 
 </center>
 
-### Sample Query
+### Sample query
 
 Changing the US Hazmat Class, from the above query, will result in a different route to accommodate this change.
 
@@ -198,7 +198,7 @@ The response below is for a truck carrying a class 9 hazardous material, which i
 
 <center>
 
-![Truck with class 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9.png)
+![Truck with class 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
 </center>
 
@@ -206,7 +206,7 @@ The response below is for a truck carrying a class 9 hazardous material, which i
 
 With the Azure Maps Route Direction APIs, developers can request details for each section type by including the `sectionType` parameter in the request. For example, you can request the speed information for each traffic jam segment. Refer to the [list of values for the sectionType key](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) to learn about the various details that you can request.
 
-### Sample Query
+### Sample query
 
 The following query sets the `sectionType` to `traffic`. It requests the sections that contain traffic information from Seattle to San Diego.
 
@@ -218,7 +218,7 @@ The response contains the sections that are suitable for traffic along the given
 
 <center>
 
-![traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type.png)
+![traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
 </center>
 
@@ -226,7 +226,7 @@ This option can be used to color the sections when rendering the map, as in the 
 
 <center>
 
-![traffic sections](media/how-to-use-best-practices-for-routing/show-traffic-sections.png)
+![traffic sections](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 </center>
 
@@ -242,7 +242,7 @@ For multi-stop routing, up to 150 waypoints may be specified in a single route r
 
 If you want to optimize the best order to visit the given waypoints, then you need to specify **computeBestOrder=true**. This scenario is also known as the traveling salesman optimization problem.
 
-### Sample Query
+### Sample query
 
 The following query requests the path for six waypoints, with the `computeBestOrder` parameter set to `false`. It's also the default value for the `computeBestOrder` parameter.
 
@@ -254,7 +254,7 @@ The response describes the path length to be 140,851 meters, and that it would t
 
 <center>
 
-![Non-optimized response](media/how-to-use-best-practices-for-routing/non-optimized-response.png)
+![Non-optimized response](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
 
 </center>
 
@@ -262,13 +262,13 @@ The image below illustrates the path resulting from this query. This path is one
 
 <center>
 
-![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image.png)
+![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
 </center>
 
 This route waypoint order is: 0, 1, 2, 3, 4, 5, and 6.
 
-### Sample Query
+### Sample query
 
 The following query requests the path for the same six waypoints, as in the above sample. This time, the `computeBestOrder` parameter set to `true` (the traveling salesman optimization).
 
@@ -280,7 +280,7 @@ The response describes the path length to be 91,814 meters, and that it would ta
 
 <center>
 
-![Non-optimized response](media/how-to-use-best-practices-for-routing/optimized-response.png)
+![Non-optimized response](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 </center>
 
@@ -288,7 +288,7 @@ The image below illustrates the path resulting from this query.
 
 <center>
 
-![Non-optimized image](media/how-to-use-best-practices-for-routing/optimized-image.png)
+![Non-optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 </center>
 
@@ -312,7 +312,7 @@ The image below is an example of rendering alternative routes with specified dev
 
 <center>
 
-![Alternative routes](media/how-to-use-best-practices-for-routing/alternative-routes.png)
+![Alternative routes](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
 
 </center>
 
