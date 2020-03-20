@@ -15,9 +15,9 @@ ms.author: pafarley
 
 The Form Recognizer sample labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for the purpose of supervised learning. In this article, we'll provide links and instructions that teach you how to:
 
-* Run sample labeling tool locally
+* Run the sample labeling tool locally
 * Deploy the sample labeling tool to an Azure Container Instance (ACI)
-* Use the open sourced OCR Form Labeling Tool
+* Use and contribute to the open-source OCR Form Labeling Tool
 
 ## Run the sample labeling tool locally
 
@@ -25,31 +25,70 @@ The fastest way to start labeling data is to run the sample labeling tool locall
 
 * [Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool](./quickstarts/label-tool.md).
 
-## Deploy with Azure Container Instances
+## Deploy with Azure Container Instances (ACI)
 
-Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (AC): 
+Before we get started, it's important to note that there are two ways to deploy the sample labeling tool to an Azure Container Instance (ACI). Both options are used to run the sample labeling tool with ACI: 
 
-* Using the Azure portal 
-* Using the Azure CLI
+* [Using the Azure portal](#azure-portal)
+* [Using the Azure CLI](#azure-cli)
 
 ### Azure portal
 
-You can run the label tool in a Docker web app container. First, [create a new Web App resource](https://ms.portal.azure.com/#create/Microsoft.WebSite) on the Azure portal. Fill in the form with your subscription and resource group details. Enter the following information in the required fields:
-* **Publish**: Docker Container
-* **Operating** System: Linux
+Follow these steps to create a new resource using the Azure portal: 
 
-On the next page, fill in the following fields for the Docker container setup:
+1. Sign in to the [Azure portal](https://portal.azure.com/signin/index/).
+2. Select **Create a resource**. 
+3. Next, select **Web App**. 
+   ![Select web app](./media/quickstarts/formre-create-web-app.png)
+4. First, make sure that the **Basics** tab is selected. Now, you're going to need to provide some information: 
+   ![Select Basics](./media/quickstarts/formre-select-basics.png)
+   * Subscription - Select an existing Azure subscription
+   * Resource Group - You can reuse an existing resource group or create a new one for this project. Creating a new resource group is recommended.
+   * Name - Give your web app a name. 
+   * Publish - Select **Docker Container**
+   * Operating System -  Select **Linux**
+   * Region - Choose a region that makes sense for you.
+   * Linux Plan - Select a pricing tier/plan for your app service. 
 
-* **Options**: Single Container
-* **Image Source**: Azure Container Registry
-* **Access Type**: public
-* **Image and tag**: mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
+   ![Configure your web app](./media/quickstarts/formre-select-docker-linux.png)
 
-The steps that follow are optional. Once your app has finished deploying, you can run it and access the label tool online.
+5. Next, select the **Docker** tab. 
+
+   ![Select Docker](./media/quickstarts/formre-select-docker.png)
+
+6. Now let's configure your Docker container:
+   * Options - Select **Single Container**
+   * Image Source - Select **Private Registry** 
+   * Server URL - Set this to `https://mcr.microsoft.com`
+   * Username - Create a username. 
+   * Password - Create a secure password that you'll remember.
+   * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Startup command - Set this to `./run.sh eula=accept`
+
+   ![Configure Docker](./media/quickstarts/formre-configure-docker.png)
+
+7. That's it. Next, select **Review + Create**, then **Create** to deploy your web app. When complete, you can access your web app at the URL provided in the **Overview** for your resource.
+
+> [!NOTE]
+> When creating your web app, you can also configure authorization/authentication. This is not necessary to get started. 
 
 ### Azure CLI
 
-```cli
+As an alternative to using the Azure portal, you can create a resource using the Azure CLI.
+
+> [!NOTE]
+> Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). You can skip this step if you're already working with the Azure CLI. 
+
+There's a few things you need know about this command:
+
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random DNS name. 
+* This sample assumes that you have a resource group that you can use to create a resource. Replace `<resource_group_name>` with a valid resource group associated with your subscription. 
+* You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app. 
+* Note: This command automatically accepts EULA.
+
+From the Azure CLI, run this command to create a web app resource for the sample labeling tool: 
+
+```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
 az container create \
@@ -66,12 +105,12 @@ az container create \
 
 ### Connect to Azure AD for authorization
 
-We recommend to connect your web app to Azure Active Director (AAD) so that only someone with your credentials can sign in and use the app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to AAD.
+It's recommended that you connect your web app to Azure Active Director (AAD). This ensures that only users with valid credentials can sign-in and use your web app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to Azure Active Directory.
 
 ## Open source on GitHub
 
-
+The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## Next steps
 
-Return to the [Train with labels](./quickstarts/label-tool.md) quickstart to learn how to use the tool to manually label training data and do supervised learning.
+Use the [Train with labels](./quickstarts/label-tool.md) quickstart to learn how to use the tool to manually label training data and perform supervised learning.
