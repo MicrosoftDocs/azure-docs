@@ -176,6 +176,8 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
@@ -250,10 +252,6 @@
     items:
     - name: Azure portal
       href: howto-deny-public-network-access.md
-  - name: Minimum TLS configuration
-    items:
-    - name: Azure portal
-      href: howto-tls-configurations.md
   - name: Restart server
     items:
     - name: Azure portal

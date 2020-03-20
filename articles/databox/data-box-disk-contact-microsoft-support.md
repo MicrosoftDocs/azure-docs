@@ -8,7 +8,6 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.subservice:
 ---
 # Open a support ticket for Azure Data Box 
 

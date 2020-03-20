@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/20/2020
 ---
 # Release notes
 
@@ -60,3 +60,7 @@ HDInsight continues to make cluster reliability and performance improvements.
 
 ## Component version change
 No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
+
+## Known issues
+
+As of March 18th, 2020 some Azure HDInsight customers in West Europe or North Europe have received error notifications when performing service management operations such as create or scale for resources hosted in these regions. Engineers are aware of this issue and are actively investigating. 
