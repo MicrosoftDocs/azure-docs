@@ -32,7 +32,7 @@ Asynchronous speech-to-text transcription is just one of the features. You can u
 
 
 
-You can review and test the detailed API which is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
+You can review and test the detailed API, which is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
 
 Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job changes into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
 
@@ -218,7 +218,7 @@ The result contains these forms:
 | `Lexical`   | The actual words recognized.                                                                                                                             |
 | `ITN`       | Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied. |
 | `MaskedITN` | The ITN form with profanity masking applied.                                                                                                             |
-| `Display`   | The display form of the recognized text. This includes added punctuation and capitalization.                                                             |
+| `Display`   | The display form of the recognized text. Added punctuation and capitalization are included.                                                             |
 
 ## Speaker separation (Diarization)
 
