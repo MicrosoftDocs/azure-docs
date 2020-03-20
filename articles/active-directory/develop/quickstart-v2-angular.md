@@ -19,6 +19,9 @@ ms.author: janutter
 
 # Quickstart: Sign in users and get an access token in an Angular SPA
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 In this quickstart, you use a code sample to learn how an Angular single-page application (SPA) can sign in users who have personal Microsoft accounts, and work accounts and school accounts. An Angular SPA can also get an access token to call the Microsoft Graph API or any web API.
 
 ## Prerequisites
