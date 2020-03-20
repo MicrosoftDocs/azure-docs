@@ -25,13 +25,13 @@ For instance, if your HR department has a total of 15 shares, then you could con
 Azure File Sync supports syncing the root of a volume to an Azure file share.
 If you sync the root folder, then all subfolders and files will end up in the same Azure file share.
 
-Synching the root of the volume will not always be the best answer. There are benefits in syncing multiple locations, doing so helps keep the number of items lower per sync scope. Setting up Azure file sync with a lower number of items is not just important for sync, but also benefits cloud-side restore from backups as well as aiding the speed of disaster recovery in case you lose your server and provision a new one that connects to the same Azure file shares.
+Synching the root of the volume will not always be the best answer. There are benefits in syncing multiple locations, doing so helps keep the number of items lower per sync scope. Setting up Azure File Sync with a lower number of items is not just beneficial for file sync. A lower number of items also benefits other scenarios like a cloud-side restore from a backup and aids the speed of disaster recovering an on-premises server, to mention a few.
 
 #### A structured approach to a deployment map
 
 Before deploying cloud storage in a subsequent step, it is important to create a map between on-premises folders and Azure file shares. This mapping will then inform how many and which Azure File Sync "sync group" resources you will provision. A sync group ties the Azure file share and the folder on your server together and establishes a sync connection.
 
-To make the decision how many Azure file shares you need, you need to understand a few limits and best practices to optimize your map.
+To make the decision about how many Azure file shares you need, review the following limits and best practices. Doing so will help you optimize your map:
 
 * A server with the Azure File Sync agent installed, can sync with up to 30 Azure file shares.
 * An Azure file share is deployed inside of a storage account. That makes the storage account a scale target for performance numbers such as IOPS and throughput. Two standard (not premium) Azure file shares could theoretically saturate the maximum performance a storage account can deliver. If you plan to just attach Azure File Sync to these file shares with occasional direct access of the Azure file share in the cloud, then grouping several Azure file shares into the same storage account is fine. If you plan on lifting an app to Azure, that will then use the Azure file share natively, you might need more performance for this app than Azure File Sync needed from the file share. In these situations, it would be better to map an Azure file share to its own storage account.
