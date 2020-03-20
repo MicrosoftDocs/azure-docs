@@ -350,7 +350,7 @@ To complete this tutorial using our [SAML Test Application][samltest]:
 * Update policy name, for example *B2C_1A_signup_signin_saml*
 * Specify this issuer URI: `https://contoso.onmicrosoft.com/app-name`
 
-Select **Login** and you should be presented with an end user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
+Select **Login** and you should be presented with a user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
 ## Sample policy
 
@@ -372,7 +372,7 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 ## Next steps
 
 - You can find more information about the [SAML protocol on the OASIS website](https://www.oasis-open.org/).
-- Get the SAML test web app from [Azure AD GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
+- Get the SAML test web app from [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp
