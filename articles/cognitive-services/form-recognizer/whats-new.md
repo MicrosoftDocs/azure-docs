@@ -36,8 +36,8 @@ This release includes extraction enhancements and accuracy improvements, specifi
 
 **Bug fixes**
 
-* Public version is no longer hard coded into the route
-* Slow blob listings no longer block training 
+* Bug fix: Public version is no longer hard coded into the route
+* Bug fix: Slow blob listings no longer block training 
 * Bug fix: Kestrel unable to process malformed JSON for Analyze requests
 * Bug fix: Get/Delete APIs return errors for non-existent models
 * Bug fix: Isolate currency characters not detected
