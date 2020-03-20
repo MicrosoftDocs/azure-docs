@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Manage access, power, and connectivity mode for your Azure Data Box Gateway
 
-This article describes how to manage the access, power, and connectivity mode for your Azure Data Box Gateway. These operations are performed via the local web UI or the Azure portal.
+This article describes how to manage the access, power, and connectivity mode for your Azure Data Box Gateway. These operations are performed via the local web UI or the Azure portal. 
 
 In this article, you learn how to:
 
@@ -67,15 +67,15 @@ For more information on how to provide access to users to Microsoft Graph API, s
 
 ### Register resource providers
 
-To provision a resource in Azure (in the Azure Resource Manager model), you need a resource provider that supports the creation of that resource. For example, to provision a virtual machine, you should have a ‘Microsoft.Compute’ resource provider available in the subscription.
+To provision a resource in Azure (in the Azure Resource Manager model), you need a resource provider that supports the creation of that resource. For example, to provision a virtual machine, you should have a 'Microsoft.Compute' resource provider available in the subscription.
  
-Resource providers are registered on the level of the subscription. By default, any new Azure subscription is pre-registered with a list of commonly used resource providers. The resource provider for ‘Microsoft.DataBoxEdge' is not included in this list.
+Resource providers are registered on the level of the subscription. By default, any new Azure subscription is pre-registered with a list of commonly used resource providers. The resource provider for 'Microsoft.DataBoxEdge' is not included in this list.
 
-You don't need to grant access permissions to the subscription level for users to be able to create resources like ‘Microsoft.DataBoxEdge’ within their resource groups that they have owner rights on, as long as the resource providers for these resources is already registered.
+You don't need to grant access permissions to the subscription level for users to be able to create resources like 'Microsoft.DataBoxEdge' within their resource groups that they have owner rights on, as long as the resource providers for these resources is already registered.
 
 Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider on the subscription level. If you haven't done this as well, then you'll see the following error:
 
-*The subscription \<Subscription name> doesn’t have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
+*The subscription \<Subscription name> doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
 
 To get a list of registered resource providers in the current subscription, run the following command:
