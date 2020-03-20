@@ -6,12 +6,17 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/20/2020
 ms.author: helohr
 manager: lizross
 ---
 
 # Deploy the diagnostics tool
+
+>[!IMPORTANT]
+>As of March 16, 2020, we've temporarily disabled diagnostic queries due to an overload on our network. This will cause the tool to stop working until we've increased the network's data capacity. We'll update this article again when the tool goes back online.
+>
+>Until the tool goes back online, we highly recommend you [use Log Analytics](diagnostics-log-analytics.md) for health monitoring instead.
 
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
