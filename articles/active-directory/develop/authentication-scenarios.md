@@ -74,6 +74,23 @@ Tokens are only valid for a limited amount of time. Usually the STS provides a p
 
 Access tokens are passed to a Web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
+### How each flow emits tokens and codes
+
+Depending on how your client is built, it can use one (or several) of the authentication flows supported by Azure AD. These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart provides an overview:
+
+|Flow | Requires | id_token | access token | refresh token | authorization code | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Implicit flow](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Hybrid OIDC flow](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Refresh token redemption](v2-oauth2-auth-code-flow.md#refreshing-the-access-tokens) | refresh token | x | x | x| |
+|[On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Client credentials](v2-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
+
+Tokens issued via the implicit mode have a length limitation due to being passed back to the browser via the URL (where `response_mode` is `query` or `fragment`).  Some browsers have a limit on the size of the URL that can be put in the browser bar and fail when it is too long.  Thus, these tokens do not have `groups` or `wids` claims. 
+
+Now that you have an overview of the basics, read on to understand the identity app model and API, learn how provisioning works in Azure AD, and get links to detailed information about common scenarios Azure AD supports.
+
 ## Application model
 
 Applications can sign in users themselves or delegate sign-in to an identity provider. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Azure AD.
