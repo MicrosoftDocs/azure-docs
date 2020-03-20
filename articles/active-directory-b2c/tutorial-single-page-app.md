@@ -150,7 +150,9 @@ If you'd like to test sign-in, select the **Sign Out** button, then select **Sig
 
 ### What about calling the API?
 
-If you select the **Call API** button after signing in, you're presented with the sign-up/sign-in user flow page instead of the results of the API call. This is expected because you haven't yet configured the API portion of the application to communicate with a web API application registered in *your* Azure AD B2C tenant. At this point, the application is still trying to communicate with the API registered in the demo tenant (*fabrikamb2c.onmicrosoft.com*), and because you're not authenticated with that tenant, the sign-up/sign-in page is displayed.
+If you select the **Call API** button after signing in, you're presented with the sign-up/sign-in user flow page instead of the results of the API call. This is expected because you haven't yet configured the API portion of the application to communicate with a web API application registered in *your* Azure AD B2C tenant.
+
+At this point, the application is still trying to communicate with the API registered in the demo tenant (fabrikamb2c.onmicrosoft.com), and because you're not authenticated with that tenant, the sign-up/sign-in page is displayed.
 
 Move on to the next tutorial in the series in to enable the protected API (see the [Next steps](#next-steps) section).
 
