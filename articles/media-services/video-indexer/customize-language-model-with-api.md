@@ -124,7 +124,7 @@ To upload files to be added to the Language model, you must upload files in the 
 
 ### Response
 
-The response provides metadata on the newly trained Language model along with metadata on each of the model's files following the format of thi example JSON output:
+The response provides metadata on the newly trained Language model along with metadata on each of the model's files following the format of this example JSON output:
 
 ```json
 {
@@ -264,7 +264,7 @@ There's no returned content when the file is deleted from the Language model suc
 
 ## Get metadata on a file from a Language model
 
-The [get metadata of a file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) API returns the contents of and metadata on the specified file from the chosen Language model in the your account.
+The [get metadata of a file](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) API returns the contents of and metadata on the specified file from the chosen Language model in your account.
 
 ### Response
 
