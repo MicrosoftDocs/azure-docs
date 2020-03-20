@@ -137,7 +137,7 @@ Review the requirements for [agentless migration](server-migrate-overview.md) of
 Review the requirements for [agent-based migration](server-migrate-overview.md) of VMware VMs.
 
 1. [Review](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware server requirements.
-2. [Review the permissions] Azure Migrate needs to access the vCenter Server.
+2. [Review the permissions](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) Azure Migrate needs to access the vCenter Server.
 2. [Review](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) VMware VMs requirements, including installation of the Mobility service on each VM you want to migrate.
 3. Agent-based migration uses a replication appliance:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance.
