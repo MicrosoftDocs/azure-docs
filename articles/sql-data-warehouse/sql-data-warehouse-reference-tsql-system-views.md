@@ -10,8 +10,7 @@ ms.subservice: query
 ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # System views supported in Azure Synapse Analytics
@@ -147,7 +146,7 @@ SQL pool exposes many of the SQL Server dynamic management views (DMVs). These v
 SQL pool and the Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
 
 > [!NOTE]
-> To use these views, insert ‘pdw_nodes_’ into the name, as shown in the following table:
+> To use these views, insert 'pdw_nodes_' into the name, as shown in the following table:
 > 
 > 
 
