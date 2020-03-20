@@ -26,7 +26,7 @@ In this tutorial, the first in a two-part series:
 > * Modify the sample application's code to work with your tenant
 > * Sign up using your sign-up/sign-in user flow
 
-The next tutorial in the series enables the web API portion of the code sample.
+The [next tutorial](tutorial-single-page-app-webapi.md) in the series enables the web API portion of the code sample.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

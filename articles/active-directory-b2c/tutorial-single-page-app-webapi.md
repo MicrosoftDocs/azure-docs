@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C)-protected Node.js web API from a single-page application.
 
-In this tutorial, the second in two-part series:
+In this tutorial, the second in a two-part series:
 
 > [!div class="checklist"]
 > * Create a web API application registration in your Azure AD B2C tenant
@@ -26,7 +26,9 @@ In this tutorial, the second in two-part series:
 > * Grant permissions to the web API
 > * Modify a web API code sample to work with your tenant
 
-In the first tutorial in this series, you downloaded the code sample and modified it to sign in users with a user flow in your Azure AD B2C tenant.
+In the [first tutorial](tutorial-single-page-app.md) in this series, you downloaded the code sample and modified it to sign in users with a user flow in your Azure AD B2C tenant.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
