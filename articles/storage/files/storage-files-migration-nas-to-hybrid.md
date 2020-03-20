@@ -20,7 +20,7 @@ The goal is to move the shares that you have on your NAS appliance to a Windows 
 
 ## Migration overview
 
-As mentioned in the [Azure Files migration overview](storage-files-migration-overview.md) article, using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
+As mentioned in the Azure Files migration overview article, using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
 
 - Phase 1: Identify how many Azure file shares you need
 - Phase 2: Provision a suitable Windows Server on-premises
@@ -60,7 +60,7 @@ In this phase, consult the mapping table from Phase 1 and use it to provision th
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-# Phase 5: Configure Azure File Sync on the Windows Server
+## Phase 5: Configure Azure File Sync on the Windows Server
 
 Your registered on-premises Windows Server must be ready and connected to the internet for this process.
 
@@ -136,7 +136,7 @@ Background:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and "*deletes*" will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. This is an excellent option for source locations that are still actively used and changing.
+      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and "*deletes*" will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. The */MIR* flag is an excellent option for source locations that are still actively used and changing.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -164,11 +164,11 @@ Background:
    :::column-end:::
 :::row-end:::
 
-# Phase 7: User cut-over
+## Phase 7: User cut-over
 
 When you run the RoboCopy command for the first time, your users and applications are still accessing files on the NAS and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (NAS) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. That is expected.
 
-The first run is about moving the bulk of the data to your Windows Server and into the cloud via Azure File Sync. This can take a long time, depending on:
+The first run is about moving the bulk of the data to your Windows Server and into the cloud via Azure File Sync. This first copy can take a long time, depending on:
 
 * your download bandwidth
 * the recall speed of the StorSimple cloud service
@@ -183,7 +183,7 @@ Repeat this process until you are satisfied that the amount of time it takes to 
 
 When you consider the downtime acceptable and you are prepared to take the NAS location offline: In order to take user access offline, you have the option to change ACLs on the share root such that users can no longer access the location or take any other appropriate step that prevents content to change in this folder on your NAS.
 
-Run one last RoboCopy round. This will pick up any changes, that might have been missed.
+Run one last RoboCopy round. It will pick up any changes, that might have been missed.
 How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
 Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your NAS SMB share. If you had an enterprise-class domain-joined NAS, then the user SIDs will automatically match as the users exist in Active Directory and RoboCopy copies files and metadata at full fidelity. If you have used local users on your NAS, you need to re-create these users as Windows Server local users and map the existing SIDs RoboCopy moved over to your Windows Server to the SIDs of your new, Windows Server local users.
