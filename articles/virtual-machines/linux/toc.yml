@@ -502,8 +502,6 @@
       href: capture-image.md
     - name: Build image with Packer
       href: build-image-with-packer.md
-    - name: RHEL images in Azure
-      href: rhel-images.md
     - name: Download existing disk
       href: download-vhd.md
   - name: Availability and scale

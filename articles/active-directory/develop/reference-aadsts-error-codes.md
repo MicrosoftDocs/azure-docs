@@ -29,9 +29,9 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.
 
 ## Lookup current error code information
-Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
+Error codes and messages are subject to change.  For the most current info, take a look at the `https://login.microsoftonline.com/error` page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
 
-Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) for "16000".  You can also link directly to a specific error by adding the error code number to the URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in `https://login.microsoftonline.com/error` for "16000".  You can also link directly to a specific error by adding the error code number to the URL: `https://login.microsoftonline.com/error?code=16000`.
 
 ## AADSTS error codes
 
