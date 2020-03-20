@@ -1,11 +1,10 @@
 ---
-title: Embed Video Indexer widgets in your applications
+title: Embed Video Indexer widgets in your apps
 titleSuffix: Azure Media Services
-description: This article demonstrates how to embed Azure Media Services Video Indexer widgets in your application.
+description: Learn how to embed Video Indexer widgets in your apps.
 services: media-services
 author: Juliako
 manager: femila
-
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
@@ -13,13 +12,13 @@ ms.date: 02/03/2020
 ms.author: juliako
 ---
 
-# Embed Video Indexer widgets in your applications
+# Embed Video Indexer widgets in your apps
 
-This article shows how you can embed Video Indexer widgets in your applications. Video Indexer supports embedding three types of widgets into your application: *Cognitive Insights*, *Player*, and *Editor*. 
+This article shows how you can embed Video Indexer widgets in your apps. Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
 Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
-## Widget types 
+## Widget types
 
 ### Cognitive Insights widget
 
@@ -62,14 +61,14 @@ You can use the Editor widget to create new projects and manage a video's insigh
 2. Select the video that you want to work with.
 3. Select the **Embed** button that appears under the video.
 
-	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
-	After you select the **Embed** button, you can select the widget that you want to embed in your application. 
+    After you select the **Embed** button, you can select the widget that you want to embed in your application. 
 4. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
  
 5. Copy the embed code, and then add it to your application. 
 
-	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
 > If you have issues sharing your video URLs, add the `location` parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
@@ -121,47 +120,47 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 1. Add a Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantiate Azure Media Player with the Video Indexer plug-in.
 
-		// Init the source.
-		function initSource() {
-		    var tracks = [{
-			kind: 'captions',
-			// To load vtt from VI, replace it with your vtt URL.
-			src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
-			srclang: 'en',
-			label: 'English'
-		    }];
+        // Init the source.
+        function initSource() {
+            var tracks = [{
+            kind: 'captions',
+            // To load vtt from VI, replace it with your vtt URL.
+            src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
+            srclang: 'en',
+            label: 'English'
+            }];
 
-		    myPlayer.src([
-			{
-			    "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-			    "type": "application/vnd.ms-sstr+xml"
-			}
-		    ], tracks);
-		}
+            myPlayer.src([
+            {
+                "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+                "type": "application/vnd.ms-sstr+xml"
+            }
+            ], tracks);
+        }
 
-		// Init your AMP instance.
-		var myPlayer = amp('vid1', { /* Options */
-		    "nativeControlsForTouch": false,
-		    autoplay: true,
-		    controls: true,
-		    width: "640",
-		    height: "400",
-		    poster: "",
-		    plugins: {
-			videobreakedown: {}
-		    }
-		}, function () {
-		    // Activate the plug-in.
-		    this.videobreakdown({
-			videoId: "c4c1ad4c9a",
-			syncTranscript: true,
-			syncLanguage: true,
-			location: "trial" /* location option for paid accounts (default is trial) */
-		    });
+        // Init your AMP instance.
+        var myPlayer = amp('vid1', { /* Options */
+            "nativeControlsForTouch": false,
+            autoplay: true,
+            controls: true,
+            width: "640",
+            height: "400",
+            poster: "",
+            plugins: {
+            videobreakedown: {}
+            }
+        }, function () {
+            // Activate the plug-in.
+            this.videobreakdown({
+            videoId: "c4c1ad4c9a",
+            syncTranscript: true,
+            syncLanguage: true,
+            location: "trial" /* location option for paid accounts (default is trial) */
+            });
 
-		    // Set the source dynamically.
-		    initSource.call(this);
-		});
+            // Set the source dynamically.
+            initSource.call(this);
+        });
 
 3. Copy the Cognitive Insights embed code.
 
@@ -175,44 +174,44 @@ If you use a video player other than Azure Media Player, you must manually manip
 
 1. Insert your video player.
 
-	For example, a standard HTML5 player:
+    For example, a standard HTML5 player:
 
-		<video id="vid1" width="640" height="360" controls autoplay preload>
-		   <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
-		   Your browser does not support the video tag.
-		</video>    
+        <video id="vid1" width="640" height="360" controls autoplay preload>
+           <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
+           Your browser does not support the video tag.
+        </video>    
 
 2. Embed the Cognitive Insights widget.
 3. Implement communication for your player by listening to the "message" event. For example:
 
-		<script>
-	
-		    (function(){
-		    // Reference your player instance.
-		    var playerInstance = document.getElementById('vid1');
-		
-		    function jumpTo(evt) {
-		      var origin = evt.origin || evt.originalEvent.origin;
-		
-		      // Validate that the event comes from the videobreakdown domain.
-		      if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
-		        
-		        // Call your player's "jumpTo" implementation.
-		        playerInstance.currentTime = evt.data.time;
-		       
-		        // Confirm the arrival to us.
-		        if ('postMessage' in window) {
-		          evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
-		        }
-		      }
-		    }
-		
-		    // Listen to the message event.
-		    window.addEventListener("message", jumpTo, false);
-		  
-			}())    
-		
-		</script>
+        <script>
+    
+            (function(){
+            // Reference your player instance.
+            var playerInstance = document.getElementById('vid1');
+        
+            function jumpTo(evt) {
+              var origin = evt.origin || evt.originalEvent.origin;
+        
+              // Validate that the event comes from the videobreakdown domain.
+              if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+                
+                // Call your player's "jumpTo" implementation.
+                playerInstance.currentTime = evt.data.time;
+               
+                // Confirm the arrival to us.
+                if ('postMessage' in window) {
+                  evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
+                }
+              }
+            }
+        
+            // Listen to the message event.
+            window.addEventListener("message", jumpTo, false);
+          
+            }())    
+        
+        </script>
 
 For more information, see the [Azure Media Player + VI Insights demo](https://codepen.io/videoindexer/pen/YEyPLd).
 
@@ -233,7 +232,7 @@ For example, if you want to embed a widget that contains only people and search 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
 The title of the iframe window can also be customized by providing `&title=<YourTitle>` to the iframe URL. (It customizes the HTML \<title> value).
-	
+    
 For example, if you want to give your iframe window the title "MyInsights", the URL will look like this:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
