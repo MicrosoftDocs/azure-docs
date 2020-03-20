@@ -205,7 +205,7 @@ The `DataActions` permission specifies the data operations that the role allows 
 The `NotDataActions` permission specifies the data operations that are excluded from the allowed `DataActions`. The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` operations from the `DataActions` operations. Each resource provider provides its respective set of APIs to fulfill data operations.
 
 > [!NOTE]
-> If a user is assigned a role that excludes a data operation in `NotDataActions`, and is assigned a second role that grants access to the same data operation, the user is allowed to perform that data operation. `NotDataActions` is not a deny rule – it is simply a convenient way to create a set of allowed data operations when specific data operations need to be excluded.
+> If a user is assigned a role that excludes a data operation in `NotDataActions`, and is assigned a second role that grants explicit (not wildcarded) access to the same data operation, the user is allowed to perform that data operation. `NotDataActions` is not a deny rule – it is simply a convenient way to create a set of allowed data operations when specific data operations need to be excluded.
 >
 
 ## AssignableScopes
