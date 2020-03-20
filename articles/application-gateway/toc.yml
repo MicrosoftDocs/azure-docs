@@ -61,8 +61,6 @@
       href: rewrite-http-headers.md
     - name: Custom error pages
       href: custom-error.md
-    - name: Using UDR 
-      href: application-gateway-using-udr.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
