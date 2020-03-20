@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
@@ -10,12 +10,9 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
-
-> [!IMPORTANT]
-> The [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) NuGet package that is featured in this article is currently in public preview.
 
 [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API reference](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
@@ -226,13 +223,13 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> If your file size is large, your code will have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Consider using the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet-preview#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method instead. That way, you can upload the entire file in a single call. 
+> If your file size is large, your code will have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Consider using the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method instead. That way, you can upload the entire file in a single call. 
 >
 > See the next section for an example.
 
 ## Upload a large file to a directory
 
-Use the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet-preview#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
+Use the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
 
 ```cs
 public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)

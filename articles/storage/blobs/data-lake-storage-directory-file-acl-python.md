@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen2 Python SDK for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 Python SDK for files & ACLs
 description: Use Python manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
@@ -10,14 +10,11 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use Python to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
-> [!IMPORTANT]
-> The Azure Data Lake Storage client library for Python is currently in public preview.
-
-[Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
+[Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## Prerequisites
 
