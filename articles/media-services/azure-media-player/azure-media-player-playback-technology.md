@@ -61,9 +61,7 @@ Given the recommended tech order with streaming content from Azure Media Service
 <sup>3</sup> In the cases where there is no support for token, a proxy can be used to add this functionality. Check out this [blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) to learn more about this solution.
 
 > [!NOTE]
-> If the expected tech chosen requires a plugin be installed, like Flash, and that is not installed on the user's machine, AMP will continue to check the capabilities of the next tech, in conjunction with source types and protection info, in the tech list. For example, if attempting to view an unprotected on-demand stream in Safari 8 on OS X Yosemite, and both Flash and Silverlight are not installed, AMP will select the native Html5 tech for playback.
-> [!NOTE]
-> New browser technologies are emerging daily, and as such could affect this matrix.
+> If the expected tech chosen requires a plugin be installed, like Flash, and that is not installed on the user's machine, AMP will continue to check the capabilities of the next tech, in conjunction with source types and protection info, in the tech list. For example, if attempting to view an unprotected on-demand stream in Safari 8 on OS X Yosemite, and both Flash and Silverlight are not installed, AMP will select the native Html5 tech for playback.<br/><br/>New browser technologies are emerging daily, and as such could affect this matrix.
 
 ## Next steps ##
 
