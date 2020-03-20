@@ -53,9 +53,9 @@ To set up a console application using the Bing Video Search client library:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
+> [Create a single page web app](../../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
-* [What is the Bing Video Search API?](../overview.md)
+* [What is the Bing Video Search API?](../../overview.md)
 * [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
