@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-If a user doesn't have the required access for applying tags, you can assign the **Tag Contributor** role to the user. For more information, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../..//role-based-access-control/quickstart-assign-role-user-portal.md).
+If a user doesn't have the required access for applying tags, you can assign the **Tag Contributor** role to the user. For more information, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you have not previously applied tags, the list is empty.
 
