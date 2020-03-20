@@ -1,6 +1,6 @@
 ---
-title: Create an image version from a managed image 
-description: Learn how to use Azure PowerShell to create an image version from a managed image.
+title: Create an image version from a snapshot 
+description: Learn how to use Azure PowerShell to create an image version from a snapshot.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
@@ -9,34 +9,34 @@ ms.author: cynthn
 
 ---
 
-# Create an image version from a managed image
+# Create an image version from a snapshot
 
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image.
+If you have an existing snapshot that you would like to migrate into a Shared Image Gallery, you can create an image version from the snapshot.
 
 An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
 
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery and an [image definition](../windows/shared-images.md#). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
+To complete this article, you must have an existing Shared Image Gallery and an [image definition](./windows/shared-images.md#). Because snapshots are typically taken of a VM that hasn't been generalized, create a an image definition for a specialized image before you begin.
 
-To complete the example in this article, you must have an existing managed image. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
+To complete the example in this article, you must have an existing snapshot. If the snapshot contains a data disk, the data disk size cannot be more than 1 TB.
 
-When working through this article, replace the resource group and VM names where needed.
+When working through this article, replace the resource names where needed.
 
-## Get the managed image
+## Get the snapshot
 
-You can see a list of images that are available in a resource group using [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Once you know the image name and what resource group it is in, you can use `Get-AzImage` again to get the image object and store it in a variable to use later. This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. 
+You can see a list of snapshots that are available in a resource group using [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/get-azsnapshot). Once you know the snapshot name and what resource group it is in, you can use `Get-AzSnapshot` again to get the snapshot object and store it in a variable to use later. This example gets an snapshot named *mySnapshot* from the "myResourceGroup" resource group and assigns it to the variable *$snapshot*. 
 
 ```azurepowershell-interactive
-$managedImage = Get-AzImage `
-   -ImageName myImage `
+$snapshot = Get-AzSnapshot `
+   -SnapshotName mySnapshot
    -ResourceGroupName myResourceGroup
 ```
 
 ## Create an image version
 
-Create an image version from a managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Create an image version from the snapshot using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -54,7 +54,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -Source $snapshot.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-01-01' `
    -asJob 
 ```
@@ -66,7 +66,7 @@ $job.State
 ```
 
 > [!NOTE]
-> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version. 
+> You need to wait for the image version to completely finish being built and replicated before you can use the same snapshot to create another image version. 
 >
 > You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >

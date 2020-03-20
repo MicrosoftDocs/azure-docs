@@ -12,7 +12,7 @@ ms.author: cynthn
 
 # Create a VM using a specialized image version
 
-Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a specialized image version](vm-generalized-image-version).
+Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a specialized image version](vm-generalized-image-version-powershell.md).
 
 Once you have a specialized image version, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
 
@@ -80,7 +80,7 @@ Add-AzVMDataDisk `
 
 ```
 
-[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## Next steps
 [Azure Image Builder (preview)](image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](image-builder-gallery-update-image-version.md). 
@@ -92,4 +92,4 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+For more information about Shared Image Galleries, see the [Overview](./windows/shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](./windows/troubleshooting-shared-images.md).

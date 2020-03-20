@@ -11,8 +11,6 @@ ms.custom: include file
 
 ---
 
-
-
 ## Create an image gallery 
 
 An image gallery is the primary resource used for enabling image sharing. Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
