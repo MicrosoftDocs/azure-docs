@@ -996,6 +996,8 @@
         href: netskope-user-authentication-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
+      - name: Netvision Compas
+        href: netvision-compas-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
       - name: New Relic (Limited Release)
