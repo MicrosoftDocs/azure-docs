@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danis
 ms.author: danis
-ms.date: 03/20/2020
+ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -91,7 +91,7 @@ By default, Image Builder will not change the size of the image, it will use the
 ```
 
 ## vnetConfig
-If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc, then you can specify a VNET. For more information, review the [networking documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), this is optional.
+If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](./../aibNetworking.md), this is optional.
 
 ```json
     "vnetConfig": {
@@ -149,9 +149,9 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
 ### ISO source
-We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/redhat/byos), please review the timelines below:
-    * 31st March 2020 - Image Templates with RHEL ISO sources will now longer be accepted by the resource provider.
-    * 30th April 2020- Image Templates that contain RHEL ISO sources will not be processed any more.
+We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), please review the timelines below:
+    * 31 March 2020 - Image Templates with RHEL ISO sources will now longer be accepted by the resource provider.
+    * 30 April 2020- Image Templates that contain RHEL ISO sources will not be processed anymore.
 
 ### PlatformImage source 
 Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) for the full list. 
@@ -210,7 +210,7 @@ By default, the Image Builder will run for 240 minutes. After that, it will time
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-If you do not specify a buildTimeoutInMinutes value, or set it to 0, is will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), to see if the customization step is waiting on something like user input. 
+If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), to see if the customization step is waiting on something like user input. 
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
@@ -404,7 +404,7 @@ OS support: Windows
 
 Customize properties:
 - **type**  – WindowsUpdate.
-- **searchCriteria** - Optional, defines which type of updates are installed (Recommended, Important etc), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
+- **searchCriteria** - Optional, defines which type of updates are installed (Recommended, Important etc.), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
 - **updateLimit** – Optional, defines how many updates can be installed, default 1000.
  
@@ -415,7 +415,7 @@ By default, Azure Image Builder will also run ‘deprovision’ code at the end 
 
 The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder will allow you to customize this command, if needed. 
 
-If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can using the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
+If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
 If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or does not complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
