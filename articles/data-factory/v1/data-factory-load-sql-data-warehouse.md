@@ -211,7 +211,7 @@ Here are a few best practices for running your Azure SQL Data Warehouse database
 * For faster load speeds, consider using heap for transient data.
 * Create statistics after you finish loading Azure SQL Data Warehouse.
 
-See [Best practices for Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
+See [Best practices for Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
 
 ## Next steps
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) - This article provides details about the Copy Wizard.

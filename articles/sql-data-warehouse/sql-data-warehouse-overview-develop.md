@@ -18,7 +18,7 @@ ms.reviewer: igorstan
 ## Key design decisions
 The following articles highlight concepts and design decisions for developing a distributed data warehouse using the SQL Analytics capability in Azure Synapse:
 
-* [connections](sql-data-warehouse-connect-overview.md)
+* [connections](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md)
 * [concurrency](../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md)
 * [transactions](sql-data-warehouse-develop-transactions.md)
 * [user-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -31,13 +31,13 @@ The following articles highlight concepts and design decisions for developing a 
 ## Development recommendations and coding techniques
 The following articles feature specific coding techniques, tips, and recommendations for developing a data warehouse with SQL Analytics:
 
-* [stored procedures](sql-data-warehouse-develop-stored-procedures.md)
-* [labels](sql-data-warehouse-develop-label.md)
+* [stored procedures](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md)
+* [labels](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-label.md)
 * [views](sql-data-warehouse-develop-views.md)
 * [temporary tables](sql-data-warehouse-tables-temporary.md)
-* [dynamic SQL](sql-data-warehouse-develop-dynamic-sql.md)
-* [looping](sql-data-warehouse-develop-loops.md)
-* [group by options](sql-data-warehouse-develop-group-by-options.md)
+* [dynamic SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-dynamic-sql.md)
+* [looping](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-loops.md)
+* [group by options](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-group-by-options.md)
 * [variable assignment](sql-data-warehouse-develop-variable-assignment.md)
 
 ## Next steps

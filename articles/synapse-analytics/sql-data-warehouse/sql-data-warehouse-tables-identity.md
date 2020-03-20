@@ -156,7 +156,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for SQL Analytics](../../sql-data-warehouse/design-elt-data-loading.md) and  [Loading best practices](../../sql-data-warehouse/guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for SQL Analytics](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
 
 ## System views
 

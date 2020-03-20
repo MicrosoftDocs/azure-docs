@@ -173,7 +173,7 @@ The expected behavior is now observed. The error in the transaction is managed a
 All that has changed is that the ROLLBACK of the transaction had to happen before the read of the error information in the CATCH block.
 
 ## Error_Line() function
-It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](sql-data-warehouse-develop-label.md) article.
+It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-label.md) article.
 
 ## Using THROW and RAISERROR
 THROW is the more modern implementation for raising exceptions in SQL Data Warehouse but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
@@ -195,5 +195,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md).
+To learn more about optimizing transactions, see [Transactions best practices](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL Data Warehouse best practices, see [SQL Data Warehouse best practices](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 

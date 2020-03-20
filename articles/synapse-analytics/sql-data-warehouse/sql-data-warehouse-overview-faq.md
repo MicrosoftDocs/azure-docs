@@ -89,7 +89,7 @@ A. Yes. Most REST functionality that can be used with SQL Database is also avail
 
 Q. What client drivers do you support?
 
-A. Driver support for SQL Analytics can be found on the [Connection Strings](../../sql-data-warehouse/sql-data-warehouse-connection-strings.md) page
+A. Driver support for SQL Analytics can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
 
 Q: What file formats are supported by PolyBase?
 

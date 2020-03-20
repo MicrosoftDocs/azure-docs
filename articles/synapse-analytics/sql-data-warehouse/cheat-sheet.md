@@ -40,7 +40,7 @@ First, load your data into [Azure Data Lake Storage](../../data-factory/connecto
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](../../sql-data-warehouse/design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](../../sql-data-warehouse/design-elt-data-loading.md). 
+Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](design-elt-data-loading.md). 
 
 ## Distributed or replicated tables
 

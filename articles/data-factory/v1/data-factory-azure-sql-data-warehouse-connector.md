@@ -256,7 +256,7 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 ```
 
 ## Best practices when using PolyBase
-The following sections provide additional best practices to the ones that are mentioned in [Best practices for Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+The following sections provide additional best practices to the ones that are mentioned in [Best practices for Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### Required database permission
 To use PolyBase, it requires the user being used to load data into SQL Data Warehouse has the ["CONTROL" permission](https://msdn.microsoft.com/library/ms191291.aspx) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
