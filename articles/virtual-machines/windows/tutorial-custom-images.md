@@ -1,39 +1,36 @@
 ---
-title: Tutorial - Create custom VM images with Azure PowerShell 
-description: In this tutorial, you learn how to use Azure PowerShell to create a custom virtual machine image in Azure
-documentationcenter: virtual-machines
+title: Tutorial - Create VM images with Azure PowerShell 
+description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Shared Image Gallery.
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/30/2018
+ms.date: 03/19/2020
 ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Tutorial: Create a custom image of an Azure VM with Azure PowerShell
+# Tutorial: Create Windows VM images with Azure PowerShell
 
-Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own custom image of an Azure virtual machine using PowerShell. You learn how to:
+Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own custom image of an Azure virtual machine using PowerShell and store it in a Shared Image Gallery. You learn how to:
 
 > [!div class="checklist"]
 > * Sysprep and generalize VMs
-> * Create a custom image
-> * Create a VM from a custom image
+> * Create a Shared Image Gallery
+> * Create an image definition
+> * Create an image version
+> * Create a VM from an image version
 > * List all the images in your subscription
-> * Delete an image
+> * Delete an image version
 
-In public preview, we have the [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) service. Simply describe your customizations in a template, and it will handle the image creation steps in this article. [Try Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## Before you begin
 
-The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
+The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VMs.
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource group and VM names where needed.
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource names where needed.
 
 ## Launch Azure Cloud Shell
 
@@ -76,6 +73,17 @@ Set-AzVM `
    -Name myVM -Generalized
 ```
 
+[!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+
+ 
+[!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
+
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
+
+
+
+---------------------------------------------------------------------
+=====================================================================
 
 ## Create the image
 
@@ -148,6 +156,10 @@ Remove-AzImage `
     -ImageName myImage `
 	-ResourceGroupName myResourceGroup
 ```
+
+## Azure Image Builder
+
+Azure also offers a service, built on Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). Simply describe your customizations in a template, and it will handle the image creation. [Try Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## Next steps
 

@@ -52,7 +52,7 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a generalized image. To create a definiiton of a specialized image, use `-OsState specialized`.
 
-In this example, the image definition is for a Linux OS. To create a definition for images using a Windows OS, use `-OsType Windows`
+In this example, the image definition is for a specialized Linux OS. To create a definition for images using a Windows OS, use `-OsType Windows`. To create a generalized image definition, use `-OsState specialized`.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -60,7 +60,7 @@ $galleryImage = New-AzGalleryImageDefinition `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $gallery.Location `
    -Name 'myImageDefinition' `
-   -OsState generalized `
+   -OsState specialized `
    -OsType Linux `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
