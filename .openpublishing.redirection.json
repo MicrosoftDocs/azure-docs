@@ -13638,7 +13638,7 @@
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
@@ -17078,7 +17078,7 @@
       "source_path": "articles/sql-data-warehouse/create-data-warehouse-powershell.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-powershell",
       "redirect_document_id": true
-    }, 
+    },
     {
       "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
@@ -17173,7 +17173,7 @@
       "source_path": "articles/sql-data-warehouse/release-notes-10-0-10106-0.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": true
-    }, 
+    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
@@ -35209,7 +35209,7 @@
       "source_path": "articles/multi-factor-authentication/end-user/index.md",
       "redirect_url": "/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
       "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
@@ -49493,7 +49493,7 @@
     {
       "source_path": "articles/cli/index.yml",
       "redirect_url": "/cli/azure",
-      "redirect_document_id": false 
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-jenkins.md",
@@ -49611,8 +49611,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md", 
-      "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing", 
+      "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md",
+      "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing",
       "redirect_document_id": false
     }
   ]
