@@ -1291,6 +1291,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/index.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Labs/URL-Preview/csharp.md",
       "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
       "redirect_document_id": false
