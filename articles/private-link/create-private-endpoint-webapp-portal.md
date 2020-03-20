@@ -15,6 +15,7 @@ ms.workload: web
 
 Azure Private Endpoint is the fundamental building block for Private Link in Azure. It allows you to connect privately to your Web App.
 In this Quickstart, you will learn how to deploy a Web App with Private Endpoint and connect to this Web App from a Virtual Machine.
+
 For more information, see [Using Private Endpoints for Azure Web App][privatenedpointwebapp].
 
 > [!Note]
