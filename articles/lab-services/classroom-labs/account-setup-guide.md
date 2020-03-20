@@ -1,5 +1,5 @@
 ---
-title: Accelerated Lab Account Setup Guide Azure | Lab Services
+title: Accelerated Lab Account Setup Guide for Azure Lab Services
 description: This guide helps administrators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -82,9 +82,9 @@ Once you understand the requirements for your lab account, you are ready to set 
 
 1. **Create your lab account**
 
-   Refer to the how-to guide on [creating a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-manage-lab-accounts#create-a-lab-account) for instructions.
+   Refer to the tutorial on [setting up a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) for instructions.
 
-   When creating a lab account, you may find it helpful to familiarize yourself with the Azure resources involved; refer to the following list for more information and guidance on creating these resources:
+   When setting up a lab account, you may find it helpful to familiarize yourself with the Azure resources involved; refer to the following list for more information and guidance on creating these resources:
 
    - [Subscription](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
    - [Resource Group](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
@@ -95,7 +95,7 @@ Once you understand the requirements for your lab account, you are ready to set 
 
 2. **Add users to the Lab Creator role**
 
-   Refer to the how-to guide on [adding users to the Lab Creator role](https://docs.microsoft.com/azure/lab-services/classroom-labs/add-lab-creator) for instructions.
+   Refer to the tutorial on [adding users to the Lab Creator role](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role) for instructions.
 
    Also, for more information on the different roles that can be assigned to users that will manage lab lab accounts and labs, see the [guide on managing identity](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#manage-identity).
 
@@ -116,3 +116,11 @@ Once you understand the requirements for your lab account, you are ready to set 
     If you have a Shared Image Gallery attached to your lab account and you want to enable custom images to be shared by lab creators, you will need to complete similar steps as shown in the following screenshot:
 
     ![Enabling custom images in Shared Image Gallery](../media/setup-guide/enable-sig-custom-images.png)
+
+## Next Steps
+
+See the following articles:
+
+- [Manage lab accounts](how-to-manage-lab-accounts.md)
+
+- [Classroom lab setup guide](setup-guide.md)

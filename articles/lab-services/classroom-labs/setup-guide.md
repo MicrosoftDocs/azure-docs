@@ -1,5 +1,5 @@
 ---
-title: Accelerated Classroom Lab Setup Guide Azure | Lab Services
+title: Accelerated Classroom Lab Setup Guide for Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -72,7 +72,7 @@ Lab Services uses a pay-as-you go pricing model which means that you only pay fo
     > This setting currently only exists for Windows.
 
 **How will students connect to their VM?**
-    
+
 For RDP to Windows VMs, we recommend students use [Microsoft Remote Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  Remote Desktop client supports Macs, Chromebooks, and Windows.
 
 For Linux VMs, students may use either SSH or RDP.   To connect using RDP, you are responsible for installing and configuring the necessary RDP and GUI packages.  More details on this is provided below.
@@ -83,7 +83,7 @@ Once you understand the requirements for your class's lab, you are ready to set 
 
 1. **Create a lab**
 
-   Refer to the how-to guide on [creating a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-manage-classroom-labs) for instructions.
+   Refer to the tutorial on [creating a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) for instructions.
 
     > [!NOTE]
     > If your class requires nested virtualization, refer to steps in the how-to guide that shows [enabling nested virtualization](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
@@ -91,32 +91,29 @@ Once you understand the requirements for your class's lab, you are ready to set 
 1. **Customize images and publish lab VMs**
 
     To customize images and publish VMs in your lab, you connect to a special VM called the template VM; refer to steps to the following guides:
-    - [Create and manage a template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-create-manage-template)
+    - [Create and manage a template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
     - [Use a Shared Image Gallery](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-shared-image-gallery)
 
     If you are using Windows, you should also refer to instructions in the how-to guide for [preparing a Windows template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template).  These instructions include steps for setting up OneDrive and Office for your students to use.
 
 1. **Manage VM pool and capacity**
-   
+
    You can easily scale up or down VM capacity as needed by your class.  Keep in mind that increasing the VM capacity may take several hours since this involves setting up new VMs.  Refer to steps in the how-to guide for [setting up and managing a VM pool](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords).
 
 1. **Add and manage lab users**
 
-   To add users to your lab, refer to steps in the following how-to guides:
-   - [Add users to the lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#add-users-to-the-lab)
-   - [Send invitations to users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#send-invitations-to-users)
-   - [Get registration link](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#get-registration-link)
-   - [View registered users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#view-registered-users)
+   To add users to your lab, refer to steps in the following tutorials:
+   - [Add users to the lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
+   - [Send invitations to users](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
 
     Also, refer to the following article for information on the types of accounts that students can use:
     - [Student accounts](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts)
   
 1. **Set cost controls**
 
-    To control the costs of your lab, set schedules, quotas, and auto-shutdown; refer to instructions in the following how-to guides:
+    To control the costs of your lab, set schedules, quotas, and auto-shutdown; refer to instructions in the following tutorials:
 
-   - [Create and manage schedules](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-create-schedules)
-
+   - [Set a schedule](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
         > [!NOTE]
         > Depending on the type of OS you have installed, a VM may take several minutes to start.  To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start VMs 30 minutes in advance to ensure that VMs are running and ready for use.
 
@@ -133,3 +130,11 @@ Once you understand the requirements for your class's lab, you are ready to set 
 
     > [!NOTE]
     > The estimated costs shown in the dashboard is the maximum cost that you can expect for students usage of the lab.  For example, you will *not* be charged for unused quota hours by your students.  The estimated costs do *not* reflect any charges for using the template VM or the Shared Image Gallery.
+
+## Next Steps
+
+See the following articles:
+
+- [Track usage of a classroom lab](tutorial-track-usage.md)
+  
+- [Access a classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
