@@ -58,14 +58,14 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
     When all fields have been filled in, select the checkbox at the bottom of the page to accept the terms and select **Purchase** to begin the deployment.
 
-1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the format `vm-0000000000000` and it's associated DNS name which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the format `vm-0000000000000` and it's associated **DNS Name** which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    The DNS Name can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
+    The **DNS Name** can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. If you want to SSH into this VM after setup, use the associated DNS Name with the command:
+1. If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`
 
 ## Deploy from Azure CLI
@@ -137,14 +137,14 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
      
     ```
 
-1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the format `vm-0000000000000` and it's associated DNS name which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the format `vm-0000000000000` and it's associated **DNS Name** which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    The DNS Name can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
+    The **DNS Name** can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. If you want to SSH into this VM after setup, use the associated DNS Name with the command:
+1. If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`
 
 ## Next steps
