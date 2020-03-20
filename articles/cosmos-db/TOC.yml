@@ -29,7 +29,7 @@
         href: create-sql-api-xamarin-dotnet.md
   - name: Tutorials
     items:
-    - name: 1 - Create & manage data
+    - name: 1 - Create and manage data
       items:
       - name: Build a console app
         items:
@@ -53,7 +53,7 @@
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
       items:
-       - name: Using Data migration tool
+       - name: Using the Data Migration tool
          href: import-data.md
        - name: Using .NET bulk support
          href: tutorial-sql-api-dotnet-bulk-import.md
@@ -85,11 +85,11 @@
       href: resource-manager-samples.md
   - name: Concepts
     items:
-    - name: NoSQL Vs relational databases
+    - name: NoSQL vs. relational databases
       href: relational-nosql.md
     - name: Global distribution
       items:
-      - name: Global distribution Overview
+      - name: Global distribution overview
         displayName: replication, replicate, geo distribution
         href: distribute-data-globally.md
       - name: Consistency levels
@@ -582,7 +582,7 @@
           href: create-cassandra-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create & manage data
+        - name: 1 - Create and manage data
           href: create-cassandra-api-account-java.md
         - name: 2 - Load data
           href: cassandra-api-load-data.md
@@ -601,7 +601,7 @@
           href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
           href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
-        - name: Cassandra & Spark
+        - name: Cassandra and Spark
           items:
           - name: Introduction
             href: cassandra-spark-generic.md
@@ -609,7 +609,7 @@
             href: cassandra-spark-databricks.md
           - name: Connect using HDInsight
             href: cassandra-spark-hdinsight.md
-          - name: Create keyspace & table
+          - name: Create keyspace and table
             href: cassandra-spark-ddl-ops.md
           - name: Insert data
             href: cassandra-spark-create-ops.md
@@ -656,7 +656,7 @@
           href: create-mongodb-golang.md
       - name: Tutorials
         items:
-        - name: 1 - Create & manage data
+        - name: 1 - Create and manage data
           items:
           - name: Node.js console app
             href: mongodb-samples.md
@@ -802,7 +802,7 @@
           href: create-table-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create & manage data
+        - name: 1 - Create and manage data
           href: tutorial-develop-table-dotnet.md
         - name: 2 - Migrate data
           displayName: import
@@ -989,11 +989,11 @@
         href: use-notebook-features-and-commands.md
     - name : Server-side programming
       items:
-      - name: Write stored procedures, triggers, & UDFs
+      - name: Write stored procedures, triggers, and UDFs
         href: how-to-write-stored-procedures-triggers-udfs.md
-      - name: Write stored procedures & triggers with JavaScript query API
+      - name: Write stored procedures and triggers with JavaScript query API
         href: how-to-write-javascript-query-api.md
-      - name: Use stored procedures, triggers, & UDFs
+      - name: Use stored procedures, triggers, and UDFs
         href: how-to-use-stored-procedures-triggers-udfs.md
     - name: Security
       items:
