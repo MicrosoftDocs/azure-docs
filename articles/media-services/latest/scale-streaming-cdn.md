@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Scaling streaming with cdn
+title: Scaling streaming with CDN
 titleSuffix: Azure Media Services
 description: Learn about a streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
 services: media-services
@@ -8,7 +8,6 @@ documentationcenter: ''
 author: Juliako
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: article
@@ -65,8 +64,8 @@ The concept of prefetching strives to position objects at the "Edge of the Inter
 
 To achieve this goal, a streaming endpoint (origin) and CDN need to work hand in hand: 
 
-- The Media Services origin needs to have the “intelligence” (Origin-Assist) to inform CDN the next object to prefetch, and 
-- CDN does the prefetch and caching (CDN-Prefetch part). CDN also needs to have the “intelligence” to inform the origin whether it is a prefetch or a regular fetch, handling 404 responses and a way to avoid endless prefetch loop.
+- The Media Services origin needs to have the "intelligence" (Origin-Assist) to inform CDN the next object to prefetch, and 
+- CDN does the prefetch and caching (CDN-Prefetch part). CDN also needs to have the "intelligence" to inform the origin whether it is a prefetch or a regular fetch, handling 404 responses and a way to avoid endless prefetch loop.
 
 ### Benefits
 
@@ -121,7 +120,7 @@ The *Origin-Assist CDN-Prefetch* feature supports the following streaming protoc
     In this case the Media Services origin will not provide CDN-Origin-Assist-Prefetch-Path header and CDN-prefetch will not occur.
 * How does *Origin-Assist CDN-Prefetch* work with dynamic manifest filters? 
 
-    This feature works independently of manifest filter. When the next fragment is out of a filter window, its URL will still be located by looking into the raw client manifest, and then returned as CDN prefetch response header. This means, CDN will get the URL of a fragment that is filtered out from DASH/HLS/Smooth manifest. However, the player will never make a GET request to CDN to fetch that fragment, because that fragment is not included in the DASH/HLS/Smooth manifest held by the player (the player doesn’t know that fragment’s existence).
+    This feature works independently of manifest filter. When the next fragment is out of a filter window, its URL will still be located by looking into the raw client manifest, and then returned as CDN prefetch response header. This means, CDN will get the URL of a fragment that is filtered out from DASH/HLS/Smooth manifest. However, the player will never make a GET request to CDN to fetch that fragment, because that fragment is not included in the DASH/HLS/Smooth manifest held by the player (the player doesn't know that fragment's existence).
 * Can DASH MPD/HLS playlist/Smooth manifest be prefetched?
 
     No, DASH MPD, HLS master playlist, HLS variant playlist or smooth manifest URL is not added to prefetch header.
