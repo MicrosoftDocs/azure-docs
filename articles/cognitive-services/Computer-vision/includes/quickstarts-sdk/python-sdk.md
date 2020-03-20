@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ---

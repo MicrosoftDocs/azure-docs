@@ -10,7 +10,7 @@
 - name: Quickstarts
   items:
   - name: Using the client library
-    href: quickstarts-sdk/computer-vision-sdk.md
+    href: quickstarts-sdk/client-library.md
   - name: Using the REST API
     items:
     - name: Analyze a remote image
