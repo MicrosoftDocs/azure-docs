@@ -131,7 +131,7 @@ If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) fail
 To get SNAT usage and allocation:
 1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
   * By default this will be the average number of SNAT ports allocated to each backend VMs or VMSSes, corresponding to all frontend public IPs, mapped to your Load Balancer aggregated over TCP and UDP.
-2a. One helpful Load Balalncer view is to filter to a specific **Protocol Type** and a set of **Backend IPs** or **Frontend IPs**.
+2a. One helpful Load Balancer view is to filter to a specific **Protocol Type** and a set of **Backend IPs** or **Frontend IPs**.
 2b. To monitor health per backend or frontend instance, apply splitting. Note this only allows for a single metric to be displayed at a time. To monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. View SNAT Allocation by switching metric type to **SNAT Allocation** and view by Frontend IP by switching split to **Frontend IP**.
 
 ![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/SNAT_Usage_and_Allocation.png)
