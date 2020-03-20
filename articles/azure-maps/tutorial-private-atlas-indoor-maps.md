@@ -31,7 +31,7 @@ Before you feed data to the Azure Maps resources, check that your DWG package me
 
 This tutorial uses the [Postman]() application, but you may choose a different API development environment.
 
-## Upload DWG package
+## Upload a DWG package
 
 Begin by using the [Data Upload API]() to upload your DWG package to Azure Maps resources. The API returns a status URL pointing to the uploaded package. You can use the status URL to check the upload status. Download the uploaded data. Or obtain the `udid` for the uploaded data. In this case, we want the `udid` to access the uploaded package. Follow the steps below to obtain the `udid`.
 
@@ -66,7 +66,7 @@ Begin by using the [Data Upload API]() to upload your DWG package to Azure Maps 
     }
     ```
 
-## Convert DWG package
+## Convert a DWG package
 
 keep the Postman application open. Now that your DWG package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data.
 
