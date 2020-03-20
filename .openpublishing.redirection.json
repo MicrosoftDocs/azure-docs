@@ -35416,6 +35416,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/KES/calchistogramMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/CommandLine.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/DataFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/evaluateMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/Expressions.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/GettingStarted.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/GrammarFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/interpretMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/Overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/SchemaFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/SemanticInterpretation.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/WebAPI.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
       "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
       "redirect_document_id": false
