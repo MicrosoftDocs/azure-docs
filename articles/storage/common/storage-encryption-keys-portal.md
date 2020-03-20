@@ -35,7 +35,7 @@ Only RSA keys of size 2048 are supported with Azure Storage encryption. For more
 To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following iamge.
+1. On the **Settings** blade for the storage account, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following image.
 
     ![Portal screenshot showing encryption option](./media/storage-encryption-keys-portal/portal-configure-encryption-keys.png)
 
