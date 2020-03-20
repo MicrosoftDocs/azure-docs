@@ -34,7 +34,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 1. On the newly launched window, fill in the available form fields:
 
     > [!div class="mx-imgBorder"]
-    > [![Screenshot showing the iotedge-vm-deploy template](./media/iot-edge-runtime/iotedge-vm-deploy.png)](./media/iot-edge-runtime/iotedge-vm-deploy.png)
+    > [![Screenshot showing the iotedge-vm-deploy template](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
     **Subscription**: The active Azure subscription to deploy the Virtual Machine into.
 
@@ -58,11 +58,24 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
     When all fields have been filled in, select the checkbox at the bottom of the page to accept the terms and select **Purchase** to begin the deployment.
 
-1. Verify that the deployment has completed successfully.  A Virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the following format `vm-0000000000000`.
+1. Verify that the deployment has completed successfully.  A Virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the following format `vm-0000000000000` and it's associated DNS name which should be in the following format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+
+    The DNS Name can be obtained from the **Overview** section of the newly deployed Virtual Machine from with the Azure Portal.
+
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+
+1. If you want to SSH into this VM after setup, use the associated DNS Label with the command:
+    `ssh <adminUsername>@<DNSLabel>`
 
 ## Deploy from Azure CLI
 
-1. If you're using Azure CLI on your desktop, start by logging in:
+1. Ensure that you have installed the azure cli iot extension with:
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
+
+1. Next, if you're using Azure CLI on your desktop, start by logging in:
 
    ```azurecli-interactive
    az login
@@ -91,6 +104,8 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
 1. Create a new virtual machine:
 
+    If you would like to use an **authenticationType** of `password` see the example below:
+
    ```azurecli-interactive
    az group deployment create \
    --name edgeVm \
@@ -103,8 +118,34 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-If you want to SSH into this VM after setup, use the publicIpAddress with the command:
-    `ssh azureuser@{publicIpAddress}`
+    If you prefer to authenticate with an SSH key you may do so by specifying an **authenticationType** of `sshPublicKey`, then provide the value of the SSH key in the **adminPasswordOrKey** parameter.  An example is shown below.
+
+    ```azurecli-interactive
+    #Generate the SSH Key
+    ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
+
+    #Create a VM using the iotedge-vm-deploy script
+    az group deployment create \
+    --name edgeVm \
+    --resource-group IoTEdgeResources \
+    --template-uri "https://aka.ms/iotedge-vm-deploy" \
+    --parameters dnsLabelPrefix='my-edge-vm1' \
+    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
+    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters authenticationType='sshPublicKey' \
+    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
+     
+    ```
+
+1. Verify that the deployment has completed successfully.  A Virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the following format `vm-0000000000000` and it's associated DNS name which should be in the following format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+
+    The DNS Name can be obtained from the **Overview** section of the newly deployed Virtual Machine from with the Azure Portal.
+
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+
+1. If you want to SSH into this VM after setup, use the associated DNS Label with the command:
+    `ssh <adminUsername>@<DNSLabel>`
 
 ## Next steps
 
