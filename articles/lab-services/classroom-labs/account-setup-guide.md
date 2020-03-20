@@ -25,29 +25,29 @@ The first step that needs to be completed by administrators is to set up a lab a
 
 To understand how to configure your lab account based on your school's needs, you should consider the following questions:
 
-- **Do I have access to an Azure subscription?**
+**Do I have access to an Azure subscription?**
 
-   To create a lab account, you will need access to an Azure subscription that is configured for your school; your school may have one or more subscriptions.  A subscription is used to manage billing and security for all your Azure resources\services that are used within it, including Lab Accounts.  If you don't have a subscription, you should contact your account specialist to help with setting this up.
+To create a lab account, you will need access to an Azure subscription that is configured for your school; your school may have one or more subscriptions.  A subscription is used to manage billing and security for all your Azure resources\services that are used within it, including Lab Accounts.  If you don't have a subscription, you should contact your account specialist to help with setting this up.
 
-- **How many lab accounts need to be created?**
+**How many lab accounts need to be created?**
 
-   To get started quickly, a reasonable approach is to create a single lab account and then later create additional Lab Accounts as needed.  For example, you may eventually evolve to having one lab account per department.
+To get started quickly, a reasonable approach is to create a single lab account and then later create additional Lab Accounts as needed.  For example, you may eventually evolve to having one lab account per department.
 
-- **Who should be owners and contributors of the lab account?**
+**Who should be owners and contributors of the lab account?**
 
-   Your administrators are typically the owners\contributors for a lab account since they are responsible for managing the policies that apply to all the labs contained within the lab account.  The person that creates the lab account is automatically an owner.  You can add additional owners\contributors (typically from the AAD tenant associated with your subscription) to help manage a lab account by assigning either the Owner\Contributor role at the lab account level.
+Your administrators are typically the owners\contributors for a lab account since they are responsible for managing the policies that apply to all the labs contained within the lab account.  The person that creates the lab account is automatically an owner.  You can add additional owners\contributors (typically from the AAD tenant associated with your subscription) to help manage a lab account by assigning either the Owner\Contributor role at the lab account level.
 
-- **Who will be allowed to create\manage labs?**
+**Who will be allowed to create\manage labs?**
 
-   You may choose to have your administrators and\or faculty members create and manage labs; these users (typically from the AAD tenant associated with your subscription) are assigned to the Lab Creator role within the lab account.
+You may choose to have your administrators and\or faculty members create and manage labs; these users (typically from the AAD tenant associated with your subscription) are assigned to the Lab Creator role within the lab account.
 
-- **Do you want to give lab creators the ability to save images that can be shared across labs?**
+**Do you want to give lab creators the ability to save images that can be shared across labs?**
 
-    A Shared Image Gallery is a repository that you can use for saving and sharing images.  The benefit of this is that if you have several classes that need the same images, lab creators can create the image once and share it across labs.  However, to get started, it's perfectly reasonable to start without a Shared Image Gallery; and, you can always choose to add one later.
+A Shared Image Gallery is a repository that you can use for saving and sharing images.  The benefit of this is that if you have several classes that need the same images, lab creators can create the image once and share it across labs.  However, to get started, it's perfectly reasonable to start without a Shared Image Gallery; and, you can always choose to add one later.
 
-    If you answered 'Yes' to this question, then you will need to create and\or attach a Shared Image Gallery to your lab account.  If you answered, 'I don't know', then you can postpone this decision until later.
+If you answered 'Yes' to this question, then you will need to create and\or attach a Shared Image Gallery to your lab account.  If you answered, 'I don't know', then you can postpone this decision until later.
 
-    When you have a Shared Image Gallery attached to your lab account
+When you have a Shared Image Gallery attached to your lab account
 
 **Which images in the Azure Marketplace will your classroom labs use?**
 
@@ -61,18 +61,15 @@ When you set up a lab account, you also have the option to peer with a virtual n
 
 - **Do you need to provide access to a licensing server?**
   
-    > [!NOTE]
-        > If you plan to use Azure Marketplace images, the cost of the OS license is bundled into the pricing for Lab Services, so you do *not* need to provide licenses for the OS itself.  However, for additional software\applications that are installed, you will need to provide a license as appropriate.
+   If you plan to use Azure Marketplace images, the cost of the OS license is bundled into the pricing for Lab Services, so you do *not* need to provide licenses for the OS itself.  However, for additional software\applications that are installed, you will need to provide a license as appropriate.
 
 - **Do the lab VMs need access to other on-prem resources, such as a file share, database, etc.?**
 
-    > [!NOTE]
-    >  A VNet needs to be created to provide access to on-prem resources, typically using a site-to-site Virtual Network Gateway.  If you don't have a VNet configured, additional time will need to be invested for this.  More information on how to set this up is provided below.
+   A VNet needs to be created to provide access to on-prem resources, typically using a site-to-site Virtual Network Gateway.  If you don't have a VNet configured, additional time will need to be invested for this.  More information on how to set this up is provided below.
 
 - **Do the lab VMs need access to other Azure resources that are located within a VNet?**
 
-    > [!NOTE]
-    >  If you need access to Azure resources that are *not* secured within a VNet, then you can access these resources via the public internet without doing any peering.
+    If you need access to Azure resources that are *not* secured within a VNet, then you can access these resources via the public internet without doing any peering.
 
     If you answered 'Yes' to one or more questions, then you will need to peer the lab account to a VNet.  If you answered, 'I don't know', then you can postpone this decision until later since you can always choose to peer a VNet after creating the lab account.
 
@@ -82,9 +79,9 @@ Once you understand the requirements for your lab account, you are ready to set 
 
 1. **Create your lab account**
 
-   Refer to the tutorial on [setting up a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) for instructions.
+   Refer to the tutorial on [creating a lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) for instructions.
 
-   When setting up a lab account, you may find it helpful to familiarize yourself with the Azure resources involved; refer to the following list for more information and guidance on creating these resources:
+   When creating a lab account, you may find it helpful to familiarize yourself with the Azure resources involved; refer to the following list for more information and guidance on creating these resources:
 
    - [Subscription](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
    - [Resource Group](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)

@@ -49,7 +49,7 @@ There are a variety of compute sizes that you can choose from that includes:
 Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
 
 > [!NOTE]
-    > Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
+> Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
 
 **What dependencies does the class have on external Azure or network resources?**
 
@@ -94,7 +94,8 @@ Once you understand the requirements for your class's lab, you are ready to set 
     - [Create and manage a template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
     - [Use a Shared Image Gallery](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-shared-image-gallery)
 
-    If you are using Windows, you should also refer to instructions in the how-to guide for [preparing a Windows template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template).  These instructions include steps for setting up OneDrive and Office for your students to use.
+    > [!NOTE]
+    > If you are using Windows, you should also refer to instructions in the how-to guide for [preparing a Windows template VM](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template).  These instructions include steps for setting up OneDrive and Office for your students to use.
 
 1. **Manage VM pool and capacity**
 
