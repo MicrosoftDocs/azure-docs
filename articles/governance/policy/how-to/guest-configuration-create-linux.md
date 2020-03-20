@@ -6,12 +6,11 @@ ms.topic: how-to
 ---
 # How to create Guest Configuration policies for Linux
 
-> [!NOTE]
-> Before creating custom policies, it is a good idea to read the conceptual overview information
-> at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
-> 
-> To learn about creating Guest Configuration policies for Windows, see the page
-> [How to create Guest Configuration policies for Windows](/guest-configuration-create.md)
+Before creating custom policies, it is a good idea to read the conceptual overview information
+at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
+ 
+To learn about creating Guest Configuration policies for Windows, see the page
+[How to create Guest Configuration policies for Windows](/guest-configuration-create.md)
 
 When auditing Linux, Guest Configuration uses
 [Chef InSpec](https://www.inspec.io/).
