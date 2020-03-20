@@ -36,7 +36,7 @@ The account you log into, or connect to Azure with must be assigned to the [Netw
 
 ## Create a route table
 
-There's a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There's a limit to how many route tables you can create per Azure location and subscription. For details, see [Networking limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
 
@@ -177,7 +177,7 @@ You can't delete a route table that's associated to any subnets. [Dissociate](#d
 
 ## Create a route
 
-There's a limit to how many routes per route table can create per Azure location and subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There's a limit to how many routes per route table can create per Azure location and subscription. For details, see [Networking limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage your route tables. Search for and select **Route tables**.
 
