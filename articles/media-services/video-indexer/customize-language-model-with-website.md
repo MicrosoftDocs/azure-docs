@@ -36,9 +36,9 @@ You can use the Video Indexer website to create and edit custom Language models 
 4. Under the language that you want, select **Add model**.
 5. Type in the name for the Language model and hit enter.
 
-    This creates the model and gives the option to upload text files to the model.
+    This step creates the model and gives the option to upload text files to the model.
 
-6. To add a text file, select **Add file**. This opens up your file explorer.
+6. To add a text file, select **Add file**. Your file explorer will open.
 
 7. Navigate to and select the text file. You can add multiple text files to a Language model.
 
@@ -64,9 +64,9 @@ To use your Language model on a new video, do one of the following actions:
 
     ![Upload media file Video Indexer](./media/customize-language-model/upload2.png)
 
-This will give you the option to select the **Video source language**. Click on the drop-down and select a Language model that you created from the list. It should say the language of your Language model and the name that you gave it in parentheses.
+You're given the option to select the **Video source language**. Select the drop-down and select a Language model that you created from the list. It should say the language of your Language model and the name that you gave it in parentheses.
 
-Click the **Upload** option in the bottom of the page, and your new video will be indexed using your Language model.
+Select the **Upload** option in the bottom of the page, and your new video will be indexed using your Language model.
 
 ### Using a Language model to reindex
 
@@ -76,7 +76,7 @@ You'll see options to edit your video, delete you video, and reindex your video.
 
 ![Reindex with Video Indexer](./media/customize-language-model/reindex1.png)
 
-This gives you the option to select the **Video source language** to reindex your video with. Select the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
+You're given the option to select the **Video source language** to reindex your video with. Select the drop-down and select a Language model that you created from the list. It should say the language of your language model and the name that you gave it in parentheses.
 
 ![Choose video source language—Reindex a video with Video Indexer](./media/customize-language-model/reindex.png)
 
@@ -86,7 +86,7 @@ Select the **Re-index** button and your video will be reindexed using your Langu
 
 You can edit a Language model by changing its name, adding files to it, and deleting files from it.
 
-If you add or delete files from the Language model, you'll have to train the model again by clicking in the green **Train** option.
+If you add or delete files from the Language model, you'll have to train the model again by selecting the green **Train** option.
 
 ### Rename the Language model
 
@@ -96,7 +96,7 @@ Type in the new name and hit enter.
 
 ### Add files
 
-To add a text file, select **Add file**. This opens up your file explorer.
+To add a text file, select **Add file**. Your file explorer will open.
 
 Navigate to and select the text file. You can add multiple text files to a Language model.
 
@@ -104,7 +104,7 @@ You can also add a text file by selecting the ellipsis (**...**) button on the r
 
 ### Delete files
 
-To delete a file from the Language model, select the ellipsis (**...**) button on the right side of the text file and select **Delete**. This brings up a new window telling you that the deletion can't be undone. Select the **Delete** option in the new window.
+To delete a file from the Language model, select the ellipsis (**...**) button on the right side of the text file and select **Delete**. A new window pops up telling you that the deletion can't be undone. Select the **Delete** option in the new window.
 
 This action removes the file completely from the Language model.
 
@@ -112,7 +112,7 @@ This action removes the file completely from the Language model.
 
 To delete a Language model from your account, select the ellipsis (**...**) button on the right side of the Language model and select **Delete**.
 
-This brings up a new window telling you that the deletion can't be undone. Select the **Delete** option in the new window.
+A new window pops up telling you that the deletion can't be undone. Select the **Delete** option in the new window.
 
 This action removes the Language model completely from your account. Any video that was using the deleted Language model will keep the same index until you reindex the video. If you reindex the video, you can assign a new Language model to the video. Otherwise,  Video Indexer will use its default model to reindex the video.
 
