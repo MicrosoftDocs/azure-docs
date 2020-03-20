@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 Python SDK for files & ACLs (preview)
 description: Use Python manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 11/24/2019
+ms.date: 03/20/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
@@ -50,7 +50,7 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 This is the easiest way to connect to an account. 
 
-This example uses an account key to create a **DataLakeServiceClient** instance that represents the storage account. 
+This example creates a **DataLakeServiceClient** instance by using an account key.
 
 ```python
 try:  
@@ -69,11 +69,9 @@ except Exception as e:
 
 ### Connect by using Azure Active Directory (AD)
 
-First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-Then, you can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application. 
-
-This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) for more examples.
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
 ```python
 def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
@@ -89,6 +87,9 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
     except Exception as e:
         print(e)
 ```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
 
 ## Create a file system
 

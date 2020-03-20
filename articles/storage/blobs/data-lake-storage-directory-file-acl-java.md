@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 Java SDK for files & ACLs (preview)
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
@@ -57,7 +57,7 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 This is the easiest way to connect to an account. 
 
-This example creates an instance of the **DataLakeServiceClient** by using an account key.
+This example creates a **DataLakeServiceClient** instance by using an account key.
 
 ```java
 
@@ -78,11 +78,9 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
 ### Connect by using Azure Active Directory (Azure AD)
 
-First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Azure AD.
 
-Then, you can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application. 
-
-This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity)) for more examples.
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
 ```java
 static public DataLakeServiceClient GetDataLakeServiceClient
@@ -100,6 +98,10 @@ static public DataLakeServiceClient GetDataLakeServiceClient
     return builder.credential(clientSecretCredential).endpoint(endpoint).buildClient();
  } 
 ```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentation.
+
 
 ## Create a file system
 

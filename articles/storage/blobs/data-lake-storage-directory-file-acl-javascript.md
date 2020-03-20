@@ -3,7 +3,7 @@ title: Use JavaScript for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 description: Use Azure Storage Data Lake client library for JavaScript to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
@@ -48,7 +48,7 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 This is the easiest way to connect to an account. 
 
-This example creates an instance of the **DataLakeServiceClient** by using an account key.
+This example creates a **DataLakeServiceClient** instance by using an account key.
 
 ```javascript
 
@@ -65,15 +65,13 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 ```
 > [!NOTE]
-> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD). For guidance on how to do that, see the [Azure Storage File Data Lake client library for JavaScript](https://www.npmjs.com/package/@azure/storage-file-datalake) readme file. 
+> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD). 
 
 ### Connect by using Azure Active Directory (AD)
 
-First, you'll have to configure a service principal and register your application with an Azure AD tenant. see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
 
-Then, you can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application. 
-
-This example uses a client ID, a client secret, and a tenant ID but there are other ways to do this. See the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) for more examples.
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
 ```javascript
 function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
@@ -86,6 +84,9 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
   return datalakeServiceClient;             
 }
 ```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) documentation.
 
 ## Create a file system
 
