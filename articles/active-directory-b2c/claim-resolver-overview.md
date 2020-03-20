@@ -92,7 +92,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 
 | Claim | Description | Example |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | A query string parameter. | hawaii |
+| {OAUTH-KV:campaignId} | A query string parameter. | Hawaii |
 | {OAUTH-KV:app_session} | A query string parameter. | A3C5R |
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
@@ -141,7 +141,7 @@ Settings:
 
 ### RESTful technical profile
 
-In a [RESTful](restful-technical-profile.md) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on these claims the REST API can run custom business logic, and if necessary raise a localized error message.
+In a [RESTful](restful-technical-profile.md) technical profile, you may want to send the user language, policy name, scope, and client ID. Based on the claims the REST API can run custom business logic, and if necessary raise a localized error message.
 
 The following example shows a RESTful technical profile with this scenario:
 
@@ -173,7 +173,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints to dynamically render the page content. For example, this allows the ability to modify the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
-The following example passes in the query string parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
+The following example passes in the query string parameter named **campaignId** with a value of `Hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 
 ```XML
 <UserJourneyBehaviors>
