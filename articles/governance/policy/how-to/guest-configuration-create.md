@@ -27,7 +27,7 @@ machine.
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
 
-## Install the PowerShell module GuestConfiguration
+## Install the PowerShell module
 
 The process of creating a Guest Configuration artifact, automated testing of the artifact,
 creating a policy definition, and publishing the policy,
