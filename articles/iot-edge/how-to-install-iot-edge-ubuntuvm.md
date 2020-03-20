@@ -65,8 +65,8 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. If you want to SSH into this VM after setup, use the associated DNS Label with the command:
-    `ssh <adminUsername>@<DNSLabel>`
+1. If you want to SSH into this VM after setup, use the associated DNS Name with the command:
+    `ssh <adminUsername>@<DNS_Name>`
 
 ## Deploy from Azure CLI
 
@@ -144,8 +144,8 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. If you want to SSH into this VM after setup, use the associated DNS Label with the command:
-    `ssh <adminUsername>@<DNSLabel>`
+1. If you want to SSH into this VM after setup, use the associated DNS Name with the command:
+    `ssh <adminUsername>@<DNS_Name>`
 
 ## Next steps
 
