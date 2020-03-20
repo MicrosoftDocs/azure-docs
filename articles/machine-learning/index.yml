@@ -29,11 +29,11 @@ landingContent:
         links:
           - text: Python notebooks
             url: tutorial-1st-experiment-sdk-setup.md
-          - text: RStudio
-            url: tutorial-1st-r-experiment.md
           - text: The designer (drag & drop)
             url: tutorial-designer-automobile-price-train-score.md
-          - text: Automated ML
+          - text: RStudio
+            url: tutorial-1st-r-experiment.md
+          - text: Auto ML
             url: tutorial-first-experiment-automated-ml.md
       - linkListType: overview
         links:
@@ -41,12 +41,6 @@ landingContent:
             url: overview-what-is-azure-ml.md
           - text: Architecture and concepts
             url: concept-azure-machine-learning-architecture.md
-      - linkListType: how-to-guide
-        links:
-          - text: Set up your environment
-            url: how-to-configure-environment.md
-          - text: Set up training compute targets
-            url: how-to-set-up-training-targets.md    
             
   # PYTHON
   - title: 'Use the Python SDK'
@@ -57,10 +51,12 @@ landingContent:
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Classify images 
             url: tutorial-train-models-with-aml.md                     
-          - text: Predict taxi fares with automated ML
+          - text: Predict taxi fares with Auto ML
             url: tutorial-auto-train-models.md 
       - linkListType: how-to-guide
         links:
+          - text: Set up your environment
+            url: how-to-configure-environment.md
           - text: Train with Scikit-learn
             url: how-to-train-scikit-learn.md
           - text: Train with TensorFlow
@@ -95,12 +91,12 @@ landingContent:
             url: concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: how-to-deploy-and-where.md
+          - text: MLOps examples
+            url: https://github.com/microsoft/MLOps
           - text: Realtime prediction
             url: how-to-consume-web-service.md
           - text: Batch prediction 
             url: how-to-use-parallel-run-step.md
-          - text: End-to-end examples (GitHub)
-            url: https://github.com/microsoft/MLOps
           - text: Authentication
             url: how-to-setup-authentication.md
 
