@@ -28,7 +28,7 @@ The following sections provide an overview of common pitfalls when building pipe
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
 
-Pipelines themselves cannot be run locally, but running the scripts in isolation on your local machine allows you to debug faster because you don’t have to wait for the compute and environment build process. Some development work is required to do this:
+Pipelines themselves cannot be run locally, but running the scripts in isolation on your local machine allows you to debug faster because you don't have to wait for the compute and environment build process. Some development work is required to do this:
 
 * If your data is in a cloud datastore, you will need to download data and make it available to your script. Using a small sample of your data is a good way to cut down on runtime and quickly get feedback on script behavior
 * If you are attempting to simulate an intermediate pipeline step, you may need to manually build the object types that the particular script is expecting from the prior step
@@ -133,7 +133,7 @@ For pipelines created in the designer, you can find the **log files** on either 
 When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each module.
 
 1. Select any module in the authoring canvas.
-1. In the properties pane, go to the  **Logs** tab.
+1. In the right pane of the module, go to the  **Outputs+ogs** tab.
 1. Select the log file `70_driver_log.txt`
 
     ![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
@@ -145,7 +145,7 @@ You can also find the log files of specific runs in the pipeline run detail page
 1. Select a pipeline run created in the designer.
     ![Pipeline run page](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Select any module in the preview pane.
-1. In the properties pane, go to the **Logs** tab.
+1. In the right pane of the module, go to the  **Outputs+ogs** tab.
 1. Select the log file `70_driver_log.txt`
 
 ## Debug and troubleshoot in Application Insights
