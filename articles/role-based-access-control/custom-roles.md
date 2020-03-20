@@ -119,7 +119,7 @@ The following list describes the limits for custom roles.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
 
-For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-roles-and-management-groups-preview).
+For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
 ## Next steps
 - [Create or update Azure custom roles using the Azure portal (Preview)](custom-roles-portal.md)
