@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # What is batch transcription?
 
-Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
+Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. 
 
 The API offers asynchronous speech-to-text transcription and other features. You can use REST API to expose methods to:
 
