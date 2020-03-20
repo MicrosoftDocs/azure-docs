@@ -142,7 +142,7 @@ To enable the Repair Manager service:
 
 ### Configure Windows updates for all nodes
 
-Automatic Windows updates might lead to availability loss, because multiple cluster nodes can restart at the same time. POA, by default, tries to disable the automatic Windows updates on each cluster node. However, if the settings are managed by an administrator or a Group Policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
+Automatic Windows updates might lead to availability loss, because multiple cluster nodes can restart at the same time. POA, by default, tries to disable the automatic Windows updates on each cluster node. However, if the settings are managed by an administrator or a Group Policy, we recommend setting the Windows Update policy to "Notify before Download" explicitly.
 
 ## Download the application package
 
@@ -172,7 +172,7 @@ You can configure POA behavior to meet your needs. Override the default values b
 
 1. Finish all the prerequisite steps to prepare the cluster.
 1. Deploy POA like any other Service Fabric app. To deploy it by using PowerShell, see [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-1. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we’ve provided the script Deploy.ps1 along with the application. To use the script:
+1. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet. For your convenience, we've provided the script Deploy.ps1 along with the application. To use the script:
 
     - Connect to a Service Fabric cluster by using `Connect-ServiceFabricCluster`.
     - Execute the PowerShell script Deploy.ps1 with the appropriate `ApplicationParameter` value.
@@ -433,11 +433,15 @@ It might also be possible that node patching is blocked because it's stuck in *D
 
 A: POA disables the node with a *Restart* intent, which stops or reallocates all the Service Fabric services that are running on the node. POA does this to ensure that applications don't end up using a mix of new and old DLLs, so we recommend not patching a node without disabling it.
 
+**Q: What is the maximum number of Nodes that can updated using Patch Orchestration Agent ?**
+
+A: POA currently creates Repair Tasks for each node at the same time . Service Fabric Repair Manager, at any point of time hold no more than 250 Repair Tasks. So POA can be used to Patch Clusters with less than 250 Nodes.
+
 ## Disclaimers
 
 - POA accepts the End-User License Agreement for Windows Update on behalf of the user. Optionally, the setting can be turned off in the configuration of the application.
 
-- POA collects telemetry to track usage and performance. The application’s telemetry follows the setting of the Service Fabric runtime’s telemetry setting (which is on by default).
+- POA collects telemetry to track usage and performance. The application's telemetry follows the setting of the Service Fabric runtime's telemetry setting (which is on by default).
 
 ## Troubleshooting
 
