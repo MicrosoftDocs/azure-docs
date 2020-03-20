@@ -66,6 +66,8 @@
       href: how-to-configure-firewall-settings.md
     - name: Specify Marketplace images for labs 
       href: specify-marketplace-images.md
+    - name: Specify support information (lab account owner)
+      href: lab-account-owner-support-information.md
   - name: Create and configure classroom labs (instructor)
     items:        
     - name: Create and manage classroom labs
@@ -96,6 +98,8 @@
         href: how-to-enable-nested-virtualization-template-vm-using-script.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
+    - name: View support information (instructor)
+      href: lab-creator-support-information.md      
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs
@@ -105,7 +109,9 @@
     - name: Connect to a VM from Mac using RDP
       href: connect-virtual-machine-mac-rdp.md
     - name: Set or reset passwords for virtual machines 
-      href: how-to-set-virtual-machine-passwords-student.md        
+      href: how-to-set-virtual-machine-passwords-student.md 
+    - name: View support information (student)
+      href: lab-user-support-information.md             
 - name: Reference
   items:
   - name: REST API
