@@ -4,7 +4,7 @@ description: Learn about Azure File Sync's feature Cloud Tiering
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -15,10 +15,8 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is stored in Azure. 
  
  > [!Important]  
- > Cloud tiering is not supported for server endpoints on the Windows system volumes, and only files greater than 64 KiB in size can be tiered to Azure Files.
+ > Cloud tiering is not supported on the Windows system volume.
     
-Azure File Sync does not support tiering files smaller than 64 KiB as the performance overhead of tiering and recalling such small files would outweigh the space savings.
-
  > [!Important]  
  > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
@@ -29,6 +27,10 @@ Azure File Sync does not support tiering files smaller than 64 KiB as the perfor
 The Azure File Sync system filter builds a "heatmap" of your namespace on each server endpoint. It monitors accesses (read and write operations) over time and then, based on both the frequency and recency of access, assigns a heat score to every file. A frequently accessed file that was recently opened will be considered hot, whereas a file that is barely touched and has not been accessed for some time will be considered cool. When the file volume on a server exceeds the volume free space threshold you set, it will tier the coolest files to Azure Files until your free space percentage is met.
 
 In versions 4.0 and above of the Azure File Sync agent, you can additionally specify a date policy on each server endpoint that will tier any files not accessed or modified within a specified number of days.
+
+<a id="tiering-minimum-file-size"></a>
+### What is the minimum file size for a file to tier?
+For agent versions 9.x and newer, the minimum file size for a file to tier is based on the file system cluster size (double the file system cluster size). For example, if the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. For agent versions 8.x and older, the minimum file size for a file to tier is 64KB.
 
 <a id="afs-volume-free-space"></a>
 ### How does the volume free space tiering policy work?

@@ -99,6 +99,13 @@ The lab creator (instructor/professor) can connect to a student VM if the follow
 > [!NOTE]
 > When the professor starts the VM and connects to it, the student quota is unaffected. 
 
+## Export list of virtual machines to a CSV file
+
+1. Switch to the **Virtual machine pool** tab.
+2. Select **...** (ellipsis) on the toolbar and then select **Export CSV**. 
+
+    ![Export list of virtual machines](../media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
+
 ## Next steps
 To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).
 

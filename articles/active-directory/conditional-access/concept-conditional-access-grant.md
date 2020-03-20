@@ -32,7 +32,7 @@ Block is a powerful control that should be wielded with appropriate knowledge. I
 Administrators can choose to enforce one or more controls when granting access. These controls include the following options: 
 
 - [Require multi-factor authentication (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
-- [Require device to be marked as compliant (Microsoft Intune)](https://docs.microsoft.com/intune/protect/device-compliance-get-started)
+- [Require device to be marked as compliant (Microsoft Intune)](/intune/protect/device-compliance-get-started)
 - [Require hybrid Azure AD joined device](../devices/concept-azure-ad-join-hybrid.md)
 - [Require approved client app](app-based-conditional-access.md)
 - [Require app protection policy](app-protection-based-conditional-access.md)
@@ -50,7 +50,7 @@ Selecting this checkbox will require users to perform Azure Multi-Factor Authent
 
 ### Require device to be marked as compliant
 
-Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet specific compliance requirements. This policy compliance information is forwarded from Intune to Azure AD where Conditional Access can make decisions to grant or block access to resources. For more information about compliance policies, see the article [Set rules on devices to allow access to resources in your organization using Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
+Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet specific compliance requirements. This policy compliance information is forwarded from Intune to Azure AD where Conditional Access can make decisions to grant or block access to resources. For more information about compliance policies, see the article [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started).
 
 A device can be marked as compliant by Intune (for any device OS) or by third-party MDM system for Windows 10 devices. Jamf pro is the only supported third-party MDM system. More information about integration can be found in the article, [Integrate Jamf Pro with Intune for compliance](/intune/protect/conditional-access-integrate-jamf).
 
@@ -64,7 +64,7 @@ Organizations can choose to use the device identity as part of their Conditional
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-This setting applies to the following client apps:
+This setting applies to the following iOS and Android apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
@@ -77,6 +77,8 @@ This setting applies to the following client apps:
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
+- Microsoft Office
+- Microsoft Office Hub
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

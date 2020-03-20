@@ -29,7 +29,7 @@
         href: create-sql-api-xamarin-dotnet.md
   - name: Tutorials
     items:
-    - name: 1 - Create & manage data
+    - name: 1 - Create and manage data
       items:
       - name: Build a console app
         items:
@@ -53,7 +53,7 @@
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
       items:
-       - name: Using Data migration tool
+       - name: Using the Data Migration tool
          href: import-data.md
        - name: Using .NET bulk support
          href: tutorial-sql-api-dotnet-bulk-import.md
@@ -85,11 +85,11 @@
       href: resource-manager-samples.md
   - name: Concepts
     items:
-    - name: NoSQL Vs relational databases
+    - name: NoSQL vs. relational databases
       href: relational-nosql.md
     - name: Global distribution
       items:
-      - name: Overview
+      - name: Global distribution overview
         displayName: replication, replicate, geo distribution
         href: distribute-data-globally.md
       - name: Consistency levels
@@ -118,7 +118,7 @@
         href: globally-distributed-transactional-analytical-storage.md
     - name: Partitioning
       items:
-      - name: Overview
+      - name: Partitioning overview
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
@@ -461,7 +461,7 @@
         href: modeling-data.md
       - name: Indexing
         items:
-        - name: Overview
+        - name: Indexing overview
           displayName: range, spatial
           href: index-overview.md
         - name: Indexing policies
@@ -476,7 +476,7 @@
         href: database-transactions-optimistic-concurrency.md
     - name: Change feed
       items:
-      - name: Overview
+      - name: Change feed overview
         href: change-feed.md
       - name: Reading change feed
         href: read-change-feed.md
@@ -530,7 +530,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
-        - name: Overview
+        - name: Security overview
           href: database-security.md
         - name: Data encryption
           href: database-encryption-at-rest.md
@@ -549,8 +549,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
-        - name: Built-in security controls
-          href: cosmos-db-security-controls.md
+        - name: Security baseline
+          href: security-baseline.md
     - name: Enterprise readiness
       items:
       - name: Online backup and on-demand restore
@@ -564,12 +564,12 @@
     items:
     - name: Cassandra API
       items:
-      - name: Introduction
-        href: cassandra-introduction.md
-      - name: Wire protocol support
-        href: cassandra-support.md
-      - name: Elastic scale
-        href: manage-scale-cassandra.md
+      - name: Overview
+        items:
+        - name: What is Cassandra API in Cosmos DB?
+          href: cassandra-introduction.md
+        - name: Wire protocol support
+          href: cassandra-support.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -582,7 +582,7 @@
           href: create-cassandra-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create & manage data
+        - name: 1 - Create and manage data
           href: create-cassandra-api-account-java.md
         - name: 2 - Load data
           href: cassandra-api-load-data.md
@@ -591,13 +591,17 @@
         - name: 4 - Migrate data
           displayName: import
           href: cassandra-import-data.md
+      - name: Concepts
+        items:
+        - name: Elastic scale
+          href: manage-scale-cassandra.md
       - name: How-to guides
         items:
         - name: Change feed
           href: cassandra-change-feed.md
-        - name: Store and manage Spring Data
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Cassandra & Spark
+        - name: Store and manage Spring Data 
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
+        - name: Cassandra and Spark
           items:
           - name: Introduction
             href: cassandra-spark-generic.md
@@ -605,7 +609,7 @@
             href: cassandra-spark-databricks.md
           - name: Connect using HDInsight
             href: cassandra-spark-hdinsight.md
-          - name: Create keyspace & table
+          - name: Create keyspace and table
             href: cassandra-spark-ddl-ops.md
           - name: Insert data
             href: cassandra-spark-create-ops.md
@@ -628,12 +632,14 @@
           href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
-      - name: Introduction
-        href: mongodb-introduction.md
-      - name: Wire protocol support (3.2)
-        href: mongodb-feature-support.md
-      - name: Wire protocol support (3.6)
-        href: mongodb-feature-support-36.md
+      - name: Overview
+        items:
+        - name: What is MongoDB API in Cosmos DB?
+          href: mongodb-introduction.md
+        - name: Wire protocol support (3.2)
+          href: mongodb-feature-support.md
+        - name: Wire protocol support (3.6)
+          href: mongodb-feature-support-36.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -650,7 +656,7 @@
           href: create-mongodb-golang.md
       - name: Tutorials
         items:
-        - name: 1 - Create & manage data
+        - name: 1 - Create and manage data
           items:
           - name: Node.js console app
             href: mongodb-samples.md
@@ -703,7 +709,7 @@
         - name: Manage data indexing
           href: mongodb-indexing.md
         - name: Store and manage Spring Data
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -719,10 +725,12 @@
     - name: Gremlin API
       displayName: graph, graph database
       items:
-      - name: Introduction
-        href: graph-introduction.md
-      - name: Wire protocol support
-        href: gremlin-support.md
+      - name: Overview
+        items:
+        - name: What is Germlin API in Cosmos DB?
+          href: graph-introduction.md
+        - name: Wire protocol support
+          href: gremlin-support.md
       - name: Quickstarts
         items:
         - name: Gremlin console
@@ -768,7 +776,7 @@
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Manage using Resource Manager templates
           href: manage-gremlin-with-resource-manager.md
           displayName: ARM
@@ -778,8 +786,10 @@
           href: cli-samples-gremlin.md
     - name: Table API
       items:
-      - name: Introduction
-        href: table-introduction.md
+      - name: Overview
+        items:
+        - name: What is Table API in Cosmos DB?
+          href: table-introduction.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -792,7 +802,7 @@
           href: create-table-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create & manage data
+        - name: 1 - Create and manage data
           href: tutorial-develop-table-dotnet.md
         - name: 2 - Migrate data
           displayName: import
@@ -849,10 +859,14 @@
             href: /rest/api/storageservices/table-service-rest-api
     - name: Etcd API
       items:
-      - name: Introduction
-        href: etcd-api-introduction.md
-      - name: Azure Kubernetes with Azure Cosmos DB
-        href: bootstrap-kubernetes-cluster.md
+      - name: Overview
+        items:
+        - name: What is Etcd API in Cosmos DB
+          href: etcd-api-introduction.md
+      - name: How-to guides
+        items:
+        - name: Azure Kubernetes with Azure Cosmos DB
+          href: bootstrap-kubernetes-cluster.md
   - name: How-to guides
     items:
     - name: Work with Azure Cosmos account
@@ -975,11 +989,11 @@
         href: use-notebook-features-and-commands.md
     - name : Server-side programming
       items:
-      - name: Write stored procedures, triggers, & UDFs
+      - name: Write stored procedures, triggers, and UDFs
         href: how-to-write-stored-procedures-triggers-udfs.md
-      - name: Write stored procedures & triggers with JavaScript query API
+      - name: Write stored procedures and triggers with JavaScript query API
         href: how-to-write-javascript-query-api.md
-      - name: Use stored procedures, triggers, & UDFs
+      - name: Use stored procedures, triggers, and UDFs
         href: how-to-use-stored-procedures-triggers-udfs.md
     - name: Security
       items:
@@ -1059,9 +1073,9 @@
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
-        href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
       - name: Spring Data developer guide
-        href: https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        href: https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context
       - name: ODBC driver
         href: odbc-driver.md
     - name: Migrate data to Cosmos DB

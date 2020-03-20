@@ -31,7 +31,7 @@ Azure DDoS protection, combined with application design best practices, provide 
 |Metrics & alerts                                |No                                    |Real time attack metrics & diagnostic logs via                                                                                            Azure monitor                                 |
 |Mitigation reports                              |No                                    |Post attack mitigation reports                |
 |Mitigation flow logs                            |No                                    |NRT log stream for SIEM integration           |
-|Migration policy customizations                 |No                                    |Engage DDoS Experts                           |
+|Mitigation policy customization                 |No                                    |Engage DDoS Experts                           |
 |Support                                         |Best effort                           |Access to DDoS Experts during an active attack|
 |SLA                                             |Azure Region                          |Application guarantee & cost protection       |
 |Pricing                                         |Free                                  |Monthly & usage based                         |

@@ -52,7 +52,8 @@
     href: named-entity-types.md
   - name: Language and region support
     href: language-support.md
-
+  - name: Text offsets
+    href: concepts/text-offsets.md
 - name: How-to guides
   items:
    - name: Call the Text Analytics API
