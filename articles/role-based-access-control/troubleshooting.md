@@ -132,7 +132,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 Azure Resource Manager sometimes caches configurations and data to improve performance. When you add or remove role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
-If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for 8-24 hours. This applies only to management group scope and the data plane.
+If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
 
 ## Web app features that require write access
 
