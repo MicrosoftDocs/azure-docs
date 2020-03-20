@@ -445,7 +445,7 @@ audit. For details about using the tool, see the article
 Once the content has been converted, the steps above to create a package and publish it as Azure
 Policy are the same as for any DSC content.
 
-## OPTIONAL: Signing Guest Configuration packages
+## Optional: Signing Guest Configuration packages
 
 Guest Configuration custom policies by default use SHA256 hash to validate the policy package hasn't
 changed from when it was published to when it's read by the server that is being audited.
