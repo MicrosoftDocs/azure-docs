@@ -1,5 +1,5 @@
 ---
-title: Accelerated Classroom Lab Setup Guide for Azure Lab Services
+title: Accelerated classroom lab setup uide for Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -17,11 +17,11 @@ ms.author: spelluru
 
 ---
 
-# Classroom Lab Setup Guide
+# Classroom lab setup guide
 
 The process for publishing a lab to your students can take up to several hours depending on the number of virtual machines (VMs) that will be created in your lab.  You should give yourself at least a day to set up a lab to ensure that it's working properly and to allow enough time to publish students' VMs.
 
-## Understand Your Class's Lab Requirements
+## Understand your class's lab requirements
 
 Before you set up a new lab, you should consider the following questions:
 
@@ -33,7 +33,7 @@ Based on your class's learning objectives, you should decide which OS, applicati
 
 - **Create a new custom image** - You may create your own custom image by using a marketplace image as a starting point and customizing it by installing additional software, making configuration changes, etc.
 
-- **Use an existing custom image** - You may reuse existing custom images that you previously created or that were created by other administrators\faculty at your school; this requires your administrators to have configured a Shared Image Gallery which is a repository for saving custom images.
+- **Use an existing custom image** - You may reuse existing custom images that you previously created or that were created by other administrators or faculty at your school; this requires your administrators to have configured a Shared Image Gallery which is a repository for saving custom images.
 
 > [!NOTE]
 > Your administrators are responsible for enabling Marketplace and custom images so that you can use them; you will need to coordinate with your IT department to ensure that images that you need are enabled.  Custom images that you create are automatically enabled for use within labs that you own.
@@ -77,7 +77,7 @@ For RDP to Windows VMs, we recommend students use [Microsoft Remote Desktop clie
 
 For Linux VMs, students may use either SSH or RDP.   To connect using RDP, you are responsible for installing and configuring the necessary RDP and GUI packages.  More details on this is provided below.
 
-## Set Up Your Lab
+## Set up your lab
 
 Once you understand the requirements for your class's lab, you are ready to set it up.  Follow the links in this section to see how to set up your lab.
 
@@ -132,7 +132,7 @@ Once you understand the requirements for your class's lab, you are ready to set 
     > [!NOTE]
     > The estimated costs shown in the dashboard is the maximum cost that you can expect for students usage of the lab.  For example, you will *not* be charged for unused quota hours by your students.  The estimated costs do *not* reflect any charges for using the template VM or the Shared Image Gallery.
 
-## Next Steps
+## Next steps
 
 See the following articles:
 
