@@ -15,7 +15,7 @@ ms.subservice: data-lake-storage-gen2
 Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
 
 > [!NOTE]
-> The query acceleration feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 
+> The query acceleration feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
 ## Overview
 
@@ -49,7 +49,7 @@ Despite the change to the billing model, Query acceleration's pricing model is d
 
 ## Next steps
 
-- [Query acceleration enrollment form](https://aka.ms/adlsquickquerypreview)    
+- [Query acceleration enrollment form](https://aka.ms/adls/qa-preview-signup)    
 - [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md)
 - Query acceleration SQL language reference
 - Query acceleration REST API reference

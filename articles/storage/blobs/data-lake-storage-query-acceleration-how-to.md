@@ -17,7 +17,7 @@ This article shows you how to use .NET and query acceleration (Preview) to retri
 Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
 
 > [!NOTE]
-> The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/queryaccelerationpreview). 
+> The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
 ## Prerequisites
 
@@ -102,6 +102,11 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
       <artifactId>avro</artifactId>
       <version>1.9.2</version>
    </dependency>
+   <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-csv</artifactId>
+    <version>1.8</version>
+</dependency>
    <!-- Local dependencies -->
    <dependency>
        <groupId>com.azure</groupId>
@@ -160,12 +165,7 @@ import com.azure.storage.common.*;
 import com.azure.storage.quickquery.*;
 import com.azure.storage.quickquery.models.*;
 import java.io.*;
-```
-
-The examples presented in this article also depend on these `import` statements.
-
-```java
-import com.azure.storage.blob.ProgressReceiver;
+import org.apache.commons.csv.*;
 ```
 
 ---
@@ -182,7 +182,7 @@ You can use SQL to specify the row filter predicates and column projections in a
 
 The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
 
-```csharp
+```cs
 static async Task QueryHemingway(BlockBlobClient blob)
 {
     string query = @"SELECT * FROM BlobStorage WHERE _3 = 'Hemingway, Ernest'";
@@ -252,39 +252,42 @@ static void QueryHemingway(BlobClient blobClient) {
 
 static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
     try {
-
+    
         BlobQuickQueryDelimitedSerialization input = new BlobQuickQueryDelimitedSerialization()
             .setRecordSeparator('\n')
             .setColumnSeparator(',')
             .setHeadersPresent(headers)
             .setFieldQuote('\0')
             .setEscapeChar('\\');
+
         BlobQuickQueryDelimitedSerialization output = new BlobQuickQueryDelimitedSerialization()
             .setRecordSeparator('\n')
             .setColumnSeparator(',')
             .setHeadersPresent(false)
             .setFieldQuote('\0')
             .setEscapeChar('\n');
+                
         BlobRequestConditions requestConditions = null;
         /* ErrorReceiver determines what to do on errors. */
         ErrorReceiver<BlobQuickQueryError> errorReceiver = System.out::println;
-        /* ProgressReceiver details how to log progress*/
-        ProgressReceiver progressReceiver = System.out::println;
 
+        /* ProgressReceiver details how to log progress*/
+        com.azure.storage.common.ProgressReceiver progressReceiver = System.out::println;
+    
         /* Create a query acceleration client to the blob. */
         BlobQuickQueryClient qqClient = new BlobQuickQueryClientBuilder(blobClient)
             .buildClient();
         /* Open the query input stream. */
         InputStream stream = qqClient.openInputStream(query, input, output, requestConditions, errorReceiver, progressReceiver);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream);
-
-        /* Read from stream like you normally would. */
-        String line = null;
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
+            
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream))) {
+            /* Read from stream like you normally would. */
+            for (CSVRecord record : CSVParser.parse(reader, CSVFormat.EXCEL)) {
+                System.out.println(record.toString());
+            }
         }
     } catch (Exception e) {
-        System.err.println("Exception: " + e.toString();
+        System.err.println("Exception: " + e.toString());
     }
 }
 ```
@@ -300,7 +303,7 @@ This code retrieves only the `PublicationYear` column for all books in the data 
 
 ### [.NET](#tab/dotnet)
 
-```csharp
+```cs
 static async Task QueryPublishDates(BlockBlobClient blob)
 {
     string query = @"SELECT PublicationYear FROM BlobStorage";
@@ -314,7 +317,7 @@ static async Task QueryPublishDates(BlockBlobClient blob)
 static void QueryPublishDates(BlobClient blobClient)
 {
     String expression = "SELECT PublicationYear FROM BlobStorage";
-    await DumpQueryCsv(blobClient, expression, true);
+    DumpQueryCsv(blobClient, expression, true);
 }
 ```
 
@@ -324,7 +327,7 @@ The following code combines row filtering and column projections into the same q
 
 ### [.NET](#tab/dotnet)
 
-```csharp
+```cs
 static async Task QueryMysteryBooks(BlockBlobClient blob)
 {
     string query = @"SELECT BibNum, Title, Author, ISBN, Publisher FROM BlobStorage WHERE Subjects LIKE '%Mystery%'";
