@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory

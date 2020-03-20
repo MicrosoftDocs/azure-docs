@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
-This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to\ sign up and sign in users in a single-page application (SPA). Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA).
 
 In this tutorial, the first in a two-part series:
 
@@ -87,13 +87,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
 
 1. Open the *authConfig.js* file inside the *JavaScriptSPA* folder.
-1. In the `msalConfig` object, modify the `clientId` value with the Application (client) ID you recorded in an earlier step. Next, update the `authority` URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *B2C_1_signupsignin1*).
+1. In the `msalConfig` object, update:
+    * `clientId` with value with the **Application (client) ID** you recorded in an earlier step
+    * `authority` URI with your Azure AD B2C tenant name and the name of the sign-up/sign-in user flow you created as part of the prerequisites (for example, *B2C_1_signupsignin1*)
 
     ```javascript
     const msalConfig = {
         auth: {
             clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
+            authority: "https://your-b2c-tenant.b2clogin.com//your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
             validateAuthority: false
         },
         cache: {
@@ -102,8 +104,6 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
         }
     };
     ```
-
-    The name of the user flow used in this tutorial is *B2C_1_signupsignin1*. If you're using a different user flow name, specify its name in the `authority` value.
 
 ## Run the sample
 
@@ -124,29 +124,39 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
     ```console
     Listening on port 6420...
     ```
-1. Browse to `http://localhost:6420` to view the web application.
+1. Browse to `http://localhost:6420` to view the web application running on your local machine.
 
-The sample supports sign-up, sign-in, and password reset. In this tutorial, you sign up using an email address.
+    :::image type="content" source="media/tutorial-single-page-app/web-app-spa-01-not-logged-in.png" alt-text="Web browser showing single-page application running locally":::
 
 ### Sign up using an email address
 
-1. Select **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
-1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, select the **Sign up now** link.
-1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
+This sample application supports sign up, sign in, and password reset. In this tutorial, you sign up using an email address.
+
+1. Select **Sign In** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
+1. Azure AD B2C presents a sign-in page that includes a sign up link. Since you don't yet have an account, select the **Sign up now** link.
+1. The sign up workflow presents a page to collect and verify the user's identity using an email address. The sign up workflow also collects the user's password and the requested attributes defined in the user flow.
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up page presented by the sign-in/sign-up user flow](./media/tutorial-single-page-app/azure-ad-b2c-sign-up-workflow.png)
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Sign up page displayed by Azure AD B2C user flow":::
 
 1. Select **Create** to create a local account in the Azure AD B2C directory.
 
-When you select **Create**, the sign up page closes and the sign in page reappears.
+When you select **Create**, the application shows the name of the signed in user.
 
-You can now use your email address and password to sign in to the application.
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Web browser showing single-page application with logged in user":::
+
+If you'd like to test sign-in, select the **Sign Out** button, then select **Sign In** and sign in with the email address and password you entered when you signed up.
+
+### What about calling the API?
+
+If you select the **Call API** button after signing in, you're presented with the sign-up/sign-in user flow page instead of the results of the API call. This is expected because you haven't yet configured the API portion of the application to communicate with a web API application registered in *your* Azure AD B2C tenant. At this point, the application is still trying to communicate with the API registered in the demo tenant (*fabrikamb2c.onmicrosoft.com*), and because you're not authenticated with that tenant, the sign-up/sign-in page is displayed.
+
+Move on to the next tutorial in the series in to enable the protected API (see the [Next steps](#next-steps) section).
 
 ## Next steps
 
-In this tutorial, you enabled the sign-up/sign-in feature of a single-page application:
+In this tutorial, you configured a single-page application to work with a user flow in your Azure AD B2C tenant to provide sign up and sign in capability. You completed these steps:
 
 > [!div class="checklist"]
 > * Added a reply URL to an application registered in your Azure AD B2C tenant
