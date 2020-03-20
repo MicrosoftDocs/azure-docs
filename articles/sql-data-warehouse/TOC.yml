@@ -211,6 +211,8 @@
     items:
     # - name: Dynamic SQL
     #   href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Read committed snapshot isolation
+      href: /sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
     # - name: Group by options
     #   href: sql-data-warehouse-develop-group-by-options.md
     # - name: Labels

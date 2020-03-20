@@ -5,10 +5,11 @@ services: sql-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
-ms.date: 02/26/2020
-ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.subservice: 
+ms.date: 05/01/2019
+ms.author: xiaoyul
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 
