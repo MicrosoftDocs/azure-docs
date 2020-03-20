@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -371,7 +371,8 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 
 ## Next steps
 
-You can find more information about the [SAML protocol on the OASIS website](https://www.oasis-open.org/).
+- You can find more information about the [SAML protocol on the OASIS website](https://www.oasis-open.org/).
+- Get the SAML test web app from [Azure AD GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp
