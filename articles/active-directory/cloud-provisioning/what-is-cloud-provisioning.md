@@ -10,7 +10,6 @@ ms.topic: overview
 ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.topic: conceptual
 ms.collection: M365-identity-device-management
 ---
 
@@ -52,7 +51,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Supports installation on a Domain Controller |● |● |
 | Support for Windows Server 2012 and Windows Server 2012 R2 |● |● |
 | Filter on Domains/OUs/groups |● |● |
-| Filter on objects’ attribute values |● | |
+| Filter on objects' attribute values |● | |
 | Allow minimal set of attributes to be synchronized (MinSync) |● |● |
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
