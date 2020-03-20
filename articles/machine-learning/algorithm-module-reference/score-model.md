@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
 ---
 # Score Model module
 
@@ -25,7 +25,7 @@ Use this module to generate predictions using a trained classification or regres
 
     The data should be in a format compatible with the type of trained model you are using. The schema of the input dataset should also generally match the schema of the data used to train the model.
 
-3. Run the pipeline.
+3. Submit the pipeline.
 
 ## Results
 
@@ -39,7 +39,7 @@ The score, or predicted value, can be in many different formats, depending on th
 
 - For classification models, [Score Model](./score-model.md) outputs a predicted value for the class, as well as the probability of the predicted value.
 - For regression models, [Score Model](./score-model.md) generates just the predicted numeric value.
-- For image classification models, the score might be the class of object in the image, or a Boolean indicating whether a particular feature was found.
+
 
 ## Publish scores as a web service
 

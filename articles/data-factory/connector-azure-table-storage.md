@@ -234,13 +234,16 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 
 ### azureTableSourceQuery examples
 
-If the Azure Table column is of the datetime type:
+>[!NOTE]
+>Azure Table query operation times out in 30 seconds as [enforced by Azure Table service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Learn how to optimize the query from [Design for querying](../storage/tables/table-storage-design-for-query.md) article.
+
+In Azure Data Factory, if you want to filter the data against a datetime type column, refer to this example:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-If the Azure Table column is of the string type:
+If you want to filter the data against a string type column, refer to this example:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"

@@ -7,12 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ---
 # Use the sample datasets in Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 [top]: #machine-learning-sample-datasets
 
 When you create a new workspace in Azure Machine Learning Studio (classic), a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure AI Gallery](https://gallery.azure.ai/). Others are included as examples of various types of data typically used in machine learning.

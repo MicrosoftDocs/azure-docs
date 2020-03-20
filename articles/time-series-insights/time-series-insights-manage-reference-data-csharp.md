@@ -17,6 +17,9 @@ ms.custom: seodec18
 
 This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
+> [!TIP]
+> View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
 ## Summary
 
 The sample code below demonstrates the following features:
@@ -47,9 +50,6 @@ Complete the following steps before you compile and run the sample code:
 1. Edit the sample code below by replacing each **#PLACEHOLDER#** with the appropriate environment identifier.
 
 1. Run `dotnet run` within the root directory of your project. When prompted, use your user profile to sign in to Azure. 
-
-> [!TIP]
-> * View other GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## Project dependencies
 

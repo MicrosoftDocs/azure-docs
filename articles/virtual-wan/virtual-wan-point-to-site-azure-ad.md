@@ -1,22 +1,22 @@
 ---
-title: 'Configure Azure AD authentication for Point-to-Site connection to Azure | Microsoft Docs'
-description: In this tutorial, learn how to configure Azure Active Directory authentication for User VPN.
+title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
+description: Learn how to configure Azure Active Directory authentication for User VPN.
 services: virtual-wan
 author: anzaman
 
 ms.service: virtual-wan
-ms.topic: tutorial
-ms.date: 12/02/2019
+ms.topic: conceptual
+ms.date: 03/17/2020
 ms.author: alzam
 
 ---
-# Tutorial: Create a User VPN connection by using Azure Virtual WAN
+# Configure Azure Active Directory authentication for User VPN
 
-This tutorial shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
+This article shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
 
 This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a WAN
@@ -27,7 +27,6 @@ In this tutorial, you learn how to:
 > * Connect a VNet to a hub
 > * Download and apply the VPN client configuration
 > * View your virtual WAN
-> * View resource health
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -82,19 +81,17 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 A P2S configuration defines the parameters for connecting remote clients.
 
-1. Set the following variables, replacing values as needed for your environment.
+1. Under your virtual WAN, select **User VPN configurations**.
 
-   ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
-   ```
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Run the following commands to create the configuration:
+2. click **+Create user VPN config**.
 
-   ```powershell
-   $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-   ```
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+
+3. Enter the information and click **Create**
+
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="hub"></a>Edit hub assignment
 
@@ -121,15 +118,15 @@ Use the VPN profile to configure your clients.
 
 ## Configure user VPN clients
 
-To connect, you need to download the Azure VPN Client (Preview) and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
+To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 #### To download the Azure VPN client
 
-Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
+Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client.
 
 #### <a name="import"></a>To import a client profile
 
@@ -184,13 +181,8 @@ Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 ## <a name="viewwan"></a>View your virtual WAN
 
 1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
+2. On the Overview page, each point on the map represents a hub.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
 
 ## <a name="cleanup"></a>Clean up resources

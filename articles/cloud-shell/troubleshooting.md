@@ -25,6 +25,11 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ## General troubleshooting
 
+### Error running AzureAD cmdlets in PowerShell
+
+- **Details**: When you run AzureAD cmdlets like `Get-AzureADUser` in Cloud Shell, you might see an error: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **Resolution**: Run the `Connect-AzureAD` cmdlet. Previously, Cloud Shell ran this cmdlet automatically during PowerShell startup. To speed up start time, the cmdlet no longer runs automatically. You can choose to restore the previous behavior by adding `Connect-AzureAD` to the $PROFILE file in PowerShell.
+
 ### Early timeouts in FireFox
 
 - **Details**: Cloud Shell utilizes an open websocket to pass input/output to your browser. FireFox has preset policies that can close the websocket prematurely causing early timeouts in Cloud Shell.
@@ -32,8 +37,8 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ### Disabling Cloud Shell in a locked down network environment
 
-- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com.
-- **Resolution**: Restrict access to `ux.console.azure.com` via network settings to your environment. The Cloud Shell icon will still exist in portal.azure.com, but will not successfully connect to the service.
+- **Details**: Administrators may wish to disable access to Cloud Shell for their users. Cloud Shell utilizes access to the `ux.console.azure.com` domain, which can be denied, stopping any access to Cloud Shell's entrypoints including portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension, and docs.microsoft.com. In the US Government cloud, the entrypoint is `ux.console.azure.us`; there is no corresponding shell.azure.us.
+- **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` via network settings to your environment. The Cloud Shell icon will still exist in the Azure portal, but will not successfully connect to the service.
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
 
@@ -204,3 +209,6 @@ PowerShell:
   ```
 ## Azure Government limitations
 Azure Cloud Shell in Azure Government is only accessible through the Azure portal.
+
+>[!Note]
+> Connecting to GCC-High or Government DoD Clouds for Exchange Online is currently not supported.

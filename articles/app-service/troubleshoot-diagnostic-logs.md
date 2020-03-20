@@ -183,7 +183,7 @@ The following table shows the supported log types and descriptions:
 | AppServiceHTTPLogs | Yes | Yes | Web server logs |
 | AppServiceEnvironmentPlatformLogs | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | TBA | TBA | File changes via FTP and Kudu |
+| AppServiceFileAuditLogs | TBA | Yes | File changes via FTP and Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
 
 ## <a name="nextsteps"></a> Next steps

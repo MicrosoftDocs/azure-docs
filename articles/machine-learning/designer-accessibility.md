@@ -19,7 +19,7 @@ This workflow has been tested with [Narrator](https://support.microsoft.com/help
 
 ## Navigate the pipeline graph
 
-The pipeline graph is organized as a list of lists. The top-level module list contains all of the module in the pipeline. Each item in the module list contains a connection list that describes all of its connections. 
+The pipeline graph is organized as a nested list. The outer list is a module list, which describes all the modules in the pipeline graph. The inner list is a connection list, which describes all the connections of a specific module.  
 
 1. In the module list, use the arrow key to switch modules.
 1. Use tab to open the connection list for the target module.

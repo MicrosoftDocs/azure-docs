@@ -6,8 +6,8 @@
     href: scheduler-intro.md
 - name: Get started
   items:
-  - name: Create and manage jobs - portal
-    href: scheduler-get-started-portal.md
+  - name: Create and manage schedules - Azure PowerShell
+    href: scheduler-powershell-reference.md
   - name: Migrate from Scheduler to Logic Apps
     href: migrate-from-scheduler-to-logic-apps.md
 - name: Concepts

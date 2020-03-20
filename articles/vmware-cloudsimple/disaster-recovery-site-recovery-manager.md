@@ -218,7 +218,7 @@ You have full control over vSphere Replication and SRM software in your Private 
 
 * [VMware Site Recovery Manager Documentation](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
 * [Operational limits for Site Recovery Manager 6.5](https://kb.vmware.com/s/article/2147110)
-* [Calculating bandwidth requirements for vSphere Replication](https://kb.vmware.com/s/article/2037268)
+* [Calculating bandwidth requirements for vSphere Replication](https://docs.vmware.com/en/vSphere-Replication/6.5/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 * [OVF Choices When Deploying vSphere Replication 6.5](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [VMware vSphere Replication 6.5 Installation and Configuration](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [Prerequisites and Best Practices for SRM 6.5](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)

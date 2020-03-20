@@ -45,8 +45,11 @@ Basic Load Balancers have limited scope (availability set) can only scale up to 
 * **Load-balancing rules**: Load-Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
 * **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
 * **Outbound rules**: An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard Load Balancer to be translated to the frontend.
-Basic Load Balancer does not support Outbound Rules.
-![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+
+  Basic Load Balancer does not support Outbound Rules.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Transport protocols**: Load Balancer doesn't support ICMP; ICMP pings to a public-facing load balancer will time out. To ping your public-facing load balancer, use TCP Ping
 
 ## <a name = "load-balancer-concepts"></a>Load Balancer concepts
 
@@ -68,7 +71,9 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 
 The following image displays the hash-based distribution:
 
-  ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="Hash-based distribution">
+</p>
 
   *Figure: Hash-based distribution*
 
@@ -130,9 +135,11 @@ A public Load Balancer maps the public IP address and port of incoming traffic t
 
 The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and TCP port 80. These three VMs are in a load-balanced set.
 
-![Public Load Balancer example](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Public load balancer">
+</p>
 
-*Figure: Balancing web traffic by using a public Load Balancer*
+*Figure: Balancing web traffic by using a public load balancer*
 
 Internet clients send webpage requests to the public IP address of a web app on TCP port 80. Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about Load Balancer algorithms, see [Load Balancer concepts](concepts-limitations.md#load-balancer-concepts).
 
@@ -149,7 +156,10 @@ An internal Load Balancer enables the following types of load balancing:
 * **For multi-tier applications**: Load balancing for internet-facing multi-tier applications where the back-end tiers aren't internet-facing. The back-end tiers require traffic load balancing from the internet-facing tier. See the next figure.
 * **For line-of-business applications**: Load balancing for line-of-business applications that are hosted in Azure without additional load balancer hardware or software. This scenario includes on-premises servers that are in the set of computers whose traffic is load balanced.
 
-![Internal Load Balancer example](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Public load balancer">
+</p>
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 

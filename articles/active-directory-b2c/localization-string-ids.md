@@ -1,15 +1,15 @@
 ---
 title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
-description: Specify the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
+description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
-ms.author: marsma
+ms.date: 03/16/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -21,7 +21,7 @@ The **Localization** element enables you to support multiple locales or language
 
 ## Sign-up or sign-in page elements
 
-The following Ids are used for a content definition with an ID of `api.signuporsignin`.
+The following IDs are used for a content definition with an ID of `api.signuporsignin`.
 
 | ID | Default value |
 | -- | ------------- |
@@ -87,7 +87,7 @@ The following example localizes the Facebook identity provider to Arabic:
 | **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
-## Sign-up and self asserted pages user interface elements
+## Sign-up and self-asserted pages user interface elements
 
 The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`.
 
@@ -128,7 +128,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 | **ver_intro_msg** | Verification is necessary. Please click Send button. |
 | **ver_input** | Verification code |
 
-### Sign-up and self asserted pages error messages
+### Sign-up and self-asserted pages error messages
 
 | ID | Default value |
 | -- | ------------- |
@@ -211,8 +211,26 @@ The following are the IDs for a [Verification display control](display-control-v
 |verification_control_but_send_code |Send Code |
 |verification_control_but_send_new_code |Send New Code |
 |verification_control_but_verify_code |Verify Code |
+|verification_control_code_sent| Verification code has been sent. Please copy it to the input box below. |
 
-### Verification display control error messages
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_send_code">Failed to send the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_verify_code">Failed to verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_code">Send Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## One time password error messages
+The following are the IDs for a [one time password technical profile](one-time-password-technical-profile.md) error messages
 
 | ID | Default value |
 | -- | ------------- |
@@ -220,6 +238,44 @@ The following are the IDs for a [Verification display control](display-control-v
 |UserMessageIfSessionDoesNotExist |One time password verification session has expired |
 |UserMessageIfSessionConflict |One time password verification session has conflict |
 |UserMessageIfInvalidCode |One time password provided for verification is incorrect |
+
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
+## Claims transformations error messages
+
+The following are the IDs for claims transformations error messages:
+
+| ID | Claims transformation | Default value |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
+
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
 
 
 

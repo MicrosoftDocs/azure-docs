@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/03/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -2112,7 +2112,7 @@ formatNumber(<number>, <format>, <locale>?)
 Suppose that you want to format the number `1234567890`. This example formats that number as the string "1,234,567,890.00".
 
 ```
-formatNumber(1234567890, "{0:0,0.00}", "en-us")
+formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 ```
 
 *Example 2"
@@ -2120,7 +2120,7 @@ formatNumber(1234567890, "{0:0,0.00}", "en-us")
 Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, "{0:0,0.00}", "is-is")
+formatNumber(1234567890, '{0:0,0.00}', 'is-is')
 ```
 
 *Example 3*
@@ -2128,7 +2128,7 @@ formatNumber(1234567890, "{0:0,0.00}", "is-is")
 Suppose that you want to format the number `17.35`. This example formats the number to the string "$17.35".
 
 ```
-formatNumber(17.36, "{0:C2}")
+formatNumber(17.36, 'C2')
 ```
 
 *Example 4*
@@ -2136,7 +2136,7 @@ formatNumber(17.36, "{0:C2}")
 Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
 
 ```
-formatNumber(17.36, "{0:C2}", "is-is")
+formatNumber(17.36, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
