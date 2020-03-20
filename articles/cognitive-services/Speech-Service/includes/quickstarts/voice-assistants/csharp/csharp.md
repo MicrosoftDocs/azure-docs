@@ -11,12 +11,6 @@ ms.date: 03/20/2020
 ms.author: travisw
 ---
 
-<!--
-**Choose your target environment**
-
-# [UWP](#tab/uwp)
--->
-
 [!INCLUDE [uwp](./uwp.md)]
 
 ***
