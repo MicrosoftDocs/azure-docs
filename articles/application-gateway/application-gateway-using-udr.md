@@ -21,7 +21,7 @@ Scenarios that currently are **not** supported include:
 1. Using a route table to route traffic through a virtual appliance, through a hub/spoke virtual network, or on-premise (forced tunneling).
 
 > [!WARNING]
-> An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Please ensure that all management/control plane traffic is sent **directly to the internet** and not through a virtual appliance. 
+> An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Please ensure that all management/control plane traffic is sent **directly to the internet** and not through a virtual appliance. Logging and metrics could also be affected. 
 
 ## Supported Scenarios
 ### Scenario 1: UDR to disable Border Gateway Protocol (BGP) Route Propagation to Application Gateway subnet
