@@ -73,6 +73,8 @@ For more information or help, check out the following links:
 <!--Image References-->
 [1]: ./media/expressroute-bfd/BFD_Need.png "BFD expedites link failure deduction time"
 
+
+
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
