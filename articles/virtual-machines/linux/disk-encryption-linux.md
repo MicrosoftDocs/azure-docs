@@ -205,7 +205,7 @@ The following table lists Resource Manager template parameters for existing or r
 | forceUpdateTag | Pass in a unique value like a GUID every time the operation needs to be force run. |
 | location | Location for all resources. |
 
-For more information about configuring the Linux VM disk encryption template, see [Azure Disk Encryption for Linux](../extensions/azure-disk-enc-linux).
+For more information about configuring the Linux VM disk encryption template, see [Azure Disk Encryption for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
 
 ## Use EncryptFormatAll feature for data disks on Linux VMs
 
