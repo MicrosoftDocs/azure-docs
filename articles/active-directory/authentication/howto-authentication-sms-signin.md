@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/20/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -55,7 +55,7 @@ There are three main steps to enable and use SMS-based authentication in your or
 
 First, let's enable SMS-based authentication for your Azure AD tenant.
 
-1. Sign in to the [Azure portal][azure-portal] as a *global administrator*, *authentication admin, or *privileged authentication admin*.
+1. Sign in to the [Azure portal][azure-portal] as a *global administrator*, *authentication admin*, or *privileged authentication admin*.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Security > Authentication methods > Authentication method policy (preview)**.
 
@@ -119,7 +119,7 @@ The following scenarios and troubleshooting steps can used if you have problems 
 
 If a user has already registered for Azure Multi-Factor Authentication and / or self-service password reset (SSPR), they already have a phone number associated with their account. This phone number is not automatically available for use with SMS-based sign-in.
 
-To use SMS-based sign-in, remove the phone number from their account, save the changes, then follow the steps again to [set a phone number for the user account](#set-a-phone-number-for-user-accounts).
+A user that has a phone number already set for their account is displayed a button to *Enable for SMS sign-in* in their **My Profile** page. Select this button, and the account is enabled for use with SMS-based sign-in and the previous Azure Multi-Factor Authentication or SSPR registration.
 
 ### Error when trying to set a phone number on a user's account
 
@@ -130,7 +130,6 @@ If you receive an error when you try to set a phone number for a user account in
 1. Make sure you set the phone number with the proper formatting, as validated in the Azure portal (such as *+1 4251234567*).
 1. Make sure that the phone number isn't used elsewhere in your tenant.
 1. Check there's no voice number set on the account. If a voice number is set, delete and try to the phone number again.
-
 
 ## Next steps
 
