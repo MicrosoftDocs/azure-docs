@@ -119,6 +119,6 @@ landingContent:
       - linkListType: video
         links:
           - text: Watch the latest data warehouse videos
-            url:  sql-data-warehouse-videos
+            url: sql-data-warehouse-videos
   #         # - text: linktext2
   #         #   url: file2.md
