@@ -61,29 +61,30 @@ You can use the Editor widget to create new projects and manage a video's insigh
 2. Select the video that you want to work with.
 3. Select the **Embed** button that appears under the video.
 
-    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+    ![Embed button in Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
-    After you select the **Embed** button, you can select the widget that you want to embed in your application. 
+    After you select the **Embed** button, you can select the widget that you want to embed in your app.
 4. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
  
-5. Copy the embed code, and then add it to your application. 
+5. Copy the embed code and then add it to your app.
 
-    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+    ![Embed code for app—Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
 > If you have issues sharing your video URLs, add the `location` parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## Embedding private content
 
-To embed a private video, you must pass an access token in the **src** attribute of the iframe:
+To embed a private video, you must pass an access token in the `src` attribute of the iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-To get the Cognitive Insights widget content, use one of the following:<br/>
-- The [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API.<br/>
-- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL. Specify this URL as the **src** value for the iframe, as shown earlier.
+To get the Cognitive Insights widget content, use one of the following methods:
 
-To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`. 
+- The [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API.<br/>
+- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL. Specify this URL as the `src` value for the iframe, as shown earlier.
+
+To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`.
 
 ## Widgets interaction
 
