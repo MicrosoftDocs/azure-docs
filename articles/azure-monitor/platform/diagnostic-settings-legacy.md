@@ -14,7 +14,10 @@ ms.date: 02/04/2020
 The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. The method to send Activity log entries to [an event hub or storage account](activity-log-export.md) or to a [Log Analytics workspace](activity-log-collect.md) has changed to use [diagnostic settings](diagnostic-settings.md). This article describes the difference between the methods and how to clear legacy settings in preparation to change to diagnostic settings.
 
 
+
+
 ## Differences between methods
+The previous method for collecting the Activity log was to connect it to a Log Analytics workspace. 
 
 ### Advantages
 Using diagnostic settings has the following advantages over the current methods:
