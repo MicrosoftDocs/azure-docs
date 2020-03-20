@@ -92,7 +92,7 @@ For more about creating and running this example, see [Getting Started](https://
 
 Change directory to the `hello-world` subdirectory. Then, run `helm chart save` to save a copy of the chart locally and also create an alias with the fully qualified name of the registry (all lowercase) and the target repository and tag. 
 
-In the following example, the registry name is *mycontainerregistry*, the target repo is *wordpress*, and the target chart tag is *v1*, but substitute values for your environment:
+In the following example, the registry name is *mycontainerregistry*, the target repo is *hello-world*, and the target chart tag is *v1*, but substitute values for your environment:
 
 ```console
 cd ..
@@ -133,7 +133,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/hello-world:v1
 After a successful push, output is similar to:
 
 ```output
-The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
+The push refers to repository [mycontainerregistry.azurecr.io/helm/hello-world]
 ref:     mycontainerregistry.azurecr.io/helm/hello-world:v1
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
 size:    3.2 KiB
@@ -199,7 +199,7 @@ Output, abbreviated in this example, shows a `configMediaType` of `application/v
 
 ### Pull chart to local cache
 
-To install a Helm chart to Kubernetes, the chart must be in the local cache. In this example, first run `helm chart remove` to remove the existing local chart named `mycontainerregistry.azurecr.io/helm/wordpress:latest`:
+To install a Helm chart to Kubernetes, the chart must be in the local cache. In this example, first run `helm chart remove` to remove the existing local chart named `mycontainerregistry.azurecr.io/helm/hello-world:v1`:
 
 ```console
 helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:v1
