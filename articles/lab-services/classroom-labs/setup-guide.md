@@ -1,5 +1,5 @@
 ---
-title: Accelerated classroom lab setup uide for Azure Lab Services
+title: Accelerated classroom lab setup guide for Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
