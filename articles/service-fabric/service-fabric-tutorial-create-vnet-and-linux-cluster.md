@@ -159,7 +159,7 @@ If you're not immediately moving on to the next article, you might want to [dele
 
 Learn how to [scale a Cluster](service-fabric-tutorial-scale-cluster.md).
 
-Learn how to [migrate a Cluster from Ubuntu 16.04 to 18.04](service-fabric-tutorial-upgrade-ubuntu-cluster.md).
+Learn how to [migrate a Cluster from Ubuntu 16.04 to 18.04](tutorial-upgrade-ubuntu-cluster.md).
 
 The template in this article deploy a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate management more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
