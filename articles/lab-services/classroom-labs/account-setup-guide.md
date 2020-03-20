@@ -1,5 +1,5 @@
 ---
-title: Accelerated Lab Account Setup Guide for Azure Lab Services
+title: Accelerated lab account setup guide for Azure Lab Services
 description: This guide helps administrators quickly set up a lab account for use within their school.
 services: lab-services
 documentationcenter: na
@@ -17,11 +17,11 @@ ms.author: spelluru
 
 ---
 
-# Lab Account Setup Guide
+# Lab account setup guide
 
 The first step that needs to be completed by administrators is to set up a lab account within your Azure subscription.  A lab account is a container for your classroom labs and only takes a few minutes to set up.
 
-## Understand Your School's Lab Account Requirements
+## Understand your school's lab account requirements
 
 To understand how to configure your lab account based on your school's needs, you should consider the following questions:
 
@@ -73,7 +73,7 @@ When you set up a lab account, you also have the option to peer with a virtual n
 
     If you answered 'Yes' to one or more questions, then you will need to peer the lab account to a VNet.  If you answered, 'I don't know', then you can postpone this decision until later since you can always choose to peer a VNet after creating the lab account.
 
-## Set Up Your Lab Account
+## Set up your lab account
 
 Once you understand the requirements for your lab account, you are ready to set it up.  Follow the links in this section to see how to set up your lab account:
 
@@ -102,7 +102,7 @@ Once you understand the requirements for your lab account, you are ready to set 
 
    You may also need to refer to instructions on [configuring the lab VMs address range](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
 
-4. **Enable\Review images**
+4. **Enable and review images**
 
     Refer to the how-to guide on [enabling Marketplace images for lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images) for instructions.
 
@@ -114,7 +114,7 @@ Once you understand the requirements for your lab account, you are ready to set 
 
     ![Enabling custom images in Shared Image Gallery](../media/setup-guide/enable-sig-custom-images.png)
 
-## Next Steps
+## Next steps
 
 See the following articles:
 
