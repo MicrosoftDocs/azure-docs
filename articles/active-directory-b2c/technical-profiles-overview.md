@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -29,12 +29,11 @@ A technical profile enables these types of scenarios:
 - [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -  provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). 
 - [Claims transformation](claims-transformation-technical-profile.md) - Call output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
 - [JWT token issuer](jwt-issuer-technical-profile.md) -  Emits a JWT token that is returned back to the relying party application.
-- **Phone factor provider** - Multi-factor authentication.
 - [OAuth1](oauth1-technical-profile.md) - Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md) - Federation with any OAuth 2.0 protocol identity provider.
 - [One time password](one-time-password-technical-profile.md) - Provides support for managing the generation and verification of a one-time password.
 - [OpenID Connect](openid-connect-technical-profile.md) - Federation with any OpenID Connect protocol identity provider.
-- [Phone factor](phone-factor-technical-profile.md) - Support for enroll and verify phone numbers.
+- [Phone factor](phone-factor-technical-profile.md) - Support for enrolling and verifying phone numbers.
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [SAML token issuer](saml-issuer-technical-profile.md) - Emits a SAML token that is returned back to the relying party application.

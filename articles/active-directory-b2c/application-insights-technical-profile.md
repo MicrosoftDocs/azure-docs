@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support sending event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C.  With Application Insights technical profile, can get detailed and customized event logs for your user journeys, such as:
+Azure Active Directory B2C (Azure AD B2C) supports sending event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C.  With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
 
 * Gain insights on user behavior.
 * Troubleshoot your own policies in development or in production.
@@ -29,10 +29,10 @@ Azure Active Directory B2C (Azure AD B2C) provides support sending event data di
 
 ## Protocol
 
-The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly that is used by Azure AD B2C, for application insights:
+The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly that is used by Azure AD B2C for Application Insights:
 `Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-The following example shows the common application insights technical profile. Other application insights technical profiles include the AzureInsights-Common to leverage its configuration. 
+The following example shows the common Application Insights technical profile. Other Application Insights technical profiles include the AzureInsights-Common to leverage its configuration.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">
@@ -43,7 +43,7 @@ The following example shows the common application insights technical profile. O
 
 ## Input claims
 
-The **InputClaims** element contains a list of claims to send to the Application Insights. You can also map the name of your claim to a name you prefer to appear in Application Insights. Following example shows how to send telemetries to Application Insights. Properties of an event are added through the syntax `{property:NAME}`, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported [claim resolvers](claim-resolver-overview.md).
+The **InputClaims** element contains a list of claims to send to Application Insights. You can also map the name of your claim to a name you prefer to appear in Application Insights. The following example shows how to send telemetries to Application Insights. Properties of an event are added through the syntax `{property:NAME}`, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported [claim resolvers](claim-resolver-overview.md).
 
 ```XML
 <InputClaims>
@@ -54,7 +54,7 @@ The **InputClaims** element contains a list of claims to send to the Application
 </InputClaims>
 ```
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Application Insights.
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to Application Insights.
 
 ## Persist claims
 
@@ -74,8 +74,8 @@ The CryptographicKeys element is not used.
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | InstrumentationKey| Yes | The Application Insights [instrumentation key](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key), which will be used for logging the events. | 
-| DeveloperMode| No | A Boolean that indicates whether developer mode is enabled. Possible values: `true`, or `false` (default). This metadata controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights.| 
-|DisableTelemetry |No |A Boolean that indicates whether telemetry should be enabled or not. Possible values: `true`, or `false` (default).| 
+| DeveloperMode| No | A Boolean that indicates whether developer mode is enabled. Possible values: `true` or `false` (default). This metadata controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to Application Insights.|  
+|DisableTelemetry |No |A Boolean that indicates whether telemetry should be enabled or not. Possible values: `true` or `false` (default).| 
 
 
 ## Next steps
