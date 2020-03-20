@@ -89,7 +89,7 @@ For unpartitioned tables, consider using a CTAS to write the data you want to ke
 See also [Understanding transactions][Understanding transactions], [Optimizing transactions][Optimizing transactions], [Table partitioning][Table partitioning], [TRUNCATE TABLE][TRUNCATE TABLE], [ALTER TABLE][ALTER TABLE], [Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## Reduce query result sizes  
-This step helps you avoid client-side issues caused by large query result.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add “top N” syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
+This step helps you avoid client-side issues caused by large query result.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add "top N" syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
 
 ## Use the smallest possible column size
 When defining your DDL, using the smallest data type that will support your data will improve query performance.  This is especially important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  In addition, define columns as VARCHAR when that is all that is needed rather than use NVARCHAR.
@@ -146,26 +146,26 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 <!--Article references-->
 [Create a support ticket]:sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]:sql-data-warehouse-develop-ctas.md
-[Table overview]: ./sql-data-warehouse-tables-overview.md
-[Table data types]: ./sql-data-warehouse-tables-data-types.md
+[Table overview]: ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md
+[Table data types]: ../../sql-data-warehouse/sql-data-warehouse-tables-data-types.md
 [Table distribution]:sql-data-warehouse-tables-distribute.md
 [Table indexes]:sql-data-warehouse-tables-index.md
 [Causes of poor columnstore index quality]:sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuilding columnstore indexes]:sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]:sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
+[Manage table statistics]: ../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md
+[Temporary tables]: ../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]:guidance-for-loading-data.md
 [Load data]:design-elt-data-loading.md
-[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
+[Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
+[Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: /sql/tools/bcp-utility
 [Load data with PolyBase]:load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]:sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
+[Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Resume compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Understanding transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]:sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]:sql-data-warehouse-troubleshoot.md
 [LABEL]:sql-data-warehouse-develop-label.md
