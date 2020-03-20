@@ -190,7 +190,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 ![HDInsight choose your node size](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
 
-You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
+You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
 
 ### Node configuration
 
