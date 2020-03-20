@@ -5,19 +5,21 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 01/03/2020
+ ms.date: 03/19/2020
  ms.author: tomfitz
  ms.custom: include file
 ---
 
 1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you have not previously applied tags, the list is empty.
-   
-     ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
+
+   ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
+
 1. To add a tag, select **Click here to add tags**.
 
-1. Provide a name and value. Select **+** to add the tag.
-   
-     ![Add tag](./media/resource-manager-tag-resources/add-tag.png)
+1. Provide a name and value.
+
+   ![Add tag](./media/resource-manager-tag-resources/add-tag.png)
+
 1. Continue adding tags as needed. When done, select **Save**.
    
      ![Save tags](./media/resource-manager-tag-resources/save-tags.png)
