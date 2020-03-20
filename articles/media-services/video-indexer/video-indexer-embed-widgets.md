@@ -22,13 +22,13 @@ Starting with version 2, the widget base URL includes the region of the specifie
 
 ### Cognitive Insights widget
 
-A Cognitive Insights widget includes all visual insights that were extracted from your video indexing process. The Cognitive Insights widget supports the following optional URL parameters.
+A Cognitive Insights widget includes all visual insights that were extracted from your video indexing process. The Cognitive Insights widget supports the following optional URL parameters:
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets`|Strings separated by comma|Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
-|`locale`|A short language code|Controls the language of user interface (UI). The default value is `en`. <br/> Example: `locale=de`.|
-|`tab`|The default selected tab|Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
+|`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/> Example: `locale=de`.|
+|`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 
 ### Player widget
 
@@ -36,12 +36,12 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 
 |Name|Definition|Description|
 |---|---|---|
-|`t`|Seconds from the start|Makes the player start playing from the specified time point.<br/> Example: `t=60`.|
-|`captions`|A language code|Fetches the caption in the specified language during the widget loading to be available on the **Captions** menu.<br/> Example: `captions=en-US`.|
-|`showCaptions`|A Boolean value|Makes the player load with the captions already enabled.<br/> Example: `showCaptions=true`.|
-|`type`||Activates an audio player skin (the video part is removed).<br/> Example: `type=audio`.|
-|`autoplay`|A Boolean value|Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`.|
-|`language`|A language code|Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
+|`t` | Seconds from the start | Makes the player start playing from the specified time point.<br/> Example: `t=60`. |
+|`captions` | A language code | Fetches the caption in the specified language during the widget loading to be available on the **Captions** menu.<br/> Example: `captions=en-US`. |
+|`showCaptions` | A Boolean value | Makes the player load with the captions already enabled.<br/> Example: `showCaptions=true`. |
+|`type`| | Activates an audio player skin (the video part is removed).<br/> Example: `type=audio`. |
+|`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
+|`language` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
 
 ### Editor widget
 
@@ -49,9 +49,9 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 |Name|Definition|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|Provides access to videos that are only in the account that is used to embed the widget.<br> The Editor widget requires the `accessToken` parameter.|
-|`language`|A language code|Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
-|`locale`|A short language code|Controls the insights language. The default value is `en`.<br/>Example: `language=de`.|
+|`accessToken`<sup>*</sup> | String | Provides access to videos that are only in the account that's used to embed the widget.<br> The Editor widget requires the `accessToken` parameter. |
+|`language` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`. |
+|`locale` | A short language code | Controls the insights language. The default value is `en`.<br/>Example: `language=de`. |
 
 <sup>*</sup>The owner should provide `accessToken` with caution.
 
