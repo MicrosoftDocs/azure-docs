@@ -201,13 +201,12 @@ Test-GuestConfigurationPackage `
   -Path ./AuditFilePathExists.zip
 ```
 
-> [!NOTE]
-> The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
-> `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
->
-> ```azurepowershell-interactive
-> New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
-> ```
+The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
+`New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
+
+```azurepowershell-interactive
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+```
 
 The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. The commands used in the `publish` function require the `Az.Storage` module.
 
@@ -310,18 +309,17 @@ Publish-GuestConfigurationPolicy `
   -Path '.\policyDefinitions'
 ```
 
-> [!NOTE]
-> The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
-> feature means you can create the policy files and publish them in a single set of piped commands.
->
-> ```azurepowershell-interactive
-> New-GuestConfigurationPolicy `
->  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
->  -DisplayName 'Audit Linux file path.' `
->  -Description 'Audit that a file path exists on a Linux machine.' `
->  -Path './policies' `
-> | Publish-GuestConfigurationPolicy
-> ```
+ The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
+ feature means you can create the policy files and publish them in a single set of piped commands.
+
+ ```azurepowershell-interactive
+ New-GuestConfigurationPolicy `
+  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+  -DisplayName 'Audit Linux file path.' `
+  -Description 'Audit that a file path exists on a Linux machine.' `
+  -Path './policies' `
+ | Publish-GuestConfigurationPolicy
+ ```
 
 With the policy created in Azure, the last step is to assign the
 initiative. See how to assign the initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md),
