@@ -89,9 +89,9 @@
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
-    - name: Best practices for Search
+    - name: Best Practices using Search Service
       href: how-to-use-best-practices-for-search.md
-    - name: Best practices for Route
+    - name: Best Practices using Route Service
       href: how-to-use-best-practices-for-routing.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md

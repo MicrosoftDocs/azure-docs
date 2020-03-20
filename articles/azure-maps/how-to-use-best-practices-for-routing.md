@@ -19,7 +19,7 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route Service](https:/
 * Request route details, like time and distance, for the entire route and each leg of the route
 * Request route for a commercial vehicle, like a truck
 * Request traffic information along a route, like jams and toll information
-* Request a route that consists of one or more stops (waypoints) 
+* Request a route that consists of one or more stops (waypoints)
 * Optimize a route of one or more stops to obtain the best order to visit each stop (waypoint)
 * Optimize alternative routes using supporting points. For example, offer alternative routes that pass an electric vehicle charging station.
 * Use the [Route Service](https://docs.microsoft.com/rest/api/maps/route) with the Azure Maps Web SDK
