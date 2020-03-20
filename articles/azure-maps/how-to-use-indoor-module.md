@@ -16,9 +16,9 @@ The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers ext
 
 ## Prerequisites
 
-As in using any Azure Maps APIs, you'll need to [make an Azure Maps account]() and [obtain a primary subscription key](). This key may also be referred to as the primary key or the subscription key.
+As in using any Azure Maps APIs, you'll need to [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key.
 
-You'll need to obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in [make a Private Atlas account]() and  [use the Private Atlas to create an indoor map application](tutorial-private-atlas-indoor-map.md) . When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
+Obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in [make a Private Atlas account](how-to-manage-private-atlas.md) and [use the Private Atlas to create an indoor map application](tutorial-private-atlas-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
 ## Embed the Indoor Maps module
 

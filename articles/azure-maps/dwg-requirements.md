@@ -78,7 +78,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-Regardless of how many entity drawings are in the exterior layer, the [resulting facility data set](tutorial-private-atlas-indoor-map.md#data-sets) will contain only one level feature for each DWG file. Additionally:
+Regardless of how many entity drawings are in the exterior layer, the [resulting facility data set](tutorial-private-atlas-indoor-maps.md#data-sets) will contain only one level feature for each DWG file. Additionally:
 
 * Exteriors must be drawn as Polygon, PolyLine (closed), Circle
 
@@ -321,7 +321,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 Once your DWG package meets the requirements, you may use the Conversion API to convert the DWG file into a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Azure Maps Indoor Maps SDK by reading the following articles:
 
 > [!div class="nextstepaction"]
-> [Private Atlas tutorial](tutorial-private-atlas-indoor-map.md)
+> [Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)

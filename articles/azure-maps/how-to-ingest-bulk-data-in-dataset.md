@@ -28,11 +28,11 @@ The instructions below overview the process of uploading a DWG package, converti
 
 1. Before you upload data into the Azure Maps resources, make sure that your DWG package meets the [DWG package requirements](dwg-requirements.md).
 
-2. Upload your DWG package to the Azure Maps service, and obtain a `udid` for the uploaded package. This procedure is detailed in the [Data Upload section of the Private Atlas tutorial](tutorial-private-atlas-indoor-map.md#data-upload-procedure) article.
+2. Upload your DWG package to the Azure Maps service, and obtain a `udid` for the uploaded package. This procedure is detailed in the [Data Upload section of the Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md#upload-dwg-package) article.
 
-3. Once you obtain the `udid` for the uploaded packaged, convert the uploaded packaged using the Azure Maps Conversion service, and obtain the conversion `conversionId` for the converted package. This procedure is detailed in the [Data Conversion section of the Private Atlas tutorial](tutorial-private-atlas-indoor-map.md#data-conversion-procedure) article.
+3. Once you obtain the `udid` for the uploaded packaged, convert the uploaded packaged using the Azure Maps Conversion service, and obtain the conversion `conversionId` for the converted package. This procedure is detailed in the [Data Conversion section of the Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md#convert-dwg-package) article.
 
-4. Once you obtain the `conversionId` for the converted package, create an initial data set using the Azure Maps Dataset service, and obtain the `datasetId`. This procedure is detailed in the [Data sets section of the Private Atlas tutorial](tutorial-private-atlas-indoor-map.md#data-sets) article. Copy the `datasetId`to use in the next section.
+4. Once you obtain the `conversionId` for the converted package, create an initial data set using the Azure Maps Dataset service, and obtain the `datasetId`. This procedure is detailed in the [Data sets section of the Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md#data-sets) article. Copy the `datasetId`to use in the next section.
 
 ## Bulk import data into a dataset
 

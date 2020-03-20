@@ -259,7 +259,7 @@ After you resolve your DWG conversion errors, try to resolve your warnings.
 Once you successfully convert your uploaded DWG design into map data, you can use your converted data to render indoor maps. Learn more by reading the following articles:
 
 > [!div class="nextstepaction"]
-> [Private Atlas tutorial](tutorial-private-atlas-indoor-map.md)
+> [Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)

@@ -80,7 +80,7 @@ Learn more about the Azure Maps API services for the Private Atlas:
 Learn how to use the Private Atlas to render indoor maps in your application:
 
 > [!div class="nextstepaction"]
-> [Private Atlas tutorial](tutorial-private-atlas-indoor-map.md)
+> [Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor map dynamic styling](indoor-map-dynamic-styling.md)
