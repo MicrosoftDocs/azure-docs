@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -68,10 +68,12 @@ The following sections list available claim resolvers.
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |
 | {OIDC:Nonce} |The `Nonce`  query string parameter. | defaultNonce |
+| {OIDC:Password}| The [resource owner password credentials flow](ropc-custom.md) user's password.| password1| 
 | {OIDC:Prompt} | The `prompt` query string parameter. | login |
+| {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:scope} |The `scope`  query string parameter. | openid |
-| {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
+| {OIDC:Username}| The [resource owner password credentials flow](ropc-custom.md) user's username.| emily@contoso.com| 
 
 ### Context
 
