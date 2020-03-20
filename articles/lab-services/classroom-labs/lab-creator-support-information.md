@@ -29,5 +29,5 @@ You can use this information to get help when you run into any technical issues 
 ## Next steps
 See the following article to learn about how a lab user views the support contact information:
 
-- [View contact information (lab user)](view-contact-information-lab-user.md)
+- [View contact information (lab user)](lab-user-support-information.md)
 - [Specify contact information (lab account owner)](lab-account-owner-support-information.md)

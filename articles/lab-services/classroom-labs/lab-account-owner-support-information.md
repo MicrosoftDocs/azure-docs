@@ -35,5 +35,5 @@ The support information includes:
 ## Next steps
 See the following articles:
 
-- [View contact information (lab creator)](view-contact-information-lab-creator.md)
-- [View contact information (lab user)](view-contact-information-lab-user.md)
+- [View contact information (lab creator)](lab-creator-support-information.md)
+- [View contact information (lab user)](lab-user-support-information.md)
