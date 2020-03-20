@@ -63,7 +63,7 @@ This repository is referred to as a *remote repository*. Each of the developers 
 ### Clone the remote repository
 
 1. Open Git Shell or Git Bash.  See [Prerequisites](#prerequisites).
-1. Verify your current folder is **github**.
+1. Verify your current folder is **GitHub**.
 1. Run the following command:
 
     ```bash
@@ -175,7 +175,7 @@ To create a pipeline with a step to deploy a template:
     * **Template location**: Select **Linked artifact**, which means the task looks for the template file directly from the connected repository.
     * **Template**: Enter **CreateWebApp/azuredeploy.json**. If you changed the folder name and the file name, you need to change this value.
     * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters.
-    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name and the linked template url. The linked template URL is what you wrote down at the end of [Create a Github repository](#create-a-github-repository).
+    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name and the linked template url. The linked template URL is what you wrote down at the end of [Create a GitHub repository](#create-a-github-repository).
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 

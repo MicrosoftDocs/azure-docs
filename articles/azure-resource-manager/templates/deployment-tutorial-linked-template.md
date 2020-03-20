@@ -34,7 +34,7 @@ Save a copy of the main template to your local computer with the .json extension
 
 ## Store the linked template
 
-The following PowerShell script creates a storage account, creates a container, and copies the linked template from a github repository to the container. A copy of the linked template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
+The following PowerShell script creates a storage account, creates a container, and copies the linked template from a GitHub repository to the container. A copy of the linked template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
 
 Select **Try-it** to open the Cloud Shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
