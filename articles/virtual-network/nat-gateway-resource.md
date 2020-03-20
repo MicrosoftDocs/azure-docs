@@ -75,7 +75,7 @@ When the NAT gateway resource has been created, it can be used on one or more su
 
 Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. Review NAT [availability zones](#availability-zones).
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="1-335" highlight="256-282":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
