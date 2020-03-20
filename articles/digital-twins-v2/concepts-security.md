@@ -47,8 +47,8 @@ With managed identities, the Azure platform manages this runtime identity. You d
 ### Authorization: RBAC roles for Azure Digital Twins
 
 Azure provides the below built-in RBAC roles for authorizing access to an Azure Digital Twins resource:
-* Azure Digital Twins Owner (Preview) – Use this role to give admin controls over Azure Digital Twins resources.
-* Azure Digital Twins Reader (Preview) – Use this role to give read only access to Azure Digital Twins resources.
+* Azure Digital Twins Owner (Preview) – Use this role to give full access over Azure Digital Twins resources.
+* Azure Digital Twins Reader (Preview) – Use this role to give read-only access to Azure Digital Twins resources.
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
@@ -63,11 +63,11 @@ For more detailed steps on how to do this, you can also visit the Azure Digital 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Azure Digital Twins resources.
-* Twin types: This role assignment dictates control over twin types uploaded in Azure Digital Twins.
-* Query: This role assignment determines ability to run SQL query operations on twins within the Azure Digital Twins graph.
-* Digital Twin: This role assignment provides control over CRUD operations on digital twins in the twin graph.
-* Twin relationships: This role assignment defines control over CRUD operations on relationships between digital twins in the twin graph.
-* Event routes: This role assignment determines permissions to route events from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
+* Models: The actions for this resource dictate control over twin types (models) uploaded in Azure Digital Twins.
+* Query Digital Twins Graph: The actions for this resource determine ability to run SQL query operations on twins within the Azure Digital Twins graph.
+* Digital Twin: The actions for this resource provide control over CRUD operations on digital twins in the twin graph.
+* Digital Twin relationship: The actions for this resource define control over CRUD operations on relationships between digital twins in the twin graph.
+* Event route: The actions for this resource determine permissions to route events from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## Next steps
 
