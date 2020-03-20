@@ -130,7 +130,7 @@ The following image shows the `points` element.
 
 <center>
 
-![point list](media/how-to-use-best-practices-for-routing/points-list-hidden-img.png)
+![point list](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 </center>
 
