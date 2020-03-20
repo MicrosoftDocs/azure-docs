@@ -7,7 +7,6 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: cynthn
-
 ---
 
 # Create a VM using a specialized image version

@@ -35,15 +35,7 @@ $imageVersions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
 $imageVersions.Name
 ```
 
-Delete an image version. This example deletes the image version named *1.0.0*.
 
-```azurepowershell-interactive
-Remove-AzGalleryImageVersion `
-   -GalleryImageDefinitionName myImageDefinition `
-   -GalleryName myGallery `
-   -Name 1.0.0 `
-   -ResourceGroupName myGalleryRG
-```
 
 
 

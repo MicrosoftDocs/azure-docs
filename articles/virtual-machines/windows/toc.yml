@@ -520,18 +520,38 @@
       href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Use Images
     items:
-    - name: Shared images
+    - name: Create and share images
       items:
       - name: Overview
         href: shared-image-galleries.md
       - name: PowerShell
-        href: shared-images.md
+        items:
+        - name: Create a gallery and image definition
+          href: shared-images.md
+        - name: Create an image version
+          items:
+          - name: From a VM
+            href: image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: image-version-managed-image-powershell.md            
+        - name: Create a VM
+          items:
+          - name: Specialized
+            href: ../vm-generalized-image-version-powershell.md
+          - name: Generalized
+            href: ../vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: ../update-image-resources-powershell.md
       - name: Portal
-        href: shared-images-portal.md
-      - name: CLI
-        href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: App registration for sharing
+        items:
+        - name: Create a gallery
+          href: shared-images-portal.md
+        - name: App registration for sharing
         href: share-images-across-tenants.md
+      - name: CLI
+        items:
+        - name: Create a gallery        
+          href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Image builder (preview)

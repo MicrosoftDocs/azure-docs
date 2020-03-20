@@ -1,18 +1,18 @@
 ---
-title: Create an image version from a managed image 
-description: Learn how to use Azure PowerShell to create an image version from a managed image.
+title: Migrate a managed image to a Shared Image Gallery
+description: Learn how to use Azure PowerShell to migrate a managed image to a image version in a Shared Image Gallery.
 author: cynthn
-ms.topic: howto
+ms.topic: article
 ms.service: virtual-machines
 ms.workload: infrastructure
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: cynthn
 
 ---
 
 # Create an image version from a managed image
 
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image.
+If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image and then delete the managed image. Once you have tested your new image version, you can delete the source managed image.
 
 An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
 
@@ -34,6 +34,29 @@ $managedImage = Get-AzImage `
    -ImageName myImage `
    -ResourceGroupName myResourceGroup
 ```
+## Get the gallery and image definition
+
+You can list all of the galleries and image definitions by name.
+
+```azurepowershell-interactive
+$galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
+$galleries.Name
+
+$imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
+$imageDefinitions.Name
+```
+
+Once you find the right gallery and image definitions, create variables for them to use later.
+
+```azurepowershell-interactive
+$gallery = Get-AzGallery `
+   -Name myGallery `
+   -ResourceGroupName myResourceGroup
+$imageDef = Get-AzGalleryImageDefinition `
+   -GalleryName myGallery `
+   -ResourceGroupName myGalleryRG `
+   -Name myImageDefinition
+```
 
 ## Create an image version
 
@@ -48,7 +71,7 @@ In this example, the image version is *1.0.0* and it's replicated to both *West 
 $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$job = $imageVersion = New-AzGalleryImageVersion `
+$imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
@@ -56,18 +79,18 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
    -Source $managedImage.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-01-01' `
-   -asJob 
+   -PublishingProfileEndOfLifeDate '2020-01-01' 
 ```
 
-It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
+It can take a while to replicate the image to all of the target regions.
 
-```azurepowershell-interactive
-$job.State
-```
 
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version. 
 >
 > You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
+
+## Next steps
+
+Once you have verified that you new image version is working correctly, you can delete the managed image.
