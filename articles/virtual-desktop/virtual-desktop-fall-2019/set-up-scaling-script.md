@@ -54,7 +54,7 @@ However, the tool also has the following limitations:
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- A [Windows Virtual Desktop tenant and host pool](create-host-pools-arm-template.md)
+- A [Windows Virtual Desktop tenant and host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service
 - A user with [Contributor access](../role-based-access-control/role-assignments-portal.md) on Azure subscription
 

@@ -31,7 +31,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a tenant in Windows Virtual Desktop
-            url: tenant-setup-azure-active-directory.md
+            url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
           - text: Create a host pool with Azure Marketplace
             url: create-host-pools-azure-marketplace.md
           - text: Manage app groups for Windows Virtual Desktop

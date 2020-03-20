@@ -29,8 +29,8 @@ To learn more about Azure Service Health, see the [Azure Health Documentation](h
 
 ## Prerequisites
 
-- [Tutorial: Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
-- [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
+- [Tutorial: Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)
+- [Tutorial: Create service principals and role assignments with PowerShell](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 
 ## Create service alerts

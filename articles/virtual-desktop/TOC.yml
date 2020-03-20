@@ -9,7 +9,7 @@
   - name: 1. Create a tenant in Windows Virtual Desktop
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
   - name: 2. Create service principals and role assignments by using PowerShell
-    href: ./virtual-desktop-fall-2019/virtual-desktop-create-service-principal-role-powershell.md
+    href: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
   - name: 3. Create a host pool by using the Azure Marketplace
     href: create-host-pools-azure-marketplace.md
   - name: 4. Manage app groups

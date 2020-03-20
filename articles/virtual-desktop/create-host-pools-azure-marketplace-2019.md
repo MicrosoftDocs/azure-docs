@@ -27,7 +27,7 @@ The tasks in this tutorial include:
 
 ## Prerequisites
 
-* A tenant in Virtual Desktop. A previous [tutorial](tenant-setup-azure-active-directory.md) creates a tenant.
+* A tenant in Virtual Desktop. A previous [tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) creates a tenant.
 * [Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
 
 Once you have this module, run the following cmdlet to sign in to your account:
