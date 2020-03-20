@@ -1336,6 +1336,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Labs/project-personality-chat/faq.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/project-personality-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/project-personality-chat/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/project-personality-chat",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
