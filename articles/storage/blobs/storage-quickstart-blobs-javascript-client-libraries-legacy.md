@@ -38,7 +38,7 @@ The following table describes each CORS setting and explains the values used to 
 |Setting  |Value  | Description |
 |---------|---------|---------|
 | Allowed origins | * | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
-| Allowed methods | delete, get, head, merge, post, options, and put | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
+| Allowed methods     | delete, get, head, merge, post, options, and put | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
 | Allowed headers | * | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
 | Exposed headers | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header.  |
 | Max age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
