@@ -170,10 +170,8 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
-  - id: programming-language-go
-    title: Go
   - id: programming-language-more
-    title: Other languages...
+    title: More languages...
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
