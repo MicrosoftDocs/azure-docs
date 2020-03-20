@@ -44746,7 +44746,7 @@
         },
         {
             "source_path": "articles/synapse-analytics/index.yml",
-            "redirect_url": "/azure/sql-data-warehouse/",
+            "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
             "redirect_document_id": false
         },
         {
