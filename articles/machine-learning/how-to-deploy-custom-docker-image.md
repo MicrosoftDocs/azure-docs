@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/22/2019
+ms.date: 03/05/2020
 ---
 
 # Deploy a model using a custom Docker base image
@@ -43,7 +43,7 @@ This document is broken into two sections:
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
-* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-deployment-artifacts).
+* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
 
 ## Create a custom base image
 
@@ -150,6 +150,9 @@ The steps in this section walk-through creating a custom Docker image in your Az
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
+    > [!TIP]
+    > In this example, a tag of `:v1` is applied to the image. If no tag is provided, a tag of `:latest` is applied.
+
     During the build process, information is streamed to back to the command line. If the build is successful, you receive a message similar to the following text:
 
     ```text
@@ -165,6 +168,10 @@ For more information on uploading existing images to an Azure Container Registry
 To use a custom image, you need the following information:
 
 * The __image name__. For example, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` is the path to a basic Docker Image provided by Microsoft.
+
+    > [!IMPORTANT]
+    > For custom images that you've created, be sure to include any tags that were used with the image. For example, if your image was created with a specific tag, such as `:v1`. If you did not use a specific tag when creating the image, a tag of `:latest` was applied.
+
 * If the image is in a __private repository__, you need the following information:
 
     * The registry __address__. For example, `myregistry.azureecr.io`.

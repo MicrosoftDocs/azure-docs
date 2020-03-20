@@ -103,7 +103,7 @@ To generate a benign Microsoft Defender ATP test alert:
 
 3. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
 
-4. To review the alert in Security Center, go to **Security Alerts** > **Suspicious Powershell CommandLine**.
+4. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 
 5. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
 

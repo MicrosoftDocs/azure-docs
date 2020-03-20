@@ -48,6 +48,8 @@
   href: code-samples.md
 - name: Concepts
   items:
+  - name: Azure AD B2C best practices
+    href: best-practices.md
   - name: Application types
     href: application-types.md
   - name: Authentication protocols
@@ -180,9 +182,13 @@
       - name: Customize the UI
         href: custom-policy-ui-customization.md
         displayName: ux, input, cors, html, css
+      - name: Customize language
+        href: custom-policy-localization.md
       - name: Custom email
         href: custom-email.md
         displayName: verification
+      - name: Disable email verification
+        href: custom-policy-disable-email-verification.md
       - name: Enable JavaScript
         href: javascript-samples.md
       - name: Password complexity
@@ -327,6 +333,8 @@
             href: restful-technical-profile.md
           - name: SAML
             href: saml-technical-profile.md
+          - name: SAML token issuer
+            href: saml-issuer-technical-profile.md
           - name: Self-asserted
             href: self-asserted-technical-profile.md
           - name: SSO session

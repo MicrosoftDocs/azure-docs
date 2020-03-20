@@ -95,7 +95,7 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
 
         The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
 
-        ```powershell
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -109,7 +109,7 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
 
         The configuration change can take a few minutes to finish. When it's finished, a message is displayed that's similar to the following and includes the result:
 
-        ```azurecli
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -150,7 +150,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```
 The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
 
-```powershell
+```output
 provisioningState       : Succeeded
 ```
 
@@ -166,7 +166,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 The output resembles the following:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 

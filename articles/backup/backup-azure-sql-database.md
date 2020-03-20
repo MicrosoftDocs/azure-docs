@@ -6,7 +6,14 @@ ms.date: 06/18/2019
 ---
 # About SQL Server Backup in Azure VMs
 
-SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md).
+[Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure VMs. This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
+
+1. Workload aware backups that support all backup types - full, differential, and log
+2. 15-min RPO (recovery point objective) with frequent log backups
+3. Point-in-time recovery up to a second
+4. Individual database level backup and restore
+
+To view the backup and restore scenarios that we support today, refer to the [support matrix](backup-azure-sql-database.md#scenario-support).
 
 ## Backup process
 
@@ -59,11 +66,11 @@ Before you start, verify the below:
 
 ### Back up behavior in case of Always on availability groups
 
-It is recommended that the backup is configured on only one node of an AG. Backup should always be configured in the same region as the primary node. In other words, you always need the primary node to be present in the region in which you are configuring backup. If all the nodes of the AG are in the same region in which the backup is configured, there isn’t any concern.
+It is recommended that the backup is configured on only one node of an AG. Backup should always be configured in the same region as the primary node. In other words, you always need the primary node to be present in the region in which you are configuring backup. If all the nodes of the AG are in the same region in which the backup is configured, there isn't any concern.
 
 #### For cross-region AG
 
-* Regardless of the backup preference, backups won’t happen from the nodes that are not in the same region where the backup is configured. This is because the cross-region backups are not supported. If you have only two nodes and the secondary node is in the other region; in this case, the backups will continue to happen from primary node (unless your backup preference is ‘secondary only’).
+* Regardless of the backup preference, backups won't happen from the nodes that are not in the same region where the backup is configured. This is because the cross-region backups are not supported. If you have only two nodes and the secondary node is in the other region; in this case, the backups will continue to happen from primary node (unless your backup preference is 'secondary only').
 * If a fail-over happens to a region different than the one in which the backup is configured, backups would fail on the nodes in the failed-over region.
 
 Depending on the backup preference and backups types (full/differential/log/copy-only full), backups are taken from a particular node (primary/secondary).

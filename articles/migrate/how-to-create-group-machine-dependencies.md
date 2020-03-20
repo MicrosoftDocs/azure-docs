@@ -1,20 +1,20 @@
 ---
 title: Set up dependency visualization in Azure Migrate
-description: Describes set up dependency visualization in Azure Migrate Server Assessment.
+description: This article describes how to set up dependency visualization in Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 2/24/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up dependency visualization in Azure Migrate: Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
 - [Review](concepts-dependency-visualization.md) the requirements and costs associated with dependency visualization.
 - Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
+- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
+- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment.
 - To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
@@ -27,8 +27,8 @@ This article describes how to set up dependency visualization in Azure Migrate:S
 
 ## Associate a workspace
 
-1. After you've discovered machines for assessment, in **Servers** > **Azure Migrate:Server Assessment**, click **Overview**.  
-2. In **Azure Migrate:Server Assessment**, click **Essentials**.
+1. After you've discovered machines for assessment, in **Servers** > **Azure Migrate: Server Assessment**, click **Overview**.  
+2. In **Azure Migrate: Server Assessment**, click **Essentials**.
 3. In **OMS Workspace**, click **Requires configuration**.
 
      ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   

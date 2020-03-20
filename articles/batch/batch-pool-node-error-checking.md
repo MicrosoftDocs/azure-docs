@@ -99,7 +99,7 @@ Additional examples of causes for **unusable** nodes include:
 
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
 
-- A VM image has been deployed on hardware that doesn’t support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
+- A VM image has been deployed on hardware that doesn't support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
 
 - The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
 
@@ -132,8 +132,21 @@ The size of the temporary drive depends on the VM size. One consideration when p
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-If temporary disk space does fill, then currently the node will stop running tasks. In the future, a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
+If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) state and a node error (use the link already there) will be reported saying that the disk is full.
 
+### What to do when a disk is full
+
+Determine why the disk is full: If you're not sure what is taking up space on the node, it is recommended to remote to the node and investigate manually where the space has gone. You can also make use of the [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories and if your tasks created files elsewhere you will not see them.
+
+Make sure that any data you need has been retrieved from the node or uploaded to a durable store. All mitigation of the disk-full issue involve deleting data to free up space.
+
+### Recovering the node
+
+1. If your pool is a [C.loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pool, you can re-image the node via the [Batch re-image API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage).This will clean the entire disk. Re-image is not currently supported for [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+
+2. If your pool is a [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), you can remove the node from the pool using the [remove nodes API](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Then, you can grow the pool again to replace the bad node with a fresh one.
+
+3.  Delete old completed jobs or old completed tasks whose task data is still on the nodes. For a hint at what jobs/tasks data is on the nodes you can look in the [RecentTasks collection](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) on the node, or at the [files on the node](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Deleting the job will delete all the tasks in the job, and deleting the tasks in the job will trigger data in the task directories on the node to be deleted, thus freeing up space. Once you've freed up enough space, reboot the node and it should move out of "Unusable" state and into "Idle" again.
 
 ## Next steps
 

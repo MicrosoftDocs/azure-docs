@@ -14,7 +14,7 @@ Azure FarmBeats includes user management for people who are part of your Azure A
 
 ## Prerequisites
 
-- An Azure FarmBeats installation is required. For more information, see [Install Azure FarmBeats](install-azure-farmbeats.md).
+- Azure FarmBeats installation is required. For more information, see [Install Azure FarmBeats](install-azure-farmbeats.md).
 - The email IDs of the users you want to add or remove from your Azure FarmBeats instance.
 
 ## Manage Azure FarmBeats users
@@ -22,6 +22,8 @@ Azure FarmBeats includes user management for people who are part of your Azure A
 Azure FarmBeats uses Azure AD for authentication, access control, and roles. You can add users in the Azure AD tenant as users in Azure FarmBeats.
 
 > [!NOTE]
+> If a user is not an Azure AD tenant user, , follow the instructions in the **Add Azure AD users** section to complete the setup.
+
 > If a user you're trying to add as an Azure FarmBeats user isn't present in the Azure AD tenant, complete the setup by following the instructions in the "Add Azure AD users" section.
 
 Azure FarmBeats supports two types of user roles:
@@ -59,7 +61,7 @@ To remove users from the Azure FarmBeats system:
 ## Add Azure AD users
 
 > [!NOTE]
-> Azure FarmBeats users need to exist in the Azure AD tenant before you can assign them to applications and roles. If a user that you want to add to Azure FarmBeats doesn't already exist in the Azure AD tenant, follow the instructions in this section. If the user exists in the Azure AD tenant, you can skip these instructions.
+> Azure FarmBeats users need to exist in the Azure AD tenant before you assign them to applications and roles. If a user doesn't exist in the Azure AD tenant, follow the instructions in this section. Skip the instructions, if a user already exists in the Azure AD tenant.
 
 To add users to Azure AD, do the following:
 

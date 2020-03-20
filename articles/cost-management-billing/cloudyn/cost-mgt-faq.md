@@ -1,7 +1,6 @@
 ---
-title: Frequently asked questions for Cloudyn in Azure | Microsoft Docs
+title: Frequently asked questions for Cloudyn in Azure
 description: This article provides answers to some of the common questions about Cloudyn.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020

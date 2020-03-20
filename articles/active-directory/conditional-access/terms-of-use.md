@@ -274,7 +274,11 @@ If a user is using Windows 10 and Microsoft Edge, they will receive a message si
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-### Join an Android device
+### Register an iOS device
+
+If a user is using an iOS device, they will be prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### Register an Android device
 
 If a user is using an Android device, they will be prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 

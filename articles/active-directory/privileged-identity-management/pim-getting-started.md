@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim  
 ms.collection: M365-identity-device-management
@@ -57,7 +57,7 @@ To start using Privileged Identity Management in your directory, you must first 
 
     ![Pick an account window to verify your identity](./media/pim-getting-started/pick-account.png)
 
-1. If more information is required for verification, you'll be guided through the process. For more information, see [Get help with two-step verification](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+1. If more information is required for verification, you'll be guided through the process. For more information, see [Get help with two-step verification](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
     ![More information required window if your organization needs more information](./media/pim-getting-started/more-information-required.png)
 

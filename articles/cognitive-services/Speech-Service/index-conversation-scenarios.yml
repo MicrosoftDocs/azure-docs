@@ -11,41 +11,45 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title:  Conversation Transcription
+- title: About Conversation Transcription
   linkLists:
     - linkListType: overview
       links:
-      - text: About Conversation Transcription
+      - text: What is Conversation Transcription?
         url: conversation-transcription.md
     - linkListType: how-to-guide
       links:
-        - text: Transcribe a real-time conversation
-          url: how-to-use-conversation-transcription.md
-        - text: Asynchronously transcribe conversations
-          url: how-to-async-conversation-transcription.md
         - text: Handle call center scenarios
           url: call-center-transcription.md
-- title: Multi-device conversation
+        - text: Real-time Conversation Transcription
+          url: how-to-use-conversation-transcription.md
+        - text: Asynchronous Conversation Transcription
+          url: how-to-async-conversation-transcription.md
+    - linkListType: reference
+      links:
+        - text: Conversation Transcription language support
+          url: conversation-transcription.md#language-support
+- title: About multi-device conversation
   linkLists:
     - linkListType: overview
       links:
-      - text: About Multi-device conversation
+      - text: What is multi-device conversation?
         url: multi-device-conversation.md
     - linkListType: quickstart
       links:
         - text: Start and join a conversation
           url: quickstarts/multi-device-conversation.md
+    - linkListType: reference
+      links:
+        - text: Multi-device conversation language support
+          url: multi-device-conversation.md#language-support
 - title: Reference
   linkLists:
     - linkListType: reference
       links:
-        - text: Conversation Transcription language support
-          url: conversation-transcription.md#language-support
-        - text: Multi-device conversation language support
-          url: multi-device-conversation.md#language-support
-        - text: Pricing
+        - text: Speech transcription pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

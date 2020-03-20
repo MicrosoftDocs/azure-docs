@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -112,7 +112,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## CompareBooleanClaimToValue
 
-Checks that boolean value of a claims is equal to `true` or `false`, and return the result of the compression.
+Checks that boolean value of a claim is equal to `true` or `false`, and return the result of the compression.
 
 | Item | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |

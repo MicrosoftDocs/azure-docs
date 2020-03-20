@@ -6,8 +6,16 @@
     href: security-center-intro.md
   - name: Supported platforms
     href: security-center-os-coverage.md
-  - name: Supported features
-    href: security-center-services.md
+  - name: Security Center features
+    items:
+    - name: Feature coverage for VMs
+      href: security-center-services.md
+    - name: Feature coverage for Azure PaaS resources
+      href: features-paas.md
+  - name: Security recommendations
+    href: recommendations-reference.md
+  - name: Security alerts and the intent kill chain
+    href: alerts-reference.md    
 
 - name: Quickstarts
   expanded: true

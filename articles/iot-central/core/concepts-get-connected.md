@@ -189,6 +189,9 @@ When a real device connects to your IoT Central application, its device status c
     - Devices not registered manually on the **Devices** page connected with valid credentials but without specifying the Template ID during registration.  
 The Operator can associate a device to a Template from the **Devices** page using the **Migrate** button.
 
+## Best practices 
+1.  When using DPS to connect devices to IoT Central, ensure that the (IoT Hub) device connection string is not persisted or cached. To reconnect devices go through the regular DPS device registration flow to get the correct device connection string. If the connection string is cached the device software runs into the risk of having a stale connection string in the scenarios where IoT Central has updated the underlying Azure IoT Hub. 
+
 ## SDK support
 
 The Azure Device SDKs offer the easiest way for you implement your device code. The following device SDKs are available:

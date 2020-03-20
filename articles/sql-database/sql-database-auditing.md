@@ -110,26 +110,15 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 
 ### <a id="audit-event-hub-destination">Audit to Event Hub destination</a>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 > [!IMPORTANT]
 > Enabling auditing on a paused SQL pool is not possible. To enable it, un-pause the SQL pool.
 
 > [!WARNING]
-> Enabling auditing on a server that has a SQL pool on it **will result in the SQL pool being resumed and re-paused again** which may incur in billing charges.
-<<<<<<< HEAD
-=======
+> Enabling auditing on a server that has a SQL pool on it **results in the SQL pool being resumed and re-paused again** which may incur billing charges.
+
 To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> bf6444e83361ab743aca04ae233c420e51ea1e03
-=======
-To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
-
-   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
@@ -260,12 +249,6 @@ In production, you are likely to refresh your storage keys periodically. When wr
 - Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
 
 - For configuring Immutable Auditing on storage account, see [Allow protected append blobs writes](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes). Please note that the container name for Auditing is **sqldbauditlogs**.
-
-    > [!IMPORTANT]
-    > The allow protected append blobs writes setting under time-based retention is currently available and visible only in the following regions:
-    > - East US
-    > - South Central US
-    > - West US 2
 
 
 ## <a id="subheading-7"></a>Manage Azure SQL Server and Database auditing using Azure PowerShell

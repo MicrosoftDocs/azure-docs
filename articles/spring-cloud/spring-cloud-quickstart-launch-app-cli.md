@@ -69,7 +69,7 @@ az extension add --name spring-cloud
 4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
 
     ```azurecli
-        az spring-cloud create -n <service name> -g <resource group name>
+        az spring-cloud create -n <service instance name> -g <resource group name>
     ```
 
     The service instance will take around five minutes to deploy.
@@ -77,7 +77,7 @@ az extension add --name spring-cloud
 5. Set your default resource group name and cluster name using the following commands:
 
     ```azurecli
-        az configure --defaults group=<service group name>
+        az configure --defaults group=<resource group name>
         az configure --defaults spring-cloud=<service instance name>
     ```
 
@@ -88,8 +88,8 @@ az extension add --name spring-cloud
 
 Update your config-server with the location of the git repository for our project:
 
-```git
-az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics-config
+```azurecli
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 
 > [!div class="nextstepaction"]
@@ -153,7 +153,7 @@ az spring-cloud app show --name gateway | grep url
 ```
 Windows:
 ```azurecli
-az spring-cloud app show --name gateway | findstr url
+az spring-cloud app show -s <service name> -g <resource group> -n gateway -o table
 ```
 3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)

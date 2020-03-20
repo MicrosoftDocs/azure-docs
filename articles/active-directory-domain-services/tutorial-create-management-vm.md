@@ -57,7 +57,6 @@ Azure AD DS provides a managed domain for your users, applications, and services
 
 Members of the *AAD DC Administrators* group are granted privileges on the Azure AD DS managed domain that enables them to do tasks such as:
 
-* Join machines to the managed domain.
 * Configure the built-in group policy object (GPO) for the *AADDC Computers* and *AADDC Users* containers in the managed domain.
 * Administer DNS on the managed domain.
 * Create and administer custom organizational units (OUs) on the managed domain.

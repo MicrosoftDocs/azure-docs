@@ -1,7 +1,6 @@
 ---
-title: Configure storage accounts for Cloudyn in Azure | Microsoft Docs
+title: Configure storage accounts for Cloudyn in Azure
 description: This article describes how you configure Azure storage accounts and AWS storage buckets for Cloudyn.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020

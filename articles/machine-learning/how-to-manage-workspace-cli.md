@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/05/2019
+ms.date: 03/05/2020
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI

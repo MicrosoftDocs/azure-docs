@@ -9,22 +9,26 @@ ms.topic: conceptual
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ---
 
 
 # Create event driven machine learning workflows (Preview)
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning events. For example, you can use events from run completion, model registration, model deployment, and data drift detection scoped to a workspace.
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning events. You can subscribe and consume events such as run status changed, run completion, model registration, model deployment, and data drift detection within a workspace.
 
-For more information, see [Azure Machine Learning integration with Event Grid](concept-event-grid-integration.md) and the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning).
+For more information on event types, see [Azure Machine Learning integration with Event Grid](concept-event-grid-integration.md) and the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning).
 
 Use Event Grid to enable common scenarios such as:
 
-* Send emails on run completion
+* Send emails on run failure and run completion
 * Use an azure function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
+
+> [!NOTE] 
+> Currently, runStatusChanged events only trigger when the run status is **failed**
+>
 
 ## Prerequisites
 * Contributor or owner access to the Azure Machine Learning workspace you will create events for.
@@ -39,13 +43,14 @@ Use Event Grid to enable common scenarios such as:
 
 1. Select the event type to consume. For example, the following screenshot has selected __Model registered__, __Model deployed__, __Run completed__, and __Dataset drift detected__:
 
-    ![add-event-type](./media/how-to-use-event-grid/add-event-type.png)
+    ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 
 1. Select the endpoint to publish the event to. In the following screenshot, __Event hub__ is the selected endpoint:
 
     ![select-event-handler](./media/how-to-use-event-grid/select-event-handler.png)
 
 Once you have confirmed your selection, click __Create__. After configuration, these events will be pushed to your endpoint.
+
 
 ### Configure EventGrid using the CLI
 
@@ -72,13 +77,17 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
+## Filter Events
+
+When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning) to learn about event data you can filter by. 
+
+1. Go to the Azure portal, select a new subscription or an existing one. 
+
+1. Select the filters tab and scroll down to Advanced filters. In the **Key** and **Value** provide the property types you want to filter by. Here you can see the event will only trigger when the run type is a pipeline run or pipeline step run.  
+
+    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filter events":::
+
 ## Sample scenarios
-
-### Use Azure Functions to deploy a model based on tags
-
-An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
-
-For an example, see the [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repository and follow the steps in the **readme** file.
 
 ### Use a Logic App to send email alerts
 
@@ -96,7 +105,7 @@ Leverage [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to con
 
     ![select-event-runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
-1. You can also add filters to only trigger the logic app on a subset of event types. In the following screenshot, a __prefix filter__ of __/datadriftID/runs/__ is used.
+1. You can use the filtering method in the section above or add filters to only trigger the logic app on a subset of event types. In the following screenshot, a __prefix filter__ of __/datadriftID/runs/__ is used.
 
     ![filter-events](./media/how-to-use-event-grid/filtering-events.png)
 
@@ -160,6 +169,11 @@ Now the data factory pipeline is triggered when drift occurs. View details on yo
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
+### Use Azure Functions to deploy a model based on tags
+
+An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
+
+For an example, see the [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) repository and follow the steps in the **readme** file.
 
 ## Next steps
 

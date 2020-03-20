@@ -273,6 +273,14 @@
         href: howto-restart-server-portal.md
       - name: Azure CLI
         href: howto-restart-server-cli.md
+    - name: Deny Public Network Access
+      items:
+      - name: Azure portal
+        href: howto-deny-public-network-access.md
+    - name: Minimum TLS configuration
+      items:
+      - name: Azure portal
+        href: howto-tls-configurations.md
     - name: Replication
       items:
       - name: Manage read replicas Azure portal

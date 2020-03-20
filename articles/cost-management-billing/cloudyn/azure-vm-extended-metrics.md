@@ -1,7 +1,6 @@
 ---
-title: Add extended metrics for Azure virtual machines | Microsoft Docs
+title: Add extended metrics for Azure virtual machines
 description: This article helps you enable and configure extended diagnostics metrics for your Azure VMs.
-keywords:
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
@@ -29,7 +28,7 @@ For example, you might want to monitor the CPU % and Memory % of your Azure VMs.
 
 ## Determine whether extended metrics are enabled
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Under **Virtual machines**, select a VM and then under **Monitoring**, select **Metrics**. A list of available metrics is shown.
 3. Select some metrics and a graph displays data for them.  
     ![Example metric – host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)

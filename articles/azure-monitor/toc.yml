@@ -213,6 +213,8 @@
         items:
         - name: Client-side JavaScript
           href: app/javascript.md
+        - name: Source map for JavaScript
+          href: app/source-map-support.md
       - name: Application Insights API summary
         displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
@@ -1005,6 +1007,8 @@
         href: platform/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
         href: platform/migrate-management-alerts.md
+      - name: Webhook schema
+        href: platform/activity-log-alerts-webhook.md
     - name: Service health alerts in activity log
       items:
       - name: View notifications
@@ -1023,8 +1027,6 @@
         href: platform/alerts-common-schema-definitions.md   
       - name: Integrate the common alert schema with Logic Apps
         href: platform/alerts-common-schema-integrations.md   
-      - name: Webhook schema
-        href: platform/activity-log-alerts-webhook.md
       - name: SMS alert behavior
         href: platform/alerts-sms-behavior.md
       - name: Notification rate limiting
@@ -1243,6 +1245,8 @@
       href: app/docker.md
     - name: OMS portal deprecation
       href: platform/oms-portal-transition.md
+    - name: Disk metrics deprecation
+      href: platform/portal-disk-metrics-deprecation.md
 - name: Resources
   items:
   - name: Azure Roadmap

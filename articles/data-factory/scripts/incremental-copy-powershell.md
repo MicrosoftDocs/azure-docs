@@ -13,6 +13,7 @@ ms.date: 10/31/2017
 ---
 
 # PowerShell script - Incrementally load data by using Azure Data Factory
+
 This sample PowerShell script loads only new or updated records from a source data store to a sink data store after the initial full copy of data from the source to the sink.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -26,7 +27,7 @@ See [tutorial: incremental copy](../tutorial-incremental-copy-powershell.md#prer
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Database to Azure Blob Storage")]
+:::code language="powershell" source="~/powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1":::
 
 ## Clean up deployment
 
