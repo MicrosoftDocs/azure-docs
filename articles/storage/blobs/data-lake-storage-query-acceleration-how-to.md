@@ -50,27 +50,10 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 2. Extract the files in this .zip file to any directory on your local drive. 
 
-3. In **Solution Explorer**, right-click either **References** or your project and select **Manage NuGet Packages**.
+3. Install the **Azure.Storage.Blobs**, **Azure.Storage.Common**, and **Azure.Storage.QuickQuery** packages into your solution. 
 
-   The NuGet Package Manager opens.
+   The way that you do this depends on what type of .NET project you have. For guidance, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
 
-4. In the NuGet Package Manager, add the directory on your local drive as a package source. 
-
-   For more guidance, see [Package sources](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
-
-5. Make sure that the **Package source** drop-down list is set to **all**. This ensures that you install any packages from [https://www.nuget.org/]() that the query accelerator packages depends on.
-
-   > [!div class="mx-imgBorder"]
-   > ![Nuget Packages set to all](./media/data-lake-storage-query-acceleration/nuget-package-all.png)
-
-6. Choose the **Browse** tab, select the **Include prerelease** checkbox, and in the search text box, type **Azure.Storage**. 
-
-      > [!div class="mx-imgBorder"]
-   > ![Search for query accelerator packages](./media/data-lake-storage-query-acceleration/nuget-package-search.png)
-
-7. Install the **Azure.Storage.Blobs**, **Azure.Storage.Common**, and **Azure.Storage.QuickQuery** packages.
-
-   For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
 ### [Java](#tab/java)
 
@@ -130,6 +113,7 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
        <systemPath>${project.basedir}/lib/azure-storage-quickquery-12.0.0-beta.1.jar</systemPath>
    </dependency>
    ```
+
 ---
 
 ## Add statements
