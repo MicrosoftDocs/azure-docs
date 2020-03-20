@@ -1146,6 +1146,151 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/01-hello-world.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/02-intro-to-training.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/03-wait-vs-nonwait-actions.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/04-introduction-to-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/05-expected-entity.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/06-negatable-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/07-multi-value-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/08-pre-trained-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/09-entity-resolvers.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/10-alternative-inputs.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/11-log-dialogs.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/12-entity-detection-callback.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/13-session-callbacks.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/14-api-calls.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/16-hybrid-bots.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/17-branch-undo.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/18-version-tag.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-password-reset.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-pizza-order.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/tutorial-enum-set-entity.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/cl-values-and-boundaries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/control-flow.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/deploy-to-bf.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/how-to-teach-cl.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/languages-supported.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/managing-data.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
