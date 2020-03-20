@@ -19,7 +19,7 @@ Each time you access data in your storage account, your client makes a request o
 
 The following table describes the options that Azure Storage offers for authorizing access to resources:
 
-|  |Shared Key (storage account key)  |Shared access signature (SAS)  |Azure Active Directory (Azure AD)  |On-premises Active Directory Domain Services (AD DS, or on-premises AD DS) |Anonymous public read access  |
+|  |Shared Key (storage account key)  |Shared access signature (SAS)  |Azure Active Directory (Azure AD)  |On-premises Active Directory Domain Services (preview) |Anonymous public read access  |
 |---------|---------|---------|---------|---------|---------|
 |Azure Blobs     |[Supported](/rest/api/storageservices/authorize-with-shared-key/)         |[Supported](storage-sas-overview.md)         |[Supported](storage-auth-aad.md)         |Not supported|[Supported](../blobs/storage-manage-access-to-resources.md)         |
 |Azure Files (SMB)     |[Supported](/rest/api/storageservices/authorize-with-shared-key/)         |Not supported         |[Supported, only with AAD Domain Services](../files/storage-files-active-directory-overview.md)         |[Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md)|Not supported         |

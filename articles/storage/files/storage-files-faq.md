@@ -159,7 +159,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-support"></a>
 **Is identity-based authentication and access control supported by Azure Files?**  
     
-    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: on-premises Active Directory DS (AD DS, or on-premises AD DS) (preview) or Azure Active Directory Domain Services (Azure AD DS) (GA). On-premises AD DS supports authentication using AD DS domain joined machines, either on-premises or in Azure, to access Azure file shares over SMB. Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md). 
+    Yes, Azure Files supports identity-based authentication and access control. You can choose one of two ways to use identity-based access control: on-premises Active Directory Domain Services (preview) or Azure Active Directory Domain Services (Azure AD DS). On-premises Active Directory Domain Services (AD DS, or on-premises AD DS) supports authentication using AD DS domain-joined machines, either on-premises or in Azure, to access Azure file shares over SMB. Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Files identity-based authentication support for SMB access](storage-files-active-directory-overview.md). 
 
     Azure Files offers two additional ways to manage access control:
 
@@ -185,19 +185,19 @@ This article answers common questions about Azure Files features and functionali
     If the subscription under which the file share is deployed is associated with the same Azure AD tenant as the Azure AD DS deployment to which the VM is domain-joined, then you can then access Azure Files using the same Azure AD credentials. The limitation is imposed not on the subscription but on the associated Azure AD tenant.
     
 * <a id="ad-support-subscription"></a>
-**Can I enable either Azure Files Azure AD DS or on-premises AD DS authentication with an Azure AD tenant that is different from the primary tenant which the file share is associated with?**
+**Can I enable either Azure AD DS or on-premises AD DS authentication for Azure file shares using an Azure AD tenant that is different from the primary tenant which the file share is associated with?**
 
     No, Azure Files only supports Azure AD DS or on-premises AD DS integration with an Azure AD tenant that resides in the same subscription as the file share. Only one subscription can be associated with an Azure AD tenant. This limitation applies to both Azure AD DS and on-premises AD DS authentication methods. When using on-premises AD DS for authentication, the AD DS credential must be synced to the Azure AD that the storage account is associated with.
 
 * <a id="ad-linux-vms"></a>
-**Does Azure Files Azure AD DS or on-premises AD DS authentication support Linux VMs?**
+**Does Azure AD DS or on-premises AD DS authentication for Azure file shares support Linux VMs?**
 
     No, authentication from Linux VMs is not supported.
 
 * <a id="ad-multiple-forest"></a>
-**Does Azure Files on-premises AD DS authentication support integration with an AD environment using multiple forests?**    
+**Does Azure Files on-premises AD DS authentication support integration with an AD DS environment using multiple forests?**    
 
-    Azure Files on-premises AD DS authentication only integrates with the forest of the AD domain service that the storage account is registered to. To support authentication from another AD forest, your environment must have forest trust configured properly. The way Azure Files register to an AD DS is mostly the same as a regular file server, where it creates an identity (computer or service logon account) in AD DS for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication due to the different domain suffix.
+    Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. The way Azure Files register in AD DS almost the same as a regular file server, where it creates an identity (computer or service logon account) in AD DS for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication due to the different domain suffix.
 
 * <a id=""></a>
 **What regions are available for Azure Files AD DS authentication (preview)?**
