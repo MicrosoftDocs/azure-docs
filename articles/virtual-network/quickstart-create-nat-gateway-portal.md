@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
 ---
 
@@ -20,38 +20,30 @@ ms.author: allensu
 
 This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
->[!NOTE] 
->Azure Virtual Network NAT is available as public preview at this time and available in a limited set of [regions](./nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+If you prefer, you can do these steps using the [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md), or deploy a [ARM Template](quickstart-create-nat-gateway-powershell.md) instead of the portal.
 
 ## Sign in to Azure
 
-> [!IMPORTANT]
-> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
+Sign in to the [Azure portal](https://portal.azure.com).
 
-Sign in to the [Azure portal](https://aka.ms/natportal).
+## Virtual network and parameters
 
+Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-### Create a virtual network
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.  
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**, or search for **Virtual network** in the Marketplace search.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-2. In **Create virtual network**, enter or select this information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myVNet**. |
-    | Address space | Enter **192.168.0.0/16**. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select create new - **myResourceGroupNAT**. |
-    | Location | Select **East US 2**.|
-    | Subnet - Name | Enter **mySubnet**. |
-    | Subnet - Address range | Enter **192.168.0.0/24**. |
-
-3. Leave the rest of the defaults and select **Create**.
-
-### Create a VM to use the NAT gateway
+## Create a VM to use the NAT gateway
 
 We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
@@ -181,6 +173,5 @@ Review metrics in Azure Monitor to see your NAT service operating. Diagnose issu
 - Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
-- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

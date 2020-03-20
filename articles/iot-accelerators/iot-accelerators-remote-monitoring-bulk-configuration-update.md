@@ -1,13 +1,13 @@
 ---
 title: Manage devices connected to Remote Monitoring in bulk - Azure | Microsoft Docs
 description: In this tutorial you learn how to manage the devices connected to a Remote Monitoring solution in bulk.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
+ms.author: philmea
 
 # As an operator of an IoT monitoring solution, I want to manage the local configuration of my connected devices in bulk.
 ---

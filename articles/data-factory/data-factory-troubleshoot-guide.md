@@ -1023,7 +1023,7 @@ To use Fiddler to create an HTTP session of the monitored web application:
 
    ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-1. If your application uses SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
 
 1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
 

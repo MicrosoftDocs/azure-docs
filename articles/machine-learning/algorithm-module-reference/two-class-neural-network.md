@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
+ms.date: 02/22/2020
 ---
 
 # Two-Class Neural Network module
@@ -38,7 +38,9 @@ To compute the output of the network for a particular input, a value is calculat
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
-    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
+    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.  
 
 3.  For **Hidden layer specification**, select the type of network architecture to create.  
   
@@ -72,7 +74,7 @@ To compute the output of the network for a particular input, a value is calculat
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
   
-14. Run the pipeline.
+14. Submit the pipeline.
 
 ## Results
 

@@ -16,7 +16,7 @@ ms.author: memildin
 ---
 
 # Azure Kubernetes Services integration with Security Center (Preview)
-Azure Kubernetes Service (AKS) is Microsoft’s managed service for developing, deploying, and managing containerized applications. 
+Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications. 
 
 Use AKS together with Azure Security Center's standard tier (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
 
@@ -41,7 +41,7 @@ Using the two services together provides:
     * Raw security events, such as network data and process creation
     * The Kubernetes audit log
 
-    For more information, see [threat detection for Azure containers](security-center-alerts-compute.md#azure-containers-)
+    For more information, see [threat protection for Azure containers](threat-protection.md#azure-containers)
 
     For the list of possible alerts, see these sections in the alerts reference table: [AKS cluster level alerts](alerts-reference.md#alerts-akscluster) and [Container host level alerts](alerts-reference.md#alerts-containerhost).  
 
@@ -59,4 +59,4 @@ To learn more about Security Center's container security features, see:
 
 * [Integration with Azure Container Registry](azure-container-registry-integration.md)
 
-* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Office 365), details of Microsoft’s data management, and the retention policies that affect your data
+* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Office 365), details of Microsoft's data management, and the retention policies that affect your data

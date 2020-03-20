@@ -27,9 +27,9 @@ In this guide, you will learn how to:
 
 You must create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster
@@ -39,7 +39,7 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > [!NOTE]
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
@@ -193,7 +193,7 @@ To have these changes reflected in *dev* and *dev/azureuser1*, you should follow
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

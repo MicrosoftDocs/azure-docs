@@ -1,21 +1,14 @@
 ---
 title: Azure CLI script sample - Import to an App Configuration store
 titleSuffix: Azure App Configuration
-description: Provides information and sample scripts for importing to an Azure App Configuration store
+description: Use Azure CLI script - Importing configuration to Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
-
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
 ---
 
 # Import to an Azure App Configuration store

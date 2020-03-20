@@ -86,13 +86,11 @@ The Batch service uses the associated Storage account to store your application 
 
 We recommend that you create a Storage account *specifically* for use with your Batch account, and select it here. After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** window.
 
-> [!NOTE] 
-> Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
-> 
+> [!IMPORTANT] 
+> - Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
+> - An Azure Storage account with **Hierarchical namespace** set to **Enabled** can't be used for application packages.
 
 The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Azure Storage scalability and performance targets for storage accounts](../storage/blobs/scalability-targets.md). Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
-> 
-> 
 
 ### View current applications
 To view the applications in your Batch account, click the **Applications** menu item in the left menu while viewing your **Batch account**.

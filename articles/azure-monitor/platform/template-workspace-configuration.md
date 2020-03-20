@@ -1,7 +1,6 @@
 ---
-title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
+title: Azure Resource Manager template for Log Analytics workspace
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -73,52 +72,52 @@ For capacity reservation, you define a selected capacity reservation for ingesti
             }
         },
       "pricingTier": {
-      "type": "string",
-      "allowedValues": [
-        "pergb2018",
-        "Free",
-        "Standalone",
-        "PerNode",
-        "Standard",
-        "Premium"
-      ],
-      "defaultValue": "pergb2018",
-      "metadata": {
+        "type": "string",
+        "allowedValues": [
+          "pergb2018",
+          "Free",
+          "Standalone",
+          "PerNode",
+          "Standard",
+          "Premium"
+          ],
+        "defaultValue": "pergb2018",
+        "metadata": {
         "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-           }
-       },
-        "location": {
-            "type": "String",
-            "allowedValues": [
-              "australiacentral", 
-              "australiaeast", 
-              "australiasoutheast", 
-              "brazilsouth",
-              "canadacentral", 
-              "centralindia", 
-              "centralus", 
-              "eastasia", 
-              "eastus", 
-              "eastus2", 
-              "francecentral", 
-              "japaneast", 
-              "koreacentral", 
-              "northcentralus", 
-              "northeurope", 
-              "southafricanorth", 
-              "southcentralus", 
-              "southeastasia", 
-              "uksouth", 
-              "ukwest", 
-              "westcentralus", 
-              "westeurope", 
-              "westus", 
-              "westus2" 
-            ],
-            "metadata": {
-              "description": "Specifies the location in which to create the workspace."
-            }
         }
+      },
+      "location": {
+        "type": "String",
+        "allowedValues": [
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2" 
+        ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+        }
+      }
     },
     "resources": [
         {
@@ -127,9 +126,8 @@ For capacity reservation, you define a selected capacity reservation for ingesti
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                "sku": {
+		  "name": "[parameters('pricingTier')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -142,6 +140,14 @@ For capacity reservation, you define a selected capacity reservation for ingesti
        ]
     }
     ```
+
+> [Information]
+> for capacity reservation settings, use these properties under "sku":
+
+>   "name": "CapacityReservation",
+
+>   "capacityReservationLevel": 100
+
 
 2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
@@ -167,7 +173,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 The following template sample illustrates how to:
 
 1. Add solutions to the workspace
-2. Create saved searches
+2. Create saved searches. To ensure that deployments don't override saved searches accidently, an eTag property should be added in the "savedSearches" resource to override and maintain the idempotency of saved searches.
 3. Create a computer group
 4. Enable collection of IIS logs from computers with the Windows agent installed
 5. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
@@ -309,11 +315,11 @@ The following template sample illustrates how to:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "Category": "VMSS",
-            "ETag": "*",
-            "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
-            "Version": 1
+            "category": "VMSS",
+            "eTag": "*",
+            "displayName": "VMSS Instance Count",
+            "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
+            "version": 1
           }
         },
         {
