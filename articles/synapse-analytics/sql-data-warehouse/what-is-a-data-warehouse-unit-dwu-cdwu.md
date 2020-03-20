@@ -51,7 +51,7 @@ CREATE DATABASE mySQLDW
 
 ## Capacity limits
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## How many data warehouse units do I need
 
@@ -67,7 +67,7 @@ SQL Analytics is a scale-out system that can provision vast amounts of compute a
 
 > [!NOTE]
 >
-> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](sql-data-warehouse-overview-manage-user-queries.md).
+> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](cheat-sheet.md).
 
 ## Permissions
 
@@ -85,8 +85,8 @@ To view the current DWU setting:
 
 ```sql
 SELECT  db.name [Database]
-,	    ds.edition [Edition]
-,	    ds.service_objective [Service Objective]
+,        ds.edition [Edition]
+,        ds.service_objective [Service Objective]
 FROM    sys.database_service_objectives   AS ds
 JOIN    sys.databases                     AS db ON ds.database_id = db.database_id
 ;
