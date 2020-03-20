@@ -197,25 +197,25 @@ The following screenshot shows the built-in reports and charts for analyzing sea
 
 ## Example
 
-**Create your first search app in C#** is an ASP.NET Core solution that you can use to practice adding instrumentation code.
+**Create your first search app in C#** is an ASP.NET Core sample that you can use to practice adding instrumentation code.
 
-Use the sample code from the last lesson, [5 - Order results](https://docs.microsoft.com/en-us/azure/search/tutorial-csharp-orders), so that you can leverage search rank and more click behaviors. For this lesson, the [sample code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/5-order-results) is located on GitHub.
+We recommend using the sample code from [Lesson 5 - Order results](tutorial-csharp-orders.md). It adds search rank, providing a richer baseline for data collection. For this lesson, the [sample code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/5-order-results) is located on GitHub.
 
-1. Before adding Application Insights and instrumentation code, run the program to make sure there are no build errors.
+1. Before adding Application Insights and instrumentation code, open **OrderResults.sln** in Visual Studio and run the program to make sure there are no build errors.
 
-1. In Visual Studio, select **Project** > **Add Application Insights Telemetry**. For more information, see [Enable Application Insights server-side telemetry](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
+1. Select **Project** > **Add Application Insights Telemetry**.
 
 1. Click **Get Started**.
 
 1. Select your subscription, account, resource, and click **Register***.
 
-   At this point, your application is set up for application monitoring, which means all page loads are tracked with default metrics.
+   At this point, your application is set up for application monitoring, which means all page loads are tracked with default metrics. For more information about the previous steps, see [Enable Application Insights server-side telemetry](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
 
 1. Open **HomeController.cs**.
 
-1. On line 52, add `private static TelemetryClient _telemetryClient;` and when prompted, add `using Microsoft.ApplicationInsights;` as an assembly reference.
+1. On line 267, add `private static TelemetryClient _telemetryClient;` and when prompted, add `using Microsoft.ApplicationInsights;` as an assembly reference.
 
-1. On line 20, add a constructor that accepts a telemetry client:
+1. On line 44, add a constructor that accepts a telemetry client:
 
    ```csharp
    public HomeController(TelemetryClient telemetry)
@@ -224,22 +224,43 @@ Use the sample code from the last lesson, [5 - Order results](https://docs.micro
     }
    ```
 
-1. Correlate search and clicks events logged to Application Insights using the search ID. On line 79, add the following lines. When prompted, add `using System.Collections.Generic;` as an assembly reference.
+1. Next, correlate search events and clicks events through the search ID. On line 191, add the following lines to your query logic.
 
    ```csharp
+   // Search Traffic Analytics: Establish a search ID used to correlate events
    var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
 
-   var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, 
-customHeaders: headers);
+   var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
 
-    IEnumerable<string> headerValues;
     string searchId = string.Empty;
-    if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
+    if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string>headerValues)){
          searchId = headerValues.FirstOrDefault();
     }
    ```
 
+1. Collect search events and click events. On line 202, add the following code.
+
+   ```csharp
+    // Search Traffic Analytics - Click events
+    var clickProperties = new Dictionary<string, string> {
+        {"SearchServiceName", "searchServiceName"},
+        {"SearchId", "searchId"},
+        {"ClickedDocId", "HotelId"}
+    };
+    _telemetryClient.TrackEvent("Click", clickProperties);
+
+    // Search Traffic Analytics - Query events
+    var searchProperties = new Dictionary<string, string> {
+        {"SearchServiceName", "searchServiceName"},
+        {"SearchId", "searchId"},
+        {"IndexName", "Hotel"},
+        {"ScoringProfile", "profile"}
+    };
+    _telemetryClient.TrackEvent("Search", searchProperties);
+   ```
+
 ## Next steps
+
 Instrument your search application to get powerful and insightful data about your search service.
 
 You can find more information on [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and visit the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
