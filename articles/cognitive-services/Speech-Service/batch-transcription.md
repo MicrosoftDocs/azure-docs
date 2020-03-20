@@ -14,16 +14,25 @@ ms.author: wolfma
 
 # What is batch transcription?
 
-Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. 
+Batch transcription is a set of REST API operations that enables users to transcribe a large amount of audio in storage. Users can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results in return.
 
-The API offers asynchronous speech-to-text transcription and other features. You can use REST API to expose methods to:
+Asynchronous speech-to-text transcription is just one of the features. You can use batch transcription REST APIs to call the following methods:
 
-- Create a batch processing requests
-- Query the status
-- Download transcription results
-- Delete transcription information from the service
 
-The detailed API is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
+
+|    Batch Transcription Operation                                               |    Method    |    REST API Call                                   |
+|--------------------------------------------------------------------------------|--------------|----------------------------------------------------|
+|    Creates   a new transcription.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
+|    Retrieves   a list of transcriptions for the authenticated subscription.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
+|    Gets   a list of supported locales for offline transcriptions.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
+|    Updates   the mutable details of the transcription identified by its ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}      |
+|    Deletes   the specified transcription task.                                 |    DELETE    |    api/speechtotext/v2.0/transcriptions/{id}      |
+|    Gets   the transcription identified by the given ID.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}      |
+
+
+
+
+You can review and test the detailed API which is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
 
 Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job changes into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
 
@@ -317,4 +326,4 @@ You can find the sample in the `samples/batch` directory in the [GitHub sample r
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
