@@ -161,7 +161,7 @@
       # - name: Workspace
       #   href: article-template.md
       - name: Synapse workspace managed Identity
-        href: ./security/synapse-workspace-msi.md
+        href: ./security/synapse-workspace-managed-identity.md
       - name: Pool and on-demand
         href: ./sql-analytics/access-control.md
       - name: Data
