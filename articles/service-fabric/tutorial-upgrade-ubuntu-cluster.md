@@ -16,7 +16,7 @@ Service Fabric supports the ability to create clusters based on Ubuntu 18.04 LTS
 2. Migrate data and point other resources at the new deployment.
 3. Delete the original deployment and clean up resources.
 
-You can follow along by beginning with this template, which deploys a secure 7 node, 3 node type cluster with Ubuntu 16.04 LTS:
+You can follow along by beginning with this template, which deploys a secure seven node, three node type cluster with Ubuntu 16.04 LTS:
 
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
@@ -67,7 +67,7 @@ Once the settings have been configured, deploy on Azure.
 
 ## Migrate data and configure resources
 
-After deploying, we need to configure traffic and resources to point to our new cluster. For a stateful service this means we must move our data over. A stateless service doesn't require moving any data, but traffic must be configured to reference the new deployment.
+After deploying, we need to configure traffic and resources to point to our new cluster. For a stateful service, this means we must move our data over. A stateless service doesn't require moving any data, but traffic must be configured to reference the new deployment.
 
 ### Stateful Services
 
@@ -89,7 +89,7 @@ Stateless services don't use collections of data so we don't have to port anythi
     
 ## Delete original deployment and clean up resources
 
-Finally, we can delete our now unused Ubuntu 16.04-LTS deployment. This can be done from the Azure portal or by using a command line tool like Azure Powershell or the Azure CLI.
+Finally, we can delete our now unused Ubuntu 16.04-LTS deployment. This can be done from the Azure portal or by using a command-line tool like Azure PowerShell or the Azure CLI.
 
 It's possible to delete the whole resource group:
 
