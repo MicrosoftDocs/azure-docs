@@ -4,7 +4,7 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
 ---
 
@@ -57,6 +57,9 @@ Different storage systems use different methods to enable this access:
 * NetApp and EMC systems typically control access with export rules that are tied to specific IP addresses or networks.
 
 If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
+
+> [!NOTE]
+> By default, Azure HPC Cache squashes root access. Read [Configure additional cache settings](configuration.md#configure-root-squash) for details.
 
 Work with your NAS storage vendor to enable the right level of access for the cache.
 
@@ -123,7 +126,11 @@ There isn't a simple way to tell whether or not your system has this problem unl
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  If the ping fails with 1472 bytes, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) to learn more.
+  If the ping fails with 1472 bytes, there is probably a packet size problem.
+
+To fix the problem, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) to learn more.
+
+In some cases, changing the MTU setting for the Azure HPC Cache to 1400 can help. However, if your back-end storage system sends packets larger than 1400 bytes, the cache will reject these packets. Read [Configure additional Azure HPC Cache settings](configuration.md#adjust-mtu-value) for details.
 
 ## Check for ACL security style
 

@@ -4,7 +4,7 @@ description: How to use Azure Key Vault with Azure HPC Cache to control encrypti
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 03/19/2020
 ms.author: rohogue
 ---
 
@@ -13,7 +13,7 @@ ms.author: rohogue
 You can use Azure Key Vault to control ownership of the keys used to encrypt your data in Azure HPC Cache. This article explains how to use customer-managed keys for cache data encryption.
 
 > [!NOTE]
-> All data stored in Azure, including on the cache disks, is encrypted at rest with Microsoft-managed keys by default. You only need to follow the steps in this article if you want to manage the keys used to encrypt your data.
+> All data stored in Azure, including on the cache disks, is encrypted at rest using Microsoft-managed keys by default. You only need to follow the steps in this article if you want to manage the keys used to encrypt your data.
 
 This feature is available only in these Azure regions:
 
@@ -29,37 +29,56 @@ There are three steps to enable customer-managed key encryption for Azure HPC Ca
 
 Encryption is not completely set up until after you authorize it from the newly created cache (step 3). This is because you must pass the cache's identity to the key vault to make it an authorized user. You can't do this before creating the cache, because the identity does not exist until the cache is created.
 
+After you create the cache, you cannot change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can change the encryption key, the key version, and the key vault as needed.
+
+## Understand key vault and key requirements
+
+The key vault and key must meet these requirements to work with Azure HPC Cache.
+
+Key vault properties:
+
+* **Subscription** - Use the same subscription that is used for the cache.
+* **Region** - The key vault must be in the same region as the Azure HPC Cache.
+* **Pricing tier** - Standard tier is sufficient for use with Azure HPC Cache.
+* **Soft delete** - Azure HPC Cache will enable soft delete if it is not already configured on the key vault.
+* **Purge protection** - Azure HPC Cache will enable purge protection if it is not already active.
+* **Access policy** - Default settings are sufficient.
+* **Network connectivity** - Azure HPC Cache must be able to access the key vault regardless of the endpoint settings you choose.
+
+Key properties:
+
+* **Key type** - RSA
+* **RSA key size** - 2048
+* **Enabled** - Yes
+
+Key vault access permissions:
+
+* The user that creates the Azure HPC Cache must have permissions equivalent to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor).
+
 ## 1. Set up Azure Key Vault
 
+You can set up a key vault and key before you create the cache, or do it as part of cache creation.
+
 Before you create the Azure HPC Cache, set up an Azure Key Vault system and import or create the key you want to use for the cache's encryption. An Azure Key Vault administrator must set up these resources.
+
+Read the [Azure Key Vault documentation](../key-vault/key-vault-overview.md) for details.
 
 > [!NOTE]
 > The Azure Key Vault must share the same subscription and be in the same region as the Azure HPC Cache. Use one of the supported regions listed at the beginning of this article.
 
-Read the [Azure Key Vault documentation](../key-vault/key-vault-overview.md) for details.
-
-If creating a new key vault for Azure HPC Cache, use these settings:
-
-* **Subscription** - Use the same subscription that will be used for the cache.
-* **Region** - The key vault must be in the same region as the Azure HPC Cache.
-* **Pricing tier** - Standard is sufficient for use with Azure HPC Cache.
-* **Soft delete** - Azure HPC Cache will enable soft delete if it is not already configured on the key vault.
-* **Purge protection** - Azure HPC Cache will enable purge protection if it is not already active.
-* **Access policy** - Default settings are sufficient.
-* **Networking** - Azure HPC Cache must be able to access the key vault regardless of the endpoint settings you choose.
 
 ## 2. Create the cache with customer-managed keys enabled
 
-After you have prepared a key vault and key, create your Azure HPC Cache. Follow the instructions in [Create an Azure HPC Cache](hpc-cache-create.md), and specify the key vault and key in the **Disk encryption keys** page.
+You must specify the encryption key source when you create your Azure HPC Cache. Follow the instructions in [Create an Azure HPC Cache](hpc-cache-create.md), and specify the key vault and key in the **Disk encryption keys** page. You can create a new key vault and key during cache creation.
 
 > [!TIP]
 > If the **Disk encryption keys** page does not appear, make sure that your cache is in one of the supported regions.
 
 The user who creates the cache must have privileges equal to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor) or higher.
 
-1. Click the button to enable privately managed keys. After you change this setting, the key vault settings appear.
+1. Click the button to enable privately managed keys. After you change this setting, the key vault settings appear. <!-- double check if this is true -->
 
-1. Select a key vault from the list.
+1. Click **Select a key vault** to open the key selection page. Choose or create the key vault and key for encrypting data on this cache's disks.
 
    If your Azure Key Vault does not appear in the list, check these requirements:
 
@@ -67,7 +86,7 @@ The user who creates the cache must have privileges equal to the [Key Vault cont
    * Is the cache in the same region as the key vault?
    * Is there network connectivity between the Azure portal and the key vault?
 
-1. After selecting a vault, select the individual key from the available options. The key must be a 2048-bit RSA key.
+1. After selecting a vault, select the individual key from the available options, or create a new key. The key must be a 2048-bit RSA key.
 
 1. Specify the version for the selected key. Learn more about versioning in the [Azure Key Vault documentation](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
 
@@ -78,15 +97,22 @@ Continue with the rest of the specifications and create the cache as described i
 
 After a few minutes, the new Azure HPC Cache appears in your Azure Portal. Go to the **Overview** page to authorize it to access your Azure Key Vault and enable customer-managed key encryption.
 
-A notification appears on the **Overview** page if encryption was configured during creation but has not yet been enabled from the cache. Click the **Yes** button to authorize the cache to use the encryption key. This action also enables soft-delete and purge protection on the key vault.
+This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete.
+
+> [!NOTE]
+> You must authorize encryption within 90 minutes after creating the cache. If you don't complete this step, the cache will time out and fail. A failed cache has to be re-created, it can't be fixed.
+
+The cache shows the status **Waiting for key**. Click the **Enable encryption** button at the top of the page to authorize the cache to access the specified key vault.
 
 ![screenshot of cache overview page in portal, with a banner message at the top that asks the user to enable encryption by clicking yes](media/draft-enable-keyvault.png)
 
-This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete.
+Click the **Yes** button to authorize the cache to use the encryption key. This action also enables soft-delete and purge protection on the key vault.
+
+![screenshot of cache overview page in portal, with a banner message at the top that asks the user to enable encryption by clicking yes](media/draft-enable-keyvault-banner.png)
 
 After the cache requests access to the key vault, it can create and encrypt the disks that store cached data.
 
-After you authorize the encryption, Azure HPC Cache goes through several more minutes of setup to create the encrypted disks and related infrastructure.
+After you authorize encryption, Azure HPC Cache goes through several more minutes of setup to create the encrypted disks and related infrastructure.
 
 <!-- add info about rotating keys when it's available -->
 
