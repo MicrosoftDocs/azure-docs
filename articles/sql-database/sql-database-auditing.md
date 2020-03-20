@@ -8,22 +8,23 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/11/2020
+ms.date: 03/19/2020
 ms.custom: azure-synapse
 ---
-# Get started with SQL database auditing
+# Azure SQL Auditing
 
-Auditing for Azure [SQL Database](sql-database-technical-overview.md)  and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace or Event Hubs. Auditing also:
+Auditing for Azure [SQL Database](sql-database-technical-overview.md)  and [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace or Event Hubs. 
+
+Auditing also:
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
-
 > [!NOTE] 
-> This topic applies to Azure SQL server, and to both SQL Database and Azure Synapse Analytics databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
+> This topic applies to both Azure SQL Database, and Azure Synapse Analytics databases. For simplicity, SQL Database is used when referring to both Azure SQL Database and Azure Synapse Analytics.
 
-## <a id="subheading-1"></a>Azure SQL database auditing overview
+## <a id="subheading-1"></a>Overview
 
 You can use SQL database auditing to:
 
@@ -95,9 +96,13 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 
    ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-To configure a storage account under a virtual network or firewall you will need an [Active Directory admin](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
+To configure a storage account behind a virtual network or firewall you will need an [Active Directory admin](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) on the server, enable **Allow trusted Microsoft services to access this storage account** on the storage account. In addition, you need to have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account.
 
 We recommend you to be [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) in order to grant to the managed identity the role 'storage blob data contributor'. To learn more about permissions and role-based access control, see [What is role-based access control (RBAC) for Azure resources?](../role-based-access-control/overview.md) and [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md)
+
+#### Log audits to storage account behind VNet or firewall
+
+You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](create-auditing-storage-account-vnet-firewall.md).
 
 ### <a id="audit-log-analytics-destination">Audit to Log Analytics destination</a>
   
