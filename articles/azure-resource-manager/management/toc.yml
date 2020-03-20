@@ -70,7 +70,7 @@
       href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
     - name: Tag resources
       href: tag-resources.md
-    - name: Policies
+    - name: Policies - compliance
       href: tag-policies.md
     - name: Tag support
       href: tag-support.md

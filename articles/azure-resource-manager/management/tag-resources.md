@@ -2,9 +2,9 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 03/20/2020
 ---
-# Use tags to organize your Azure resources, resource groups and subscriptions
+# Use tags to organize your Azure resources, resource groups, and subscriptions
 
 You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
@@ -317,9 +317,9 @@ done
 IFS=$origIFS
 ```
 
-## ARM templates
+## Templates
 
-You can tag resources, resource groups, and subscriptions during deployment with an ARM template.
+You can tag resources, resource groups, and subscriptions during deployment with a Resource Manager template.
 
 ### Apply values
 
@@ -556,7 +556,12 @@ The following template adds the tags from an object to either a resource group o
 
 ## REST API
 
-The Azure portal and PowerShell both use the [Resource Manager REST API](/rest/api/resources/) behind the scenes. If you need to integrate tagging into another environment, you can get tags by using **GET** on the resource ID and update the set of tags by using a **PATCH** call.
+To work with tags through the Azure REST API, use:
+
+* [Tags - Create Or Update At Scope](/rest/api/resources/tags/createorupdateatscope) (PUT operation)
+* [Tags - Update At Scope](/rest/api/resources/tags/updateatscope) (PATCH operation)
+* [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (GET operation)
+* [Tags - Delete At Scope](/rest/api/resources/tags/deleteatscope) (DELETE operation)
 
 ## Tags and billing
 
@@ -571,7 +576,7 @@ For REST API operations, see [Azure Billing REST API Reference](/rest/api/billin
 The following limitations apply to tags:
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* Each resource or resource group can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group can contain many resources that each have 50 tag name/value pairs.
+* Each resource, resource group, and subscription can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name/value pairs.
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
 * Generalized VMs don't support tags.
 * Tags can't be applied to classic resources such as Cloud Services.
