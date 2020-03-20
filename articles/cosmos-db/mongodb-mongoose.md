@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/20/2020
-author: tisande
-ms.author: timsander1
+author: timsander1
+ms.author: tisande
 ms.custom: seodec18
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB

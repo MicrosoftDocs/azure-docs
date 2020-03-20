@@ -15,10 +15,11 @@ ms.author: lbosq
 After you migrate the data stored in MongoDB database to Azure Cosmos DB's API for MongoDB, you can connect to Azure Cosmos DB and manage the data. This guide provides the steps you should consider after the migration. See the [Migrate MongoDB to Azure Cosmos DB's API for MongoDB tutorial](../dms/tutorial-mongodb-cosmos-db.md) for the migration steps.
 
 In this guide, you will learn how to:
-- [Connect your application](#connect-account)
-- [Optimize the indexing policy](#indexing)
-- [Configure global distribution for Azure Cosmos DB's API for MongoDB](#distribute-data)
-- [Set consistency level](#consistency)
+
+- [Connect your application](#connect-your-application)
+- [Optimize the indexing policy](#optimize-the-indexing-policy)
+- [Configure global distribution for Azure Cosmos DB's API for MongoDB](#globally-distribute-your-data)
+- [Set consistency level](#set-consistency-level)
 
 > [!NOTE]
 > The only mandatory post-migration step on your application level is changing the connection string in your application to point to your new Azure Cosmos DB account. All other migration steps are recommended optimizations.
