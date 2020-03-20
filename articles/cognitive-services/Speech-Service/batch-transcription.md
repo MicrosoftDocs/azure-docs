@@ -25,7 +25,7 @@ The API offers asynchronous speech-to-text transcription and other features. You
 
 The detailed API is available as a [Swagger document](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), under the heading `Custom Speech transcriptions`.
 
-Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job will change into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
+Batch transcription jobs are scheduled on a best effort basis. Currently there is no estimate for when a job changes into the running state. Under normal system load, it should happen within minutes. Once in the running state, the actual transcription is processed faster than the audio real time.
 
 Next to the easy-to-use API, you don't need to deploy custom endpoints, and you don't have any concurrency requirements to observe.
 
@@ -36,7 +36,7 @@ Next to the easy-to-use API, you don't need to deploy custom endpoints, and you 
 As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
 
 >[!NOTE]
-> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) will not work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### Custom models
 
@@ -129,7 +129,7 @@ Use these optional properties to configure transcription:
       `TranscriptionResultsContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result will be stored in this container.
+      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container.
 :::row-end:::
 
 ### Storage
@@ -215,7 +215,7 @@ The result contains these forms:
 
 Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
 
-All transcription output contains a `SpeakerId`. If diarization is not used, it will show `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers will be identified as `"1"` or `"2"`.
+All transcription output contains a `SpeakerId`. If diarization is not used, it shows `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers are identified as `"1"` or `"2"`.
 
 To request diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
 
@@ -285,7 +285,7 @@ A JSON output sample looks like below:
 
 ## Best practices
 
-The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service once you retrieved the results. This will guarantee quick replies from the transcription management calls.
+The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Keep the information returned to a reasonable size by specifying the `take` parameter (a few hundred). [Delete transcriptions](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regularly from the service once you retrieved the results. This guarantees quick replies from the transcription management calls.
 
 ## Sample code
 
@@ -298,7 +298,7 @@ You have to customize the sample code with your subscription information, the se
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-The sample code will set up the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
+The sample code sets up the client and submit the transcription request. It then polls for the status information and print details about the transcription progress.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
