@@ -34,7 +34,7 @@ The following table shows the different methods you can use to set up an HDInsig
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using the default view or *Classic*.
+This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
 
 ## Basics
 
