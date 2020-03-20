@@ -54,7 +54,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
     **Authentication Type**: Choose **sshPublicKey** or **password** depending on your preference.
 
-    **Admin Password or Key**: The location of the SSH Public Key or the value of the password depending on the choice of Authentication Type.
+    **Admin Password or Key**: The value of the SSH Public Key or the value of the password depending on the choice of Authentication Type.
 
     When all fields have been filled in, select the checkbox at the bottom of the page to accept the terms and select **Purchase** to begin the deployment.
 
