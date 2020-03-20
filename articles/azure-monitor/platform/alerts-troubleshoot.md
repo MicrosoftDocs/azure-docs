@@ -17,7 +17,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 If you can see a fired alert in the Azure portal, but have an issue with some of its actions or notifications, see the following sections.
 
-## Expected an email, but did not receive it
+## Did not receive email
 
 If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps: 
 
@@ -73,7 +73,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
    If you would like to receive high-volume of notifications without rate limiting, consider using a different action, such as webhook, logic app, Azure function, or automation runbooks, none of which are rate limited. 
 
-## Expected an SMS, a voice call, or a push notification, but did not receive it
+## Did not receive SMS, voice call, or push notification
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
@@ -106,7 +106,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
    Most mobile phones allow you to block calls or SMS from specific phone numbers or short codes, or to block push notifications from specific apps (such as the Azure mobile app). To check if you accidentally blocked the notifications on your phone, search the documentation specific for your phone operating system and model, or test with a different phone and phone number. 
 
-## Expected another type of action to trigger, but it did not 
+## Another type of action did not trigger 
 
 If you can see a fired alert in the portal, but its configured action did not trigger, follow these steps: 
 
