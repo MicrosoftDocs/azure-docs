@@ -424,7 +424,7 @@ The easiest way to release an updated package is to repeat the process described
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
 
-## OPTIONAL: Signing Guest Configuration packages
+## Optional: Signing Guest Configuration packages
 
 Guest Configuration custom policies by default use SHA256 hash to validate the policy package hasn't
 changed from when it was published to when it's read by the server that is being audited.
