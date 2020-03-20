@@ -6,7 +6,6 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-
 ---
 
 # Continuous deployment to Azure App Service
@@ -80,7 +79,7 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
    
 1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.
    
-   New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
+1. New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
    
    ![Track commits and deployments in Deployment Center](media/app-service-continuous-deployment/github-finished.png)
 
