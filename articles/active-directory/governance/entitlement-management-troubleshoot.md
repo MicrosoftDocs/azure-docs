@@ -49,7 +49,7 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ## Access packages
 
-* If you are attempting to delete an access package or a policy and get an error that there are active assignments, but do not see any users with assignments, also check to see if any recently deleted users still have assignments.  During the 30-day window after a user has been deleted, the user account can be restored.   
+* If you attempt to delete an access package or policy and see an error message that says there are active assignments, if you don't see any users with assignments, check to see whether any recently deleted users still have assignments. During the 30-day window after a user is deleted, the user account can be restored.   
 
 ## External users
 
