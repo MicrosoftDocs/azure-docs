@@ -6,8 +6,8 @@ ms.topic: how-to
 ---
 # How to create Guest Configuration policies for Windows
 
-Before creating custom policies, it is a good idea to read the conceptual overview information
-at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
+Before creating custom policies, it's a good idea to read the conceptual overview information at the
+page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
  
 To learn about creating Guest Configuration policies for Linux, see the page
 [How to create Guest Configuration policies for Linux](/guest-configuration-custom-linux.md)
@@ -76,8 +76,8 @@ To install the **GuestConfiguration** module in PowerShell:
 
 Guest Configuration utilizes PowerShell Desired State Configuration as a language abstraction for
 writing what audit in Windows and how the audits should be performed. An instance of PowerShell 6.2
-is loaded and managed by the agent to host the environment, so there is no conflict with usage of
-PowerShell DSC in Windows PowerShell 5.1, and there is no requirement to pre-install PowerShell 6.2
+is loaded and managed by the agent to host the environment, so there's no conflict with usage of
+PowerShell DSC in Windows PowerShell 5.1, and there's no requirement to pre-install PowerShell 6.2
 or later.
 
 For an overview of DSC concepts and terminology, see
@@ -89,7 +89,7 @@ When Guest Configuration audits a machine, it first runs `Test-TargetResource` t
 in the correct state. The boolean value returned by the function determines if the Azure Resource
 Manager status for the Guest Assignment should be Compliant/Not-Compliant. Next the provider runs
 `Get-TargetResource` to return the current state of each setting so details are available both about
-why a machine is not compliant, or to confirm that the current state is compliant.
+why a machine isn't compliant, or to confirm that the current state is compliant.
 
 ### Get-TargetResource requirements
 
@@ -203,7 +203,7 @@ Configuration AuditBitLocker
 AuditBitLocker -out ./Config
 ```
 
-The `Node AuditBitlocker` command is not technically required but it produces a file named
+The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
 configuration makes it easy to organize many files when operating at scale.
 

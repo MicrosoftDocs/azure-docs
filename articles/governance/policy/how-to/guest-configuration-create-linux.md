@@ -74,11 +74,11 @@ To install the **GuestConfiguration** module in PowerShell:
 ## Background information regarding Guest Configuration artifacts and policy for Linux
 
 Even in Linux environments, Guest Configuration utilizes Desired State Configuration as a language
-abstraction. The implementation is based in native code (C++) so it does not require loading
+abstraction. The implementation is based in native code (C++) so it doesn't require loading
 PowerShell at this time. However, it does require a configuration MOF file describing basic details
-about the environment. DSC is acting as a "wrapper" for InSpec to standardize how it is executed,
-how parameters are provided from Azure Resource Manager, and how output is captured and returned to
-the service. Little knowledge of DSC is required when working with custom InSpec content.
+about the environment. DSC is acting as a "wrapper" for InSpec to standardize how it's executed, how
+parameters are provided from Azure Resource Manager, and how output is captured and returned to the
+service. Little knowledge of DSC is required when working with custom InSpec content.
 
 #### Configuration requirements
 
@@ -142,7 +142,7 @@ Configuration AuditFilePathExists
 AuditFilePathExists -out ./Config
 ```
 
-The `Node AuditFilePathExists` command is not technically required but it produces a file named
+The `Node AuditFilePathExists` command isn't technically required but it produces a file named
 `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
 the configuration makes it easy to organize many files when operating at scale.
 
@@ -345,7 +345,7 @@ authored or compiled.
 With InSpec, parameters are typically handled as input either at runtime or as code using
 attributes. Guest Configuration obfuscates this process so input can be provided to Azure Resource
 Manager when policy is assigned. An attributes file is automatically created within the machine. You
-do not need to create and add a file in your project. There are two steps to adding parameters to
+don't need to create and add a file in your project. There are two steps to adding parameters to
 your Linux audit project.
 
 Define the input in the Ruby file where you script what to audit on the machine. An example is given
