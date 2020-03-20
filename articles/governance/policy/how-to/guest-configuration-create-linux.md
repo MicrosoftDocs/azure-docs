@@ -1,7 +1,7 @@
 ---
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
-ms.date: 12/16/2019
+ms.date: 03/20/2020
 ms.topic: how-to
 ---
 # How to create Guest Configuration policies for Linux
@@ -12,29 +12,26 @@ at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.m
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](/guest-configuration-create.md)
 
-When auditing Linux, Guest Configuration uses
-[Chef InSpec](https://www.inspec.io/).
-The InSpec profile defines the
-condition that the machine should be in. If the evaluation of the configuration fails, the Policy
-effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
+When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/). The InSpec
+profile defines the condition that the machine should be in. If the evaluation of the configuration
+fails, the Policy effect **auditIfNotExists** is triggered and the machine is considered
+**non-compliant**.
 
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
 settings inside machines. Remediation of settings inside machines isn't yet available.
 
-Use the following actions to create your own configuration for validating the state of an Azure or non-Azure
-machine.
+Use the following actions to create your own configuration for validating the state of an Azure or
+non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
 
 ## Install the PowerShell module
 
-The process of creating a Guest Configuration artifact, automated testing of the artifact,
-creating a policy definition, and publishing the policy,
-is entirely automatable using PowerShell.
-This module can be installed on a machine running Windows, macOS, or Linux with
-PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
-with the
+The process of creating a Guest Configuration artifact, automated testing of the artifact, creating
+a policy definition, and publishing the policy, is entirely automatable using PowerShell. This
+module can be installed on a machine running Windows, macOS, or Linux with PowerShell 6.2 or later
+running locally, or with [Azure Cloud Shell](https://shell.azure.com), or with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
@@ -54,7 +51,7 @@ The Guest Configuration resource module requires the following software:
   [these instructions](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
   [these instructions](/powershell/azure/install-az-ps).
-    - Only the AZ modules 'Az.Accounts' and 'Az.Resources' are required.
+  - Only the AZ modules 'Az.Accounts' and 'Az.Resources' are required.
 
 ### Install the module
 
@@ -76,29 +73,29 @@ To install the **GuestConfiguration** module in PowerShell:
 
 ## Background information regarding Guest Configuration artifacts and policy for Linux
 
-Even in Linux environments, Guest Configuration utilizes Desired State Configuration as a language abstraction.
-The implementation is based in native code (C++) so it does not require loading PowerShell at this time.
-However, it does require a configuration MOF file describing basic details about the environment. DSC is acting as a "wrapper" for InSpec to standardize how it is executed, how parameters are provided from Azure Resource Manager, and how output is captured and returned to the service. 
-Little knowledge of DSC is required
-when working with custom InSpec content.
+Even in Linux environments, Guest Configuration utilizes Desired State Configuration as a language
+abstraction. The implementation is based in native code (C++) so it doesn't require loading
+PowerShell at this time. However, it does require a configuration MOF file describing basic details
+about the environment. DSC is acting as a "wrapper" for InSpec to standardize how it's executed, how
+parameters are provided from Azure Resource Manager, and how output is captured and returned to the
+service. Little knowledge of DSC is required when working with custom InSpec content.
 
 #### Configuration requirements
 
-The only requirement for Guest Configuration to use a custom configuration file is for the name of the
-configuration to be consistent everywhere it's used. This name requirement includes the name of the
-.zip file for the content package, the configuration name in the MOF file stored inside the content
-package, and the configuration name used in a Resource Manager template as the guest assignment
-name.
+The only requirement for Guest Configuration to use a custom configuration file is for the name of
+the configuration to be consistent everywhere it's used. This name requirement includes the name of
+the .zip file for the content package, the configuration name in the MOF file stored inside the
+content package, and the configuration name used in a Resource Manager template as the guest
+assignment name.
 
 ### Custom Guest Configuration configuration on Linux
 
-Guest Configuration on Linux uses the `ChefInSpecResource` resource to
-provide the engine with the name of the [ InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name**
-is the only required resource property. Create a YaML file and a Ruby script file, as detailed below.
+Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
+name of the [InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name** is the only
+required resource property. Create a YaML file and a Ruby script file, as detailed below.
 
-First, create the YaML file used by InSpec.
-The file provides basic information about the environment.
-An example is given below:
+First, create the YaML file used by InSpec. The file provides basic information about the
+environment. An example is given below:
 
 ```YaML
 name: linux-path
@@ -123,8 +120,8 @@ end
 
 Save this file in a new folder named `controls` inside the `linux-path` directory.
 
-Finally, create a configuration, import the **GuestConfiguration**
-resource module, and use the `ChefInSpecResource` resource to set the name of the InSpec profile.
+Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
+`ChefInSpecResource` resource to set the name of the InSpec profile.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -145,7 +142,9 @@ Configuration AuditFilePathExists
 AuditFilePathExists -out ./Config
 ```
 
-The `Node AuditFilePathExists` command is not technically required but it produces a file named `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
+The `Node AuditFilePathExists` command isn't technically required but it produces a file named
+`AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
+the configuration makes it easy to organize many files when operating at scale.
 
 You should now have a project structure as below:
 
@@ -159,10 +158,11 @@ You should now have a project structure as below:
             linux-path.rb 
 ```
 
-The supporting files must be packaged together. The completed package is
-used by Guest Configuration to create the Azure Policy definitions.
+The supporting files must be packaged together. The completed package is used by Guest Configuration
+to create the Azure Policy definitions.
 
-The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Linux content:
+The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of the
+`New-GuestConfigurationPackage` cmdlet when creating Linux content:
 
 - **Name**: Guest Configuration package name.
 - **Configuration**: Compiled configuration document full path.
@@ -186,7 +186,8 @@ module includes a cmdlet `Test-GuestConfigurationPackage` that loads the same ag
 development environment as is used inside Azure machines. Using this solution, you can perform
 integration testing locally before releasing to billed cloud environments.
 
-Since the agent is actually evaluating the local environment, in most cases you need to run the Test- cmdlet on the same OS platform as you plan to audit.
+Since the agent is actually evaluating the local environment, in most cases you need to run the
+Test- cmdlet on the same OS platform as you plan to audit.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
@@ -208,7 +209,9 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. The commands used in the `publish` function require the `Az.Storage` module.
+The next step is to publish the file to blob storage. The script below contains a function you can
+use to automate this task. The commands used in the `publish` function require the `Az.Storage`
+module.
 
 ```azurepowershell-interactive
 function publish {
@@ -339,12 +342,14 @@ means that the values in the MOF file in the package don't have to be considered
 override values are provided through Azure Policy and don't impact how the Configurations are
 authored or compiled.
 
-With InSpec, parameters are typically handled as input either at runtime or as code using attributes.
-Guest Configuration obfuscates this process so input can be provided to Azure Resource Manager when policy is assigned.
-An attributes file is automatically created within the machine. You do not need to create and add a file in your project.
-There are two steps to adding parameters to your Linux audit project.
+With InSpec, parameters are typically handled as input either at runtime or as code using
+attributes. Guest Configuration obfuscates this process so input can be provided to Azure Resource
+Manager when policy is assigned. An attributes file is automatically created within the machine. You
+don't need to create and add a file in your project. There are two steps to adding parameters to
+your Linux audit project.
 
-Define the input in the Ruby file where you script what to audit on the machine. An example is given below.
+Define the input in the Ruby file where you script what to audit on the machine. An example is given
+below.
 
 ```Ruby
 attr_path = attribute('path', description: 'The file path to validate.')
@@ -359,7 +364,8 @@ parameter named **Parameters**. This parameter takes a hashtable definition incl
 about each parameter and automatically creates all the required sections of the files used to create
 each Azure Policy definition.
 
-The following example creates an Azure Policy to audit a file path, where the user provides the path at the time of Policy assignment.
+The following example creates an Azure Policy to audit a file path, where the user provides the path
+at the time of Policy assignment.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -407,8 +413,8 @@ Configuration AuditFilePathExists
 
 ## Policy lifecycle
 
-After you've published a custom Azure Policy using your custom content package,
-there are two fields that must be updated if you would like to publish a new release.
+After you've published a custom Azure Policy using your custom content package, there are two fields
+that must be updated if you would like to publish a new release.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published. The property updates the version of the Guest
