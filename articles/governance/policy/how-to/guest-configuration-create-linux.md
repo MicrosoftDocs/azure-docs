@@ -67,7 +67,7 @@ To install the **GuestConfiguration** module in PowerShell:
    Install-Module -Name GuestConfiguration
    ```
 
-2. Validate that the module has been imported:
+1. Validate that the module has been imported:
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported GuestConfiguration module
@@ -94,7 +94,7 @@ name.
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to
 provide the engine with the name of the [ InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name**
-is the only required resource property. You will need to create a YaML file and a Ruby script file, as detailed below.
+is the only required resource property. Create a YaML file and a Ruby script file, as detailed below.
 
 First, create the YaML file used by InSpec.
 The file provides basic information about the environment.
@@ -186,7 +186,7 @@ module includes a cmdlet `Test-GuestConfigurationPackage` that loads the same ag
 development environment as is used inside Azure machines. Using this solution, you can perform
 integration testing locally before releasing to billed cloud environments.
 
-Since the agent is actually evaluating the local environment, in most cases you will need to run the Test- cmdlet on the same OS platform as you plan to audit.
+Since the agent is actually evaluating the local environment, in most cases you need to run the Test- cmdlet on the same OS platform as you plan to audit.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
@@ -414,7 +414,7 @@ there are two fields that must be updated if you would like to publish a new rel
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published. The property updates the version of the Guest
-  Configuration assignment in the new policy file so the extension will recognize that the package
+  Configuration assignment in the new policy file so the extension recognizes that the package
   has been updated.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property

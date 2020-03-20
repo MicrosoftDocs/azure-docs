@@ -67,7 +67,7 @@ To install the **GuestConfiguration** module in PowerShell:
    Install-Module -Name GuestConfiguration
    ```
 
-2. Validate that the module has been imported:
+1. Validate that the module has been imported:
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported GuestConfiguration module
@@ -89,7 +89,7 @@ For an overview of DSC concepts and terminology, see
 
 When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine if it is
 in the correct state. The boolean value returned by the function determines if the Azure Resource
-Manager status for the Guest Assignment should be Compliant/Not-Compliant. Next the provider will run
+Manager status for the Guest Assignment should be Compliant/Not-Compliant. Next the provider runs
 `Get-TargetResource` to return the current state of each setting so details are available both
 about why a machine is not compliant, or to confirm that the current state is compliant.
 
@@ -230,7 +230,7 @@ module includes a cmdlet `Test-GuestConfigurationPackage` that loads the same ag
 development environment as is used inside Azure machines. Using this solution, you can perform
 integration testing locally before releasing to billed cloud environments.
 
-Since the agent is actually evaluating the local environment, in most cases you will need to run the Test- cmdlet on the same OS platform as you plan to audit.
+Since the agent is actually evaluating the local environment, in most cases you need to run the Test- cmdlet on the same OS platform as you plan to audit.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
@@ -424,7 +424,7 @@ there are two fields that must be updated if you would like to publish a new rel
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published. The property updates the version of the Guest
-  Configuration assignment in the new policy file so the extension will recognize that the package
+  Configuration assignment in the new policy file so the extension recognizes that the package
   has been updated.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
@@ -445,7 +445,7 @@ above, you can convert Windows Group Policy content and package/publish it for A
 audit. For details about using the tool, see the article
 [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 Once the content has been converted, the steps above to create a package and publish it as Azure
-Policy will be the same as for any DSC content.
+Policy are the same as for any DSC content.
 
 ## OPTIONAL: Signing Guest Configuration packages
 
