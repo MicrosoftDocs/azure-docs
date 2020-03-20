@@ -40,8 +40,14 @@ As mentioned in the Azure Files migration overview article, using the correct co
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
-    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance, if you plan on using Azure File Syncs [cloud tiering](storage-sync-cloud-tiering.md) feature.
-    However, when you copy your files from the larger NAS space to the smaller Windows Server volume in a later phase, you will need to work in batches. Move a set of files that fits onto the disk, let file sync and cloud tiering engage and when more free space arrives, proceed with the next batch of files. You can avoid this batching approach by provisioning the necessary space on the Windows Server. After the migration and when sync had a chance to get your server mostly in sync with the Azure file shares, you can decide to reduce the volume size and create a smaller on-premises cache.
+    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance, if you use Azure File Syncs [cloud tiering](storage-sync-cloud-tiering.md) feature.
+    However, when you copy your files from the larger NAS space to the smaller Windows Server volume in a later phase, you will need to work in batches:
+
+    1. Move a set of files that fits onto the disk
+    2. let file sync and cloud tiering engage
+    3. when more free space is created on the volume, proceed with the next batch of files. 
+    
+    You can avoid this batching approach by provisioning the equivalent space space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before adjusting the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
 The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. We recommend going with a higher performance configuration if you have any concerns.
 
@@ -213,7 +219,7 @@ Check the link in the following section for troubleshooting Azure File Sync issu
 
 ## Next steps
 
-There is more to discover about Azure file shares and Azure Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
+There is more to discover about Azure file shares and Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
 * [AFS overview](https://aka.ms/AFS)
 * [AFS deployment guide](storage-files-deployment-guide.md)
