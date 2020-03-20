@@ -1,5 +1,5 @@
 ---
-title: Use Private Atlas to render indoor maps | Microsoft Docs 
+title: Use Private Atlas to create indoor maps data | Microsoft Docs 
 description: Learn how to render an indoor map into your web application using the Azure Maps Private Atlas.
 author: farah-alyasari
 ms.author: v-faalya
@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Use Private Atlas to render indoor maps
+# Use Private Atlas to create indoor maps data
 
 This tutorial shows you how to use the Azure Maps Private Atlas APIs. The Private Atlas lets you show indoor maps within your web application, and it provides you with the necessary functionalities to control your indoor maps data. In this tutorial, you learn how to use the Private Atlas APIs to:
 
@@ -91,7 +91,7 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
     </center>
 
 > [!Note]
-> Sometimes it may take a while to show the response body of the API call. If you're using the postman application and it takes a long time for the response status to change, then click on the send button again.
+> When you make a request at the Status URL, the user interface of the Postman application is not perfectly synchronized with the API response. If you notice a long delay, click the **send** button again. The request will be resent and you'll see the status at the time of clicking the button.
 
 ## Create a data set
 
@@ -146,7 +146,7 @@ A tile set is a set of vector tiles that render on the map. It's produced from t
 
 To delete your tile set, use the [Tileset Delete API](). If you delete an in-use tile set, then those tiles won't render on the map at the application runtime. Use the [Tileset List API]() to see all the tile sets in your Azure Maps Private Atlas.
 
-## Query Azure Maps WFS
+## Query Azure Maps WFS APIs
 
 Learn about your map features by calling the [WFS API](). The steps below show you how to obtain a feature ID, we'll use this feature ID later to create a feature state set.
 

@@ -155,7 +155,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
           const map = new atlas.Map("map-id", {
             //use your facility's location
             center: [-122.13315, 47.63637],
-            //or, you can use bounds: [ # , # , # , # ] and replace # with your Map bounds
+            //or, you can use bounds: [ # , # , # , # ] and replace # with your map's bounds
             style: "blank",
             subscriptionKey,
             zoom: 19,
