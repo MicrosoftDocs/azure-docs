@@ -20,6 +20,11 @@ ms.reviewer: bagovind
 ---
 # Create or update custom roles for Azure resources using the REST API
 
+> [!IMPORTANT]
+> Adding a management group to `AssignableScopes` is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using the REST API.
 
 ## List custom roles
