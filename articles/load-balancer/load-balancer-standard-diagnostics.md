@@ -122,6 +122,26 @@ To get SNAT connection statistics:
 *Figure: Load Balancer SNAT connection count*
 
 
+#### How do I check my SNAT port usage and allocation?
+
+The SNAT usage metric demonstrates how many unique flows are establish between a source and backend VMs or VMSSes. By comparing this with the SNAT allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+
+If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
+
+To get SNAT usage and allocation:
+1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
+  * By default this will be the average number of SNAT ports allocated to each backend VMs or VMSSes, corresponding to all frontend public IPs, mapped to your Load Balancer aggregated over TCP and UDP.
+2a. One helpful Load Balalncer view is to filter to a specific **Protocol Type** and a set of **Backend IPs** or **Frontend IPs**.
+2b. To monitor health per backend or frontend instance, apply splitting. Note this only allows for a single metric to be displayed at a time. To monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. View SNAT Allocation by switching metric type to **SNAT Allocation** and view by Frontend IP by switching split to **Frontend IP**.
+
+![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/SNAT Usage and Allocation.png)
+
+*Figure: Average TCP SNAT allocation and usage for a set of backend VMs
+
+![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/SNAT Usage by backend IP.png)
+
+*Figure: TCP SNAT allocation and usage for a set of backend VMs
+
 #### How do I check inbound/outbound connection attempts for my service?
 
 A SYN packets metric describes the volume of TCP SYN packets, which have arrived or were sent (for [outbound flows](https://aka.ms/lboutbound)) that are associated with a specific front end. You can use this metric to understand TCP connection attempts to your service.
