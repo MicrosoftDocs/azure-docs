@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
-- **Front ends**: The locations where HTTP or HTTPS terminates in an App Service Environment.
+- **Front ends**: Where HTTP or HTTPS terminates in an App Service Environment.
 - **Workers**: The resources that host your apps.
 - **Database**: Holds information that defines the environment.
 - **Storage**: Used to host the customer-published apps.
@@ -129,7 +129,7 @@ With an External ASE, these publishing options all work the same way. For more i
 
 Publishing is significantly different with an ILB ASE, for which the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don't have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you must configure DNS for the apps in the system. That requirement includes the SCM endpoint. If the endpoints aren't defined properly, you can't publish. Your IDEs must also have network access to the ILB to publish directly to it.
 
-Without additional components, internet-based CI systems like GitHub and Azure DevOps don't work with an ILB ASE because the publishing endpoint isn't internet accessible. You can enable publishing to an ILB ASE from Azure DevOps by installing a self-hosted release agent in the virtual network that contains the ILB ASE. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
+Without additional changes, internet-based CI systems like GitHub and Azure DevOps don't work with an ILB ASE because the publishing endpoint isn't internet accessible. You can enable publishing to an ILB ASE from Azure DevOps by installing a self-hosted release agent in the virtual network that contains the ILB ASE. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal pane (in **Overview** > **Essentials** and also in **Properties**).
 
