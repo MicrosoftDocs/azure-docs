@@ -47,7 +47,6 @@ There are a variety of compute sizes that you can choose from that includes:
 - GPU sizes so that your students can use computer-intensive types of applications, such as for Artificial Intelligence and Machine Learning.
 
 Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
-
 > [!NOTE]
 > Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
 
