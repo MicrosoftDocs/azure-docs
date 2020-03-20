@@ -122,7 +122,7 @@ Use these optional properties to configure transcription:
       `AddDiarization`
    :::column-end:::
    :::column span="2":::
-      Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` enabling diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.
+      Specifies that diarization analysis should be carried out on the input, which is expected to be mono channel containing two voices. Accepted values are `true` enabling diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -298,7 +298,7 @@ You have to customize the sample code with your subscription information, the se
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-The sample code sets up the client and submit the transcription request. It then polls for the status information and print details about the transcription progress.
+The sample code sets up the client and submits the transcription request. It then polls for the status information and print details about the transcription progress.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
