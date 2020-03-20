@@ -340,7 +340,7 @@ DSC configurations that take a long time to compile can cause this error.
 
 #### Resolution
 
-You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any `Import-DscResource` calls. For more information, see [Using Import-DSCResource](https://docs.microsoft.com/en-us/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
+You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any `Import-DscResource` calls. For more information, see [Using Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
 
 ## Next steps
 
