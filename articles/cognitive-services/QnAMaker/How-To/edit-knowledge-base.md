@@ -39,7 +39,7 @@ QnA sets are added from a datasource, such as a file or URL, or added as an edit
     |Undo|
     |Redo|
     |Image - add an image available from a public URL.|
-    |Emoticon - add from a selection of markdown emoticons.|
+    |Emoticon - add from a selection of emoticons.|
     |Header style|
 
 1. Optionally, add **[alternate phrasing](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
