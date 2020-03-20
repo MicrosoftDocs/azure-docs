@@ -4,6 +4,7 @@ description: Overview of the process for publishing an Azure SaaS application of
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pabutler

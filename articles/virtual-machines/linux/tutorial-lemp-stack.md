@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure | Microsoft Docs
+title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to install the LEMP stack on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines

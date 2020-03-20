@@ -44,7 +44,7 @@ The following video shows how to monitor API Management using Azure Monitor.
 
 API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Following is a summary of some of the available metrics:
 
-* Capacity (preview):  helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
+* Capacity:  helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
 * Total Gateway Requests: the number of API requests in the period. 
 * Successful Gateway Requests: the number of API requests that received successful HTTP response codes including 304, 307, and anything smaller than 301 (for example, 200).
 * Failed Gateway Requests: the number of API requests that received erroneous HTTP response codes including 400, and anything larger than 500.
@@ -179,10 +179,10 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | Property  | Type | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True if the HTTP request completed with response status code within 2xx or 3xx range |
-| time | date-time | Timestamp of receiving the HTTP request by the gateway |
+| time | date-time | Timestamp of when the gateway starts process the request |
 | operationName | string | Constant value 'Microsoft.ApiManagement/GatewayLogs' |
 | category | string | Constant value 'GatewayLogs' |
-| durationMs | integer | Number of milliseconds from the moment gateway received request until the moment response sent in full |
+| durationMs | integer | Number of milliseconds from the moment gateway received request until the moment response sent in full. It includes clienTime, cacheTime, and backendTime. |
 | callerIpAddress | string | IP address of immediate Gateway caller (can be an intermediary) |
 | correlationId | string | Unique http request identifier assigned by API Management |
 | location | string | Name of the Azure region where the Gateway that processed the request was located |
@@ -210,7 +210,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | apimSubscriptionId | string | Subscription entity identifier for current request | 
 | backendId | string | Backend entity identifier for current request | 
 | LastError | object | Last request processing error | 
-| elapsed | integer | Number of milliseconds elapsed since Gateway received request  the moment the error occurred | 
+| elapsed | integer | Number of milliseconds elapsed between when the gateway received the request  and the moment the error occurred | 
 | source | string | Name of the policy or processing internal handler caused the error | 
 | scope | string | Scope of the policy document containing the policy that caused the error | 
 | section | string | Section of the policy document containing the policy that caused the error | 

@@ -1,23 +1,14 @@
 ---
-title: Create ASP.NET Core app on Linux - Azure App Service | Microsoft Docs
-description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
+title: 'Quickstart: Run a Linux ASP.NET Core app'
+description: Get started with Linux apps on Azure App Service by deploying your first ASP.NET Core app to a Linux container in App Service.
 keywords: azure app service, web app, dotnet, core, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create an ASP.NET Core app in App Service on Linux
 
 > [!NOTE]
@@ -127,7 +118,7 @@ remote:   ...
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 

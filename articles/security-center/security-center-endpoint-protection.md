@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
 ---
 
 # Endpoint protection assessment and recommendations in Azure Security Center
 
-Azure Security Center provides health assessments of [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
+Azure Security Center provides health assessments of [supported](security-center-services.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
 
 * **Install endpoint protection solutions on your virtual machine**
 * **Resolve endpoint protection health issues on your machines**
@@ -80,7 +80,7 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 * Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-    * The **dsq_query.cmd** file is found in the Installation Folder
+    * The **dsa_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec endpoint protection

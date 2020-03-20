@@ -1,7 +1,7 @@
 ---
 title: "SMOTE"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the SMOTE module in the Azure Machine Learning service to increase the number of low-incidence examples in a dataset by using oversampling.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the SMOTE module in Azure Machine Learning to increase the number of low-incidence examples in a dataset by using oversampling.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -75,7 +75,7 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
   
 7. Enter a value in the **Random seed** box if you want to ensure the same results over runs of the same pipeline, with the same data. Otherwise, the module generates a random seed based on processor clock values when the pipeline is deployed. The generation of a random seed can cause slightly different results over runs.
 
-8. Run the pipeline.  
+8. Submit the pipeline.  
   
    The output of the module is a dataset that contains the original rows plus a number of added rows with minority cases.  
 
@@ -94,5 +94,5 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 

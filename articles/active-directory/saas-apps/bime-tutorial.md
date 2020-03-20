@@ -229,7 +229,7 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
     d. Click **Save**.
 
 > [!NOTE]
-> You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.
+> You can use any other Bime user account creation tools or APIs provided by Bime to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
 ---
 
 # Streaming at scale in HDInsight
@@ -32,7 +32,7 @@ For more information, see [What is Apache Storm on Azure HDInsight?](storm/apach
 
 ## Spark Streaming
 
-Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Storm, Spark Streaming provides stateful exactly-once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data is received by Spark Streaming exactly once, it is possible to achieve end-to-end exactly-once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
+Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Storm, Spark Streaming provides stateful exactly once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data is received by Spark Streaming exactly once, it's possible to achieve end-to-end exactly once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
 
 For more information, see [What is Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
@@ -40,11 +40,11 @@ For more information, see [What is Apache Spark Streaming?](hdinsight-spark-stre
 
 Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match the workload. All HDInsight clusters allow you to [change the number of nodes in the cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Spark clusters can be dropped with no loss of data, as all  data is stored in Azure Storage or Data Lake Storage.
 
-There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so it is very IO intensive and does not need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
+There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so it's very IO intensive and doesn't need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
 
 ### Scale the stream buffering layer
 
-The stream buffering technologies Event Hubs and Kafka both use partitions, and consumers read from those partitions. Scaling the input throughput requires scaling up the number of partitions, and adding partitions provides increasing parallelism. In Event Hubs, the partition count cannot be changed after deployment so it is important to start with the target scale in mind. With Kafka, it is possible to [add partitions](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), even while Kafka is processing data. Kafka provides a tool to reassign partitions,  `kafka-reassign-partitions.sh`. HDInsight provides a [partition replica rebalancing tool](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py`. This rebalancing tool calls the `kafka-reassign-partitions.sh` tool in such a way that each replica is in a separate fault domain and update domain, making Kafka rack aware and increasing fault tolerance.
+The stream buffering technologies Event Hubs and Kafka both use partitions, and consumers read from those partitions. Scaling the input throughput requires scaling up the number of partitions, and adding partitions provides increasing parallelism. In Event Hubs, the partition count can't be changed after deployment so it's important to start with the target scale in mind. With Kafka, it's possible to [add partitions](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), even while Kafka is processing data. Kafka provides a tool to reassign partitions,  `kafka-reassign-partitions.sh`. HDInsight provides a [partition replica rebalancing tool](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py`. This rebalancing tool calls the `kafka-reassign-partitions.sh` tool in such a way that each replica is in a separate fault domain and update domain, making Kafka rack aware and increasing fault tolerance.
 
 ### Scale the stream processing layer
 

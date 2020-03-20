@@ -1,12 +1,8 @@
 ---
-title: Recover files from Azure to a Windows Server
+title: 'Tutorial: Recover items to Windows Server'
 description: In this tutorial, learn how to use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from Azure to a Windows Server.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 02/14/2018
-ms.author: dacurwin
 ms.custom: mvc
 ---
 # Recover files from Azure to a Windows Server
@@ -19,7 +15,7 @@ Azure Backup enables the recovery of individual items from backups of your Windo
 > * Select a recovery point
 > * Restore items from a recovery point
 
-This tutorial assumes you have already performed the steps to [Back up a Windows Server to Azure](backup-configure-vault.md) and have at least one backup of your Windows Server files in Azure.
+This tutorial assumes you have already performed the steps to [Back up a Windows Server to Azure](backup-windows-with-mars-agent.md) and have at least one backup of your Windows Server files in Azure.
 
 ## Initiate recovery of individual items
 

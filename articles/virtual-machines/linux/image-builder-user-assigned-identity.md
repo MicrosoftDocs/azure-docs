@@ -6,6 +6,7 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
 ---
 
@@ -13,7 +14,7 @@ manager: gwallace
 
 Azure Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. To use these, they must have been externally accessible to Azure Image Builder, but you could protect Azure Storage blobs using SAS Tokens.
 
-This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to access files in Azure storage for the image customization, without you having to make the files publically accessible, or setting up SAS tokens.
+This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to access files in Azure storage for the image customization, without you having to make the files publicly accessible, or setting up SAS tokens.
 
 In the example below, you will create two resource groups, one will be used for the custom image, and the other will host an Azure Storage Account, that contains a script file. This simulates a real life scenario, where you may have build artifacts, or image files in different storage accounts, outside of Image Builder. You will create a user-assigned identity, then grant that read permissions on the script file, but you will not set any public access to that file. You will then use the Shell customizer to download and run that script from the storage account.
 
@@ -58,7 +59,7 @@ az provider register -n Microsoft.Storage
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
 
-```azurecli-interactive
+```console
 # Image resource group name 
 imageResourceGroup=aibmdimsi
 # storage resource group
@@ -73,13 +74,13 @@ runOutputName=u1804ManImgMsiro
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
-```azurecli-interactive
+```console
 subscriptionID=<Your subscription ID>
 ```
 
 Create the resource groups for both the image and the script storage.
 
-```azurecli-interactive
+```console
 # create resource group for image template
 az group create -n $imageResourceGroup -l $location
 # create resource group for the script storage
@@ -147,7 +148,7 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 
 Download the example .json file and configure it with the variables you created.
 
-```azurecli-interactive
+```console
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json
@@ -187,7 +188,7 @@ Wait for the build to complete. This can take about 15 minutes.
 
 Create a VM from the image. 
 
-```bash
+```azurecli
 az vm create \
   --resource-group $imageResourceGroup \
   --name aibImgVm00 \
@@ -199,13 +200,13 @@ az vm create \
 
 After the VM has been created, start an SSH session with the VM.
 
-```azurecli-interactive
+```console
 ssh aibuser@<publicIp>
 ```
 
 You should see the image was customized with a Message of the Day as soon as your SSH connection is established!
 
-```console
+```output
 
 *******************************************************
 **            This VM was built from the:            **

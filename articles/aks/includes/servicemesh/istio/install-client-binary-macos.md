@@ -1,8 +1,8 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
 ---
 
@@ -12,7 +12,7 @@ In a bash-based shell on MacOS, use `curl` to download the Istio release and the
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.3.2
+ISTIO_VERSION=1.4.0
 
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```

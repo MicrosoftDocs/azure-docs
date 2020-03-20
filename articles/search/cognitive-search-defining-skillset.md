@@ -1,5 +1,5 @@
 ---
-title: Create a skillset in an enrichment pipeline
+title: Create a skillset
 titleSuffix: Azure Cognitive Search
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
 
@@ -245,7 +245,7 @@ Until now, this structure has been internal-only, memory-only, and used only in 
 
 [Knowledge store](knowledge-store-concept-intro.md) is a preview feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
 
-A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [How to get started with knowledge store](knowledge-store-howto.md).
+A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [Create a knowledge store in REST](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {

@@ -1,10 +1,10 @@
 ---
-title: How does Hyper-V migration with Azure Migrate Server Migration work? | Microsoft Docs
-description: Provides an overview of Hyper-V migration in Azure Migrate Server Migration
+title: How does Hyper-V migration work in Azure Migrate?
+description: Learn about Hyper-V migration with Azure Migrate 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 

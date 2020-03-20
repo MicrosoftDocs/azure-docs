@@ -1,10 +1,11 @@
 ---
-title: How to select an audio input device with the Speech SDK - Speech Service
+title: How to select an audio input device with the Speech SDK
 titleSuffix: Azure Cognitive Services
-description: Learn about selecting audio input devices in the Speech SDK.
+description: Learn about selecting audio input devices in the Speech SDK (C++, C#, Python, Objective-C, Java, JavaScript) by obtaining the IDs of the audio devices connected to a system.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -12,11 +13,9 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
-# Select an audio input device with the Speech SDK
+# How to: Select an audio input device with the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input.
-This article describes how to obtain the IDs of the audio devices connected to a system.
-These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
+Version 1.3.0 of the Speech SDK introduces an API to select the audio input. This article describes how to obtain the IDs of the audio devices connected to a system. These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -41,12 +40,14 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > Microphone usage is not available for JavaScript running in Node.js
 
 ## Audio device IDs on Windows for Desktop applications
 
 Audio device [endpoint ID strings](/windows/desktop/CoreAudio/endpoint-id-strings) can be retrieved from the [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) object in Windows for Desktop applications.
+
 The following code sample illustrates how to use it to enumerate audio devices in C++:
 
 ```cpp
@@ -171,6 +172,7 @@ A sample device ID is `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}`.
 ## Audio device IDs on UWP
 
 On the Universal Windows Platform (UWP), audio input devices can be obtained using the `Id()` property of the corresponding [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) object.
+
 The following code samples show how to do this in C++ and C#:
 
 ```cpp
@@ -221,13 +223,16 @@ A sample device ID is `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-
 ## Audio device IDs on Linux
 
 The device IDs are selected using standard ALSA device IDs.
+
 The IDs of the inputs attached to the system are contained in the output of the command `arecord -L`.
 Alternatively, they can be obtained using the [ALSA C library](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+
 Sample IDs are `hw:1,0` and `hw:CARD=CC,DEV=0`.
 
 ## Audio device IDs on macOS
 
 The following function implemented in Objective-C creates a list of the names and IDs of the audio devices attached to a Mac.
+
 The `deviceUID` string is used to identify a device in the Speech SDK for macOS.
 
 ```objc
@@ -356,8 +361,8 @@ For example, the UID for the built-in microphone is `BuiltInMicrophoneDevice`.
 
 ## Audio device IDs on iOS
 
-Audio device selection with the Speech SDK is not supported on iOS.
-However, apps using the SDK can influence audio routing through the [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
+Audio device selection with the Speech SDK is not supported on iOS. However, apps using the SDK can influence audio routing through the [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
+
 For example, the instruction
 
 ```objc

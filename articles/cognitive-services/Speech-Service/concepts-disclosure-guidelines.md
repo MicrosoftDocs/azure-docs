@@ -3,12 +3,12 @@ title: Disclosure Design Guidelines
 titleSuffix: Azure Cognitive Services
 description: Introduction to disclosure design guidelines and assessing disclosure level.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
 ---
 
@@ -71,7 +71,7 @@ Use the following diagram to determine whether your synthetic voice experience r
 
 ## Reference docs
 
-* [Transparency note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Gating overview](concepts-gating-overview.md)
 

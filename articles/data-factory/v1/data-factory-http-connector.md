@@ -4,11 +4,11 @@ description: Learn how to move data from an on-premises or cloud HTTP source by 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 05/22/2018

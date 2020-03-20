@@ -1,5 +1,5 @@
 ---
-title: Process and extract text from images in an enrichment pipeline
+title: Extract text from images
 titleSuffix: Azure Cognitive Search
 description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
 
@@ -210,7 +210,7 @@ As a helper, if you need to transform normalized coordinates to the original coo
 
 ## See also
 + [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analyze image skill](cognitive-search-skill-image-analysis.md)
++ [Image Analysis skill](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

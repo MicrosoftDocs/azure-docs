@@ -1,12 +1,11 @@
 ---
 title: Connect your Java function to Azure Storage 
 description: Learn how to connect an HTTP-triggered Java function to Azure Storage by using a Queue storage output binding.
-author: ggailey777
-ms.author: glenga
+author: KarlErickson
+ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
+zone_pivot_groups: java-build-tools-set
 ---
 
 # Connect your Java function to Azure Storage
@@ -111,13 +110,22 @@ You're now ready to try out the new output binding locally.
 
 As before, use the following command to build the project and start the Functions runtime locally:
 
+::: zone pivot="java-build-tools-maven"  
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end
 
 > [!NOTE]  
-> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#add-to-your-functions-app) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 As before, trigger the function from the command line using cURL in a new terminal window:
 
@@ -137,9 +145,17 @@ Next, you use the Azure CLI to view the new queue and verify that a message was 
 
 To update your published app, run the following command again:  
 
-```azurecli
+::: zone pivot="java-build-tools-maven"  
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
 Again, you can use cURL to test the deployed function. As before, pass the value `AzureFunctions` in the body of the POST request to the URL, as in this example:
 

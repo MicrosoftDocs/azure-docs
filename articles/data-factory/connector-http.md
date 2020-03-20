@@ -4,15 +4,15 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.author: jingwang
 
 ---
@@ -175,7 +175,7 @@ The following properties are supported for HTTP under `location` settings in for
 | Property    | Description                                                  | Required |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | The type property under `location` in dataset must be set to **HttpServerLocation**. | Yes      |
-| relativeUrl | A relative URL to the resource that contains the data.       | No       |
+| relativeUrl | A relative URL to the resource that contains the data. The HTTP connector copies data from the combined URL: `[URL specified in linked service][relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
@@ -206,10 +206,78 @@ The following properties are supported for HTTP under `location` settings in for
 }
 ```
 
-### Legacy dataset model
+## Copy Activity properties
+
+This section provides a list of properties that the HTTP source supports.
+
+For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
+
+### HTTP as source
+
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+
+The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
+
+| Property                 | Description                                                  | Required |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | The type property under `storeSettings` must be set to **HttpReadSettings**. | Yes      |
+| requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
+| addtionalHeaders         | Additional HTTP request headers.                             | No       |
+| requestBody              | The body for the HTTP request.                               | No       |
+| httpRequestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
+| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSettings",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSettings",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Legacy models
 
 >[!NOTE]
->The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+
+### Legacy dataset model
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -218,8 +286,8 @@ The following properties are supported for HTTP under `location` settings in for
 | requestMethod | The HTTP method. Allowed values are **Get** (default) and **Post**. | No |
 | additionalHeaders | Additional HTTP request headers. | No |
 | requestBody | The body for the HTTP request. | No |
-| format | If you want to retrieve data from the HTTP endpoint as-is without parsing it, and then copy the data to a file-based store, skip the **format** section in both the input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Under **format**, set the **type** property to one of these values. For more information, see [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
+| format | If you want to retrieve data from the HTTP endpoint as-is without parsing it, and then copy the data to a file-based store, skip the **format** section in both the input and output dataset definitions.<br/><br/>If you want to parse the HTTP response content during copy, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Under **format**, set the **type** property to one of these values. For more information, see [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/><br/>Supported types: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels:  **Optimal** and **Fastest**. |No |
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
@@ -263,72 +331,7 @@ The following properties are supported for HTTP under `location` settings in for
 }
 ```
 
-## Copy Activity properties
-
-This section provides a list of properties that the HTTP source supports.
-
-For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
-
-### HTTP as source
-
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
-
-The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
-
-| Property                 | Description                                                  | Required |
-| ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | The type property under `storeSettings` must be set to **HttpReadSetting**. | Yes      |
-| requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
-| addtionalHeaders         | Additional HTTP request headers.                             | No       |
-| requestBody              | The body for the HTTP request.                               | No       |
-| requestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
-
-**Example:**
-
-```json
-"activities":[
-    {
-        "name": "CopyFromHTTP",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<Delimited text input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "DelimitedTextSource",
-                "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
-                    "skipLineCount": 10
-                },
-                "storeSettings":{
-                    "type": "HttpReadSetting",
-                    "requestMethod": "Post",
-                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
-                    "requestBody": "<body for POST HTTP request>"
-                }
-            },
-            "sink": {
-                "type": "<sink type>"
-            }
-        }
-    }
-]
-```
-
-#### Legacy source model
-
->[!NOTE]
->The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
+### Legacy copy activity source model
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -366,11 +369,6 @@ The following properties are supported for HTTP under `storeSettings` settings i
     }
 ]
 ```
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
 
 ## Next steps
 

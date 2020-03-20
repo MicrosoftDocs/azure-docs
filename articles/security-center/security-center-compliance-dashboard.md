@@ -1,6 +1,6 @@
 ---
-title: Regulatory compliance checks - Azure Security Center
-description: "Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center."
+title: 'Tutorial: Regulatory compliance checks - Azure Security Center'
+description: 'Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: memildin
 
 ---
@@ -99,6 +99,4 @@ To learn more see:
 
 -   [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Azure Security Center to help protect your Azure resources.
 
--   [Improve your secure score in Azure Security Center](security-center-secure-score.md) - Learn how to prioritize vulnerabilities and security recommendations to most improve your security posture.
-
--   [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
+-   [Improve your Secure Score in Azure Security Center](security-center-secure-score.md) - Learn how to prioritize vulnerabilities and security recommendations to most improve your security posture.

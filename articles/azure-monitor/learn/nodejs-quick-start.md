@@ -1,7 +1,6 @@
 ---
-title: 'Quickstart: Monitor with Azure Application Insights'
-description: Provides instructions to quickly setup a Node.js Web App for monitoring with Application Insights
-ms.service:  azure-monitor
+title: 'Quickstart: Monitor Node.js with Azure Monitor Application Insights'
+description: Provides instructions to quickly set up a Node.js Web App for monitoring with Azure Monitor Application Insights
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -13,29 +12,22 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 
 # Quickstart: Start monitoring your Node.js Web application with Azure Application Insights
 
-This quickstart guides you through adding the version 0.22 Application Insights SDK for Node.js to an existing Node.js web application.
+In this quickstart, you add the Application Insights SDK version 0.22 for Node.js to an existing Node.js web application.
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. With the version 0.20 SDK release onward, you can monitor common third-party packages, including MongoDB, MySQL, and Redis.
 
 ## Prerequisites
 
-To complete this quickstart:
-
-- You need an Azure Subscription and an existing Node.js web application.
-
-If you don't have a Node.js web application, you can create one by following the [Create a Node.js web app quickstart](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
-
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* A functioning Node.js application.
 
 ## Enable Application Insights
 
-Application Insights can gather telemetry data from any internet-connected application, regardless of whether it's running on-premises or in the cloud. Use the following steps to start viewing this data.
+Application Insights can gather telemetry data from any internet-connected application, whether or not it's running on-premises or in the cloud. Use the following steps to start viewing this data.
 
-1. Select **Create a resource** > **Developer tools** > **Application Insights**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
    ![Add an Azure Application Insights resource](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -46,13 +38,13 @@ Application Insights can gather telemetry data from any internet-connected appli
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Application Type** | Node.js Application | Type of app you are monitoring |
+   | **Name**      | Globally Unique Value | Name that identifies the app you're monitoring |
+   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host AppInsights data. You can create a new resource group or use an existing one. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
-2. Select **Create**.
+3. Select **Create**.
 
-## Configure App Insights SDK
+## Configure AppInsights SDK
 
 1. Select **Overview** and copy your application's **Instrumentation Key**.
 
@@ -64,7 +56,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    npm install applicationinsights --save
    ```
 
-3. Edit your app's first .js file and add the two lines below to the topmost part of your script. If you are using the [Node.js quickstart app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), you would modify the index.js file. Replace &lt;instrumentation_key&gt; with your application's instrumentation key. 
+3. Edit your app's first *.js* file and add the two lines below to the topmost part of your script. If you're using the [Node.js quickstart app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), you would modify the *index.js* file. Replace `<instrumentation_key>` with your application's instrumentation key. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -86,7 +78,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Application Insights Application map](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Select the **App Analytics** icon ![Application Map icon](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **View in Analytics**.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3. Select the **App Analytics** icon ![Application Map icon](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **View in Analytics**.  This action opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
    ![Application Insights Analytics graphs](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -116,15 +108,18 @@ Application Insights can gather telemetry data from any internet-connected appli
    </script>
    ```
 
-5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer, visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Application Insights Server metrics graph](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-To learn more about monitoring Node.js, check out the [additional App Insights Node.js documentation](../../azure-monitor/app/nodejs.md).
+To learn more about monitoring Node.js, check out the [additional AppInsights Node.js documentation](../../azure-monitor/app/nodejs.md).
 
 ## Clean up resources
 
-When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
+When you're done testing, you can delete the resource group and all related resources. To do so follow the steps below.
+
+> [!NOTE]
+> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
 
 1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **myResourceGroup**.
 2. On your resource group page, select **Delete**, enter **myResourceGroup** in the text box, and then select **Delete**.

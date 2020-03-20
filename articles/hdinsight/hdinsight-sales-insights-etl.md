@@ -32,37 +32,37 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 
    ![Open Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
 1. In the **Select environment** drop-down menu, choose **Bash**.
-1. Sign in to your Azure account and set the subscription. 
-1. Set up the resource group for the project.
-   1. Choose a unique name for the resource group.
-   1. Run the following code snippet in Cloud Shell to set variables that will be used in later steps:
+1. List your subscriptions by typing the command `az account list --output table`. Note the ID of the subscription that you will use for this project.
+1. Set the subscription you will use for this project and set the subscriptionID variable which will be used later.
 
-       ```azurecli-interactive 
-       resourceGroup="<RESOURCE GROUP NAME>"
-       subscriptionID="<SUBSCRIPTION ID>"
-        
-       az account set --subscription $subscriptionID
-       az group create --name $resourceGroup --location westus
-       ```
+    ```cli
+    subscriptionID="<SUBSCRIPTION ID>"
+    az account set --subscription $subscriptionID
+    ```
+
+1. Create a new resource group for the project and set the resourceGroup variable which will be used later.
+
+    ```cli
+    resourceGroup="<RESOURCE GROUP NAME>"
+    az group create --name $resourceGroup --location westus
+    ```
 
 1. Download the data and scripts for this tutorial from the [HDInsight sales insights ETL repository](https://github.com/Azure-Samples/hdinsight-sales-insights-etl) by entering the following commands in Cloud Shell:
 
-    ```azurecli-interactive 
+    ```cli
     git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
     cd hdinsight-sales-insights-etl
     ```
 
-1. Enter `ls` at the shell prompt to see that the following files and directories have been created:
+1. Enter `ls` at the shell prompt to verify that the following files and directories have been created:
 
-   ```output
-   /salesdata/
-   /scripts/
-   /templates/
+   ```
+   salesdata scripts templates
    ```
 
 ### Deploy Azure resources needed for the pipeline 
 
-1. Add execute permissions for the `chmod +x scripts/*.sh` script.
+1. Add execute permissions for all of the scripts by typing `chmod +x scripts/*.sh`.
 1. Use the command `./scripts/resources.sh <RESOURCE_GROUP_NAME> <LOCATION>` to run the script to deploy the following resources in Azure:
 
    1. An Azure Blob storage account. This account will hold the company sales data.
@@ -74,21 +74,23 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 
 Cluster creation can take around 20 minutes.
 
-The `resources.sh` script contains the following command. This command uses an Azure Resource Manager template (`resourcestemplate.json`) to create the specified resources with the desired configuration.
+The `resources.sh` script contains the following commands. It is not required for you to run these commands if you already executed the script in the previous step.
 
-```azurecli-interactive 
-az group deployment create --name ResourcesDeployment \
-    --resource-group $resourceGroup \
-    --template-file resourcestemplate.json \
-    --parameters "@resourceparameters.json"
-```
+* `az group deployment create` - This command uses an Azure Resource Manager template (`resourcestemplate.json`) to create the specified resources with the desired configuration. 
 
-The `resources.sh` script also uploads the sales data .csv files into the newly created Blob storage account by using this command:
+    ```cli
+    az group deployment create --name ResourcesDeployment \
+        --resource-group $resourceGroup \
+        --template-file resourcestemplate.json \
+        --parameters "@resourceparameters.json"
+    ```
 
-```
-az storage blob upload-batch -d rawdata \
-    --account-name <BLOB STORAGE NAME> -s ./ --pattern *.csv
-```
+* `az storage blob upload-batch` - This command uploads the sales data .csv files into the newly created Blob storage account by using this command:
+
+    ```cli
+    az storage blob upload-batch -d rawdata \
+        --account-name <BLOB STORAGE NAME> -s ./ --pattern *.csv
+    ```
 
 The default password for SSH access to the clusters is `Thisisapassword1`. If you want to change the password, go to the `resourcesparameters.json` file and change the password for the `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword`, and `llapsshPassword` parameters.
 
@@ -109,7 +111,7 @@ The default password for SSH access to the clusters is `Thisisapassword1`. If yo
 
 > [!Note]
 > After you know the names of the storage accounts, you can get the account keys by using the following command at the Azure Cloud Shell prompt:
-> ```azurecli-interactive
+> ```cli
 > az storage account keys list \
 >    --account-name <STORAGE NAME> \
 >    --resource-group $rg \
@@ -118,17 +120,14 @@ The default password for SSH access to the clusters is `Thisisapassword1`. If yo
 
 ### Create a data factory
 
-Azure Data Factory is a tool that helps automate Azure pipelines. It's not the only way to accomplish these tasks, but it's a great way to automate the processes. For more information on Azure Data Factory, see the [Azure Data Factory documentation](https://azure.microsoft.com/en-us/services/data-factory/). 
+Azure Data Factory is a tool that helps automate Azure Pipelines. It's not the only way to accomplish these tasks, but it's a great way to automate the processes. For more information on Azure Data Factory, see the [Azure Data Factory documentation](https://azure.microsoft.com/services/data-factory/). 
 
 This data factory will have one pipeline with two activities: 
 
 - The first activity will copy the data from Azure Blob storage to the Data Lake Storage Gen 2 storage account to mimic data ingestion.
 - The second activity will transform the data in the Spark cluster. The script transforms the data by removing unwanted columns. It also appends a new column that calculates the revenue that a single transaction generates.
 
-To set up your Azure Data Factory pipeline, run the `adf.sh` script:
-
-1. Use `chmod +x adf.sh` to add execute permissions on the file.
-1. Use `./adf.sh` to run the script. 
+To set up your Azure Data Factory pipeline, run the `adf.sh` script, by typing `./adf.sh`.
 
 This script does the following things:
 

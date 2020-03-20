@@ -1,13 +1,9 @@
 ---
-title: Create and manage variables for storing values - Azure Logic Apps
-description: How to store and manage values by using variables in Azure Logic Apps
+title: Create and manage variables for storing and passing values
+description: Learn how to store, manage, use, and pass values by using variables in your automated tasks and workflow that you create with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ---

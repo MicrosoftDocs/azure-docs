@@ -1,19 +1,13 @@
 ---
-title: Manage Azure Blockchain Service members using Azure PowerShell
+title: Manage Azure Blockchain Service consortium members - PowerShell
 description: Learn how to manage Azure Blockchain Service consortium members by using Azure PowerShell.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: zeyadr
-manager: femila
 #Customer intent: As a network operator, I want to manage members in the consortium so that I can control access to a private blockchain.
 ---
 
-# Manage consortium members in Azure Blockchain Service by using PowerShell
+# Manage consortium members in Azure Blockchain Service using PowerShell
 
 You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service. Members who have administrator privileges can invite, add, remove, and change roles for all participants in the blockchain consortium. Members who have user privileges can view all participants in the blockchain consortium and change their member display name.
 
@@ -259,7 +253,7 @@ Use this cmdlet to retrieve or list a consortium member's invitation status.
 [Establish a Web3 connection](#establish-a-web3-connection) to set the $ContractConnection variable.
 
 ```powershell-interactive
-$ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
+$ContractConnection | Get-BlockchainMemberInvitation –SubscriptionId <Azure subscription ID>
 ```
 
 #### Example output
@@ -321,7 +315,4 @@ $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subs
 
 ## Next steps
 
-For more information about consortia, members, and nodes, see:
-
-> [!div class="nextstepaction"]
-> [Azure Blockchain Service consortium](consortium.md)
+For more information about consortia, members, and nodes, see [Azure Blockchain Service consortium](consortium.md)

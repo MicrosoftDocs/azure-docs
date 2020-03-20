@@ -9,7 +9,7 @@ ms.reviewer:
 manager: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 9/3/2019
 ---
@@ -42,7 +42,7 @@ Data Migration Assistant (DMA) is a freely downloadable tool for this purpose th
   - MSDB, which is a system database in SQL Server used to store SSIS packages.
   - Managed file system, which is a specific folder in SQL Server installation path used to store SSIS packages.
 
-DMA currently supports the batch-assessment of packages stored in **File System** storage type since **DMA version v4.5**.
+DMA currently supports the batch-assessment of packages stored in **File System**, **Package Store**, and **SSIS catalog** since **DMA version v5.0**.
 
 Get [DMA](https://docs.microsoft.com/sql/dma/dma-overview), and [perform your package assessment with it](https://docs.microsoft.com/sql/dma/dma-assess-ssis).
 

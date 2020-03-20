@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Create a search index in Java using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: Explains how to create an index, load data, and run queries using Java and the Azure Cognitive Search REST APIs.
+description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search REST APIs.
 
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/25/2020
 ---
 # Quickstart: Create an Azure Cognitive Search index in Java using REST APIs
 > [!div class="op_single_selector"]
@@ -21,13 +21,13 @@ ms.date: 11/04/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries an Azure Cognitive Search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable),  and the [Azure Cognitive Search REST API](/rest/api/searchservice/).This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-We used the following software and services to build and test this sample:
+We used the following software and services to build and test this quickstart:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
@@ -812,7 +812,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
     Look for a summary of each query and its results. The run should complete with BUILD SUCCESS message and a zero (0) exit code.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
@@ -822,10 +822,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
+In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following article that lists indexer operations in REST.
 
-+ [Index operations](/rest/api/searchservice/index-operations)
-
-+ [Document operations](/rest/api/searchservice/document-operations)
-
-+ [Indexer operations](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [Indexer operations](/rest/api/searchservice/indexer-operations)

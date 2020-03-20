@@ -1,25 +1,15 @@
 ---
-title: Map existing custom DNS name - Azure App Service | Microsoft Docs 
+title: 'Tutorial: Map existing custom DNS name'
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: erikre
-editor: ''
 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # Tutorial: Map an existing custom DNS name to Azure App Service
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure App Service.
@@ -304,7 +294,7 @@ Browse to the DNS name(s) that you configured earlier (for example, `contoso.com
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## Resolve 404 “Not Found”
+## Resolve 404 "Not Found"
 
 If you receive an HTTP 404 (Not Found) error when browsing to the URL of your custom domain, verify that your domain resolves to your app's IP address using <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. If not, it may be due to one of the following reasons:
 
@@ -327,7 +317,7 @@ At the bottom of the page, the root virtual directory `/` points to `site\wwwroo
 
 ![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
+Once the operation completes, your app should return the right page at the root path (for example, `http://contoso.com`).
 
 ## Automate with scripts
 

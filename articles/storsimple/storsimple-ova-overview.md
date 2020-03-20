@@ -1,18 +1,10 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array overview | Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array overview
 description: Describes the StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual array and Microsoft Azure cloud storage.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ---

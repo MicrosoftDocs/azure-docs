@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Anomaly detection on streaming data using Azure Databricks"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
+description: Learn how to use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -35,13 +35,10 @@ This tutorial covers the following tasks:
 > * Run anomaly detection on tweets
 
 > [!Note]
-> This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+> * This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+> * This tutorial cannot be completed with a free trial for the Anomaly Detector API, or Azure Databricks. 
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-> [!Note]
-> This tutorial cannot be completed with a free trial key for the Anomaly Detector API. 
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+Create an [Azure subscription](https://azure.microsoft.com/free/) if you don't have one.
 
 ## Prerequisites
 
@@ -70,7 +67,7 @@ In this section, you create an Azure Databricks workspace using the [Azure porta
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **East US 2** or one of any other available regions. See [Azure services available by region](https://azure.microsoft.com/regions/services/) for region availability.        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. Do NOT choose **Trial**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -567,10 +564,10 @@ display(groupStream)
 The output now resembles the following snippets.
 ```
 groupTime                       average
-2019-04-23T04:00:00.000+0000	24
-2019-04-26T19:00:00.000+0000	47.888888888888886
-2019-04-25T12:00:00.000+0000	32.25
-2019-04-26T09:00:00.000+0000	63.4
+2019-04-23T04:00:00.000+0000    24
+2019-04-26T19:00:00.000+0000    47.888888888888886
+2019-04-25T12:00:00.000+0000    32.25
+2019-04-26T09:00:00.000+0000    63.4
 ...
 ...
 
@@ -611,11 +608,11 @@ display(twitterData)
 The output as below: 
 ```
 groupTime                       average
-2019-04-08T01:00:00.000+0000	25.6
-2019-04-08T02:00:00.000+0000	6857
-2019-04-08T03:00:00.000+0000	71
-2019-04-08T04:00:00.000+0000	55.111111111111114
-2019-04-08T05:00:00.000+0000	2203.8
+2019-04-08T01:00:00.000+0000    25.6
+2019-04-08T02:00:00.000+0000    6857
+2019-04-08T03:00:00.000+0000    71
+2019-04-08T04:00:00.000+0000    55.111111111111114
+2019-04-08T05:00:00.000+0000    2203.8
 ...
 ...
 

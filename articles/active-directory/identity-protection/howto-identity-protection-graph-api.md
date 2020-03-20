@@ -17,12 +17,12 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk detections](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk detections](../reports-monitoring/concept-risk-events.md) and associated information. The identityRiskEvents API will be deprecated on January 10, 2020; we suggest you use the **riskDetections** API instead. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
-* [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
-* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskDetection API](/graph/api/resources/riskdetection?view=graph-rest-beta)
+* [riskyUsers API](/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [signIn API](/graph/api/resources/signin?view=graph-rest-beta)
+* [identityRiskEvents API](/graph/api/resources/identityriskevent?view=graph-rest-beta) *Will be deprecated January 10, 2020*
 
 ## Connect to Microsoft graph
 
@@ -65,7 +65,7 @@ Before you get started, you’ll need:
 
    ![Creating an application](./media/howto-identity-protection-graph-api/44.png)
 
-   1. In the **Name** textbox, type a name for your application (for example: AADIP Risk Detection API Application).
+   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API Application).
 
    1. As **Type**, select **Web Application And / Or Web API**.
 
@@ -119,7 +119,7 @@ Before you get started, you’ll need:
 
    ![Creating an application](./media/howto-identity-protection-graph-api/24.png)
 
-   1. In the **Key description** textbox, type a description (for example, *AADIP Risk Detection*).
+   1. In the **Key description** textbox, type a description (for example, *Azure AD Risk Detection*).
    1. As **Duration**, select **In 1 year**.
    1. Click **Save**.
    1. Copy the key value, and then paste it into a safe location.   
@@ -201,14 +201,6 @@ With Identity Protection sign-in risk policies, you can apply conditions when ri
 GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### Get the high-risk and medium-risk detections (identityRiskEvents API)
-
-Medium and high-risk detections represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. Since they have a medium or high likelihood that the user attempting to sign-in is not the legitimate identity owner, remediating these events should be a priority. 
-
-```
-GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
-```
-
 ### Get all of the users who successfully passed an MFA challenge triggered by risky sign-ins policy (riskyUsers API)
 
 To understand the impact Identity Protection risk-based policies have on your organization, you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. This information can help you understand which users Identity Protection may have falsely detected at as risk and which of your legitimate users may be performing actions that the AI deems risky.
@@ -229,7 +221,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 Congratulations, you just made your first call to Microsoft Graph!  
 Now you can query identity risk detections and use the data however you see fit.
 
-To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://docs.microsoft.com/graph/overview) and much more on the [Microsoft Graph site](https://developer.microsoft.com/graph). 
+To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](/graph/overview) and much more on the [Microsoft Graph site](https://developer.microsoft.com/graph). 
 
 For related information, see:
 

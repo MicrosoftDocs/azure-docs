@@ -32,7 +32,7 @@ A Private Cloud is created as an isolated VMware stack (ESXi hosts, vCenter, vSA
 * Minimum vSphere/vSAN subnets CIDR range prefix: **/24**
 * Maximum vSphere/vSAN subnets CIDR range prefix: **/21**
 
-> [!IMPORTANT]
+> [!CAUTION]
 > IP addresses in the vSphere/vSAN CIDR range are reserved for use by the Private Cloud infrastructure.  Don't use the IP address in this range on any virtual machine.
 
 ### vSphere/vSAN subnets CIDR range limits

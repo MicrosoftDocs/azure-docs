@@ -1,7 +1,6 @@
 ---
 title: Viewing and analyzing data in Azure Log Analytics | Microsoft Docs
 description: Assistance for users of Log Analytics log search to Azure Monitor log query experience.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

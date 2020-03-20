@@ -1,11 +1,8 @@
 ---
 title: Tutorial - Create an Azure virtual machine scale set using Terraform
 description: Learn to use Terraform to configure and version an Azure virtual machine scale set.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 11/07/2019
 ---
 
 # Tutorial: Create an Azure virtual machine scale set using Terraform
@@ -28,7 +25,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
 - **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -422,7 +419,7 @@ An SSH *jumpbox* is a single server that you "jump" through to access other serv
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {
@@ -519,4 +516,4 @@ The destruction process can take several minutes to complete.
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Terraform on Azure](/azure/ansible/)
+> [Learn more about using Terraform in Azure](/azure/terraform)

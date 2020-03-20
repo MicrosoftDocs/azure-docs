@@ -1,16 +1,16 @@
 ---
-title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output (Preview)
+title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Power BI output.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 3/10/2020
 ---
 
-# Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI (Preview)
+# Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI
 
-[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Power BI is available for Azure Stream Analytics as a preview. This gives Stream Analytics jobs direct access to a workspace within your Power BI account. This feature allows for deployments of Stream Analytics jobs to be fully automated, since it is no longer required for a user to interactively log in to Power BI via the Azure portal. Additionally, long running jobs that write to Power BI are now better supported, since you will not need to periodically reauthorize the job.
+[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Power BI gives Stream Analytics jobs direct access to a workspace within your Power BI account. This feature allows for deployments of Stream Analytics jobs to be fully automated, since it is no longer required for a user to interactively log in to Power BI via the Azure portal. Additionally, long running jobs that write to Power BI are now better supported, since you will not need to periodically reauthorize the job.
 
 This article shows you how to enable Managed Identity for the Power BI output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 
@@ -164,6 +164,29 @@ Now that the Stream Analytics job has been created, it can be given access to a 
 3. Select **Add** and close the pane.
 
    ![Add Stream Analytics job to Power BI workspace](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+
+### Use the Power BI PowerShell cmdlets
+
+1. Install the Power BI `MicrosoftPowerBIMgmt` PowerShell cmdlets.
+
+   > [!Important]
+   > Please ensure you are using version 1.0.821 or later of the cmdlets.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Log in to Power BI.
+
+```powershell
+Login-PowerBI
+```
+
+3. Add your Stream Analytics job as a Contributor to the workspace.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ### Use the Power BI REST API
 

@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/20/2019
 ---
 
 # Azure HDInsight: Frequently asked questions
@@ -79,23 +79,9 @@ Yes. To install additional components or customize cluster configuration, use:
 
 - Scripts during or after creation. Scripts are invoked via [script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), which is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
 
-- `sudo` or other methods after you provision the cluster.
-  
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install ecosystem applications.
 
-However, Microsoft Support teams can offer support only for the following situations:
-
-- Issues or errors that occur when loading the script. Any errors that occur during the execution of custom scripts are outside the scope of a support ticket.
-
-- Additional applications that are part the cluster creation process. 
-
 For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
-
-Support for individual components can also vary by cluster type. For example, Spark is not supported on a Kafka cluster, and vice-versa.
-
-For applications and services outside of the cluster creation process, contact the vendor or service provider for support. You can also use many community support sites. Examples are the [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/). Apache projects also have project sites on the [Apache website](https://apache.org/). An example is [Hadoop](https://hadoop.apache.org/). 
-
-For more information about Azure support, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 
@@ -109,7 +95,7 @@ No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight
 
 ### How do I change timezone in Ambari?
 
-1. Open the Ambari Web UI at https://CLUSTERNAME.azurehdinsight.net, where CLUSTERNAME is the name of your cluster.
+1. Open the Ambari Web UI at `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
 2. In the upper-right corner, select admin | Settings. 
 
    ![Ambari Settings](media/hdinsight-faq/ambari-settings.png)
@@ -176,6 +162,11 @@ Yes, you can deploy an additional virtual machine within the same subnet as an H
 
 - Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Controlling network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic).
 
+### Should I store data on the local disk of an edge node?
+
+No, storing data on a local disk isn't a good idea. If the node fails, all data stored locally will be lost. We recommend storing data in Azure Data Lake Storage Gen2 or Azure Blob storage, or by mounting an Azure Files share for storing the data.
+
+
 ### Can I add an existing HDInsight cluster to another virtual network?
 
 No, you can't. The virtual network should be specified at the time of provisioning. If no virtual network is specified during provisioning, the deployment creates an internal network that isn't accessible from outside. For more information, see [Add HDInsight to an existing virtual network](hdinsight-plan-virtual-network-deployment.md#existingvnet).
@@ -235,9 +226,9 @@ In scenarios in which you must control the schedule, you can use the following s
 For more information about how to set up and run a cron job, see [How do I set up a Cron job](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
 
 ### Why is LLAP available on Spark ESP clusters?
-On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accomodate for the resource usage of LLAP (e.g. minimum D13V2). 
+On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accommodate for the resource usage of LLAP (e.g. minimum D13V2). 
 
-### How can I add addional AAD groups after creating an ESP cluster?
+### How can I add additional AAD groups after creating an ESP cluster?
 There are two ways to achieve this:
 1- You can recreate the cluster and add the additional group at the time of cluster creation. If you are using scoped synchronization in AAD-DS, please make sure group B is included in the scoped synchronization.
 2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you have created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 

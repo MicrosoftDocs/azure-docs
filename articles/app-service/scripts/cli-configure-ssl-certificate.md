@@ -1,24 +1,13 @@
 ---
-title: Azure CLI Script Sample - Bind a custom SSL certificate to an app | Microsoft Docs
-description: Azure CLI Script Sample - Bind a custom SSL certificate to an app
-services: app-service\web
-documentationcenter: 
-author: cephalin
-manager: jeconnoc
-editor: 
+title: 'CLI: Upload and bind SSL cert to an app'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to bind a custom SSL certificate to an app.
 tags: azure-service-management
 
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
 
 # Bind a custom SSL certificate to an App Service app using CLI

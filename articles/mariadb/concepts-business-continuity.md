@@ -1,11 +1,11 @@
 ---
-title: Understand business continuity in Azure Database for MariaDB
+title: Business continuity - Azure Database for MariaDB
 description: Learn about business continuity (point-in-time restore, data center outage, geo-restore) when using Azure Database for MariaDB service.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 3/18/2020
 ---
 
 # Understand business continuity in Azure Database for MariaDB
@@ -28,7 +28,7 @@ The following table compares the ERT and RPO for the available features:
 
 ## Recover a server after a user or application error
 
-You can use the service’s backups to recover a server from various disruptive events. A user may accidentally delete some data, inadvertently drop an important table, or even drop an entire database. An application might accidentally overwrite good data with bad data due to an application defect, and so on.
+You can use the service's backups to recover a server from various disruptive events. A user may accidentally delete some data, inadvertently drop an important table, or even drop an entire database. An application might accidentally overwrite good data with bad data due to an application defect, and so on.
 
 You can perform a point-in-time-restore to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
 

@@ -2,11 +2,11 @@
 title: Azure Disk Encryption sample scripts
 description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
-
 ms.custom: seodec18
 ---
 
@@ -316,7 +316,8 @@ To configure encryption to work with Azure, do the following steps:
 
 6. Now you can deprovision the VM and upload your VHD into Azure.
 
-### CentOS 7
+### CentOS 7 and RHEL 8.1
+
 To configure encryption during the distribution installation, do the following steps:
 1. Select **Encrypt my data** when you partition disks.
 

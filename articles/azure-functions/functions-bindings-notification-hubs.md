@@ -1,13 +1,8 @@
 ---
 title: Notification Hubs bindings for Azure Functions
 description: Understand how to use Azure Notification Hub binding in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
@@ -30,9 +25,9 @@ The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Exte
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
-This binding is not available in Functions 2.x.
+This binding is not available in Functions 2.x and higher.
 
 ## Example - template
 

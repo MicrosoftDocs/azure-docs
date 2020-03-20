@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Configure the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
 ---
@@ -21,7 +18,7 @@ In this article, you learn how to:
 ## Prerequisites
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Terraform**: [Install and configure Terraform](/azure/virtual-machines/linux/terraform-install-configure).
+- **Terraform**: [Install and configure Terraform](terraform-install-configure.md).
 
 - **Visual Studio Code**: Install the version of [Visual Studio Code](https://code.visualstudio.com/download) that is appropriate for your environment.
 

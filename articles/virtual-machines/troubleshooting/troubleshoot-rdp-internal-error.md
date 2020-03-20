@@ -19,9 +19,7 @@ ms.author: genli
 #  An internal error occurs when you try to connect to an Azure VM through Remote Desktop
 
 This article describes an error that you may experience when you try to connect to a virtual machine (VM) in Microsoft Azure.
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
+
 
 ## Symptoms
 
@@ -133,7 +131,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 4. Restart the VM, and then try Start a Remote Desktop connection to the VM. If the error still occurs, go to the next step.
 
-Step 3: Enable all supported TLS versions
+#### Step 3: Enable all supported TLS versions
 
 The RDP client uses TLS 1.0 as the default protocol. However, this can be changed to TLS 1.1, which has become the new standard. If TLS 1.1 is disabled on the VM, the connection will fail.
 1.  In a CMD instance, enable the TLS protocol:

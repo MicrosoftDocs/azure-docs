@@ -1,144 +1,130 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: Azure Resource Manager documentation
-summary: Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project.
+summary: Azure Resource Manager is the deployment and management service for Azure. Use infrastructure as code to reliably deploy and manage your Azure solutions.
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
 
 metadata:
   title: Azure Resource Manager documentation
-  description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
-  services: azure-resource-manager
+  description: Azure Resource Manager is the deployment and management service for Azure.
   ms.service: azure-resource-manager
-  ms.subservice: na
-  ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 09/25/2019
+  ms.topic: hub-page # Required
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 03/04/2020
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-
-landingContent:
-  # Card (optional)
-  - title: About Resource Manager
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Resource Manager?
-            url: resource-group-overview.md
-          - text: What is Resource Manager template?
-            url: template-deployment-overview.md
-      - linkListType: concept
-        links:
-          - text: Best practices
-            url: template-best-practices.md
-          - text: Deployment modes
-            url: deployment-modes.md
-          - text: Linked templates
-            url: resource-group-linked-templates.md
-          - text: Subscription level deployment
-            url: deploy-to-subscription.md
-          - text: Deployment Manager
-            url: deployment-manager-overview.md
-
-  # Card (optional)
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create templates - portal
-            url: resource-manager-quickstart-create-templates-use-the-portal.md
-          - text: create templates - VS Code
-            url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-          - text: create templates - Visual Studio
-            url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-
-      - linkListType: tutorial
-        links:
-          - text: Beginner tutorials
-            url: template-tutorial-create-first-template.md
-          - text: Deploy multiple instances
-            url: resource-manager-tutorial-create-multiple-instances.md
-          - text: Set deployment order
-            url: resource-manager-tutorial-create-templates-with-dependent-resources.md
-          - text: Integrate key vault
-            url: resource-manager-tutorial-use-key-vault.md
-
-  # Card
-  - title: Develop templates
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Use VS Code
-            url: resource-manager-tools-vs-code.md
-          - text: Use functions
-            url: resource-group-template-functions.md
-          - text: Define parameters
-            url: template-parameters.md
-          - text: Define variables
-            url: template-variables.md
-          - text: Define resources
-            url: child-resource-name-type.md
-          - text: Define outputs
-            url: template-outputs.md
-
-      - linkListType: reference
-        links:
-          - text: Azure Quickstart templates
-            url: template-deployment-overview.md
-  # Card
-  - title: Deploy templates
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: By using PowerShell
-            url: resource-group-template-deploy.md
-          - text: By using CLI
-            url: resource-group-template-deploy-cli.md
-          - text: By using portal
-            url: resource-group-template-deploy-portal.md
-          - text: By using REST API
-            url: resource-group-template-deploy-rest.md
-
-  # Card
-  - title: Manage templates
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Export templates
-            url: export-template-portal.md
-          - text: CI/CD
-            url: vs-resource-groups-project-devops-pipelines.md
-
-  # Card
-  - title: Manage resources
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Move resources
-            url: resource-group-move-resources.md
-          - text: Tag resources
-            url: resource-group-using-tags.md
-          - text: Lock resources
-            url: resource-group-lock-resources.md
-
-  # Card
-  - title: Monitor and troubleshoot
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View activity logs
-            url: resource-group-audit.md
-          - text: View deployment operation
-            url: resource-manager-deployment-operations.md
-          - text: Troubleshoot deployment errors
-            url: resource-manager-common-deployment-errors.md
-
-  # Card
-  - title: Explore reference content
-    linkLists:
-      - linkListType: reference
-        links:
-        - text: Resource providers and types
-          url: resource-manager-supported-services.md
-        - text: Template reference
-          url: /azure/templates/
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Resource Manager?
+      itemType: overview
+      url: management/overview.md
+    # Card
+    - title: What are ARM templates?
+      itemType: overview
+      url: templates/overview.md
+    # Card
+    - title: Create your first template
+      itemType: tutorial
+      url: templates/template-tutorial-create-first-template.md
+    
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Deploy ARM templates
+      links:
+        - url: templates/overview.md
+          itemType: overview
+          text: Overview
+        - url: templates/template-tutorial-create-first-template.md
+          itemType: tutorial
+          text: Beginner tutorial series
+        - url: templates/template-syntax.md
+          itemType: reference
+          text: Template syntax
+        - url: templates/template-functions.md
+          itemType: reference
+          text: Template functions
+        - url: /azure/templates/
+          itemType: reference
+          text: Template reference
+        - url: templates/deploy-powershell.md
+          itemType: how-to-guide
+          text: Deploy
+        - url: templates/template-best-practices.md
+          itemType: concept
+          text: Best practices
+      # footerLink (optional)
+      footerLink:
+        url: templates/index.yml
+        text: See more
+    # Card
+    - title: Manage resources
+      links:
+        - url: management/overview.md
+          itemType: overview
+          text: Overview
+        - url: management/tag-resources.md
+          itemType: how-to-guide
+          text: Tag resources
+        - url: management/move-resource-group-and-subscription.md
+          itemType: concept
+          text: Move resources
+        - url: management/lock-resources.md
+          itemType: how-to-guide
+          text: Lock resources
+        - url: management/resource-providers-and-types.md
+          itemType: concept
+          text: Resource providers and types
+        - url: management/azure-subscription-service-limits.md
+          itemType: concept
+          text: Subscription and service limits
+      # footerLink (optional)
+      footerLink:
+        url: management/index.yml
+        text: See more
+    # Card
+    - title: Managed Applications
+      links:
+        - url: managed-applications/overview.md
+          itemType: overview
+          text: Overview
+        - url: managed-applications/publish-service-catalog-app.md
+          itemType: tutorial
+          text: Publish app to service catalog
+        - url: managed-applications/create-uidefinition-overview.md
+          itemType: how-to-guide
+          text: Define portal pane for creating app
+        - url: managed-applications/publish-marketplace-app.md
+          itemType: tutorial
+          text: Add app to Marketplace
+      # footerLink (optional)
+      footerLink:
+        url: managed-applications/index.yml
+        text: See more
+    # Card
+    - title: Azure Custom Providers
+      links:
+        - url: custom-providers/overview.md
+          itemType: overview
+          text: Overview
+        - url: custom-providers/create-custom-provider.md
+          itemType: quickstart
+          text: Create custom provider
+        - url: custom-providers/tutorial-get-started-with-custom-providers.md
+          itemType: tutorial
+          text: Create custom actions and resources
+        - url: custom-providers/custom-providers-action-endpoint-how-to.md
+          itemType: how-to-guide
+          text: Add custom actions to Azure REST API
+      # footerLink (optional)
+      footerLink:
+        url: custom-providers/index.yml
+        text: See more

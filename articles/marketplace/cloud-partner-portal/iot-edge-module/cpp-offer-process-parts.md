@@ -4,6 +4,7 @@ description: Overview of the process for publishing an IoT Edge module offer on 
 services: Azure, Marketplace, Cloud Partner Portal
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler

@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/06/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/19/2020
 ---
 # Module: K-Means Clustering
 
@@ -102,27 +102,27 @@ When it processes the training data, the K-means algorithm begins with an initia
   
     -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) module.  
   
-### Results
+## Results
 
 After you've finished configuring and training the model, you have a model that you can use to generate scores. However, there are multiple ways to train the model, and multiple ways to view and use the results: 
 
-#### Capture a snapshot of the model in your workspace
+### Capture a snapshot of the model in your workspace
 
 If you used the [Train Clustering Model](train-clustering-model.md) module:
 
-1. Right-click the **Train Clustering Model** module.
+1. Select the **Train Clustering Model** module and open the right panel.
 
-2. Select **Trained model**, and then select **Save as Trained Model**.
+2. Select **Outputs** tab. Select the **Register dataset** icon to save a copy of the trained model.
 
 The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
 
-#### See the clustering result dataset 
+### See the clustering result dataset 
 
 If you used the [Train Clustering Model](train-clustering-model.md) module:
 
 1. Right-click the **Train Clustering Model** module.
 
-2. Select **Results dataset**, and then select **Visualize**.
+2. Select **Visualize**.
 
 ### Tips for generating the best clustering model  
 
@@ -136,4 +136,8 @@ You can avoid this problem in a couple of ways:
   
 -   Create multiple models, varying the metric or iterating more.  
   
-In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, perhaps superior, configuration. 
+In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, superior, configuration. 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

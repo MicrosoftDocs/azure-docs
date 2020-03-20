@@ -1,5 +1,5 @@
 ---
-title: Attach a Cognitive Services resource to a skillset
+title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Instructions for attaching a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
 
@@ -8,18 +8,27 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ---
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search 
 
-AI algorithms drive the [enrichment pipelines](cognitive-search-concept-intro.md) used for content transformation in Azure Cognitive Search. These algorithms are based on Azure Cognitive Services resources, including [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR) and [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for entity recognition, key phrase extraction, and other enrichments. As used by Azure Cognitive Search for document enrichment purposes, the algorithms are wrapped inside a *skill*, placed in a *skillset*, and referenced by an *indexer* during indexing.
+When configuring an enrichment pipeline in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable Cognitive Services resource.
 
-You can enrich a limited number of documents for free. Or, you can attach a billable Cognitive Services resource to a *skillset* for larger and more frequent workloads. In this article, you'll learn how to attach a billable Cognitive Services resource to enrich documents during Azure Cognitive Search [indexing](search-what-is-an-index.md).
+In this article, you'll learn how to attach a resource by assigning a key to a skillset that defines an enrichment pipeline.
 
-> [!NOTE]
-> Billable events include calls to Cognitive Services APIs and image extraction as part of the document-cracking stage in Azure Cognitive Search. There is no charge for text extraction from documents or for skills that do not call Cognitive Services.
->
-> Execution of billable skills is at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). For image extraction pricing, see the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+## Resources used during enrichment
+
+Azure Cognitive Search has a dependency on Cognitive Services, including [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR), [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for natural language processing, and other enrichments like [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). In the context of enrichment in Azure Cognitive Search, these AI algorithms are wrapped inside a *skill*, placed in a *skillset*, and referenced by an *indexer* during indexing.
+
+## How billing works
+
++ Azure Cognitive Search uses the Cognitive Services resource key you provide on a skillset to bill for image and text enrichment. Execution of billable skills is at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
++ Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable. For image extraction pricing, see the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+
++ Text extraction also occurs during the document cracking phrase. It is not billable.
+
++ Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable.
 
 ## Same-region requirement
 
@@ -28,13 +37,13 @@ We require that Azure Cognitive Search and Azure Cognitive Services exist within
 There is no way to move a service across regions. If you get this error, you should create a new Cognitive Services resource in the same region as Azure Cognitive Search.
 
 > [!NOTE]
-> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Be aware that if you add any of these skills to your skillset that your data is not guaranteed to stay in the same region as your Azure Cognitive Search or Cognitive Services resource. See the [service status page](https://aka.ms/allinoneregioninfo) for more details.
+> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure Cognitive Search region. For more information non-regional services, see the [Cognitive Services product by region](https://aka.ms/allinoneregioninfo) page.
 
 ## Use Free resources
 
 You can use a limited, free processing option to complete the AI enrichment tutorial and quickstart exercises.
 
-Free (Limited enrichments) resources are restricted to 20 documents per day, per subscription.
+Free (Limited enrichments) resources are restricted to 20 documents per day, per indexer. You can delete and recreate the indexer to reset the counter.
 
 1. Open the Import data wizard:
 

@@ -1,13 +1,9 @@
 ---
-title: Best Practices for Azure Functions | Microsoft Docs
+title: Best Practices for Azure Functions 
 description: Learn best practices and patterns for Azure Functions.
-author: ggailey777
-manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/16/2017
-ms.author: glenga
+ms.date: 12/17/2019
 
 ms.custom: H1Hack27Feb2017
 
@@ -63,7 +59,7 @@ How does your code react if a failure occurs after inserting 5,000 of those item
 
 If a queue item was already processed, allow your function to be a no-op.
 
-Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue.md#trigger---poison-messages). 
+Take advantage of defensive measures already provided for components you use in the Azure Functions platform. For example, see **Handling poison queue messages** in the documentation for [Azure Storage Queue triggers and bindings](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
 ## Scalability best practices
 
@@ -71,7 +67,13 @@ There are a number of factors that impact how instances of your function app sca
 
 ### Share and manage connections
 
-Reuse connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
+Reuse connections to external resources whenever possible. See [how to manage connections in Azure Functions](./manage-connections.md).
+
+### Avoid sharing storage accounts
+
+When you create a function app, you must associate it with a storage account. The storage account connection is maintained in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). 
+
+[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
 ### Don't mix test and production code in the same function app
 
@@ -85,9 +87,17 @@ Don't use verbose logging in production code, which has a negative performance i
 
 ### Use async code but avoid blocking calls
 
-Asynchronous programming is a recommended best practice. However, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
+Asynchronous programming is a recommended best practice, especially when blocking I/O operations are involved.
+
+In C#, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### Use multiple worker processes
+
+By default, any host instance for Functions uses a single worker process. To improve performance, especially with single-threaded runtimes like Python, use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) to increase the number of worker processes per host (up to 10). Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. 
+
+The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand. 
 
 ### Receive messages in batch whenever possible
 
@@ -99,7 +109,7 @@ For C# functions, you can change the type to a strongly-typed array.  For exampl
 
 The `host.json` file in the function app allows for configuration of host runtime and trigger behaviors.  In addition to batching behaviors, you can manage concurrency for a number of triggers. Often adjusting the values in these options can help each instance scale appropriately for the demands of the invoked functions.
 
-Settings in the host.json file apply across all functions within the app, within a *single instance* of the function. For example, if you had a function app with two HTTP functions and [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) requests set to 25, a request to either HTTP trigger would count towards the shared 25 concurrent requests.  When that function app is scaled to 10 instances, the two functions effectively allow 250 concurrent requests (10 instances * 25 concurrent requests per instance). 
+Settings in the host.json file apply across all functions within the app, within a *single instance* of the function. For example, if you had a function app with two HTTP functions and [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) requests set to 25, a request to either HTTP trigger would count towards the shared 25 concurrent requests.  When that function app is scaled to 10 instances, the two functions effectively allow 250 concurrent requests (10 instances * 25 concurrent requests per instance). 
 
 Other host configuration options are found in the [host.json configuration article](functions-host-json.md).
 

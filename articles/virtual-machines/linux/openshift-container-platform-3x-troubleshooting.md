@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure | Microsoft Docs
+title: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure 
 description: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

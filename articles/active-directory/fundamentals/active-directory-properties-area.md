@@ -5,6 +5,7 @@ services: active-directory
 author: msaburnley
 manager: daveba
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/17/2018

@@ -1,17 +1,13 @@
 ---
 title: Unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
 description: This article provides details on how to use a function in Azure Monitor Logs to query multiple Application Insights resources and visualize that data. 
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: magoedte
+ms.date: 02/02/2020
+
 ---
 
 # Unify multiple Azure Monitor Application Insights resources 
@@ -20,12 +16,7 @@ This article describes how to query and view all your Application Insights log d
 ## Recommended approach to query multiple Application Insights resources 
 Listing multiple Application Insights resources in a query can be cumbersome and difficult to maintain. Instead, you can leverage function to separate the query logic from the applications scoping.  
 
-This example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. Before you begin, run this query in the workspace that is connected to Application Insights resources to get the list of connected applications: 
-
-```
-ApplicationInsights
-| summarize by ApplicationName
-```
+This example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name.
 
 Create a function using union operator with the list of applications, then save the query in your workspace as function with the alias *applicationsScoping*. 
 
@@ -61,32 +52,8 @@ The query uses Application Insights schema, although the query is executed in th
 
 ![Cross-query results example](media/unify-app-resource-data/app-insights-query-results.png)
 
-## Query across Application Insights resources and workspace data 
-When you stop the Connector and need to perform queries over a time range that was trimmed by Application Insights data retention (90 days), you need to perform [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md) on the workspace and Application Insights resources for an intermediate period. This is until your applications data accumulates per the new Application Insights data retention mentioned above. The query requires some manipulations since the schemas in Application Insights and the workspace are different. See the table later in this section highlighting the schema differences. 
-
 >[!NOTE]
 >[Cross-resource query](../log-query/cross-workspace-query.md) in log alerts is supported in the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). By default, Azure Monitor uses the [legacy Log Analytics Alert API](../platform/api-alerts.md) for creating new log alert rules from Azure portal, unless you switch from [legacy Log Alerts API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). After the switch, the new API becomes the default for new alert rules in Azure portal and it lets you create cross-resource query log alerts rules. You can create [cross-resource query](../log-query/cross-workspace-query.md) log alert rules without making the switch by using the [ARM template for scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – but this alert rule is manageable though [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) and not from Azure portal.
-
-For example, if the connector stopped working on 2018-11-01, when you query logs across Application Insights resources and applications data in the workspace, your query would be constructed like the following example:
-
-```
-applicationsScoping //this brings data from Application Insights resources 
-| where timestamp between (datetime("2018-11-01") .. now()) 
-| where success == 'False' 
-| where duration > 1000 
-| union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
-    | where TimeGenerated < (datetime("2018-12-01") 
-    | where RequestSuccess == 'False' 
-    | where RequestDuration > 1000 
-    | extend duration = RequestDuration //align to Application Insights schema 
-    | extend timestamp = TimeGenerated //align to Application Insights schema 
-    | extend name = RequestName //align to Application Insights schema 
-    | extend resultCode = ResponseCode //align to Application Insights schema 
-    | project-away RequestDuration , RequestName , ResponseCode , TimeGenerated 
-) 
-| project timestamp , duration , name , resultCode 
-```
 
 ## Application Insights and Log Analytics workspace schema differences
 The following table shows the schema differences between Log Analytics and Application Insights.  

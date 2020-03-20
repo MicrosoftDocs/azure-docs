@@ -1,5 +1,5 @@
 ---
-title: How to configure federated single sign-on for a non-gallery application | Microsoft Docs
+title: How to configure federated single sign-on for a non-gallery app
 description: How to configure federated single sign-on for a custom non-gallery application that you want to integrate with Azure AD
 services: active-directory
 documentationcenter: ''

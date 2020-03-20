@@ -1,21 +1,11 @@
 ---
-title: Troubleshoot Azure Cache for Redis client-side issues | Microsoft Docs
-description: Learn how to resolve common client-side issues with Azure Cache for Redis
-services: cache
-documentationcenter: ''
+title: Troubleshoot Azure Cache for Redis client-side issues
+description: Learn how to resolve common client-side issues with Azure Cache for Redis such as Redis client memory pressure, traffic burst, high CPU, limited bandwidth, large requests or large response size.
 author: yegu-ms
-manager: maiye
-editor: ''
-
-ms.assetid: 
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2019
 ms.author: yegu
-
+ms.service: cache
+ms.topic: troubleshooting
+ms.date: 10/18/2019
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
 
@@ -55,7 +45,7 @@ In the preceding exception, there are several issues that are interesting:
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
 - You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
-You can [configure your `ThreadPool` Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool scales up quickly under burst scenarios.
+You can [configure your `ThreadPool` Settings](cache-faq.md#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ## High client CPU usage
 

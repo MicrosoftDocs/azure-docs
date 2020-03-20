@@ -1,32 +1,20 @@
 ---
-title: Create your first Service Fabric application in C# | Microsoft Docs
+title: Create your first Service Fabric application in C# 
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/10/2019
-ms.author: vturecek
-
+ms.custom: sfrev
 ---
 # Get started with Reliable Services
+
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
-> 
-> 
 
 An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
 ## Basic concepts
+
 To get started with Reliable Services, you only need to understand a few basic concepts:
 
 * **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
@@ -35,6 +23,7 @@ To get started with Reliable Services, you only need to understand a few basic c
 * **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
 ## Create a stateless service
+
 A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
 
 Launch Visual Studio 2017 or Visual Studio 2019 as an administrator, and create a new Service Fabric application project named *HelloWorld*:
@@ -51,6 +40,7 @@ Your solution now contains two projects:
 * *HelloWorldStateless*. This is the service project. It contains the stateless service implementation.
 
 ## Implement the service
+
 Open the **HelloWorldStateless.cs** file in the service project. In Service Fabric, a service can run any business logic. The service API provides two entry points for your code:
 
 * An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
@@ -75,11 +65,10 @@ In this tutorial, we will focus on the `RunAsync()` entry point method. This is 
 The project template includes a sample implementation of `RunAsync()` that increments a rolling count.
 
 > [!NOTE]
-> For details about how to work with a communication stack, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
-> 
-> 
+> For details about how to work with a communication stack, see [Service communication with ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### RunAsync
+
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
@@ -115,6 +104,7 @@ Cancellation of your workload is a cooperative effort orchestrated by the provid
 In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
 ## Create a stateful service
+
 Service Fabric introduces a new kind of service that is stateful. A stateful service can maintain state reliably within the service itself, co-located with the code that's using it. State is made highly available by Service Fabric without the need to persist state to an external store.
 
 To convert a counter value from stateless to highly available and persistent, even when the service moves or restarts, you need a stateful service.
@@ -164,9 +154,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### RunAsync
+
 `RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the Reliable State Manager and Reliable Collections are ready to use.
 
 ### Reliable Collections and the Reliable State Manager
+
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
@@ -183,6 +175,7 @@ Reliable Collections can store any .NET type, including your custom types, with 
 The Reliable State Manager manages Reliable Collections for you. You can simply ask the Reliable State Manager for a reliable collection by name at any time and at any place in your service. The Reliable State Manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The Reliable State Manager handles this work for you, and it's optimized for repeat visits.
 
 ### Transactional and asynchronous operations
+
 ```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
@@ -194,7 +187,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
+Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except for Language Integrated Query (LINQ). Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
 Reliable Collection operations are *transactional*, so that you can keep state consistent across multiple Reliable Collections and operations. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or the entire operation will roll back. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 

@@ -2,8 +2,6 @@
 title: Overview of Consul
 description: Obtain an overview of Consul
 author: paulbouwer
-
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
@@ -32,7 +30,7 @@ The following architecture diagram demonstrates how the various components withi
 
 ## Selection criteria
 
-It's important to understand and consider the following areas when evaluating Linkerd for your workloads:
+It's important to understand and consider the following areas when evaluating Consul for your workloads:
 
 - [Consul Principles](#consul-principles)
 - [Capabilities](#capabilities)

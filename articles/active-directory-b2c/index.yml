@@ -11,9 +11,9 @@ metadata:
   ms.subservice: B2C
   ms.topic: landing-page
   ms.collection: collection
-  author: mmacy
-  ms.author: marsma
-  ms.date: 08/29/2019
+  author: msmimart
+  ms.author: mimart
+  ms.date: 01/28/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,7 +27,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure AD B2C?
-            url: active-directory-b2c-overview.md
+            url: overview.md
           - text: Technical & feature overview
             url: technical-overview.md
       - linkListType: get-started
@@ -49,13 +49,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-web-app.md
+            url: quickstart-web-app-dotnet.md
       - linkListType: tutorial
         links:
           - text: Authenticate users a .NET web application
-            url: active-directory-b2c-tutorials-web-app.md
+            url: tutorial-web-app-dotnet.md
           - text: Grant API access to a .NET web application
-            url: active-directory-b2c-tutorials-web-api.md
+            url: tutorial-web-api-dotnet.md
           - text: Enable enterprise and social login
             url: tutorial-add-identity-providers.md
       - linkListType: download
@@ -69,13 +69,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-desktop-app.md
+            url: quickstart-single-page-app.md
       - linkListType: tutorial
         links:
           - text: Authenticate users in a single-page app
-            url: active-directory-b2c-tutorials-spa.md
+            url: tutorial-single-page-app.md
           - text: Grant API access to a single-page app
-            url: active-directory-b2c-tutorials-spa-webapi.md
+            url: tutorial-single-page-app-webapi.md
           - text: Enable enterprise and social login
             url: tutorial-add-identity-providers.md
       - linkListType: download
@@ -89,13 +89,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-desktop-app.md
+            url: quickstart-native-app-desktop.md
       - linkListType: tutorial
         links:
           - text: Authenticate users in native clients
-            url: active-directory-b2c-tutorials-desktop-app.md
+            url: tutorial-desktop-app.md
           - text: Grant API access to native clients
-            url: active-directory-b2c-tutorials-desktop-app-webapi.md
+            url: tutorial-desktop-app-webapi.md
           - text: Enable enterprise and social login
             url: tutorial-add-identity-providers.md
       - linkListType: download
@@ -109,7 +109,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Introduction to user flows
-            url: active-directory-b2c-reference-policies.md
+            url: user-flow-overview.md
       - linkListType: how-to-guide
         links:
           - text: Sign up and sign in users
@@ -117,7 +117,7 @@ landingContent:
           - text: Customize the user interface
             url: customize-ui-overview.md
           - text: Enable sign-in with Facebook
-            url: active-directory-b2c-setup-fb-app.md
+            url: identity-provider-facebook.md
       - linkListType: video
         links:
           - text: How to configure basic policies (9:41)
@@ -129,17 +129,17 @@ landingContent:
       - linkListType: concept
         links:
           - text: Introduction to custom policies
-            url: active-directory-b2c-overview-custom.md
+            url: custom-policy-overview.md
       - linkListType: how-to-guide
         links:
           - text: Sign up and sign in users
-            url: active-directory-b2c-get-started-custom.md
+            url: custom-policy-get-started.md
           - text: Customize the user interface
-            url: active-directory-b2c-ui-customization-custom.md
+            url: custom-policy-ui-customization.md
           - text: Enable sign-in with Azure AD multi-tenant
-            url: active-directory-b2c-setup-commonaad-custom.md
+            url: identity-provider-azure-ad-multi-tenant-custom.md
           - text: Add your own business logic with REST APIs
-            url: active-directory-b2c-rest-api-validation-custom.md
+            url: custom-policy-rest-api-claims-validation.md
       - linkListType: video
         links:
           - text: Advanced use cases with Azure AD B2C (4:54)

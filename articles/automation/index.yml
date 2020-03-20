@@ -2,17 +2,15 @@
 
 title: Azure Automation documentation
 metadata:
-  document_id:
   title: Azure Automation documentation
   description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment.
   services: automation
-  author: bobbytreed
+  author: mgoedtel
   manager: carmonm
   ms.service: automation
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 09/06/2019
-  ms.author: robreed
+  ms.author: magoedte
 
 landingContent:
 
@@ -60,11 +58,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: PowerShell DSC
-            url: /powershell/dsc/overview/overview
+            url: /powershell/scripting/dsc/overview/overview
       - linkListType: quickstart
         links:
           - text: Create a DSC Configuration from Group Policy
-            url: /powershell/dsc/quickstarts/gpo-quickstart
+            url: /powershell/scripting/dsc/quickstarts/gpo-quickstart
       - linkListType: tutorial
         links:
           - text: Configure Servers and manage drift with State Configuration

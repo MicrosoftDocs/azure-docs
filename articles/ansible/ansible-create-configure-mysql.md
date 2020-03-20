@@ -3,10 +3,6 @@ title: Tutorial - Configure databases in Azure Database for MySQL using Ansible
 description: Learn how to use Ansible to create and configure an Azure Database for MySQL server
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 
@@ -22,8 +18,8 @@ ms.date: 04/30/2019
 >
 > * Create a MySql server
 > * Create a MySql database
-> * Configure a filewall rule so that an external app can connect to your server
-> * Connect to your MySql server from the Azure cloud shell
+> * Configure a firewall rule so that an external app can connect to your server
+> * Connect to your MySql server from the Azure Cloud Shell
 > * Query your available MySQL servers
 > * List all databases in your connected servers
 
@@ -154,11 +150,15 @@ ansible-playbook mysql_firewall.yml
 
 ## Connect to the server
 
-In this section, you use the Azure cloud shell to connect to the server you created previously.
+In this section, you use the Azure Cloud Shell to connect to the server you created previously.
 
-1. Select the **Try It** button in the following code:
+1. Open shell.azure.com by selecting below.
 
-    ```azurecli-interactive
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+1. Enter the following code:
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
@@ -170,7 +170,7 @@ In this section, you use the Azure cloud shell to connect to the server you crea
     
     If everything goes well, you see output similar to the following results:
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

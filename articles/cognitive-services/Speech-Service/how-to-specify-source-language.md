@@ -1,5 +1,5 @@
 ---
-title: "How to: Specify source language for speech to text - Speech Service"
+title: How to specify source language for speech to text
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK allows you to specify the source language when converting speech to text. This article describes how to use the FromConfig and SourceLanguageConfig methods to let the Speech service know the source language and provide a custom model target.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ---
@@ -21,23 +21,28 @@ In this article, you'll learn how to specify the source language for an audio in
 
 ## How to specify source language in C#
 
-The first step is to create a `SpeechConfig`:
+In this example, the source language is provided explicitly as a parameter using `SpeechRecognizer` construct.
 
 ```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-Next, specify the source language of your audio with `SpeechRecognitionLanguage`:
+In this example, the source language is provided using `SourceLanguageConfig`. Then, the `sourceLanguageConfig` is passed as a parameter to `SpeechRecognizer` construct.
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "de-DE";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-If you're using a custom model for recognition, you can specify the endpoint with `EndpointId`:
+In this example, the source language and custom endpoint are provided using `SourceLanguageConfig`. Then, the `sourceLanguageConfig` is passed as a parameter to `SpeechRecognizer` construct.
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint ID for your custom model.";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
+
+>[!Note]
+> `SpeechRecognitionLanguage` and `EndpointId` set methods are deprecated from the `SpeechConfig` class in C#. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
 
 ::: zone-end
 

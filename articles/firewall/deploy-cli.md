@@ -280,7 +280,7 @@ Now, test the firewall to confirm that it works as expected.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   The www.google.com requests should succeed, and the www.microsoft.com requests should fail. This demonstrates that your firewall rules are operating as expected.
+   The `www.google.com` requests should succeed, and the `www.microsoft.com` requests should fail. This demonstrates that your firewall rules are operating as expected.
 
 So now you've verified that the firewall rules are working:
 

@@ -1,15 +1,16 @@
 ---
-title: Integer claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Integer claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Integer claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: Integer claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

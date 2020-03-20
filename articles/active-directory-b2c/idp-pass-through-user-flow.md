@@ -1,23 +1,24 @@
 ---
-title: Pass an access token through a user flow to your application - Azure Active Directory B2C
+title: Pass an access token through a user flow to your app
+titleSuffix: Azure AD B2C
 description: Learn how to pass an access token for OAuth 2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Pass an access token through a user flow to your application in Azure Active Directory B2C
 
-A [user flow](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure AD B2C) provides users of your application an opportunity to sign up or sign in with an identity provider. When the journey starts, Azure AD B2C receives an [access token](active-directory-b2c-reference-tokens.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to pass the token through to the applications that you register in Azure AD B2C.
+A [user flow](user-flow-overview.md) in Azure Active Directory B2C (Azure AD B2C) provides users of your application an opportunity to sign up or sign in with an identity provider. When the journey starts, Azure AD B2C receives an [access token](tokens-overview.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to pass the token through to the applications that you register in Azure AD B2C.
 
-Azure AD B2C currently only supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) identity providers, which include [Facebook](active-directory-b2c-setup-fb-app.md) and [Google](active-directory-b2c-setup-goog-app.md). For all other identity providers, the claim is returned blank.
+Azure AD B2C currently only supports passing the access token of [OAuth 2.0](authorization-code-flow.md) identity providers, which include [Facebook](identity-provider-facebook.md) and [Google](identity-provider-google.md). For all other identity providers, the claim is returned blank.
 
 ## Prerequisites
 
@@ -51,4 +52,4 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 
 ## Next steps
 
-Learn more in the [overview of Azure AD B2C tokens](active-directory-b2c-reference-tokens.md).
+Learn more in the [overview of Azure AD B2C tokens](tokens-overview.md).

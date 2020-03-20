@@ -1,10 +1,8 @@
 ---
 title: Test Azure Stream Analytics queries locally in Visual Studio
 description: This article describes how to test queries locally with Azure Stream Analytics Tools for Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
@@ -68,7 +66,6 @@ You can see the progress in the **Output** window.
 ![Sample data output](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 
 ## Next steps
-
 
 * [Quickstart: Create a Stream Analytics job using Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)
