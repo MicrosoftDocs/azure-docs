@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Connect to Azure Synapse Analytics with Visual Studio and SSDT
 > [!div class="op_single_selector"]
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
@@ -29,7 +29,7 @@ Use Visual Studio to query a SQL pool within Azure Synapse in just a few minutes
 To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](sql-data-warehouse-get-started-provision.md).
-* SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
+* SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 * The fully qualified SQL server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
 
 ## 1. Connect to your SQL pool
@@ -72,6 +72,6 @@ Now that a connection has been established to your database, let's write a query
     ![Query results](media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Now that you can connect and query, try [visualizing the data with Power BI](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](sql-data-warehouse-authentication.md).
