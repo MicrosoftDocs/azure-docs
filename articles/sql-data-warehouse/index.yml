@@ -77,7 +77,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Analyze your workload
-            url: analyze-your-workload.md
+            url: /azure/synapse-analytics/sql-data-warehouse/analyze-your-workload.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
           # - text: linktext2
           #   url: file2.md
 
@@ -119,6 +119,6 @@ landingContent:
       - linkListType: video
         links:
           - text: Watch the latest data warehouse videos
-            url: sql-data-warehouse-videos.md
+            url: /azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos.?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   #         # - text: linktext2
   #         #   url: file2.md
