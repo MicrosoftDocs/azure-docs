@@ -44,7 +44,6 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 
 ```python
 import azure.cognitiveservices.speech as speechsdk
-import azure.cognitiveservices.audio as audio
 
 # Creates an instance of a speech config with specified subscription key and service region.
 # Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
@@ -54,7 +53,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
-audio_input = audio.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.audio.AudioConfig(filename=audio_filename)
 
 # Creates a recognizer with the given settings
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
