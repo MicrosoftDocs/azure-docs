@@ -41,7 +41,9 @@ The **Offer setup** page asks for the following information. Be sure to select *
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Note that per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
+Note that per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. A record will be created in your CRM system each time a customer deploys your offer.
+
+For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
 
 Remember to **Save** the page before moving on to the next section.
 
