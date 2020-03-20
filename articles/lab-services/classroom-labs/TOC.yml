@@ -34,8 +34,8 @@
     items:
     - name: Class types overview
       href: class-types.md
-    - name: Deep learning in natural processing
-      href: class-type-deep-learning-natural-processing.md
+    - name: Deep learning in natural language processing
+      href: class-type-deep-learning-natural-language-processing.md
     - name: Shell scripting on Linux
       href: class-type-shell-scripting-linux.md
     - name: Ethical hacking

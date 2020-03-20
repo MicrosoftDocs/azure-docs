@@ -333,7 +333,7 @@ The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**:   `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
+* **Issuer**:   Use the entityID in the metadata file
 * **Login Url/SAML endpoint/SAML Url**: Check the value in the metadata file
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
