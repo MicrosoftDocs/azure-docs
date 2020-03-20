@@ -38537,7 +38537,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/sdk.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
@@ -38572,22 +38572,22 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-java-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-java-quickstart",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-java",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-python-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-python-quickstart",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-node-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-node-quickstart",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-javascript",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
