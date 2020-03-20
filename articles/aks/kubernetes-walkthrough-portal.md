@@ -1,5 +1,6 @@
 ---
-title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster in the portal
+title: Create an AKS cluster in the portal
+titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
 ms.topic: quickstart
