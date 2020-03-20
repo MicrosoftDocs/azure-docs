@@ -1,75 +1,37 @@
 ---
-title: Indoor map data management in Azure Maps.| Microsoft Docs 
-description: Learn about data management for indoor Maps in Azure Maps
+title: Implement dynamic styling for Private Atlas Indoor Maps | Microsoft Azure Maps
+description: Learn how to Implement dynamic styling for Private Atlas Indoor Maps
 author: farah-alyasari
 ms.author: v-faalya
-ms.date: 03/06/2020
+ms.date: 03/19/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Indoor map data management
+# Implement dynamic styling for Private Atlas Indoor Maps
 
-Private Atlas makes it possible to develop applications based on your private indoor map data using Azure Maps API and SDK. 
+Private Atlas makes it possible to develop applications based on your private indoor map data using Azure Maps API and SDK. Depending upon your business needs, you may want to render certain parts of the map data dynamically. For example, you may have indoor map data for a building with sensors collecting data and you wish to render meeting rooms with styles based on their occupancy state. The [Feature State API]() supports such scenarios in which the tileset features render according to their state that's defined at runtime. In this article we will discuss how to dynamically render indoor map features based on feature states associated with them using the Feature State API and Indoor Module module.
 
-In this concept article, we will walk you through the workflow for managing your own indoor maps in Private Atlas. We will cover the data processing pipeline from ingesting data into Azure Maps, curating and using the data in applications and administering private atlas resources. The following diagram describes the end to end process.
+The Feature State Service lets you create and update the "state" of features included in a data set using Azure Maps Feature State REST API. When a web application built using the Azure Maps SDK and Indoor module makes use of Get Map Tile API to render indoor maps, you can further leverage the feature state service for dynamic styling. In particular, the Get State Tile API allows for control over the tileset style at the level of individual feature without the map rendering engine having to re-parse the underlying geometry and data. This offers a significant boost in performance, especially in scenarios when visualizing live data associated to indoor map features.
 
-<center>
+For the purpose of demonstration, we will exemplify an indoor map which includes meeting rooms rendered dynamically based on their occupancy status. The meeting rooms with the "occupied" state set to "true" will be rendered as red and those with a "false" state will be rendered green.
 
-![data-management](./media/tutorial-private-atlas-indoor-maps/data-management.png)</center>
+## Prerequisites
 
+To calls Azure Maps APIs, [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key.
 
-## Data Ingestion
+Obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in [make a Private Atlas account](how-to-manage-private-atlas.md) and [create an indoor map using Private Atlas](tutorial-private-atlas-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
-The primary data source for ingesting indoor map data is a DWG package that represents a facility. The DWG package contains a DWG file for each floor of the facility and a JSON document for storing additional metadata like space categorization and facility directory information. See DWG Package requirements document for a detailed description. 
+Build a simple application using the Indoor Maps module, as demonstrated [here](how-to-use-indoor-module.md#use-the-indoor-maps-module). 
 
-The ingestion process utilizes the **Data Upload API** for uploading the DWG Package to an Azure Maps account, and **Conversion API** for DWG Package validation and conversion to validated blob. 
+## h2
 
+Once you complete following the prerequisites, you should have a simple web application. 
 
-## Data Curation
+1. Make sure that you have dynamic styling enabled by calling:
 
-The dataset is the primary resource available for compiling one or more facility data, editing and creating data products for specific use cases such as rendering. A dataset is a collection of map data entities. The **Dataset Create API** allows you to create datasets from validated blob, or append validated blob to existing datasets.
-
-> [!Note]
-> The Dataset Create API does not prevent from appending duplicate validated blob into a dataset.
-
-### Accessing dataset features
-  
-Datasets can be queried using a Web Feature Service (WFS) API that follows the Open Geospatial Consortium [proposed standard for WFS version 3.0](http://docs.opengeospatial.org/DRAFTS/17-069.html). 
-
-### Data editing
-
- When your map data requires soft touches, when an update is due for an existing dataset, you can utilize the Azure Maps plug-in for QGIS to make the required updates.
-
-
-### Map rendering 
-
-The **Tileset API** provides a means to generate grided vector tiles out of a given dataset which are optimized for map rendering. The **Get Map Tile API** can be used to access the tileset using, for example, the Web SDK Indoor module.
-
-The **Feature State API** lets user store and retrieve dynamic properties/states of features in the dataset. These states get stored outside the dataset to enable users to store different versions if needed. The **Feature State API** supports dynamic styling scenarios in which the tileset features are expected to be rendered according to their state which is defined at runtime. The feature states stored in the stored feature stateset can be used to dynamically render the features in the tileset using the **Get Map State Tile API**. For example, meeting rooms in a facility can store �occupied� state and use it to decide the color of the room on the map control. A detailed description of how to make use of dynamic styling is available in **Implement dynamic styling for Private Atlas Indoor Maps**.
-
-
-## Indoor web SDK module
-
-The indoor module of the Azure Maps web SDK, allows you to develop web applications using your indoor map data in combination with other Azure Maps API. For more information read **indoor module SDK documentation** and **Implement dynamic styling for Private Atlas Indoor Maps**.
-
-
-## Resource Administration
-
-API to helping administer different Private Atlas resources are available. For example, you may want to know how many tilesets exist in your subscription, or review their relevance and update/delete them as appropriate. A List and Delete API is available in Data, Conversion, Dataset, Tileset and Feature State services.
-
-> [!Note]
-> Whenever you review the list of items and decide to delete them, consider the cascading dependencies impacting other API with runtime dependencies. For example, you may have a tileset being rendered in your application using the **Get Map Tile API** and deleting the tileset will result in failure to render that tileset.
-
-
-### Example: adding a facility to an existing indoor map
-
-A dataset and tileset can be used by many applications in production. You may face scenarios in which existing applications are expected to be extended to deal with additional facility data. For example, a campus facility map application is expected to be updated so that it also covers a new facility added to the campus. Assuming the new DWG Package is made available for the newly added facility, the following workflow explains how to achieve the goal.
-
-  1. Follow steps in the data ingestion section to upload and convert the new DWG package.
-  2. Use the **Dataset Create API** to append the validated blob to the existing campus dataset.
-  3. Optionally edit the newly added facility data as necessary, using Azure Maps plug-in for QGIS.
-  4. Use the **Tileset Create API** to generate a new tileset out of the updated campus dataset.
-  5. Update the tilesetId created in step 4 in your application to enable the visualization of the updated campus dataset.
+```javascript
+styleManager.setDynamicStyling(true);
+```

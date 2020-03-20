@@ -16,9 +16,9 @@ The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers ext
 
 ## Prerequisites
 
-As in using any Azure Maps APIs, you'll need to [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key.
+To calls Azure Maps APIs, [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key.
 
-Obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in [make a Private Atlas account](how-to-manage-private-atlas.md) and [use the Private Atlas to create an indoor map application](tutorial-private-atlas-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
+Obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in [make a Private Atlas account](how-to-manage-private-atlas.md) and [create an indoor map using Private Atlas](tutorial-private-atlas-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
 ## Embed the Indoor Maps module
 
@@ -166,7 +166,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     </html>
     ```
 
-4. Assign the Indoor Maps `tilesetId`, and optionally add the `statesetId`. Enable polling, if you provide a state set ID. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Maps event listeners. The code below is how the HTML file would look like after completing the described steps:
+4. Assign the Indoor Maps `tilesetId`, and optionally add the `statesetId`. Enable polling, if you provide a state set ID. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Maps event listeners. The level control is helpful to pick and view a specific level when the map renders, if the tiles contain multiple levels. The code below is how the HTML file would look like after completing the described steps:
 
     ```html
     <!DOCTYPE html>
