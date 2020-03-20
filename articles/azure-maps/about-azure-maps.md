@@ -9,7 +9,7 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has so that I can take advantage of mapping in my applications. 
+#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 
 # What is Azure Maps?
