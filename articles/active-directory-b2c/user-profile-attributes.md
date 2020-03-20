@@ -35,8 +35,8 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user’s age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|
-|alternativeSecurityId|String|A single user identity from the external identity provider.|No|No|Input, Persisted, Output|
-|alternativeSecurityIds|alternative securityId collection|A collection of user identities from external identity providers.|No|No|Persisted, Output|
+|alternativeSecurityId ([Identities](manage-user-accounts-graph-api.md#identities-property))|String|A single user identity from the external identity provider.|No|No|Input, Persisted, Output|
+|alternativeSecurityIds ([Identities](manage-user-accounts-graph-api.md#identities-property))|alternative securityId collection|A collection of user identities from external identity providers.|No|No|Persisted, Output|
 |city            |String|The city in which the user is located. Max length 128.|Yes|Yes|Persisted, Output|
 |consentProvidedForMinor|String|Whether the consent has been provided for a minor. Allowed values: null, granted, denied, or notRequired.|Yes|No|Persisted, Output|
 |country         |String|The country/region in which the user is located. Example: “US” or “UK”. Max length 128.|Yes|Yes|Persisted, Output|
