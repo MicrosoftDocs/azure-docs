@@ -101,11 +101,7 @@ map.events.add("click", function(e){
 
 ### Set occupancy status
 
----
-, and you can test the resultts by making API calls.
----
-
-Create a new feature state set containing the feature ID you want in your feature state set. We'll refer to the style properties of this feature ID as states. Then, update the state of the feature state set and reload your map to see the changes rendered on the map.
+Create a new feature state set containing the feature ID you want in your feature state set. We'll refer to the style properties of this feature ID as states. We'll update the state of the feature state set and reload your map to see the changes rendered on the map. 
 
 1. 
 
