@@ -134,13 +134,13 @@ To get SNAT usage and allocation:
 2a. One helpful Load Balalncer view is to filter to a specific **Protocol Type** and a set of **Backend IPs** or **Frontend IPs**.
 2b. To monitor health per backend or frontend instance, apply splitting. Note this only allows for a single metric to be displayed at a time. To monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. View SNAT Allocation by switching metric type to **SNAT Allocation** and view by Frontend IP by switching split to **Frontend IP**.
 
-![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/SNAT Usage and Allocation.png)
+![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/SNAT_Usage_and_Allocation.png)
 
-*Figure: Average TCP SNAT allocation and usage for a set of backend VMs
+*Figure: Average TCP SNAT allocation and usage for a set of backend VMs*
 
-![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/SNAT Usage by backend IP.png)
+![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/SNAT_Usage_by_backend_IP.png)
 
-*Figure: TCP SNAT allocation and usage for a set of backend VMs
+*Figure: TCP SNAT allocation and usage for a set of backend VMs*
 
 #### How do I check inbound/outbound connection attempts for my service?
 
