@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 03/20/2020
 ms.author: swmachan
 ---
 
@@ -483,6 +483,7 @@ Note the following restrictions:
   - from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English;
   - from Japanese to Korean or from Korean to Japanese.
 * You will not receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
+* Alignment is not available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
 ### Obtain sentence boundaries
 
