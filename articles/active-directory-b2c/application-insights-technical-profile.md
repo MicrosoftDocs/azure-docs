@@ -58,11 +58,11 @@ The **InputClaimsTransformations** element may contain a collection of **InputCl
 
 ## Persist claims
 
-If the PersistedClaims element is absent.
+The PersistedClaims element is not used.
 
 ## Output claims
 
-The **OutputClaims**, and **OutputClaimsTransformations** elements are absent.
+The OutputClaims, and OutputClaimsTransformations elements are not used.
 
 ## Cryptographic keys
 
