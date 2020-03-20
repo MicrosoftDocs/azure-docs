@@ -9,7 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-# Migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment with Azure File Sync and Azure file shares
+# Migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync
 
 Azure File Sync works on Direct Attached Storage (DAS) locations and does not support sync to Network Attached Storage (NAS) locations.
 This fact makes a migration of your files necessary and this article guides you through the planning and execution of such a migration.
@@ -22,13 +22,14 @@ The goal is to move the shares that you have on your NAS appliance to a Windows 
 
 As mentioned in the Azure Files migration overview article, using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
 
-- Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
-- Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
-- Phase 3: [Deploy Azure storage resources](#phase-3-deploy-azure-storage-resources)
-- Phase 4: [Deploy the Azure File Sync agent](#phase-4-deploy-azure-file-sync)
-- Phase 5: [Configure Azure File Sync on the Windows Server](#phase-5-configure-azure-file-sync-on-the-windows-server)
-- Phase 6: [RoboCopy](#phase-6-robocopy)
-- Phase 7: [User cut-over](#phase-7-user-cut-over)
+- Phase 1: Identify how many Azure file shares you need
+- Phase 2: Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
+- Phase 3: Deploy the Azure File Sync cloud resource
+- Phase 4: Deploy Azure storage resources
+- Phase 5: Deploy the Azure File Sync agent
+- Phase 6: Configure Azure File Sync on the Windows Server
+- Phase 7: RoboCopy
+- Phase 8: User cut-over
 
 ## Phase 1: Identify how many Azure file shares you need
 
@@ -49,18 +50,21 @@ The resource configuration (compute and RAM) of the Windows Server you deploy de
 > [!NOTE]
 > The previously linked article presents a table with a range for server memory (RAM). You can orient towards the smaller number for your server but expect that initial sync can take significantly more time.
 
+## Phase 3: Deploy the Azure File Sync cloud resource
 
-## Phase 3: Deploy Azure storage resources
+[!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
+
+## Phase 4: Deploy Azure storage resources
 
 In this phase, consult the mapping table from Phase 1 and use it to provision the correct number of Azure storage accounts and file shares within them.
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
-## Phase 4: Deploy Azure File Sync
+## Phase 5: Deploy the Azure File Sync agent
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-## Phase 5: Configure Azure File Sync on the Windows Server
+## Phase 6: Configure Azure File Sync on the Windows Server
 
 Your registered on-premises Windows Server must be ready and connected to the internet for this process.
 
@@ -78,7 +82,7 @@ After the creation of all server endpoints, sync is working. You can create a te
 
 Both locations, the server folders and the Azure file shares are otherwise empty and awaiting data in either location. In the next step, you will begin to copy files into the Windows Server for Azure File Sync to move them up to the cloud. In case you've enabled cloud tiering, the server will then begin to tier files, should you run out of capacity on the local volume(s).
 
-## Phase 6: RoboCopy
+## Phase 7: RoboCopy
 
 The basic migration approach is a RoboCopy from your NAS appliance to your Windows Server, and Azure File Sync to Azure file shares.
 
@@ -90,7 +94,7 @@ Run the first local copy to your Windows Server target folder:
 
 The following RoboCopy command will copy files from your NAS storage to your Windows Server target folder. The Windows Server will sync it to the Azure file share(s). 
 
-If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the StorSimple virtual appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
+If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 It is possible, that RoboCopy moves files faster than you can sync to the cloud and tier locally, thus running out of local disk space. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few.
 
 ```console
@@ -164,16 +168,16 @@ Background:
    :::column-end:::
 :::row-end:::
 
-## Phase 7: User cut-over
+## Phase 8: User cut-over
 
 When you run the RoboCopy command for the first time, your users and applications are still accessing files on the NAS and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (NAS) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. That is expected.
 
 The first run is about moving the bulk of the data to your Windows Server and into the cloud via Azure File Sync. This first copy can take a long time, depending on:
 
 * your download bandwidth
-* the recall speed of the StorSimple cloud service
 * the upload bandwidth
-* the number of items (files and folders), that need to be processed
+* the local network speed and number of how optimally the number of RoboCopy threads matches it
+* the number of items (files and folders), that need to be processed by RoboCopy and Azure File Sync
 
 Once the initial run is complete, run the command again.
 
@@ -207,9 +211,9 @@ When your Windows Server has sufficient available capacity, rerunning the comman
 
 Check the link in the following section for troubleshooting Azure File Sync issues.
 
-## Relevant links
+## Next steps
 
-Azure File Sync content:
+There is more to discover about Azure file shares and Azure Azure File Sync. The following articles help understand advanced options, best practices and also contain troubleshooting help. These articles link to [Azure file share documentation](storage-files-introduction.md) as appropriate.
 
 * [AFS overview](https://aka.ms/AFS)
 * [AFS deployment guide](storage-files-deployment-guide.md)

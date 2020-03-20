@@ -123,7 +123,7 @@
     - name: Migrate to Azure File Sync
       href: storage-sync-offline-data-transfer.md
     - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
-      href: storage-files-migration-nas-to-hybrid.md
+      href: storage-files-migration-nas-hybrid.md
     - name: StorSimple 8100 and 8600 migration guide
       href: storage-files-migration-storsimple-8000.md
     - name: StorSimple 1200 migration guide
