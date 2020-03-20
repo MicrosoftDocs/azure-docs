@@ -38,6 +38,8 @@ Add these import statements to the top of your code file.
 ```python
 import os, uuid, sys
 from azure.storage.filedatalake import DataLakeServiceClient
+from azure.core._match_conditions import MatchConditions
+from azure.storage.filedatalake._models import ContentSettings
 ```
 
 ## Connect to the account
@@ -185,6 +187,33 @@ def upload_file_to_directory():
         file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
 
         file_client.flush_data(len(file_contents))
+
+    except Exception as e:
+      print(e) 
+```
+
+> [!TIP]
+> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append_data** method. Consider using the **DataLakeFileClient.upload_data** method instead. That way, you can upload the entire file in a single call. 
+
+## Upload a large file to a directory
+
+Use the **DataLakeFileClient.upload_data** method to upload large files without having to make multiple calls to the **DataLakeFileClient.append_data** method.
+
+```python
+def upload_file_to_directory_bulk():
+    try:
+
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        file_client = directory_client.get_file_client("uploaded-file.txt")
+
+        local_file = open("C:\\file-to-upload.txt",'r')
+
+        file_contents = local_file.read()
+
+        file_client.upload_data(file_contents, overwrite=True)
 
     except Exception as e:
       print(e) 

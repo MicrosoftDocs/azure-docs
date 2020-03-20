@@ -16945,6 +16945,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
       "redirect_document_id": false
@@ -18552,6 +18557,11 @@
     {
       "source_path": "articles/virtual-machines/linux/update-infrastructure-redhat.md",
       "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-rhui",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/rhel-images.md",
+      "redirect_url": "/azure/virtual-machines/workloads/redhat/redhat-images",
       "redirect_document_id": false
     },
     {
@@ -35199,12 +35209,7 @@
       "source_path": "articles/multi-factor-authentication/end-user/index.md",
       "redirect_url": "/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/networking/index.md",
-      "redirect_url": "/azure/networking/networking-overview",
-      "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
       "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
@@ -49603,6 +49608,11 @@
     {
       "source_path": "articles/postgresql/howto-tls-configurations.md",
       "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md", 
+      "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing", 
       "redirect_document_id": false
     }
   ]
