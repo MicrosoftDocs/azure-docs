@@ -5,9 +5,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 11/18/2019
-author: sivethe
-ms.author: sivethe
+ms.date: 03/20/2020
+author: tisande
+ms.author: timsander1
 ms.custom: seodec18
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
@@ -54,6 +54,7 @@ Let's create a Cosmos account. If you already have an account you want to use, y
      > The ```--save``` flag adds the dependency to the package.json file.
 
 1. Import the dependencies in your index.js file.
+
     ```JavaScript
    var mongoose = require('mongoose');
    var env = require('dotenv').config();   //Use the .env file to load the variables
