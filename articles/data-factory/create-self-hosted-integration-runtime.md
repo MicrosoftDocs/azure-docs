@@ -170,7 +170,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 
 ## Installation best practices
 
-You can install the self-hosted integration runtime by downloading an MSI setup package from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See the article [Move data between on-premises and cloud](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
+You can install the self-hosted integration runtime by downloading a Managed Identity setup package from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See the article [Move data between on-premises and cloud](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Regularly back up the credentials associated with the self-hosted integration runtime.
@@ -180,7 +180,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 1. Select **Download**, select the 64-bit version, and select **Next**. The 32-bit version isn't supported.
-1. Run the MSI file directly, or save it to your hard drive and run it.
+1. Run the Managed Identity file directly, or save it to your hard drive and run it.
 1. On the **Welcome** window, select a language and select **Next**.
 1. Accept the Microsoft Software License Terms and select **Next**.
 1. Select **folder** to install the self-hosted integration runtime, and select **Next**.
@@ -234,7 +234,7 @@ Here are the requirements for the TLS/SSL certificate that you use to secure com
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
 - Each integration runtime node must trust this certificate.
 - We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All other SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
-- The certificate can use any key size supported by Windows Server 2012 R2 for SSL certificates.
+- The certificate can use any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
 - Certificates that use CNG keys aren't supported.  
 
 > [!NOTE]
@@ -281,7 +281,7 @@ To share a self-hosted integration runtime with multiple data factories, see [Cr
 
 ### Known limitations of self-hosted IR sharing
 
-* The data factory in which a linked IR is created must have an [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets have an implicitly created MSI. But when a data factory is created through an Azure Resource Manager template or SDK, you must set the **Identity** property explicitly. This setting ensures that Resource Manager creates a data factory that contains an MSI.
+* The data factory in which a linked IR is created must have an [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets have an implicitly created Managed Identity. But when a data factory is created through an Azure Resource Manager template or SDK, you must set the **Identity** property explicitly. This setting ensures that Resource Manager creates a data factory that contains a Managed Identity.
 
 * The Data Factory .NET SDK that supports this feature must be version 1.1.0 or later.
 
@@ -289,7 +289,7 @@ To share a self-hosted integration runtime with multiple data factories, see [Cr
 
 * The sharing feature works only for data factories within the same Azure AD tenant.
 
-* For Azure AD [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality in the UI, which lists all data factories by using a search keyword, [doesn't work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the MSI of the data factory that needs to share the IR, enter that MSI in the **Assign Permission** box and select **Add** in the Data Factory UI.
+* For Azure AD [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality in the UI, which lists all data factories by using a search keyword, [doesn't work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
 
   > [!NOTE]
   > This feature is available only in Data Factory V2.
@@ -327,7 +327,7 @@ Ensure that you properly enable firewall rules on the corporate firewall, the Wi
 For example, to copy from an on-premises data store to a SQL Database sink or an Azure SQL Data Warehouse sink, take the following steps:
 
 1. Allow outbound TCP communication on port 1433 for both the Windows firewall and the corporate firewall.
-1. Configure the firewall settings of the SQL database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
+1. Configure the firewall settings of the SQL Database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
 
 > [!NOTE]
 > If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and SQL Data Warehouse. In this scenario, you require only HTTPS (port 443) for the data movement.

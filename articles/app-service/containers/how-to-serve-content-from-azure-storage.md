@@ -21,7 +21,7 @@ This guide shows how to attach Azure Storage to App Service on Linux. Benefits i
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
 - An existing [App Service on Linux app](https://docs.microsoft.com/azure/app-service/containers/).
 - An [Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-- An [Azure file share and directory](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
+- An [Azure file share and directory](../../storage/files/storage-how-to-use-files-cli.md).
 
 
 ## Limitations of Azure Storage with App Service
