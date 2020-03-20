@@ -14,20 +14,20 @@ ms.author: wolfma
 
 # What is batch transcription?
 
-Batch transcription is a set of REST API operations that enables users to transcribe a large amount of audio in storage. Users can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results in return.
+Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
 
 Asynchronous speech-to-text transcription is just one of the features. You can use batch transcription REST APIs to call the following methods:
 
 
 
-|    Batch Transcription Operation                                               |    Method    |    REST API Call                                   |
-|--------------------------------------------------------------------------------|--------------|----------------------------------------------------|
-|    Creates   a new transcription.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
-|    Retrieves   a list of transcriptions for the authenticated subscription.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
-|    Gets   a list of supported locales for offline transcriptions.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
-|    Updates   the mutable details of the transcription identified by its ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}       |
-|    Deletes   the specified transcription task.                                 |    DELETE    |    api/speechtotext/v2.0/transcriptions/{id}       |
-|    Gets   the transcription identified by the given ID.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Batch Transcription Operation                                             |    Method    |    REST API Call                                   |
+|------------------------------------------------------------------------------|--------------|----------------------------------------------------|
+|    Creates a new transcription.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
+|    Retrieves a list of transcriptions for the authenticated subscription.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
+|    Gets a list of supported locales for offline transcriptions.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
+|    Updates the mutable details of the transcription identified by its ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Deletes the specified transcription task.                                 |    DELETE    |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Gets the transcription identified by the given ID.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}       |
 
 
 
