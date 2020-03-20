@@ -16,6 +16,8 @@ This article shows you how to set up SSL encryption between Apache Kafka clients
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use SSL for both producing and consuming. The console producer client `console-producer.sh` does not work with SSL.
 
+> [!Note] 
+> HDInsight Kafka console producer with version 1.1 does not support SSL.
 ## Apache Kafka broker setup
 
 The Kafka SSL broker setup will use four HDInsight cluster VMs in the following way:
