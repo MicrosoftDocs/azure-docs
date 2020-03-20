@@ -641,53 +641,50 @@
     topicHref: /azure/networking/
     items:
       - name: Application Gateway
-        tocHref: /azure/networking/application-gateway/
-        topicHref: /azure/networking/application-gateway/
+        tocHref: /azure/application-gateway/
+        topicHref: /azure/application-gateway/
       - name: Bastion
-        tocHref: /azure/networking/bastion/
-        topicHref: /azure/networking/bastion/
+        tocHref: /azure/bastion/
+        topicHref: /azure/bastion/
       - name: CDN
-        tocHref: /azure/networking/cdn/
-        topicHref: /azure/networking/cdn/
+        tocHref: /azure/cdn/
+        topicHref: /azure/cdn/
       - name: DNS
-        tocHref: /azure/networking/dns/
-        topicHref: /azure/networking/dns/
+        tocHref: /azure/dns/
+        topicHref: /azure/dns/
       - name: ExpressRoute
-        tocHref: /azure/networking/expressroute/
-        topicHref: /azure/networking/expressroute/
+        tocHref: /azure/expressroute/
+        topicHref: /azure/expressroute/
       - name: Firewall
-        tocHref: /azure/networking/firewall/
-        topicHref: /azure/networking/firewall/
+        tocHref: /azure/firewall/
+        topicHref: /azure/firewall/
       - name: Firewall Manager
-        tocHref: /azure/networking/firewall-manager/
-        topicHref: /azure/networking/firewall-manager/
+        tocHref: /azure/firewall-manager/
+        topicHref: /azure/firewall-manager/
       - name: Front Door Service
-        tocHref: /azure/networking/frontdoor/
-        topicHref: /azure/networking/frontdoor/
-      - name: Fundamentals
-        tocHref: /azure/networking/fundamentals/
-        topicHref: /azure/networking/fundamentals/      
+        tocHref: /azure/frontdoor/
+        topicHref: /azure/frontdoor/
       - name: Internet Analyzer
-        tocHref: /azure/networking/internet-analyzer/
-        topicHref: /azure/networking/internet-analyzer/      
+        tocHref: /azure/internet-analyzer/
+        topicHref: /azure/internet-analyzer/      
       - name: Network Watcher
-        tocHref: /azure/networking/network-watcher/
-        topicHref: /azure/networking/network-watcher/
+        tocHref: /azure/network-watcher/
+        topicHref: /azure/network-watcher/
       - name: Private Link
-        tocHref: /azure/networking/private-link/
-        topicHref: /azure/networking/private-link/
+        tocHref: /azure/private-link/
+        topicHref: /azure/private-link/
       - name: Peering Service
-        tocHref: /azure/networking/peering-service/
-        topicHref: /azure/networking/peering-service/
+        tocHref: /azure/peering-service/
+        topicHref: /azure/peering-service/
       - name: Traffic Manager
-        tocHref: /azure/networking/traffic-manager/
-        topicHref: /azure/networking/traffic-manager/
+        tocHref: /azure/traffic-manager/
+        topicHref: /azure/traffic-manager/
       - name: VPN Gateway
-        tocHref: /azure/networking/vpn-gateway/
-        topicHref: /azure/networking/vpn-gateway/
+        tocHref: /azure/vpn-gateway/
+        topicHref: /azure/vpn-gateway/
       - name: Web Application Firewall
-        tocHref: /azure/networking/web-application-firewall/
-        topicHref: /azure/networking/web-application-firewall/
+        tocHref: /azure/web-application-firewall/
+        topicHref: /azure/web-application-firewall/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
