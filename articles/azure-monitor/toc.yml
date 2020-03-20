@@ -488,17 +488,17 @@
       - name: Overview
         displayName: Platform logs, Resource logs, Activity log
         href: platform/platform-logs-overview.md 
-        - name: Activity log
-          items:
-          - name: View in Azure portal
-            displayName: Platform logs, Activity log
-            href: platform/activity-log-view.md
-          - name: Collect and analyze
-            displayName: Platform logs, Activity log
-            href: platform/activity-log-collect.md
-          - name: Export (legacy)
-            displayname: Activity log
-            href: platform/activity-log-export.md
+      - name: Activity log
+        items:
+        - name: View in Azure portal
+          displayName: Platform logs, Activity log
+          href: platform/activity-log-view.md
+        - name: Collect and analyze
+          displayName: Platform logs, Activity log
+          href: platform/activity-log-collect.md
+        - name: Export (legacy)
+          displayname: Activity log
+          href: platform/activity-log-export.md
       - name: Send to destinations
         items:
         - name: Log Analytics workspace
