@@ -77,7 +77,7 @@ Follow these steps to create a new resource using the Azure portal:
 As an alternative to using the Azure portal, you can create a resource using the Azure CLI.
 
 > [!NOTE]
-> Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). You can skip this step if you're already working with the Azure CLI. 
+> Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You can skip this step if you're already working with the Azure CLI. 
 
 There's a few things you need know about this command:
 
@@ -105,11 +105,11 @@ az container create \
 
 ### Connect to Azure AD for authorization
 
-It's recommended that you connect your web app to Azure Active Director (AAD). This ensures that only users with valid credentials can sign-in and use your web app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to Azure Active Directory.
+It's recommended that you connect your web app to Azure Active Director (AAD). This ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to Azure Active Directory.
 
 ## Open source on GitHub
 
-The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+The OCR Form Labeling Tool is also available as an open-source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## Next steps
 
