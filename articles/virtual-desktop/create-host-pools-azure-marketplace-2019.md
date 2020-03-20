@@ -104,7 +104,7 @@ For the **Windows Virtual Desktop tenant information** tab:
 1. For **Windows Virtual Desktop tenant name**, enter the name of the tenant where you'll be creating this host pool.
 1. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. Enter the UPN or Service principal and a password.
 
-   If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**.
+   If you completed the [Create service principals and role assignments with PowerShell tutorial](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md), select **Service principal**.
 
 1. For **Service principal**, for **Azure AD tenant ID**, enter the tenant admin account for the Azure AD instance that contains the service principal. Only service principals with a password credential are supported.
 1. Select **Next: Review + create**.
