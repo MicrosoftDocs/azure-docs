@@ -99,7 +99,10 @@ Now that you've created your function project and a durable function, you can te
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
 
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `SayHello` activity function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+
+    > [!NOTE]
+    > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
