@@ -42,9 +42,9 @@ For a complete list of diagnostic checks, see [Built-in troubleshooting function
 
 ## Gather debug information with iotedge 'support-bundle' command
 
-When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, `iotedged` and container engine logs, 'iotedge check' JSON output and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
+When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge Security Manager and container engine logs, 'iotedge check' JSON output and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
 
-Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs from. For example `6h` will get logs since the last 6 hours, `6d` since the last 6 days, `6m` since the last 6 minutes and so on. Include the `--help` flag to see a complete list of options.
+Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last 6 hours, `6d` since the last 6 days, `6m` since the last 6 minutes and so on. Include the `--help` flag to see a complete list of options.
 
 
 * On Linux:
@@ -60,7 +60,7 @@ Run the `support-bundle` command with the `--since` flag to specify how long fro
   ```
 
 > [!WARNING]
-> Output from the `support-bundle` command can contain information such as host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
+> Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
 ## Standard diagnostic steps
 

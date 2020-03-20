@@ -4,10 +4,9 @@ description: Learn how to run web apps in Azure App Service by deploying the def
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 10/21/2019
-ms.custom: mvc, devcenter
-ms.custom: seodec18
-
+ms.custom: mvc, devcenter, seodec18
 ---
+
 # Create an ASP.NET Framework web app in Azure
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
@@ -107,7 +106,7 @@ The app name specified in the **App Service Create new** page is used as the URL
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
