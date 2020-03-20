@@ -26,7 +26,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>The `widgets` URL parameter isn't supported in version 2.<br/>|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/> Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 
@@ -165,7 +165,7 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 
 3. Copy the Cognitive Insights embed code.
 
-You should now be able to communicate with Azure Media Player.
+You can now communicate with Azure Media Player.
 
 For more information, see the [Azure Media Player + VI Insights demo](https://codepen.io/videoindexer/pen/rYONrO).
 
@@ -258,7 +258,7 @@ The embed URL then will look like this:
 
 If you want to disable captions, you can pass the `captions` parameter value as `false`.
 
-#### AutoPlay
+#### Autoplay
 By default, the player will start playing the video. you can choose not to by passing `&autoplay=false` to the preceding embed URL.
 
 ## Code samples
