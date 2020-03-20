@@ -47,7 +47,6 @@ How users from the Azure AD directory or domain authenticate depends on the auth
 
 For a demonstration of how to add a connected organization, watch the following video:
 
-<br>
 >[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## Add a connected organization
