@@ -531,9 +531,9 @@
         - name: Create an image version
           items:
           - name: From a VM
-            href: image-version-vm-powershell.md
+            href: ../image-version-vm-powershell.md
           - name: Migrate from a managed image
-            href: image-version-managed-image-powershell.md            
+            href: ../image-version-managed-image-powershell.md            
         - name: Create a VM
           items:
           - name: Specialized

@@ -13,7 +13,7 @@ ms.author: cynthn
 # Update imaging resources 
 
 
-[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 **Next steps**
 Use Azure Image Builder to create image versions.
