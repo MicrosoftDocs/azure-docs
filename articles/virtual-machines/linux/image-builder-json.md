@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danis
 ms.author: danis
-ms.date: 01/23/2020
+ms.date: 02/20/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -91,7 +91,7 @@ By default, Image Builder will not change the size of the image, it will use the
 ```
 
 ## vnetConfig
-If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](./../aibNetworking.md), this is optional.
+If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), this is optional.
 
 ```json
     "vnetConfig": {
