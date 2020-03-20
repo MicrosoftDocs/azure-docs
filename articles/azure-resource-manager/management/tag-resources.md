@@ -4,7 +4,7 @@ description: Shows how to apply tags to organize Azure resources for billing and
 ms.topic: conceptual
 ms.date: 03/20/2020
 ---
-# Use tags to organize your Azure resources, resource groups, and subscriptions
+# Use tags to organize your Azure resources and management hierarchy
 
 You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
@@ -14,7 +14,9 @@ For recommendations on how to implement a tagging strategy, see [Resource naming
 
 ## Required access
 
-To apply tags to resources, the user must have write access to that resource type. To apply tags to all resource types, use the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+To apply tags to a resource, you must have write access to the **Microsoft.Resources/tags** resource type. The **Tag Contributor** role lets you apply tags to an entity without having access to the entity itself.
+
+The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role also grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## PowerShell
 
@@ -152,10 +154,6 @@ $resource = Get-AzResource -ResourceName sqlDatabase1 -ResourceGroupName example
 $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Test" } -ResourceId $_.ResourceId -Operation Merge }
 ```
 
-### Inherit tags
-
-Tags applied to the resource group or subscription aren't inherited by the resources. To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
-
 ### List tags
 
 To get the tags for a resource, resource group, or subscription, use the [Get-AzTag](/powershell/module/az.resources/get-aztag) command and pass in the resource ID for the entity.
@@ -257,10 +255,6 @@ az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
 Currently, Azure CLI doesn't support applying tags to subscriptions.
-
-### Inherit tags
-
-Tags applied to the resource group or subscription aren't inherited by the resources. To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
 
 ### List tags
 
@@ -562,6 +556,10 @@ To work with tags through the Azure REST API, use:
 * [Tags - Update At Scope](/rest/api/resources/tags/updateatscope) (PATCH operation)
 * [Tags - Get At Scope](/rest/api/resources/tags/getatscope) (GET operation)
 * [Tags - Delete At Scope](/rest/api/resources/tags/deleteatscope) (DELETE operation)
+
+## Inherit tags
+
+Tags applied to the resource group or subscription aren't inherited by the resources. To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
 
 ## Tags and billing
 
