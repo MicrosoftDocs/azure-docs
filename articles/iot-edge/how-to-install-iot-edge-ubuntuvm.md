@@ -20,7 +20,7 @@ To learn more about how the IoT Edge runtime works and what components are inclu
 This article lists the steps to deploy an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured using a pre-supplied device connection string. This is accomplished using a [cloud-init](../virtual-machines/linux/using-cloud-init.md
 ) based [ARM template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository.
 
-On first boot, the Ubuntu 18.04 LTS virtual machine [installs the latest version of the Azure IoT Edge runtime via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). It also sets a supplied connection string before the runtime starts, allowing you to easily configure and connect the IoT Edge device without starting an SSH or remote desktop session. 
+On first boot, the Ubuntu 18.04 LTS virtual machine [installs the latest version of the Azure IoT Edge runtime via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). It also sets a supplied connection string before the runtime starts, allowing you to easily configure and connect the IoT Edge device without the need to start an SSH or remote desktop session. 
 
 ## Deploy using Deploy to Azure Button
 
@@ -58,9 +58,9 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
     When all fields have been filled in, select the checkbox at the bottom of the page to accept the terms and select **Purchase** to begin the deployment.
 
-1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the following format `vm-0000000000000` and it's associated DNS name which should be in the following format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the format `vm-0000000000000` and it's associated DNS name which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    The DNS Name can be obtained from the **Overview** section of the newly deployed virtual machine from with the Azure Portal.
+    The DNS Name can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -93,7 +93,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
    1. Set your working subscription with the ID that you just copied:
 
       ```azurecli-interactive
-      az account set -s {SubscriptionId}
+      az account set -s <SubscriptionId>
       ```
 
 1. Create a new resource group (or specify an existing one in the next steps):
@@ -137,9 +137,9 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
      
     ```
 
-1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the following format `vm-0000000000000` and it's associated DNS name which should be in the following format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name which should be in the format `vm-0000000000000` and it's associated DNS name which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    The DNS Name can be obtained from the **Overview** section of the newly deployed virtual machine from with the Azure Portal.
+    The DNS Name can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
