@@ -218,8 +218,8 @@ Where `<version>` refers to the current version number.
 ### Collecting logs remotely
 
 The first step in troubleshooting Guest Configuration configurations or modules should be to use the
-`Test-GuestConfigurationPackage` cmdlet following the steps in
-[Test a Guest Configuration package](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
+`Test-GuestConfigurationPackage` cmdlet following the steps how to
+[create a custom Guest Configuration audit policy for Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows

@@ -17,6 +17,8 @@ ms.custom: seodec18
 
 # What is Computer Vision?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
 
 You can use Computer Vision in your application through a native SDK or by invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
