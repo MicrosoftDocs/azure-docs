@@ -25,7 +25,7 @@ A data warehouse workload refers to all operations that transpire in relation to
 - Managing data in the data warehouse 
 - Exporting data from the data warehouse
 
-The performance capacity of a data warehouse is determined by the [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md).
+The performance capacity of a data warehouse is determined by the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 - To view the resources allocated for all the performance profiles, see [Memory and concurrency limits](memory-concurrency-limits.md).
 - To adjust capacity, you can [scale up or down](quickstart-scale-compute-portal.md).
 

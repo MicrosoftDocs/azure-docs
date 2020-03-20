@@ -177,5 +177,5 @@ ORDER BY 1,2,3
 By breaking the code up into sections and generating a looping construct, the code becomes more manageable and maintainable.
 
 ## Next steps
-For more development tips, see [development overview](../../sql-data-warehouse/sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 

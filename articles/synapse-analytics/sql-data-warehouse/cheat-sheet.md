@@ -103,7 +103,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](sq
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-Learn more about [statistics](../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md).
+Learn more about [statistics](sql-data-warehouse-tables-statistics.md).
 
 ## Resource class
 Resource groups are used as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.

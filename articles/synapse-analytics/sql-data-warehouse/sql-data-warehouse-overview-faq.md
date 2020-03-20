@@ -71,11 +71,11 @@ A. [Support Tickets](sql-data-warehouse-get-started-create-support-ticket.md) ca
 
 Q. What data types are supported?
 
-A. See  [data types](../../sql-data-warehouse/sql-data-warehouse-tables-data-types.md).
+A. See  [data types](sql-data-warehouse-tables-data-types.md).
 
 Q. What table features do you support?
 
-A. Many features are supported. Features that aren't supported can be found in [Unsupported Table Features](../../sql-data-warehouse/sql-data-warehouse-tables-data-types.md).
+A. Many features are supported. Features that aren't supported can be found in [Unsupported Table Features](sql-data-warehouse-tables-data-types.md).
 
 ## Tooling and administration
 

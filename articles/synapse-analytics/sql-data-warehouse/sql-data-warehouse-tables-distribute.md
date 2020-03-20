@@ -23,7 +23,7 @@ A distributed table appears as a single table, but the rows are actually stored 
 
 **Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
 
-Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](../../sql-data-warehouse/sql-data-warehouse-tables-overview.md). 
+Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -131,7 +131,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 To identify which tables have more than 10% data skew:
 
-1. Create the view dbo.vTableSizes that is shown in the [Tables overview](../../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) article.  
+1. Create the view dbo.vTableSizes that is shown in the [Tables overview](sql-data-warehouse-tables-overview.md#table-size-queries) article.  
 2. Run the following query:
 
 ```sql

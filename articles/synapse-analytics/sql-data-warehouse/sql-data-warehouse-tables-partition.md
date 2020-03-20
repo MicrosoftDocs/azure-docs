@@ -327,5 +327,5 @@ To avoid your table definition from **rusting** in your source control system, y
 With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the database over time.
 
 ## Next steps
-For more information about developing tables, see the articles on [Table Overview](../../sql-data-warehouse/sql-data-warehouse-tables-overview.md).
+For more information about developing tables, see the articles on [Table Overview](sql-data-warehouse-tables-overview.md).
 

@@ -108,7 +108,7 @@ Clustered columnstore indexes are one of the most efficient ways you can store y
 
 When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  See the [Causes of poor columnstore index quality][Causes of poor columnstore index quality] in the [Table indexes][Table indexes] article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
-Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](../../sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
+Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
 
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table and each SQL Analytics table is partitioned into 60 tables, as a rule of thumb, columnstore tables won't benefit a query unless the table has more than 60 million rows.  For table with less than 60 million rows, it may not make any sense to have a columnstore index.  It also may not hurt.  
 
@@ -146,15 +146,15 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 <!--Article references-->
 [Create a support ticket]:sql-data-warehouse-get-started-create-support-ticket.md
 [Create table as select (CTAS)]:sql-data-warehouse-develop-ctas.md
-[Table overview]: ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md
-[Table data types]: ../../sql-data-warehouse/sql-data-warehouse-tables-data-types.md
+[Table overview]:sql-data-warehouse-tables-overview.md
+[Table data types]:sql-data-warehouse-tables-data-types.md
 [Table distribution]:sql-data-warehouse-tables-distribute.md
 [Table indexes]:sql-data-warehouse-tables-index.md
 [Causes of poor columnstore index quality]:sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuilding columnstore indexes]:sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Table partitioning]:sql-data-warehouse-tables-partition.md
-[Manage table statistics]: ../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md
-[Temporary tables]: ../../sql-data-warehouse/sql-data-warehouse-tables-temporary.md
+[Manage table statistics]:sql-data-warehouse-tables-statistics.md
+[Temporary tables]:sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]:guidance-for-loading-data.md
 [Load data]:design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
@@ -165,7 +165,7 @@ Finally, please do use the [Azure Synapse Feedback][Azure SQL Data Warehouse Fee
 [Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
 [Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md
+[Understanding transactions]:sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]:sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]:sql-data-warehouse-troubleshoot.md
 [LABEL]:sql-data-warehouse-develop-label.md
