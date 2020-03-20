@@ -33,7 +33,7 @@ machine.
 The process of creating a Guest Configuration artifact, automated testing of the artifact,
 creating a policy definition, and publishing the policy,
 is entirely automatable using PowerShell.
-This module can be installed on a machine running Windows, MacOS, or Linux with
+This module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
@@ -46,7 +46,7 @@ with the
 Operating Systems where the module can be installed:
 
 - Linux
-- MacOS
+- macOS
 - Windows
 
 The Guest Configuration resource module requires the following software:
@@ -79,8 +79,8 @@ To install the **GuestConfiguration** module in PowerShell:
 
 Even in Linux environments, Guest Configuration utilizes Desired State Configuration as a language abstraction.
 The implementation is based in native code (C++) so it does not require loading PowerShell at this time.
-However, it does require a configuration MOF file describing basic details about the environment. DSC is acting as a "wrapper" for InSpec to standardize how it is executed, how parameters are provided from ARM, and how output is captured and returned to the service. 
-Very little knowledge of DSC is required
+However, it does require a configuration MOF file describing basic details about the environment. DSC is acting as a "wrapper" for InSpec to standardize how it is executed, how parameters are provided from Azure Resource Manager, and how output is captured and returned to the service. 
+Little knowledge of DSC is required
 when working with custom InSpec content.
 
 #### Configuration requirements
@@ -146,7 +146,7 @@ Configuration AuditFilePathExists
 AuditFilePathExists -out ./Config
 ```
 
-Note that the `Node AuditFilePathExists` command is not technically required but it produces a file named `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
+The `Node AuditFilePathExists` command is not technically required but it produces a file named `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
 
 You should now have a project structure as below:
 
@@ -210,7 +210,7 @@ Test-GuestConfigurationPackage `
 > New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 > ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. Note that the commands used in the `publish` function require the `Az.Storage` module.
+The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. The commands used in the `publish` function require the `Az.Storage` module.
 
 ```azurepowershell-interactive
 function publish {
@@ -343,8 +343,8 @@ override values are provided through Azure Policy and don't impact how the Confi
 authored or compiled.
 
 With InSpec, parameters are typically handled as input either at runtime or as code using attributes.
-Guest Configuration obfuscates this process so input can be provided to ARM when policy is assigned.
-An attributes file is automatically created within the machine. It does not need to be included in your project.
+Guest Configuration obfuscates this process so input can be provided to Azure Resource Manager when policy is assigned.
+An attributes file is automatically created within the machine. You do not need to create and add a file in your project.
 There are two steps to adding parameters to your Linux audit project.
 
 Define the input in the Ruby file where you script what to audit on the machine. An example is given below.

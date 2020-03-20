@@ -33,7 +33,7 @@ machine.
 The process of creating a Guest Configuration artifact, automated testing of the artifact,
 creating a policy definition, and publishing the policy,
 is entirely automatable using PowerShell.
-This module can be installed on a machine running Windows, MacOS, or Linux with
+This module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
@@ -46,7 +46,7 @@ with the
 Operating Systems where the module can be installed:
 
 - Linux
-- MacOS
+- macOS
 - Windows
 
 The Guest Configuration resource module requires the following software:
@@ -80,7 +80,7 @@ To install the **GuestConfiguration** module in PowerShell:
 Guest Configuration utilizes PowerShell Desired State Configuration as a language abstraction
 for writing what audit in Windows and how the audits should be performed.
 An instance of PowerShell 6.2 is loaded and managed by the agent to host the environment,
-so there is no conflict wih usage of PowerShell DSC in Windows PowerShell 5.1, and there is no
+so there is no conflict with usage of PowerShell DSC in Windows PowerShell 5.1, and there is no
 requirement to pre-install PowerShell 6.2 or later.
 
 For an overview of DSC concepts and terminology, see
@@ -183,7 +183,7 @@ and not communicating with the service.
 
 Create a DSC configuration. The following PowerShell script example creates a configuration
 named **AuditBitLocker**, imports the **PsDscResources** resource module, and uses
-the `Service` resource to audit for a running service.  This can be executed from a Windows or MacOS machine.
+the `Service` resource to audit for a running service.  The configuration script can be executed from a Windows or macOS machine.
 
 ```powershell
 # Define the DSC configuration and import GuestConfiguration
@@ -205,7 +205,7 @@ Configuration AuditBitLocker
 AuditBitLocker -out ./Config
 ```
 
-Note that the `Node AuditBitlocker` command is not technically required but it produces a file named `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
+The `Node AuditBitlocker` command is not technically required but it produces a file named `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
 
 Once the MOF is compiled, the supporting files must be packaged together. The completed package is
 used by Guest Configuration to create the Azure Policy definitions.
@@ -254,7 +254,7 @@ Test-GuestConfigurationPackage `
 > New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 > ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. Note that the commands used in the `publish` function require the `Az.Storage` module.
+The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. The commands used in the `publish` function require the `Az.Storage` module.
 
 ```azurepowershell-interactive
 function publish {
