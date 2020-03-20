@@ -103,5 +103,5 @@ You should see your managed identity listed under the **Storage Blob Data Contri
 ![ADLS gen2 storage account container selection](../media/security/configure-workspace-managed-identity-15.png)
 
 ## Next steps
-[Workspace managed identity](./synapse-workspace-msi.md)
+[Workspace managed identity](./synapse-workspace-managed-identity.md)
 
