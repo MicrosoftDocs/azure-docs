@@ -1,13 +1,13 @@
 ---
 title: Choose between Azure Cost Management and Cloudyn
-description: This article helps you determine whether Azure Cost Management or Cloudy is best for your cost management needs.
+description: This article helps you determine whether Azure Cost Management or Cloudyn is best for your cost management needs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 03/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ROBOTS: NOINDEX
+
 ---
 
 # Choose between Azure Cost Management and Cloudyn
