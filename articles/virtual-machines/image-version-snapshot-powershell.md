@@ -2,6 +2,7 @@
 title: Create an image version from a snapshot 
 description: Learn how to use Azure PowerShell to create an image version from a snapshot.
 author: cynthn
+ms.topic: howto
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.date: 03/18/2020
