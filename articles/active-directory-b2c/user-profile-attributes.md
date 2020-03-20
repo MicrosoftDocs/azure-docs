@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/11/2020
+ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -63,10 +63,10 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
 |preferredLanguage    |String|The preferred language for the user. Should follow ISO 639-1 Code. Example: "en-US".|No|No|Persisted, Output|
 |refreshTokensValidFromDateTime|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
-|signInNames     |String|The unique sign-in name of the local account user of any type in the directory. Use this to get a user with sign-in value without specifying the local account type.|No|No|Input|
-|signInNames.userName |String|The unique username of the local account user in the directory. Use this to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.phoneNumber |String|The unique phone number of the local account user in the directory. Use this to create or get a user with a specific sign-in phone number. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
-|signInNames.emailAddress |String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique sign-in name of the local account user of any type in the directory. Use this to get a user with sign-in value without specifying the local account type.|No|No|Input|
+|signInNames.userName ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique username of the local account user in the directory. Use this to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.phoneNumber ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|The unique phone number of the local account user in the directory. Use this to create or get a user with a specific sign-in phone number. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.emailAddress ([Identities](manage-user-accounts-graph-api.md#identities-property))|String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
