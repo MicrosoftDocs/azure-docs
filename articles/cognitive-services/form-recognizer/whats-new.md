@@ -65,6 +65,8 @@ This image shows what value type selection looks like within the Form Recognizer
 > [!div class="mx-imgBorder"]
 > ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
 
+The extracted table are available in the JSON output in `pageResults`.
+
 ### Table visualization 
 
 The Form Recognizer Labeling Tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing with the Form Recognizer Sample Labeling Tool. This feature can be toggled on/off using the layers option. 
