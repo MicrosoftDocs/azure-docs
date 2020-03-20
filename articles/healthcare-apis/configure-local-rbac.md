@@ -15,6 +15,28 @@ This article explains how to configure the Azure API for FHIR to use an external
 > [!NOTE]
 > If your FHIR service data plane is configured to use your primary Azure Active Directory tenant associated with your subscription, [use Azure RBAC to assign data plane roles](configure-azure-rbac.md).
 
+## Add service principal
+
+Local RBAC allows you to use an external Azure Active Directory tenant with your FHIR server. In order to allow the RBAC system to check group memberships in this tenant, the Azure API for FHIR must have a service principal in the tenant. This service principal will get created automatically in tenants tied to subscriptions that have deployed the Azure API for FHIR, but in case your tenant has no subscription tied to it, a tenant administrator will need to create this service principal with one of the following commands:
+
+Using the `Az` PowerShell module:
+
+```azurepowershell-interactive
+New-AzADServicePrincipal -ApplicationId 3274406e-4e0a-4852-ba4f-d7226630abb7
+```
+
+or you can use the `AzureAd` PowerShell module:
+
+```azurepowershell-interactive
+New-AzureADServicePrincipal -AppId 3274406e-4e0a-4852-ba4f-d7226630abb7
+```
+
+or you can use Azure CLI:
+
+```azurecli-interactive
+az ad sp create --id 3274406e-4e0a-4852-ba4f-d7226630abb7
+```
+
 ## Configure local RBAC
 
 You can configure the Azure API for FHIR to use an external or secondary Azure Active Directory tenant in the **Authentication** blade:
@@ -30,6 +52,10 @@ In the authority box, enter a valid Azure Active Directory tenant. Once the tena
 You can read the article on how to [find identity object IDs](find-identity-object-ids.md) for more details.
 
 After entering the required object IDs, click **Save** and wait for changes to be saved before trying to access the data plane using the assigned users, service principals, or groups.
+
+## Caching behavior
+
+The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a user access to the FHIR server by adding them to the list of allowed object ids, or you remove them from the list, you should expect it to take up to five minutes for changes in permissions to propagate.
 
 ## Next steps
 

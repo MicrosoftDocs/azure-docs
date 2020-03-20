@@ -41,6 +41,10 @@ If these roles are not sufficient for your need, you can also [create custom rol
 
 In the **Select** box, search for a user, service principal, or group that you wish to assign the role to.
 
+## Caching behavior
+
+The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a user access to the FHIR server by adding them to the list of allowed object ids, or you remove them from the list, you should expect it to take up to five minutes for changes in permissions to propagate.
+
 ## Next steps
 
 In this article, you learned how to assign Azure RBAC roles for the FHIR data plane. Next learn about additional settings for the Azure API for FHIR:
