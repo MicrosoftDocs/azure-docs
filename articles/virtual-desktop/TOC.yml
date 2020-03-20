@@ -7,9 +7,9 @@
 - name: Tutorials
   items:
   - name: 1. Create a tenant in Windows Virtual Desktop
-    href: tenant-setup-azure-active-directory.md
+    href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
   - name: 2. Create service principals and role assignments by using PowerShell
-    href: create-service-principal-role-powershell.md
+    href: ./virtual-desktop-fall-2019/virtual-desktop-create-service-principal-role-powershell.md
   - name: 3. Create a host pool by using the Azure Marketplace
     href: create-host-pools-azure-marketplace.md
   - name: 4. Manage app groups
@@ -35,11 +35,11 @@
   - name: Create a host pool and session hosts
     items:
       - name: Azure Resource Manager template
-        href: create-host-pools-arm-template.md
+        href: ./virtual-desktop-fall-2019/create-host-pools-arm-template.md
       - name: PowerShell
         href: create-host-pools-powershell.md
       - name: Deploy a Windows 7 virtual machine
-        href: deploy-windows-7-virtual-machine.md
+        href: ./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
@@ -67,19 +67,19 @@
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
   - name: Scale session hosts automatically
-    href: set-up-scaling-script.md
+    href: ./virtual-desktop-fall-2019/set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Deploy the management tool
     items:
       - name: Azure Resource Manager template
-        href: manage-resources-using-ui.md
+        href: ./virtual-desktop-fall-2019/manage-resources-using-ui.md
       - name: PowerShell
-        href: manage-resources-using-ui-powershell.md
+        href: ./virtual-desktop-fall-2019/manage-resources-using-ui-powershell.md
   - name: Use service diagnostics
     items:
         - name: Deploy the diagnostics tool
-          href: deploy-diagnostics.md
+          href: ./virtual-desktop-fall-2019/deploy-diagnostics.md
         - name: Use diagnostics with Log Analytics
           href: diagnostics-log-analytics.md
   - name: Publish built-in apps
@@ -117,9 +117,9 @@
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
   - name: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
-    href: troubleshoot-windows-7-vm.md
+    href: ./virtual-desktop-fall-2019/troubleshoot-windows-7-vm.md
   - name: Troubleshoot the Windows Virtual Desktop management tool
-    href: troubleshoot-management-tool.md
+    href: ./virtual-desktop-fall-2019/troubleshoot-management-tool.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
   - name: Remote Desktop client issues
