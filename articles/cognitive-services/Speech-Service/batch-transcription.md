@@ -25,9 +25,9 @@ Asynchronous speech-to-text transcription is just one of the features. You can u
 |    Creates   a new transcription.                                              |    POST      |    api/speechtotext/v2.0/transcriptions            |
 |    Retrieves   a list of transcriptions for the authenticated subscription.    |    GET       |    api/speechtotext/v2.0/transcriptions            |
 |    Gets   a list of supported locales for offline transcriptions.              |    GET       |    api/speechtotext/v2.0/transcriptions/locales    |
-|    Updates   the mutable details of the transcription identified by its ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}      |
-|    Deletes   the specified transcription task.                                 |    DELETE    |    api/speechtotext/v2.0/transcriptions/{id}      |
-|    Gets   the transcription identified by the given ID.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}      |
+|    Updates   the mutable details of the transcription identified by its ID.    |    PATCH     |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Deletes   the specified transcription task.                                 |    DELETE    |    api/speechtotext/v2.0/transcriptions/{id}       |
+|    Gets   the transcription identified by the given ID.                        |    GET       |    api/speechtotext/v2.0/transcriptions/{id}       |
 
 
 
