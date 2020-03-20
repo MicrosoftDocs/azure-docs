@@ -49,8 +49,10 @@ To view the metrics for your Standard Load Balancer resources:
 1. Go to the Metrics page and do either of the following:
    * On the load balancer resource page, select the metric type in the drop-down list.
    * On the Azure Monitor page, select the load balancer resource.
-2. Set the appropriate aggregation type.
+2. Set the appropriate metric aggregation type.
 3. Optionally, configure the required filtering and grouping.
+4. Optionally, configure the time range and aggregation. By default time is displayed in UTC.
+ * **Note:** time aggregation is important to consider as data is sampled once per minute. Thus, if time aggregation is set to 5 minutes and aggreation type Sum is used for metrics such as SNAT Allocation, your graph will display 5 times the allocated SNAT ports. 
 
     ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
