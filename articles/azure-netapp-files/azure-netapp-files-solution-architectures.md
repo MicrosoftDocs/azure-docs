@@ -19,7 +19,7 @@ ms.author: b-juche
 # Solution architectures using Azure NetApp Files
 This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
 
-## Azure High-Performance Computing (HPC)
+## Azure High-Performance Computing (HPC) solutions
 
 * [Run reservoir simulation software on Azure](https://docs.microsoft.com/azure/architecture/example-scenario/infrastructure/reservoir-simulation)
 
