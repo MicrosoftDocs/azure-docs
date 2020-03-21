@@ -1,5 +1,5 @@
 ---
-title: Passwordless security key sign (preview) - Azure Active Directory
+title: Passwordless security key sign-in (preview) - Azure Active Directory
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
