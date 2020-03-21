@@ -20,9 +20,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -39,18 +39,18 @@ az account set -s $subscription # ...or use 'az login'
 Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $primaryresourcegroup
-az group delete --name $secondaryresourcegroupname
+az group delete --name $resource
+az group delete --name $secondaryResource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| Command | Notes |
+| | |
 |---|---|
-| [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Creates an elastic pool. |
-| [az sql db replica](/cli/azure/sql/db/replica) | Creates a secondary database for an existing database and starts data replication. |
+| [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Elastic pool commands |
+| [az sql db replica](/cli/azure/sql/db/replica) | Database replication commands. |
 
 ## Next steps
 

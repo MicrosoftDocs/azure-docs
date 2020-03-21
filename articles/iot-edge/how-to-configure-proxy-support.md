@@ -3,7 +3,7 @@ title: Configure devices for network proxies - Azure IoT Edge | Microsoft Docs
 description: How to configure the Azure IoT Edge runtime and any internet-facing IoT Edge modules to communicate through a proxy server. 
 author: kgremban
 ms.author: kgremban
-ms.date: 11/19/2019
+ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -197,13 +197,13 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 ## Configure deployment manifests  
 
-Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the environment variables in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file.
+Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the HTTPS_PROXY environment variable in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file.
 
 Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config.yaml file on the device, as described in the previous section.
 
-Other IoT Edge modules that connect to the internet should be configured to communicate through the proxy server, too. However, modules that route their messages through edgeHub or that only communicate with other modules on the device don't need the proxy server details.
+In addition to the edgeAgent and edgeHub modules, other modules may need the proxy configuration. These are modules that need to access Azure resources besides the IoT Hub, such as blob storage, and must have the HTTPS_PROXY variable specified for that module in the deployment manifest file.
 
-This step is ongoing throughout the life of the IoT Edge device.
+The following procedure is applicable throughout the life of the IoT Edge device.
 
 ### Azure portal
 
