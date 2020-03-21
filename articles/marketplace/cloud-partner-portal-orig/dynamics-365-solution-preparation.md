@@ -1,16 +1,9 @@
 ---
 title: Dynamics 365 Solution Preparation 
 description: Framework for packaging, installing and uninstalling components 
-
 author: pbutlerm
-
-
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
