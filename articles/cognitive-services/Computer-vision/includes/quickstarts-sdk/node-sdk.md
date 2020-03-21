@@ -6,19 +6,12 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ---
 
-# Quickstart: Computer Vision client library for Node.js
-
-Get started with the Computer Vision client library for Node.js. Follow these steps to install the package and try out the example code for basic tasks.
-
-Use the Computer Vision client library for Node.js to:
-
-* [Analyze an image](#analyze-an-image)
-* [Read printed and handwritten text](#read-printed-and-handwritten-text)
+<a name="HOLTop"></a>
 
 [Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -110,7 +103,7 @@ The code in this section analyzes remote images to extract various visual featur
 
 ### Get image description
 
-The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
+The following code gets the list of generated captions for the image. See [Describe images](../../concept-describing-images.md) for more details.
 
 First, define the URL of an image to analyze:
 
@@ -122,7 +115,7 @@ Then add the following code to get the image description and print it to the con
 
 ### Get image category
 
-The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
+The following code gets the detected category of the image. See [Categorize images](../../concept-categorizing-images.md) for more details.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories)]
 
@@ -132,7 +125,7 @@ Define the helper function `formatCategories`:
 
 ### Get image tags
 
-The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
+The following code gets the set of detected tags in the image. See [Content tags](../../concept-tagging-images.md) for more details.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tags)]
 
@@ -142,7 +135,7 @@ Define the helper function `formatTags`:
 
 ### Detect objects
 
-The following code detects common objects in the image and prints them to the console. See [Object detection](../concept-object-detection.md) for more details.
+The following code detects common objects in the image and prints them to the console. See [Object detection](../../concept-object-detection.md) for more details.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
@@ -152,13 +145,13 @@ Define the helper function `formatRectObjects`:
 
 ### Detect brands
 
-The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../concept-brand-detection.md) for more details.
+The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../../concept-brand-detection.md) for more details.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_brands)]
 
 ### Detect faces
 
-The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
+The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../../concept-detecting-faces.md) for more details.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_faces)]
 
@@ -168,7 +161,7 @@ Define the helper function `formatRectFaces`:
 
 ### Detect adult, racy, or gory content
 
-The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../concept-detecting-adult-content.md) for more details.
+The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../../concept-detecting-adult-content.md) for more details.
 
 Define the URL of the image to use:
 
@@ -180,7 +173,7 @@ Then add the following code to detect adult content and print the results to the
 
 ### Get image color scheme
 
-The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../../concept-detecting-color-schemes.md) for more details.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
 
@@ -190,7 +183,7 @@ Define the helper function `printColorScheme` to print the details of the color 
 
 ### Get domain-specific content
 
-Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details.
+Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../../concept-detecting-domain-content.md) for more details.
 
 First, define the URL of an image to analyze:
 
@@ -253,13 +246,13 @@ node index.js
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [What is Computer Vision?](../Home.md)
+* [What is Computer Vision?](../../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

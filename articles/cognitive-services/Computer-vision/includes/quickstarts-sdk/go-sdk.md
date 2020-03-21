@@ -7,19 +7,12 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
 ---
 
-# Quickstart: Computer Vision client library for Go
-
-Get started with the Computer Vision client library for Go. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information.
-
-Use the Computer Vision client library for Go to:
-
-* Analyze an image for tags, text description, faces, adult content, and more.
-* Recognize printed and handwritten text with the Batch Read API.
+<a name="HOLTop"></a>
 
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
@@ -139,31 +132,31 @@ The following function calls extract different visual features from the sample i
 
 ### Get image description
 
-The following function gets the list of generated captions for the image. For more information about image description, see [Describe images](../concept-describing-images.md).
+The following function gets the list of generated captions for the image. For more information about image description, see [Describe images](../../concept-describing-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
 
 ### Get image category
 
-The following function gets the detected category of the image. For more information, see [Categorize images](../concept-categorizing-images.md).
+The following function gets the detected category of the image. For more information, see [Categorize images](../../concept-categorizing-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
 
 ### Get image tags
 
-The following function gets the set of detected tags in the image. For more information, see [Content tags](../concept-tagging-images.md).
+The following function gets the set of detected tags in the image. For more information, see [Content tags](../../concept-tagging-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_tags)]
 
 ### Detect objects
 
-The following function detects common objects in the image and prints them to the console. For more information, see [Object detection](../concept-object-detection.md).
+The following function detects common objects in the image and prints them to the console. For more information, see [Object detection](../../concept-object-detection.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_objects)]
 
 ### Detect brands
 
-The following code detects corporate brands and logos in the image and prints them to the console. For more information, [Brand detection](../concept-brand-detection.md).
+The following code detects corporate brands and logos in the image and prints them to the console. For more information, [Brand detection](../../concept-brand-detection.md).
 
 First, declare a reference to a new image within your `main` function.
 
@@ -175,25 +168,25 @@ The following code defines the brand detection function.
 
 ### Detect faces
 
-The following function returns the detected faces in the image with their rectangle coordinates and certain face attributes. For more information, see [Face detection](../concept-detecting-faces.md).
+The following function returns the detected faces in the image with their rectangle coordinates and certain face attributes. For more information, see [Face detection](../../concept-detecting-faces.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_faces)]
 
 ### Detect adult, racy, or gory content
 
-The following function prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../concept-detecting-adult-content.md).
+The following function prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../../concept-detecting-adult-content.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_adult)]
 
 ### Get image color scheme
 
-The following function prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../concept-detecting-color-schemes.md).
+The following function prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../../concept-detecting-color-schemes.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_color)]
 
 ### Get domain-specific content
 
-Computer Vision can use specialized models to do further analysis on images. For more information, see [Domain-specific content](../concept-detecting-domain-content.md). 
+Computer Vision can use specialized models to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
 
 The following code parses data about detected celebrities in the image.
 
@@ -250,13 +243,13 @@ go run sample-app.go
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Computer Vision API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [What is Computer Vision?](../Home.md)
+* [What is Computer Vision?](../../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).
