@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Storage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 03/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3713).
 
-**Guidance**: Deploy your Storage Account within a Virtual Network and configure the Storage Account's Firewall by restricting access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources.  If available, you can also configure Private Endpoints (Preview) to improve security as traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. 
+**Guidance**: Configure your Storage Account's Firewall by restricting access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources.  You can also configure Private Endpoints so traffic to the storage service from your enterprise travels exclusively over private networks. 
 
 Note: Classic storage accounts do not support firewalls and virtual networks. 
 
@@ -146,10 +146,15 @@ Configure advanced threat protection for Azure Storage : https://docs.microsoft.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3720).
 
-**Guidance**: For resource that need access to your Storage account, use Virtual Network Service Tags for the configured Virtual network  to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., Storage) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. 
+**Guidance**: For resource in Virtual Networks that need access to your Storage account, use Virtual Network Service Tags for the configured Virtual network  to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., Storage) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. 
+
+When network access needs to be scoped to specific Storage Accounts, use Virtual Network service endpoint policies.
 
 For more information about using Service Tags:
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+
+For more information about Virtual network service endpoint policies for Azure Storage: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview
+
 
 
 **Azure Security Center monitoring**: Not available
