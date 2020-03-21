@@ -56,13 +56,13 @@ In the prerequisite tutorial, you created a web application named *webapp1*. In 
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-Your single-page web application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the single-page application. The single-page app obtains an authorization grant from Azure AD B2C to access the protected web API.
+Your single-page web application has now been granted permissions to the protected web API for the scopes specified. A user authenticates with Azure AD B2C to use the single-page application. The single-page app uses the authorization grant flow to access the protected web API with an access token returned by Azure AD B2C.
 
 ## Configure the sample
 
-Now that the web API is registered and you have scopes defined, you configure the web API code to use your Azure AD B2C tenant. In this tutorial, you configure a sample Node.js web API you download from GitHub.
+Now that the web API is registered and you've defined scopes, configure the web API code to work with your Azure AD B2C tenant. In this tutorial, you configure a sample Node.js web API you download from GitHub.
 
-[Download a \*.zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) or clone the sample web API project from GitHub.
+[Download a \*.zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) or clone the sample web API project from GitHub. You can also browse directly to the [Azure-Samples/active-directory-b2c-javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) project on GitHub.
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
@@ -70,33 +70,35 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### Configure the web API
 
-1. Open the **index.js** file in Visual Studio Code.
-1. Modify the file to reflect your tenant name, the application ID of the web API application, the name of your sign-up/sign-in policy, and the scopes you defined earlier. The block should look similar to the following example (with appropriate `tenantIdGuid` and `clientId` values):
+1. Open the *config.js* file in your code editor.
+1. Modify the variable values to reflect those of the application registration you created earlier. Also update the `policyName` with the user flow you created as part of the prerequisites. For example, *B2C_1_signupsignin1*.
 
     ```javascript
-    var clientID = "<your-webapi-application-ID>";
-    var b2cDomainHost = "fabrikamb2c.b2clogin.com";
-    var tenantIdGuid = "<your-webapi-tenant-ID>";
+    var clientID = "<your-webapi-application-ID>"; // Application (client) ID
+    var b2cDomainHost = "<your-tenant-name>.b2clogin.com";
+    var tenantId = "<your-tenant-ID>.onmicrosoft.com";
     var policyName = "B2C_1_signupsignin1";
     ```
 
 #### Enable CORS
 
-To allow your single-page application to call the Node.js web API, you need to enable [CORS](https://expressjs.com/en/resources/middleware/cors.html) in the web API. In a real application you should be careful about which domain is making the request, but for this example we will allow requests coming from any domain. To do so, use the following middleware:
+To allow your single-page application to call the Node.js web API, you need to enable [CORS](https://expressjs.com/en/resources/middleware/cors.html) in the web API. In a production application you should be careful about which domain is making the request, but for this tutorial, allow requests from any domain.
 
-    ```javascript
-     app.use(function (req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
-        next();
-    });
-    ```
+To enable CORS, use the following middleware. In the Node.js web API code sample used in this tutorial, you can find this code in the *index.js* file.
+
+```javascript
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+```
 
 ### Configure the single-page application
 
 The single-page application (SPA) from the [previous tutorial](tutorial-single-page-app.md) in the series uses Azure AD B2C for user sign-up and sign-in, and calls the Node.js web API protected by the *frabrikamb2c* demo tenant.
 
-In this section, you update the single-page application to call the Node.js web API protected by *your* Azure AD B2C tenant and which you run on your local machine.
+In this section, you update the single-page application to call the Node.js web API protected by *your* Azure AD B2C tenant (and which you run on your local machine).
 
 To change the settings in the SPA:
 
@@ -105,11 +107,11 @@ To change the settings in the SPA:
     1. In the `apiConfig` definition, replace the `b2cScopes` value with the full URI for the scope (the **SCOPE** value you recorded earlier).
     1. Change the `webApi` value to the redirect URI you added when you registered the web API application in an earlier step.
 
-    The `apiConfig` definition should look similar to the following code block (with your tenant name in the place of `<your-tenant-name>`):
+    The `apiConfig` definition should look similar to the following code block, but with your B2C tenant's name in the place of `<your-tenant-name>`:
 
     ```javascript
     const apiConfig = {
-        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+        b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
         webApi: "http://localhost:5000/"
     };
 
@@ -141,13 +143,14 @@ Although both applications run locally in this tutorial, they use Azure AD B2C f
     ```console
     Listening on port 5000...
     ```
-    ```
 
-### Run the single page app
+### Run the single-page app
 
 1. Open a console window and change to the directory containing the JavaScript SPA sample. For example:
 
-    `cd active-directory-b2c-javascript-msal-singlepageapp`
+    ```console
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    ```
 
 1. Run the following commands:
 
@@ -164,22 +167,22 @@ Although both applications run locally in this tutorial, they use Azure AD B2C f
 
 1. Navigate to `http://localhost:6420` in your browser to view the application.
 1. Sign in using the email address and password you used in the [previous tutorial](tutorial-single-page-app.md). Upon successful login, you should see the `User 'Your Username' logged-in` message.
-1. Select the **Call Web API** button. The SPA obtains an authorization grant from Azure AD B2C, then accesses the protected web API to display the contents of its index page:
+1. Select the **Call API** button. The SPA obtains an authorization grant from Azure AD B2C, then accesses the protected web API to display the name of the logged-in user:
 
     ```Output
-    Web APi returned:
-    "<html>\r\n<head>\r\n  <title>Azure AD B2C API Sample</title>\r\n ...
+    Web API returned:
+    {"name":"Lisa Andrews"}
     ```
 
 ## Next steps
 
-In this tutorial, you learned how to:
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Add a web API application
-> * Configure scopes for a web API
-> * Grant permissions to the web API
-> * Configure the sample to use the application
+> * Created a web API application registration in your Azure AD B2C tenant
+> * Configured scopes for the web API
+> * Granted permissions to the web API
+> * Modified a web API code sample to work with your tenant
 
 Now that you've seen an SPA request a resource from a protected web API, gain a deeper understanding of how these application types interact with each other and with Azure AD B2C.
 
