@@ -6055,7 +6055,7 @@ Lets you create, manage, delete your managed labs under your Azure Lab Accounts.
 }
 ```
 
-## Management + governance
+## Monitor
 
 
 ### Application Insights Component Contributor
@@ -6163,6 +6163,277 @@ Gives user permission to view and download debug snapshots collected with the Ap
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
+### Monitoring Contributor
+
+Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles).
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | */read | Read resources of all types, except secrets. |
+> | Microsoft.AlertsManagement/alerts/* |  |
+> | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
+> | Microsoft.Insights/AlertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/components/* | Create and manage Insights components |
+> | Microsoft.Insights/DiagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | Microsoft.Insights/eventtypes/* | List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log. |
+> | Microsoft.Insights/LogDefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
+> | Microsoft.Insights/metricalerts/* |  |
+> | Microsoft.Insights/MetricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
+> | Microsoft.Insights/Metrics/* | Read metrics for a resource. |
+> | Microsoft.Insights/Register/Action | Register the Microsoft Insights provider |
+> | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | Create and manage Insights web tests |
+> | Microsoft.Insights/workbooks/* |  |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Read/write/delete log analytics solution packs. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
+> | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
+> | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.WorkloadMonitor/monitors/* |  |
+> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
+> | Microsoft.AlertsManagement/actionRules/* |  |
+> | Microsoft.AlertsManagement/smartGroups/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read all monitoring data and update monitoring settings.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+  "name": "749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+  "permissions": [
+    {
+      "actions": [
+        "*/read",
+        "Microsoft.AlertsManagement/alerts/*",
+        "Microsoft.AlertsManagement/alertsSummary/*",
+        "Microsoft.Insights/actiongroups/*",
+        "Microsoft.Insights/activityLogAlerts/*",
+        "Microsoft.Insights/AlertRules/*",
+        "Microsoft.Insights/components/*",
+        "Microsoft.Insights/DiagnosticSettings/*",
+        "Microsoft.Insights/eventtypes/*",
+        "Microsoft.Insights/LogDefinitions/*",
+        "Microsoft.Insights/metricalerts/*",
+        "Microsoft.Insights/MetricDefinitions/*",
+        "Microsoft.Insights/Metrics/*",
+        "Microsoft.Insights/Register/Action",
+        "Microsoft.Insights/scheduledqueryrules/*",
+        "Microsoft.Insights/webtests/*",
+        "Microsoft.Insights/workbooks/*",
+        "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
+        "Microsoft.OperationalInsights/workspaces/savedSearches/*",
+        "Microsoft.OperationalInsights/workspaces/search/action",
+        "Microsoft.OperationalInsights/workspaces/sharedKeys/action",
+        "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
+        "Microsoft.Support/*",
+        "Microsoft.WorkloadMonitor/monitors/*",
+        "Microsoft.WorkloadMonitor/notificationSettings/*",
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/smartGroups/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Monitoring Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Monitoring Metrics Publisher
+
+Enables publishing metrics against Azure resources
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | Microsoft.Insights/Register/Action | Register the Microsoft Insights provider |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | Write metrics |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Enables publishing metrics against Azure resources",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c390055eb",
+  "name": "3913510d-42f4-4e42-8a64-420c390055eb",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Insights/Register/Action",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Insights/Metrics/Write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Monitoring Metrics Publisher",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Monitoring Reader
+
+Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles).
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | */read | Read resources of all types, except secrets. |
+> | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read all monitoring data.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/43d0d8ad-25c7-4714-9337-8ba259a9fe05",
+  "name": "43d0d8ad-25c7-4714-9337-8ba259a9fe05",
+  "permissions": [
+    {
+      "actions": [
+        "*/read",
+        "Microsoft.OperationalInsights/workspaces/search/action",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Monitoring Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Workbook Contributor
+
+Can save shared workbooks.
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | Microsoft.Insights/workbooks/write | Create or update a workbook |
+> | Microsoft.Insights/workbooks/delete | Delete a workbook |
+> | Microsoft.Insights/workbooks/read | Read a workbook |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can save shared workbooks.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e8ddcd69-c73f-4f9f-9844-4100522f16ad",
+  "name": "e8ddcd69-c73f-4f9f-9844-4100522f16ad",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Insights/workbooks/write",
+        "Microsoft.Insights/workbooks/delete",
+        "Microsoft.Insights/workbooks/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Workbook Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Workbook Reader
+
+Can read workbooks.
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | microsoft.insights/workbooks/read | Read a workbook |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read workbooks.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b279062a-9be3-42a0-92ae-8b3cf002ec4d",
+  "name": "b279062a-9be3-42a0-92ae-8b3cf002ec4d",
+  "permissions": [
+    {
+      "actions": [
+        "microsoft.insights/workbooks/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Workbook Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Management + governance
+
 
 ### Automation Job Operator
 
@@ -6978,190 +7249,6 @@ Management Group Reader Role
 }
 ```
 
-### Monitoring Contributor
-
-Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles).
-
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **Actions** |  |
-> | */read | Read resources of all types, except secrets. |
-> | Microsoft.AlertsManagement/alerts/* |  |
-> | Microsoft.AlertsManagement/alertsSummary/* |  |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/activityLogAlerts/* |  |
-> | Microsoft.Insights/AlertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Insights/components/* | Create and manage Insights components |
-> | Microsoft.Insights/DiagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
-> | Microsoft.Insights/eventtypes/* | List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log. |
-> | Microsoft.Insights/LogDefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
-> | Microsoft.Insights/metricalerts/* |  |
-> | Microsoft.Insights/MetricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
-> | Microsoft.Insights/Metrics/* | Read metrics for a resource. |
-> | Microsoft.Insights/Register/Action | Register the Microsoft Insights provider |
-> | Microsoft.Insights/scheduledqueryrules/* |  |
-> | Microsoft.Insights/webtests/* | Create and manage Insights web tests |
-> | Microsoft.Insights/workbooks/* |  |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Read/write/delete log analytics solution packs. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
-> | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
-> | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
-> | Microsoft.Support/* | Create and manage support tickets |
-> | Microsoft.WorkloadMonitor/monitors/* |  |
-> | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
-> | Microsoft.AlertsManagement/actionRules/* |  |
-> | Microsoft.AlertsManagement/smartGroups/* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Can read all monitoring data and update monitoring settings.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-  "name": "749f88d5-cbae-40b8-bcfc-e573ddc772fa",
-  "permissions": [
-    {
-      "actions": [
-        "*/read",
-        "Microsoft.AlertsManagement/alerts/*",
-        "Microsoft.AlertsManagement/alertsSummary/*",
-        "Microsoft.Insights/actiongroups/*",
-        "Microsoft.Insights/activityLogAlerts/*",
-        "Microsoft.Insights/AlertRules/*",
-        "Microsoft.Insights/components/*",
-        "Microsoft.Insights/DiagnosticSettings/*",
-        "Microsoft.Insights/eventtypes/*",
-        "Microsoft.Insights/LogDefinitions/*",
-        "Microsoft.Insights/metricalerts/*",
-        "Microsoft.Insights/MetricDefinitions/*",
-        "Microsoft.Insights/Metrics/*",
-        "Microsoft.Insights/Register/Action",
-        "Microsoft.Insights/scheduledqueryrules/*",
-        "Microsoft.Insights/webtests/*",
-        "Microsoft.Insights/workbooks/*",
-        "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
-        "Microsoft.OperationalInsights/workspaces/savedSearches/*",
-        "Microsoft.OperationalInsights/workspaces/search/action",
-        "Microsoft.OperationalInsights/workspaces/sharedKeys/action",
-        "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
-        "Microsoft.Support/*",
-        "Microsoft.WorkloadMonitor/monitors/*",
-        "Microsoft.WorkloadMonitor/notificationSettings/*",
-        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
-        "Microsoft.AlertsManagement/actionRules/*",
-        "Microsoft.AlertsManagement/smartGroups/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Monitoring Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Monitoring Metrics Publisher
-
-Enables publishing metrics against Azure resources
-
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **Actions** |  |
-> | Microsoft.Insights/Register/Action | Register the Microsoft Insights provider |
-> | Microsoft.Support/* | Create and manage support tickets |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.Insights/Metrics/Write | Write metrics |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Enables publishing metrics against Azure resources",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c390055eb",
-  "name": "3913510d-42f4-4e42-8a64-420c390055eb",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Insights/Register/Action",
-        "Microsoft.Support/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Insights/Metrics/Write"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Monitoring Metrics Publisher",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Monitoring Reader
-
-Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles).
-
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **Actions** |  |
-> | */read | Read resources of all types, except secrets. |
-> | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
-> | Microsoft.Support/* | Create and manage support tickets |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Can read all monitoring data.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/43d0d8ad-25c7-4714-9337-8ba259a9fe05",
-  "name": "43d0d8ad-25c7-4714-9337-8ba259a9fe05",
-  "permissions": [
-    {
-      "actions": [
-        "*/read",
-        "Microsoft.OperationalInsights/workspaces/search/action",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Monitoring Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ### New Relic APM Account Contributor
 
 Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
@@ -7307,58 +7394,6 @@ Users with rights to create/modify resource policy, create support ticket and re
     }
   ],
   "roleName": "Resource Policy Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Scheduler Job Collections Contributor
-
-Lets you manage Scheduler job collections, but not access to them.
-
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **Actions** |  |
-> | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
-> | Microsoft.Support/* | Create and manage support tickets |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you manage Scheduler job collections, but not access to them.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/188a0f2f-5c9e-469b-ae67-2aa5ce574b94",
-  "name": "188a0f2f-5c9e-469b-ae67-2aa5ce574b94",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Scheduler/jobcollections/*",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Scheduler Job Collections Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7756,90 +7791,6 @@ Lets you create and manage Support requests
 }
 ```
 
-### Workbook Contributor
-
-Can save shared workbooks.
-
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **Actions** |  |
-> | Microsoft.Insights/workbooks/write | Create or update a workbook |
-> | Microsoft.Insights/workbooks/delete | Delete a workbook |
-> | Microsoft.Insights/workbooks/read | Read a workbook |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Can save shared workbooks.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e8ddcd69-c73f-4f9f-9844-4100522f16ad",
-  "name": "e8ddcd69-c73f-4f9f-9844-4100522f16ad",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Insights/workbooks/write",
-        "Microsoft.Insights/workbooks/delete",
-        "Microsoft.Insights/workbooks/read"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Workbook Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Workbook Reader
-
-Can read workbooks.
-
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **Actions** |  |
-> | microsoft.insights/workbooks/read | Read a workbook |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Can read workbooks.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b279062a-9be3-42a0-92ae-8b3cf002ec4d",
-  "name": "b279062a-9be3-42a0-92ae-8b3cf002ec4d",
-  "permissions": [
-    {
-      "actions": [
-        "microsoft.insights/workbooks/read"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Workbook Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ## Other
 
 
@@ -7890,6 +7841,58 @@ Lets you manage BizTalk services, but not access to them.
     }
   ],
   "roleName": "BizTalk Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Scheduler Job Collections Contributor
+
+Lets you manage Scheduler job collections, but not access to them.
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage Scheduler job collections, but not access to them.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/188a0f2f-5c9e-469b-ae67-2aa5ce574b94",
+  "name": "188a0f2f-5c9e-469b-ae67-2aa5ce574b94",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Scheduler/jobcollections/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Scheduler Job Collections Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
