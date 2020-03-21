@@ -6,19 +6,12 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
-# Quickstart: Computer Vision client library for .NET
-
-Get started with the Computer Vision client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information.
-
-Use the Computer Vision client library for .NET to:
-
-* Analyze an image for tags, text description, faces, adult content, and more.
-* Recognize printed and handwritten text with the Batch Read API.
+<a name="HOLTop"></a>
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -146,55 +139,55 @@ The following sections show how to parse this information in detail.
 
 ### Get image description
 
-The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
+The following code gets the list of generated captions for the image. See [Describe images](../../concept-describing-images.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_describe)]
 
 ### Get image category
 
-The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
+The following code gets the detected category of the image. See [Categorize images](../../concept-categorizing-images.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_categorize)]
 
 ### Get image tags
 
-The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
+The following code gets the set of detected tags in the image. See [Content tags](../../concept-tagging-images.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_tags)]
 
 ### Detect objects
 
-The following code detects common objects in the image and prints them to the console. See [Object detection](../concept-object-detection.md) for more details.
+The following code detects common objects in the image and prints them to the console. See [Object detection](../../concept-object-detection.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_objects)]
 
 ### Detect brands
 
-The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../concept-brand-detection.md) for more details.
+The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../../concept-brand-detection.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_brands)]
 
 ### Detect faces
 
-The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
+The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../../concept-detecting-faces.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_faces)]
 
 ### Detect adult, racy, or gory content
 
-The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../concept-detecting-adult-content.md) for more details.
+The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../../concept-detecting-adult-content.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_adult)]
 
 ### Get image color scheme
 
-The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../../concept-detecting-color-schemes.md) for more details.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_color)]
 
 ### Get domain-specific content
 
-Computer Vision can use specialized models to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
+Computer Vision can use specialized models to do further analysis on images. See [Domain-specific content](../../concept-detecting-domain-content.md) for more details. 
 
 The following code parses data about detected celebrities in the image.
 
@@ -257,13 +250,13 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 >[Computer Vision API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
 
-* [What is Computer Vision?](../Home.md)
+* [What is Computer Vision?](../../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs).
