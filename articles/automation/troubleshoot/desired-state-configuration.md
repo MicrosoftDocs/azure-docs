@@ -226,7 +226,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### Cause
 
-You've used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
+You've used a credential in a configuration but didn't provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
 
 #### Resolution
 
@@ -327,6 +327,20 @@ Known issue with the compilation service.
 #### Resolution
 
 The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
+
+### <a name="gateway-timeout"></a>Scenario: Gateway timeout error on DSC configuration upload
+
+#### Issue
+
+You receive a `GatewayTimeout` error when uploading a DSC configuration. 
+
+#### Cause
+
+DSC configurations that take a long time to compile can cause this error.
+
+#### Resolution
+
+You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any `Import-DscResource` calls. For more information, see [Using Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
 
 ## Next steps
 
