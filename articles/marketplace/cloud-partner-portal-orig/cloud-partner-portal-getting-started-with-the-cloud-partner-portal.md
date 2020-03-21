@@ -1,7 +1,6 @@
 ---
 title: Getting Started | Azure Marketplace
 description: Getting started with the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

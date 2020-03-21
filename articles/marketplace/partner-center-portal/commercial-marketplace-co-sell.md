@@ -1,9 +1,8 @@
 ---
 title: Co-sell option in Partner Center | Azure Marketplace
 description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.
-author: ChJenk 
-manager: evansma
-ms.author: v-chjen 
+author: JasonWHowell 
+ms.author: jasonh 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

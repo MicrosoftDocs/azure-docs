@@ -1,8 +1,7 @@
 ---
 title: API Considerations | Azure Marketplace
 description: Versioning, error-handling, and authorization issues when using the marketplace APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

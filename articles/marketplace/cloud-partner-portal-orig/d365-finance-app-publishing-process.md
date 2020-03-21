@@ -1,8 +1,7 @@
 ---
 title: App Publishing Steps  | Azure Marketplace
 description: Deprecated and linked to corresponding PC articles; was "Steps to publish an application to the Azure Marketplace."
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

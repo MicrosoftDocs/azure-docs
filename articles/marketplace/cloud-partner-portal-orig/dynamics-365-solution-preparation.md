@@ -1,10 +1,8 @@
 ---
 title: Dynamics 365 Solution Preparation 
 description: Framework for packaging, installing and uninstalling components 
-services: Azure, Marketplace, Cloud Partner Portal, 
 
 author: pbutlerm
-manager: Ricarod.Villalobos  
 
 
 

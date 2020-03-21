@@ -1,8 +1,7 @@
 ---
 title: Create a Microsoft Developer account | Azure Marketplace
 description: Requirements and steps for creating a Microsoft Developer account.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

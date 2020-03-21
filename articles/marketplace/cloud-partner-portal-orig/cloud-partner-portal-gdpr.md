@@ -1,7 +1,6 @@
 ---
 title: GDPR Compliance | Azure Marketplace
 description: Cloud Partner Portal and GDPR.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

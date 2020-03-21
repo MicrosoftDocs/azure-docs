@@ -1,8 +1,7 @@
 ---
 title: Retrieve offer status | Azure Marketplace
 description: API retrieves the current status of the offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference

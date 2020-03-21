@@ -1,10 +1,8 @@
 ---
 title:  Request to publish the application 
 description: .
-services: Azure, Marketplace, Cloud Partner Portal, 
 
 author: pbutlerm
-manager: Ricardo.Villalobos  
 
 
 

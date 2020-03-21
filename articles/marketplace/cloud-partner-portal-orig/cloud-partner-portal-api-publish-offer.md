@@ -1,8 +1,7 @@
 ---
 title: Publish an offer | Azure Marketplace
 description: API to publish the specified offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference

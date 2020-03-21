@@ -1,7 +1,6 @@
 ---
 title: Configure lead management in Marketo | Azure Marketplace
 description: Configure lead management for Marketo for Azure marketplace customers.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

@@ -3,18 +3,13 @@ title: include file
 description: include file of text for Microsoft commercial marketplace standard contract
 services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
-author: ChJenk
-manager: evansma
-editor: ''
+author: JasonWHowell
 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 01/22/2020
-ms.author: v-chjen
+ms.author: jasonh
 ms.custom: include file
 
 ---

@@ -1,8 +1,7 @@
 ---
 title: Automate offer publishing | Azure Marketplace
 description: Explains how to programmatically automate the virtual machine publishing workflow.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

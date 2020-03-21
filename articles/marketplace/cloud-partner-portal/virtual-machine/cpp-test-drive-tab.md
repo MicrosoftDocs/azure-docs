@@ -1,11 +1,10 @@
 ---
 title: Virtual machine Test Drive tab in the Cloud Partner Portal for the Azure Marketplace
 description: Describes the Test Drive tab used in creating an Azure Marketplace VM offer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: JasonWHowell
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pabutler
 ---
