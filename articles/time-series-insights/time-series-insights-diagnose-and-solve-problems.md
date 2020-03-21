@@ -105,11 +105,11 @@ This problem occurs when the key provided when creating your event source is no 
 
 To update your Time Series Insights environment with the new key open your hub resource in the Azure Portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
 
-   [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1#lightbox)
+   [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
 
 Select the event source(s) that have from which ingestion has stopped, paste in the new key and click Save.
 
-   [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2#lightbox)
+   [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
 ## Problem: my event source's timestamp property name setting doesn't work
 
