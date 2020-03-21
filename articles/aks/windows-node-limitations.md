@@ -1,5 +1,6 @@
 ---
-title: Limitations for Windows Server node pools in Azure Kubernetes Service (AKS)
+title: Limitations for Windows node pools
+titleSuffix: Azure Kubernetes Service
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article

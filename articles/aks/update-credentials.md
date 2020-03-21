@@ -1,5 +1,6 @@
 ---
-title: Reset the credentials for an Azure Kubernetes Service (AKS) cluster
+title: Reset the credentials for a cluster
+titleSuffix: Azure Kubernetes Service
 description: Learn how update or reset the service principal or AAD Application credentials for an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article

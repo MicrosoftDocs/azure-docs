@@ -1,5 +1,5 @@
 ---
-title: Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
+title: Run Windows Server container in Azure Kubernetes Service cluster
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
