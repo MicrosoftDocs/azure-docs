@@ -41,79 +41,107 @@ In the [portal](https://portal.azure.com) page for your Azure Cognitive Search s
 
 ![Search Traffic Analytics page in the portal](media/search-traffic-analytics/azuresearch-trafficanalytics.png "Search Traffic Analytics page in the portal")
 
-## 1 - Select a resource
+## 1 - Set up Application Insights
 
 Select an existing Application Insights resource or [create one](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) if you don't have one already.
 
-After you create the resource on Azure, [add Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/platforms) to your code.
+For various IDEs and languages, you can follow [instructions for adding Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/platforms) to your code.
 
-You need the instrumentation key for creating the telemetry client for your application. You can find it in the portal, or from the Search Traffic Analytics page when you select an existing resource.
+You'll need the instrumentation key for creating the telemetry client for your application, which you can find it in the portal, or from the Search Traffic Analytics page when you select an existing resource.
+
+1. For Visual Studio and ASP.NET development, open your solution and select **Project** > **Add Application Insights Telemetry**.
+
+1. Click **Get Started**.
+
+1. Register your app by providing a Microsoft account, Azure subscription, and an Application Insights resource (new is the default). Click **Register**.
+
+At this point, your application is set up for application monitoring, which means all page loads are tracked with default metrics. For more information about the previous steps, see [Enable Application Insights server-side telemetry](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## 2 - Add instrumentation
 
-This step is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
+This step is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process, starting with creating a telemetry client.
 
-**Step 1: Create a telemetry client**
+### Step 1: Create a telemetry client
 
-Create an object that sends events to Application Insights.
+Create an object that sends events to Application Insights. You can add instrumentation to your server-side application code or client-side code running in a browser, expressed here as C# and JavaScript variants (for other languages, see the complete list of [supported platforms and frameworks](https://docs.microsoft.com/azure/application-insights/app-insights-platforms). Choose the approach that gives you the desired depth of information.
 
-*C#*
+Server-side telemetry captures metrics at the application layer, for example in applications running as a web service in the cloud, or as an on-premises app on a corporate network. Server-side telemetry captures search and click events, the position of a document in results, and query information, but your data collection will be scoped to whatever information is available at that layer.
 
-    private TelemetryClient telemetryClient = new TelemetryClient();
-    telemetryClient.InstrumentationKey = "<YOUR INSTRUMENTATION KEY>";
+On the client, you might have additional code that manipulates query inputs, adds navigation, or includes context (for example, queries initiated from a home page versus a product page). If this describes your solution, you might opt for client-side instrumentation so that your telemetry reflects the additional detail.
 
-*JavaScript*
+**Using C#**
 
-    <script type="text/javascript">var appInsights=window.appInsights||function(config){function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t}
-    ({
-    instrumentationKey: "<YOUR INSTRUMENTATION KEY>"
-    });
-    window.appInsights=appInsights;
-    </script>
+Depending on the approach used to register your app, the **InstrumentationKey** is in appsettings.json if your project is ASP.NET. Refer back to the registration instruction if you want to double-check the key location.
 
-For other languages, see the complete list of [supported platforms and frameworks](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
+```csharp
+private static TelemetryClient _telemetryClient;
 
-**Step 2: Request a Search ID for correlation**
-
-To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure Cognitive Search provides you with a Search ID when you request it with a header:
-
-*C#*
-
-    // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
-
-    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
-    var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
-    var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
-    IEnumerable<string> headerValues;
-    string searchId = string.Empty;
-    if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
-     searchId = headerValues.FirstOrDefault();
+// Add a constructor that accepts a telemetry client:
+public HomeController(TelemetryClient telemetry)
+    {
+        _telemetryClient = telemetry;
     }
+```
 
-*JavaScript (calling REST APIs)*
+**Using JavaScript**
 
-    request.setRequestHeader("x-ms-azs-return-searchid", "true");
-    request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
-    var searchId = request.getResponseHeader('x-ms-azs-searchid');
+```javascript
+<script type="text/javascript">var appInsights=window.appInsights||function(config){function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t}
+({
+instrumentationKey: "<YOUR INSTRUMENTATION KEY>"
+});
+window.appInsights=appInsights;
+</script>
+```
 
-**Step 3: Log Search events**
+### Step 2: Request a Search ID for correlation
+
+To correlate search requests with clicks, it's necessary to have a correlation ID that relates these two distinct events. Azure Cognitive Search provides you with a Search ID when you request it with a header.
+
+Having the search ID allows correlation of the metrics emitted by Azure Cognitive Search for the actual search request, with the custom metrics you are logging in Application Insights.  
+
+**Using C#**
+
+```csharp
+// This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
+
+var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
+var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
+IEnumerable<string> headerValues;
+string searchId = string.Empty;
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out headerValues)){
+    searchId = headerValues.FirstOrDefault();
+}
+```
+
+**Using JavaScript (calling REST APIs)**
+
+```javascript
+request.setRequestHeader("x-ms-azs-return-searchid", "true");
+request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
+var searchId = request.getResponseHeader('x-ms-azs-searchid');
+```
+
+### Step 3: Log Search events
 
 Every time that a search request is issued by a user, you should log that as a search event with the following schema on an Application Insights custom event. Remember to log only user-generated search queries.
 
-**SearchServiceName**: (string) search service name
-**SearchId**: (guid) unique identifier of the search query (comes in the search response)
-**IndexName**: (string) search service index to be queried
-**QueryTerms**: (string) search terms entered by the user
-**ResultCount**: (int) number of documents that were returned (comes in the search response)
-**ScoringProfile**: (string) name of the scoring profile used, if any
++ **SearchServiceName**: (string) search service name
++ **SearchId**: (guid) unique identifier of the search query (comes in the search response)
++ **IndexName**: (string) search service index to be queried
++ **QueryTerms**: (string) search terms entered by the user
++ **ResultCount**: (int) number of documents that were returned (comes in the search response)
++ **ScoringProfile**: (string) name of the scoring profile used, if any
 
 > [!NOTE]
 > Request the count of user generated queries by adding $count=true to your search query. For more information, see [Search Documents (REST)](/rest/api/searchservice/search-documents#counttrue--false).
 >
 
-*C#*
+**Using C#**
 
-    var properties = new Dictionary <string, string> {
+```csharp
+var properties = new Dictionary <string, string> {
     {"SearchServiceName", <service name>},
     {"SearchId", <search Id>},
     {"IndexName", <index name>},
@@ -121,143 +149,86 @@ Every time that a search request is issued by a user, you should log that as a s
     {"ResultCount", <results count>},
     {"ScoringProfile", <scoring profile used>}
     };
-    _telemetryClient.TrackEvent("Search", properties);
+_telemetryClient.TrackEvent("Search", properties);
+```
 
-*JavaScript*
+**Using JavaScript**
 
-    appInsights.trackEvent("Search", {
-    SearchServiceName: <service name>,
-    SearchId: <search id>,
-    IndexName: <index name>,
-    QueryTerms: <search terms>,
-    ResultCount: <results count>,
-    ScoringProfile: <scoring profile used>
-    });
+```javascript
+appInsights.trackEvent("Search", {
+SearchServiceName: <service name>,
+SearchId: <search id>,
+IndexName: <index name>,
+QueryTerms: <search terms>,
+ResultCount: <results count>,
+ScoringProfile: <scoring profile used>
+});
+```
 
-**Step 4: Log Click events**
+### Step 4: Log Click events
 
 Every time that a user clicks on a document, that's a signal that must be logged for search analysis purposes. Use Application Insights custom events to log these events with the following schema:
 
-**ServiceName**: (string) search service name
-**SearchId**: (guid) unique identifier of the related search query
-**DocId**: (string) document identifier
-**Position**: (int) rank of the document in the search results page
++ **ServiceName**: (string) search service name
++ **SearchId**: (guid) unique identifier of the related search query
++ **DocId**: (string) document identifier
++ **Position**: (int) rank of the document in the search results page
 
 > [!NOTE]
 > Position refers to the cardinal order in your application. You are free to set this number, as long as it's always the same, to allow for comparison.
 >
 
-*C#*
+**Using C#**
 
-    var properties = new Dictionary <string, string> {
+```csharp
+var properties = new Dictionary <string, string> {
     {"SearchServiceName", <service name>},
     {"SearchId", <search id>},
     {"ClickedDocId", <clicked document id>},
     {"Rank", <clicked document position>}
     };
-    _telemetryClient.TrackEvent("Click", properties);
+_telemetryClient.TrackEvent("Click", properties);
+```
 
-*JavaScript*
+**Using JavaScript**
 
-    appInsights.trackEvent("Click", {
-        SearchServiceName: <service name>,
-        SearchId: <search id>,
-        ClickedDocId: <clicked document id>,
-        Rank: <clicked document position>
-    });
+```javascript
+appInsights.trackEvent("Click", {
+    SearchServiceName: <service name>,
+    SearchId: <search id>,
+    ClickedDocId: <clicked document id>,
+    Rank: <clicked document position>
+});
+```
 
 ## 3 - Analyze in Power BI
 
-After you have instrumented your app and verified your application is correctly connected to Application Insights, you download a predefined report template to analyze data in Power BI desktop. The report contains predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. 
+After you have instrumented your app and verified your application is correctly connected to Application Insights, you download a predefined report template to analyze data in Power BI desktop. The report contains predefined charts and tables useful for analyzing the additional data captured for search traffic analytics.
 
 1. In the Azure Cognitive Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
 
-2. On the **Search traffic analytics** page, in step 3, click **Get Power BI Desktop** to install Power BI.
+1. On the **Search traffic analytics** page, in step 3, click **Get Power BI Desktop** to install Power BI.
 
    ![Get Power BI reports](./media/search-traffic-analytics/get-use-power-bi.png "Get Power BI reports")
 
-2. On the same page, click **Download Power BI report**.
+1. On the same page, click **Download Power BI report**.
 
-3. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights and provide credentials. You can find connection information in the Azure portal pages for your Application Insights resource. For credentials, provide the same user name and password that you use for portal sign-in.
+1. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights and provide credentials. You can find connection information in the Azure portal pages for your Application Insights resource. For credentials, provide the same user name and password that you use for portal sign-in.
 
    ![Connect to Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Connect to Application Insights")
 
-4. Click **Load**.
+1. Click **Load**.
 
 The report contains charts and tables that help you make more informed decisions to improve your search performance and relevance.
 
 Metrics included the following items:
 
-* Search volume and most popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
-* Searches without clicks: terms for top queries that register no clicks
++ Search volume and most popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
++ Searches without clicks: terms for top queries that register no clicks
 
 The following screenshot shows the built-in reports and charts for analyzing search traffic analytics.
 
 ![Power BI dashboard for Azure Cognitive Search](./media/search-traffic-analytics/azuresearch-powerbi-dashboard.png "Power BI dashboard for Azure Cognitive Search")
-
-## Example
-
-**Create your first search app in C#** is an ASP.NET Core sample that you can use to practice adding instrumentation code.
-
-We recommend using the sample code from [Lesson 5 - Order results](tutorial-csharp-orders.md). It adds search rank, providing a richer baseline for data collection. For this lesson, the [sample code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/5-order-results) is located on GitHub.
-
-1. Before adding Application Insights and instrumentation code, open **OrderResults.sln** in Visual Studio and run the program to make sure there are no build errors.
-
-1. Select **Project** > **Add Application Insights Telemetry**.
-
-1. Click **Get Started**.
-
-1. Select your subscription, account, resource, and click **Register***.
-
-   At this point, your application is set up for application monitoring, which means all page loads are tracked with default metrics. For more information about the previous steps, see [Enable Application Insights server-side telemetry](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
-
-1. Open **HomeController.cs**.
-
-1. On line 267, add `private static TelemetryClient _telemetryClient;` and when prompted, add `using Microsoft.ApplicationInsights;` as an assembly reference.
-
-1. On line 44, add a constructor that accepts a telemetry client:
-
-   ```csharp
-   public HomeController(TelemetryClient telemetry)
-    {
-        _telemetryClient = telemetry;
-    }
-   ```
-
-1. Next, correlate search events and clicks events through the search ID. On line 191, add the following lines to your query logic.
-
-   ```csharp
-   // Search Traffic Analytics: Establish a search ID used to correlate events
-   var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
-
-   var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
-
-    string searchId = string.Empty;
-    if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string>headerValues)){
-         searchId = headerValues.FirstOrDefault();
-    }
-   ```
-
-1. Collect search events and click events. On line 202, add the following code.
-
-   ```csharp
-    // Search Traffic Analytics - Click events
-    var clickProperties = new Dictionary<string, string> {
-        {"SearchServiceName", "searchServiceName"},
-        {"SearchId", "searchId"},
-        {"ClickedDocId", "HotelId"}
-    };
-    _telemetryClient.TrackEvent("Click", clickProperties);
-
-    // Search Traffic Analytics - Query events
-    var searchProperties = new Dictionary<string, string> {
-        {"SearchServiceName", "searchServiceName"},
-        {"SearchId", "searchId"},
-        {"IndexName", "Hotel"},
-        {"ScoringProfile", "profile"}
-    };
-    _telemetryClient.TrackEvent("Search", searchProperties);
-   ```
 
 ## Next steps
 
@@ -266,8 +237,3 @@ Instrument your search application to get powerful and insightful data about you
 You can find more information on [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) and visit the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
 
 Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) for details.
-
-<!--Image references-->
-[1]: ./media/search-traffic-analytics/azuresearch-trafficanalytics.png
-[2]: ./media/search-traffic-analytics/azuresearch-appinsightsdata.png
-[3]: ./media/search-traffic-analytics/azuresearch-pbitemplate.png
