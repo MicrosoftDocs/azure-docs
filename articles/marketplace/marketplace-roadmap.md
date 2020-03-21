@@ -1,12 +1,10 @@
 ---
 title: Azure Marketplace and AppSource Roadmap | Azure
 description: A roadmap to what's happening in the Marketplace
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: blevens
 

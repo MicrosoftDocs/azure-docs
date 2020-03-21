@@ -3,10 +3,9 @@ title: Azure Applications Solution Template Offer Publishing Guide | Azure Marke
 description: This article describes the requirements to publish a solution template in the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
-manager: nunoc
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 9/25/2019
 ms.author: ellacroi
 ---

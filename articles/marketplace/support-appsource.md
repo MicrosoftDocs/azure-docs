@@ -1,19 +1,10 @@
 ---
 title: Support for AppSource | Azure
 description: Support information and links for AppSource.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: ellacroi
-manager: nunoc
-
-
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: ellacroi
 

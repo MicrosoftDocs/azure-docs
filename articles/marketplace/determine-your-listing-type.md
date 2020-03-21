@@ -2,18 +2,10 @@
 title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: ellacroi
-manager: pabutler
-
-
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: ellacroi
 
@@ -27,9 +19,9 @@ To configure your offer, you'll need to understand the following key marketplace
 
 
 In this article, you will learn…
-<ul><li>	How to determine the appropriate storefront for your solution </ul></li>
-<ul><li>	Which publishing options and calls-to-action are available in each storefront </ul></li>
-<ul><li>	Which offer types are available for each publishing option </ul></li>
+<ul><li>    How to determine the appropriate storefront for your solution </ul></li>
+<ul><li>    Which publishing options and calls-to-action are available in each storefront </ul></li>
+<ul><li>    Which offer types are available for each publishing option </ul></li>
 
 
 ## Selecting a storefront, publishing option, and offer type for your solution
@@ -65,8 +57,8 @@ The publishing options available offer differentiated customer engagement while 
 ## Next steps
 
 *   Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
-*	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
-*	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+*    Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
+*    Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
 
 
 

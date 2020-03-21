@@ -1,9 +1,8 @@
 ---
 title: How to Purchase Software on AppSource | Azure Marketplace
 description: Steps for one to purchase software on AppSource | Azure Marketplace. 
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: JasonWHowell
+ms.author: jasonh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
