@@ -122,9 +122,7 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
 
 ### Push chart to Azure Container Registry
 
-Run the `helm chart push` command in the Helm 3 CLI to push the Helm chart to a repository in your Azure container registry. If it doesn't exist, the repository is created.
-
-Push the chart to the fully qualified target repository:
+Run the `helm chart push` command in the Helm 3 CLI to push the chart to the fully qualified target repository:
 
 ```console
 helm chart push mycontainerregistry.azurecr.io/helm/hello-world:v1
