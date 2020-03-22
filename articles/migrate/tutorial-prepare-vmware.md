@@ -32,7 +32,7 @@ You need these permissions for these tasks in Azure, before you can assess or mi
 **Permissions** | **Details**
 --- | ---
 **Permissions to create a project** | Your Azure account needs permissions to create an Azure Migrate project.
-**Permissions to register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover VMs, and to send VM metadata/performance data to Azure Migrate. The appliance is used when assessing VMware VMs with Azure Migrate Server Assessment, and when migrating VMware VMs using [agentless migration](server-migrate-overview.md) with Azure Migrate:Server Migration. You need a couple of permissions to set up and register the appliance: <br/><br/> - **Register resource providers**: After deploying the appliance, you register these resource providers so that your Azure subscription can work with them: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/>- **Create Azure AD apps**: During onboarding, you need permissions for Azure Migrate to create two Azure Active Directory (Azure AD) apps.<br/><br/> - The first app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.<br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless migration. It is provided with an RBAC access on the Azure Key Vault (created in customer's tenant) when discovery is initiated from the appliance.
+**Permissions to register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover VMs, and to send VM metadata/performance data to Azure Migrate. The appliance is used when assessing VMware VMs with Azure Migrate Server Assessment, and when migrating VMware VMs using [agentless migration](server-migrate-overview.md) with Azure Migrate:Server Migration. You need a couple of permissions to set up and register the appliance: <br/><br/> - **Register resource providers**: After deploying the appliance, you register these resource providers so that your Azure subscription can work with them: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/>- **Create Azure AD apps**: During onboarding, you need permissions for Azure Migrate to create two Azure Active Directory (Azure AD) apps.<br/><br/> - The first app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make Azure Resource Manager calls, or RBAC access on any resource.<br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless migration. It is provided with an RBAC access on the Azure Key Vault (created in customer's tenant) when discovery is initiated from the appliance.
 **Permissions to create a Key Vault** | To migrate VMware VMs using agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides.
 
 
@@ -90,7 +90,7 @@ To enable Azure Migrate to create a Key Vault, assign permissions as follows:
 To prepare for VMware VM assessment, you need to:
 
 - **Verify VMware settings**. Make sure that the vCenter Server and VMs you want to migrate meet requirements.
-- **Set up an account for assessment **. Azure Migrate uses this account to access the vCenter Server, to discover VMs for assessment.
+- **Set up an account for assessment**. Azure Migrate uses this account to access the vCenter Server, to discover VMs for assessment.
 - **Verify appliance requirements**. Verify deployment requirements for the Azure Migrate appliance, before you deploy it.
 
 ### Verify VMware settings
@@ -116,7 +116,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 1. [Verify](migrate-appliance.md#appliance---vmware) Azure Migrate appliance requirements.
 2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access. If you're using a URL-based firewall or proxy, ensure it allows access to the required URLs.
-3. [Review](migrate-appliance.md#collected-data---vmware) that that the appliance collects during discovery and assessment.
+3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
 4. [Note](migrate-support-matrix-vmware.md#port-access) port access requirements for the appliance.
 
 
