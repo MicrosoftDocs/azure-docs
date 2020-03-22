@@ -13,6 +13,10 @@ This article introduces security capabilities in Azure Backup that help you prot
 
 With Azure Backup,  which includes full IaaS VM backup and SQL/HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  In the case of IaaS VM backup, the backup snapshot creation and storage is done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  In the case of SQL and HANA, the backup extension gets temporary access to write to specific blobs.  In this way existing backups can't be tampered with or deleted by the guest, should it be compromised.
 
+## Azure VM backup doesn't require network connectivity
+
+Backup of Azure VMs requires movement of data from your virtual machine's disk to the Recovery Services vault. However, all the required communication and data transfer happens only on the Azure backbone network without needing to access your virtual network. Therefore, backup of Azure VMs placed inside secured networks doesn't require you to allow access to any IPs/FQDNs or any other methods to allow network access.
+
 ## Manage and control identity and user access
 
 Azure Backup enables you to manage fine-grained access using [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
