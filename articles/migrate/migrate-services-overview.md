@@ -53,7 +53,7 @@ Azure Migrate integrates with a number of ISV offerings.
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases
 
 
-## Azure Migrate:Server Assessment tool
+## Azure Migrate Server Assessment tool
 
 The Azure Migrate:Server Assessment tool discovers and assesses on-premises VMware VMs, Hyper-V VMs, and physical servers for migration to Azure. Here's what the tool does:
 
@@ -70,7 +70,7 @@ Server Assessment uses a lightweight [Azure Migrate appliance](migrate-appliance
 - Appliance discovery is agentless. Nothing is installed on discovered machines.
 - After the appliance discovery, you gather discovered machines into groups, and run assessments for a group.
 
-## Azure Migrate: Server Migration tool
+## Azure Migrate Server Migration tool
 
 The Azure Migrate:Server Migration tool helps you to migrate on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs, to Azure. You can migrate machines after assessing them, or migrate them without an assessment. 
 
