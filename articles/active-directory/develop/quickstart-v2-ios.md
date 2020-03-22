@@ -285,12 +285,12 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 ## Next steps
 
-Try out the iOS tutorial for a complete step-by-step guide on building applications, including a complete explanation of this quickstart.
+Try out the tutorial for iOS and macOS for a complete step-by-step guide on building applications, including a complete explanation of this quickstart.
 
 ### Learn how to create the application used in this quickstart
 
 > [!div class="nextstepaction"]
-> [Call Graph API iOS tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Call Graph API tutorial for iOS and macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
