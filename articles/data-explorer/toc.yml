@@ -63,7 +63,13 @@
   - name: Ingest data
     items: 
     - name: One-click ingestion
-      href: ingest-data-one-click.md
+      items:
+      - name: One-click ingestion overview 
+        href: ingest-data-one-click.md
+      - name: One-click ingestion into a new table
+        href: one-click-ingestion-new-table.md
+      - name: One-click ingestion into an existing table
+        href: one-click-ingestion-new-table.md
     - name: Streaming ingestion
       href: ingest-data-streaming.md
     - name: Using LightIngest
