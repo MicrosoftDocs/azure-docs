@@ -85,9 +85,6 @@ Azure Backup Server can protect data in the following clustered applications:
 
 * Hyper-V - If you protect a Hyper-V cluster using scaled-out MABS protection agent, you can't add secondary protection for the protected Hyper-V workloads.
 
-    If you run Hyper-V on Windows Server 2008 R2, make sure to install the update described in KB [975354](https://support.microsoft.com/kb/975354).
-    If you run Hyper-V on Windows Server 2008 R2 in a cluster configuration, make sure you install SP2 and KB [971394](https://support.microsoft.com/kb/971394).
-
 * Exchange Server - Azure Backup Server can protect non-shared disk clusters for supported Exchange Server versions (cluster-continuous replication), and can also protect Exchange Server configured for local continuous replication.
 
 * SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).

@@ -13,11 +13,6 @@ MABS V2 introduced [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), im
 
 To achieve the scale and performance by MBS we recommend using a small percentage (4% of overall storage) of flash storage (SSD) with MABS V3 UR1  as a tiered volume in combination with DPM HDD storage. MABS V3 UR1  with tiered storage delivers 50-70% faster backups. Please refer to the DPM article [Set up MBS with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) for steps to configure tiered storage.
 
-## VMWare parallel backups
-
-With MABS V3 UR1, all your VMWare VMs backup within a single protection group will be parallel, leading to 25% faster VM backups.
-With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [VMware parallel backups](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
-
 ## Support for ReFS volumes and ReFS volumes with deduplication enabled
 
 With MABS V3 UR1, you can backup the ReFS volumes and workloads deployed on the ReFS volume. You can back up the following workloads deployed on the ReFS volumes:
@@ -29,6 +24,11 @@ With MABS V3 UR1, you can backup the ReFS volumes and workloads deployed on the 
 
 >[!NOTE]
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
+
+## VMWare parallel backups
+
+With MABS V3 UR1, all your VMWare VMs backup within a single protection group will be parallel, leading to 25% faster VM backups.
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8. Learn more about [VMware parallel backups](backup-azure-backup-server-vmware.md#vmware-parallel-backups).
 
 ## Disk exclusion for VMware VM backup
 
