@@ -2,7 +2,7 @@
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 03/22/2020
 ms.custom: mvc
 ---
 
@@ -29,8 +29,8 @@ The Azure Migrate hub includes these tools.
 
 **Tool** | **Assess/Migrate** | **Details**
 --- | --- | ---
-**Azure Migrate: Server Assessment** | Assess servers. | Discover and assess on-premises VMware VMs, Hyper-V VMs, and physical servers, in preparation for migration to Azure.
-**Azure Migrate: Server Migration** | Migrate servers. | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs, to Azure. 
+**Azure Migrate:Server Assessment** | Assess servers. | Discover and assess on-premises VMware VMs, Hyper-V VMs, and physical servers, in preparation for migration to Azure.
+**Azure Migrate:Server Migration** | Migrate servers. | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs, to Azure. 
 **Database Migration Assistant (DMA)** | Assess on-premises SQL Server databases for migration to Azure SQL DB, Azure SQL Managed Instance, or to Azure VMs running SQL Server. | DMA helps pinpoint potential blocking issues for migration. It identifies unsupported features, new features that you can benefit from after migration, and helps you to identify the right path for database migration. [Learn more](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 **Database Migration Service (DMS)** | Migrate on-premises databases to Azure VMs running SQL, Azure SQL DB, and Azure SQL Managed Instances. | [Learn more](https://docs.microsoft.com/azure/dms/dms-overview) about DMS.
 **Movere** | Assess servers. | [Learn more](#movere) about Movere.
@@ -53,29 +53,31 @@ Azure Migrate integrates with a number of ISV offerings.
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases
 
 
-## Azure Migrate: Server Assessment tool
+## Azure Migrate:Server Assessment tool
 
 The Azure Migrate:Server Assessment tool discovers and assesses on-premises VMware VMs, Hyper-V VMs, and physical servers for migration to Azure. Here's what the tool does:
 
 - **Azure readiness:** Assesses whether on-premises machines are ready for migration to Azure.
 - **Azure sizing:** Estimates the size of Azure VMs after migration.
 - **Azure cost estimation:** Estimated costs for running on-premises servers in Azure.
-- **Dependency visualization:** If you use Server Assessment with [dependency analysis](concepts-dependency-visualization.md), you can effectively identify cross-server dependencies, and optimize strategies for moving inter-dependent servers to Azure.
+- **Dependency analysis:** If you use Server Assessment with [dependency analysis](concepts-dependency-visualization.md), you can effectively identify cross-server dependencies, and optimize strategies for moving inter-dependent servers to Azure.
 
 
 Server Assessment uses a lightweight [Azure Migrate appliance](migrate-appliance.md) that you deploy on-premises.
 
-- The appliance runs on a physical server or VM. You can install it easily using a downloaded template.
+- The appliance runs on a VM or physical server. You can install it easily using a downloaded template.
 - The appliance discovers on-premises machines, and continually sends machine metadata and performance data to Azure Migrate.
 - Appliance discovery is agentless. Nothing is installed on discovered machines.
 - After the appliance discovery, you gather discovered machines into groups, and run assessments for a group.
 
 ## Azure Migrate: Server Migration tool
 
-The Azure Migrate:Server Migration tool helps you to migrate on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs, to Azure. You can migrate machines after assessing them, or migrate them without an assessment.
+The Azure Migrate:Server Migration tool helps you to migrate on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs, to Azure. You can migrate machines after assessing them, or migrate them without an assessment. 
+
+For agentless migration of VMware VMs, and migration of Hyper-V VMs, Server Migration uses an Azure Migrate appliance that you deploy on-premises. The appliance is also used if you set up server assessment, and it's described in the previous section.
 
 
-## Select a tool
+## Selecting assessment/migration tools
 
 In the Azure Migrate hub, you select the tool you want to use for assessment or migration, and add it to an Azure Migrate project. If you add an ISV tool or Movere:
 
