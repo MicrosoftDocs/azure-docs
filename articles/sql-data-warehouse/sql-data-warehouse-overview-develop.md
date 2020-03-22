@@ -25,7 +25,7 @@ The following articles highlight concepts and design decisions for developing a 
 * [table distribution](sql-data-warehouse-tables-distribute.md)
 * [table indexes](sql-data-warehouse-tables-index.md)
 * [table partitions](sql-data-warehouse-tables-partition.md)
-* [CTAS](sql-data-warehouse-develop-ctas.md)
+* [CTAS](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-ctas.md)
 * [statistics](sql-data-warehouse-tables-statistics.md)
 
 ## Development recommendations and coding techniques
