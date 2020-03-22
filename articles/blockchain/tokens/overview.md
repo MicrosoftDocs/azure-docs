@@ -1,12 +1,8 @@
 ---
 title: What is Azure Blockchain Tokens
 description: Azure Blockchain Tokens is a platform as a service (PaaS) for token issuance and management.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/04/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to use Azure Blockchain Tokens to issue and manage blockchain tokens across blockchain ledgers.
 ---
@@ -40,6 +36,14 @@ For more information on Azure Blockchain Tokens account management, see [Azure B
 ## Token Taxonomy Framework
 
 Azure Blockchain Tokens is built on a standards-based foundation named the Token Taxonomy Framework (TTF). TTF is a set of deliverables created from the [Token Taxonomy Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/) (TTI) token working group. The TTI working group defines a business taxonomy for tokens and their behaviors that can be applied across all major ledgers including Ethereum, Quorum, Corda, and Hyperledger Fabric. The working group's goal is to create a framework that standardizes the use of tokens from a business perspective to drive simplification and democratize token based development. By letting the industry define these tokens and their behavior at the business level, the detailed implementation of the tokens are abstracted away from the business logic that manipulates the tokens.
+
+## Support and feedback
+
+For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
+
+To get access to Azure Blockchain Tokens preview, [contact the Azure Blockchain Tokens team](https://aka.ms/PreviewForm).
+
+To provide product feedback or to request new features, post of vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
 
 ## Next steps
 

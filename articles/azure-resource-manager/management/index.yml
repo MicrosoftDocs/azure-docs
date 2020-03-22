@@ -1,0 +1,95 @@
+### YamlMime:Landing
+
+title: Managing resources documentation
+summary: Understand how to manage and consume resources.
+
+metadata:
+  title: Azure Resource Manager documentation
+  description: Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources
+  ms.service: azure-resource-manager
+  ms.subservice: management
+  ms.topic: landing-page
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Azure Resource Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Resource Manager?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Resource Manager and classic deployment
+            url: deployment-models.md
+
+  # Card
+  - title: About Azure services
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Subscription and service limits
+            url: azure-subscription-service-limits.md
+          - text: Resource name rules
+            url: resource-name-rules.md
+          - text: Resource providers and types
+            url: resource-providers-and-types.md
+          - text: Resource providers for each Azure service
+            url: azure-services-resource-providers.md
+      
+  # Card
+  - title: Manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Move across resource group and subscriptions
+            url: move-resource-group-and-subscription.md
+          - text: Move across regions
+            url: move-region.md
+          - text: Tag resources
+            url: tag-resources.md
+          - text: Lock resources
+            url: lock-resources.md
+          - text: Delete resource groups
+            url: delete-resource-group.md
+      - linkListType: reference
+        links:
+          - text: Move support
+            url: move-support-resources.md
+          - text: Tag support
+            url: tag-support.md
+          - text: Resource instance limits
+            url: resources-without-resource-group-limit.md
+
+  # Card
+  - title: SDKs and tools
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.resources
+          - text: Azure CLI
+            url: /cli/azure/resource
+          - text: .NET
+            url: /dotnet/api/microsoft.azure.management.resourcemanager
+          - text: Java
+            url: /java/api/com.microsoft.azure.management.resources
+          - text: Python
+            url: /python/api/overview/azure/resources?view=azure-python
+
+   # Card
+  - title: Track operations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View activity logs
+            url: view-activity-logs.md
+          - text: Request limits and throttling
+            url: request-limits-and-throttling.md
+          - text: Asynchronous operations
+            url: async-operations.md

@@ -1,11 +1,11 @@
 ---
-title: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
+title: Deploy & configure Azure Firewall in hybrid network using PowerShell
 description: In this article, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -47,7 +47,7 @@ This article requires that you run PowerShell locally. You must have the Azure P
 
 There are three key requirements for this scenario to work correctly:
 
-- A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
+- A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. Virtual network gateway route propagation must be **Disabled** on this route table.
 - A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
 
    No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
@@ -58,7 +58,7 @@ See the [Create Routes](#create-the-routes) section in this article to see how t
 >[!NOTE]
 >Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 >
->Azure Firewall doesn't currently support forced tunneling. If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
+>Azure Firewall can be configured to support forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
@@ -350,7 +350,7 @@ Set-AzVirtualNetwork
 
 #Now create the default route
 
-#Create a table, with BGP route propagation disabled
+#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
 $routeTableSpokeDG = New-AzRouteTable `
   -Name 'UDR-DG' `
   -ResourceGroupName $RG1 `
@@ -362,7 +362,7 @@ Get-AzRouteTable `
   -ResourceGroupName $RG1 `
   -Name UDR-DG `
   | Add-AzRouteConfig `
-  -Name "ToSpoke" `
+  -Name "ToFirewall" `
   -AddressPrefix 0.0.0.0/0 `
   -NextHopType "VirtualAppliance" `
   -NextHopIpAddress $AzfwPrivateIP `

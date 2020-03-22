@@ -209,7 +209,7 @@ To enable Azure AD users to sign in to FreshService, they must be provisioned in
     >  
 
 > [!NOTE]
-> You can use any other FreshService user account creation tools or APIs provided by FreshService to provision AAD user accounts.
+> You can use any other FreshService user account creation tools or APIs provided by FreshService to provision Azure AD user accounts.
 
 ## Test SSO
 

@@ -1,14 +1,8 @@
 ---
-title: Use Azure Backup to restore SQL Server databases on an Azure VM
+title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: dacurwin
-
-
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -72,9 +66,9 @@ Restore as follows:
    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
-           > [!IMPORTANT]
-           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-           >
+    > [!IMPORTANT]
+    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+    >
    - **Restore as files**: Instead of restoring as a database, restore the backup files that can be recovered as a database later on any machine where the files are present using SQL Server Management Studio.
      ![Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration.png)
 
@@ -110,18 +104,27 @@ To restore the backup data as .bak files instead of a database, choose **Restore
 
 1. In the **Restore Configuration** menu, under **Where to Restore**, select **Restore as files**.
 2. Select the SQL Server name to which you want to restore the backup files.
-3. In the **Destination path on the server** input the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files. Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
+3. In the **Destination path on the server** input the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files. Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.<BR>
+
+    >To restore the database backup files on an Azure File Share mounted on the target registered VM, make sure that NT AUTHORITY\SYSTEM has access to the file share. You can perform the steps given below to grant the read/write permissions to the AFS mounted on the VM:
+    >
+    >- Run `PsExec -s cmd` to enter into NT AUTHORITY\SYSTEM shell
+    >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+    >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
+    You can download Psexec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+
 4. Select **OK**.
 
-![Select Restore As Files](./media/backup-azure-sql-database/restore-as-files.png)
+    ![Select Restore As Files](./media/backup-azure-sql-database/restore-as-files.png)
 
 5. Select the **Restore Point** corresponding to which all the available .bak files will be restored.
 
-![Select a Restore Point](./media/backup-azure-sql-database/restore-point.png)
+    ![Select a Restore Point](./media/backup-azure-sql-database/restore-point.png)
 
 6. All the backup files associated with the selected recovery point are dumped into the destination path. You can restore the files as a database on any machine they are present on using SQL Server Management Studio.
 
-![Restored Backup Files in Destination Path](./media/backup-azure-sql-database/sql-backup-files.png)
+    ![Restored Backup Files in Destination Path](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### Restore to a specific point in time
 
@@ -155,6 +158,9 @@ If you've selected **Full & Differential** as the restore type, do the following
 1. Select a recovery point from the list, and select **OK** to complete the restore point procedure.
 
     ![Choose a full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+
+    >[!NOTE]
+    > By default, recovery points from the last 30 days are displayed. You can display recovery points older than 30 days by clicking **Filter** and selecting a custom range.
 
 1. On the **Advanced Configuration** menu, if you want to keep the database nonoperational after the restore, enable **Restore with NORECOVERY**.
 1. If you want to change the restore location on the destination server, enter a new target path.

@@ -1,10 +1,10 @@
 ---
-title: Create an access review of Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: Create an access review of Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to create an access review of Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Create an access review of Azure AD roles in Privileged Identity Management
 
-Requirements for users to obtain access to privileged Azure Active Directory (Azure AD) roles can change over time. To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure AD Privileged Identity Management (PIM) to create access reviews for privileged Azure AD roles. You can also configure recurring access reviews that occur automatically.
+To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure AD Privileged Identity Management (PIM) to create access reviews for privileged Azure AD roles. You can also configure recurring access reviews that occur automatically.
 
 This article describes how to create one or more access reviews for privileged Azure AD roles.
 

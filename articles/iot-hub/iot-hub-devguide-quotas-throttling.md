@@ -99,9 +99,10 @@ IoT Hub enforces other operational limits:
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery is 50 per device. |
 | Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB. |
-| Automatic device configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
-| IoT Edge automatic deployments<sup>1</sup> | 20 modules per deployment. 100 deployments per paid SKU hub. 10 deployments per free SKU hub. |
-| Twins<sup>1</sup> | Maximum size per twin section (tags, desired properties, reported properties) is 8 KB |
+| Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
+| IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
+| Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. |
+| Shared access policies | Maximum number of shared access policies is 16 |
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 

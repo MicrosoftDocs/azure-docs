@@ -1,5 +1,5 @@
 ---
-title: Create a Service Bus authorization rule using Azure Resource Manager template | Microsoft Docs
+title: Create a Service Bus authorization rule using an Azure template
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
 
 ---
@@ -169,7 +169,7 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

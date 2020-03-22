@@ -1,21 +1,11 @@
 ---
-title: Debug Azure Service Fabric apps in Windows | Microsoft Docs
+title: Debug Azure Service Fabric apps in Windows 
 description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-
 ---
 # Monitor and diagnose services in a local machine development setup
 > [!div class="op_single_selector"]

@@ -1,21 +1,11 @@
 ﻿---
-title: Configure Azure Service Fabric Reliable Services | Microsoft Docs
-description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
-services: Service-Fabric
-documentationcenter: .net
+title: Configure Azure Service Fabric Reliable Services 
+description: Learn about configuring stateful Reliable Services in an Azure Service Fabric application globally and for a single service.
 author: sumukhs
-manager: chackdan
-editor: vturecek
 
-ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-
 ---
 # Configure stateful reliable services
 There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.

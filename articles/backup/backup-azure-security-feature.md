@@ -1,13 +1,9 @@
 ---
-title: Security features that protect hybrid backups using Azure Backup
+title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 
@@ -118,5 +114,5 @@ The security features mentioned in this article provide defense mechanisms again
 
 - [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
 - [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
-- [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to help protect workloads and guard your backup data against attacks.
+- [Download the latest Azure Backup Server](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) to help protect workloads and guard your backup data against attacks.
 - [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.

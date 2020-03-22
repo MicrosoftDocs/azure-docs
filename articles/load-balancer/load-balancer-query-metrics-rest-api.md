@@ -1,21 +1,20 @@
 ---
 title: Retrieve metrics with the REST API
-titlesuffix: Azure Load Balancer
-description: Use the Azure REST APIs to collect health and utilization metrics for Load Balancer for a given range of time and dates.
+titleSuffix: Azure Load Balancer
+description: In this article, get started using the Azure REST APIs to collect health and usage metrics for Azure Load Balancer.
 services: sql-database
 author: asudbring
-ms.reviewer: routlaw
-manager: jeconnoc
+manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 11/19/2019
 ms.author: allensu
 ---
 
-# Get Load Balancer utilization metrics using the REST API
+# Get Load Balancer usage metrics using the REST API
 
-This how-to shows how to collect the number of bytes processed by a [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for an interval of time using the [Azure REST API](/rest/api/azure/).
+Collect the number of bytes processed by a [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) for an interval of time using the [Azure REST API](/rest/api/azure/).
 
 Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
@@ -43,9 +42,9 @@ The following headers are required:
 | subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API, CLI, or the portal. |
 | loadBalancerName | The name of the Azure Load Balancer. |
-| metricnames | Comma-separated list of valid  [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| metric names | Comma-separated list of valid  [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | The API version to use for the request.<br /><br /> This document covers api-version `2018-01-01`, included in the above URL.  |
-| timespan | The timespan of the query. It is a string with the following format `startDateTime_ISO/endDateTime_ISO`. This optional parameter is set to return a day's worth of data in the example. |
+| timespan | The timespan of the query. It's a string with the following format `startDateTime_ISO/endDateTime_ISO`. This optional parameter is set to return a day's worth of data in the example. |
 | &nbsp; | &nbsp; |
 
 ### Request body

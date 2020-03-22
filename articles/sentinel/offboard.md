@@ -1,9 +1,9 @@
 ---
-title: Offboard Azure Sentinel| Microsoft Docs
+title: Remove Azure Sentinel| Microsoft Docs
 description:  How to delete your Azure Sentinel instance.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -13,38 +13,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
-ms.author: rkarlin
+ms.date: 12/29/2019
+ms.author: yelevin
 
 ---
-# Remove Azure Sentinel from your tenant
+# Remove Azure Sentinel from your workspace
 
-If you no longer want to use the Azure Sentinel, this article explains how to remove it from your tenant.
+If you no longer want to use the Azure Sentinel, this article explains how to remove it from your workspace.
 
-## How to delete Azure Sentinel
+## How to remove Azure Sentinel
 
-In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the **SecurityInsights** solution.
+Follow this process to remove Azure Sentinel from your workspace:
 
-1.  Go to **Azure Sentinel**, followed by **Configuration**, followed by **Workspace settings**, and then **Solutions**.
+1. Go to **Azure Sentinel**, followed by **Settings**, and select the tab **Remove Azure Sentinel**.
 
-2.  Select `SecurityInsights` and click on it.
+1. Before you remove Azure Sentinel, please use the checkboxes to let us know why you're removing it.
 
-    ![Find the SecurityInsights solution](media/offboard/find-solution.png)
-
-3.  At the top of the page select **Delete**.
-
-    > [!IMPORTANT]
-    > If you delete the workspace, the workspace and Azure Sentinel are removed from your tenant in Azure Monitor.
-
+1. Select **Remove Azure Sentinel from your workspace**.
+    
     ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
 
 ## What happens behind the scenes?
 
-When you delete the solution, Azure Sentinel takes up to 48 hours to complete the first phase of the deletion process.
+When you remove the solution, Azure Sentinel takes up to 48 hours to complete the first phase of the deletion process.
 
 After the disconnection is identified, the offboarding process begins.
 
-**The configuration of these connectors is deleted:**
+**The configuration of these connectors is removed:**
 -   Office 365
 
 -   AWS
@@ -57,19 +52,19 @@ After the disconnection is identified, the offboarding process begins.
 
 -   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
 
-Within the first 48 hours, the data and alert rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
+Within the first 48 hours, the data and analytic rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
 
-**After 30 days these resources are deleted:**
+**After 30 days these resources are removed:**
 
 -   Incidents (including investigation metadata)
 
--   Alert rules
+-   Analytic rules
 
 -   Bookmarks
 
-Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may break due to the removed data. You can remove those manually.**
+Your playbooks, saved workbooks, saved hunting queries, and notebooks are not removed. **Some may break due to the removed data. You can remove those manually.**
 
-After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
+After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and analytic rules will be restored but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
 > If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **You can remove it manually.**
@@ -80,4 +75,3 @@ After you remove the service, there is a grace period of 30 days during which yo
 ## Next steps
 In this document, you learned how to remove the Azure Sentinel service. If you change your mind and want to install it again:
 - Get started [on-boarding Azure Sentinel](quickstart-onboard.md).
-

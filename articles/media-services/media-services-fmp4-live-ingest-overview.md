@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services fragmented MP4 live ingest specification | Microsoft Docs
-description: This specification describes the protocol and format for fragmented MP4-based live streaming ingestion for Azure Media Services. You can use Azure Media Services to stream live events and broadcast content in real time by using Azure as the cloud platform. This document also discusses best practices for building highly redundant and robust live ingest mechanisms.
+description: This specification describes the protocol and format for fragmented MP4-based live streaming ingestion for Azure Media Services. This document also discusses best practices for building highly redundant and robust live ingest mechanisms.
 services: media-services
 documentationcenter: ''
 author: cenkdin

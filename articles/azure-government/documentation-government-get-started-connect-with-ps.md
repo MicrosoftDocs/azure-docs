@@ -39,7 +39,6 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-In Azure Government, there is no equivalent to **Azure Cloud Shell** that you can find in the Azure portal. 
 
 ## Specifying Azure Government as the *environment* to connect to
 

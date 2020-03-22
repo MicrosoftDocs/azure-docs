@@ -172,7 +172,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
 ### Configure Deputy Single Sign-On
 
-1. Navigate to the following URL:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Go to **Security Settings** and click **Edit**.
+1. Navigate to the following URL:`https://(your-subdomain).deputy.com/exec/config/system_config`. Go to **Security Settings** and click **Edit**.
    
     ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
 
@@ -271,7 +271,7 @@ To enable Azure AD users to log in to Deputy, they must be provisioned into Depu
    
 	d. Click **Save & Invite** button.
 
-5. The AAD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
+5. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

@@ -1,9 +1,6 @@
 ---
 title: Quickstart - Create a Terraform configuration for Azure
 description: Get started with Terraform on Azure by deploying an Azure Cosmos DB and Azure Container Instances.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: quickstart
 ms.date: 10/26/2019
 ---
@@ -171,4 +168,4 @@ terraform destroy -auto-approve
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and configure Terraform to provision Azure resources](../virtual-machines/linux/terraform-install-configure.md).
+> [Install and configure Terraform to provision Azure resources](terraform-install-configure.md).

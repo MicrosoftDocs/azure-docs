@@ -1,5 +1,5 @@
 ﻿---
-title: Communicate to a device app in Node.js via IoT Hub device streams (preview) | Microsoft Docs
+title: Communicate to device app in Node.js with Azure IoT Hub device streams
 description: In this quickstart, you will run a Node.js service-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub
@@ -15,38 +15,17 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, Node.js SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side application. You should run an accompanying device-side application from one of the following quickstarts:
-
-* [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md)
-
-* [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md).
-
-The service-side Node.js application in this quickstart has the following functionalities:
-
-* Creates a device stream to an IoT device.
-
-* Reads input from command line and sends it to the device application, which will echo it back.
-
-The code will demonstrate the initiation process of a device stream, as well as how to use it to send and receive data.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you run a service-side application and set up communication between a device and service by using device streams. Azure IoT Hub device streams allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the Node.js SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side application.
 
 ## Prerequisites
 
-The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+* Completion of [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md) or [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md).
 
-  * Central US
-  * Central US EUAP
-  * North Europe
-  * Southeast Asia
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-To run the service-side application in this quickstart, you need Node.js v10.x.x or later on your development machine.
+* [Node.js 10+](https://nodejs.org).
 
-You can download Node.js for multiple platforms from [Nodejs.org](https://nodejs.org).
+* [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 You can verify the current version of Node.js on your development machine using the following command:
 
@@ -54,19 +33,33 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
+Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+>
+> * Central US
+> * Central US EUAP
+> * North Europe
+> * Southeast Asia
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### Add Azure IoT Extension
+
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) commands to Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md), you can skip this step.
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
@@ -104,13 +97,20 @@ In this section, you run both the device-side application and the service-side a
 
 As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the service side. For a device-side application, use one of the accompanying device programs available in these quickstarts:
 
-   * [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md)
+* [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md)
 
-   * [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
+* [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
 
 Ensure the device-side application is running before proceeding to the next step.
 
 ### Run the service-side application
+
+The service-side Node.js application in this quickstart has the following functionalities:
+
+* Creates a device stream to an IoT device.
+* Reads input from command line and sends it to the device application, which will echo it back.
+
+The code will demonstrate the initiation process of a device stream, as well as how to use it to send and receive data.
 
 Assuming the device-side application is running, follow the steps below in a local terminal window to run the service-side application in Node.js:
 

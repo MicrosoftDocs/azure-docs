@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance auditing 
+title: Managed instance auditing
 description: Learn how to get started with Azure SQL Database managed instance auditing using T-SQL
 services: sql-database
 ms.service: sql-database
@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/08/2019
 ---

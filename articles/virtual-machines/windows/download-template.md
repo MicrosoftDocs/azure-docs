@@ -1,5 +1,5 @@
 ---
-title: Download the template for an Azure VM | Microsoft Docs
+title: Download the template for an Azure VM 
 description: Download the templatefor a VM to help with automating deployments in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''

@@ -2,13 +2,9 @@
 title: Azure Automation Linux Hybrid Runbook Worker
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker so you can run runbooks on Linux-based computers in your local datacenter or cloud environment.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/28/2018
+ms.date: 03/02/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Deploy a Linux Hybrid Runbook Worker
 
@@ -25,7 +21,7 @@ The Hybrid Runbook Worker feature supports the following distributions:
 * Oracle Linux 5, 6, and 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6, and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, and 16.04 LTS (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ## Installing a Linux Hybrid Runbook Worker
@@ -48,7 +44,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |Python-ctypes | Python 2.x is required |
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
-| PowerShell Core | To run PowerShell runbooks, PowerShell needs to be installed, see [Installing PowerShell Core on Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) to learn how to install it.  | 6.0.0 |
+| PowerShell Core | To run PowerShell runbooks, PowerShell needs to be installed, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.  | 6.0.0 |
 
 ### Installation
 
@@ -101,7 +97,7 @@ The following runbook types work on a Linux Hybrid Worker:
 * PowerShell
 
   > [!NOTE]
-  > PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) to learn how to install it.
+  > PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
 The following runbook types don't work on a Linux Hybrid Worker:
 

@@ -1,0 +1,147 @@
+### YamlMime:Landing
+
+title: ARM template documentation
+summary: Azure Resource Manager templates are a JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
+
+metadata:
+  title: ARM template documentation
+  description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: templates
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 03/09/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About ARM templates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are templates?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: template-best-practices.md
+          - text: Deployment modes
+            url: deployment-modes.md
+          - text: Linked templates
+            url: linked-templates.md
+      - linkListType: video
+        links:
+          - text: What's new?
+            url: https://youtu.be/3D-JIKShrws
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create templates - portal
+            url: quickstart-create-templates-use-the-portal.md
+          - text: Create templates - VS Code
+            url: quickstart-create-templates-use-visual-studio-code.md
+          - text: Create templates - Visual Studio
+            url: create-visual-studio-deployment-project.md
+
+      - linkListType: tutorial
+        links:
+          - text: Beginner tutorials
+            url: template-tutorial-create-first-template.md
+          - text: Deploy multiple instances
+            url: template-tutorial-create-multiple-instances.md
+          - text: Set deployment order
+            url: template-tutorial-create-templates-with-dependent-resources.md
+          - text: Integrate key vault
+            url: template-tutorial-use-key-vault.md
+
+  # Card
+  - title: Develop templates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use VS Code
+            url: use-vs-code-to-create-template.md
+          - text: Use functions
+            url: template-functions.md
+          - text: Define parameters
+            url: template-parameters.md
+          - text: Define variables
+            url: template-variables.md
+          - text: Define resources
+            url: template-syntax.md#resources
+          - text: Define outputs
+            url: template-outputs.md
+
+      - linkListType: reference
+        links:
+          - text: Template file syntax
+            url: template-syntax.md
+          - text: Azure Quickstart templates
+            url: https://azure.microsoft.com/resources/templates/
+  # Card
+  - title: Deploy templates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: PowerShell
+            url: deploy-powershell.md
+          - text: Azure CLI
+            url: deploy-cli.md
+          - text: Portal
+            url: deploy-portal.md
+          - text: REST API
+            url: deploy-rest.md
+          - text: What-if deployment
+            url: template-deploy-what-if.md
+          
+  # Card
+  - title: Scoped deployments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Subscription
+            url: deploy-to-subscription.md
+          - text: Management group
+            url: deploy-to-management-group.md
+          - text: Tenant
+            url: deploy-to-tenant.md
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Template reference
+          url: /azure/templates/
+        - text: REST API
+          url: /rest/api/resources/
+        - text: Azure PowerShell
+          url: /powershell/module/az.resources
+        - text: Azure CLI
+          url: /cli/azure/resource
+        - text: .NET
+          url: /dotnet/api/microsoft.azure.management.resourcemanager
+        - text: Java
+          url: /java/api/com.microsoft.azure.management.resources
+        - text: Python
+          url: /python/api/overview/azure/resources?view=azure-python
+
+
+  # Card
+  - title: Manage templates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export templates
+            url: export-template-portal.md
+          - text: CI/CD
+            url: add-template-to-azure-pipelines.md
+          - text: View deployment history
+            url: deployment-history.md

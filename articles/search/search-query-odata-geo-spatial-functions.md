@@ -1,7 +1,7 @@
 ---
 title: OData geo-spatial function reference
 titleSuffix: Azure Cognitive Search
-description: OData geo-spatial functions, geo.distance and geo.intersects, in Azure Cognitive Search queries.
+description: Syntax and reference documentation for using OData geo-spatial functions, geo.distance and geo.intersects, in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft

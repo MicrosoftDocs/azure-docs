@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Content Moderator client library for Python | Microsoft Docs"
+title: "Quickstart: Content Moderator client library for Python"
 titleSuffix: Azure Cognitive Services
-description: Learn how to get started with the Azure Cognitive Services Content Moderator client library for Python.
+description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ---
 
@@ -99,8 +99,8 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 The following code uses a Content Moderator client to analyze a body of text and print the results to the console. First, create a **text_files/** folder at the root of your project and add a *content_moderator_text_moderation.txt* file. Add your own text to this file, or use the following sample text:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Add a reference to the new folder.

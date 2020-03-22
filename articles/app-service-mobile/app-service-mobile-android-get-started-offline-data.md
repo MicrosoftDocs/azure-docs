@@ -1,27 +1,15 @@
 ---
-title: Enable offline sync for your Azure Mobile App (Android)
-description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application
-documentationcenter: android
-author: elamalani
-manager: crdun
-services: app-service\mobile
+title: Enable offline sync (Android)
+description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application.
 
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Enable offline sync for your Android mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 ## Overview
 This tutorial covers the offline sync feature of Azure Mobile Apps for Android. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database. Once the device is back online, these changes are synced with the remote backend.

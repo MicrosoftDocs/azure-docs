@@ -41,7 +41,7 @@ If you want the scores for all intents for the utterance, you can provide a flag
 |V3|`show-all-intents=true`|
 
 ## Intent compared to entity
-The intent represents action the bot should take for the user and is based on the entire utterance. An utterance can have only one top scoring intent but it can have many entities. 
+The intent represents action the application should take for the user and is based on the entire utterance. An utterance can have only one top scoring intent but it can have many entities. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 

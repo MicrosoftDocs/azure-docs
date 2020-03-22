@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -39,7 +39,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
@@ -54,5 +54,7 @@ The following steps will help create a Conditional Access policy to require thos
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

@@ -1,19 +1,11 @@
 ---
-title: Understand instance IDs for Azure VM scale set VMs | Microsoft Docs
-description: Understand instance IDs for Azure VM scale set VMs
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Understand instance IDs for Azure VM scale set VMs
+description: Understand instance IDs for Azure VM scale sets virtual machines and the various ways that they surface.
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
 
@@ -43,8 +35,11 @@ You can also use [resources.azure.com](https://resources.azure.com) or the [Azur
 
 The exact presentation of the output depends on the options you provide to the command, but here is some sample output from the CLI:
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -73,7 +68,7 @@ The {instance-id} part of the name is the same decimal number as the "instanceId
 
 If you query the [instance metadata](../virtual-machines/windows/instance-metadata-service.md) from within a scale set VM, you see a "name" in the output:
 
-```
+```output
 {
   "compute": {
     "location": "westus",

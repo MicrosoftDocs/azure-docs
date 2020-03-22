@@ -72,3 +72,6 @@ Once the data loads to excel and is available in your Excel sheet, you can analy
 
 1. Create full dashboards to monitor your data.
 
+## Next steps
+
+[Visualize data using an Azure Data Explorer Kusto query imported into Microsoft Excel](excel-blank-query.md)

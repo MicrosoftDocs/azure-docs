@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 
 # Two-Class Neural Network module
@@ -38,7 +38,9 @@ To compute the output of the network for a particular input, a value is calculat
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
-    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
+    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.  
 
 3.  For **Hidden layer specification**, select the type of network architecture to create.  
   
@@ -72,15 +74,15 @@ To compute the output of the network for a particular input, a value is calculat
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
   
-14. Run the pipeline.
+14. Submit the pipeline.
 
 ## Results
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md), and select **Visualize**.  
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
-+ To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps

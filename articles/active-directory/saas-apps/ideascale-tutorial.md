@@ -238,7 +238,7 @@ To enable Azure AD users to log into IdeaScale, they must be provisioned in to I
     > The Azure Active Directory account holder gets an email with a link to confirm the account before it becomes active.
 
 > [!NOTE]
-> You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
+> You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision Azure AD user accounts.
 
 ### Test single sign-on
 

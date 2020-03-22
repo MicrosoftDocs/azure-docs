@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Deploy and configure Azure Firewall using the Azure portal'
+title: 'Tutorial: Deploy & configure Azure Firewall using the Azure portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -22,7 +22,7 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this tutorial, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For this tutorial, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -56,7 +56,7 @@ The resource group contains all the resources for the tutorial.
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Add**.
 3. For **Resource group name**, enter *Test-FW-RG*.
 4. For **Subscription**, select your subscription.
-5. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
+5. For **Resource group location**, select a location. All other resources that you create must be in the same location.
 6. Select **Create**.
 
 ### Create a VNet
@@ -141,7 +141,7 @@ Deploy the firewall into the VNet.
    |Name     |**Test-FW01**|
    |Location     |Select the same location that you used previously|
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
-   |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
+   |Public IP address     |**Add new**. The Public IP address must be the Standard SKU type.|
 
 5. Select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
@@ -189,10 +189,11 @@ This is the application rule that allows outbound access to www.google.com.
 6. For **Priority**, type **200**.
 7. For **Action**, select **Allow**.
 8. Under **Rules**, **Target FQDNs**, for **Name**, type **Allow-Google**.
-9. For **Source Addresses**, type **10.0.2.0/24**.
-10. For **Protocol:port**, type **http, https**.
-11. For **Target FQDNS**, type **www.google.com**
-12. Select **Add**.
+9. For **Source type**, select **IP address**.
+10. For **Source**, type **10.0.2.0/24**.
+11. For **Protocol:port**, type **http, https**.
+12. For **Target FQDNS**, type **www.google.com**
+13. Select **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
@@ -205,10 +206,11 @@ This is the network rule that allows outbound access to two IP addresses at port
 3. For **Name**, type **Net-Coll01**.
 4. For **Priority**, type **200**.
 5. For **Action**, select **Allow**.
-6. Under **Rules**, for **Name**, type **Allow-DNS**.
+6. Under **Rules**, **IP addresses**, for **Name**, type **Allow-DNS**.
 7. For **Protocol**, select **UDP**.
-8. For **Source Addresses**, type **10.0.2.0/24**.
-9. For Destination address, type **209.244.0.3,209.244.0.4**
+9. For **Source type**, select **IP address**.
+1. For **Source**, type **10.0.2.0/24**.
+2. For **Destination address**, type **209.244.0.3,209.244.0.4**
 
    These are public DNS servers operated by CenturyLink.
 1. For **Destination Ports**, type **53**.

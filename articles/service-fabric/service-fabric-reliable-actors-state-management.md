@@ -1,21 +1,11 @@
 ---
-title: Reliable Actors state management | Microsoft Docs
+title: Reliable Actors state management 
 description: Describes how Reliable Actors state is managed, persisted, and replicated for high availability.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
 
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-
 ---
 # Reliable Actors state management
 Reliable Actors are single-threaded objects that can encapsulate both logic and state. Because actors run on Reliable Services, they can maintain state reliably by using the same persistence and replication mechanisms. This way, actors don't lose their state after failures, upon reactivation after garbage collection, or when they are moved around between nodes in a cluster due to resource balancing or upgrades.

@@ -132,7 +132,7 @@ alphanumeric and special characters).
 You can use an identity framework to create and enforce password
 policies. Azure AD B2C helps you with password management by providing
 [built-in policies](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow),
-[self-service password reset](../../active-directory-b2c/active-directory-b2c-reference-sspr.md), and more.
+[self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md), and more.
 
 To defend against attacks on default accounts, verify that all keys and
 passwords are replaceable and that they're generated or replaced after
@@ -148,9 +148,9 @@ If your application allows [file uploads](https://www.owasp.org/index.php/Unrest
 Antimalware protection helps identify and remove viruses, spyware, and
 other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md)
 or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
-[Symantec](https://www.symantec.com/products),
+[Broadcom](https://www.broadcom.com/products),
 [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
-and [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+and [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md)
 includes features like real-time protection, scheduled scanning, malware

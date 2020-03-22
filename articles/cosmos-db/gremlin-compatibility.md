@@ -18,19 +18,21 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 ## Unsupported features
 
-* ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use ```GremlinClient.SubmitAsync()``` and pass traversal as a text string.
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use `GremlinClient.SubmitAsync()` and pass traversal as a text string.
 
-* ***```property(set, 'xyz', 1)```*** set cardinality isn't supported today. Use ```property(list, 'xyz', 1)``` instead.
+* ***`property(set, 'xyz', 1)`*** set cardinality isn't supported today. Use `property(list, 'xyz', 1)` instead. To learn more, see [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* ***```match()```*** allows querying graphs using declarative pattern matching. This capability isn't available.
+* ***`atch()`*** allows querying graphs using declarative pattern matching. This capability isn't available.
 
 * ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
 
-* ***Sorting by array properties*** ```.order().by(<array property>)``` isn't supported. Sorting is supported only by primitive types.
+* ***Sorting by array properties*** `order().by(<array property>)` isn't supported. Sorting is supported only by primitive types.
 
-* ***Non-primitive JSON types*** aren't supported. Use ```string```, ```number```, or ```true```/```false``` types. ```null``` values aren't supported. 
+* ***Non-primitive JSON types*** aren't supported. Use `string`, `number`, or `true`/`false` types. `null` values aren't supported. 
 
-* ***GraphSONv3*** serializer isn't available today.
+* ***GraphSONv3*** serializer isn't currently supported. Use `GraphSONv2` Serializer, Reader, and Writer classes in the connection configuration.
+
+* **Lambda expressions and functions** aren't currently supported. This includes the `.map{<expression>}`, the `.by{<expression>}`, and the `.filter{<expression>}` functions. To learn more, and to learn how to rewrite them using Gremlin steps, see [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
 * ***Transactions*** aren't supported because of distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
 

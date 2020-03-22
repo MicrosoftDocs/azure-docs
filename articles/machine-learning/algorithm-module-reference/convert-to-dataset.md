@@ -1,7 +1,7 @@
 ---
 title: "Convert to Dataset: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Convert to Dataset module in the Azure Machine Learning service to convert data input to the internal dataset format used by Microsoft Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Convert to Dataset module in Azure Machine Learning to convert data input to the internal dataset format used by Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -47,11 +47,11 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
     Note that the **ReplaceValues** operation applies only to exact matches. For example, these strings would not be affected: `obs.`, `obsolete`.  
  
   
-5.  Run the pipeline, or right-click the Convert to Dataset module and select **Run selected**.  
+5.  Submit the pipeline.  
 
 ## Results
 
-+  To save the resulting dataset with a new name, right-click the output of Convert to Dataset and select **Save as Dataset**.  
++  To save the resulting dataset with a new name, select on the icon **Register dataset** under the **Outputs** tab in the right panel of the module.  
   
 ## Technical notes  
 
@@ -66,4 +66,4 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

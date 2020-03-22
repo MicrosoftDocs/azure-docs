@@ -1,21 +1,22 @@
 ---
-title: Visual authoring in Azure Data Factory 
+title: Visual authoring
 description: Learn how to use visual authoring in Azure Data Factory
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: 
-manager: craigg
+manager: anandsub
+ms.date: 12/19/2019
 ---
+
 # Visual authoring in Azure Data Factory
 
 The Azure Data Factory user interface experience (UX) lets you visually author and deploy resources for your data factory without having to write any code. You can drag activities to a pipeline canvas, perform test runs, debug iteratively, and deploy and monitor your pipeline runs.
+
+Currently, the Azure Data Factory UX is only supported in Microsoft Edge and Google Chrome.
 
 ## Authoring canvas
 

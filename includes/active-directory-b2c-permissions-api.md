@@ -1,10 +1,10 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 # Used by the web app/web API tutorials for granting a web application access to
 # a registered web API application
 ---

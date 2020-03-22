@@ -1,17 +1,16 @@
 ---
-title: Quickstart - Create a Unity iOS app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create a Unity iOS app'
 description: In this quickstart, you learn how to build an iOS app with Unity using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Unity iOS app that can place and locate a 3D object that persists across devices and platforms.
 ---
+
 # Quickstart: Create a Unity iOS app with Azure Spatial Anchors
 
 This quickstart covers how to create a Unity iOS app using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARKit iOS app built with Unity that can save and recall a spatial anchor.
@@ -31,8 +30,8 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
-- Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git`.
+- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 or 2019.2</a>, the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -80,6 +79,10 @@ brew update
 brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
+
+### Unity 2019.3
+
+Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

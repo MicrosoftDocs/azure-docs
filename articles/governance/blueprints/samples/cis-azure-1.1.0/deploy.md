@@ -1,11 +1,8 @@
 ---
-title: CIS Microsoft Azure Foundations Benchmark blueprint sample - Deploy steps
+title: Deploy CIS Microsoft Azure Foundations Benchmark blueprint sample
 description: Deploy steps for the CIS Microsoft Azure Foundations Benchmark blueprint sample including blueprint artifact parameter details.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/14/2019
 ms.topic: sample
-ms.service: blueprints
 ---
 # Deploy the CIS Microsoft Azure Foundations Benchmark blueprint sample
 

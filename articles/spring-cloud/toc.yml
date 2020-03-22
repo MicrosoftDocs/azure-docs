@@ -26,6 +26,8 @@
       href: spring-cloud-tutorial-scale-manual.md
     - name: Monitor your application using distributed tracing and App Insights
       href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Monitor Spring Cloud resources using alerts and action groups
+      href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Bind your application to Azure CosmosDB
       href: spring-cloud-tutorial-bind-cosmos.md
     - name: Bind your application with Azure Cache for Redis
@@ -50,10 +52,20 @@
       href: spring-cloud-service-registration.md
     - name: Analyze application logs and Metrics
       href: diagnostic-services.md
-    - name: Automate your CI/CD pipeline in Azure Spring Cloud
-      href: spring-cloud-howto-cicd.md
+    - name: Stream Azure Spring Cloud app logs in real-time
+      href: spring-cloud-howto-log-streaming.md
     - name: Use persistent storage in Azure Spring Cloud
-      href: spring-cloud-howto-persistent-storage.md 
+      href: spring-cloud-howto-persistent-storage.md
+- name: DevOps Deployment to Azure Spring Cloud
+  items:
+    - name: CI/CD with Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD with GitHub Actions
+      href: spring-cloud-howto-github-actions.md
+    - name: Auth Azure Spring Cloud with Key Vault in GitHub actions
+      href: spring-cloud-github-actions-key-vault.md
+    - name: CI/CD with Jenkins
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Reference
   items: 
     - name: Azure CLI Plugin
@@ -64,5 +76,5 @@
       href: spring-cloud-faq.md
     - name: Troubleshooting Guide
       href: spring-cloud-troubleshoot.md
-
-      
+    - name: REST API reference
+      href: https://docs.microsoft.com/rest/api/azurespringclould/

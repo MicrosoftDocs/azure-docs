@@ -2,12 +2,9 @@
 title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: mlearned
+
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
@@ -19,21 +16,13 @@ In Kubernetes, the API server receives requests to perform actions in the cluste
 This article shows you how to use API server authorized IP address ranges to limit which IP addresses and CIDRs can access control plane.
 
 > [!IMPORTANT]
-> On new clusters, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is. Those existing clusers can also be upgrade and they will continue to work.
+> On new clusters, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded.
 
 ## Before you begin
-
-This article assumes you are working with clusters that use [kubenet][kubenet].  With [Azure Container Networking Interface (CNI)][cni-networking] based clusters, you will not have the required route table needed to secure access.  You will need to create the route table manually.  For more information about managing route tables, see [Create, change, or delete a route table][route-tables].
 
 API server authorized IP ranges only work for new AKS clusters that you create. This article shows you how to create an AKS cluster using the Azure CLI.
 
 You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-## Limitations
-
-The following limitations apply when you configure API server authorized IP ranges:
-
-* You cannot currently use Azure Dev Spaces as the communication with the API server is also blocked.
 
 ## Overview of API server authorized IP ranges
 
@@ -67,6 +56,9 @@ az aks create \
 > You should add these ranges to an allow list:
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
+> - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
+
+> The upper limit for the number of IP ranges you can specify is 3500. 
 
 ### Specify the outbound IPs for the Standard SKU load balancer
 
@@ -139,6 +131,7 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

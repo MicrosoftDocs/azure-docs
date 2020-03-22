@@ -41,7 +41,9 @@ landingContent:
             url: internet-analyzer-embed-client.md
           - text: Configure a Custom Endpoint
             url: internet-analyzer-custom-endpoint.md
-            
+          - text: Interpreting your scorecard
+            url: internet-analyzer-scorecard.md
+
   # Card
   - title: Resources
     linkLists:
@@ -49,6 +51,8 @@ landingContent:
         links:
           - text: Internet Analyzer FAQ
             url: internet-analyzer-faq.md
-          - text: Interpreting your scorecard
-            url: internet-analyzer-scorecard.md
+          - text: Internet Analyzer troubleshooting
+            url: troubleshoot.md
+          - text: Internet Analyzer CLI reference
+            url: https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
 

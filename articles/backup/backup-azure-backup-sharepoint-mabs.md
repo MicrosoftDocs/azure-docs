@@ -1,19 +1,17 @@
 ---
-title: Use Azure Backup server to back up a SharePoint farm to Azure
+title: Back up a SharePoint farm to Azure with MABS
 description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
+
 ---
 
 # Back up a SharePoint farm to Azure with MABS
+
 You back up a SharePoint farm to Microsoft Azure by using Microsoft Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 ## SharePoint supported versions and related protection scenarios
+
 Azure Backup for DPM supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | Protection and recovery |
@@ -21,50 +19,61 @@ Azure Backup for DPM supports the following scenarios:
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint deployed as a physical server or Hyper-V/VMware virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ## Before you start
+
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
 
 ### Prerequisites
+
 Before you proceed, make sure that you have [installed and prepared the Azure Backup Server](backup-azure-microsoft-azure-backup.md) to protect workloads.
 
 ### Protection agent
-The Azure Backup agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. Azure Backup Server needs the agent on one WFE server only to serve as the entry point for protection.
+
+The Azure Backup agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  The one exception is that you install the agent only on a single web front end (WFE) server. Azure Backup Server needs the agent on one WFE server only to serve as the entry point for protection.
 
 ### SharePoint farm
+
 For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the MABS folder is located. This space is required for catalog generation. For MABS to recover specific items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs that are contained within each content database. You can view the list of URLs in the recoverable item pane in the **Recovery** task area of MABS Administrator Console.
 
 ### SQL Server
+
 Azure Backup Server runs as a LocalSystem account. To back up SQL Server databases, MABS needs sysadmin privileges on that account for the server that's running SQL Server. Set NT AUTHORITY\SYSTEM to *sysadmin* on the server that's running SQL Server before you back it up.
 
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
 
 ### SharePoint Server
+
 While performance depends on many factors such as size of SharePoint farm, as general guidance one MABS can protect a 25-TB SharePoint farm.
 
 ### What's not supported
+
 * MABS that protects a SharePoint farm does not protect search indexes or application service databases. You will need to configure the protection of these databases separately.
 * MABS does not provide backup of SharePoint SQL Server databases that are hosted on scale-out file server (SOFS) shares.
 
 ## Configure SharePoint protection
+
 Before you can use MABS to protect SharePoint, you must configure the SharePoint VSS Writer service (WSS Writer service) by using **ConfigureSharePoint.exe**.
 
 You can find **ConfigureSharePoint.exe** in the [MABS Installation Path]\bin folder on the front-end web server. This tool provides the protection agent with the credentials for the SharePoint farm. You run it on a single WFE server. If you have multiple WFE servers, select just one when you configure a protection group.
 
 ### To configure the SharePoint VSS Writer service
+
 1. On the WFE server, at a command prompt, go to [MABS installation location]\bin\
 2. Enter ConfigureSharePoint -EnableSharePointProtection.
-3. Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn’t a local admin grant the following permissions on the WFE server:
+3. Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn't a local admin grant the following permissions on the WFE server:
    * Grant the WSS_Admin_WPG group full control to the DPM folder (%Program Files%\Microsoft Azure Backup\DPM).
    * Grant the WSS_Admin_WPG group read access to the DPM Registry key (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> You’ll need to rerun ConfigureSharePoint.exe whenever there’s a change in the SharePoint farm administrator credentials.
+> You'll need to rerun ConfigureSharePoint.exe whenever there's a change in the SharePoint farm administrator credentials.
 >
 >
 
 ## Back up a SharePoint farm by using MABS
+
 After you have configured MABS and the SharePoint farm as explained previously, SharePoint can be protected by MABS.
 
 ### To protect a SharePoint farm
+
 1. From the **Protection** tab of the MABS Administrator Console, click **New**.
     ![New Protection Tab](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. On the **Select Protection Group Type** page of the **Create New Protection Group** wizard, select **Servers**, and then click **Next**.
@@ -114,7 +123,7 @@ After you have configured MABS and the SharePoint farm as explained previously, 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > MABS provides a maximum of two daily backups to Azure from the then available latest disk backup point. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > MABS provides a maximum of two daily backups to Azure from the then available latest disk backup point. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup network throttling](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Depending on the backup schedule that you selected, on the **Specify Online Retention Policy** page, select the retention policy for daily, weekly, monthly, and yearly backup points.
@@ -133,6 +142,7 @@ After you have configured MABS and the SharePoint farm as explained previously, 
     ![Summary](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## Restore a SharePoint item from disk by using MABS
+
 In the following example, the *Recovering SharePoint item* has been accidentally deleted and needs to be recovered.
 ![MABS SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -194,6 +204,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
     >
 
 ## Restore a SharePoint database from Azure by using DPM
+
 1. To recover a SharePoint content database, browse through various recovery points (as shown previously), and select the recovery point that you want to restore.
 
     ![MABS SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -219,7 +230,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
-## Next Steps
+## Next steps
 
 See the [Back up Exchange server](backup-azure-exchange-mabs.md) article.
 See the [Back up SQL Server](backup-azure-sql-mabs.md) article.

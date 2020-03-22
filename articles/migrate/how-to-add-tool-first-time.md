@@ -1,10 +1,10 @@
 ---
-title: Add an assessment/migration tool for the first time in Azure Migrate| Microsoft Docs
+title: Add an assessment/migration tool in Azure Migrate
 description: Describes how to create an Azure Migrate project and add an assessment/migration tool.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 

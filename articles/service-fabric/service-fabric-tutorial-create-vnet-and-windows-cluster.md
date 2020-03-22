@@ -1,20 +1,9 @@
 ---
-title: Create a Service Fabric cluster running Windows in Azure | Microsoft Docs
+title: Create a Service Fabric cluster running Windows in Azure 
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
 ---
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
@@ -173,7 +162,7 @@ A Service Fabric cluster offers several entry points to its management functiona
 
 In this article, we assume that you've already created a tenant. If you haven't, start by reading [How to get an Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-To simplify steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
+To simplify steps involved in configuring Azure AD with a Service Fabric cluster, we've created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) to your computer.
 
 ### Create Azure AD applications and assign users to roles
 Create two Azure AD applications to control access to the cluster: one web application and one native application. After you've created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.

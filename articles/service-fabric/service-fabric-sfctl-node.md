@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl node | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl node commands.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI- sfctl node
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing cluster nodes.
 author: jeffj6123
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-
 ---
 
 # sfctl node
@@ -25,17 +15,44 @@ Manage the nodes that form a cluster.
 
 |Command|Description|
 | --- | --- |
+| add-configuration-parameter-overrides | Adds the list of configuration overrides on the specified node. |
 | disable | Deactivate a Service Fabric cluster node with the specified deactivation intent. |
 | enable | Activate a Service Fabric cluster node that is currently deactivated. |
+| get-configuration-overrides | Gets the list of configuration overrides on the specified node. |
 | health | Gets the health of a Service Fabric node. |
 | info | Gets the information about a specific node in the Service Fabric cluster. |
 | list | Gets the list of nodes in the Service Fabric cluster. |
 | load | Gets the load information of a Service Fabric node. |
+| remove-configuration-overrides | Removes configuration overrides on the specified node. |
 | remove-state | Notifies Service Fabric that the persisted state on a node has been permanently removed or lost. |
 | report-health | Sends a health report on the Service Fabric node. |
 | restart | Restarts a Service Fabric cluster node. |
 | transition | Starts or stops a cluster node. |
 | transition-status | Gets the progress of an operation started using StartNodeTransition. |
+
+## sfctl node add-configuration-parameter-overrides
+Adds the list of configuration overrides on the specified node.
+
+This api allows adding all existing configuration overrides on the specified node.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --config-parameter-override-list [Required] | Description for adding list of configuration overrides. |
+| --node-name                      [Required] | The name of the node. |
+| --force | Force adding configuration overrides on specified nodes. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+
+### Global Arguments
+
+|Argument|Description|
+| --- | --- |
+| --debug | Increase logging verbosity to show all debug logs. |
+| --help -h | Show this help message and exit. |
+| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl node disable
 Deactivate a Service Fabric cluster node with the specified deactivation intent.
@@ -64,6 +81,28 @@ Deactivate a Service Fabric cluster node with the specified deactivation intent.
 Activate a Service Fabric cluster node that is currently deactivated.
 
 Activates a Service Fabric cluster node that is currently deactivated. Once activated, the node will again become a viable target for placing new replicas, and any deactivated replicas remaining on the node will be reactivated.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --node-name [Required] | The name of the node. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+
+### Global Arguments
+
+|Argument|Description|
+| --- | --- |
+| --debug | Increase logging verbosity to show all debug logs. |
+| --help -h | Show this help message and exit. |
+| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
+## sfctl node get-configuration-overrides
+Gets the list of configuration overrides on the specified node.
+
+This api allows getting all existing configuration overrides on the specified node.
 
 ### Arguments
 
@@ -173,10 +212,32 @@ Retrieves the load information of a Service Fabric node for all the metrics that
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
+## sfctl node remove-configuration-overrides
+Removes configuration overrides on the specified node.
+
+This api allows removing all existing configuration overrides on specified node.
+
+### Arguments
+
+|Argument|Description|
+| --- | --- |
+| --node-name [Required] | The name of the node. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
+
+### Global Arguments
+
+|Argument|Description|
+| --- | --- |
+| --debug | Increase logging verbosity to show all debug logs. |
+| --help -h | Show this help message and exit. |
+| --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
+| --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
+| --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 ## sfctl node remove-state
 Notifies Service Fabric that the persisted state on a node has been permanently removed or lost.
 
-This implies that it is not possible to recover the persisted state of that node. This generally happens if a hard disk has been wiped clean, or if a hard disk crashes. The node has to be down for this operation to be successful. This operation lets Service Fabric know that the replicas on that node no longer exist, and that Service Fabric should stop waiting for those replicas to come back up. Do not run this cmdlet if the state on the node has not been removed and the node can come back up with its state intact. Starting from Service Fabric 6.5, in order to use this API for seed nodes, please change the seed nodes to regular (non-seed) nodes and then invoke this API to remove the node state. If the cluster is running on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is no less than the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this. For standalone cluster, if the Down seed node is not expected to come back up with its state intact, please remove the node from the cluster, see https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
+This implies that it is not possible to recover the persisted state of that node. This generally happens if a hard disk has been wiped clean, or if a hard disk crashes. The node has to be down for this operation to be successful. This operation lets Service Fabric know that the replicas on that node no longer exist, and that Service Fabric should stop waiting for those replicas to come back up. Do not run this cmdlet if the state on the node has not been removed and the node can come back up with its state intact. Starting from Service Fabric 6.5, in order to use this API for seed nodes, please change the seed nodes to regular (non-seed) nodes and then invoke this API to remove the node state. If the cluster is running on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is no less than the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this. For standalone cluster, if the Down seed node is not expected to come back up with its state intact, please remove the node from the cluster, see https\://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### Arguments
 
@@ -213,7 +274,7 @@ Reports health state of the specified Service Fabric node. The report must conta
 | --remove-when-expired | Value that indicates whether the report is removed from health store when it expires. <br><br> If set to true, the report is removed from the health store after it expires. If set to false, the report is treated as an error when expired. The value of this property is false by default. When clients report periodically, they should set RemoveWhenExpired false (default). This way, is the reporter has issues (e.g. deadlock) and can't report, the entity is evaluated at error when the health report expires. This flags the entity as being in Error health state. |
 | --sequence-number | The sequence number for this health report as a numeric string. <br><br> The report sequence number is used by the health store to detect stale reports. If not specified, a sequence number is auto-generated by the health client when a report is added. |
 | --timeout -t | Default\: 60. |
-| --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time too live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
+| --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
 
 ### Global Arguments
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy and Manage Notification Hubs using PowerShell
-description: How to Create and Manage Notification Hubs Using PowerShell for Automation
+title: Deploy and manage Notification Hubs using PowerShell
+description: How to create and manage Notification Hubs using PowerShell for Automation
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim

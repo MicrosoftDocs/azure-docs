@@ -1,16 +1,12 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 #Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
-title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh | Microsoft Docs
+title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh 
 description: This quickstart shows you how to deploy a Service Fabric Mesh application to Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: Don’t add or edit keywords without consulting your SEO champ. 
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt 
 ---
 # Quickstart: Deploy Hello World to Service Fabric Mesh
 

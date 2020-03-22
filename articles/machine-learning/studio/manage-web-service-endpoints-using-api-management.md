@@ -1,18 +1,21 @@
 ---
 title: Manage web services using API Management
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ---
 # Manage Azure Machine Learning Studio (classic) web services using API Management
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## Overview
 This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
 
@@ -240,9 +243,9 @@ This guide shows a working Python example. You will need to modify it with the *
 
     import urllib2
     import json
-    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
+    workspace = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE SERVICE ID>"
+    api_key = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE API KEY>"
     data = {
     "Inputs": {
         "input1": {

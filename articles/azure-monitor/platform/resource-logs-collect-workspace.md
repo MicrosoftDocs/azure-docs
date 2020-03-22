@@ -3,19 +3,19 @@ title: Collect Azure resource logs in Log Analytics workspace
 description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ---
 
-# Collect Azure resource logs in Log Analytics workspace in Azure Monitor
-[Resource logs](resource-logs-overview.md) in Azure provide rich, frequent data about the internal operation of an Azure resource. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
+# Collect Azure platform logs in Log Analytics workspace in Azure Monitor
+[Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
 
 
-## What you can do with resource logs in a workspace
-Collecting resource logs into a Log Analytics workspace allows you to analyze the logs of all your Azure resources together and to take advantage of all the features available to [Azure Monitor Logs](data-platform-logs.md) which includes the following:
+## What you can do with platform logs in a workspace
+Collecting platform logs into a Log Analytics workspace allows you to analyze the logs of all your Azure resources together and to take advantage of all the features available to [Azure Monitor Logs](data-platform-logs.md) which includes the following:
 
 * **Log queries** - Create [log queries](../log-query/log-query-overview.md) using a powerful query language to quickly analyze and gain insights into your diagnostic data, and to analyze it with data collected from other sources in Azure Monitor.
 * **Alerting** - Get proactive notification of critical conditions and patterns identified in your resource logs using [log alerts in Azure Monitor](alerts-log.md).
@@ -25,10 +25,14 @@ Collecting resource logs into a Log Analytics workspace allows you to analyze th
 You need to [create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Create a diagnostic setting
-Resource logs are not collected by default. Collect them in a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
+Send platform logs to a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
 
-## Collection mode
-Data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
+
+## Activity log collection
+You can send the Activity log from any single subscription to up to five Log Analytics workspaces. Resource log data collected in a Log Analytics workspace is stored in the **AzureActivity** table. 
+
+## Resource log collection mode
+Resource log data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
 
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
 - Resource-specific - Data is written to individual table for each category of the resource.
@@ -105,7 +109,7 @@ Continue to watch [Azure Updates](https://azure.microsoft.com/updates/) blog for
 ### Column limit in AzureDiagnostics
 There is a 500 property limit for any table in Azure Monitor Logs. Once this limit is reached, any rows containing data with any property outside of the first 500 will be dropped at ingestion time. The *AzureDiagnostics* table is in particular susceptible to this limit since it includes properties for all Azure services writing to it.
 
-If you're collecting diagnostic logs from multiple services, _AzureDiagnostics_ may exceed this limit, and data will be missed. Until all Azure services support resource-specific mode, you should configure resources to write to multiple workspaces to reduce the possibility of reaching the 500 column limit.
+If you're collecting resource logs from multiple services, _AzureDiagnostics_ may exceed this limit, and data will be missed. Until all Azure services support resource-specific mode, you should configure resources to write to multiple workspaces to reduce the possibility of reaching the 500 column limit.
 
 ### Azure Data Factory
 Azure Data Factory, because of a very detailed set of logs, is a service that is known to write a large number of columns and potentially cause _AzureDiagnostics_ to exceed its limit. For any diagnostic settings configured before the resource-specific mode was enabled there will be a new column created for every uniquely-named user parameter against any activity. More columns will be created because of the verbose nature of activity inputs and outputs.
@@ -115,5 +119,5 @@ You should migrate your logs to use the resource-specific mode as soon as possib
 
 ## Next steps
 
-* To learn about Azure resource logs, see [Overview of Azure Resource logs](resource-logs-overview.md).
-* To create a diagnostic setting to collect resource logs to a Log Analytics workspace, see [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).
+* [Read more about resource logs](platform-logs-overview.md).
+* [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).

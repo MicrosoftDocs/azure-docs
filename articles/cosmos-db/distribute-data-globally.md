@@ -52,4 +52,4 @@ Read more about global distribution in the following articles:
 * [Choose the right consistency level for your application](consistency-levels-choosing.md)
 * [Consistency levels across Azure Cosmos DB APIs](consistency-levels-across-apis.md)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
-* [How to implement custom synchronization to optimize for higher availability and performance](how-to-custom-synchronization.md)
+

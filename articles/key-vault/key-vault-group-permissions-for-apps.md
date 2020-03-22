@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
@@ -216,6 +217,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 Lastly, give the AD group permissions to your key vault using the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, or the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. For examples, see the [Give the application, Azure AD group, or user access to your key vault](#give-the-principal-access-to-your-key-vault) section, above.
 
+The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription.
 
 ## Next steps
 

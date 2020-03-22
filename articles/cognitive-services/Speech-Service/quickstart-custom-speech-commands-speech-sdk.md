@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -18,7 +18,7 @@ After creating a hosted Custom Commands application, you can begin talking to it
 
 In this article, you'll:
 
-- Publish a Custom Commands application and get an application identifier (app id)
+- Publish a Custom Commands application and get an application identifier (App ID)
 - Create a client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
@@ -44,7 +44,7 @@ This quickstart describes, step by step, how to make a client application to con
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copy the app id from the publish notification for later use
+1. Copy the App ID from the publish notification for later use
 
 ## Step 2: Create a Visual Studio project
 
@@ -304,7 +304,7 @@ Add the code-behind source as follows:
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
@@ -315,7 +315,7 @@ Add the code-behind source as follows:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -372,7 +372,7 @@ Add the code-behind source as follows:
 1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -410,7 +410,7 @@ Add the code-behind source as follows:
 1. Select **Talk**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
+> [!div class="nextstepaction"]
+> [How to: Fulfill commands on the client with the Speech SDK (preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
