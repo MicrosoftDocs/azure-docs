@@ -60,7 +60,7 @@ When using a shared secret, a service-to-service access token request contains t
 | resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the service application, and then click **Settings** and **Properties**. |
 
 #### Example
-The following HTTP POST requests an [access token](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) for the https://service.contoso.com/ web service. The `client_id` identifies the web service that requests the access token.
+The following HTTP POST requests an [access token](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) for the `https://service.contoso.com/` web service. The `client_id` identifies the web service that requests the access token.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -85,7 +85,7 @@ Notice that the parameters are almost the same as in the case of the request by 
 the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
 
 #### Example
-The following HTTP POST requests an access token for the https://service.contoso.com/ web service with a certificate. The `client_id` identifies the web service that requests the access token.
+The following HTTP POST requests an access token for the `https://service.contoso.com/` web service with a certificate. The `client_id` identifies the web service that requests the access token.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1

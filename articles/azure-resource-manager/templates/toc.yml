@@ -44,6 +44,15 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
+  - name: Deployment
+    items:
+    - name: 1 - Deploy a local template
+      href: deployment-tutorial-local-template.md
+    - name: 2 - Deploy a linked template
+      href: deployment-tutorial-linked-template.md
+    - name: 3 - Create a pipeline
+      displayName: Devop
+      href: deployment-tutorial-pipeline.md
   - name: Advanced
     items:
     - name: Utilize template reference
@@ -71,9 +80,6 @@
       href: template-tutorial-deploy-sql-extensions-bacpac.md
     - name: Secure artifacts
       href: template-tutorial-secure-artifacts.md
-    - name: Continuous integration with Azure Pipelines
-      displayName: DevOps
-      href: template-tutorial-use-azure-pipelines.md
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
