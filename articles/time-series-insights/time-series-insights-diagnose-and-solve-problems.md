@@ -103,7 +103,7 @@ TSI is no longer ingesting data but events are still streaming into Iot Hub or E
 
 This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub.
 
-To update your Time Series Insights environment with the new key open your hub resource in the Azure Portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
+To update your Time Series Insights environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
 
    [![Update key.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
 

@@ -74,7 +74,7 @@ You might be sending data without the Time Series ID.
 
 This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub. 
 
-To update your Time Series Insights Preview environment with the new key open your hub resource in the Azure Portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
+To update your Time Series Insights Preview environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
 
    [![Update key.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
