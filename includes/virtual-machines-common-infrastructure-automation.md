@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ---
-# Use infrastructure automation tools with virtual machines in Azure
+
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
@@ -24,9 +24,9 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 
 Learn how to:
 
-- [Install and configure Ansible on Linux for use with Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Create a Linux virtual machine](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Manage a Linux virtual machine](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
+- [Install and configure Ansible on Linux for use with Azure](../articles/ansible/ansible-install-configure.md).
+- [Create a Linux virtual machine](../articles/ansible/ansible-create-vm.md).
+- [Manage a Linux virtual machine](../articles/ansible/ansible-manage-linux-vm.md).
 
 
 ## Chef
@@ -35,7 +35,7 @@ Learn how to:
 Learn how to:
 
 - [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](../articles/virtual-machines/windows/chef-automation.md).
+- [Install Chef on Windows and create Azure VMs](../articles/chef/chef-automation.md).
 
 
 ## Puppet
@@ -43,7 +43,7 @@ Learn how to:
 
 Learn how to:
 
-- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
+- [Deploy Puppet from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview).
 
 
 ## Cloud-init
@@ -65,7 +65,7 @@ DSC configurations define what to install on a machine and how to configure the 
 
 Learn how to:
 
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
+- [Create a basic DSC configuration](/powershell/scripting/dsc/quickstarts/website-quickstart).
 - [Configure a DSC pull server](/powershell/scripting/dsc/pull-server/pullserver).
 - [Use DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
@@ -95,8 +95,8 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/virtual-machines/linux/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/virtual-machines/linux/terraform-create-complete-vm.md).
+- [Install and configure Terraform with Azure](../articles/terraform/terraform-install-configure.md).
+- [Create an Azure infrastructure with Terraform](../articles/terraform/terraform-create-complete-vm.md).
 
 
 ## Azure Automation
@@ -124,7 +124,7 @@ Learn more about:
 
 Learn how to:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
 title: Use AES-128 dynamic encryption and the key delivery service | Microsoft Docs
-description: Deliver your content encrypted with AES 128-bit encryption keys by using Microsoft Azure Media Services. Media Services also provides the key delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
+description: This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
 services: media-services
 documentationcenter: ''
 author: Juliako

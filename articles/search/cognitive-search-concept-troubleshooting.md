@@ -1,5 +1,5 @@
----
-title: Troubleshooting tips for AI enrichment
+--- 
+title: Tips for AI enrichment design
 titleSuffix: Azure Cognitive Search
 description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
 
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ---
-# Troubleshooting tips for AI enrichment in Azure Cognitive Search
+# Tips for AI enrichment in Azure Cognitive Search
 
 This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
 

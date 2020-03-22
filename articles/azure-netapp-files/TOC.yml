@@ -29,6 +29,8 @@
       href: azure-netapp-files-performance-benchmarks.md
     - name: Performance benchmark test recommendations for Azure NetApp Files
       href: azure-netapp-files-performance-metrics-volumes.md 
+    - name: FAQs about SMB performance
+      href: azure-netapp-files-smb-performance.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
@@ -47,10 +49,12 @@
     href: azure-netapp-files-set-up-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
-  - name: Create an NFS volume for Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
   - name: Create an SMB volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes-smb.md
+  - name: Create an NFS volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Configure NFSv4.1 default domain for Azure NetApp Files
+    href: azure-netapp-files-configure-nfsv41-domain.md
   - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
@@ -75,3 +79,13 @@
     href: https://docs.microsoft.com/rest/api/netapp/ 
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/netapp/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=netapp
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla/netapp/
+  - name: Videos
+    href: azure-netapp-files-videos.md

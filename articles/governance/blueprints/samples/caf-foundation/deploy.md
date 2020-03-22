@@ -1,12 +1,8 @@
 ---
-title: CAF Foundation blueprint sample - Deploy steps
-description: Deploy steps of the CAF Foundation blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
+title: Deploy CAF Foundation blueprint sample
+description: Deploy steps for the CAF Foundation blueprint sample including blueprint artifact parameter details.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 

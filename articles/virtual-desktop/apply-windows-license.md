@@ -33,7 +33,7 @@ Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ## Verify your session host VM is utilizing the licensing benefit
 After deploying your VM, run this cmdlet ot verify the license type:
 ```powershell
-Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>
+Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```
 
 A session host VM with the applied Windows license will show you something like this:
@@ -56,5 +56,5 @@ Run the following cmdlet to see a list of all session host VMs that have the Win
 
 ```powershell
 $vms = Get-AzVM
-$vms | ?{$_.LicenseType -like "Windows_Client"} | select ResourceGroupName, Name, LicenseType
+$vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object ResourceGroupName, Name, LicenseType
 ```

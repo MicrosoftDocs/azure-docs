@@ -3,12 +3,12 @@ title: Azure Machine Learning Anomaly Detection API - Team Data Science Process
 description: Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ---
@@ -44,7 +44,7 @@ The Anomaly Detection offering comes with useful tools to get you started.
 In order to use the API, you must deploy it to your Azure subscription where it will be hosted as an Azure Machine Learning web service.  You can do this from the [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  This will deploy two Azure Machine Learning Studio (classic) Web Services (and their related resources) to your Azure subscription - one for anomaly detection with seasonality detection, and one without seasonality detection.  Once the deployment has completed, you will be able to manage your APIs from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  From this page, you will be able to find your endpoint locations, API keys, as well as sample code for calling the API.  More detailed instructions are available [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## Scaling the API
-By default, your deployment will have a free Dev/Test billing plan which includes 1,000 transactions/month and 2 compute hours/month.  You can upgrade to another plan as per your needs.  Details on the pricing of different plans are available [here](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API pricing".
+By default, your deployment will have a free Dev/Test billing plan that includes 1,000 transactions/month and 2 compute hours/month.  You can upgrade to another plan as per your needs.  Details on the pricing of different plans are available [here](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API pricing".
 
 ## Managing AML Plans
 You can manage your billing plan [here](https://services.azureml.net/plans/).  The plan name will be based on the resource group name you chose when deploying the API, plus a string that is unique to your subscription.  Instructions on how to upgrade your plan are available [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) under the "Managing billing plans" section.
@@ -53,7 +53,7 @@ You can manage your billing plan [here](https://services.azureml.net/plans/).  T
 The web service provides a REST-based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc.  You send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described below.
 
 ## Calling the API
-In order to call the API, you will need to know the endpoint location and API key.  Both of these, along with sample code for calling the API, are available from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  Navigate to the desired API, and then click the "Consume" tab to find them.  Note that you can call the API as a Swagger API (i.e. with the URL parameter `format=swagger`) or as a non-Swagger API (i.e. without the `format` URL parameter).  The sample code uses the Swagger format.  Below is an example request and response in non-Swagger format.  These examples are to the seasonality endpoint.  The non-seasonality endpoint is similar.
+In order to call the API, you will need to know the endpoint location and API key.  These two requirements, along with sample code for calling the API, are available from the [Azure Machine Learning Studio (classic) web services](https://services.azureml.net/webservices/) page.  Navigate to the desired API, and then click the "Consume" tab to find them.  You can call the API as a Swagger API (that is, with the URL parameter `format=swagger`) or as a non-Swagger API (that is, without the `format` URL parameter).  The sample code uses the Swagger format.  Below is an example request and response in non-Swagger format.  These examples are to the seasonality endpoint.  The non-seasonality endpoint is similar.
 
 ### Sample Request Body
 The request contains two objects: `Inputs` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
@@ -78,7 +78,7 @@ The request contains two objects: `Inputs` and `GlobalParameters`.  In the examp
 	}
 
 ### Sample Response
-Note that, in order to see the `ColumnNames` field, you must include `details=true` as a URL parameter in your request.  See the tables below for the meaning behind each of these fields.
+In order to see the `ColumnNames` field, you must include `details=true` as a URL parameter in your request.  See the tables below for the meaning behind each of these fields.
 
 	{
 		"Results": {
@@ -100,18 +100,18 @@ Note that, in order to see the `ColumnNames` field, you must include `details=tr
 
 ## Score API
 The Score API is used for running anomaly detection on non-seasonal time series data. The API runs a number of anomaly detectors on the data and returns their anomaly scores.
-The figure below shows an example of anomalies that the Score API can detect. This time series has 2 distinct level changes, and 3 spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
+The figure below shows an example of anomalies that the Score API can detect. This time series has two distinct level changes, and three spikes. The red dots show the time at which the level change is detected, while the black dots show the detected spikes.
 ![Score API][1]
 
 ### Detectors
-The anomaly detection API supports detectors in 3 broad categories. Details on specific input parameters and outputs for each detector can be found in the following table.
+The anomaly detection API supports detectors in three broad categories. Details on specific input parameters and outputs for each detector can be found in the following table.
 
 | Detector Category | Detector | Description | Input Parameters | Outputs |
 | --- | --- | --- | --- | --- |
 | Spike Detectors |TSpike Detector |Detect spikes and dips based on far the values are from first and third quartiles |*tspikedetector.sensitivity:* takes integer value in the range 1-10, default: 3; Higher values will catch more extreme values thus making it less sensitive |TSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise |
 | Spike Detectors | ZSpike Detector |Detect spikes and dips based on how far the datapoints are from their mean |*zspikedetector.sensitivity:* take integer value in the range 1-10, default: 3; Higher values will catch more extreme values making it less sensitive |ZSpike: binary values – ‘1’ if a spike/dip is detected, ‘0’ otherwise |
-| Slow Trend Detector |Slow Trend Detector |Detect slow positive trend as per the set sensitivity |*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |tscore: floating number representing anomaly score on trend |
-| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select this from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change |
+| Slow Trend Detector |Slow Trend Detector |Detect slow positive trend as per the set sensitivity |*trenddetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |tscore: floating number representing anomaly score on trend |
+| Level Change Detectors | Bidirectional Level Change Detector |Detect both upward and downward level change as per the set sensitivity |*bileveldetector.sensitivity:* threshold on detector score (default: 3.25, 3.25 – 5 is a reasonable range to select from; The higher the less sensitive) |rpscore: floating number representing anomaly score on upward and downward level change |
 
 ### Parameters
 More detailed information on these input parameters is listed in the table below:
@@ -142,7 +142,7 @@ The API runs all detectors on your time series data and returns anomaly scores a
 
 ## ScoreWithSeasonality API
 The ScoreWithSeasonality API is used for running anomaly detection on time series that have seasonal patterns. This API is useful to detect deviations in seasonal patterns.
-The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the 1st black dot), two dips (the 2nd black dot and one at the end), and one level change (red dot). Note that both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
+The following figure shows an example of anomalies detected in a seasonal time series. The time series has one spike (the first black dot), two dips (the second black dot and one at the end), and one level change (red dot). Both the dip in the middle of the time series and the level change are only discernable after seasonal components are removed from the series.
 ![Seasonality API][2]
 
 ### Detectors
@@ -176,7 +176,7 @@ The API runs all detectors on your time series data and returns anomaly scores a
 | --- | --- |
 | Time |Timestamps from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied |
 | OriginalData |Values from raw data, or aggregated (and/or) imputed data if aggregation (and/or) missing data imputation is applied |
-| ProcessedData |Either of the following: <ul><li>Seasonally adjusted time series if significant seasonality has been detected and deseason option selected;</li><li>seasonally adjusted and detrended time series if significant seasonality has been detected and deseasontrend option selected</li><li>otherwise, this is the same as OriginalData</li> |
+| ProcessedData |Either of the following options: <ul><li>Seasonally adjusted time series if significant seasonality has been detected and deseason option selected;</li><li>seasonally adjusted and detrended time series if significant seasonality has been detected and deseasontrend option selected</li><li>otherwise, this option is the same as OriginalData</li> |
 | TSpike |Binary indicator to indicate whether a spike is detected by TSpike Detector |
 | ZSpike |Binary indicator to indicate whether a spike is detected by ZSpike Detector |
 | BiLevelChangeScore |A floating number representing anomaly score on level change |

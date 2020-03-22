@@ -1,5 +1,5 @@
 ---
-title: Create VM from a specialized disk in Azure | Microsoft Docs
+title: Create VM from a specialized disk in Azure 
 description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

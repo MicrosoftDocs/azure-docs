@@ -7,9 +7,9 @@ ms.author: victorh
 ---
 ### Record names
 
-In Azure DNS, records are specified by using relative names. A *fully qualified* domain name (FQDN) includes the zone name, whereas a *relative* name does not. For example, the relative record name 'www' in the zone 'contoso.com' gives the fully qualified record name 'www.contoso.com'.
+In Azure DNS, records are specified by using relative names. A *fully qualified* domain name (FQDN) includes the zone name, whereas a *relative* name does not. For example, the relative record name `www` in the zone `contoso.com` gives the fully qualified record name `www.contoso.com`.
 
-An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For example, in the DNS zone 'contoso.com', an apex record also has the fully qualified name 'contoso.com' (this is sometimes called a *naked* domain).  By convention, the relative name '\@' is used to represent apex records.
+An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For example, in the DNS zone `contoso.com`, an apex record also has the fully qualified name `contoso.com` (this is sometimes called a *naked* domain).  By convention, the relative name '\@' is used to represent apex records.
 
 ### Record types
 

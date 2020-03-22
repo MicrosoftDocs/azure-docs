@@ -17,7 +17,7 @@ ms.author: atsenthi
 ms.custom: mvc
 ---
 
-# Deploy an application to a Service Fabric cluster
+# Deploy an application to a Service Fabric cluster using the Service Fabric CLI
 
 This sample script copies an application package to a cluster image store, registers the application type in the cluster, and creates an application instance from the application type. Any default services are also created at this time.
 

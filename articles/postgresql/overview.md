@@ -6,7 +6,7 @@ ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 11/25/2019
 ---
 # What is Azure Database for PostgreSQL?
 Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers. It is based on the community version of open-source [PostgreSQL](https://www.postgresql.org/) database engine, and is available in two deployment options: Single Server and Hyperscale (Citus).
@@ -14,13 +14,14 @@ Azure Database for PostgreSQL is a relational database service in the Microsoft 
 ## Azure Database for PostgreSQL - Single Server
 The Single Server deployment option delivers:
 
-- Built-in high availability with no additional cost (99.99% SLA)
+- Built-in [high availability](concepts-high-availability.md) with no additional cost (99.99% SLA)
 - Predictable performance, using inclusive pay-as-you-go pricing
-- Vertical scale as needed within seconds
-- Monitoring and alerting to quickly assess the impact of scaling
-- Secured to protect sensitive data at-rest and in-motion
-- Automatic backups and point-in-time-restore for up to 35 days
+- [Vertical scale as needed](concepts-pricing-tiers.md) within seconds
+- [Monitoring and alerting](concepts-monitoring.md) to assess your server
 - Enterprise-grade security and compliance
+- [Secured to protect](concepts-security.md) sensitive data at-rest and in-motion
+- [Automatic backups and point-in-time-restore](concepts-business-continuity.md) for up to 35 days
+
 
 All those capabilities require almost no administration, and all are provided at no additional cost. They allow you to focus on rapid application development and accelerating your time to market, rather than spending precious time and resources to manage virtual machines and infrastructure. You can continue to develop your application with the open-source tools and platform of your choice, without having to learn new skills.
 
@@ -36,11 +37,6 @@ The Hyperscale (Citus) deployment option delivers:
 - Excellent support for multi-tenant applications, real time operational analytics, and high throughput transactional workloads
 
 Applications built for PostgreSQL can run distributed queries on Hyperscale (Citus) with standard [connection libraries](./concepts-connection-libraries.md) and minimal changes.
-
-## Data security
-Azure Database for PostgreSQL upholds the Azure database services' tradition of data security. It has features that limit access, protect data at-rest and in-motion, and help you monitor activity. Visit the [Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/) for information about Azure's platform security.
-
-The Azure Database for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk with the exception of temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and can't be disabled. By default, the Azure Database for PostgreSQL service requires secure connections for data in-motion both across the network and between the database and client application.
 
 ## Contacts
 For any questions or suggestions about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). This address is for general questions rather than support tickets.

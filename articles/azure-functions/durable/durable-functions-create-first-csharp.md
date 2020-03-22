@@ -1,13 +1,8 @@
 ---
 title: Create your first durable function in Azure using C#
 description: Create and publish an Azure Durable Function using Visual Studio.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jeconnoc
-keywords: azure functions, functions, event processing, compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
@@ -35,7 +30,7 @@ To complete this tutorial:
 
 ## Create a function app project
 
-The Azure Functions template creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
+The Azure Functions template creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 1. In Visual Studio, select **New** > **Project** from the **File** menu.
 

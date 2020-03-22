@@ -1,11 +1,7 @@
 ---
-title: Live Metrics Stream with custom metrics and diagnostics in Azure Application Insights | Microsoft Docs
+title: Diagnose with Live Metrics Stream - Azure Application Insights
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/22/2019
 
 ms.reviewer: sdash
@@ -18,7 +14,7 @@ Probe the beating heart of your live, in-production web application by using Liv
 With Live Metrics Stream, you can:
 
 * Validate a fix while it is released, by watching performance and failure counts.
-* Watch the effect of test loads, and diagnose issues live. 
+* Watch the effect of test loads, and diagnose issues live.
 * Focus on particular test sessions or filter out known issues, by selecting and filtering the metrics you want to watch.
 * Get exception traces as they happen.
 * Experiment with filters to find the most relevant KPIs.
@@ -31,7 +27,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ## Get started
 
-1. If you haven't yet [install Application Insights](../../azure-monitor/azure-monitor-app-hub.md) in your web app, do that now.
+1. If you haven't yet [install Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) in your web app, do that now.
 2. In addition to the standard Application Insights packages [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) is required to enable Live Metrics stream.
 3. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, and select all the Microsoft.ApplicationInsights.* packages.
 
@@ -153,7 +149,7 @@ For Azure Function Apps (v2), securing the channel with an API key can be accomp
 
 Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
-### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0-beta or greater)
+### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0 or greater)
 
 Modify your startup.cs file as follows:
 

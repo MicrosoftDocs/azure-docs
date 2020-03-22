@@ -25,27 +25,17 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-          - text: What is FHIR Server for Azure?
-            url: overview-open-source-server.md
       - linkListType: quickstart
         links:
           - text: Deploy API Server for FHIR
             url: fhir-paas-portal-quickstart.md 
-          - text: Deploy open source FHIR Server
-            url: fhir-oss-portal-quickstart.md
 
   - title: Set-up tutorials
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Active Directory configuration
-            url: tutorial-1-decision-flow.md
-          - text: Set up a dev environment & create a sample app
-            url: tutorial-2-setup-environment.md
-          - text: Connect to an Azure API for FHIR endpoint
-            url: tutorial-2-setup-environment.md
-      - linkListType: tutorial
-        links:
+          - text: Deploy javascript app to read data from FHIR service
+            url: tutorial-web-app-fhir-server.md
           - text: Access FHIR API with Postman
             url: access-fhir-postman-tutorial.md
           - text: SMART integration for third-party apps & medical records

@@ -1,6 +1,6 @@
 ---
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
-description: Azure Relay Hybrid Connections protocol guide.
+description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles. 
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 01/21/2020
 ms.author: clemensv
 ---
 
@@ -82,7 +82,7 @@ namespace, and a security token that confers the "Listen" right on that name.
 When the WebSocket is accepted by the service, the registration is complete and
 the established WebSocket is kept alive as the "control channel" for
 enabling all subsequent interactions. The service allows up to 25 concurrent
-listeners one Hybrid Connection. The quota for AppHooks is to be determined.
+listeners for one Hybrid Connection. The quota for AppHooks is to be determined.
 
 For Hybrid Connections, if there are two or more active listeners, incoming
 connections are balanced across them in random order; fair distribution is

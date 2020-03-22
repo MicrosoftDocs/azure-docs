@@ -2,14 +2,13 @@
 title: Process events from Event Hubs with Storm - Azure HDInsight 
 description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight tools for Visual Studio.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/27/2017
-ms.author: hrasheed
-ROBOTS: NOINDEX
+ms.date: 01/14/2020
 ---
+
 # Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)
 
 Learn how to work with Azure Event Hubs from [Apache Storm](https://storm.apache.org/) on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
@@ -21,19 +20,11 @@ Learn how to work with Azure Event Hubs from [Apache Storm](https://storm.apache
 
 The steps in this document use SCP.NET, a NuGet package that makes it easy to create C# topologies and components for use with Storm on HDInsight.
 
-> [!IMPORTANT]  
-> While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to a Storm on HDInsight cluster that uses Linux. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
-
 HDInsight 3.4 and greater use Mono to run C# topologies. The example used in this document works with HDInsight 3.6. If you plan on creating your own .NET solutions for HDInsight, check the [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
 ### Cluster versioning
 
 The Microsoft.SCP.Net.SDK NuGet package you use for your project must match the major version of Storm installed on HDInsight. HDInsight versions 3.5 and 3.6 use Storm 1.x, so you must use SCP.NET version 1.0.x.x with these clusters.
-
-> [!IMPORTANT]  
-> The example in this document expects an HDInsight 3.5 or 3.6 cluster.
->
-> Linux is the only operating system used on HDInsight version 3.4 or greater. 
 
 C# topologies must also target .NET 4.5.
 
@@ -104,9 +95,6 @@ You can download a complete version of the project created in this article from 
 
 * An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
-    > [!WARNING]  
-    > The example used in this document requires Storm on HDInsight version 3.5 or 3.6. This does not work with older versions of HDInsight, due to breaking class name changes. For a version of this example that works with older clusters, see [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
-
 * An [Azure event hub](../../event-hubs/event-hubs-create.md).
 
 * The [Azure .NET SDK](https://azure.microsoft.com/downloads/).
@@ -128,7 +116,7 @@ Create a directory named `eventhubspout`, and save the file into the directory.
 
 Event Hubs is the data source for this example. Use the information in the "Create an event hub" section of [Get started with Event Hubs](../../event-hubs/event-hubs-create.md).
 
-1. After the event hub has been created, view the **EventHub** settings in the Azure portal, and select **Shared access policies**. Select **+ Add** to add the following policies:
+1. After the event hub has been created, view the **EventHub** settings in the Azure portal, and select **Shared access policies**. Select **+ Add** to create the following policies:
 
    | Name | Permissions |
    | --- | --- |
@@ -141,11 +129,11 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 ## Configure the EventHubWriter
 
-1. If you have not already installed the latest version of the HDInsight tools for Visual Studio, see [Get started using HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+1. If you haven't already installed the latest version of the HDInsight tools for Visual Studio, see [Get started using HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 2. Download the solution from [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
-3. In the **EventHubWriter** project, open the **App.config** file. Use the information from the event hub that you configured earlier to fill in the value for the following keys:
+3. Open **EventHubExample.sln**. In the **EventHubWriter** project, open the **App.config** file. Use the information from the event hub that you configured earlier to fill in the value for the following keys:
 
    | Key | Value |
    | --- | --- |
@@ -199,9 +187,11 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 9. In the **Executors** section, select one of the links in the **Port** column. This displays information logged by the component. The logged information is similar to the following text:
 
-        2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
-        2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
-        2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
+    ```output
+    2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
+    2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
+    2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
+    ```
 
 ## Stop the topologies
 
@@ -215,7 +205,7 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ## Next steps
 
-In this document, you have learned how to use the Java Event Hubs spout and bolt from a C# topology to work with data in Azure Event Hubs. To learn more about creating C# topologies, see the following:
+In this document, you've learned how to use the Java Event Hubs spout and bolt from a C# topology to work with data in Azure Event Hubs. To learn more about creating C# topologies, see the following:
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP programming guide](apache-storm-scp-programming-guide.md)

@@ -1,13 +1,14 @@
 ---
-title: Monitoring Key Vault with Azure Event Grid
-description: Use Azure Event Grid to subscribe to Key Vault events
-services: media-services
+title: 'Monitoring Key Vault with Azure Event Grid'
+description: 'Use Azure Event Grid to subscribe to Key Vault events'
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 
 ms.service: key-vault
-ms.topic: article
-ms.date: 10/25/2019
+ms.subservice: general
+ms.topic: tutorial
+ms.date: 11/12/2019
 ms.author: mbaldwin
 ---
  
@@ -23,10 +24,10 @@ Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 
 For more information, see the [Key Vault event schema](../event-grid/event-schema-key-vault.md).
 
-> [!NOTE]
-> Events are triggered only for secret versions (all three types) created after subscription is set.
->
-> For existing secrets, you must generate new versions.
+> [!WARNING]
+> Notification events are triggered only on new versions of secrets, keys and certificates, and you must first subscribe to the event on your key vault in order to receive these notifications.
+> 
+> You will receive notification events on certificates only when the certificate is automatically renewed according to the policy you have specified for your certificate.
 
 ## Practices for consuming events
 
@@ -41,6 +42,7 @@ Applications that handle Key Vault events should follow a few recommended practi
 
 - [Azure Key Vault overview](key-vault-overview.md)
 - [Azure Event Grid overview](../event-grid/overview.md)
-- [How to: Route Key Vault Events to Automation Runbook (preview)](event-grid-tutorial.md).
+- How to: [Route Key Vault Events to Automation Runbook (preview)](event-grid-tutorial.md).
+- How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
 - [Azure Automation overview](../automation/index.yml)

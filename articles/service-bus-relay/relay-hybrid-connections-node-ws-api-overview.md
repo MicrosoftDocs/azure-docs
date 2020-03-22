@@ -1,6 +1,6 @@
 ---
 title: Overview of the Azure Relay Node APIs | Microsoft Docs
-description: Relay Node API overview
+description: This article provides an overview of the Node.js API for the Azure Relay service. It also shows how to use the hyco-ws Node package. 
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
 ---
 

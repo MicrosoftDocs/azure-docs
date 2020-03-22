@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a web app that uses SignalR Service and GitHub authentication
+title: Create web app using SignalR Service and GitHub authentication
 description: Azure CLI Script Sample - Create a web app that uses SignalR Service and GitHub authentication
 author: sffamily
 ms.service: signalr

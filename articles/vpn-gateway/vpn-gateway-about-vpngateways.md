@@ -1,5 +1,5 @@
 ---
-title: 'Azure VPN Gateway | Microsoft Docs'
+title: 'About Azure VPN Gateway'
 description: Learn about what a VPN gateway is and the ways you can use a VPN gateway to connect to Azure virtual networks. Including IPsec/IKE Site-to-Site cross-premises and VNet-to-VNet solutions, as well as Point-to-Site VPN.
 services: vpn-gateway
 author: cherylmc
@@ -7,7 +7,7 @@ Customer intent: As someone with a basic network background, but is new to Azure
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/31/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---
@@ -39,7 +39,7 @@ You can start out creating and configuring resources using one configuration too
 
 ### <a name="models"></a>Deployment model
 
-There are currently two deployment models for Azure. When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
+There are currently two deployment models for Azure. When you configure a VPN gateway, the steps you take depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. For more information about deployment models, see [Understanding Resource Manager and classic deployment models](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="planningtable"></a>Planning table
 
@@ -49,7 +49,10 @@ The following table can help you decide the best connectivity option for your so
 
 ## <a name="gwsku"></a>Gateway SKUs
 
-When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs. For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article. For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
+When you create a virtual network gateway, you specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughputs, features, and SLAs.
+
+* For more information about gateway SKUs, including supported features, production and dev-test, and configuration steps, see the [VPN Gateway Settings - Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
+* For Legacy SKU information, see [Working with Legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
@@ -70,7 +73,7 @@ Use the diagrams and descriptions to help select the connection topology to matc
 
 ### <a name="S2S"></a>Site-to-Site
 
-A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. For information about selecting a VPN device, see the [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s).
+A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it. For information about selecting a VPN device, see the [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s).
 
 ![Azure VPN Gateway Site-to-Site connection example](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -89,7 +92,6 @@ This type of connection is a variation of the Site-to-Site connection. You creat
 A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect to Azure VNets from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect to a VNet.
 
 Unlike S2S connections, P2S connections do not require an on-premises public-facing IP address or a VPN device. P2S connections can be used with S2S connections through the same VPN gateway, as long as all the configuration requirements for both connections are compatible. For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
-
 
 ![Azure VPN Gateway Point-to-Site connection example](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
@@ -154,5 +156,5 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 ## Next steps
 
 - View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
-- View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).
+- View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.

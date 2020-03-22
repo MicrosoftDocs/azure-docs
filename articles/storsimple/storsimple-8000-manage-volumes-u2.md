@@ -1,18 +1,9 @@
 ---
-title: Manage StorSimple volumes (Update 3) | Microsoft Docs
+title: Manage StorSimple volumes (Update 3)
 description: Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 

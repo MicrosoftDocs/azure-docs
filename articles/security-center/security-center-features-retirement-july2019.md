@@ -85,7 +85,7 @@ We retired all three screens shown in the preceding steps. Your data remains ava
 
 ### Classic Identity & Access (Preview) - the new experience
 
-The Log Analytics dashboard has shown insights on a single workspace. However, native Security Center capabilities provide visibility into all subscriptions and all workspaces associated with them. You can access an easy-to use view that lets you focus on what’s important with recommendations ranked according to their secure score.
+The Log Analytics dashboard has shown insights on a single workspace. However, native Security Center capabilities provide visibility into all subscriptions and all workspaces associated with them. You can access an easy-to use view that lets you focus on what’s important with recommendations ranked according to their Secure Score.
 
 All the features of the **Identity & Access** dashboard in Log Analytics can be reached by selecting **Identity & access (Preview)** within Security Center.
 
@@ -165,7 +165,7 @@ If you have existing connected solutions, we encourage you to move to Azure Sent
 
 Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for hardening the OS. These rules pertain to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation. The [Edit security configuration screen](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) allows customers to customize the default OS security configuration in Security Center.
 
-We retired this preview feature. To reset your security configurations back to their default values after the retirement date, do so via the API or Powershell using the [following instructions](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
+We retired this preview feature. To reset your security configurations back to their default values after the retirement date, do so via the API or Powershell using the [following instructions](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
 
 ![Edit security configurations][17]
 

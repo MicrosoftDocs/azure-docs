@@ -9,7 +9,6 @@ metadata:
   services: cognitive-services
   author: erhopf
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
@@ -36,10 +35,6 @@ landingContent:
             url: translator-text-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
-      - linkListType: concept
-        links:
-          - text: Docker containers
-            url: how-to-install-containers.md
   - title: Translator Text API
     linkLists:
       - linkListType: quickstart

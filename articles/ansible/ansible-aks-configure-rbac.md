@@ -3,10 +3,6 @@ title: Tutorial - Configure role-based access control (RBAC) roles in Azure Kube
 description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Service(AKS) cluster
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 
@@ -155,7 +151,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Replace the `&lt;your-aad-account>` placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
+Replace the `<your-aad-account>` placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
 
 Save the following playbook - that deploys your new role to AKS - as `aks-kube-deploy.yml`:
 

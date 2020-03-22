@@ -6,6 +6,7 @@ author: msmbaldwin
 manager: rkarlin
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
@@ -254,4 +255,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).ate=Succeeded}
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).

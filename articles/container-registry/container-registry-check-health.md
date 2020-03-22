@@ -1,14 +1,8 @@
 ---
-title: Check registry health in Azure Container Registry
+title: Check registry health
 description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: danlep
 ---
 # Check the health of an Azure container registry
 

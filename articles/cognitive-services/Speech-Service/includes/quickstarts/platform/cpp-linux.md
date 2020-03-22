@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech Service'
+title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C++ on Linux with the Speech Services SDK.
+description: Use this guide to set up your platform for C++ on Linux with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
 ---
@@ -18,7 +18,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## System requirements
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)
+Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
 
 ## Prerequisites
 
@@ -41,6 +41,17 @@ To complete this quickstart, you'll need:
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.2 libasound2 wget
      ```
+
+   * On RHEL/CentOS 8:
+
+     ```sh
+     sudo yum update
+     sudo yum groupinstall "Development tools"
+     sudo yum install alsa-lib openssl wget
+     ```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## Install Speech SDK
 

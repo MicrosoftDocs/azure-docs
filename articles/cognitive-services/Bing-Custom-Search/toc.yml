@@ -1,5 +1,5 @@
 - name: Bing Custom Search Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   expanded: true
   items:
@@ -27,12 +27,8 @@
             href: call-endpoint-python.md
       - name: SDK
         items:
-          - name: Using C#
-            href: sdk-csharp-quick-start.md
-          - name: Using Python
-            href: sdk-python-quickstart.md
-          - name: Using Java
-            href: sdk-java-quickstart.md
+          - name: Bing Custom Search client libraries
+            href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page

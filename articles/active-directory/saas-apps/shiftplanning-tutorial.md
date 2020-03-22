@@ -227,12 +227,12 @@ In order to enable Azure AD users to log in to Humanity, they must be provisione
 
     ![Save Employees](./media/shiftplanning-tutorial/iC786625.png "Save Employees")
 
-    a. Type the **First Name**, **Last Name**, and **Email** of a valid AAD account you want to provision into the related textboxes.
+    a. Type the **First Name**, **Last Name**, and **Email** of a valid Azure AD account you want to provision into the related textboxes.
 
     b. Click **Save Employees**.
 
 > [!NOTE]
-> You can use any other Humanity user account creation tools or APIs provided by Humanity to provision AAD user accounts.
+> You can use any other Humanity user account creation tools or APIs provided by Humanity to provision Azure AD user accounts.
 
 ### Test single sign-on
 

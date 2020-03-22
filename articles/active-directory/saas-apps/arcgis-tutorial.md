@@ -221,7 +221,7 @@ In the case of ArcGIS Online, provisioning is a manual task.
    
      ![Add and review](./media/arcgis-tutorial/ic784749.png "Add and review")
     
-	 a. Enter the **Email**, **First Name**, and **Last Name** of a valid AAD account you want to provision.
+	 a. Enter the **Email**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision.
   
      b. Click **ADD AND REVIEW**.
 5. Review the data you have entered, and then click **ADD MEMBERS**.

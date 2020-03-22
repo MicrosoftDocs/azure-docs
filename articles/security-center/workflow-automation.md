@@ -72,7 +72,7 @@ This article describes the Workflow automation feature (preview) of Azure Securi
 
     ![Refresh](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Select your Logic App and save the automation.
+1. Select your Logic App and save the automation. Note that the Logic App dropdown only shows Logic Apps with supporting Security Center connectors mentioned above.
 
 
 ## Manually trigger a Logic App
@@ -83,6 +83,9 @@ To manually run a Logic App, open a recommendation and click Trigger Logic App (
 
 [![Manually trigger a Logic App](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## Data types schemas
+
+To view the raw event schemas of the security alerts or recommendations events passed to the Logic App instance, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you are not using Security Center's built-in Logic App connectors mentioned above, but instead are using Logic App's generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
 
 ## Next steps
 
@@ -94,3 +97,4 @@ For other related material, see the following articles:
 - [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 - [About Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Logic Apps connectors](https://docs.microsoft.com/connectors/)
+- [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas)

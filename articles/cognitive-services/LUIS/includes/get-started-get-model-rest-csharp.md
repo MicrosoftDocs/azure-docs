@@ -5,33 +5,27 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
 ## Prerequisites
 
-* Starter key.
+* Azure Language Understanding - Authoring resource 32 character key and authoring endpoint URL. Create with the [Azure portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) or [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
-* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [.NET Core 3.1](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## Get LUIS key
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## Change model programmatically
 
-Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
-
-1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`. 
+1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`.
 
     ```console
     dotnet new console -lang C# -n model-with-rest
@@ -53,29 +47,29 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using System.Linq;
-    
+
     // 3rd party NuGet packages
     using JsonFormatterPlus;
-    
+
     namespace AddUtterances
     {
         class Program
         {
-            // NOTE: use your starter key value
+            // NOTE: use your LUIS authoring key - 32 character value
             static string authoringKey = "YOUR-KEY";
-    
-            // NOTE: Replace this endpoint with your starter key endpoint
-            // for example, westus.api.cognitive.microsoft.com
+
+            // NOTE: Replace this endpoint with your authoring key endpoint
+            // for example, your-resource-name.api.cognitive.microsoft.com
             static string endpoint = "YOUR-ENDPOINT";
-    
+
             // NOTE: Replace this with the ID of your LUIS application
             static string appID = "YOUR-APP-ID";
-    
+
             // NOTE: Replace this your version number
             static string appVersion = "0.1";
-    
+
             static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
-    
+
             // GET request with authentication
             async static Task<HttpResponseMessage> SendGet(string uri)
             {
@@ -96,21 +90,21 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                 {
                     request.Method = HttpMethod.Post;
                     request.RequestUri = new Uri(uri);
-    
+
                     if (!String.IsNullOrEmpty(requestBody))
                     {
                         request.Content = new StringContent(requestBody, Encoding.UTF8, "text/json");
                     }
-    
+
                     request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
                     return await client.SendAsync(request);
                 }
-            }        
+            }
             // Add utterances as string with POST request
             async static Task AddUtterances(string utterances)
             {
                 string uri = host + "examples";
-    
+
                 var response = await SendPost(uri, utterances);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Added utterances.");
@@ -120,12 +114,12 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             async static Task Train()
             {
                 string uri = host  + "train";
-    
+
                 var response = await SendPost(uri, null);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Sent training request.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Check status of training
             async static Task Status()
             {
@@ -133,7 +127,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Requested training status.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Add utterances, train, check status
             static void Main(string[] args)
             {
@@ -156,7 +150,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
                         'entityLabels': []
                     }
                 ]
-                ";            
+                ";
                 AddUtterances(utterances).Wait();
                 Train().Wait();
                 Status().Wait();
@@ -165,13 +159,17 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     }
     ```
 
-1. Replace the following values:
+1. Replace the values starting with `YOUR-` with your own values.
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` with your app's ID
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-KEY`|Your 32 character authoring key.|
+    |`YOUR-ENDPOINT`| Your authoring URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`. You set your resource name when you created the resource.|
+    |`YOUR-APP-ID`| Your LUIS app ID. |
 
-1. Build the console application. 
+    Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
+
+1. Build the console application.
 
     ```console
     dotnet build
@@ -183,13 +181,9 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     dotnet run
     ```
 
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 

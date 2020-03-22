@@ -1,7 +1,6 @@
 ---
 title: Deploy Azure Stream Analytics jobs with CI/CD and Azure DevOps
 description: This article describes how to deploy a Stream Analytics job with CI/CD using Azure DevOps Services.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea

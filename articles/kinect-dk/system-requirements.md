@@ -1,10 +1,14 @@
 ---
 title: Azure Kinect Sensor SDK system requirements
-description: Sensor SDK system requirements
+description: Understand the system requirements for the Azure Kinect Sensor SDK on Windows and Linux.
 author: tesych
 ms.author: tesych
+ms.custom: 
+- CI 115266
+- CSSTroubleshooting
+manager: dcscontentpm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/12/2020
 ms.topic: article
 keywords: azure, kinect, system requirements, CPU, GPU, USB, set up, setup, minimum, requirements
 ---
@@ -15,8 +19,8 @@ This document provides details about the system requirements needed to install t
 
 ## Supported operating systems and architectures
 
-- Windows 10 April 2018 release (x64) or later
-- Linux Ubuntu 18.04 (x64) with OpenGLv4.4 or later GPU driver
+- Windows 10 April 2018 (Version 1803, OS Build 17134) release (x64) or a later version
+- Linux Ubuntu 18.04 (x64), with a GPU driver that uses OpenGLv4.4 or a later version
 
 The Sensor SDK is available for the Windows API (Win32) for native C/C++ Windows applications. The SDK isn't currently available to UWP applications. Azure Kinect DK isn't supported for Windows 10 in S mode.
 
@@ -28,7 +32,7 @@ To contribute to sensor SDK development, visit [GitHub](https://github.com/Micro
 
 The PC host hardware requirement is dependent on application/algorithm/sensor frame rate/resolution executed on host PC. Recommended minimum Sensor SDK configuration for Windows is:
 
-- Seventh Gen Intel® CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
+- Seventh Gen Intel&reg; CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
 - 4 GB Memory
 - Dedicated USB3 port
 - Graphics driver support for OpenGL 4.4 or DirectX 11.0
@@ -41,7 +45,7 @@ Performance differs also between Windows/Linux operating systems and graphics dr
 
 The body tracking PC host requirement is more stringent than the general PC host requirement. Recommended minimum Body Tracking SDK configuration for Windows is:
 
-- Seventh Gen Intel® CoreTM i5 Processor (Quad Core 2.4 GHz or faster)
+- Seventh Gen Intel&reg; CoreTM i5 Processor (Quad Core 2.4 GHz or faster)
 - 4 GB Memory
 - NVIDIA GEFORCE GTX 1070 or better
 - Dedicated USB3 port

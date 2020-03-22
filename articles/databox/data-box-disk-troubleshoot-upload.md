@@ -1,5 +1,6 @@
 ---
-title: Azure Data Box Disk troubleshooting data upload issues using logs | Microsoft Docs 
+title: Troubleshoot data uploads using logs
+titleSuffix: Azure Data Box Disk
 description: Describes how to use the logs and troubleshoot issues seen when uploading data to Azure Data Box Disk.
 services: databox
 author: alkohli

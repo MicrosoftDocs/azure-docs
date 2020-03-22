@@ -1,5 +1,5 @@
 ---
-title: Monitor and tune in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Monitor and tune - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes monitoring and tuning features in Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels

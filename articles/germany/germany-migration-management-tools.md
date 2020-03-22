@@ -6,12 +6,19 @@ services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
+ms.date: 11/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate management tool resources to global Azure
+
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
 This article has information that can help you migrate Azure management tools from Azure Germany to global Azure.
 
@@ -42,17 +49,17 @@ You can't migrate Azure Backup jobs and snapshots from Azure Germany to global A
 
 For more information: 
 
-- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/).
 - Review the [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md).
 
 ## Scheduler
 
-Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling jobs.
+Azure Scheduler is being retired. To create scheduling jobs, you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) in global Azure instead.
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
+- Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
+- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 ## Network Watcher
 

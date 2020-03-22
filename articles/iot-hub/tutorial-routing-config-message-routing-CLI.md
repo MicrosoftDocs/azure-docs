@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using the Azure CLI | Microsoft Docs
-description: Configure message routing for Azure IoT Hub using the Azure CLI
+title: Configure message routing for Azure IoT Hub using the Azure CLI
+description: Configure message routing for Azure IoT Hub using the Azure CLI. Depending on properties in the message, route to either a storage account or a Service Bus queue.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -51,7 +51,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that 
 #   don't have to be globally unique.

@@ -1,11 +1,7 @@
 ---
 title: Deploy to Azure Functions using the Jenkins Azure Functions plug-in
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
-ms.service: jenkins
 keywords: jenkins, azure, devops, java, azure functions
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---
@@ -30,19 +26,19 @@ The following steps show how to create a Java function using the Azure CLI:
 
 1. Create a resource group, replacing the **&lt;resource_group>** placeholder with your resource group name.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Create an Azure storage account, replacing the placeholders with the appropriate values.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Create the test function app, replacing the placeholders with the appropriate values.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -130,7 +126,7 @@ In this section, you create the [Jenkins Pipeline](https://jenkins.io/doc/book/p
 
 It's now time to run the Jenkins job.
 
-1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings](/azure/azure-functions/functions-bindings-http-webhook#authorization-keys) article.
+1. First, obtain the authorization key via the instructions in the [Azure Functions HTTP triggers and bindings](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys) article.
 
 1. In your browser, enter the app's URL. Replace the placeholders with the appropriate values and specify a numeric value for **&lt;input_number>** as input for the Java function.
 
@@ -148,7 +144,7 @@ It's now time to run the Jenkins job.
 If you're not going to continue to use this application, delete
 the resources you created with the following step:
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

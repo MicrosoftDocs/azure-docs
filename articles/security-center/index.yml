@@ -8,7 +8,6 @@ metadata:
   description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
@@ -39,13 +38,13 @@ landingContent:
             url: container-security.md
           - text: Add dynamic compliance packages
             url: update-regulatory-compliance-packages.md
-          - text: Integrate with Windows Admin Center
-            url: windows-admin-center-integration.md
+          - text: Review the schemas for security alerts 
+            url: alerts-schemas.md
           - text: Automate responses to alerts and recommendations
             url: workflow-automation.md
           - text: Export security alerts and recommendations
             url: continuous-export.md
-          - text: Set up advanced threat protection for Azure Key Vault 
+          - text: Set up threat protection for Azure Key Vault 
             url: advanced-threat-protection-key-vault.md
  
   # Card
@@ -59,16 +58,14 @@ landingContent:
             url: security-center-secure-score.md
           - text: Upgrade to advanced security
             url: security-center-onboarding.md
-          - text: Integrate with other Azure security products
-            url: security-center-alerts-integration.md
 
   # Card
-  - title: Improve your secure score
+  - title: Improve your Secure Score
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is a secure score?
-            url: security-center-secure-score.md
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
           - text: Customize your security recommendations

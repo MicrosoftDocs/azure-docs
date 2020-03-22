@@ -1,5 +1,5 @@
 ---
-title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API
+title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 author: kanshiG
 ms.author: govindk
@@ -91,7 +91,7 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 ## Cassandra API limits
 
-Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly, every entity or row equivalent does not have any limits on the number of columns. However, the total size of the entity should not exceed 2 MB. The data per partition key cannot exceed 10 GB as in all other APIs.
+Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly, every entity or row equivalent does not have any limits on the number of columns. However, the total size of the entity should not exceed 2 MB. The data per partition key cannot exceed 20 GB as in all other APIs.
 
 ## Tools 
 
@@ -105,7 +105,7 @@ CQLSH command-line utility comes with Apache Cassandra 3.1.1 and works out of bo
 
 **Windows:**
 
-If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
+If using windows, we recommend you enable the [Windows filesystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
 **Unix/Linux/Mac:**
 
@@ -140,6 +140,8 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 
 * CREATE KEYSPACE (The replication settings for this command are ignored)
 * CREATE TABLE 
+* CREATE INDEX (without specifying index name, and full frozen indexes not yet supported)
+* ALLOW FILTERING
 * ALTER TABLE 
 * USE 
 * INSERT 
@@ -174,7 +176,7 @@ Azure Cosmos DB supports role-based access control (RBAC) for provisioning, rota
 
 ## Keyspace and Table options
 
-The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB’s [global distribution](global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](global-dist-under-the-hood.md) can't be modified.
+The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](global-dist-under-the-hood.md) can't be modified.
  
 All the options are ignored when creating the table, except gc_grace_seconds, which should be set to zero.
 The Keyspace and table have an extra option named "cosmosdb_provisioned_throughput" with a minimum value of 400 RU/s. The Keyspace throughput allows sharing throughput across multiple tables and it is useful for scenarios when all tables are not utilizing the provisioned throughput. Alter Table command allows changing the provisioned throughput across the regions. 

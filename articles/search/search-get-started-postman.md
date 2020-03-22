@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Create a search index in Postman using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: Learn how to call the Azure Cognitive Search REST APIs using Postman and sample data and definitions.
+description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman and sample data and definitions.
 
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Postman using REST APIs
@@ -284,7 +284,7 @@ Adding `/stats` to your URL returns index information. In Postman, your request 
 
 Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The `?` separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 

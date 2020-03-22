@@ -12,10 +12,10 @@
     href: /azure/machine-learning/service/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
   - name: Enrich an image classification model
     href: /azure/machine-learning/service/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
-- name: How-to guides 
-  items:   
+- name: How-to guides
+  items:
   - name: Datasets in Azure Machine Learning
-    href: ../machine-learning/service/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json            
+    href: ../machine-learning/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json            
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md
@@ -43,4 +43,3 @@
     href: https://aka.ms/open-datasets-forum
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-open-datasets
-

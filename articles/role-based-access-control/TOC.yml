@@ -28,15 +28,29 @@
     href: tutorial-custom-role-cli.md
 - name: Concepts
   items:
-  - name: Understand role definitions
-    href: role-definitions.md
   - name: PIM for Azure resources
     href: pim-azure-resource.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
-  - name: Manage access
+  - name: List role definitions
+    items:
+    - name: Overview
+      href: role-definitions.md
+    - name: List role definitions
+      href: role-definitions-list.md
+  - name: List role assignments
+    items:
+    - name: Portal
+      href: role-assignments-list-portal.md
+    - name: PowerShell
+      href: role-assignments-list-powershell.md
+    - name: CLI
+      href: role-assignments-list-cli.md
+    - name: REST API
+      href: role-assignments-list-rest.md
+  - name: Add or remove role assignments
     items:
     - name: Portal
       href: role-assignments-portal.md
@@ -50,9 +64,9 @@
       href: role-assignments-rest.md
     - name: Template
       href: role-assignments-template.md
-  - name: Deny access
+  - name: List deny assignments
     items:
-    - name: Deny assignments
+    - name: Overview
       href: deny-assignments.md
     - name: Portal
       href: deny-assignments-portal.md
@@ -60,10 +74,12 @@
       href: deny-assignments-powershell.md
     - name: REST API
       href: deny-assignments-rest.md
-  - name: Custom roles
+  - name: Create custom roles
     items:
     - name: Overview
       href: custom-roles.md
+    - name: Portal
+      href: custom-roles-portal.md
     - name: PowerShell
       href: custom-roles-powershell.md
     - name: Azure CLI
@@ -72,7 +88,7 @@
       href: custom-roles-rest.md
   - name: View activity logs
     href: change-history-report.md
-  - name: Elevate access to manage all subscriptions
+  - name: Elevate access
     href: elevate-access-global-admin.md
   - name: Classic administrators
     href: classic-administrators.md
@@ -85,7 +101,7 @@
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: RBAC limits
-    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: Azure CLI

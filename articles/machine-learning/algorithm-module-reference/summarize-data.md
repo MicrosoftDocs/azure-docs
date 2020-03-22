@@ -1,7 +1,7 @@
 ---
 title:  "Summarize Data"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Summarize Data module in Azure Machine Learning service to generate a basic descriptive statistics report for the columns in a dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Summarize Data module in Azure Machine Learning to generate a basic descriptive statistics report for the columns in a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
+ms.date: 01/27/2020
 ---
 
 # Summarize Data
@@ -36,7 +36,7 @@ The module calculates the important scores for each column, and returns a row of
 
 1. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
 
-1. Run the pipeline, or right-click the module, and select **Run selected**.
+1. Submit the pipeline.
 
 ## Results
 
@@ -67,6 +67,20 @@ The report from the module can include the following statistics.
 |**P95**|95% percentile|
 |**P99.5**|99.5% percentile |
 
+## Technical notes
+
+- For non-numeric columns, only the values for Count, Unique value count, and Missing value count are computed. For other statistics, a null value is returned.
+
+- Columns that contain Boolean values are processed using these rules:
+
+    - When calculating Min, a logical AND is applied.
+    
+    - When calculating Max, a logical OR is applied
+    
+    - When computing Range, the module first checks whether the number of unique values in the column equals 2.
+    
+    - When computing any statistic that requires floating-point calculations, values of True are treated as 1.0, and values of False are treated as 0.0.
+
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service.  
+See the [set of modules available](module-reference.md) to Azure Machine Learning.  

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create VMs running an SQL, IIS, .NET stack in Azure| Microsoft Docs
+title: Tutorial - Create VMs running an SQL, IIS, .NET stack in Azure
 description: In this tutorial, you learn how to install the Azure SQL, IIS, .NET stack on a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines

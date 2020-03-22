@@ -1,7 +1,7 @@
 ---
 title: Bing Local Business Search API v7 Reference
 titleSuffix: Azure Cognitive Services
-description: Describes the programming elements of the Bing Local Business Search API.
+description: This article provides technical details about the response objects, and the query parameters and headers that affect the search results.
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -1,5 +1,5 @@
 ---
-title: Cloud business continuity - database recovery - SQL Database 
+title: Cloud business continuity - database recovery
 description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
@@ -59,7 +59,7 @@ If the maximum supported backup retention period for point-in-time restore (PITR
 |:---------------------------------------------| :-------------- | :----------------|
 | Automatic failover                           |     No          |      Yes         |
 | Fail over multiple databases simultaneously  |     No          |      Yes         |
-| Update connection string after failover      |     Yes         |      No          |
+| User must update connection string after failover      |     Yes         |      No          |
 | Managed instance supported                   |     No          |      Yes         |
 | Can be in same region as primary             |     Yes         |      No          |
 | Multiple replicas                            |     Yes         |      No          |

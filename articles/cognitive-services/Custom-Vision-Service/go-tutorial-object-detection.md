@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an object detection project with the Custom Vision SDK for Go"
+title: "Quickstart: Create an object detection project with the SDK for Go - Custom Vision"
 titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the Go SDK.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision Go SDK
@@ -106,7 +106,10 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
 
-To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that for this tutorial the regions are hardcoded inline with the code. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
+
+To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that in this tutorial the regions are hard-coded inline. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
 ```Go
 forkImageRegions := map[string][4]float64{
@@ -220,7 +223,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 
 ### Train the project and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it's published.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)

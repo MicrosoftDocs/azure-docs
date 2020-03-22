@@ -1,11 +1,10 @@
 ---
 title: Monitor Azure Storage services with Azure Monitor for Storage (preview)| Microsoft Docs
 description: This article describes the Azure Monitor for Storage feature that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
 
 ---
@@ -164,7 +163,7 @@ You can configure the multi-subscription and storage account **Overview** or **C
 
 ### Modify metrics and colors in the workbook
 
-The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. 
+The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs.
 
 In our example, we are working with the multi-subscription and storage account capacity workbook, to demonstrate how to:
 
@@ -179,7 +178,7 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
     ![Select edit to modify a workbook](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Next to the metrics section, select **Edit**. 
+3. Next to the metrics section, select **Edit**.
 
     ![Select Edit to modify capacity workbook metrics](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
@@ -187,7 +186,7 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
     ![Edit column settings](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer** select **Hidden**. 
+5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer** select **Hidden**.
 
 6. Select **Save and close** to commit your change.
 
@@ -230,6 +229,87 @@ This section will help you with the diagnosis and troubleshooting of some of the
 ### Resolving performance, capacity, or availability issues
 
 To help troubleshoot any storage-related issues you identify with Azure Monitor for Storage (preview), see the Azure Storage [troubleshooting guidance](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
+
+### Why can I only see 200 storage accounts?
+
+The number of selected storage accounts has a limit of 200, regardless of the number of subscriptions that are selected.
+
+### What happens when I click on a recently pinned tile in the dashboard?
+
+* If you click anywhere on the tile, it will take you to the tab where the tile was pinned from. For example, if you pin a graph in the "Storage Account Overview" tab then when you click that tile in the dashboard it will open up that default view, however if you pin a graph from your own saved copy then it will open up your saved copy's view.
+* The filter icon in the top left of the title opens the "Configure tile settings" tab.
+* The ellipse icon in the top right will give you the options to "Customize title data", "customize", "refresh" and "remove from dashboard".
+
+### What happens when I save a workbook?
+
+* When you save a workbook, it lets you create a new copy of the workbook with your edits and change the title. Saving does not overwrite the workbook, the current workbook will always be the default view.
+* An **unsaved** workbook is just the default view.
+
+
+### Why don’t I see all my subscriptions in the portal?
+
+The portal will show data only for selected subscriptions on portal launch. To change what subscriptions are selected, go to the top right and click on the notebook with a filter icon. This will show the Directory + subscriptions tab.
+
+![Directory + subscription](./media/storage-insights-overview/fqa3.png)
+
+### How to change the coloring and threshold for availability?
+
+Refer to the [Modify the availability threshold](storage-insights-overview.md#modify-the-availability-threshold)
+section for the detailed steps on how to change the coloring and thresholds for availability.
+
+### How to analyze and troubleshoot the data shown in Azure Monitor for Storage?
+
+ Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) article for details on how to analyze and troubleshoot the Azure Storage data shown in Azure Monitor for Storage.
+
+### Why don’t I see all the types of errors in metrics?
+
+Currently, up to three different types of errors are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
+
+1. Click on edit workbook.
+2. Go to metrics, click on edit and then select **Transactions, Sum** or whatever metrics you want to edit.
+
+    ![Go to metrics and click on edit then on "Transactions, Sums"](./media/storage-insights-overview/fqa7.png)
+
+1. Then change the Number of Splits.
+
+    ![Select Metric Parameters"](./media/storage-insights-overview/fqa7-2.png)
+
+If you want to see n different types of error than specify splitByLimit as n+1, 1 extra for rest of the errors.
+
+###  I saved my workbook while on some Storage Account. Why can’t I find it now?
+
+Each workbook is saved in the storage account that you saved it in. Try to find the specific Storage Account in which the user saved the workbook. Otherwise, there is no way to find a specific workbook without knowing the resource (storage account).
+
+### What is time range?
+
+Time range shows you data from a certain time frame. For example, if the time range is 24 hours, then it's showing data from the past 24 hours.
+
+### What is time granularity (time grain)?
+
+Time granularity is the time difference between two data points. For example, if the time grain is set to 1 second that means metrics are collected each second.
+
+### What is the time granularity once we pin any part of the workbooks to a dashboard?
+
+The default time granularity is set to automatic, it currently can't be changed at this time.
+
+### How do I change the timespan/ time range of the workbook step on my dashboard?
+
+By default the timespan/time range on your dashboard tile is set to 24 hours, to change this click on the ellipses in the top right, select **Customize tile data**, check "override the dashboard time settings at the title level" box and then pick a timespan using the dropdown menu.  
+
+![Select the ellipses in the right corner of the tile and choose Customize this data](./media/storage-insights-overview/fqa-data-settings.png)
+
+![In Configure tile settings select the timespan dropdown to change the timespan/time range](./media/storage-insights-overview/fqa-timespan.png)
+
+### How do I change the title of the workbook or a workbook step I pinned to a dashboard?
+
+The title of the workbook or workbook step that is pinned to a dashboard retains the same name it had in the workbook. To change the title, you must save your own copy of the workbook. Then you will be able to name the workbook before you press save.
+
+![Select save at the top to save a copy of the workbook and to change the name of it](./media/storage-insights-overview/fqa-change-workbook-name.png)
+
+To change the name of a step in your saved workbook select edit under the step and then select the gear at the very bottom of settings.
+
+![Select edit at the bottom of a workbook step to open up the settings](./media/storage-insights-overview/fqa-edit.png)
+![In settings select the gear at the bottom, to be able to change the step name](./media/storage-insights-overview/fqa-change-name.png)
 
 ## Next steps
 

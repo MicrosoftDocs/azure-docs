@@ -5,6 +5,7 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: ChJenk
 manager: Ricardo.Villalobos 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen

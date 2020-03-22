@@ -8,7 +8,7 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 02/10/2020
 ---
 
 # Azure Data Factory FAQ
@@ -96,7 +96,7 @@ You can deploy one or many instances of the integration runtime as required to m
 For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
 
 ## What is the limit on the number of integration runtimes?
-There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
+There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## What are the top-level concepts of Azure Data Factory?
 An Azure subscription can have one or more Azure Data Factory instances (or data factories). Azure Data Factory contains four key components that work together as a platform on which you can compose data-driven workflows with steps to move and transform data.
@@ -189,6 +189,9 @@ Use the Copy activity to stage data from any of the other connectors, and then e
 ### Is the self-hosted integration runtime available for data flows?
 
 Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+
+### Does the data flow compute engine serve multiple tenants?
+Clusters are never shared. We guarantee isolation for each job run in production runs. In case of debug scenario one person gets one cluster, and all debugs will go to that cluster which are initiated by that user.
 
 ## Wrangling data flows
 

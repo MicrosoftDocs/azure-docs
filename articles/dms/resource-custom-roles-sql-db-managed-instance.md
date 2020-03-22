@@ -1,14 +1,15 @@
 ---
-title: Custom roles for SQL Server to SQL Database managed instance online migrations | Microsoft Docs
-description: Learn to use the custom roles for SQL Server to SQL Database managed instance online migrations.
+title: "Custom roles: Online SQL Server to SQL managed instance migrations"
+titleSuffix: Azure Database Migration Service
+description: Learn to use the custom roles for SQL Server to Azure SQL Database managed instance online migrations.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 10/25/2019
 ---

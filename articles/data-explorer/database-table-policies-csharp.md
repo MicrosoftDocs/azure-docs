@@ -21,19 +21,14 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Prerequisites
 
 * Visual Studio 2019. If you don't have Visual Studio 2019, you can download and use the *free* [Visual Studio Community 2019](https://www.visualstudio.com/downloads/). Be sure to select **Azure development** during the Visual Studio setup.
-
 * An Azure subscription. If you need to, you can create a [free Azure account](https://azure.microsoft.com/free/) before you start.
-
 * [A test cluster and database](create-cluster-database-csharp.md).
-
 * [A test table](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
 ## Install C# NuGet
 
 * Install the [Azure Data Explorer (Kusto) NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-
 * Install the [Microsoft.Azure.Kusto.Data.NETStandard NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/). (Optional, for changing table policies.)
-
 * Install the [Microsoft.IdentityModel.Clients.ActiveDirectory NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/), for authentication.
 
 ## Authentication

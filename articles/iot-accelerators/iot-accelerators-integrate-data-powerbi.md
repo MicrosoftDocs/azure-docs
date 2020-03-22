@@ -1,9 +1,9 @@
 ---
 title: Visualize Remote Monitoring data using Power BI - Azure | Microsoft Docs 
-description: This tutorial uses Power BI Desktop and Cosmos DB to integerate data from a Remote Monitoring solution into a customized visualization. This way users can build their own custom dashboards and share them out to users not on the solution. 
-author: asdonald
+description: This tutorial uses Power BI Desktop and Cosmos DB to integrate data from a Remote Monitoring solution into a customized visualization. This way users can build their own custom dashboards and share them out to users not on the solution. 
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
@@ -17,13 +17,13 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 ## Prerequisites
 
 - You must have a Remote Monitoring solution currently running
-- You must have access to [Azure Portal](https://portal.azure.com) and your subscription on which the IoT Hub and Solution are running
+- You must have access to [Azure portal](https://portal.azure.com) and your subscription on which the IoT Hub and Solution are running
 - You must have [Power BI desktop](https://powerbi.microsoft.com) installed, any version will do
 
 
-## Information Needed from Azure Portal
+## Information Needed from Azure portal
 
-1. Navigate to [Azure Portal](https://portal.azure.com) and sign-in if needed
+1. Navigate to [Azure portal](https://portal.azure.com) and sign-in if needed
 
 2. On the left-hand panel, click Resource groups
 

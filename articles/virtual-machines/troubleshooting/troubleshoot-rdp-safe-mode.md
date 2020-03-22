@@ -20,9 +20,6 @@ ms.author: genli
 
 This article shows how to resolve a problem in which you cannot connect to Azure Windows Virtual Machines (VMs) because the VM is configured to boot into Safe Mode.
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptoms
 

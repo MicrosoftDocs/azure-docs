@@ -1,6 +1,6 @@
 ---
 title: Find exact moments within videos - Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This topic demonstrates how to find exact moments within videos using Video Indexer.
 services: media-services
 author: Juliako

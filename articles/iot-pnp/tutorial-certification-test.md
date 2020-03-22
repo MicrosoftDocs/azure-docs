@@ -7,7 +7,7 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
+ms.date: 12/27/2019
 # As a device builder, I want to certify my IoT Plug and Play device and add it to the Azure IoT device catalog so that customers can find it.
 ---
 

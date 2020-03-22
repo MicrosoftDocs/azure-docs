@@ -1,14 +1,8 @@
 ﻿---
-title: Security controls for Azure Backup
+title: Security controls
 description: Learn about the security controls used in the Azure Backup service. These controls help the service prevent, detect, and respond to security vulnerabilities.
-ms.reviewer: mbaldwin
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: dacurwin
-
 ---
 # Security controls for Azure Backup
 

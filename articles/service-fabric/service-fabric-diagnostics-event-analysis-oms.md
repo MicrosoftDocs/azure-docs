@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Event Analysis with Azure Monitor logs | Microsoft Docs
+title: Azure Service Fabric Event Analysis with Azure Monitor logs 
 description: Learn about visualizing and analyzing events using Azure Monitor logs for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-
 ---
 
 # Event analysis and visualization with Azure Monitor logs

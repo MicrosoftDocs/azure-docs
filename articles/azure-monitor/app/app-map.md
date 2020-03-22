@@ -1,11 +1,7 @@
 ---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/15/2019
 
 ms.reviewer: sdash
@@ -65,13 +61,13 @@ Select **go to details** to explore the end-to-end transaction experience, which
 
 ![Screenshot of end-to-end transaction details](media/app-map/end-to-end-transaction.png)
 
-### View in Analytics
+### View Logs (Analytics)
 
-To query and investigate your applications data further, click **view in analytics**.
+To query and investigate your applications data further, click **view in Logs (Analytics)**.
 
-![Screenshot of view in analytics button](media/app-map/view-in-analytics.png)
+![Screenshot of view in analytics button](media/app-map/view-logs.png)
 
-![Screenshot of analytics experience](media/app-map/analytics.png)
+![Screenshot of analytics experience. Line graph summarizing the average response duration of a request over the past 12 hours.](media/app-map/log-analytics.png)
 
 ### Alerts
 
@@ -231,7 +227,7 @@ Alternatively, **cloud role instance** can be helpful for scenarios where **clou
 
 A scenario where you might want to override the value for cloud role instance could be if your app is running in a containerized environment where just knowing the individual server might not be enough information to locate a given issue.
 
-For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## Troubleshooting
 
@@ -273,6 +269,6 @@ To provide feedback, use the feedback option.
 
 ## Next steps
 
-* To learn more about how correlation works in Application Insights consult the [telemetry correlation article](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* To learn more about how correlation works in Application Insights consult the [telemetry correlation article](correlation.md).
 * The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights monitored components into a single view.
 * For advanced correlation scenarios in ASP.NET Core and ASP.NET consult the [track custom operations](custom-operations-tracking.md) article.

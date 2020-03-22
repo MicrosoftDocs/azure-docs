@@ -1,5 +1,5 @@
 ---
-title: Working with projections in a knowledge store (preview)
+title: Projections in a knowledge store (preview)
 titleSuffix: Azure Cognitive Search
 description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. Knowledge store is currently in public preview.
 
@@ -8,16 +8,16 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/08/2020
 ---
 
-# Working with projections in a knowledge store in Azure Cognitive Search
+# Projections in a knowledge store in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
-Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
+Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
 Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
@@ -25,13 +25,13 @@ Projections can be tabular, with data stored in rows and columns in Azure Table 
 
 The knowledge store supports three types of projections:
 
-+ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. Only valid JSON objects can be projected as tables, the enriched document can contain nodes that are not named JSON objects and when projecting these objects, create a valid JSON object with a shaper skill or inline shaping.
 
-+ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
++ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs. Only valid JSON objects can be projected as objects, the enriched document can contain nodes that are not named JSON objects and when projecting these objects, create a valid JSON object with a shaper skill or inline shaping.
 
-+ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images.
++ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images to blob storage.
 
-To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
+To see projections defined in context, step through [Create a knowledge store in REST](knowledge-store-create-rest.md).
 
 ## Projection groups
 
@@ -44,7 +44,7 @@ This independence implies that you can have the same data shaped differently, ye
 
 ### Relatedness
 
-Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
+Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a column/property containing the file URL.
 
 ## Input shaping
 
@@ -111,10 +111,6 @@ Here is an example of table projections.
 
 As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
 
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
-
 ## Object projections
 
 Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
@@ -138,10 +134,8 @@ Object projections are JSON representations of the enrichment tree that can be s
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -155,9 +149,8 @@ Object projections are JSON representations of the enrichment tree that can be s
 
 Generating an object projection requires a few object-specific attributes:
 
-+ storageContainer: The container where the objects will be saved
++ storageContainer: The blob container where the objects will be saved
 + source: The path to the node of the enrichment tree that is the root of the projection
-+ key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
 
 ## File projection
 
@@ -214,4 +207,9 @@ Finally, if you need to export your data from the knowledge store, Azure Data Fa
 As a next step, create your first knowledge store using sample data and instructions.
 
 > [!div class="nextstepaction"]
-> [How to create a knowlege store](knowledge-store-howto.md).
+> [Create a knowledge store in REST](knowledge-store-create-rest.md).
+
+For a tutorial covering advanced projections concepts like slicing, inline shaping and relationships, start with [define projections in a knowledge store](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

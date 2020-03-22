@@ -16,6 +16,9 @@ This article provides the properties and schema for blob storage events. For an
 
 For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+
 ## List of events for Blob REST APIs
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
@@ -65,7 +68,7 @@ This section contains an example of what that data would look like for each blob
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -104,7 +107,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,

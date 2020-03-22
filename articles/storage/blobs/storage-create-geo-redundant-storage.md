@@ -1,12 +1,13 @@
 ---
-title: 'Tutorial: Build a highly available application with Blob storage - Azure Storage'
-description: Use read-access geo-redundant storage to make your application data highly available
+title: Tutorial - Build a highly available application with Blob storage
+titleSuffix: Azure Storage
+description: Use read-access geo-redundant storage to make your application data highly available.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
@@ -18,7 +19,7 @@ ms.subservice: blobs
 
 This tutorial is part one of a series. In it, you learn how to make your application data highly available in Azure.
 
-When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account.
+When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account.
 
 RA-GRS works by replicating transactions from a primary region to a secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
 
@@ -37,8 +38,7 @@ To complete this tutorial:
 
 # [.NET](#tab/dotnet)
 
-* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
-  - **Azure development**
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -76,7 +76,7 @@ Follow these steps to create a read-access geo-redundant storage account:
    | **Performance** | Standard | Standard is sufficient for the example scenario. |
    | **Replication**| Read-access geo-redundant storage (RA-GRS) | This is necessary for the sample to work. |
    |**Subscription** | your subscription |For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   |**ResourceGroup** | myResourceGroup |For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    |**Location** | East US | Choose a location. |
 
 ![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
@@ -188,7 +188,6 @@ The Storage object retry function is set to a linear retry policy. The retry fun
 
 Before the download, the Service object [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) and [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) function is defined. These functions define event handlers that fire when a download completes successfully or if a download fails and is retrying.
 
-
 # [Node.js](#tab/nodejs)
 
 To run the sample, open a command prompt, navigate to the sample folder, then enter `node index.js`.
@@ -220,7 +219,7 @@ Deleted container newcontainer1550799840726
 
 ## Understand the sample code
 
-# [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 ### Retry event handler
 
@@ -271,7 +270,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# [Python](#tab/python)
+### [Python](#tab/python)
 
 ### Retry event handler
 
@@ -314,7 +313,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# [Node.js](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 With the Node.js V10 SDK, callback handlers are unnecessary. Instead, the sample creates a pipeline configured with retry options and a secondary endpoint. This allows the application to automatically switch to the secondary pipeline if it fails to reach your data through the primary pipeline.
 
@@ -346,4 +345,4 @@ In part one of the series, you learned about making an application highly availa
 Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GRS endpoint.
 
 > [!div class="nextstepaction"]
-> [Simulate a failure in connection to your primary storage endpoint](storage-simulate-failure-ragrs-account-app.md)
+> [Simulate a failure in reading from the primary region](storage-simulate-failure-ragrs-account-app.md)
