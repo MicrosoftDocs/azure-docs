@@ -13,7 +13,7 @@ Use the following matrix for MABS v3 UR1:
 
 * Workloads – The workload type of technology.
 
-* Version – Supported DPM version for the workloads.
+* Version – Supported MABS version for the workloads.
 
 * MABS installation – The computer/location where you wish to install MABS.
 
@@ -21,7 +21,7 @@ Use the following matrix for MABS v3 UR1:
 
 ## Protection support matrix
 
-The following sections details the protection support matrix for DPM:
+The following sections details the protection support matrix for MABS:
 
 * [Applications Backup](#applications-backup)
 * [VM Backup](#vm-backup)

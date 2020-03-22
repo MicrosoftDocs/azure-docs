@@ -124,41 +124,29 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 
 ### Role permissions
 
-| **Privileges for vCenter 6.5 and above user account**        | **Privileges for vCenter 6.0 user account**               | **Privileges for vCenter 5.5 user account** |
-| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
-| Datastore.AllocateSpace                                      |                                                           |                                             |
-| Datastore.Browse datastore                                   | Datastore.AllocateSpace                                   | Network.Assign                              |
-| Datastore.Low-level file operations                          | Global.Manage custom attributes                           | Datastore.AllocateSpace                     |
-| Datastore cluster.Configure a datastore cluster             | Global.Set custom attribute                               | VirtualMachine.Config.ChangeTracking        |
-| Global.Disable methods                                       | Host.Local operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
-| Global.Enable methods                                        | Network. Assign network                                   | VirtualMachine.State.CreateSnapshot         |
-| Global.Licenses                                              | Resource. Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
-| Global.Log event                                             | Virtual machine.Configuration.Add new disk                | VirtualMachine.Interact.PowerOff            |
-| Global.Manage custom attributes                              | Virtual machine.Configuration.Advanced                    | VirtualMachine.Inventory.Create             |
-| Global.Set custom attribute                                  | Virtual machine.Configuration.Disk change tracking        | VirtualMachine.Config.AddNewDisk            |
-| Network.Assign network                                       | Virtual machine.Configuration.Host USB device             | VirtualMachine.Config.HostUSBDevice         |
-| Resource. Assign virtual machine to resource pool            | Virtual machine.Configuration.Query unowned files         | VirtualMachine.Config.AdvancedConfig        |
-| Virtual machine.Configuration.Add new disk                   | Virtual machine.Configuration.Swapfile placement          | VirtualMachine.Config.SwapPlacement         |
-| Virtual machine.Configuration.Advanced                       | Virtual machine.Interaction.Power Off                     | Global.ManageCustomFields                   |
-| Virtual machine.Configuration.Disk change tracking           | Virtual machine.Inventory. Create new                     |                                             |
-| Virtual machine.Configuration.Disk lease                     | Virtual machine.Provisioning.Allow disk access            |                                             |
-| Virtual machine.Configuration.Extend virtual disk            | Virtual machine.Provisioning. Allow read-only disk access |                                             |
-| Virtual machine.Guest Operations.Guest Operation Modifications | Virtual machine.Snapshot management.Create snapshot       |                                             |
-| Virtual machine.Guest Operations.Guest Operation Program Execution | Virtual machine.Snapshot management.Remove Snapshot       |                                             |
-| Virtual machine.Guest Operations.Guest Operation Queries     |                                                           |                                             |
-| Virtual machine .Interaction .Device connection              |                                                           |                                             |
-| Virtual machine .Interaction .Guest operating system management by VIX API |                                                           |                                             |
-| Virtual machine .Inventory.Register                          |                                                           |                                             |
-| Virtual machine .Inventory.Remove                            |                                                           |                                             |
-| Virtual machine .Provisioning.Allow disk access              |                                                           |                                             |
-| Virtual machine .Provisioning.Allow read-only disk access    |                                                           |                                             |
-| Virtual machine .Provisioning.Allow virtual machine download |                                                           |                                             |
-| Virtual machine .Snapshot management. Create snapshot        |                                                           |                                             |
-| Virtual machine .Snapshot management.Remove Snapshot         |                                                           |                                             |
-| Virtual machine .Snapshot management.Revert to snapshot      |                                                           |                                             |
-| vApp.Add virtual machine                                     |                                                           |                                             |
-| vApp.Assign resource pool                                    |                                                           |                                             |
-| vApp.Unregister                                              |                                                           |                                             |
+| **Privileges for vCenter  6.5 and above user account**   | **Privileges for vCenter 6.0 user account**                | **Privileges for vCenter 5.5 user account** |
+| -------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- |
+| Datastore.Allocate Space                                 | Datastore.AllocateSpace                                    | Network.Assign                              |
+| Global.Log Event                                         | Global.Manage  custom attributes                           | Datastore.AllocateSpace                     |
+| Global.Manage Custom Attributes                          | Global.Set  custom attribute                               | VirtualMachine.Config.ChangeTracking        |
+| Network.Assign                                           | Host.Local  operations.Create virtual machine              | VirtualMachine.State.RemoveSnapshot         |
+| Resource. Assign virtual Machine to  Resource pool       | Network.  Assign network                                   | VirtualMachine.State.CreateSnapshot         |
+| VirtualMachine.Configuration.AddNewDisk                  | Resource.  Assign virtual machine to resource pool         | VirtualMachine.Provisioning.DiskRandomRead  |
+| VirtualMachine.Configuration. Add Or  Remove Device      | Virtual  machine.Configuration.Add new disk                | VirtualMachine.Interact.PowerOff            |
+| VirtualMachine.Configuration.Advanced                    | Virtual  machine.Configuration.Advanced                    | VirtualMachine.Inventory.Create             |
+| VirtualMachine.Configuration.Disk  Change Tracking       | Virtual  machine.Configuration.Disk change tracking        | VirtualMachine.Config.AddNewDisk            |
+| VirtualMachine.Configuration.Host USB  Device            | Virtual  machine.Configuration.Host USB device             | VirtualMachine.Config.HostUSBDevice         |
+| VirtualMachine.Configuration.Query  Unowned Files        | Virtual  machine.Configuration.Query unowned files         | VirtualMachine.Config.AdvancedConfig        |
+| VirtualMachine.Configuration.Swapfile  Placement         | Virtual  machine.Configuration.Swapfile placement          | VirtualMachine.Config.SwapPlacement         |
+| VirtualMachine.Interaction.Power Off                     | Virtual  machine.Interaction.Power Off                     | Global.ManageCustomFields                   |
+| VirtualMachine.Inventory.Create New                      | Virtual  machine.Inventory. Create new                     |                                             |
+| VirtualMachine.Provisioning.Allow  Disk Access           | Virtual  machine.Provisioning.Allow disk access            |                                             |
+| VirtualMachine.Provisioning.Allow  File Access           | Virtual  machine.Provisioning. Allow read-only disk access |                                             |
+| VirtualMachine.Provisioning.Allow  Read-only Disk Access | Virtual  machine.Snapshot management.Create snapshot       |                                             |
+| VirtualMachine.Snapshot  Management.Create Snapshot      | Virtual  machine.Snapshot management.Remove Snapshot       |                                             |
+| VirtualMachine.Snapshot  Management.Remove Snapshot      |                                                            |                                             |
+
+
 
 ## Create a VMware account
 
@@ -332,7 +320,10 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
 ## VMware parallel backups
 
-With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3, all your VMWare VMs backups within a single protection group are parallel, leading to faster VM backups. All VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
+>[!NOTE]
+> This feature is applicable for MABS V3 UR1.
+
+With earlier versions of MABS, parallel backups were performed only across protection groups. With MABS V3 UR1, all your VMWare VMs backups within a single protection group are parallel, leading to faster VM backups. All VMWare delta replication jobs run in parallel. By default, the number of jobs to run in parallel is set to 8.
 
 You can modify the number of jobs by using the registry key as shown below (not present by default, you need to add it):
 
@@ -378,7 +369,7 @@ Windows Registry Editor Version 5.00
 > [!NOTE]
 > This feature is applicable for MABS V3 UR1.
 
-With MABS V3 UR1, you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft System Center\DPM\DPM\bin folder`.
+With MABS V3 UR1, you can exclude the specific disk from VMware VM backup. The configuration script **ExcludeDisk.ps1** is located in the `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder`.
 
 To configure the disk exclusion, follow the steps below:
 
@@ -451,13 +442,13 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
      To add the disk exclusion for TestVM4, run the following command:
 
        ```powershell
-      C:\Program Files\Microsoft System Center\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
-      ```
+      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+       ```
 
       ```output
-       Creating C:\Program Files\Microsoft System Center\DPM\DPM\bin\excludedisk.xml
+       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
        Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
-       ```
+      ```
 
   5. Verify that the disk has been added for exclusion.
 
@@ -470,7 +461,7 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
      **Example**
 
         ```powershell
-        C:\Program Files\Microsoft System Center\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
         ```
 
         ```output
@@ -490,7 +481,7 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
 To remove the disk from exclusion, run the following command:
 
 ```powershell
-PS C:\Program Files\Microsoft System Center\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
+C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## Next steps
