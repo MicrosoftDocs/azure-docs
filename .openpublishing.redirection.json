@@ -1146,6 +1146,211 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/01-hello-world.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/02-intro-to-training.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/03-wait-vs-nonwait-actions.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/04-introduction-to-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/05-expected-entity.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/06-negatable-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/07-multi-value-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/08-pre-trained-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/09-entity-resolvers.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/10-alternative-inputs.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/11-log-dialogs.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/12-entity-detection-callback.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/13-session-callbacks.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/14-api-calls.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/16-hybrid-bots.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/17-branch-undo.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/18-version-tag.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-password-reset.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-pizza-order.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/tutorial-enum-set-entity.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/cl-values-and-boundaries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/control-flow.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/deploy-to-bf.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/how-to-teach-cl.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/languages-supported.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/managing-data.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/index.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/csharp.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/endpoint.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/java-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/javascript.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/node-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/python-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/url-preview-reference.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/use-display-requirements.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/project-personality-chat/faq.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/project-personality-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/project-personality-chat/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/project-personality-chat",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -35416,6 +35621,111 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/KES/calchistogramMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/CommandLine.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/DataFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/evaluateMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/Expressions.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/GettingStarted.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/GrammarFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/interpretMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/Overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/SchemaFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/SemanticInterpretation.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/WebAPI.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/c-sharp-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/entity-queries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/fact-queries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/java-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/node-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/python-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/reference.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/use-display-requirements.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
       "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
       "redirect_document_id": false
@@ -49608,6 +49918,31 @@
     {
       "source_path": "articles/postgresql/howto-tls-configurations.md",
       "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/java-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/node-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {

@@ -45,7 +45,7 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 **Syntax**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
 ```
 
 **Attributes**
@@ -54,7 +54,7 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 |-----------|-------------|---------------------|
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
 | `xml:lang` | Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, `en`), or the language code and uppercase country/region (for example, `en-US`). | Required |
-| `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. | Required |
+| `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is http://www.w3.org/2001/10/synthesis. | Required |
 
 ## Choose a voice for text-to-speech
 
@@ -80,7 +80,7 @@ The `voice` element is required. It is used to specify the voice that is used fo
 > This example uses the `en-US-AriaRUS` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         This is the text that is spoken.
     </voice>
@@ -171,7 +171,7 @@ speechConfig!.setPropertyTo(
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         Good morning!
     </voice>
@@ -190,45 +190,47 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
+* `pt-BR-FranciscaNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
 
 **Syntax**
 
 ```xml
-<mstts:express-as type="string"></mstts:express-as>
+<mstts:express-as style="string"></mstts:express-as>
 ```
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `type` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
+| `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
-| Voice | Type | Description |
+| Voice | Style | Description |
 |-------|------|-------------|
-| `en-US-AriaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
-| | `type="empathy"` | Expresses a sense of caring and understanding |
-| | `type="chat"` | Speak in a casual, relaxed tone |
-| | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
-| | `type="customerservice"` | Speak in a friendly and patient way as customer service |
-| `pt-BR-FranciscaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
-| `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
-| | `type="sentiment"` | Conveys a touching message or a story |
+| `en-US-AriaNeural` | `style="newscast"` | Expresses a formal and professional tone for narrating news |
+| | `style="customerservice"` | Expresses a friendly and helpful tone for customer support |
+| | `style="chat"` | Expresses a casual and relaxed tone |
+| | `style="cheerful"` | Expresses a positive and happy tone |
+| | `style="empathetic"` | Expresses a sense of caring and understanding |
+| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Expresses a formal and professional tone for narrating news |
+| | `style="customerservice"` | Expresses a friendly and helpful tone for customer support |
+| | `style="assistant"` | Expresses a warm and relaxed tone for digital assistants  |
+| | `style="lyrical"` | Expresses emotions in a melodic and sentimental way |
+| `pt-BR-FranciscaNeural` | `style="cheerful"` | Expresses a positive and happy tone |
 
 **Example**
 
 This SSML snippet illustrates how the `<mstts:express-as>` element is used to change the speaking style to `cheerful`.
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis"
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-AriaNeural">
-        <mstts:express-as type="cheerful">
+        <mstts:express-as style="cheerful">
             That'd be just amazing!
         </mstts:express-as>
     </voice>
@@ -269,7 +271,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
@@ -294,7 +296,7 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 **Example**
 
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <p>
             <s>Introducing the sentence element.</s>
@@ -330,7 +332,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 **Examples**
 
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
@@ -338,7 +340,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 ```
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
@@ -470,7 +472,7 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-Guy24kRUS">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -486,7 +488,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -502,7 +504,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-Guy24kRUS">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
@@ -517,7 +519,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
@@ -568,7 +570,7 @@ The `say-as` element may contain only text.
 The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five PM."
  
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
@@ -606,7 +608,7 @@ Any audio included in the SSML document must meet these requirements:
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
