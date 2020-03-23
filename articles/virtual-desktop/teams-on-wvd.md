@@ -14,15 +14,15 @@ manager: lizross
 
 > Applies to: Windows 10, and Windows 10 IoT Enterprise
 
-Virtualized environments present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi).
+Virtualized environments present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/microsoftteams/teams-for-vdi).
 
 ## Prerequisites
 
 Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
 
-- Install [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](https://docs.microsoft.com/en-us/microsoftteams/hardware-requirements-for-the-teams-app).
+- Install [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](https://docs.microsoft.com/microsoftteams/hardware-requirements-for-the-teams-app).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
-- [Prepare your network](https://docs.microsoft.com/en-us/microsoftteams/prepare-network) for Microsoft Teams.
+- [Prepare your network](https://docs.microsoft.com/microsoftteams/prepare-network) for Microsoft Teams.
 
 ## Use unoptimized Microsoft Teams
 
@@ -32,7 +32,7 @@ You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environm
 
 To install Microsoft Teams in your Windows Virtual Desktop environment:
 
-1. Download the [Teams MSI package](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
+1. Download the [Teams MSI package](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 2. Install the MSI to the host VM:
 
 ```shell
