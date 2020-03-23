@@ -168,6 +168,8 @@
       href: roles-delegate-by-task.md
     - name: Microsoft 365 roles
       href: roles-m365-workload-docs.md
+    - name: Roles not shown in the portal
+      href: roles-not-shown-in-portal.md
     - name: Role security    
       items:   
       - name: Role security planning    
