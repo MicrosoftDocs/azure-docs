@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge share management | Microsoft Docs 
-description: Describes how to use the Azure portal to manage shares on your Azure Data Box Edge.
+title: Azure Stack Edge share management | Microsoft Docs 
+description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge.
 services: databox
 author: alkohli
 

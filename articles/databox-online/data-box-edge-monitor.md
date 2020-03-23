@@ -1,6 +1,6 @@
 ---
-title: Monitor your Azure Data Box Edge device | Microsoft Docs 
-description: Describes how to use the Azure portal and local web UI to monitor your Azure Data Box Edge.
+title: Monitor your Azure Stack Edge device | Microsoft Docs 
+description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge.
 services: databox
 author: alkohli
 

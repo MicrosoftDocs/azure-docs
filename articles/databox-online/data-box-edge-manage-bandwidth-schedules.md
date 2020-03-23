@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge manage bandwidth schedules | Microsoft Docs 
-description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Data Box Edge.
+title: Azure Stack Edge manage bandwidth schedules | Microsoft Docs 
+description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge.
 services: databox
 author: alkohli
 

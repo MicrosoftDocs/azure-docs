@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge compute management | Microsoft Docs 
-description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Data Box Edge.
+title: Azure Stack Edge compute management | Microsoft Docs 
+description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge.
 services: databox
 author: alkohli
 

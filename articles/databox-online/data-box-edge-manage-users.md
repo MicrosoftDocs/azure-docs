@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge manage users | Microsoft Docs 
-description: Describes how to use the Azure portal to manage users on your Azure Data Box Edge.
+title: Azure Stack Edge manage users | Microsoft Docs 
+description: Describes how to use the Azure portal to manage users on your Azure Stack Edge.
 services: databox
 author: alkohli
 
