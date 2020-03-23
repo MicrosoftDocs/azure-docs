@@ -70,7 +70,7 @@ Go to Reservations in the Azure portal and purchase SQL Data Warehouse reserved 
 
 ## Reservation purchase recommendations
 
-Reservation purchase recommendations are calculated by analyzing your hourly usage data over last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a reservation and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The quantity that maximizes your savings is recommended.
+Reservation purchase recommendations are calculated by analyzing your hourly usage data over last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a reservation and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The quantity that maximizes your savings is recommended. 
 
 For example, you might use 500 VMs most of the time, but sometimes usage spikes to 700 VMs. In this example, Azure calculates your savings for both the 500 and 700 VM quantities. Since the 700 VM usage is sporadic, the recommendation calculation determines that savings are maximized for a 500 VM reservation purchase and the recommendation is provided for the 500 quantity.
 
