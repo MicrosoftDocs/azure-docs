@@ -99,20 +99,20 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 ### Configure NTFS permissions with Windows File Explorer
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
 
-1. Open Windows File Explorer and right click on the file/directory and select **Properties**
-2. Click on the **Security** tab
-3. Click on **Edit..**. button to change permissions
-4. You can change the permission of existing users, or click on **Add...** to grant permissions to new users
-5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and click on **Check Names** to find the full UPN name of the target user.
-7.    Click on **OK**
-8.    In the Security tab, select all permissions you want to grant to the newly add user
-9.    Click on **Apply**
+1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
+2. Select the **Security** tab.
+3. Select **Edit..** to change permissions.
+4. You can change the permissions of existing users or select **Add...** to grant permissions to new users.
+5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and select **Check Names** to find the full UPN name of the target user.
+7.    Select **OK**.
+8.    In the **Security** tab, select all permissions you want to grant your new user.
+9.    Select **Apply**.
 
 ## Mount a file share from a domain-joined VM
 
 The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
 
-Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled on-premises AD DS authentication for Azure Files, use your AD DS credential. For Azure AD DS authentication, log in with Azure AD credential.
+Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled on-premises AD DS authentication for Azure Files, use your AD DS credentials. For Azure AD DS authentication, sign in with Azure AD credentials.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
