@@ -1,5 +1,5 @@
 ﻿---
-title: 'Azure network support for mitigating networking challenges with working remotely'
+title: 'Working remotely using Azure networking services'
 description: This page describes how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 services: networking
 author: rambk
@@ -11,7 +11,7 @@ ms.author: kumud
 
 ---
 
-# Azure network support for mitigating networking challenges with working remotely
+# Working remotely using Azure networking services
 
 This article describes how you can leverage Azure networking services to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 
