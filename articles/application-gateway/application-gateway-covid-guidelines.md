@@ -28,7 +28,7 @@ Assuming you have an Application Gateway v2 SKU, autoscaling takes six to seven 
 See the [Application Gateway Metrics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) for a detailed explanation of our metrics and other walkthroughs. 
 
 ### Example: Setting up an alert on 75% of average CU usage
-This example shows setting up an alert when 75% of average CU usage is reached via Portal. 
+This example shows you how to use the Azure portal to set up an alert when 75% of average CU usage is reached. 
 1. Navigate to your **Application Gateway**.
 2. On the left panel, select **Metrics** under the **Monitoring** tab. 
 3. Add a metric for **Average Current Compute Units**. 
