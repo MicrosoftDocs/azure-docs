@@ -135,7 +135,9 @@ Now that the project is created, you can run the notebooks.
 
    ![Copy the run ID between cells](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
-1. Save the notebook and return to your project page. 
+1. Run the remaining cells in the notebook.
+
+1. Save the notebook and return to your project page.
 
 1. Open **02-turbofan\_deploy\_model.ipynb** and run each cell. You will need to sign-into to authenticate in the cell that follows **Configure workspace**.
 
