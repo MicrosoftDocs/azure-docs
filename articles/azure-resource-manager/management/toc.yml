@@ -66,9 +66,13 @@
         href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
   - name: Tags
     items:
-    - name: Tag resources
+    - name: Decision guide
+      href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
+    - name: Use tags
       href: tag-resources.md
-    - name: Tag support
+    - name: Policies - compliance
+      href: tag-policies.md
+    - name: Supported resource types
       href: tag-support.md
   - name: Manage resource groups
     items:
