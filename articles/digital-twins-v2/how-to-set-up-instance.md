@@ -51,6 +51,11 @@ To make life easier, let's set a default location for all resources to be create
 az configure --defaults location="West Central US"
 ```
 
+If you have never created an Azure Digital Twins instance before in your whitelisted subscription, you will need to register the Azure Digital Twins resource provider. This step only has to be done once per subscription.
+```bash
+ az provider register --namespace 'Microsoft.DigitalTwins'
+```
+
 Before we can create an Azure Digital Twins instance, you will need an existing resource group. If you don't have one in your subscription, you can create one with:
 ```bash
 az group create -n <your-rg-name>
@@ -65,7 +70,7 @@ Before you can use the instance, there is one more step: you need to set up acce
 
 ## Assign a role to the instance
 
-To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation copmmand, You can get it by running:
+To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you have not recorded it from the output of the creation command, You can get it by running:
 ```bash
 az dt show --name <your-instance-name> -g <your-rg-name>
 ```
