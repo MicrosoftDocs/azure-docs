@@ -64,7 +64,7 @@ This tutorial will create a new project. If you want to download the completed t
 ## Register your application
 
 1. Go to the [Azure portal](https://aka.ms/MobileAppReg)
-2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New registration**.
+2. Open the App registrations blade and click **+New registration**.
 3. Enter a **Name** for your app and then, without setting a Redirect URI.
 4. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**
 5. Click **Register**
