@@ -27,7 +27,7 @@ If you choose to use the CLI locally, this article requires that you have a vers
 Sign into Azure.
 
 ```azurecli-interactive
-    az login
+az login
 ```
 
 ## Deploy a virtual machine scale set with existing load balancer
@@ -35,23 +35,23 @@ Sign into Azure.
 Replace the values in brackets with the names of the resources in your configuration.
 
 ```azurecli-interactive
-    az vmss create \
-        --resource-group <resource-group> \
-        --name <vmss-name>\
-        --image <your-image> \
-        --admin-username <admin-username> \
-        --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-        --upgrade-policy-mode Automatic \
-        --instance-count 3 \
-        --vnet-name <virtual-network-name> \
-        --subnet <subnet-name> \
-        --lb <load-balancer-name> \
-        --backend-pool-name <backend-pool-name>
+az vmss create \
+    --resource-group <resource-group> \
+    --name <vmss-name>\
+    --image <your-image> \
+    --admin-username <admin-username> \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name <virtual-network-name> \
+    --subnet <subnet-name> \
+    --lb <load-balancer-name> \
+    --backend-pool-name <backend-pool-name>
 ```
 
 The below example deploys a virtual machine scale set with:
 
-- Virtual Machine Scale named **myVMSS**
+- Virtual machine scale set named **myVMSS**
 - Azure Load Balancer named **myLoadBalancer**
 - Load balancer backend pool named **myBackendPool**
 - Azure Virtual Network named **myVnet**
@@ -60,18 +60,18 @@ The below example deploys a virtual machine scale set with:
 - Ubuntu Server image for the virtual machine scale set
 
 ```azurecli-interactive
-    az vmss create \
-        --resource-group myResourceGroup \
-        --name myVMSS \
-        --image Canonical:UbuntuServer:18.04-LTS:latest \
-        --admin-username adminuser \
-        --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-        --upgrade-policy-mode Automatic \
-        --instance-count 3 \
-        --vnet-name myVnet\
-        --subnet mySubnet \
-        --lb myLoadBalancer \
-        --backend-pool-name myBackendPool
+az vmss create \
+    --resource-group myResourceGroup \
+    --name myVMSS \
+    --image Canonical:UbuntuServer:18.04-LTS:latest \
+    --admin-username adminuser \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myVnet\
+    --subnet mySubnet \
+    --lb myLoadBalancer \
+    --backend-pool-name myBackendPool
 ```
 > [!NOTE]
 > After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
