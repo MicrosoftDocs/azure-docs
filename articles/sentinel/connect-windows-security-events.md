@@ -48,7 +48,7 @@ The Security Events connector lets you stream all security events from your Wind
 
 To collect your Windows security events in Azure Sentinel:
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Security Events** , and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab:
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, click on **Security Events**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab:
 
 1. Verify that you have the appropriate permissions as described under **Prerequisites**.
 
