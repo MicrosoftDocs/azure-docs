@@ -9,7 +9,7 @@
   items:
   - name: Determine what to purchase
     items:
-    - name: Determine what to purchase
+    - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
   - name: Buy reservations
     items:
@@ -41,7 +41,7 @@
       href: prepay-sql-data-warehouse-charges.md
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Permissions and management after purchase
+  - name: Manage reservations after purchase
     items:
     - name: Manage reservations
       href: manage-reserved-vm-instance.md
@@ -53,7 +53,7 @@
       href: exchange-and-refund-azure-reservations.md
   - name: Renew reservations
     items:
-    - name: Renew reservations
+    - name: Renew a reservation
       href: reservation-renew.md
 - name: Concepts
   items:

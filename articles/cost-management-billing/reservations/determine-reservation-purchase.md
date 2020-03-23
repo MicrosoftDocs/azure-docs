@@ -27,10 +27,9 @@ Promo series VMs don't get a reservation discount, so remove them from your anal
 
 To narrow down to eligible VM usage, apply the following filters on your usage data:
 
--
-  - Filter **MeterCategory** to **Virtual Machines**.
-  - Get **ServiceType** information from **AdditionalInfo**. The information suggests the right VM size. For example, Standard E32.
-  - Use the **ResourceLocation** field to determine the usage data center.
+- Filter **MeterCategory** to **Virtual Machines**.
+- Get **ServiceType** information from **AdditionalInfo**. The information suggests the right VM size. For example, Standard E32.
+- Use the **ResourceLocation** field to determine the usage data center.
 
 Ignore resources that have less than 24 hours of usage in a day.
 
