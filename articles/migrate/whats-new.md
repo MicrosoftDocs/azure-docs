@@ -10,7 +10,12 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (March 2020)
 
+A script-based installation is now available to set up the [Azure Migrate appliance](migrate-appliance.md):
+
+- The script-based installation is an alternative to the .OVA (VMware)/VHD (Hyper-V) installation of the appliance.
+- It provides a PowerShell installer scrip that can be used to set up the appliance for VMware/Hyper-V on an existing machine running Windows Server 2016.
 
 ## Update (November 2019)
 
