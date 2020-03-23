@@ -74,6 +74,8 @@
     href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
+  - name: Node auto-repair
+    href: node-auto-repair.md
   - name: Best practices
     items:
     - name: Overview
