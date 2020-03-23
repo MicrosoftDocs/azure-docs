@@ -78,4 +78,4 @@ Following are the Covid-19 preparation articles leveraging different Azure netwo
 | [Network Virtual Appliance (NVA) considerations during COVID-19](https://go.microsoft.com/fwlink/?linkid=2123771)| March 23, 2020 |
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
 | [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
-| [COVID update - ExpressRoute][https://go.microsoft.com/fwlink/?linkid=2123768] | March 23, 2020 |
+| [COVID update - ExpressRoute](https://go.microsoft.com/fwlink/?linkid=2123768) | March 23, 2020 |
