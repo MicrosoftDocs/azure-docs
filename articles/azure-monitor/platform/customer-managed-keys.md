@@ -491,7 +491,7 @@ All your data is accessible after the key rotation operation including data inge
 
 - If you try to delete a *Cluster* resource that is associated to a workspace, the delete operation will fail.
 
-- Use this API to get all *Cluster* resources for a resource group:
+- Get all *Cluster* resources for a resource group:
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
@@ -528,7 +528,7 @@ All your data is accessible after the key rotation operation including data inge
   }
   ```
 
-- Use this API call to Get all *Cluster* resources for a subscription:
+- Get all *Cluster* resources for a subscription:
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
@@ -539,8 +539,7 @@ All your data is accessible after the key rotation operation including data inge
     
   The same response as for '*Cluster* resources for a resource group', but in subscription scope.
     
-- Use this API call to delete a *Cluster* resource -- You need to delete all the associated workspaces before you can delete
-your *Cluster* resource:
+- Delete a *Cluster* resource -- a soft-delete operation is performed to allow the recovery of your *Cluster* resource, your data and associated workspaces within 14 days, whether the deletion was accidental or intentional. After the soft-delete period, your *Cluster* resource and data are non-recoverable. The *Cluster* resource name remains reserved during the soft-delete period and you can’t create a new cluster with that name.
 
   ```rst
   DELETE
@@ -551,6 +550,8 @@ your *Cluster* resource:
   **Response**
 
   200 OK
+
+- Recover your *Cluster* resource and your data -- during the soft-delete period, create a *Cluster* resource with the same name and in the same subscription, resource group and region. Follow the [Create *Cluster* resource](#Create-Cluster-resource) step.
 
 
 ## Appendix
