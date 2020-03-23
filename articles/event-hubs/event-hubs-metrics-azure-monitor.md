@@ -85,7 +85,7 @@ Counts the number of data and management operations requests.
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|ActiveConnections |The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ActiveConnections |The number of active connections on a namespace.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 |Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 |Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
