@@ -22,7 +22,7 @@ For an Ingress resource to be observed by AGIC, it **must be annotated** with `k
 | Annotation Key | Value Type | Default Value | Allowed Values
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
-| [appgw.ingress.kubernetes.io/ssl-redirect](#ssl-redirect) | `bool` | `false` | |
+| [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` (seconds) | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
