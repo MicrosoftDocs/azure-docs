@@ -22,16 +22,16 @@ There are two types of log alerts in Azure Monitor:
 - [Metric measurement alerts](../platform/alerts-unified-log.md#metric-measurement-alert-rules) create a separate alert for each record in a query that has a value that exceeds a threshold defined in the alert rule. These alert rules are ideal for performance data collected by Azure Monitor for VMs since they can create individual alerts for each computer.
 
 
-## Alert rule details
-Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. For metric measurement alert rules, summarize the query results by computer in order to evaluate each separately. 
+## Alert rule walkthrough
+This section walks through the creation of a metric measurement alert rule using performance data from Azure Monitor for VMs. You can use this basic process with a variety of log queries to alert on different performance counters.
 
-Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../platform/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription.
+Start by creating a new alert rule following the procedure in [Create, view, and manage log alerts using Azure Monitor](../platform/alerts-log.md). For the **Resource**, select the Log Analytics workspace that Azure Monitor VMs uses in your subscription. Since the target resource for log alert rules is always a Log Analytics workspace, the log query must include any filter for particular virtual machines or virtual machine scale sets. 
 
-For the **Condition** of the alert rule, provide one of the queries in the section below as the **Search query**. The query must return a numeric property called *AggregatedValue*. It should summarize the data by computer so that you can create a separate alert for each virtual machine that exceeds the threshold.
+For the **Condition** of the alert rule, use one of the queries in the [section below](#sample-alert-queries) as the **Search query**. The query must return a numeric property called *AggregatedValue*. It should summarize the data by computer so that you can create a separate alert for each virtual machine that exceeds the threshold.
 
-In the **Alert logic**, select **Metric measurement** and then provide a **Threshold value**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you probably don't care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple measurements.
+In the **Alert logic**, select **Metric measurement** and then provide a **Threshold value**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you probably don't care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements.
 
-The **Evaluated based on** section defines how often the query is run and the time window for the query. In the example shown below, the query will run every 15 minutes and evalute performance collected over the previous 15 minutes.
+The **Evaluated based on** section defines how often the query is run and the time window for the query. In the example shown below, the query will run every 15 minutes and evalute performance values collected over the previous 15 minutes.
 
 
 ![Metric measurement alert rule](media/vminsights-alerts/metric-measurement-alert.png)
@@ -145,7 +145,8 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface
 ```
 
-## Virtual machine scale set
+### Virtual machine scale set
+Modify with your subscription ID, resource group, and VM scale set name.
 
 ```kusto
 InsightsMetrics
@@ -155,7 +156,8 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
-## Specific virtual machine
+### Specific virtual machine
+Modify with your subscription ID, resource group, and VM name.
 
 ```kusto
 InsightsMetrics
@@ -165,7 +167,8 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m)
 ```
 
-## CPU utilization for all compute resources in a subscription
+### CPU utilization for all compute resources in a subscription
+Modify with your subscription ID.
 
 ```kusto
 InsightsMetrics
@@ -175,7 +178,8 @@ InsightsMetrics
 | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
-## CPU utilization for all compute resources in a resource group
+### CPU utilization for all compute resources in a resource group
+Modify with your subscription ID and resource group.
 
 ```kusto
 InsightsMetrics
