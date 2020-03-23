@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge device access, power, and connectivity mode | Microsoft Docs 
-description: Describes how to manage access, power, and connectivity mode for the Azure Data Box Edge device that helps transfer data to Azure
+title: Azure Azure Stack Edge device access, power, and connectivity mode | Microsoft Docs 
+description: Describes how to manage access, power, and connectivity mode for the Azure Azure Stack Edge device that helps transfer data to Azure
 services: databox
 author: alkohli
 
