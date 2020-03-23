@@ -42,7 +42,11 @@ Inside the downloaded zipped package from the `diagnosticPackageLocation` link, 
 
 Unzip the _VisualizationTool.zip_ folder. It contains an _assets_ folder with images and media files, a _static_ folder with source code, and an index.html file of the web page.
 
+<center>
+
 ![Content of zipped package for VisualizationTool.zip](./media/azure-maps-dwg-errors-visualizer/content-of-the-visualization-tool.png)
+
+</center>
 
 Open the _index.html_ file using any of the browsers below, with the respective version number. You may use a different version, if the version offers equally compatible behavior as the listed version.
 
@@ -55,11 +59,19 @@ Open the _index.html_ file using any of the browsers below, with the respective 
 
 Upon launching the Visualization tool, you'll see a box to load your data, as shown in the image below. To view the warnings and errors, load the _ConversionWarningsAndErrors.json_ file, placed at the root of the downloaded directory. 
 
+<center>
+
 ![Visualization App - Start Page](./media/azure-maps-dwg-errors-visualizer/start-page.png)
 
-You may load it by dragging and dropping it into the specified box. Or by clicking on the box, navigating your file system, and selecting it. Once the file loads, you'll see a list of your DWG package errors and warnings. Specified by the layer, level, and described with a detailed message.
+</center>
+
+You may load it by dragging and dropping it into the specified box. Or by clicking on the box, navigating your file system, and selecting it. Once the file loads, you'll see a list of your DWG package errors and warnings. Specified by the layer, level, and described with a detailed message. You may now navigate to each error to learn more details in order to resolve the error.
+
+<center>
 
 ![Visualization App - Drag and drop to load data](./media/azure-maps-dwg-errors-visualizer/loading-data.gif)
+
+<center>
 
 ## Next steps
 

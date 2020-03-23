@@ -252,6 +252,8 @@ Error creating a vertical penetration feature. For example:
 * A vertical penetration area with no overlapping vertical penetration areas on any levels above or below it
 * There exists a level with two or more vertical penetration features on it that overlap this one
 
+Read about how to use a vertical penetration feature in the [DWG package requirements](dwg-requirements.md) article.
+
 ## Next steps
 
 After you resolve your DWG conversion errors, try to resolve your warnings.

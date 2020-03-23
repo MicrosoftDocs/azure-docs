@@ -12,13 +12,13 @@ manager: philmea
 
 # Manage Private Atlas for your Azure Maps
 
-Private Atlas (PA) makes it possible to create private indoor maps and develop web applications using the Azure Maps APIs and the Indoor Maps module. Private Atlas is currently available in the United States, only.
+Private Atlas (PA) makes it possible to create private indoor maps and develop web applications using the Azure Maps APIs and the Indoor Maps module. Currently, Private Atlas is only available in the United States.
 
-You can manage the Private Atlas for your Azure Maps account through the [Azure portal](https://ms.portal.azure.com/). After you deploy a Private Atlas, you can implement the Indoor Maps module and the Azure Maps APIs for the Private Atlas in your web application.
+You can manage the Private Atlas for your Azure Maps account through the [Azure portal](https://ms.portal.azure.com/). After you deploy the Private Atlas, you can implement the Indoor Maps module and the Azure Maps Private Atlas APIs in your web application.
 
-Your Azure Maps account must [use the S1 pricing tier](how-to-manage-pricing-tier.md) because Private Atlas isn't available for the S0 tier. You can't change your Azure Maps account to the S0 pricing tier while the Private Atlas is active. Delete your Private Atlas first, then you can switch to the S0 tier. For each Azure Maps account, you can have up to one Private Atlas.
+To enable Private Atlas, your Azure Maps account must [use the S1 pricing tier](how-to-manage-pricing-tier.md), as Private Atlas isn't available for the S0 tier. You also can't change your Azure Maps account to the S0 pricing tier while the Private Atlas is active. To change to the S0 tier, delete your Private Atlas first, then switch.  
 
-Private Atlas inherits your Azure Maps Access Control (IAM) settings. Meaning that all your permission and roles apply to the Private Atlas. Also, your Private Atlas usage data is incorporated with your Azure Maps usage charts and activity log. The next sections show you how to create a Private Atlas, and how to delete it.
+For each Azure Maps account, you can have up to one Private Atlas.  Private Atlas inherits your Azure Maps Access Control (IAM) settings. Meaning that all your permission and roles apply to the Private Atlas. Your Private Atlas usage data is incorporated with your Azure Maps usage charts and activity log. The next sections show you how to create a Private Atlas, and how to delete it. 
 
 Before you begin, if you don't have an Azure subscription, [create an Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Once you make an Azure account, you need to [create an Azure Maps account](how-to-manage-account-keys.md) to access the Private Atlas resource.
 
@@ -35,21 +35,36 @@ Before you begin, if you don't have an Azure subscription, [create an Azure acco
     </center>
 
 3. Once you're on the Azure Maps account page, navigate to the **Overview** option under the **Private Atlas**.
+    
+    <center>
 
     ![Overview Option](./media/how-to-manage-private-atlas/.png)
+    
+    </center>
 
 4. Select the **create** button to create your Private Atlas. Enter the information for your Private Atlas account and select the location for your Private Atlas. Currently, the United States is the only supported geographical location.
 
+    <center>
+
     ![Private Atlas Account Information form](./media/how-to-manage-private-atlas/.png)
+
+    </center>
 
 5. It may take a few minutes to deploy your Private Atlas. When the deployment completes, you'll see a page with a success or a failure message.
 
+    <center>
+
     ![Deployment landing page](./media/how-to-manage-private-atlas/.png)
 
+    </center>
+
 6. Click on **go to resource**, your Private Atlas page should look like the page in the image below. It should show the status of your Private Atlas and the chosen demographic region.
+    
+    <center>
 
     ![Private Atlas page](./media/how-to-manage-private-atlas/.png)
 
+    </center>
 
 ## Delete Private Atlas
 
@@ -57,9 +72,15 @@ You can delete the Private Atlas of your Azure Maps account using the Azure port
 
 Navigate to your Azure Maps account and select **Overview** under **Private Atlas**. If you have a Private Atlas for your Azure Maps account, then you'll see a **Delete** button.
 
+<center>
+
 ![Private Atlas page with delete button](./media/how-to-manage-private-atlas/.png)
 
-Click the **Delete** button, and type your Private Atlas name to confirm your desire to delete it. Once the resource is erased, you'll see a confirmation page, like in the image below:
+</center>
+
+Click the **Delete** button and type your Private Atlas name to confirm your desire to delete it. Once the resource is erased, you'll see a confirmation page, like in the image below:
+
+![Private Atlas page with delete button](./media/how-to-manage-private-atlas/.png)
 
 ## Next steps
 

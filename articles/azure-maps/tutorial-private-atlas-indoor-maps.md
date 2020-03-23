@@ -25,9 +25,12 @@ This tutorial shows you how to use the Azure Maps Private Atlas APIs. The Privat
 
 ## Prerequisites
 
-To use the Azure Maps Private Atlas APIs, [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [enable Private Atlas](how-to-manage-private-atlas.md) in your Azure Maps. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+To use the Azure Maps Private Atlas APIs:
 
-Before you feed data to the Azure Maps resources, check that your DWG package meets the [DWG package requirements](dwg-requirements.md).
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+2. [Enable Private Atlas](how-to-manage-private-atlas.md)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+4. Check that your DWG package meets the [DWG package requirements](dwg-requirements.md)
 
 This tutorial uses the [Postman]() application, but you may choose a different API development environment.
 
@@ -82,7 +85,7 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
 
 4. Start a new **GET** HTTP method in the builder tab. Make a **GET** request at the status URL from the previous step and append your Azure Maps primary subscription key.
 
-5. Once the request completes successfully, you'll see a success status message in the response body. Copy the `udid` for the converted package. It's also known as the conversion ID, and it's frequently used by other APIs to access the converted map data.
+5. Once the request completes successfully, you'll see a success status message in the response body. Copy the `udid` for the converted package. It's also known as the conversion ID, and it's used by other APIs to access the converted map data.
 
     <center>
 
@@ -91,7 +94,9 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
     </center>
 
 > [!Note]
-> When you make a request at the Status URL, the user interface of the Postman application is not perfectly synchronized with the API response. If you notice a long delay, click the **send** button again. The request will be resent and you'll see the status at the time of clicking the button.
+> The user interface of the Postman application is not perfectly synchronized with the API response. If you notice a long delay while making a **GET** request at the status URL, click the **send** button again. The request will be resent and you'll see the status at the time of clicking the button.
+
+If you meet errors while you're converting your DWG package, see the [DWG conversion errors and warnings](dwg-conversion-error-codes). It provides recommendations on how to resolve conversion issues, with some examples. You may also use the [DWG error visualizer](azure-maps-dwg-errors-visualizer.md) to conveniently see the errors and warnings on your indoor map.
 
 ## Create a data set
 
@@ -117,10 +122,12 @@ The data set is a collection of map data entities, such as buildings. To make a 
 
     </center>
 
-You may use the [Dataset List API]() to view details of the data sets you have generated. When you're done using a data set, you can remove it using the [Dataset Delete API](). Don't delete your data set yet, the next section shows you how to produce a tile set from the data in your data set.
+Use the [Dataset List API]() to view details of the data sets in your Private Atlas. When you're done using a data set, you can remove it using the [Dataset Delete API](). 
+
+Don't delete your data set yet. The next section shows you how to produce a tile set from the data in your data set.
 
 > [!Caution]
-> The Dataset Create API doesn't prevent you from appending duplicate blob into a data set.
+> The Dataset Create API doesn't prevent you from appending duplicate data blobs into a data set.
 
 ## Create a tile set
 
@@ -152,13 +159,13 @@ Learn about your map features by calling the [WFS API](). The steps below show y
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **GET** request to the [WFS API]() to view a list of the collections in your data set. Replace `<dataset-udid>` with your data set ID, and similarly use your Azure Maps primary key instead of the placeholder.
+2. Make a **GET** request to the [WFS API]() to view a list of the collections in your data set. Replace `<dataset-udid>` with your data set ID, similarly use your Azure Maps primary key instead of the placeholder.
 
     ```http
     https://atlas.microsoft.com/wfs/datasets/<dataset-udid>/collections?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
     ```
 
-3. The response body will contain GeoJSON similar to the code shown below, which is not fully shown for simplicity. You may click the links inside the `collections` element and sub-elements to learn more about the described feature.
+3. The response body will contain GeoJSON like the code shown below, which isn't fully shown for simplicity. You may click the links inside the `collections` element and subelements to learn more about the described feature.
 
     ```json
     {
@@ -187,7 +194,7 @@ Learn about your map features by calling the [WFS API](). The steps below show y
     https://atlas.microsoft.com/wfs/datasets/<dataset-udid>/collections/unit/items?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
     ```
 
-5. Familiarize yourself with your map features. Choose and copy a feature **ID** for a feature that has style properties that can be dynamically modified. We'll copy the feature **ID** for a feature inside the unit.
+5. Familiarize yourself with your map features. Choose a feature that has style properties that can be dynamically modified. Copy its **ID**. For example, we'll copy the feature **ID** for a unit because the unit occupancy status and temperature can by dynamically updated.
 
     <center>
 
@@ -195,27 +202,92 @@ Learn about your map features by calling the [WFS API](). The steps below show y
 
     </center>
 
-We'll refer to the style property of this feature as states, and use it to make a state set that can be dynamically styled.
+We'll refer to the style properties of this feature as states, and we'll use the feature to make a state set.
 
 ## Create a feature state set
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Create Stateset API](). Use the data set ID of the data set, which contains the state you want to modify. Here's how the URL should look like:
+2. Make a **POST** request to the [Create Stateset API](). Use the data set ID of the data set that contains the state you want to modify. Here's how the URL should look like:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetID=<dataset-udid>&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-3. Copy the state set ID from the response body.
+3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the styles that you want to dynamically update. For example, you may use the following configuration. When you're done, click **Send**.
 
-4. Use the [Feature Update States API]() to update the state. Pass the state set ID, data set ID, and feature ID, with your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
+    ```json
+    {
+       "styles":[
+          {
+             "keyname":"occupied",
+             "type":"boolean",
+             "rules":[
+                {
+                   "true":"#FF0000",
+                   "false":"#00FF00"
+                }
+             ]
+          },
+          {
+             "keyname":"temperature",
+             "type":"number",
+             "rules":[
+                {
+                   "range":{
+                      "exclusiveMaximum":66
+                   },
+                   "color":"#00204e"
+                },
+                {
+                   "range":{
+                      "minimum":66,
+                      "exclusiveMaximum":70
+                   },
+                   "color":"#0278da"
+                },
+                {
+                   "range":{
+                      "minimum":70,
+                      "exclusiveMaximum":74
+                   },
+                   "color":"#187d1d"
+                },
+                {
+                   "range":{
+                      "minimum":74,
+                      "exclusiveMaximum":78
+                   },
+                   "color":"#fef200"
+                },
+                {
+                   "range":{
+                      "minimum":78,
+                      "exclusiveMaximum":82
+                   },
+                   "color":"#fe8c01"
+                },
+                {
+                   "range":{
+                      "minimum":82
+                   },
+                   "color":"#e71123"
+                }
+             ]
+          }
+       ]
+    }
+    ```
+
+4. Copy the state set ID from the response body.
+
+5. Use the [Feature Update States API]() to update the state. Pass the state set ID, data set ID, and feature ID, with your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<stateset-udid>&datasetID=<dataset-udid>&featureID=<feature-ID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-5. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, write the JSON with the feature updates. The update will only be saved, if the time posted stamp is after the time stamp of the previous request. Here's a sample JSON body that updates the feature we previously chose:
+6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, write the JSON with the feature updates. The update will only be saved, if the time posted stamp is after the time stamp of the previous request. We can pass any keyname that we've previously configured during creation. Here's a sample JSON to update the occupancy status:
 
     ```json
     {
@@ -229,10 +301,9 @@ We'll refer to the style property of this feature as states, and use it to make 
     }
     ```
 
-6. After you update the feature, the response **Headers** will contain the status URL for the feature. You may make a **GET** request at this URL to check if the feature has been updated successfully.
+7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you had [Implement dynamic styling]() for an indoor map, then the update would reflect in your rendered map at the specified time stamp.
 
-
-The [Feature Get States API]() lets you learn about the state of a feature, using its feature ID. You can also delete the state set and its resource using the [Feature State Delete API]().
+The [Feature Get States API]() lets you learn about the state of a feature using its feature ID. You can also delete the state set and its resource using the [Feature State Delete API]().
 
 ## Next steps
 
