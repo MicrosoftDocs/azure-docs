@@ -19,7 +19,7 @@ The following suggestions help you set up Application Gateway with WAF to handle
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better SSL offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
 
 ## Set maximum instance count to the maximum possible (125) 
-Assuming you have an Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed and will allow it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use.  
+Assuming you have an Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed. This allows it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use.  
 
 ## Set your minimum instance count based on your average CU usage 
 Assuming you have an Application Gateway v2 SKU, autoscaling will take 6-7 minutes to scale out, and by having a higher minimum instance count, the Application Gateway will be better able to handle your traffic when load is increased, as every spike in traffic won't require an autoscaling operation.  
