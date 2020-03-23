@@ -36,7 +36,7 @@ The following browsers are compatible with the management tool:
 Before deploying the management tool, you'll need an Azure Active Directory (Azure AD) user to create an app registration and deploy the management UI. This user must:
 
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 In order to successfully deploy and configure the management tool, you first need to download the following PowerShell scripts from the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) and save them to the same folder on your local machine.
 
@@ -163,4 +163,4 @@ If you come across any issues with the management tool or other Windows Virtual 
 
 ## Next steps
 
-Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](./set-up-service-alerts.md).
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](../set-up-service-alerts.md).

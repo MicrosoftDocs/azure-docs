@@ -116,7 +116,7 @@ All parameter values in this section should match what you provided when you fir
 
 ## Run the GitHub Azure Resource Manager template
 
-Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
 
 ## Next steps
 

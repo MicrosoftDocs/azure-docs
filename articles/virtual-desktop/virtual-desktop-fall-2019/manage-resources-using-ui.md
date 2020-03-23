@@ -35,7 +35,7 @@ Before deploying the management tool, you'll need an Azure Active Directory (Azu
 
 - Have Azure Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 
@@ -78,11 +78,11 @@ To determine which user you can use to sign in to the tool, go to your [Azure Ac
 
 Once you decide which user you'll use to provide consent, follow these instructions to provide consent to the tool:
 
-1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using the appropriate Azure Active Directory user account.
 3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
    
-   ![A screenshot showing the full consent page that the user or admin will see.](.../media/management-ui-consent-page.png)
+   ![A screenshot showing the full consent page that the user or admin will see.](../media/management-ui-consent-page.png)
 
 This will now take you to the management tool.
 
@@ -106,4 +106,4 @@ If you come across any issues with the management tool or other Windows Virtual 
 
 ## Next steps
 
-Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service help to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](./set-up-service-alerts.md).
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service help to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](../set-up-service-alerts.md).

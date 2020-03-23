@@ -99,5 +99,5 @@ If client resources are causing the bottleneck, try one of the following approac
 ## Next steps
 
 - To create a GPU optimized Azure virtual machine, see [Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop environment](configure-vm-gpu.md).
-- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](./virtual-desktop-fall-2019/troubleshoot-set-up-overview.md).
+- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To learn more about the service, see [Windows Desktop environment](environment-setup.md).

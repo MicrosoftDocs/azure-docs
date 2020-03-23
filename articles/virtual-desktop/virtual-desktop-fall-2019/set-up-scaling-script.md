@@ -54,9 +54,9 @@ However, the tool also has the following limitations:
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- A [Windows Virtual Desktop tenant and host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
+- A [Windows Virtual Desktop tenant and host pool](create-host-pools-arm-template.md)
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service
-- A user with [Contributor access](../role-based-access-control/role-assignments-portal.md) on Azure subscription
+- A user with [Contributor access](../../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
 The machine you use to deploy the tool must have: 
 
@@ -105,7 +105,7 @@ To check if your webhook is where it should be, go to the Resources list on the 
 
 Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account to access your Azure resources.
 
-An [Azure Automation Run As account](../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limiting Run As account permissions](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limiting Run As account permissions](../../automation/manage-runas-account.md#limiting-run-as-account-permissions).
 
 Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account by following the next section's instructions.
 
