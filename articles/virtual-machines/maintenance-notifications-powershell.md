@@ -1,17 +1,13 @@
 ---
 title: Get maintenance notifications for Azure VMs using PowerShell
 description: View maintenance notifications for virtual machines running in Azure and start self-service maintenance using PowerShell.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
+#pmcontact: shants
 ---
 
 
@@ -19,7 +15,7 @@ ms.author: shants
 
 **This article applies to virtual machines running both Linux and Windows.**
 
-You can use Azure Powershell to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
+You can use Azure PowerShell to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet when you use the `-status` parameter.
   
 Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM, the cmdlet does not return any maintenance information. 
 
@@ -84,6 +80,8 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 ```
 
 ## Classic deployments
+
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use PowerShell to query for VMs and initiate maintenance.
 

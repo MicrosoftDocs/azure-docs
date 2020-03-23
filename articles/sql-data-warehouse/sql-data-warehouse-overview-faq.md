@@ -69,7 +69,7 @@ A. [Support Tickets](sql-data-warehouse-get-started-create-support-ticket.md) ca
 
 ## SQL language/feature support 
 
-Q. What datatypes are supported?
+Q. What data types are supported?
 
 A. See  [data types](sql-data-warehouse-tables-data-types.md).
 
@@ -97,7 +97,7 @@ A: Orc, RC, Parquet, and flat delimited text
 
 Q: What data sources can I connect to using PolyBase? 
 
-A: [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) and [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+A: [Azure Data Lake Storage](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md) and [Azure Storage Blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
 Q: Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS? 
 
@@ -105,7 +105,7 @@ A: No, PolyBase only interacts with the storage components.
 
 Q: Can I connect to HDI?
 
-A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, then you can load that data into SQL DW. However, you cannot generate pushdown computation to the HDI instance. 
+A: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a SQL Analytics data warehouse. However, you cannot generate pushdown computation to the HDI instance. 
 
 ## Next steps
 For more information on Azure Synapse as a whole, see our [Overview](sql-data-warehouse-overview-faq.md) page.

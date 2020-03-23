@@ -91,4 +91,4 @@ After the capture of the sign-in page, you may assign users and groups, and you 
 ## Next steps
 
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
-- [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)
+- [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

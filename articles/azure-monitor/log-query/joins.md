@@ -1,7 +1,6 @@
 ---
 title: Joins in Azure Monitor log queries | Microsoft Docs
 description: This article includes a lesson on using joins in Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

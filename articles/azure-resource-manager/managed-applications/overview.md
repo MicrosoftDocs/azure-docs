@@ -14,7 +14,7 @@ Azure managed applications enable you to offer cloud solutions that are easy for
 A managed application is similar to a solution template in the Marketplace, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution.
 
 > [!NOTE]
-> Formerly, the documentation for Azure Customer Providers was included with the documentation for Managed Applications. That documentation has been moved. Now, see [Azure Custom Providers](../custom-providers/overview.md).
+> Formerly, the documentation for Azure Custom Providers was included with the documentation for Managed Applications. That documentation has been moved. Now, see [Azure Custom Providers](../custom-providers/overview.md).
 
 ## Advantages of managed applications
 

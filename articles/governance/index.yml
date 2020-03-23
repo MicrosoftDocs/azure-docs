@@ -106,7 +106,7 @@ additionalContent:
         - title: Management Groups
           links:
             - text: Azure CLI
-              url: /cli/azure/ext/managementgroups/?view=azure-cli-latest
+              url: /cli/azure/account/management-group
             - text: Azure PowerShell
               url: /powershell/module/az.resources/#resources
             - text: Azure SDK for .NET

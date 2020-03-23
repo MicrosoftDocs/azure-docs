@@ -8,11 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/11/2020
 ms.author: erhopf
 ---
 
 # What is text-to-speech?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech. Choose from standard and neural voices, or create a custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in a select number of languages and locales. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
 
@@ -20,7 +22,7 @@ Text-to-speech from the Speech service enables your applications, tools, or devi
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
 > - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
 
-## Core features 
+## Core features
 
 * Speech synthesis - Use the [Speech SDK](quickstarts/text-to-speech-audio-file.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech using standard, neural, or custom voices.
 
@@ -49,7 +51,7 @@ Sample code for text-to-speech is available on GitHub. These samples cover text-
 - [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-## Customization 
+## Customization
 
 In addition to standard and neural voices, you can create and fine-tune custom voices unique to your product or brand. All it takes to get started are a handful of audio files and the associated transcriptions. For more information, see [Get started with Custom Voice](how-to-custom-voice.md)
 

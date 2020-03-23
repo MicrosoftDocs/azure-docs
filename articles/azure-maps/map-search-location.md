@@ -1,7 +1,7 @@
 ---
 title: Show search results on a map | Microsoft Azure Maps
 description: In this article, you'll learn how to perform a search request using Microsoft Azure Maps Web SDK and display the results on the map.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -32,7 +32,7 @@ The fourth code block uses the [SearchFuzzy](/javascript/api/azure-maps-rest/atl
 
 The last block of code adjusts the camera bounds for the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
-The search request, data source, symbol layer, and camera bounds are inside the map's ready [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). We want to ensure that the results are displayed after the map fully loads.
+The search request, data source, symbol layer, and camera bounds are inside the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) of the map. We want to ensure that the results are displayed after the map fully loads.
 
 
 ## Make a search request via Fetch API

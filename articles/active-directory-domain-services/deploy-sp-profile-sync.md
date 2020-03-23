@@ -58,7 +58,7 @@ From your Azure AD DS management VM, complete the following steps:
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To manage group membership, select **Active Directory Administrative Center** from the list of administrative tools.
-1. In the left pane, choose your Azure AD DS managed domain, such as *aadds.contoso.com*. A list of existing OUs and resources is shown.
+1. In the left pane, choose your Azure AD DS managed domain, such as *aaddscontoso.com*. A list of existing OUs and resources is shown.
 1. Select the **Users** OU, then choose the *AAD DC Service Accounts* security group.
 1. Select **Members**, then choose **Add...**.
 1. Enter the name of the SharePoint service account, then select **OK**. In the following example, the SharePoint service account is named *spadmin*:

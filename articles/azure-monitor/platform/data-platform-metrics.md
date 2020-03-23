@@ -5,7 +5,7 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -97,7 +97,7 @@ For most resources in Azure, metrics are stored for 93 days. There are some exce
 
 **Guest OS metrics**
 -	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is 14 days.
--	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the Windows Diagnostic Extension (WAD) and send to the [Azure Monitor Sink](diagnostics-extension-overview.md#data-storage), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
+-	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](diagnostics-extension-overview.md) and sent to the [Azure Monitor data sink](diagnostics-extension-overview.md#data-destinations), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
 -	**Guest OS metrics collected by Log Analytics agent**. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
 
 **Application Insights log-based metrics**. 

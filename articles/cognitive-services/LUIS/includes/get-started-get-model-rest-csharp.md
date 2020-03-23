@@ -25,8 +25,6 @@ ms.author: diberry
 
 ## Change model programmatically
 
-Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
-
 1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`.
 
     ```console

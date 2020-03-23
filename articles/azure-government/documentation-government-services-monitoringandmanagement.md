@@ -139,30 +139,43 @@ The first generation of metrics alerts is generally available in both Azure Gove
 
 The resources currently supported in the second generation alerts experience are:
 - Microsoft.ApiManagement/service
+- Microsoft.Cache/redis
 - Microsoft.Compute/virtualMachines
 - Microsoft.DBforMySQL/servers
 - Microsoft.DBforPostgreSQL/servers
 - Microsoft.DBforMariaDB/servers
 - Microsoft.Devices/IotHubs
-- Microsoft.EventGrid/topics
 - Microsoft.EventGrid/domains
+- Microsoft.EventGrid/topics
 - Microsoft.EventHub/clusters
 - Microsoft.EventHub/namespaces
 - Microsoft.Insights/components
-- Microsoft.Network/dnszones
+- Microsoft.Network/dnsZones
 - Microsoft.Network/loadBalancers
 - Microsoft.Network/natGateways
 - Microsoft.Network/privateEndpoints
 - Microsoft.Network/privateLinkServices
+- Microsoft.Network/trafficManagerProfiles
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
 - Microsoft.Relay/namespaces
 - Microsoft.ServiceBus/namespaces
+- Microsoft.Sql/managedInstances
+- Microsoft.Sql/servers/databases
+- Microsoft.Sql/servers/elasticPools
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 - Microsoft.Storage/storageAccounts/fileServices
 - Microsoft.Storage/storageAccounts/queueServices
 - Microsoft.Storage/storageAccounts/tableServices
+- Microsoft.Web/hostingEnvironments/multiRolePools
+- Microsoft.Web/hostingEnvironments/workerPools
+- Microsoft.Web/serverfarms
+- Microsoft.Web/sites
+- Microsoft.Web/sites/slots
+
+> [!NOTE]
+> Creating multi-resource metric alert rules on Virtual Machines is **currently not supported**. This article will be updated as soon as this functionality becomes available.
 
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
@@ -176,10 +189,8 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
-## Application Insights
 
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. As soon as this functionality becomes available this article will be updated.
+## Application Insights
 
 This section describes the supplemental configuration that is required to use Application Insights in Azure Government. To learn more about Azure Monitor and Application Insights checkout the [full documentation](https://docs.microsoft.com/azure/azure-monitor/overview).
 

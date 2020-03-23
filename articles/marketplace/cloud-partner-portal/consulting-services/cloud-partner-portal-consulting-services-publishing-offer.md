@@ -6,13 +6,13 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
+ms.date: 02/27/2020
+ms.author: evansma
 ---
 
 # Azure and Dynamics 365 consulting service offer
 
-This article explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or <a href="https://appsource.microsoft.com">AppSource</a>. Solutions based on Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">PowerApps</a> can be listed on AppSource. Other offers based on other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> can be listed in the Azure Marketplace.
+This article explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or <a href="https://appsource.microsoft.com">AppSource</a>. Solutions based on Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">Power Apps</a> can be listed on AppSource. Other offers based on other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> can be listed in the Azure Marketplace.
 
 ## Publishing benefits
 
@@ -30,11 +30,13 @@ This section outlines the elements of publishing a consulting service offer. Pub
 - [Consulting service prerequisites](./cpp-consulting-service-prerequisites.md) lists the requirements to publish a consulting service offer for:
  
     - Microsoft Azure
-    - Dynamics 365 for Customer Engagement 
-    - Dynamics 365 for Finance & Operations 
+    - Dynamics 365 Customer Engagement 
+    - Dynamics 365 Finance & Operations 
+    - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
-    - PowerApps
+    - Power Apps
+    - Power Automate
 - [Create a new offer](./cpp-consulting-service-create-offer.md) lists the steps required to create a consulting service offer entry by using the Cloud Partner Portal:
     - [Define offer settings](./cpp-consulting-service-define-offer-settings.md).
     - [Enter storefront details and whether to publish in the Azure Marketplace or on AppSource.](./cpp-consulting-service-storefront-details.md)

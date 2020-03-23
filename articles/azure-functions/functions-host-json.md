@@ -16,9 +16,9 @@ The *host.json* metadata file contains global configuration options that affect 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md).
+Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-run-local.md#local-settings-file) file (for local development).
 
-Some host.json settings are only used when running locally in the [local.settings.json](functions-run-local.md#local-settings-file) file.
+Configurations in host.json related to bindings are applied equally to each function in the function app. 
 
 ## Sample host.json file
 
@@ -64,11 +64,11 @@ The following sample *host.json* file for version 2.x+ has all possible options 
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 100.0,
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"
@@ -141,8 +141,6 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
-| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
@@ -163,6 +161,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | minSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the minimum allowed sampling percentage. |
 | maxSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
 | movingAverageRatio | 1.0 | In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes. |
+| excludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| includedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `excludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 
 ### applicationInsights.httpAutoCollectionOptions
 
@@ -203,7 +203,7 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## durableTask
 
@@ -211,7 +211,7 @@ Configuration setting can be found in [bindings for Durable Functions](durable/d
 
 ## eventHub
 
-Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs.md#host-json). 
+Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs-output.md#host-json). 
 
 ## extensions
 
@@ -273,7 +273,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook-output.md#hostjson-settings).
 
 ## logging
 
@@ -336,7 +336,7 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 ## queues
 
-Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
+Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
 
 ## sendGrid
 
@@ -344,7 +344,7 @@ Configuration setting can be found in [SendGrid triggers and bindings](functions
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus-output.md#host-json).
 
 ## singleton
 

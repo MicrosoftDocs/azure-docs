@@ -25,7 +25,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Install Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
 - **Create an SSH key pair**: For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
