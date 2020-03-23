@@ -10,7 +10,7 @@
     items:
     - name: General
       href: resources-faq.md
-    - name: zure Migrate appliance
+    - name: Azure Migrate appliance
       href: common-questions-appliance.md
     - name: Server Assessment tool/dependency analysis
       href: common-questions-discovery-assessment.md
