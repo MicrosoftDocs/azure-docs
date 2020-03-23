@@ -78,7 +78,7 @@ Follow the documentation at [Create and query an Azure SQL Data Warehouse in the
 
 **Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
 > Run the following SQL query on the database you created in your Azure Synapse Analytics (instead of the query provided in step 3 of the connect topic,) to **create a master key**.

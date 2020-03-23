@@ -83,8 +83,6 @@
     items:
     - name: Get started in the Azure EA portal
       href: ea-portal-get-started.md
-    - name: Understand your EA bill
-      href: ../understand/review-enterprise-agreement-bill.md
     - name: EA roles in Azure
       href: understand-ea-roles.md
     - name: Azure EA portal administration
