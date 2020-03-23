@@ -8,6 +8,10 @@
   items:
   - name: Create a bastion host from VM settings
     href: quickstart-host-portal.md
+- name: Concepts
+  items:
+  - name: Working remotely
+    href: working-remotely-support.md
 - name: How-to guides
   items:
   - name: Create a bastion host
