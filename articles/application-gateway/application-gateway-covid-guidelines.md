@@ -11,7 +11,7 @@ ms.author: caya
 
 # Application Gateway COVID-19 update 
 
-This article describes a few suggested guidelines for organizations in setting up their Application Gateways to handle extra traffic due to COVID-19. Organizations can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to their web applications. 
+This article describes a few suggested guidelines to help you set up your Application Gateway to handle extra traffic due to the COVID-19 pandemic. You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. 
 
 The following suggestions are to help organizations have the best set up possible for their Application Gateways with WAF. 
 
