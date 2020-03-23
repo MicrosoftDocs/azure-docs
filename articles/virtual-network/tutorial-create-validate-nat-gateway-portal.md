@@ -20,6 +20,8 @@ ms.author: allensu
 
 In this tutorial, you'll create a NAT gateway to provide outbound connectivity for virtual machines in Azure. To test the NAT gateway, you deploy a source and destination virtual machine. You'll test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
 
+If you prefer, you can do these steps using the [Azure CLI](tutorial-create-validate-nat-gateway-cli.md) or [Azure PowerShell](tutorial-create-validate-nat-gateway-powershell.md) instead of the portal.
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
