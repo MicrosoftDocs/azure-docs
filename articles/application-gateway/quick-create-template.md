@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -17,7 +17,7 @@ In this quickstart, you use a Resource Manager template to create an Azure Appli
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can also complete this quickstart using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) or [Azure CLI](quick-create-cli.md).
+You can also complete this quickstart using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or [Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,15 +50,16 @@ Multiple Azure resources are defined in the template:
 
 Deploy Resource Manager template to Azure:
 
-1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cosmos account, a database, and a container.
+1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an application gateway, the network infrastructure, and two virtual machines in the backend pool running IIS.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
-2. Select or enter the following values.
+2. Select or create your resource group, type the virtual machine administrator user name and password.
+3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 20 minutes or longer to complete.
 
 ## Validate the deployment
 
-Although IIS isn't required to create the application gateway, it is installed to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
+Although IIS isn't required to create the application gateway, it's installed to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
@@ -70,7 +71,7 @@ Although IIS isn't required to create the application gateway, it is installed t
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the application gateway, delete the resource group. When you delete the resource group, you also remove the application gateway and all the related resources.
+When you no longer need the resources that you created with the application gateway, delete the resource group. This removes the application gateway and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
