@@ -13,15 +13,15 @@ ms.author: kumud
 
 # Azure network support for mitigating networking challenges with working remotely
 
-This article describes how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
+This article describes how you can leverage the networking services in Azure to enable working remotely. In addition, you can it includes links to articles that describe how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 
-The Covid-19 (Coronavirus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and even countries across the globe. This has forced most people across a wide range of industries to work from home. Yet, there is an urgency to act; and the onus to act is on all of us. We all need to do the best we can to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
+The Covid-19 (Corona virus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and countries across the globe. This crisis has forced most people across a wide range of industries to work from home. Yet, there is an urgency to act; and the onus to act is on all of us. We all need to do the best we can to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
 
 Network architects everywhere are challenged to deal with steep increases in network utilization, to provide reliable-secure connectivity to all the employees of their company and customers, and to provide connectivity to remote locations across the globe. The pre- and post- (Covid-19) lockdown Internet traffic analysis reveal, as more people are settling down to work from home on a regular basis the home broadband network usage is experiencing significant increase in utilization. The traffic patterns are also changing, the usual weekend and night-time network troughs are vanishing. For example, the in Seattle area, in the beginning of March (after several companies in area requested employees to work from home) the Internet traffic has gone up by 40% compared to the usage in the area in January of this year. The night-time network usage trough in March is greater than the average day-time usage in January. Similar analysis in Italy shows a 30% increase. The trend is similar in all the lockdown areas.
 
 However, not all network segments (for example, the Internet backbone), private WAN, and corporate core networks are experiencing the pinch. The bottlenecks are commonly reported in home broadband networks and more particularly in the neighborhoods served by lower cable connections, VPN gateways of on-premises networks of corporations/enterprises.
 
-Keeping in mind that different traffic types need different network treatment priorities and some smart load redirection/distribution, network planners can help ease the bottlenecks and alleviate the network congestion. For example, real-time telemedicine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
+Keeping in mind that different traffic types need different network treatment priorities and some smart load redirection/distribution, network planners can help ease the bottlenecks and alleviate the network congestion. For example, real-time tele-medicine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
 >[!NOTE] 
 >Towards the end of this article, links for Covid-19 preparation articles leveraging different Azure networking features and ecosystems are listed.
@@ -29,7 +29,7 @@ Keeping in mind that different traffic types need different network treatment pr
 
 ## Azure is designed for elasticity and high-availability
 
-Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operate one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an enitre region.
+Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operate one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
 
 Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that are destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
@@ -47,13 +47,13 @@ For aggregating large scale VPN connection, to support any-to-any connections be
 
 Azure also have a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. See [Network Virtual Appliance (NVA) Considerations during COVID-19][NVA] for further details.
 
-## Enabling employees to access globaly distributed on-premises resources
+## Enabling employees to access globally distributed on-premises resources
 
 Using ExpressRoute Global Reach, Azure VPN gateway, or Azure Virtual WAN services, you can establish connectivity between your different on-premises network across globe. 
 
 ## Scaling customer connectivity to frontend resources
 
-Lockdown is forcing people to go online. Even those who are not used to online trasactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. See [Application Gateway COVID-19 Update] for further details.
+Lockdown is forcing people to go online. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. See [Application Gateway COVID-19 Update] for further details.
 
 ## Microsoft support for multi-cloud traffic
 
