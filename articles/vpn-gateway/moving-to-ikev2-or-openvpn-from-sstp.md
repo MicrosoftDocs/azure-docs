@@ -35,11 +35,11 @@ There may be cases when you want to support more than 128 concurrent P2S connect
 
 ### Option 1 - Add IKEv2 in addition to SSTP on the Gateway
 
-This is the simplest option. SSTP and IKEv2 can coexist on the same gateway and give you a higher number of concurrent connections. You can simply enable IKEv2 on the existing gateway and re-download the client.
+This is the simplest option. SSTP and IKEv2 can coexist on the same gateway and give you a higher number of concurrent connections. You can simply enable IKEv2 on the existing gateway and redownload the client.
 
-Addind IKEv2 to an existin SSTP VPN gateway will not effect existing clients and you can configure them to use IKEv2 in small batches or just configure the new clients to use IKEv2. If a Windows client is configured for bothe SSTP and IKEv2, it will try to connect using IKEV2 first and if that fails, it will fallback to SSTP.
+Adding IKEv2 to an existing SSTP VPN gateway will not affect existing clients and you can configure them to use IKEv2 in small batches or just configure the new clients to use IKEv2. If a Windows client is configured for both SSTP and IKEv2, it will try to connect using IKEV2 first and if that fails, it will fall back to SSTP.
 
-**IKEv2 uses non standard UDP ports so you need to ensure that these ports are not blocked on the users firewall. The ports in use are UDP 500 and 4500.**
+**IKEv2 uses non-standard UDP ports so you need to ensure that these ports are not blocked on the user's firewall. The ports in use are UDP 500 and 4500.**
 
 To add IKEv2 to an existing gateway, simply go to the "point-to-site configuration" tab under the Virtual Network Gateway in portal, and select **IKEv2 and SSTP (SSL)** from the drop-down box.
 
@@ -48,13 +48,13 @@ To add IKEv2 to an existing gateway, simply go to the "point-to-site configurati
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the Gateway
 
-Since SSTP and OpenVPN are both TLS based protocol, they cannot co-exist on the same gateway. If you decide to move away from SSTP to OpenVPN, you will have to disable SSTP and enable OpenVPN on the gateway. This operation will cause the existing clients to lose connectivity to the VPN gateway until the new profile has been configured on the client.
+Since SSTP and OpenVPN are both TLS-based protocol, they cannot coexist on the same gateway. If you decide to move away from SSTP to OpenVPN, you will have to disable SSTP and enable OpenVPN on the gateway. This operation will cause the existing clients to lose connectivity to the VPN gateway until the new profile has been configured on the client.
 
-You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS based and uses the standard TCP 443 port. To switch to OpenVPN, go to the "point-to-site configuration" tab under the Virtual Network Gateway in portal, and select **OpenVPN (SSL)** or **IKEv2 and OpenVPN (SSL)** from the drop-down box.
+You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based and uses the standard TCP 443 port. To switch to OpenVPN, go to the "point-to-site configuration" tab under the Virtual Network Gateway in portal, and select **OpenVPN (SSL)** or **IKEv2 and OpenVPN (SSL)** from the drop-down box.
 
 ![point-to-site](./media/moving-to-ikev2-or-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Once the gateway has been configured,existing clients will not be able to connect until you [deploy and configure the OpenVPN Clients](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+Once the gateway has been configured, existing clients will not be able to connect until you [deploy and configure the OpenVPN Clients](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
 
 If you are using Windows 10, you can also use the [Azure VPN Client for Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
 
