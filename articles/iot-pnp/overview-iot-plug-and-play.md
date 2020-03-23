@@ -74,7 +74,7 @@ As a device developer, you can submit IoT hardware products for certification. Y
 
 ## Regional availability
 
-During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Make sure you create your hub in one of these regions.
+During public preview, IoT Plug and Play is available in all regions.
 
 ## Message quotas in IoT Hub
 
