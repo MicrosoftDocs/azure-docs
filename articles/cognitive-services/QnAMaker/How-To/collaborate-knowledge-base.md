@@ -7,21 +7,17 @@ ms.date: 03/17/2020
 
 # Collaboration with authors and editors
 
-Collaboration is provided at the QnA Maker resource level in two different ways:
-
-* **Authentication key** for owner and contributor roles. This is the original method of providing access. at subscription level 
-
-* Authentication via **bearer tokens** for other roles. This is a newer method of providing access.
+Collaboration is provided at the QnA Maker resource level to allow you to restrict collaborator access based on the collaborator's role. Learn more about QnA Maker collaborator authentication [concepts](../Concepts/role-based-access-control.md).
 
 # Add role-based access (RBAC) to your QnA Maker resource
 
-QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with the Azure [Role-Based Access Control](../../../active-directory/role-based-access-control-configure.md).
 
 ## Access at the QnA Maker resource level
 
-You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker services.
+You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker resources, then add roles to each resource.
 
-## Use authentication key for owner and contributor
+## Add role to resource
 
 ### Add a user account to the QnA Maker resource
 
@@ -57,11 +53,11 @@ The following steps use the collaborator role but any of the [roles](../referenc
 
 When the person you shared your QnA Maker service with logs into the [QnA Maker portal](https://qnamaker.ai), they can see all the knowledge bases in that service based on their role.
 
-## Use bearer token for other roles
-
-Bearer
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Test a knowledge base](./test-knowledge-base.md)
+
+Learn more about collaboration:
+* [Azure](../../../active-directory/role-based-access-control-configure.md) role-based access control
+* QnA Maker role-based access control [concepts](../Concepts/role-based-access-control.md)
