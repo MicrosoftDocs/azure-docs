@@ -4,7 +4,7 @@ description: Describes how to set one resource as dependent on another resource 
 ms.topic: conceptual
 ms.date: 12/03/2019
 ---
-# Define the order for deploying resources in Azure Resource Manager templates
+# Define the order for deploying resources in ARM templates
 
 When deploying a resource, you may need to make sure other resources exist before it's deployed. For example, you need a SQL server before deploying a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function.
 
