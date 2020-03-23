@@ -8,6 +8,10 @@
   items:
   - name: Create a bastion host from VM settings
     href: quickstart-host-portal.md
+- name: Concepts
+  items:
+  - name: Working remotely
+    href: working-remotely-support.md
 - name: How-to guides
   items:
   - name: Create a bastion host
@@ -40,6 +44,14 @@
     href: session-monitoring.md
   - name: Troubleshoot
     href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.network
+  - name: REST
+    href: /rest/api/virtualnetwork/bastionhosts
+  - name: Azure CLI
+    href: /cli/azure/network/bastion
 - name: Resources
   items:
   - name: Bastion FAQ

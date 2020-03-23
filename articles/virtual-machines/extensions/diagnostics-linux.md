@@ -56,7 +56,7 @@ The downloadable configuration is just an example; modify it to suit your own ne
 
 Fill in the correct values for the variables in the first section before running:
 
-```bash
+```azurecli
 # Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
@@ -88,7 +88,7 @@ The URL for the sample configuration, and its contents, are subject to change. D
 
 #### PowerShell sample
 
-```Powershell
+```powershell
 $storageAccountName = "yourStorageAccountName"
 $storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
 $vmName = "yourVMName"
@@ -216,7 +216,7 @@ The "sasURL" entry contains the full URL, including SAS token, for the Event Hub
 
 If you created a SAS good until midnight UTC on January 1, 2018, the sasURL value might be:
 
-```url
+```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 

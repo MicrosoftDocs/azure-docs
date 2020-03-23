@@ -71,7 +71,7 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
   
-9. Run the pipeline.  
+9. Submit the pipeline.  
   
 ## Results
 

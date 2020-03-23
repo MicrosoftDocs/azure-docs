@@ -44,7 +44,7 @@ The Site Recovery team and Azure capacity management team plan for sufficient in
 Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryption enabled. When you enable replication, Azure copies all the required disk encryption keys and secrets from the source region to the target region in the user context. If you don't have the appropriate permissions, your security administrator can use a script to copy the keys and secrets.
 
 - Site Recovery supports Azure Disk Encryption for Azure VMs that are running Windows.
-- Site Recovery supports Azure Disk Encryption version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schemata for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site Recovery supports Azure Disk Encryption version 0.1, which has a schema that requires Azure Active Directory (Azure AD). Site Recovery also supports version 1.1, which doesn't require Azure AD. [Learn more about the extension schema for Azure disk encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - For Azure Disk Encryption version 1.1, you have to use the Windows VMs with managed disks.
   - [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
@@ -64,7 +64,7 @@ Yes, you can exclude disks at the time of protection by using PowerShell. For mo
 
 ### Can I add new disks to replicated VMs and enable replication for them?
 
-Yes, adding new disks to replicated VMs and enabling replication for them is supported for Azure VMs with managed disks. When you add a new disk to an Azure VM that’s enabled for replication, replication health for the VM shows a warning. That warning states that one or more disks on the VM are available for protection. You can enable replication for added disks.
+Yes, adding new disks to replicated VMs and enabling replication for them is supported for Azure VMs with managed disks. When you add a new disk to an Azure VM that's enabled for replication, replication health for the VM shows a warning. That warning states that one or more disks on the VM are available for protection. You can enable replication for added disks.
 
 - If you enable protection for the added disks, the warning will disappear after the initial replication.
 - If you don't enable replication for the disk, you can dismiss the warning.
@@ -72,7 +72,7 @@ Yes, adding new disks to replicated VMs and enabling replication for them is sup
 
 For example, let's say a VM has a single disk and you add a new one. There might be a replication point that was created before you added the disk. This replication point will show that it consists of "1 of 2 disks."
 
-Site Recovery doesn’t support "hot remove" of a disk from a replicated VM. If you remove a VM disk, you need to disable and then re-enable replication for the VM.
+Site Recovery doesn't support "hot remove" of a disk from a replicated VM. If you remove a VM disk, you need to disable and then re-enable replication for the VM.
 
 ### How often can I replicate to Azure?
 
@@ -109,7 +109,7 @@ A replication policy defines the settings for the retention history of recovery 
 
 ### What is a crash-consistent recovery point?
 
-A crash-consistent recovery point has the on-disk data as if you pulled the power cord from the server during the snapshot. The crash-consistent recovery point doesn’t include anything that was in memory when the snapshot was taken.
+A crash-consistent recovery point has the on-disk data as if you pulled the power cord from the server during the snapshot. The crash-consistent recovery point doesn't include anything that was in memory when the snapshot was taken.
 
 Today, most applications can recover well from crash-consistent snapshots. A crash-consistent recovery point is usually enough for no-database operating systems and applications like file servers, DHCP servers, and print servers.
 

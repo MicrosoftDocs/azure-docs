@@ -123,7 +123,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 
 ## Azure Resource Manager template
-To create an activity log alert by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert:
+To create an activity log alert rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert  rule:
 
 ```json
 {
@@ -191,6 +191,40 @@ To create an activity log alert by using an Azure Resource Manager template, you
 }
 ```
 The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields:
+Notice that “Resource Health”, “Advisor” and “Service Health” have extra properties fields for their special fields. 
+1. resourceId:	The resource ID of the impacted resource in the activity log event that the alert should be generated on.
+2. category: The category of in the activity log event. For example: Administrative, ServiceHealth, ResourceHealth, Autoscale, Security, Recommendation, Policy.
+3. caller: The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.
+4. level: Level of the activity in the activity log event that the alert should be generated on. For example: Critical, Error, Warning, Informational, Verbose.
+5. operationName: The name of the operation in the activity log event. For example: Microsoft.Resources/deployments/write
+6. resourceGroup: Name of the resource group for the impacted resource in the activity log event.
+7. resourceProvider: [Azure resource providers and types explanation](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
+8. status: String describing the status of the operation in the activity event. For example: Started, In Progress, Succeeded, Failed, Active, Resolved
+9. subStatus: Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus.	For example: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504).
+10. resourceType: The type of the resource that was affected by the event. For example: Microsoft.Resources/deployments
+
+For example:
+
+```json
+"condition": {
+          "allOf": [
+            {
+              "field": "category",
+              "equals": "Administrative"
+            },
+            {
+              "field": "resourceType",
+              "equals": "Microsoft.Resources/deployments"
+            }
+          ]
+        }
+
+```
+More details on the activity log fields you can find [here](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+
+
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.
