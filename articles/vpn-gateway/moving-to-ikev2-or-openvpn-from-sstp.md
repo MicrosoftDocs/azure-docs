@@ -1,5 +1,5 @@
 ---
-title: 'Transition to OpenVPN or IKEv2 from SSTP | VPN Gateway'
+title: 'Transition to OpenVPN or IKEv2 from SSTP | Azure VPN Gateway'
 description: This article helps you understand the ways to overcome the 128 concurrent connection limit of SSTP.
 services: vpn-gateway
 author: anzaman
@@ -18,9 +18,9 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (OSX versions 10.13 and above).
+* **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (OSX versions 10.13 and above).
 
-* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports upto 128 concurrent connections only regardless of the gateway SKU**.
+* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
@@ -59,8 +59,8 @@ Once the gateway has been configured,existing clients will not be able to connec
 If you are using Windows 10, you can also use the [Azure VPN Client for Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
 
 
-# Frequently asked questions
-## What are the client configuration requirements?
+## Frequently asked questions
+### What are the client configuration requirements?
 
 >[!NOTE]
 >For Windows clients, you must have administrator rights on the client device in order to initiate the VPN connection from the client device to Azure.
@@ -77,7 +77,7 @@ The zip file also provides the values of some of the important settings on the A
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
+### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -87,48 +87,48 @@ The zip file also provides the values of some of the important settings on the A
 >The Basic SKU does not support IKEv2 or RADIUS authentication.
 >
 
-## <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
+### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 
 
 **IKEv2**
 
 |**Cipher** | **Integrity** | **PRF** | **DH Group** |
-|---		| ---			| ---		| --- 	|
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_24 |
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_14 |
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_ECP384 |
-|GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_ECP256 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_24 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_14 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_ECP384 |
-|GCM_AES256 |	GCM_AES256	| SHA256	| GROUP_ECP256 |
-|AES256     |   SHA384		| SHA384	| GROUP_24 |
-|AES256     |   SHA384		| SHA384	| GROUP_14 |
-|AES256     |   SHA384		| SHA384	| GROUP_ECP384 |
-|AES256     |   SHA384		| SHA384	| GROUP_ECP256 |
-|AES256     |   SHA256		| SHA256	| GROUP_24 |
-|AES256     |   SHA256		| SHA256	| GROUP_14 |
-|AES256     |   SHA256		| SHA256	| GROUP_ECP384 |
-|AES256     |   SHA256		| SHA256	| GROUP_ECP256 |
-|AES256     |   SHA256		| SHA256	| GROUP_2 |
+|---        | ---            | ---        | ---     |
+|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_24 |
+|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_14 |
+|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_ECP384 |
+|GCM_AES256 |    GCM_AES256    | SHA384    | GROUP_ECP256 |
+|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_24 |
+|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_14 |
+|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_ECP384 |
+|GCM_AES256 |    GCM_AES256    | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA384        | SHA384    | GROUP_24 |
+|AES256     |   SHA384        | SHA384    | GROUP_14 |
+|AES256     |   SHA384        | SHA384    | GROUP_ECP384 |
+|AES256     |   SHA384        | SHA384    | GROUP_ECP256 |
+|AES256     |   SHA256        | SHA256    | GROUP_24 |
+|AES256     |   SHA256        | SHA256    | GROUP_14 |
+|AES256     |   SHA256        | SHA256    | GROUP_ECP384 |
+|AES256     |   SHA256        | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA256        | SHA256    | GROUP_2 |
 
 **IPsec**
 
 |**Cipher** | **Integrity** | **PFS Group** |
-|---		| ---			| ---		|
-|GCM_AES256	| GCM_AES256 | GROUP_NONE |
-|GCM_AES256	| GCM_AES256 | GROUP_24 |
-|GCM_AES256	| GCM_AES256 | GROUP_14 |
-|GCM_AES256	| GCM_AES256 | GROUP_ECP384 |
-|GCM_AES256	| GCM_AES256 | GROUP_ECP256 |
-| AES256	| SHA256 | GROUP_NONE |
-| AES256	| SHA256 | GROUP_24 |
-| AES256	| SHA256 | GROUP_14 |
-| AES256	| SHA256 | GROUP_ECP384 |
-| AES256	| SHA256 | GROUP_ECP256 |
-| AES256	| SHA1 | GROUP_NONE |
+|---        | ---            | ---        |
+|GCM_AES256    | GCM_AES256 | GROUP_NONE |
+|GCM_AES256    | GCM_AES256 | GROUP_24 |
+|GCM_AES256    | GCM_AES256 | GROUP_14 |
+|GCM_AES256    | GCM_AES256 | GROUP_ECP384 |
+|GCM_AES256    | GCM_AES256 | GROUP_ECP256 |
+| AES256    | SHA256 | GROUP_NONE |
+| AES256    | SHA256 | GROUP_24 |
+| AES256    | SHA256 | GROUP_14 |
+| AES256    | SHA256 | GROUP_ECP384 |
+| AES256    | SHA256 | GROUP_ECP256 |
+| AES256    | SHA1 | GROUP_NONE |
 
-## <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
+### <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
 **TLS**
 
 |**Policies** |
@@ -146,7 +146,7 @@ The zip file also provides the values of some of the important settings on the A
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-## <a name="configure"></a>How do I configure a P2S connection?
+### <a name="configure"></a>How do I configure a P2S connection?
 
 A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through P2S configuration, and links to configure the VPN client devices:
 
