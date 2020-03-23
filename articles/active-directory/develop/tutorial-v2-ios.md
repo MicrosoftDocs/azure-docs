@@ -65,13 +65,14 @@ This tutorial will create a new project. If you want to download the completed t
 
 1. Go to the [Azure portal](https://aka.ms/MobileAppReg)
 2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New registration**.
-3. Enter a **Name** for your app and then, without setting a Redirect URI, click **Register**.
-4. In the **Manage** section of the pane that appears, select **Authentication**.
+3. Enter a **Name** for your app and then, without setting a Redirect URI.
+4. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**
+5. Click **Register**
+6. In the **Manage** section of the pane that appears, select **Authentication**.
 
-5. Click **Try out the new experience** near the top of the screen to open the new app registration experience, and then click **+New registration** > **+ Add a platform** > **iOS**.
+7. Click **Try out the new experience** near the top of the screen to open the new app registration experience, and then click **+New registration** > **+ Add a platform** > **iOS/macOS**.
     - Enter your project's Bundle ID. If you downloaded the code, this is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
-    - Note that for macOS you should be also using iOS experience. 
-6. Click `Configure` and save the **MSAL Configuration** that appears in the **iOS configuration** page so you can enter it when you configure your app later.  Click **Done**.
+8. Click `Configure` and save the **MSAL Configuration** that appears in the **MSAL configuration** page so you can enter it when you configure your app later.  Click **Done**.
 
 ## Add MSAL
 
