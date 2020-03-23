@@ -22,6 +22,10 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ## March 2020 
 
+### TLS 1.2 enforcement
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../articles/cognitive-services/cognitive-services-security.md).
+
 ### Extraction Enhancements and bug fixes
 
 This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. In addition, we've fixed several bugs, including a fix that allows users to submit a file URL as the source to the [`analyzeForm`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) and [`analyzeLayout`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync) APIs. 
