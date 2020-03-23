@@ -14,41 +14,41 @@ manager: lizross
 
 > Applies to: Windows 10, and Windows 10 IoT Enterprise
 
-Virtualized environments present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://go.microsoft.com/fwlink/?linkid=2123169&clcid=0x409).
+Virtualized environments present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi).
 
-## Environment requirements
+## Prerequisites
 
-To use Microsoft Teams calling on Windows Virtual Desktop:
+Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
 
-- Use the [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](https://go.microsoft.com/fwlink/?linkid=2123901&clcid=0x409).
-- Connect to a Windows 10 Multi-Session or Windows 10 Enterprise VM.
-- [Prepare your network](https://go.microsoft.com/fwlink/?linkid=2123167&clcid=0x409) for Microsoft Teams.
+- Install [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements](https://docs.microsoft.com/en-us/microsoftteams/hardware-requirements-for-the-teams-app).
+- Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
+- [Prepare your network](https://docs.microsoft.com/en-us/microsoftteams/prepare-network) for Microsoft Teams.
 
 ## Use unoptimized Microsoft Teams
 
-You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environments to leverage the full chat and collaboration features of Microsoft Teams as well as audio calling. Audio calling performance will vary based on your host configuration as it will increase your host CPU utilization.
+You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environments to leverage the full chat and collaboration features of Microsoft Teams as well as audio calling. Audio quality in calls will vary based on your host configuration because unoptimized calls use more of your host CPU.
 
 ### Install Microsoft Teams
 
 To install Microsoft Teams in your Windows Virtual Desktop environment:
 
-1. Download the [Teams MSI package](https://go.microsoft.com/fwlink/?linkid=2123170&clcid=0x409) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
+1. Download the [Teams MSI package](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 2. Install the MSI to the host VM:
 
-```
+```shell
 msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
 ```
 
-This will install Teams to either Program Files or Program Files (x86). The next interactive logon session will start Teams and ask for credentials.
+This will install Teams to either Program Files or Program Files (x86). The next time you sign in and start Teams, the app will ask for your credentials.
 
 > [!NOTE]
-> It is not possible for the user or administrator to disable automatic launch of Teams during sign-in to Windows.
+> Users and admins can't disable automatic launch for Teams during sign-in at this time.
 
 To uninstall the MSI from the host VM:
 
-```
+```shell
 msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
 ```
 
 > [!NOTE]
-> If Teams is installed with the MSI setting ALLUSER=1, automatic updates are disabled.  Teams must be manually updated regularly, and it is recommended to be done at least once a month.
+> If you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled.  We recommend you make sure to update Teams at least once a month.
