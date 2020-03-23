@@ -1,18 +1,18 @@
 ---
 title: Create a new Managed Service offer in the Commercial Marketplace 
-description: How to create a new Managed Service offer for listing or selling in Azure Marketplace using the Commercial Marketplace portal on Microsoft Partner Center. 
+description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
 author: JnHs 
 ms.author: jenhayes
 manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/23/2020
 ---
 
 # Create a new Managed Service offer
 
-This topic explains how to create a new Managed Service offer. These offers enable a customer who purchases the offer to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. Note that competencies.....
 
@@ -182,7 +182,7 @@ Finally, enter a **Description** that provides a more detailed explanation of th
 
 Currently, there is only one pricing model that can be used for Managed Service offer: **Bring your own license (BYOL)**. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.
 
-The **Plan visibility** section lets you indicate if this plan should be private. If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
+The **Plan visibility** section lets you indicate if this plan should be [private](../../marketplace/private-offers.md). If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
 
 To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer.
 

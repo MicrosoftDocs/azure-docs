@@ -1,7 +1,7 @@
 ---
 title: Publish a managed service offer to Azure Marketplace
 description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-ms.date: 01/16/2020
+ms.date: 03/23/2020
 ms.topic: conceptual
 ---
 
@@ -29,7 +29,7 @@ To learn about the general publishing process, see [Azure Marketplace and AppSou
 Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded for Azure delegated resource management](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
-> Each plan in a Managed service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you'll need to publish a separate private plan that is exclusive to each customer.
+> Each plan in a Managed service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you'll need to publish a separate [private plan](../../marketplace/private-offers.md) that is exclusive to each customer.
 
 ## Publish your offer
 
