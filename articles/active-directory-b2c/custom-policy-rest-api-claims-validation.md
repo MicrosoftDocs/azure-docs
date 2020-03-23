@@ -138,7 +138,7 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
 
 In this example, the `userLanguage` will be sent to the REST service as `lang` within the JSON payload. The value of the `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
 ## Validate the user input
 
@@ -267,5 +267,5 @@ To return the promo code claim back to the relying party application, add an out
 To learn how to secure your APIs, see the following articles:
 
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
-- [Secure your RESTful API](secure-rest-api.md.md)
+- [Secure your RESTful API](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)

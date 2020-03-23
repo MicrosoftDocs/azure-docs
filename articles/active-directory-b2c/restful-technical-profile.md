@@ -251,6 +251,5 @@ public class ResponseContent
 See the following articles for examples of using a RESTful technical profile:
 
 - [Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input](rest-api-claims-exchange-dotnet.md)
-- [Secure your RESTful services by using HTTP basic authentication](secure-rest-api-dotnet-basic-auth.md)
-- [Secure your RESTful service by using client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Secure your RESTful services](secure-rest-api.md)
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](custom-policy-rest-api-claims-validation.md)

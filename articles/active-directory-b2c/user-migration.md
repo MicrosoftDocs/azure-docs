@@ -68,7 +68,7 @@ To see an example custom policy and REST API, see the [seamless user migration s
 
 The seamless migration approach uses your own custom REST API to validate a user's credentials against the legacy identity provider.
 
-**You must protect your REST API against brute-force attacks.** An attacker can submit several passwords in the hope of eventually guessing a user's credentials. To help defeat such attacks, stop serving requests to your REST API when the number of sign-in attempts passes a certain threshold. Also, secure the communication between Azure AD B2C and your REST API by using a [client certificate](secure-rest-api-dotnet-certificate-auth.md).
+**You must protect your REST API against brute-force attacks.** An attacker can submit several passwords in the hope of eventually guessing a user's credentials. To help defeat such attacks, stop serving requests to your REST API when the number of sign-in attempts passes a certain threshold. Also, secure the communication between Azure AD B2C and your REST API. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
 ### User attributes
 
