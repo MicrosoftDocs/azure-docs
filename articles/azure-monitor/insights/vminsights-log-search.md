@@ -436,7 +436,7 @@ Records with a type of *InsightsMetrics* have performance data from the guest op
 |SourceSystem | *Insights* | 
 |TimeGenerated | Time the value was collected (UTC) |
 |Computer | The computer FQDN | 
-|Origin | *vm.azm.ms* for records from Azure Monitor for VMs |
+|Origin | *vm.azm.ms* |
 |Namespace | Category of the performance counter | 
 |Name | Name of the performance counter |
 |Val | Collected value | 
