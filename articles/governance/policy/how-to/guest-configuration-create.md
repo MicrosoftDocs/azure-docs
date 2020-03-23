@@ -10,7 +10,7 @@ Before creating custom policies, it's a good idea to read the conceptual overvie
 page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
  
 To learn about creating Guest Configuration policies for Linux, see the page
-[How to create Guest Configuration policies for Linux](/guest-configuration-custom-linux.md)
+[How to create Guest Configuration policies for Linux](./guest-configuration-create-linux.md)
 
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
