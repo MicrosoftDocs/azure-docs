@@ -4,11 +4,9 @@ description: Learn about networking services in Azure and their capabilities.
 services: networking
 documentationcenter: na
 author: KumudD
-
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud

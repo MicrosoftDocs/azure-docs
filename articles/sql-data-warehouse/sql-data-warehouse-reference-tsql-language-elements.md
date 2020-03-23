@@ -10,8 +10,7 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # T-SQL language elements supported in SQL Analytics
