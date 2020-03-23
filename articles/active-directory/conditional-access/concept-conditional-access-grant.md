@@ -95,6 +95,7 @@ This setting applies to the following iOS and Android apps:
 - Microsoft Visio
 - Microsoft Word
 - Microsoft Yammer
+- Microsoft Whiteboard
 
 **Remarks**
 
