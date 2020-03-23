@@ -47,11 +47,11 @@ Before you can create a route table, create a resource group with [az group crea
 az group create \
   --name myResourceGroup \
   --location eastus
-``` 
+```
 
 Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
 
-```azurecli-interactive 
+```azurecli-interactive
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -151,6 +151,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 The command may take up to a minute to execute.
 
 ## Create virtual machines
@@ -188,7 +189,7 @@ az vm create \
 
 The VM takes a few minutes to create. After the VM is created, the Azure CLI shows information similar to the following example: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -200,13 +201,14 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
   "resourceGroup": "myResourceGroup"
 }
 ```
+
 Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
 
 ## Route traffic through an NVA
 
 Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -214,7 +216,7 @@ When prompted for a password, enter the password you selected in [Create virtual
 
 Use the following command to install trace route on the *myVmPrivate* VM:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -226,7 +228,7 @@ traceroute myVmPublic
 
 The response is similar to the following example:
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
@@ -235,13 +237,13 @@ You can see that traffic is routed directly from the *myVmPrivate* VM to the *my
 
 Use the following command to SSH to the *myVmPublic* VM from the *myVmPrivate* VM:
 
-```bash 
+```bash
 ssh azureuser@myVmPublic
 ```
 
 Use the following command to install trace route on the *myVmPublic* VM:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -258,6 +260,7 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
+
 You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
 
 Close the SSH sessions to both the *myVmPublic* and *myVmPrivate* VMs.
@@ -266,7 +269,7 @@ Close the SSH sessions to both the *myVmPublic* and *myVmPrivate* VMs.
 
 When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 
