@@ -13,7 +13,7 @@ ms.author: caya
 
 This article describes a few suggested guidelines to help you set up your Application Gateway to handle extra traffic due to the COVID-19 pandemic. You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. 
 
-The following suggestions are to help organizations have the best set up possible for their Application Gateways with WAF. 
+The following suggestions help you set up Application Gateway with WAF to handle extra traffic . 
 
 ## Use the v2 SKUs over v1 for their autoscaling capabilities and performance benefits
 The v2 SKUs offer autoscaling to ensure that your Application Gateway can scale up as traffic increases and offers other significant performance benefits such as 5x better SSL offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
