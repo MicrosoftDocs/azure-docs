@@ -89,7 +89,7 @@ This method shows you how to send email with a registration link and an optional
 
     ![The "Send registration link by email" window](../media/tutorial-setup-classroom-lab/send-email.png)
 
-    The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to *Sending** and then to *Sent on \<date>*. 
+    The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to **Sending** and then to **Sent on \<date>**. 
 
 ### Invite selected users
 
@@ -172,7 +172,7 @@ To set additional quotas, do the following:
 
 To add students to a classroom lab, you use their email accounts. Students might have the following types of email accounts:
 
-- A student email account that's provided by your university's Office 365 Azure Active Directory. 
+- A student email account that's provided by your university's Azure Active Directory instance for Office 365. 
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
 - A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
