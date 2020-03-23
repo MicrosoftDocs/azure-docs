@@ -324,7 +324,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; International Phonetic Alphabet</li><li>`sapi` &ndash; Speech service phonetic alphabet</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element. For more information, see [Phonetic Alphabet Reference](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; International Phonetic Alphabet</li><li>`sapi` &ndash; Speech service phonetic alphabet</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element. For more information about `ipa`, see [Phonetic Alphabet Reference](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). For more information about `sapi`, see [Speech service phonetic sets](speech-ssml-phonetic-sets.md). | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
@@ -341,6 +341,14 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+    </voice>
+</speak>
+```
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-AriaRUS">
+        <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
 ```
