@@ -210,7 +210,7 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |AzureServiceFabricClusterId | The unique identifer of the Azure Service Fabric cluster | 
 |AzureServiceFabricClusterName | The name of the Azure Service Fabric cluster |
 
-### VMProcess record
+### VMProcess records
 
 Records with a type of *VMProcess* have inventory data for TCP-connected processes on servers with the Dependency agent. These records have the properties in the following table:
 
@@ -243,7 +243,8 @@ Records with a type of *VMProcess* have inventory data for TCP-connected process
 |UserDomain | The domain under which the process is executing |
 |_ResourceId | The unique identifier for a process within the workspace |
 
-## Sample log searches
+
+## Sample map queries
 
 ### List all known machines
 
@@ -424,6 +425,47 @@ let remoteMachines = remote | summarize by RemoteMachine;
 // aggregate the remote information
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
+
+## Performance records
+Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records have the properties in the following table:
+
+
+| Property | Description |
+|:--|:--|
+|TenantId | Unique identifier for the workspace |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Time the value was collected (UTC) |
+|Computer | The computer FQDN | 
+|Origin | *vm.azm.ms* for records from Azure Monitor for VMs |
+|Namespace | Category of the performance counter | 
+|Name | Name of the performance counter |
+|Val | Collected value | 
+|Tags | Details about the  |
+|AgentId | Unique identifier for each computer's agent |
+|Type | *InsightsMetrics* |
+|_ResourceId_ | Resource ID of the virtual machine |
+
+The performance counters currently collected into the *InsightsMetrics* table are 
+
+| Namespace | Name | Display Name | Unit | Tags |
+|:---|:---|:---|:---|:---|
+| Computer    | Heartbeat             | Computer Heartbeat                        | | |
+| Memory      | AvailableMB           | Memory Available Bytes                    | Bytes          | memorySizeMB - Total memory size|
+| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - Id of the device<br>bytes - Total sent bytes |
+| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - Id of the device<br>bytes - Total received bytes |
+| Processor   | UtilizationPercentage | Processor Utilization Percentage          | Percent        | totalCpus - Total CPUs |
+| LogicalDisk | WritesPerSecond       | Logical Disk Writes Per Second            | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | WriteLatencyMs        | Logical Disk Write Latency Millisecond    | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | WriteBytesPerSecond   | Logical Disk Write Bytes Per Second       | BytesPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | TransfersPerSecond    | Logical Disk Transfers Per Second         | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | TransferLatencyMs     | Logical Disk Transfer Latency Millisecond | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | ReadsPerSecond        | Logical Disk Reads Per Second             | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | ReadLatencyMs         | Logical Disk Read Latency Millisecond     | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | ReadBytesPerSecond    | Logical Disk Read Bytes Per Second        | BytesPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | FreeSpacePercentage   | Logical Disk Free Space Percentage        | Percent        | mountId - Mount ID of the device |
+| LogicalDisk | FreeSpaceMB           | Logical Disk Free Space Bytes             | Bytes          | mountId - Mount ID of the device<br>diskSizeMB - Total disk size |
+| LogicalDisk | BytesPerSecond        | Logical Disk Bytes Per Second             | BytesPerSecond | mountId - Mount ID of the device |
+
 
 ## Next steps
 
