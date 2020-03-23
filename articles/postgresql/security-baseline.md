@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Database for PostgreSQL Single Se
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

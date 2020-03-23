@@ -4,7 +4,7 @@ description: Azure Security Baseline for Event Hubs
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,7 +28,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 Once bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding your Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service. 
 
-You can also create a private endpoint, which is a network interface that connects you privately and securely to Azure Event Hubs service by using the Azure Private Link service. he private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. 
+You can also create a private endpoint, which is a network interface that connects you privately and securely to Azure Event Hubs service by using the Azure Private Link service. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. 
 
 You can also secure your Azure Event Hubs namespace by using firewalls. Azure Event Hubs supports IP-based access controls for inbound firewall support. You can set firewall rules by using the Azure portal, Azure Resource Manager templates, or through the Azure CLI or Azure PowerShell.
 
@@ -375,10 +375,8 @@ How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/au
 How to deploy Privileged Identity Management (PIM):​ https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan​​
 
 ​
-​
 Understand Azure AD risk detections:​ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events​​
 
-​​
 How to configure action groups for custom alerting and notification:​ https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 **Azure Security Center monitoring**: Yes
@@ -741,7 +739,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Responsibility**: Not applicable
 
-### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
+### 6.11: <div>Limit users' ability to interact with Azure Resource Manager via scripts</div>
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 

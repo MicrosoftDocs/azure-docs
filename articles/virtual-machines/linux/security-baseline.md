@@ -4,7 +4,7 @@ description: Azure Security Baseline for Linux Virtual Machines
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1272,7 +1272,7 @@ How to backup key vault keys in Azure:  https://docs.microsoft.com/powershell/mo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1986).
 
-**Guidance**: Ensure ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated Vlan. Customer to test restoration of backed up customer managed keys.
+**Guidance**: Ensure ability to periodically perform data restoration of content within Azure Backup. If necessary, test restore content to an isolated virtual network or subscription. Customer to test restoration of backed up customer managed keys.
 How to recover files from Azure Virtual Machine backup:  https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm
 
 How to restore key vault keys in Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
