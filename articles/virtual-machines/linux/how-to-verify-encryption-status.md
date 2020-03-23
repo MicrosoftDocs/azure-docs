@@ -84,7 +84,7 @@ You can validate the **general** encryption status of an encrypted VM using the 
 
 You can capture the encryption settings from each individual disk using the following PowerShell commands:
 
-**Single-Pass**
+### **Single-Pass**
 If single-pass the encryption settings are stamped in each of the disks (OS and Data).
 You can capture the OS disk encryption settings in single pass as follows:
 
@@ -133,7 +133,7 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
 ```
 ![Verify data single ps 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
 
-**Dual-Pass**
+### **Dual-Pass**
 In Dual Pass, the encryption settings are stamped in the VM model and not on each individual disk.
 
 To verify the encryption settings were stamped in dual-pass, you can use the following commands:
@@ -157,7 +157,7 @@ Write-Host "====================================================================
 ```
 ![Verify dual pass PowerShell  1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
-**Unattached disks**
+### **Unattached disks**
 
 Check the encryption settings for disks that aren't attached to a VM.
 
@@ -185,7 +185,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ```
 ![Verify general using CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
-**Single Pass**
+### **Single Pass**
 You can validate the encryption settings from each individual disk using the following AZ CLI commands:
 
 ```bash
@@ -264,11 +264,11 @@ done
 
 ![Verify vm profile dual using CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
-**Unattached disks**
+### **Unattached disks**
 
-Check the encryption settings for disks that aren't attached to a VM:
+Check the encryption settings for disks that aren't attached to a VM.
 
-**Managed disks**
+### **Managed disks**
 
 ```bash
 RGNAME="RGNAME"
@@ -281,7 +281,7 @@ echo -ne "Disk Encryption Key: "; az disk show -g ${RGNAME} -n ${TARGETDISKNAME}
 echo -ne "key Encryption Key: "; az disk show -g ${RGNAME} -n ${TARGETDISKNAME} --query encryptionSettingsCollection.encryptionSettings[].keyEncryptionKey.keyUrl -o tsv; \
 echo "============================================================================================================================================================="
 ```
-**Unmanaged disks**
+### **Unmanaged disks**
 
 Unmanaged disks are VHD files that are stored as page blobs in Azure storage accounts.
 
@@ -305,7 +305,7 @@ Select the appropriate ID and store it on a variable:
 ```bash
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
-The connection string:
+The connection string.
 
 This command gets the connection string for one particular storage account and stores it on a variable:
 
@@ -313,7 +313,7 @@ This command gets the connection string for one particular storage account and s
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
-The container name:
+The container name.
 
 The following command lists all the containers under a storage account:
 ```bash
@@ -326,7 +326,7 @@ Store the container name on a variable
 ContainerName="name of the container"
 ```
 
-The disk name:
+The disk name.
 
 Use this command to list all the blobs on a particular container
 ```bash 
