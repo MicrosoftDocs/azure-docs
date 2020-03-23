@@ -533,6 +533,8 @@
       href: support.md
     - name: Regions
       href: regions.md
+    - name: Containers FAQ
+      href: speech-container-faq.md
     - name: Swagger documentation
       href: swagger-documentation.md
     - name: Sovereign Clouds
