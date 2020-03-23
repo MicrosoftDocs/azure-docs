@@ -30,14 +30,14 @@ One route should allow multiple notifications and event types to be selected.
 
 If there is no route, no messages are routed outside of Azure Digital Twins. If there is a route and the filter is `null`, all messages are routed to the endpoint. If there is a route and a filter is added, messages will be filtered based on the filter.
 
-**Note**: During this preview, filters are not supported. Please use Event Grid as an endpoint with an Event Grid subscription filter to use selective messaging.
+> [!NOTE]
+> During this preview, filters are not supported. Please use Event Grid as an endpoint with an Event Grid subscription filter to use selective messaging.
 
 In SDK form:
 
 ```csharp
 await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointID"));
 ```
-);`
 
 ## Message examples
 

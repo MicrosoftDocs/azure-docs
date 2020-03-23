@@ -30,7 +30,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins us
 
 In this example, you will work with a twin representing a device that can be identified with an ID match. You will then use topology information from the graph to find the room twin, and set a property on that twin. This is just one of many possible configurations and matching strategies—just one example out of many possible ones.
 
-[![Ingest Overview](media/how-to-ingest-iot-hub-data/ingestingEvents.png)](media/how-to-ingest-iot-hub-data/ingestingEvents.png)
+![Ingest Overview](media/how-to-ingest-iot-hub-data/events.png)
 
 ## Prerequisites
 

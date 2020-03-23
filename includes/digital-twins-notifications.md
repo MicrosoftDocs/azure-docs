@@ -2,7 +2,7 @@
 author: baanders
 ms.service: digital-twins
 ms.topic: include
-ms.date: 2/27/20
+ms.date: 2/27/2020
 ms.author: baanders
 ---
 

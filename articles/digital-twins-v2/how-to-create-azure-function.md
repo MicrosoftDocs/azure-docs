@@ -33,17 +33,17 @@ This article walks you through creating an [Azure Function](../azure-functions/f
 
 In Visual Studio 2019, select *File > New Project*.
 
-[![Visual Studio: new project](media/how-to-create-azure-function/vs-new-azfn-project.png)](media/how-to-create-azure-function/vs-new-azfn-project.png)
+![Visual Studio: new project](media/how-to-create-azure-function/visual-studio-new-project.png)
 
 Search for the Azure Functions template and press "Next".
 
-[![Visual Studio: configure project](media/how-to-create-azure-function/vs-azfn-project-config.png)](media/how-to-create-azure-function/vs-azfn-project-config.png)
+![Visual Studio: configure project](media/how-to-create-azure-function/visual-studio-project-config.png)
 
 Specify a name for the function app and press "Create"
 
 Select the Event Grid trigger and press "Create".
 
-[![Visual Studio: project trigger](media/how-to-create-azure-function/vs-azfn-project-trigger.png)](media/how-to-create-azure-function/vs-azfn-project-trigger.png)
+![Visual Studio: project trigger](media/how-to-create-azure-function/visual-studio-project-trigger.png)
 
 ## Function app code
 
@@ -212,14 +212,14 @@ To publish the function app to Azure, right-select the function project (not the
 
 The following tab will appear:
 
-[![Visual Studio: publish function](media/how-to-create-azure-function/vs-azfn-publish.png)](media/how-to-create-azure-function/vs-azfn-publish.png)
+![Visual Studio: publish function](media/how-to-create-azure-function/visual-studio-publish-1.png)
 
 Select the desired Azure Functions plan (if in doubt, start out using the default consumption plan).
 
 >[!IMPORTANT] 
 >Publishing an Azure Function will incur additional charges on your subscription, independent of Azure Digital Twins.
 
-[![Visual Studio: publish function 2](media/how-to-create-azure-function/vs-azfn-publish2.png)](media/how-to-create-azure-function/vs-azfn-publish2.png)
+![Visual Studio: publish function 2](media/how-to-create-azure-function/visual-studio-publish-2.png)
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
 
@@ -229,11 +229,11 @@ The Azure function skeleton shown above requires a bearer token to be passed to 
 
 To set this up, go to the portal and navigate to your function app.
 
-[![Visual Studio: function MSI](media/how-to-create-azure-function/vs-azfn-msi1.png)](media/how-to-create-azure-function/vs-azfn-msi1.png)
+![Visual Studio: function MSI](media/how-to-create-azure-function/visual-studio-msi-1.png)
 
 In the *Platform features* tab, select *Identity*:
 
-[![Visual Studio: function MSI 2](media/how-to-create-azure-function/vs-azfn-msi2.png)](media/how-to-create-azure-function/vs-azfn-msi2.png)
+![Visual Studio: function MSI 2](media/how-to-create-azure-function/visual-studio-msi-2.png)
 
 On the identity page, set the *Status* toggle to *On*. 
 

@@ -26,8 +26,6 @@ Before you can issue API calls against your Azure Digital Twins instance, you wi
 
 ## Create an app registration
 
-*** This section is preliminary ***
-
 To authenticate against Azure Digital Twins in Azure from an app, you need to set up an app registration in Active Directory.
 
 This app registration is where you configure access permissions to the Azure Digital Twins API. Your client app authenticates against the app registration, which in turn has configured access permissions to the Azure Digital Twins APIs.
@@ -98,7 +96,7 @@ This sample is the most minimal code for authentication using the MSAL authentic
 
 You will need to have references to the following libraries, which you can find on NuGet:
 * Microsoft.Identity.Client (this is the MSAL client library)
-* *Microsoft.Rest.ClientRuntime
+* Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * System.Security.Cryptography.ProtectedData
 
