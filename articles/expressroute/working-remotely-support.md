@@ -12,10 +12,12 @@ ms.author: ajitbhu
 ---
 # Using Azure ExpressRoute to create hybrid connectivity to support remote users
 
+This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely.
+
 ## Connecting to Azure services with ExpressRoute
 
 >[!NOTE]
->This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of Covid-19 crisis.
+>This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of Covid-19 crisis.
 >
 
 [ExpressRoute](expressroute-introduction.md) is an Azure service that enables private connectivity between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet. They offer secure connectivity, reliability, and speeds, with lower and consistent latencies than typical connections over the Internet.
@@ -27,7 +29,7 @@ ms.author: ajitbhu
 * [Route Optimization over ExpressRoute](expressroute-optimize-routing.md)
 * [Azure ExpressRoute for O365](https://docs.microsoft.com/office365/enterprise/azure-expressroute?redirectSourcePath=%252farticle%252f6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [Asymmetric routing considerations](expressroute-asymmetric-routing.md)
-* [How to open a support request in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [How to open a support request in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
 ## Troubleshoot
 
