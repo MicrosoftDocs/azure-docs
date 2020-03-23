@@ -41,7 +41,6 @@
       href: prepay-sql-data-warehouse-charges.md
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
-  items:
   - name: Permissions and management after purchase
     items:
     - name: Manage reservations
@@ -60,7 +59,6 @@
   items:
   - name: How reservation recommendations are created
     href: reserved-instance-purchase-recommendations.md
-  items:
   - name: How discount is applied
     items:
     - name: How an Azure reservation discount is applied
