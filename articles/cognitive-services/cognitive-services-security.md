@@ -83,7 +83,7 @@ Create and assign persisted environment variable, given the value.
 
 ```Bash
 # Assigns the env var to the value
-echo export ENVIRONMENT_VARIABLE_KEY="value"" >> /etc/environment && source /etc/environment
+echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
 In a new instance of the **Bash**, read the environment variable.
