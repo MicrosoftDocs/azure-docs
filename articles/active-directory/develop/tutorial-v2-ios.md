@@ -142,7 +142,7 @@ let kScopes: [String] = ["user.read"] // request permission to read the profile 
     
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
-var webViewParamaters : MSALWebviewParameters?
+var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
@@ -254,6 +254,16 @@ func initUI() {
     loggingText.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10.0).isActive = true
     loggingText.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 10.0).isActive = true
 }
+
+func platformViewDidLoadSetup() {
+                
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(appCameToForeGround(notification:)),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+        
+    }
+
 ```
 
 ### macOS UI
@@ -318,6 +328,9 @@ func initUI() {
     loggingText.widthAnchor.constraint(equalToConstant: 500.0).isActive = true
     loggingText.heightAnchor.constraint(equalToConstant: 300.0).isActive = true
 }
+
+func platformViewDidLoadSetup() {}
+
 ```
 
 Next, also inside the `ViewController` class, replace the `viewDidLoad()` method with:
@@ -423,6 +436,10 @@ MSAL exposes two primary methods for getting tokens: `acquireTokenSilently()` an
 Add the following code to the `ViewController` class:
 
 ```swift
+    func getGraphEndpoint() -> String {
+        return kGraphEndpoint.hasSuffix("/") ? (kGraphEndpoint + "v1.0/me/") : (kGraphEndpoint + "/v1.0/me/");
+    }
+
     @objc func callGraphAPI(_ sender: AnyObject) {
         
         self.loadCurrentAccount { (account) in
@@ -774,7 +791,7 @@ Add the following helper methods to the `ViewController` class to complete the s
     }
 ```
 
-### Get additional device information
+### For iOS only, get additional device information
 
 Use following code to read current device configuration, including whether device is configured as shared:
 
