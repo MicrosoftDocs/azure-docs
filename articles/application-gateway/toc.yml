@@ -47,6 +47,8 @@
       href: application-gateway-components.md
     - name: Configuration overview
       href: configuration-overview.md
+  - name: COVID-19 Guidelines
+    href: application-gateway-covid-guidelines.md
   - name: Autoscaling v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing
