@@ -295,7 +295,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
-| Azure Synapse Analytics          | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure Synapse Analytics          | Yes                | Yes, RSA 2048-bit  | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
 | Azure Cosmos DB                  | Yes                | Yes                | -                  |

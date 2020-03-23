@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,9 +18,13 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). Use this technical profile to generate and send a code to a phone number, and then verify the code.
+Azure Active Directory B2C (Azure AD B2C) provides support for verifying a phone number by using Azure Multi-Factor Authentication (MFA). Use this technical profile to generate and send a code to a phone number, and then verify the code. The Azure MFA technical profile may also return an error message.  The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
 
-The Azure MFA technical profile may also return an error message. You can design the integration with Azure MFA by using a **Validation technical profile**. A validation technical profile calls the Azure MFA service. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message is display on a self-asserted page.
+This technical profile:
+
+- Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
+- Uses the Azure MFA service to generate and send a code to a phone number, and then verifies the code.  
+- Validates a phone number via text messages.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 

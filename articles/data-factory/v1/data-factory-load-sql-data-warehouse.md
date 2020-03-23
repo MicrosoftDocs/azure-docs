@@ -23,7 +23,7 @@ robots: noindex
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy data to or from Azure SQL Data Warehouse by using Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
-[Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
+[Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational.  Built on massively parallel processing (MPP) architecture, SQL Data Warehouse is optimized for enterprise data warehouse workloads.  It offers cloud elasticity with the flexibility to scale storage and compute independently.
 
 Getting started with Azure SQL Data Warehouse is now easier than ever using **Azure Data Factory**.  Azure Data Factory is a fully managed cloud-based data integration service, which can be used to populate a SQL Data Warehouse with the data from your existing system, and saving you valuable time while evaluating SQL Data Warehouse and building your analytics solutions. Here are the key benefits of loading data into Azure SQL Data Warehouse using Azure Data Factory:
 
@@ -211,7 +211,7 @@ Here are a few best practices for running your Azure SQL Data Warehouse database
 * For faster load speeds, consider using heap for transient data.
 * Create statistics after you finish loading Azure SQL Data Warehouse.
 
-See [Best practices for Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
+See [Best practices for Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) for details.
 
 ## Next steps
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) - This article provides details about the Copy Wizard.

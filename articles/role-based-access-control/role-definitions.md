@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom:
@@ -171,13 +171,14 @@ To view and use the data operations in the REST API, you must set the **api-vers
 
 The `Actions` permission specifies the management operations that the role allows to be performed. It is a collection of operation strings that identify securable operations of Azure resource providers. Here are some examples of management  operations that can be used in `Actions`.
 
-| Operation string    | Description         |
-| ------------------- | ------------------- |
-| `*/read` | Grants access to read operations for all resource types of all Azure resource providers.|
-| `Microsoft.Compute/*` | Grants access to all operations for all resource types in the Microsoft.Compute resource provider.|
-| `Microsoft.Network/*/read` | Grants access to read operations for all resource types in the Microsoft.Network resource provider.|
-| `Microsoft.Compute/virtualMachines/*` | Grants access to all operations of virtual machines and its child resource types.|
-| `microsoft.web/sites/restart/Action` | Grants access to restart a web app.|
+> [!div class="mx-tableFixed"]
+> | Operation string    | Description         |
+> | ------------------- | ------------------- |
+> | `*/read` | Grants access to read operations for all resource types of all Azure resource providers.|
+> | `Microsoft.Compute/*` | Grants access to all operations for all resource types in the Microsoft.Compute resource provider.|
+> | `Microsoft.Network/*/read` | Grants access to read operations for all resource types in the Microsoft.Network resource provider.|
+> | `Microsoft.Compute/virtualMachines/*` | Grants access to all operations of virtual machines and its child resource types.|
+> | `microsoft.web/sites/restart/Action` | Grants access to restart a web app.|
 
 ## NotActions
 
@@ -191,12 +192,13 @@ The `NotActions` permission specifies the management operations that are exclude
 
 The `DataActions` permission specifies the data operations that the role allows to be performed to your data within that object. For example, if a user has read blob data access to a storage account, then they can read the blobs within that storage account. Here are some examples of data operations that can be used in `DataActions`.
 
-| Operation string    | Description         |
-| ------------------- | ------------------- |
-| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Returns a blob or a list of blobs. |
-| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Returns the result of writing a blob. |
-| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Returns a message. |
-| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Returns a message or the result of writing or deleting a message. |
+> [!div class="mx-tableFixed"]
+> | Operation string    | Description         |
+> | ------------------- | ------------------- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Returns a blob or a list of blobs. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Returns the result of writing a blob. |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read` | Returns a message. |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | Returns a message or the result of writing or deleting a message. |
 
 ## NotDataActions
 
@@ -208,18 +210,19 @@ The `NotDataActions` permission specifies the data operations that are excluded 
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (management groups, subscriptions, resource groups, or resources) that have this role definition available. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, resource group, or resource ID.
+The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) that have this role definition available. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
 Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
 
-| Role is available for assignment | Example |
-|----------|---------|
-| One subscription | `"/subscriptions/{subscriptionId1}"` |
-| Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
-| Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
-| One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-| Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
-| All scopes (applies only to built-in roles) | `"/"` |
+> [!div class="mx-tableFixed"]
+> | Role is available for assignment | Example |
+> |----------|---------|
+> | One subscription | `"/subscriptions/{subscriptionId1}"` |
+> | Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+> | Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+> | One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | All scopes (applies only to built-in roles) | `"/"` |
 
 For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
 

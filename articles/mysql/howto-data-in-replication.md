@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
@@ -39,9 +39,9 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   If the variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) is returned with the value “ON", binary logging is enabled on your server. 
+   If the variable [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) is returned with the value "ON", binary logging is enabled on your server. 
 
-   If `log_bin` is returned with the value “OFF”, turn on binary logging by editing your my.cnf file so that `log_bin=ON` and restart your server for the change to take effect.
+   If `log_bin` is returned with the value "OFF", turn on binary logging by editing your my.cnf file so that `log_bin=ON` and restart your server for the change to take effect.
 
 2. Master server settings
 
@@ -104,7 +104,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 5. Get binary log file name and offset
 
    Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
-	
+    
    ```sql
    show master status;
    ```
@@ -148,7 +148,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    - master_password: password for the master server
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
-   - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
+   - master_ssl_ca: CA certificate's context. If not using SSL, pass in empty string.
        - It is recommended to pass this parameter in as a variable. See the following examples for more information.
 
 > [!NOTE]
@@ -162,18 +162,18 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+   PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
    -----END CERTIFICATE-----'
    ```
 
-   Replication with SSL is set up between a master server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica. 
+   Replication with SSL is set up between a master server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica. 
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Replication without SSL*
 
-   Replication without SSL is set up between a master server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica.
+   Replication without SSL is set up between a master server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -190,12 +190,12 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 1. Check replication status
 
    Call the [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) command on the replica server to view the replication status.
-	
+    
    ```sql
    show slave status;
    ```
 
-   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is “0”, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value is not "0", it means that the replica is processing updates. 
+   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value is not "0", it means that the replica is processing updates. 
 
 ## Other stored procedures
 
@@ -218,7 +218,7 @@ CALL mysql.az_replication_remove_master;
 ### Skip replication error
 
 To skip a replication error and allow replication to proceed, use the following stored procedure:
-	
+    
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
