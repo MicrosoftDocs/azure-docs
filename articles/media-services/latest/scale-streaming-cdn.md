@@ -1,8 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Scaling streaming with CDN
+title: Stream content with CDN integration
 titleSuffix: Azure Media Services
-description: Learn about a streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
+description: Learn about streaming content with CDN integration, as well as prefetching and Origin-Assist CDN-Prefetch.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,7 +15,7 @@ ms.date: 02/13/2020
 ms.author: juliako
 ---
 
-# Scaling streaming with CDN
+# Stream content with CDN integration
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 
