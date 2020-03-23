@@ -1,7 +1,7 @@
 ---
 title: Use Azure CLI to configure customer-managed keys
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption.
 services: storage
 author: tamram
 
