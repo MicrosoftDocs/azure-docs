@@ -1,5 +1,5 @@
 ---
-title: Access data in Azure storage services
+title: Connect to Azure storage services
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
@@ -15,10 +15,10 @@ ms.custom: seodec18
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
 
-# Access data in Azure storage services
+# Connect to Azure storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores store connection information, like your subscription ID and token authorization, so you can access your storage without having to hard code them in your scripts. 
+In this article, learn how to connect to Azure storage services via Azure Machine Learning datastores. Datastores store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts.
 
 You can create datastores from [these Azure storage solutions](#matrix). For unsupported storage solutions, and to save data egress cost during machine learning experiments, we recommend that you [move your data](#move) to supported Azure storage solutions. 
 
@@ -63,9 +63,11 @@ Datastores currently support storing connection information to the storage servi
 
 ### Storage guidance
 
-We recommend creating a datastore for an Azure blob container. Both standard and premium storage are available for blobs. Although premium storage is more expensive, its faster throughput speeds might improve the speed of your training runs, particularly if you train against a large dataset. For information about the cost of storage accounts, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+We recommend creating a datastore for an [Azure Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Both standard and premium storage are available for blobs. Although premium storage is more expensive, its faster throughput speeds might improve the speed of your training runs, particularly if you train against a large dataset. For information about the cost of storage accounts, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. They store the connection information for the blob container and the file share that are provisioned in the storage account attached to the workspace. The `workspaceblobstore` container is set as the default datastore.
+[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) is built on top of Azure Blob storage and designed for enterprise big data analytics. A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) to Blob storage. The hierarchical namespace organizes objects/files into a hierarchy of directories for efficient data access.
+
+When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. `workspaceblobstore` is used to store workspace artifacts and your machine learning experiment logs. `workspacefirestore` is used to store notebooks and R scripts authorized via [compute instance](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). The `workspaceblobstore` container is set as the default datastore.
 
 <a name="access"></a>
 
