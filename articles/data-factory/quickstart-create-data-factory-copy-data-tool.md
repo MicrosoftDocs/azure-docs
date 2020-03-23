@@ -71,11 +71,12 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
     a. Click **+ Create new connection** to add a connection.
 
     b. Select the linked service type that you want to create for the source connection. In this tutorial, we use **Azure Blob Storage**. Select it from the gallery, and then select **Continue**.
-       ![Select Blob](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
+    
+    ![Select Blob](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
     c. On the **New Linked Service (Azure Blob Storage)** page, specify a name for your linked service. Select your storage account from the **Storage account name** list, test connection, and then select **Create**. 
 
-   ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+    ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
     d. Select the newly created linked service as source, and then click **Next**.
 
