@@ -440,14 +440,14 @@ Records with a type of *InsightsMetrics* have performance data from the guest op
 |Namespace | Category of the performance counter | 
 |Name | Name of the performance counter |
 |Val | Collected value | 
-|Tags | Details about the  |
+|Tags | Related details about the record. See the table below for tags used with different record types.  |
 |AgentId | Unique identifier for each computer's agent |
 |Type | *InsightsMetrics* |
 |_ResourceId_ | Resource ID of the virtual machine |
 
-The performance counters currently collected into the *InsightsMetrics* table are 
+The performance counters currently collected into the *InsightsMetrics* table are listed in the following table:
 
-| Namespace | Name | Display Name | Unit | Tags |
+| Namespace | Name | Description | Unit | Tags |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Computer Heartbeat                        | | |
 | Memory      | AvailableMB           | Memory Available Bytes                    | Bytes          | memorySizeMB - Total memory size|
