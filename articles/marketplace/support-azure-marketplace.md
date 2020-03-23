@@ -7,7 +7,7 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 3/11/2020
+ms.date: 3/19/2020
 ms.author: evansma
 
 ---
@@ -44,6 +44,8 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 
 
 ## Next steps
-Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
- 
+
+* Visit the [Azure Marketplace and AppSource Publisher Guide page](https://docs.microsoft.com/azure/marketplace/).
+* Learn more about [Support for the Commercial Marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+
 ---
