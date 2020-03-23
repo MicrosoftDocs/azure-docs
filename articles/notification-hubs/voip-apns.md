@@ -45,4 +45,4 @@ If you still choose to send APNS VOIP notifications through Notification Hubs, p
 
 - [Documentation for payload size limit](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
 
-- [Notification Hub changes for iOS 13](push-notification-updates-ios-13.md#apns-push-type).
+- [Notification Hubs updates for iOS 13](push-notification-updates-ios-13.md#apns-push-type).
