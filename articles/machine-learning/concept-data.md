@@ -70,7 +70,7 @@ Datasets can be created from local files, public urls, [Azure Open Datasets](htt
 We support 2 types of datasets: 
 + A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
-+ A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. You can [download or mount files](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) referenced by filedatasets to your compute target.
++ A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. You can [download or mount files](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) referenced by FileDatasets to your compute target.
 
 Additional datasets capabilities can be found in the following documentation:
 
