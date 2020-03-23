@@ -157,15 +157,15 @@ To verify that the notebooks have completed successfully, verify that a few item
     | ./aml_config/model_config.json | Configuration file that we will need to deploy the model in the **turbofanDemo** Machine Learning workspace in Azure. |
     | myenv.yml| Provides information about the dependencies for the deployed Machine Learning model.|
 
-1. Verify that the following Azure resources were created:
+1. Verify that the following Azure resources were created.
 
     | Azure resource | Name |
     | --- | --- |
     | Machine Learning workspace | turborfanDemo |
-    | Container Registry | turbofandemo51b64ead |
-    | Applications Insights | turbofaninsightsbdb29344 |
-    | Key Vault | turbofankeyvaultbfbcaaf5 |
-    | Storage | turbofanstorage3bc195b1d |
+    | Container Registry | turbofandemoxxxxxxxx |
+    | Applications Insights | turbofaninsightxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxx |
 
 ### Debugging
 
