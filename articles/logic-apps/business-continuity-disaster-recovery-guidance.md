@@ -1,6 +1,6 @@
 ---
 title: Business continuity and disaster recovery
-description: Design a strategy to help you protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps
+description: Design your strategy to protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -10,13 +10,13 @@ ms.date: 03/31/2020
 
 # Business continuity and disaster recovery for Azure Logic Apps
 
-To help reduce the impact and effects that unpredictable events can have on your business, you need a *disaster recovery* (DR) solution so that you can protect data, quickly restore resources that support critical business functions, and keep operations running to maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your organization can more respond more quickly to interruptions, planned and unplanned, and lessen downtime for your customers.
+To help reduce the impact and effects that unpredictable events can have on your business and customers, make sure that you have a *disaster recovery* (DR) solution in place so that you can protect data, quickly restore resources that support critical business functions, and keep operations running to maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your organization can more respond more quickly to interruptions, planned and unplanned, and lessen downtime for your customers.
 
-This article provides disaster recovery strategy and solution guidance for the automated workflows that you build and run by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems more easily. When you plan your disaster recovery solution, make sure that you consider not only your logic apps but these resources too:
+This article provides disaster recovery strategy and guidance for the automated workflows that you build and run with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems. When you plan disaster recovery solutions, make sure that you consider not only your logic apps but these resources too:
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-* [Integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can create and run logic apps within an isolated instance of the Logic Apps runtime when you need to access resources in Azure virtual networks
+* [Integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you create logic apps that run in an isolated Logic Apps runtime instance within an Azure virtual network. These logic apps can then access resources that are protected behind a firewall in that virtual network.
 
 <a name="primary-secondary-locations"></a>
 
@@ -38,7 +38,10 @@ This illustration shows the same primary and secondary logic apps, which are dep
 
 Your logic apps and locations must meet these requirements:
 
-* You need to set up the secondary logic app instance to handle incoming requests and automated workloads, either recurring or polling.
+* You have to set up your secondary logic app the alternate location to handle incoming requests and automated workloads, either recurring or polling. Azure region or ISE, 
+
+* You need to set up the secondary logic app that's the alternate location to handle incoming requests and automated workloads, either recurring or polling. Azure region or ISE, 
+
 
 * Both locations should have the same host type. You can deploy a logic app to either a public region in multi-tenant Azure or to an ISE. However, to support a disaster recovery strategy, both locations should be in either multi-tenant Azure or ISEs.
 
