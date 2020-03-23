@@ -2,23 +2,15 @@
 title: Error codes for Azure Spot VMs and scale sets instances 
 description: Learn about error codes that you could possibly see when using Spot VMs and scale set instances.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 03/25/2020
 ms.author: cynthn
 #pmcontact: jagaveer
 ---
 
-# Preview: Error messages for Spot VMs and scale sets
-
-
-> [!IMPORTANT]
-> Spot VMs and virtual machine scale sets are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+# Error messages for Spot VMs and scale sets
 
 Here are some possible error codes you could receive when using Spot VMs and scale sets.
 

@@ -1,20 +1,13 @@
 ---
-title: Use a template to deploy Azure Spot VMs (Preview)
+title: Use a template to deploy Azure Spot VMs
 description: Learn how to use a template to deploy Spot VMs to save costs.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor:
-tags: azure-resource-manager
-
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: cynthn
+#pmcontact: jagaveer
 ---
 
 # Deploy Spot VMs using a Resource Manager template
@@ -25,11 +18,6 @@ Pricing for Spot VMs is variable, based on region and SKU. For more information,
 
 You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for Spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Use a template
 

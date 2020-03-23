@@ -1,7 +1,6 @@
 ---
  title: include file
  description: include file
- services: virtual-machines
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
@@ -14,11 +13,6 @@ Using Spot VMs allows you to take advantage of our unused capacity at a signific
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Spot VMs, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A Spot VM offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs with 30 seconds notice. 
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Eviction policy
 
