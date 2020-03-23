@@ -38,7 +38,7 @@ highlightedContent:
     - title: Custom subdomains for Cognitive Services
       itemType: how-to-guide
       url: cognitive-services-custom-subdomains.md
-    - title: Security
+    - title: Cognitive Services security
       itemType: concept
       url: cognitive-services-security.md
 
