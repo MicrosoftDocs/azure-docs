@@ -14,6 +14,9 @@ manager: lizross
 
 > Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
+>[!IMPORTANT]
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](connect-ios.md).
+
 You can access Windows Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 
 ## Install the iOS client

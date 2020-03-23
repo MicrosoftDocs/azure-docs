@@ -12,6 +12,9 @@ manager: lizross
 ---
 # Customize feed for Windows Virtual Desktop users
 
+>[!IMPORTANT]
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](customize-feed-for-virtual-desktop-users.md).
+
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
