@@ -45687,12 +45687,12 @@
     },
     {
       "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/synapse-anlytics/sql-data-warehouse/",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/index.yml",
-      "redirect_url": "/azure/synapse-anlytics/sql-data-warehouse/",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
       "redirect_document_id": false
     },
     {
