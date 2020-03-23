@@ -127,7 +127,7 @@ Estimated time to complete: **about 2-5 minutes**
 
 Configure the image and deploy. The following code goes through these steps:
 
-1. Create environment object containing dependencies needed by the model using the environment file (`myenv.yml`)
+1. Create environment object containing dependencies needed by the model using the environment (`tutorial-env`) saved during training.
 1. Create inference configuration necessary to deploy the model as a web service using:
    * The scoring file (`score.py`)
    * envrionment object created in previous step
