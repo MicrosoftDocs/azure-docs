@@ -65,7 +65,7 @@ The concept of prefetching strives to position objects at the "edge of the inter
 To achieve this goal, a streaming endpoint (origin) and CDN need to work hand in hand in a couple ways:
 
 - The Media Services origin needs to have the "intelligence" (Origin-Assist) to inform CDN the next object to prefetch.
-- CDN does the prefetch and caching (CDN-Prefetch part). CDN also needs to have the "intelligence" to inform the origin whether it's a prefetch or a regular fetch, handle the 404 responses, and a way to avoid endless prefetch loop.
+- CDN does the prefetch and caching (CDN-prefetch part). CDN also needs to have the "intelligence" to inform the origin whether it's a prefetch or a regular fetch, handle the 404 responses, and a way to avoid endless prefetch loop.
 
 ### Benefits
 
@@ -106,33 +106,42 @@ The `Origin-Assist CDN-Prefetch` feature supports the following streaming protoc
 
 ### FAQs
 
-* What if a prefetch path URL is invalid so that CDN prefetch gets a 404? 
+* What if a prefetch path URL is invalid so that CDN prefetch gets a 404?
 
     CDN will only cache a 404 response for 10 seconds (or other configured value).
-* Suppose you have an on-demand video. If CDN-prefetch is enabled, does this feature implies that once a client requests the first video segment, prefetch will start a loop to prefetch all subsequent video segments at the same bitrate? 
 
-    No, CDN-prefetch is performed only after a client-initiated request/response. CDN-prefetch is never triggered by a prefetch, to avoid a prefetch loop. 
-* Is Origin-Assist CDN-Prefetch feature always on? How can it be turned on/off? 
+* Suppose you have an on-demand video. If CDN-prefetch is enabled, does this feature imply that once a client requests the first video segment, prefetch will start a loop to prefetch all subsequent video segments at the same bitrate?
+
+    No, CDN-prefetch is performed only after a client-initiated request/response. CDN-prefetch is never triggered by a prefetch, to avoid a prefetch loop.
+
+* Is Origin-Assist CDN-Prefetch feature always on? How can it be turned on/off?
 
     This feature is off by default. Customers need to turn it on via Akamai API.
-* For live streaming, what would happen to Origin-Assist if the next segment or fragment is not yet available? 
 
-    In this case the Media Services origin will not provide CDN-Origin-Assist-Prefetch-Path header and CDN-prefetch will not occur.
-* How does *Origin-Assist CDN-Prefetch* work with dynamic manifest filters? 
+* For live streaming, what would happen to Origin-Assist if the next segment or fragment isn't yet available?
 
-    This feature works independently of manifest filter. When the next fragment is out of a filter window, its URL will still be located by looking into the raw client manifest, and then returned as CDN prefetch response header. This means, CDN will get the URL of a fragment that is filtered out from DASH/HLS/Smooth manifest. However, the player will never make a GET request to CDN to fetch that fragment, because that fragment is not included in the DASH/HLS/Smooth manifest held by the player (the player doesn't know that fragment's existence).
+    In this case, the Media Services origin won't provide `CDN-Origin-Assist-Prefetch-Path` header and CDN-prefetch will not occur.
+
+* How does `Origin-Assist CDN-Prefetch` work with dynamic manifest filters?
+
+    This feature works independently of manifest filter. When the next fragment is out of a filter window, its URL will still be located by looking into the raw client manifest and then returned as CDN prefetch response header. So CDN will get the URL of a fragment that's filtered out from DASH/HLS/Smooth manifest. However, the player will never make a GET request to CDN to fetch that fragment, because that fragment isn't included in the DASH/HLS/Smooth manifest held by the player (the player doesn't know that fragment's existence).
+
 * Can DASH MPD/HLS playlist/Smooth manifest be prefetched?
 
-    No, DASH MPD, HLS master playlist, HLS variant playlist or smooth manifest URL is not added to prefetch header.
-* Are prefetch URLs relative or absolute? 
+    No, DASH MPD, HLS master playlist, HLS variant playlist, or smooth manifest URL isn't added to the prefetch header.
 
-    While Akamai CDN allows both, the Media Services origin only provides relative URLs for prefetch path because there is no apparent benefit in using absolute URLs.
+* Are prefetch URLs relative or absolute?
+
+    While Akamai CDN allows both, the Media Services origin only provides relative URLs for prefetch path because there's no apparent benefit in using absolute URLs.
+
 * Does this feature work with DRM-protected contents?
 
-    Yes, since this feature works at HTTP level, it neither decodes nor parses any segment/fragment. It does not care whether the content is encrypted or not.
+    Yes, since this feature works at the HTTP level, it doesn't decode or parse any segment/fragment. It doesn't care whether the content is encrypted or not.
+
 * Does this feature work with Server Side Ad Insertion (SSAI)?
     
-    For original/main content (the original video content before ad insertion) works, since SSAI does not change the timestamp of the source content from the Media Services origin. Whether this feature works with ad contents, depends on whether ad origin supports Origin-Assist. For example, if ad contents are also hosted in Azure Media Services (same or separate origin), ad contents will also be prefetched.
+    It does for original/main content (the original video content before ad insertion) works, since SSAI doesn't change the timestamp of the source content from the Media Services origin. Whether this feature works with ad contents depends on whether ad origin supports Origin-Assist. For example, if ad contents are also hosted in Azure Media Services (same or separate origin), ad contents will also be prefetched.
+
 * Does this feature work with UHD/HEVC contents?
 
     Yes.
