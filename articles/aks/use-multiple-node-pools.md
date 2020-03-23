@@ -18,7 +18,7 @@ This article shows you how to create and manage multiple node pools in an AKS cl
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Limitations
 
@@ -496,17 +496,6 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
 The taint information is visible in Kubernetes for handling scheduling rules for nodes.
-
-> [!IMPORTANT]
-> To use node pool labels and tags, you need the *aks-preview* CLI extension version 0.4.35 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-> 
-> ```azurecli-interactive
-> # Install the aks-preview extension
-> az extension add --name aks-preview
-> 
-> # Update the extension to make sure you have the latest version installed
-> az extension update --name aks-preview
-> ```
 
 You can also add labels to a node pool during node pool creation. Labels set at the node pool are added to each node in the node pool. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes.
 
