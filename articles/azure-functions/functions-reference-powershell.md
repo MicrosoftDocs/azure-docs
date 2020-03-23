@@ -416,7 +416,7 @@ When you create a new PowerShell functions project, dependency management is ena
 When you update the requirements.psd1 file, updated modules are installed after a restart.
 
 > [!NOTE]
-> Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules. 
+> Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules. You can set managedDependency to false in the host.json if you do not require modules from the gallery and can upload them in the modules folder.
 
 The following application settings can be used to change how the managed dependencies are downloaded and installed. Your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
 
