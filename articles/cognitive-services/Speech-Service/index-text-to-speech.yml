@@ -34,8 +34,6 @@ landingContent:
       links:
         - text: Improve synthesis with SSML
           url: speech-synthesis-markup.md
-        - text: Improve synthesis with Custom Voice
-          url: how-to-custom-voice.md
         - text: Get a list of voices with REST (Python)
           url: quickstart-python-get-text-to-speech-voices.md
         - text: Convert text-to-speech with REST (Python)
