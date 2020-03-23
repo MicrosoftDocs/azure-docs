@@ -21,23 +21,23 @@ It is possible to use APNS VOIP notifications through Azure Notification Hubs; h
 
 ## Considerations
 
-If you still choose to send APNS VOIP notifications through Notification Hubs, please be aware of the following limitations:
+If you still choose to send APNS VOIP notifications through Notification Hubs, be aware of the following limitations:
 
 - Sending a VOIP notification requires the `apns-topic` header to be set to the application bundle ID + the .voip suffix. For example, for a sample app with the bundle ID `com.microsoft.nhubsample`, the `apns-topic` header should be set to `com.microsoft.nhubsample.voip.`
 
-   This doesn't work well with Azure Notification Hubs, because the app's bundle ID must be configured as part of the hub's APNS credentials, and the value cannot be changed. Also, Notification Hubs does not allow the value of the `apns-topic` header to be overridden at runtime.
+   This method doesn't work well with Azure Notification Hubs, because the app's bundle ID must be configured as part of the hub's APNS credentials, and the value cannot be changed. Also, Notification Hubs does not allow the value of the `apns-topic` header to be overridden at runtime.
 
    To send VOIP notifications, you must configure a separate notification hub with the **.voip** app bundle ID.
 
 - Sending a VOIP notification requires the `apns-push-type` header to be set to the value `voip`.
 
-   To help customers with the transition to iOS 13, Notification Hubs attempts to infer the correct value for the `apns-push-type` header. The inference logic is intentionally simple, in an effort to avoid breaking standard notifications. Unfortunately, this causes issues with VOIP notifications, because Apple treats VOIP notifications as a special case that does not follow the same rules as standard notifications.
+   To help customers with the transition to iOS 13, Notification Hubs attempts to infer the correct value for the `apns-push-type` header. The inference logic is intentionally simple, in an effort to avoid breaking standard notifications. Unfortunately, this method causes issues with VOIP notifications, because Apple treats VOIP notifications as a special case that does not follow the same rules as standard notifications.
 
    To send VOIP notifications, you must specify an explicit value for the `apns-push-type` header.
 
 - Notification Hubs limits APNS payloads to 4 KB, as documented by Apple. For VOIP notifications, Apple allows payloads up to 5 KB. Notification Hubs does not differentiate between standard and VOIP notifications; therefore, all                notifications are limited to 4 KB.
 
-   To send VOIP notifications, you must not exceed the 4 KB payload size limit.
+   To send VOIP notifications, you must not exceed the 4-KB payload size limit.
 
 ## Next steps
 
