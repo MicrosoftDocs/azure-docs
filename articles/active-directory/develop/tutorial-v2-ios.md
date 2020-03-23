@@ -124,7 +124,7 @@ You can also use Git Submodule, or check out the latest release to use as a fram
 
 Next, we'll add your app registration to your code. 
 
-First, add the following import statement to the top of the `ViewController.swift` and `AppDelegate.swift` files:
+First, add the following import statement to the top of the `ViewController.swift`, as well as `AppDelegate.swift` or `SceneDelegate.swift` files:
 
 ```swift
 import MSAL
@@ -423,7 +423,7 @@ MSAL exposes two primary methods for getting tokens: `acquireTokenSilently()` an
 Add the following code to the `ViewController` class:
 
 ```swift
-    @objc func callGraphAPI(_ sender: UIButton) {
+    @objc func callGraphAPI(_ sender: AnyObject) {
         
         self.loadCurrentAccount { (account) in
             
@@ -642,7 +642,7 @@ Next, add support for sign-out.
 To add sign-out capability, add the following code inside the `ViewController` class. 
 
 ```swift 
-@objc func signOut(_ sender: UIButton) {
+@objc func signOut(_ sender: AnyObject) {
         
         guard let applicationContext = self.applicationContext else { return }
         
@@ -778,8 +778,8 @@ Add the following helper methods to the `ViewController` class to complete the s
 
 Use following code to read current device configuration, including whether device is configured as shared:
 
-```
-    @objc func getDeviceMode(_ sender: UIButton) {
+```swift
+    @objc func getDeviceMode(_ sender: AnyObject) {
         
         if #available(iOS 13.0, *) {
             self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
