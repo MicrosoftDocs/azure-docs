@@ -10,7 +10,7 @@ Before creating custom policies, it is a good idea to read the conceptual overvi
 at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
  
 To learn about creating Guest Configuration policies for Windows, see the page
-[How to create Guest Configuration policies for Windows](/guest-configuration-create.md)
+[How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
 When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/). The InSpec
 profile defines the condition that the machine should be in. If the evaluation of the configuration

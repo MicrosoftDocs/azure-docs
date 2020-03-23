@@ -350,7 +350,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
       azureCategories:
         - analytics
-      url: sql-data-warehouse/index.yml
+      url: synapse-analytics/sql-data-warehouse/index.yml
     # Card
     - title: Data Catalog
       summary: Get more value from your enterprise data assets
