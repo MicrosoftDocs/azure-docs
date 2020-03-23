@@ -8,11 +8,11 @@ ms.author: mavane
 ms.custom: seodec18
 ---
 
-# Develop Azure Resource Manager templates for cloud consistency
+# Develop ARM templates for cloud consistency
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-A key benefit of Azure is consistency. Development investments for one location are reusable in another. A template makes your deployments consistent and repeatable across environments, including the global Azure, Azure sovereign clouds, and Azure Stack. To reuse templates across clouds, however, you need to consider cloud-specific dependencies as this guide explains.
+A key benefit of Azure is consistency. Development investments for one location are reusable in another. An Azure Resource Manager (ARM) template makes your deployments consistent and repeatable across environments, including the global Azure, Azure sovereign clouds, and Azure Stack. To reuse templates across clouds, however, you need to consider cloud-specific dependencies as this guide explains.
 
 Microsoft offers intelligent, enterprise-ready cloud services in many locations, including:
 
@@ -28,7 +28,7 @@ The consistency of global Azure, the sovereign clouds, hosted clouds, and a clou
 
 However, even though the global, sovereign, hosted, and hybrid clouds provide consistent services, not all clouds are identical. As a result, you can create a template with dependencies on features available only in a specific cloud.
 
-The rest of this guide describes the areas to consider when planning to develop new or updating existing Azure Resource Manager templates for Azure Stack. In general, your checklist should include the following items:
+The rest of this guide describes the areas to consider when planning to develop new or updating existing ARM templates for Azure Stack. In general, your checklist should include the following items:
 
 * Verify that the functions, endpoints, services, and other resources in your template are available in the target deployment locations.
 * Store nested templates and configuration artifacts in accessible locations, ensuring access across clouds.
@@ -36,11 +36,11 @@ The rest of this guide describes the areas to consider when planning to develop 
 * Ensure the template parameters you use work in the target clouds.
 * Verify that resource-specific properties are available the target clouds.
 
-For an introduction to Azure Resource Manger templates, see [Template deployment](overview.md).
+For an introduction to ARM templates, see [Template deployment](overview.md).
 
 ## Ensure template functions work
 
-The basic syntax of a Resource Manager template is JSON. Templates use a superset of JSON, extending the syntax with expressions and functions. The template language processor is frequently updated to support additional template functions. For a detailed explanation of the available template functions, see [Azure Resource Manager template functions](template-functions.md).
+The basic syntax of an ARM template is JSON. Templates use a superset of JSON, extending the syntax with expressions and functions. The template language processor is frequently updated to support additional template functions. For a detailed explanation of the available template functions, see [ARM template functions](template-functions.md).
 
 New template functions that are introduced to Azure Resource Manager aren't immediately available in the sovereign clouds or Azure Stack. To deploy a template successfully, all functions referenced in the template must be available in the target cloud.
 
@@ -492,7 +492,7 @@ This command takes a couple of minutes to return all the available images in the
 
 If you made these VM images available to Azure Stack, all the available storage would be consumed. To accommodate even the smallest scale unit, Azure Stack allows you to select the images you want to add to an environment.
 
-The following code sample shows a consistent approach to refer to the publisher, offer, and SKU parameters in your Azure Resource Manager templates:
+The following code sample shows a consistent approach to refer to the publisher, offer, and SKU parameters in your ARM templates:
 
 ```json
 "storageProfile": {
@@ -646,7 +646,7 @@ To get a list of publishers, use the [Get-AzureRmVmImagePublisher](/powershell/m
 
 ## Tips for testing and automation
 
-It's a challenge to keep track of all related settings, capabilities, and limitations while authoring a template. The common approach is to develop and test templates against a single cloud before other locations are targeted. However, the earlier that tests are performed in the authoring process, the less troubleshooting and code rewriting your development team will have to do. Deployments that fail because of location dependencies can be time-consuming to troubleshoot. That’s why we recommend automated testing as early as possible in the authoring cycle. Ultimately, you'll need less development time and fewer resources, and your cloud-consistent artifacts will become even more valuable.
+It's a challenge to keep track of all related settings, capabilities, and limitations while authoring a template. The common approach is to develop and test templates against a single cloud before other locations are targeted. However, the earlier that tests are performed in the authoring process, the less troubleshooting and code rewriting your development team will have to do. Deployments that fail because of location dependencies can be time-consuming to troubleshoot. That's why we recommend automated testing as early as possible in the authoring cycle. Ultimately, you'll need less development time and fewer resources, and your cloud-consistent artifacts will become even more valuable.
 
 The following image shows a typical example of a development process for a team using an integrated development environment (IDE). At different stages in the timeline, different test types are executed. Here, two developers are working on the same solution, but this scenario applies equally to a single developer or a large team. Each developer typically creates a local copy of a central repository, enabling each one to work on the local copy without impacting the others who may be working on the same files.
 
@@ -663,4 +663,4 @@ Consider the following tips for testing and automation:
 ## Next steps
 
 * [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
-* [Best practices for Azure Resource Manager templates](template-syntax.md)
+* [Best practices for ARM templates](template-syntax.md)
