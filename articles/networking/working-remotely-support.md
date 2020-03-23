@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Working remotely using Azure networking services'
 description: This page describes how you can use Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 services: networking
@@ -19,7 +19,7 @@ This article describes how you can leverage Azure networking services to enable 
 - provide reliable-secure connectivity to all the employees of their company and customers,
 - provide connectivity to remote locations across the globe. 
 
-Not all network (for example, the Internet backbone, private WAN, and corporate core networks) are experiencing congestion because of Covid-19. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
+Not all networks (for example, the Internet backbone, private WAN, and corporate core networks) are experiencing congestion because of Covid-19. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
 
 Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
