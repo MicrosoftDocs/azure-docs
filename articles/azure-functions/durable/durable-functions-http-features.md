@@ -253,7 +253,7 @@ If any of these limitations might affect your use case, consider instead using a
 
 Customizing the behavior of the orchestration's internal HTTP client is possible using [Azure Functions .NET dependency injection](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
 
-The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
+The following example demonstrates using dependency injection to disable TLS/SSL certificate validation for orchestrator functions that call external HTTP endpoints.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -271,7 +271,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 {
     public HttpMessageHandler CreateHttpMessageHandler()
     {
-        // Disable SSL certificate validation (not recommended in production!)
+        // Disable TLS/SSL certificate validation (not recommended in production!)
         return new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback =
