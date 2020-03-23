@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -104,6 +104,8 @@ The safety feature is necessary because *block all users and all cloud apps* has
 
 You can satisfy this safety feature by excluding one user from your policy. Ideally, you should define a few [emergency-access administrative accounts in Azure AD](../users-groups-roles/directory-emergency-access.md) and exclude them from your policy.
 
+Using [report-only mode](concept-conditional-access-report-only.md) when enabling your policy to block legacy authentication provides your organization an opportunity to monitor what the impact of the policy would be.
+
 ## Policy deployment
 
 Before you put your policy into production, take care of:
@@ -133,5 +135,6 @@ If you block legacy authentication using the **Other clients** condition, you ca
 
 ## Next steps
 
+- [Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 - If you are not familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) for an example.
 - For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
