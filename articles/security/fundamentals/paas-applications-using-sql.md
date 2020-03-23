@@ -20,7 +20,7 @@ ms.author: terrylan
 ---
 # Best practices for securing PaaS databases in Azure
 
-In this article, we discuss a collection of [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) and [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) security best practices for securing your platform-as-a-service (PaaS) web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
+In this article, we discuss a collection of [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) and [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) security best practices for securing your platform-as-a-service (PaaS) web and mobile applications. These best practices are derived from our experience with Azure and the experiences of customers like yourself.
 
 Azure SQL Database and SQL Data Warehouse provide a relational database service for your internet-based applications. Let’s look at services that help protect your applications and data when using Azure SQL Database and SQL Data Warehouse in a PaaS deployment:
 
@@ -49,7 +49,7 @@ Azure SQL databases can be configured to use one of two types of authentication:
 To learn more about Azure AD authentication, see:
 
 - [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
-- [Authentication to Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Authentication to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Token-based authentication support for Azure SQL DB using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md)
 
 > [!NOTE]
@@ -64,7 +64,7 @@ SQL Database default source IP address restrictions allow access from any Azure 
 
 To learn more about Azure SQL Firewall and IP restrictions, see:
 
-- [Azure SQL Database and SQL Data Warehouse access control](../../sql-database/sql-database-control-access.md)
+- [Azure SQL Database and SQL Data Warehouse access control](../../sql-database/sql-database-manage-logins.md)
 - [Azure SQL Database and SQL Data Warehouse firewall rules](../../sql-database/sql-database-firewall-configure.md)
 
 

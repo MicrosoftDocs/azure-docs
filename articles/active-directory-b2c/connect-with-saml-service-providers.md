@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -109,7 +109,7 @@ Next, upload the SAML assertion and response signing certificate to Azure AD B2C
 
 ### 2.1 Create the SAML token issuer
 
-Now, add the capability for your tenant to issue SAML tokens.
+Now, add the capability for your tenant to issue SAML tokens, using [SAML token issuer](saml-issuer-technical-profile.md) and [SAML session provider](custom-policy-reference-sso.md#samlssosessionprovider) technical profiles.
 
 Open `SocialAndLocalAccounts\`**`TrustFrameworkExtensions.xml`** in the custom policy starter pack.
 
@@ -293,7 +293,7 @@ The metadata is information used in the SAML protocol to expose the configuratio
 
 If there are properties specified in *both* the SAML metadata URL and in the application registration's manifest, they are **merged**. The properties specified in the metadata URL are processed first and take precedence.
 
-For this tutorial which uses the SAML test application, use the following value for `samlMetadataUrl`:
+For this tutorial, which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -320,7 +320,7 @@ For this tutorial, in which you use the SAML test application, set the `url` pro
 
 This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `Http-Redirect`.
 
-For this tutorial which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
+For this tutorial, which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
@@ -333,7 +333,7 @@ The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**:   `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
+* **Issuer**:   Use the entityID in the metadata file
 * **Login Url/SAML endpoint/SAML Url**: Check the value in the metadata file
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
@@ -350,7 +350,7 @@ To complete this tutorial using our [SAML Test Application][samltest]:
 * Update policy name, for example *B2C_1A_signup_signin_saml*
 * Specify this issuer URI: `https://contoso.onmicrosoft.com/app-name`
 
-Select **Login** and you should be presented with an end user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
+Select **Login** and you should be presented with a user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
 ## Sample policy
 
@@ -371,7 +371,8 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 
 ## Next steps
 
-You can find more information about the [SAML protocol on the OASIS website](https://www.oasis-open.org/).
+- You can find more information about the [SAML protocol on the OASIS website](https://www.oasis-open.org/).
+- Get the SAML test web app from [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

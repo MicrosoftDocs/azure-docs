@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 03/20/2020
 ---
 # Release notes
 
@@ -63,35 +63,12 @@ No component version change for this release. You could find the current compone
 
 ## Known issues
 
-As of January 29, 2020, there is an active issue in which you may receive an error when attempting to use a Jupyter notebook. Use the steps below to fix the issue. You can also refer to this [MSDN post](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) or this [StackOverflow post](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) for up-to-date information, or to ask additional questions. This page will be updated when the issue is fixed.
+As of March 18th, 2020 some Azure HDInsight customers in West Europe or North Europe have received error notifications when creating or scaling HDInsight clusters in these regions. Errors related to this issue include:
 
-**Errors**
+- Internal server error occurred while processing the request. Please retry the request or contact support.
+- At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details
+- User SubscriptionId '\<Subscription ID\>' does not have cores left to create resource '\<cluster name>'. Required: \<X\>, Available: 0.
 
-* ValueError: Cannot convert notebook to v5 because that version doesn't exist
-* Error loading notebook An unknown error occurred while loading this notebook. This version can load notebook formats v4 or earlier
+Engineers are aware of this issue and are actively investigating.
 
-**Cause** 
-
-The _version.py file on the cluster was updated to 5.x.x instead of 4.4.x.## or Ambari needs to be restarted.
-
-**Solution**
-
-If you create a new Jupyter notebook and receive one of the errors listed above, perform the following steps to fix the issue.
-
-1. Open Ambari in a web browser by going to `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
-1. In Ambari, on the left menu, click **Jupyter**, then on **Service Actions**, click **Stop**.
-1. ssh into the cluster headnode where the Jupyter service is running.
-1. Open the following file /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py in sudo mode.
-1. Check the value of version_info.
-1. If the value of version_info is set to: 
-
-    version_info = (5, 0, 3)
-
-    Then modify the entry to: 
-    
-    version_info = (4, 4, 0)
-
-    And save the file. 
-
-    If version_info is already set to (4, 4, 0), then continue to the next step as only Ambari needs to be restarted, no additional changes are needed.
-1. Go back to Ambari, and in **Service Actions**, click **Restart All**.
+For additional help, create a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

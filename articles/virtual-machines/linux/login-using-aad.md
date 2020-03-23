@@ -1,17 +1,9 @@
 ---
 title: Log in to a Linux VM with Azure Active Directory credentials 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor:
-
-ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
@@ -70,6 +62,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 To enable Azure AD authentication for your Linux VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
 
 * https:\//login.microsoftonline.com
+* https:\//login.windows.net
 * https:\//device.login.microsoftonline.com
 * https:\//pas.windows.net
 * https:\//management.azure.com
@@ -110,7 +103,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM.
+The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## Configure role assignments for the VM
 
@@ -151,7 +144,7 @@ az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o 
 
 Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Replace the example account with your own. Account addresses should be entered in all lowercase. Replace the example IP address with the public IP address of your VM from the previous command.
 
-```azurecli-interactive
+```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
@@ -172,6 +165,7 @@ The first time that you run sudo, you will be asked to authenticate a second tim
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
+
 With this line:
 
 ```bash
@@ -187,7 +181,7 @@ Some common errors when you try to SSH with Azure AD credentials include no RBAC
 
 If you see the following error on your SSH prompt, verify that you have configured RBAC policies for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
 
-```bash
+```output
 login as: azureuser@contoso.onmicrosoft.com
 Using keyboard-interactive authentication.
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJX327AXD to authenticate. Press ENTER when ready.
