@@ -433,7 +433,7 @@ Now, we can implement the application's UI processing logic and get tokens inter
 
 MSAL exposes two primary methods for getting tokens: `acquireTokenSilently()` and `acquireTokenInteractively()`: 
 
-- `acquireTokenSilently()` attempts to sign in a user and get tokens without any user interaction as long as an account is present.
+- `acquireTokenSilently()` attempts to sign in a user and get tokens without any user interaction as long as an account is present. `acquireTokenSilently()` requires providing a valid `MSALAccount` which can be retrieved by using one of MSAL account enumeration APIs. This sample uses `applicationContext.getCurrentAccount(with: msalParameters, completionBlock: {})` to retrieve current account. 
 
 - `acquireTokenInteractively()` always shows UI when attempting to sign in the user. It may use session cookies in the browser or an account in the Microsoft authenticator to provide an interactive-SSO experience.
 
