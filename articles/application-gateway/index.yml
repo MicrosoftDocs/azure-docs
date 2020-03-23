@@ -31,7 +31,7 @@ landingContent:
             url: application-gateway-faq.md
 
   # Card
-  - title: COVID-19 Guidelines
+  - title: COVID-19 guidelines
     linkLists:
       - linkListType: concept
         links:
