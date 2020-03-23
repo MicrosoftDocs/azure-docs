@@ -23,11 +23,11 @@ It is possible to use APNS VOIP notifications through Azure Notification Hubs; h
 
 If you still choose to send APNS VOIP notifications through Notification Hubs, be aware of the following limitations:
 
-- Sending a VOIP notification requires the `apns-topic` header to be set to the application bundle ID + the .voip suffix. For example, for a sample app with the bundle ID `com.microsoft.nhubsample`, the `apns-topic` header should be set to `com.microsoft.nhubsample.voip.`
+- Sending a VOIP notification requires the `apns-topic` header to be set to the application bundle ID + the `.voip` suffix. For example, for a sample app with the bundle ID `com.microsoft.nhubsample`, the `apns-topic` header should be set to `com.microsoft.nhubsample.voip.`
 
    This method doesn't work well with Azure Notification Hubs, because the app's bundle ID must be configured as part of the hub's APNS credentials, and the value cannot be changed. Also, Notification Hubs does not allow the value of the `apns-topic` header to be overridden at runtime.
 
-   To send VOIP notifications, you must configure a separate notification hub with the **.voip** app bundle ID.
+   To send VOIP notifications, you must configure a separate notification hub with the `.voip` app bundle ID.
 
 - Sending a VOIP notification requires the `apns-push-type` header to be set to the value `voip`.
 
