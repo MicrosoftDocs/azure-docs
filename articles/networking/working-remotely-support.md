@@ -1,6 +1,6 @@
 ﻿---
 title: 'Working remotely using Azure networking services'
-description: This page describes how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
+description: This page describes how you can use Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 services: networking
 author: rambk
 
@@ -15,7 +15,7 @@ ms.author: kumud
 
 This article describes how you can leverage Azure networking services to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 
-The Covid-19 (Corona virus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and countries across the globe. This crisis has forced most people across a wide range of industries to work from home. Yet, there is an urgency to act; and the onus to act is on all of us. We all need to do the best we can to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
+The Covid-19 (Corona virus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and countries across the globe. This crisis has forced most people across a wide range of industries to work from home. We need to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
 
 Network architects everywhere are faced with the following challenges:
 
@@ -27,7 +27,7 @@ The pre- and post- Covid-19 lockdown Internet traffic analysis reveal that  as m
 
 However, not all network segments (for example, the Internet backbone), private WAN, and corporate core networks are experiencing the pinch. The bottlenecks are commonly reported in home broadband networks and more particularly in the neighborhoods served by lower cable connections, VPN gateways of on-premises networks of corporations/enterprises.
 
-Keeping in mind that different traffic types need different network treatment priorities and some smart load redirection/distribution, network planners can help ease the bottlenecks and alleviate the network congestion. For example, real-time telemedicine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
+Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
 >[!NOTE] 
 >Towards the end of this article, links for Covid-19 preparation articles leveraging different Azure networking features and ecosystems are listed.
@@ -39,7 +39,7 @@ Azure is designed to withstand sudden changes in the utilization of the resource
 
 Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
-Using any of the Azure features described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
 
 ## Enable employees to work remotely
 
