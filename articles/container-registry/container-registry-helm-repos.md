@@ -165,7 +165,7 @@ Output is similar to:
   "imageName": "helm/hello-world",
   "lastUpdateTime": "2020-03-20T18:11:37.7637082Z",
   "manifestCount": 1,
-  "registry": "danlep0318.azurecr.io",
+  "registry": "mycontainerregistry.azurecr.io",
   "tagCount": 1
 }
 ```
