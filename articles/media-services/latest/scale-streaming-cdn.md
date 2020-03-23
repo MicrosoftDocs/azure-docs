@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Scaling streaming with CDN
 
-Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically-placed physical nodes across the world.  
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 
 CDN caches content streamed from a Media Services [Streaming Endpoint (origin)](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache.
 
@@ -25,7 +25,7 @@ The popular content will be served directly from the CDN cache as long as the vi
 
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as its own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
 
-When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you're anticipating many viewers for your content. If the max concurrency of viewers is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency.
+When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you're expecting many viewers for your content. If the max concurrency of viewers is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency.
 
 This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). It also explains prefetching (active caching) and the [Origin-Assist CDN-Prefetch](#origin-assist-cdn-prefetch) concept.
 
@@ -43,11 +43,11 @@ This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). 
 
 After a streaming endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the streaming endpoint to CDN endpoint.
 
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint. Once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
 When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs.
 
-Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. 
+Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**.
 
 > [!NOTE]
 > For details about Azure CDN, see the [CDN overview](../../cdn/cdn-overview.md).
@@ -62,7 +62,7 @@ CDN caching is a reactive process. If CDN can predict what the next object will 
 
 The concept of prefetching strives to position objects at the "edge of the internet" in anticipation that these will be requested by the player imminently, thereby reducing the time to deliver that object to the player.
 
-To achieve this goal, a streaming endpoint (origin) and CDN need to work hand in hand in a couple ways:
+To achieve this goal, a streaming endpoint (origin) and CDN need to work hand-in-hand in a couple ways:
 
 - The Media Services origin needs to have the "intelligence" (Origin-Assist) to inform CDN the next object to prefetch.
 - CDN does the prefetch and caching (CDN-prefetch part). CDN also needs to have the "intelligence" to inform the origin whether it's a prefetch or a regular fetch, handle the 404 responses, and a way to avoid endless prefetch loop.
@@ -112,7 +112,7 @@ The `Origin-Assist CDN-Prefetch` feature supports the following streaming protoc
 
 * Suppose you have an on-demand video. If CDN-prefetch is enabled, does this feature imply that once a client requests the first video segment, prefetch will start a loop to prefetch all subsequent video segments at the same bitrate?
 
-    No, CDN-prefetch is performed only after a client-initiated request/response. CDN-prefetch is never triggered by a prefetch, to avoid a prefetch loop.
+    No, CDN-prefetch is done only after a client-initiated request/response. CDN-prefetch is never triggered by a prefetch, to avoid a prefetch loop.
 
 * Is Origin-Assist CDN-Prefetch feature always on? How can it be turned on/off?
 
@@ -152,5 +152,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-* Make sure to reivew the [Streaming Endpoint (origin)](streaming-endpoint-concept.md) document.
+* Make sure to review the [Streaming Endpoint (origin)](streaming-endpoint-concept.md) document.
 * The sample [in this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) shows how to start the default streaming endpoint with .NET.
