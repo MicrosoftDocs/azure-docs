@@ -26595,6 +26595,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/nva-working-remotely-support.md",
+      "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/working-remotely-support.md",
+      "redirect_url": "/azure/expressroute/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/bastion/working-remotely-support.md",
+      "redirect_url": "/azure/bastion/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
       "redirect_document_id": false

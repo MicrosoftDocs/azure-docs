@@ -16,10 +16,10 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Working remotely support
+  - name: Work remotely support
     items:
     - name: NVA configurations and remote work
-      href: nva-working-remotely-support.md
+      href: nva-work-remotely-support.md
     - name: Work remotely
       href: work-remotely-support.md
   - name: About VPN Gateway settings
