@@ -36,9 +36,9 @@
     href: ./concepts/scheduling.md
   - name: Clusters Operations
     items:
-    - name: User Managemement
+    - name: User Management
       href: ./concepts/user-management.md
-    - name: Cluster Health Managemement
+    - name: Cluster Health Management
       href: ./concepts/health-management.md
     - name: Usage Tracking
       href: ./concepts/usage-tracking.md
