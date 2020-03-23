@@ -85,9 +85,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     |||
     |-|-|
-    | `https://toyota-qa.ipoint-systems.com/dashboard/`|
-    | `https://toyota-qa.ipoint-systems.com/ipca-web/`|
-    | `https://toyota-qa.ipoint-systems.com/authserver/saml/ssoLogin`|
+    | `https://<CUSTOMERNAME>.ipoint-systems.com/dashboard/`|
+    | `https://<CUSTOMERNAME>.ipoint-systems.com/ipca-web/`|
+    | `https://<CUSTOMERNAME>.ipoint-systems.com/authserver/saml/ssoLogin`|
 
 1. Click **Save**.
 
