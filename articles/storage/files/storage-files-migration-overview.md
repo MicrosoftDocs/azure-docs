@@ -11,14 +11,19 @@ ms.subservice: files
 
 # Overview - Migration to Azure file shares
 
-In this article, you will learn about the basic aspects of a migration to Azure file shares.
-Individual migration guides exist, that help you move your files into Azure file shares. These guides are structured by the source your files reside in today and the target deployment (cloud-only or a hybrid deployment) you are planning to move to.
+This article covers the basic aspects of a migration to Azure file shares.
 
-## The basics of any file migration
+Alongside migration basics, this article contains a list of existing, individualized migration guides. These migration guides help you move your files into Azure file shares and are organized by where your data resides today and what deployment model (cloud-only or hybrid) you plan on moving to.
 
-There are multiple different types of cloud storage available in Azure. Often questions arise around the right type of storage and the choice of Azure file shares versus object storage in Azure blobs. Fundamentally, only Azure file shares support a range of fidelity features that is ideally suited to natively store your general purpose file data in Azure.
+## Migration basics
 
-The key in any migration is to capture all the applicable file fidelity when migrating your files from their current storage location to Azure. There are two basic components to a file:
+There are multiple different types of cloud storage available in Azure. A fundamental aspect of a migration of files to Azure is to determine which Azure storage option is right for your data.
+
+Azure file shares are great for general purpose file data. Really anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md) you can optionally cache the contents of several Azure file shares on several Windows Servers on-premises.
+
+If you have an application currently running on an on-premises server, then storing files in Azure file shares can be right for you, depending on the application. You can lift the application to run in Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario. For cloud-born applications, that do not depend on the SMB or machine-local access to their data and shared access, object storage, such as [Azure blobs](../blobs/storage-blobs-overview.md), is often the best choice.
+
+The key in any migration is to capture all the applicable file fidelity when migrating your files from their current storage location to Azure. A help in picking the right Azure storage is also the aspect of how much fidelity supported by the Azure storage option and is required by your scenario. General purpose file data traditionally depends on file metadata. Application data might not. There are two basic components to a file:
 
 1. **Data stream**: The data stream of a file stores the file content.
 2. **File metadata**: The file meta data has several sub components:
@@ -29,14 +34,18 @@ The key in any migration is to capture all the applicable file fidelity when mig
 
 File fidelity, in a migration, can therefore be defined as the ability to store all applicable file information on the source, the ability to transfer them with the migration tool and the ability to store them on the target storage of the migration.
 
-The complexity in any file migration project is to match a storage target to your source and use a fidelity preserving copy tool to get your files there.
+In order to ensure your migration proceeds as smoothly as possible, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
-In that context, it becomes clear what the target storage for general purpose files in Azure is: **[Azure file shares]**. Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
-The one aspect of files that cannot be stored in a file share at this time, is the alternative data stream.
+Taking the previous information into account, it becomes clear what the target storage for general purpose files in Azure is: **[Azure file shares]**. Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
 
 **[Learn more about file fidelity in Azure file shares]**
 
-Azure file shares also preserve the file and folder hierarchy. Additionally, they not only allow for NTFS permissions to be stored, but also allowing your AD users (or AAD DS users) to natively access an Azure file share. They use their current identity and get access based on share permissions as well as file and folder ACLs. A behavior not unlike when users connect to an on-premises file share.
+Azure file shares also preserve the file and folder hierarchy. Additionally:
+* NTFS permissions can be stored on files and folders as they are on-premises
+* AD users (or AAD DS users) can natively access an Azure file share. 
+    They use their current identity and get access based on share permissions as well as file and folder ACLs. A behavior not unlike when users connect to an on-premises file share.
+*  The alternative data stream is the primary aspect of file fidelity that currently cannot be stored on a file in an Azure file share.
+   It is preserved on-premises when Azure File Sync is involved.
 
 * [Learn more about AD authentication for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
 * [Learn more about Azure Active Directory Domain Services (AAD DS) authentication for Azure file shares](storage-files-identity-auth-active-directory-domain-service-enable.md)
@@ -50,7 +59,7 @@ Navigate it by:
 2. Decide if you target a hybrid deployment where you use Azure File Sync to cache the content of one or more Azure file shares on-premises, or if you like to use Azure file shares directly in the cloud. Select the target column that reflects your decision.
 3. Within the intersection of source and target, a table cell lists available migration scenarios. Select one of them to directly link to the detailed migration guide.
 
-A scenario without a link does not yet have a published migration guide. Check this table occasionally. New guides are frequently added.
+A scenario without a link does not yet have a published migration guide. Check this table occasionally for updates. New guides will be published when available.
 
 | **Source** | Target: </br>Hybrid deployment | Target: </br>Cloud-only  deployment |
 |:---|:--|:--|
@@ -62,15 +71,17 @@ A scenario without a link does not yet have a published migration guide. Check t
 | StorSimple 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 | | | |
 
-## Migration Toolbox
+## Migration toolbox
 
 ### File copy tools
 
 There are several Microsoft and non-Microsoft file copy tools available. In order to choose the right tool for a migration scenario, there are three fundamental questions one must consider:
 
-1. Does the copy tool support the source and the target location for a given file copy? While this requirement appears to be obvious, it is worth looking a layer deeper: Does it support your network path and/or available protocols (for instance REST/SMB/NFS) to and from the source and target storage locations?
-2. Does the copy tool preserve the necessary file fidelity that is supported by the source/target location? In some cases, your target storage does not support the same fidelity as your source. You have already made the decision that the target storage is sufficient for your needs, hence the copy tool only needs to match the targets file fidelity capabilities.
-3. Does the copy tool have features that make it fit into my migration strategy? For instance, consider if it has options that allow you to minimize your downtime. A good question to ask is: Can I run this copy multiple times on the same, by users actively accessed location? If so, you can reduce the amount of downtime significantly. Compare that to a situation where you can only start the copy when the source stops changing, in order to guarantee a complete copy.
+* Does the copy tool support the source and the target location for a given file copy? 
+    * Does it support your network path and/or available protocols (for instance REST/SMB/NFS) to and from the source and target storage locations?
+* Does the copy tool preserve the necessary file fidelity that is supported by the source/target location? In some cases, your target storage does not support the same fidelity as your source. You have already made the decision that the target storage is sufficient for your needs, hence the copy tool only needs to match the targets file fidelity capabilities.
+* Does the copy tool have features that make it fit into my migration strategy? 
+    * For example, consider if it has options that allow you to minimize your downtime. A good question to ask is: Can I run this copy multiple times on the same, by users actively accessed location? If so, you can reduce the amount of downtime significantly. Compare that to a situation where you can only start the copy when the source stops changing, in order to guarantee a complete copy.
 
 The following table classifies Microsoft tools and their current suitability for Azure file shares:
 
@@ -93,9 +104,21 @@ This category lists tools that help with planning and executing migrations.
 
 * **RoboCopy, from Microsoft Corporation**
 
-    One of the most well-rounded copy tools available, comes out-of-the-box with Microsoft Windows. Due to the many options in this tool, the main [RoboCopy documentation](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) is a helpful source.
+    One of the most applicable copy tools to file migrations, comes as part of Microsoft Windows. Due to the many options in this tool, the main [RoboCopy documentation](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) is a helpful source.
 
 * **TreeSize, from JAM Software GmbH**
 
-    Azure File Sync primarily scales with the number of items (files and folders) in a sync scope and less so with the total TiB amount. The tool below can be used to determine the number of files and folders on your Windows Server volumes. Furthermore it can be used to create a perspective before an [Azure File Sync deployment](storage-sync-files-deployment-guide.md) - but also after, when cloud tiering is engaged and you like to see not only the number of items but also in which directories your server cache is used the most.
+    Azure File Sync primarily scales with the number of items (files and folders) and less so with the total TiB amount. The tool can be used to determine the number of files and folders on your Windows Server volumes. Furthermore it can be used to create a perspective before an [Azure File Sync deployment](storage-sync-files-deployment-guide.md) - but also after, when cloud tiering is engaged and you like to see not only the number of items but also in which directories your server cache is used the most.
     This tool (tested version 4.4.1) is compatible with cloud tiered files. It will not cause recall of tiered files during its normal operation.
+
+
+## Next steps
+
+1. Create a plan for which deployment of Azure file shares (cloud-only or hybrid) you strive for.
+2. Review the list of available migration guides to find the detailed guide that matches your source and deployment of Azure file shares.
+
+There is more information available about the Azure Files technologies mentioned in this article:
+
+* [Azure file share overview](storage-files-introduction.md)
+* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+* [Azure File Sync: Cloud tiering](storage-sync-cloud-tiering.md)
