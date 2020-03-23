@@ -49,7 +49,7 @@ This article lists SQL Database features that are currently in public preview. F
 
 ---
 
-## New features
+## Managed instance - new features and known issues
 
 ### Managed instance H2 2019 updates
 
@@ -74,29 +74,29 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Workaround|TBD|
-|[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Workaround|TBD|
-|[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|No Workaround|TBD|
-|[AAD logins and users are not supported in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|No Workaround|TBD|
-|[In-memory OLTP memory limits are not applied](#in-memory-oltp-memory-limits-are-not-applied)|Oct 2019|Workaround|TBD|
-|[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Workaround|TBD|
-|[Change service tier and create instance operations are blocked by ongoing database restore](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Workaround|TBD|
-|[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Workaround|TBD|
-|[Cross-database Service Broker dialogs must be re-initialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Workaround|TBD|
-|[Impersonification of Azure AD login types is not supported](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround|TBD|
-|[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround|TBD|
-|[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround|TBD|
-|[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)|TBD|Workaround|TBD|
-|[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)|TBD|No Workaround|TBD|
-|[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)|TBD|Workaround|TBD|
-|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)|TBD|No Workaround|TBD|
-|[Error logs aren't persisted](#error-logs-arent-persisted)|TBD|No Workaround|TBD|
-|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)|TBD|Workaround|TBD|
-|[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)|TBD|Workaround|TBD|
-|Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.|TBD|Resolved|Nov 2019|
-|Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.|TBD|Resolved|Oct 2019|
-|Database Mail feature with external (non-Azure) mail servers using secure connection|TBD|Resolved|Oct 2019|
-|Contained databases not supported in managed instance|TBD|Resolved|Aug 2019|
+|[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
+|[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
+|[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|No Workaround||
+|[AAD logins and users are not supported in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|No Workaround||
+|[In-memory OLTP memory limits are not applied](#in-memory-oltp-memory-limits-are-not-applied)|Oct 2019|Has Workaround||
+|[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Has Workaround||
+|[Change service tier and create instance operations are blocked by ongoing database restore](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Has Workaround||
+|[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Has Workaround||
+|[Cross-database Service Broker dialogs must be re-initialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
+|[Impersonification of Azure AD login types is not supported](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround||
+|[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround||
+|[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround||
+|[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)||Has Workaround||
+|[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)||No Workaround||
+|[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround||
+|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||No Workaround||
+|[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround||
+|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround||
+|[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround||
+|Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.||Resolved|Nov 2019|
+|Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
+|Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
+|Contained databases not supported in managed instance||Resolved|Aug 2019|
 
 ### Limitation of manual failover via portal for failover groups
 
