@@ -59,6 +59,9 @@ Before creating a peering, familiarize yourself with the requirements and constr
     Only one peering for this virtual network can have this setting enabled.
 
         You cannot use remote gateways if you already have a gateway configured in your virtual network. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+        
+[!NOTE]
+Whenever using a Virtual Network Gateway to send on-premises traffic transitively to a peered VNet you must ensure that the on-premises VPN device has the peered VNet IP range set as 'interesting' traffic. Otherwise, your on-premises resources will not be able to communicate with resources in the peered VNet.
 
 6. Select **OK** to add the peering to the virtual network you selected.
 
