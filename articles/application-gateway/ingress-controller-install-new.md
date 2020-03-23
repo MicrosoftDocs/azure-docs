@@ -16,7 +16,7 @@ installed in an environment with no pre-existing components.
 
 ## Required Command Line Tools
 
-We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command line operations below. Launch your shell from shell.azure.com or by clicking the link:
+We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command-line operations below. Launch your shell from shell.azure.com or by clicking the link:
 
 [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
@@ -25,7 +25,7 @@ Alternatively, launch Cloud Shell from Azure portal using the following icon:
 ![Portal launch](./media/application-gateway-ingress-controller-install-new/portal-launch-icon.png)
 
 Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
-choose to use another environment, please ensure the following command line tools are installed:
+choose to use another environment, please ensure the following command-line tools are installed:
 
 * `az` - Azure CLI: [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * `kubectl` - Kubernetes command-line tool: [installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl)
@@ -103,12 +103,12 @@ This step will add the following components to your subscription:
 
 ## Set up Application Gateway Ingress Controller
 
-With the instructions in the previous section we created and configured a new AKS cluster and
+With the instructions in the previous section, we created and configured a new AKS cluster and
 an Application Gateway. We are now ready to deploy a sample app and an ingress controller to our new
 Kubernetes infrastructure.
 
 ### Setup Kubernetes Credentials
-For the following steps we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
+For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
 which we will use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We will use `az` CLI to obtain credentials for Kubernetes.
 
 Get credentials for your newly deployed AKS ([read more](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)):
