@@ -17,37 +17,73 @@ ms.service: digital-twins
 
 # Understand Azure digital twins and their twin graph
 
-In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. An Azure digital twin is an instance of one of your user-created [twin types](concepts-models.md); it follows a pre-defined twin type template and is connected to other Azure digital twins via relationships to form a **twin graph**.
+In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. An Azure digital twin is an instance of one of your user-created [twin types](concepts-twin-types.md). It can be connected to other Azure digital twins via relationships to form a **twin graph**.
 
 > [!TIP]
-> "Azure Digital Twins" (every word capitalized) refers to this entire Azure service. When you see "digital twin(s)" or "Azure digital twin(s)" (not capitalized), this refers to the actual twin nodes inside the twin graph. They are the individual entities in your Azure Digital Twins solution.
+> "Azure Digital Twins" (with every word capitalized) refers to this Azure service as a whole. "Azure digital twin(s)" or just "digital twin(s)" refers to individual twin nodes inside your instance of the service.
 
-## Creating Azure digital twins
+## Creating digital twins
 
-Building an Azure digital twin starts with creating a *twin type*. A twin type describes a digital twin's properties and what relationships it can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
+Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *twin type* uploaded to the service. A twin type describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-twin-types.md).
 
-After creating a twin type, your client app will instantiate it in order to create Azure digital twins. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this design (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
+After creating and uploading a twin type, your client app can create an instance of the type; this is a digital twin. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
-Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate several Azure digital twins: two of twin type *Floor* and one of twin type *Room*.
+Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis.md) to instantiate a twin of type *Room*.
+
+In the current preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
 
 ```csharp
-// Create digital twins
-client.CreateTwin("GroundFloor", "urn:contosocom:example:Floor:1");
-client.CreateTwin("Floor2", "urn:contosocom:example:Floor:1");
-client.CreateTwin("Cafe", "urn:contosocom:example:Room:1");
+public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
+{
+    // Define the twin type (model) for the twin to be created
+    Dictionary<string, object> meta = new Dictionary<string, object>()
+    {
+      { "$model", "urn:example:Room:2" }
+    };
+    // Initialize the twin properties
+    Dictionary<string, object> initData = new Dictionary<string, object>()
+    {
+      { "$metadata", meta },
+      { "Temperature", temperature},
+      { "Humidity", humidity},
+    };
+    try
+    {
+      await client.DigitalTwins.AddAsync(id, initData);
+      return true;
+    }
+    catch (ErrorResponseException e)
+    {
+      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
+      return false;
+    }
+}
 ```
 
 ## Relationships: creating a graph of digital twins
 
-Twins are connected into a twin graph by their relationships. The relationship types that an Azure digital twin can have are defined as part of the twin type. Then, when instantiating graph elements in client app code, you can instantiate an allowed relationship between two Azure digital twins that you have created.
+Twins are connected into a twin graph by their relationships. The relationships that a  twin can have are defined as part of the twin type.  
 
-For example, a *Floor*-type digital twin might have a *contains* relationship that allows it to connect to several *Room*-type digital twins. A cooling device might have a *cools* relationship with a motor. 
+For example, twin type *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships between a digital twin of type *Floor* and any digital twin of type *Room* (including subtypes of type *Room*). 
 
-Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
+Here is some example client code that uses the [DigitalTwins APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 
 ```csharp
+// Create Twins, using functions similar to the previous sample
+await CreateRoom("Cafe", 70, 66);
+await CreateFloor("GroundFloor", averageTemperature=70);
 // Create relationships
-client.CreateRelationship("GroundFloor", "contains", "Cafe");
+Dictionary<string, object> targetrec = new Dictionary<string, object>()
+{
+    { "$targetId", "Cafe" }
+};
+try
+{
+    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+} catch(ErrorResponseException e)
+{
+    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
+}
 ```
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
@@ -148,7 +184,7 @@ Here is an example of a relationship formatted as a JSON object:
 
 ## Next steps
 
-See how to manage graph elements with Twin APIs:
+See how to manage graph elements with Azure Digital Twin APIs:
 * [Manage an individual digital twin](how-to-manage-twin.md)
 * [Manage a twin graph](how-to-manage-graph.md)
 

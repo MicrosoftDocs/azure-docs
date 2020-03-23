@@ -9,11 +9,9 @@
 - name: Concepts
   items:
   - name: Create a twin type
-    href: concepts-models.md
+    href: concepts-twin-types.md
   - name: Create digital twins and the twin graph
     href: concepts-twins-graph.md
-  - name: Integrate IoT Hub devices
-    href: concepts-iothub-devices.md
   - name: Route events
     href: concepts-route-events.md
   - name: Query the twin graph
@@ -24,16 +22,24 @@
     href: concepts-security.md
 - name: How-to guides
   items:
+  - name: Create an Azure Digital Twins instance
+    href: how-to-set-up-instance.md
+  - name: Authenticate against Azure Digital Twins
+    href: how-to-authenticate.md
+  - name: Ingest telemetry from IoT Hub
+    href: how-to-ingest-iot-hub-data.md
   - name: Use the APIs
     href: how-to-use-apis.md
   - name: Manage a twin type
-    href: how-to-manage-model.md
+    href: how-to-manage-twin-type.md
   - name: Manage a digital twin
     href: how-to-manage-twin.md
   - name: Manage a twin graph
     href: how-to-manage-graph.md
   - name: Route event data
     href: how-to-route-events.md
+  - name: Work with Azure Functions
+    href: how-to-create-azure-function.md
 - name: Reference
   items:
 - name: Resources

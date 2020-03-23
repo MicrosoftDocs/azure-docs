@@ -53,7 +53,7 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
-* via the access control (IAM) pane for Azure Digital Twins in Azure Portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
+* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, you can also visit the Azure Digital Twins tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
@@ -71,5 +71,6 @@ The following list describes the levels at which you can scope access to Azure D
 
 ## Next steps
 
-* Read more about [RBAC for Azure](../role-based-access-control/overview.md).
+* Walk through the steps to [Authenticate against Azure Digital Twins](how-to-authenticate.md).
 
+* Read more about [RBAC for Azure](../role-based-access-control/overview.md).

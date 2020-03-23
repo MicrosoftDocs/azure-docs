@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Manage your Azure Digital Twins twin type set
 
-Azure Digital Twins **Model Management APIs** are APIs used to manage the twin types that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the twin types that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
 
-## Creating twin types
+## Create twin types
 
 Consider an example in which a hospital wants to digitally represent their rooms, complete with sensors to monitor traffic into/out of the rooms and handwashing stations in each room.
 The first step towards the solution is to create twin types to represent aspects of the hospital. Twin types for Azure Digital Twins are written in DTDL. A patient room might be described as:
@@ -136,7 +136,7 @@ Twin types are not necessarily returned in exactly the document form they were u
 
 ## Parse twin types
 
-As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides twin type access to the DTDL definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
+As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides twin type access to the DTDL definitions—effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
 
 To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these twin type documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow is as follows.
 1. You retrieve all (or, potentially, some) DTDL documents from the service.
@@ -145,17 +145,17 @@ To use the parser library, you provide a set of DTDL documents to the library. T
 4. You can use the parser APIs to analyze the twin types included in the document set. 
 
 The functionalities of the parser are:
-* Get all interfaces implemented (the content of the extends section)
-* Get all properties, telemetry, commands, components, and relationships declared in the twin type. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account
-* Get all complex twin type definitions
-* Ascertain if a twin type is assignable from another twin type 
+* Get all implemented twin type interfaces (the contents of the interface's `extends` section).
+* Get all properties, telemetry, commands, components, and relationships declared in the twin type. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account.
+* Get all complex twin type definitions.
+* Determine whether a twin type is assignable from another twin type.
 
 > [!NOTE]
 > IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same twin type for both PnP and Azure Digital Twins syntax.
 
-### An example
+### Twin type parsing example
 
-The following twin types are defined in the service (the `urn:contosocom:example:coffeeMaker` twin type is using the capability model syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that twin type):
+The following twin types are defined in the service (the `urn:contosocom:example:coffeeMaker` twin type is using the *capability model* syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that twin type):
 
 ```json
 {
