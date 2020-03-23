@@ -33,7 +33,7 @@ This example shows setting up an alert when 75% of average CU usage is reached v
 2. On the left panel, select **Metrics** under the **Monitoring** tab. 
 3. Add a metric for **Average Current Compute Units**. 
 ![Setting up WAF metric](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
-4. If you've set your minimum instance count to be your average CU usage, go ahead and set an alert for if 75% of your minimum instances are in use. For example, if your average usage is 10 CUs, set an alert on 7.5 CUs. This will alert you if usage is increasing and give you time to respond and raise the minimum if you think this traffic will be sustained and will give you an alert that traffic may be increasing. 
+4. If you've set your minimum instance count to be your average CU usage, go ahead and set an alert when 75% of your minimum instances are in use. For example, if your average usage is 10 CUs, set an alert on 7.5 CUs. This alerts you if usage is increasing and gives you time to respond. You can raise the minimum if you think this traffic will be sustained to alert you that traffic may be increasing. 
 ![Setting up WAF alert](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
 
 > [!NOTE]
