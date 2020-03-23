@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank database
 
-A SQL pool is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md). 
+A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank database. 
 
