@@ -13,19 +13,13 @@ ms.author: kumud
 
 # Working remotely using Azure networking services
 
-This article describes how you can leverage Azure networking services to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
-
-The Covid-19 (Corona virus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and countries across the globe. This crisis has forced most people across a wide range of industries to work from home. We need to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
-
-Network architects everywhere are faced with the following challenges:
+This article describes how you can leverage Azure networking services to enable working remotely. The Covid-19 has forced people across a wide range of industries to work from home. As a result, network architects are faced with the following challenges:
 
 - address the steep increase in network utilization
 - provide reliable-secure connectivity to all the employees of their company and customers,
 - provide connectivity to remote locations across the globe. 
 
-The pre- and post- Covid-19 lockdown Internet traffic analysis reveal that  as more people are settling down to work from home on a regular basis, the home broadband network usage is experiencing significant increase in utilization. The traffic patterns are also changing, the usual weekend and night-time network troughs are vanishing. For example, in the Seattle area, in the beginning of March (after several companies in area requested employees to work from home), the Internet traffic has gone up by 40% compared to the usage in the area in January of this year. The night-time network usage trough in March is greater than the average day-time usage in January. Similar analysis in Italy shows a 30% increase. The trend is similar in all the lockdown areas.
-
-However, not all network segments (for example, the Internet backbone), private WAN, and corporate core networks are experiencing the pinch. The bottlenecks are commonly reported in home broadband networks and more particularly in the neighborhoods served by lower cable connections, VPN gateways of on-premises networks of corporations/enterprises.
+Not all network (for example, the Internet backbone, private WAN, and corporate core networks) are experiencing congestion because of Covid-19. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
 
 Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
