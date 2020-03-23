@@ -48,7 +48,7 @@ To upgrade a general-purpose v1 account to a general-purpose v2 account using Az
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
-```cli
+```azurecli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
