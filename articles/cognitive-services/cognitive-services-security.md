@@ -47,11 +47,11 @@ To set environment variables, use one the following commands - where the `ENVIRO
 
 # [Command Line](#tab/command-line)
 
-Create and assign environment variable, given the value.
+Create and assign persisted environment variable, given the value.
 
 ```CMD
 :: Assigns the env var to the value
-setx ENVIRONMENT_VARIABLE_KEY=value
+setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
 In a new instance of the **Command Prompt**, read the environment variable.
@@ -63,7 +63,7 @@ echo %ENVIRONMENT_VARIABLE_KEY%
 
 # [PowerShell](#tab/powershell)
 
-Create and assign environment variable, given the value.
+Create and assign persisted environment variable, given the value.
 
 ```powershell
 # Assigns the env var to the value
@@ -79,11 +79,12 @@ In a new instance of the **Windows PowerShell**, read the environment variable.
 
 # [Bash](#tab/bash)
 
-Create and assign environment variable, given the value.
+Create and assign persisted environment variable, given the value.
 
 ```Bash
 # Assigns the env var to the value
-export ENVIRONMENT_VARIABLE_KEY=value
+sudo -H gedit /etc/environment
+ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
 In a new instance of the **Bash**, read the environment variable.
