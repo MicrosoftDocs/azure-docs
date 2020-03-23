@@ -4,7 +4,7 @@ description: This page describes how you can leverage Azure networking services 
 services: networking
 author: rambk
 
-ms.service: azurenetworking
+ms.service: virtual-network
 ms.topic: article
 ms.date: 03/23/2020
 ms.author: kumud
@@ -66,24 +66,10 @@ Following are the Covid-19 preparation articles leveraging different Azure netwo
 
 | **Article** | **Last update** |
 | --- | --- |
-| [How to enable users to work remotely][VPN] | March 23, 2020 |
-| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help][VWAN] | March 23, 2020 |
-| [Application Gateway COVID-19 update][AppGW] | March 23, 2020 |
-| [Network Virtual Appliance (NVA) considerations during COVID-19][NVA] | March 23, 2020 |
-| [Transition to OpenVPN protocol or IKEv2 from SSTP][OpenVPN] | March 23, 2020 |
-| [Azure Bastion COVID-19 update][Bastion] | March 23, 2020 |
-| [COVID update - ExpressRoute][ExR] | March 23, 2020 |
-
-<!--Image References-->
-
-<!--Link References-->
-[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-working-remotely
-[OpenVPN]: https://docs.microsoft.com/en-us/azure/vpn-gateway/moving-to-ikev2-or-openvpn-from-sstp
-[VWAN]: https://docs.microsoft.com/azure/virtual-wan/virtual-wan-covid-update
-[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-covid-update
-[Bastion]: https://docs.microsoft.com/azure/bastion/covid-19-update
-[AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-covid-guidelines
-[NVA]: https://docs.microsoft.com/azure/vpn-gateway/nva-covid-update
-
-
-
+| [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770) | March 23, 2020 |
+| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769) | March 23, 2020 |
+| [Application Gateway COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123940) | March 23, 2020 |
+| [Network Virtual Appliance (NVA) considerations during COVID-19](https://go.microsoft.com/fwlink/?linkid=2123771)| March 23, 2020 |
+| [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
+| [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
+| [COVID update - ExpressRoute][https://go.microsoft.com/fwlink/?linkid=2123768] | March 23, 2020 |
