@@ -17,15 +17,15 @@ ms.author: juliako
 
 # Scaling streaming with CDN
 
-Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
+Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically-placed physical nodes across the world.  
 
-CDN caches content streamed from a Media Services [Streaming Endpoint (origin)](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache. 
+CDN caches content streamed from a Media Services [Streaming Endpoint (origin)](streaming-endpoint-concept.md) per codec, per streaming protocol, per bitrate, per container format, and per encryption/DRM. For each combination of codec-streaming protocol-container format-bitrate-encryption, there will be a separate CDN cache.
 
-The popular content will be served directly from the CDN cache as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that's popular and some that isn't. If you have millions of video assets where none of them are popular (only one or two viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. 
+The popular content will be served directly from the CDN cache as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that's popular and some that isn't. If you have millions of video assets where none of them are popular (only one or two viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective.
 
-You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
+You also need to consider how adaptive streaming works. Each individual video fragment is cached as its own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
 
-When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you are anticipating many viewers for your content. If the max concurrency  of viewer is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency. 
+When deciding whether or not to enable CDN on the Media Services [streaming endpoint](streaming-endpoint-concept.md), consider the number of anticipated viewers. CDN helps only if you're anticipating many viewers for your content. If the max concurrency of viewers is lower than 500, it's recommended to disable CDN since CDN scales best with concurrency.
 
 This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). It also explains prefetching (active caching) and the [Origin-Assist CDN-Prefetch](#origin-assist-cdn-prefetch) concept.
 
@@ -37,7 +37,7 @@ This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). 
 ## Enable Azure CDN integration
 
 > [!IMPORTANT]
-> You cannot enable CDN for trial or student Azure accounts.
+> You can't enable CDN for trial or student Azure accounts.
 >
 > CDN integration is enabled in all the Azure data centers except Federal Government and China regions.
 
@@ -54,7 +54,7 @@ Azure Media Services integration with Azure CDN is implemented on **Azure CDN fr
 
 ## Determine if a DNS change was made
 
-You can determine if DNS change was made on a streaming endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If you see azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
+You can determine if DNS change was made on a streaming endpoint (the traffic is being directed to the Azure CDN) by using <https://www.digwebinterface.com>. If you see azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
 
 ## Origin-Assist CDN-Prefetch
 
