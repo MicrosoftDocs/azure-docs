@@ -12,7 +12,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 03/19/2020
 ms.author: ejarvi
 
 ---

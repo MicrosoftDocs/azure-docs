@@ -210,7 +210,7 @@ The `NotDataActions` permission specifies the data operations that are excluded 
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (management groups, subscriptions, resource groups, or resources) that have this role definition available. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, resource group, or resource ID.
+The `AssignableScopes` property specifies the scopes (management groups, subscriptions, or resource groups) that have this role definition available. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, or resource group.
 
 Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
 
