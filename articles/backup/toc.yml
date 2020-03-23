@@ -282,6 +282,8 @@
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)
       href: backup-azure-backup-server-import-export-.md
+    - name: Offline Backup for DPM and MABS (previous versions)
+      href: offline-backup-dpm-mabs-previous-versions.md
   - name: Monitor and Alerts
     items:
     - name: Using Backup Explorer
