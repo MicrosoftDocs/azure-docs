@@ -85,8 +85,7 @@ You can validate the **general** encryption status of an encrypted VM using the 
 You can capture the encryption settings from each individual disk using the following PowerShell commands:
 
 ### **Single-Pass**
-If single-pass the encryption settings are stamped in each of the disks (OS and Data).
-You can capture the OS disk encryption settings in single pass as follows:
+If single-pass, the encryption settings are stamp on each of the disks (OS and Data), you can capture the OS disk encryption settings in single pass as follows:
 
 ``` powershell
 $RGNAME = "RGNAME"
