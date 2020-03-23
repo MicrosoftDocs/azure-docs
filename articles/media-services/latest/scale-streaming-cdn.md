@@ -58,44 +58,44 @@ You can determine if DNS change was made on a streaming endpoint (the traffic is
 
 ## Origin-Assist CDN-Prefetch
 
-CDN caching is a reactive process. If CDN can predict what the next object will be requested, CDN can pro-actively request and cache the next object. With this process, you can achieve a cache-hit for all (or most) of the objects, hence improving performance.
+CDN caching is a reactive process. If CDN can predict what the next object will be requested, CDN can proactively request and cache the next object. With this process, you can achieve a cache-hit for all (or most) of the objects, which improves performance.
 
-The concept of prefetching strives to position objects at the "Edge of the Internet" in anticipation that these will be requested by the player imminently, thereby reducing the time to deliver that object to the player.
+The concept of prefetching strives to position objects at the "edge of the internet" in anticipation that these will be requested by the player imminently, thereby reducing the time to deliver that object to the player.
 
-To achieve this goal, a streaming endpoint (origin) and CDN need to work hand in hand: 
+To achieve this goal, a streaming endpoint (origin) and CDN need to work hand in hand in a couple ways:
 
-- The Media Services origin needs to have the "intelligence" (Origin-Assist) to inform CDN the next object to prefetch, and 
-- CDN does the prefetch and caching (CDN-Prefetch part). CDN also needs to have the "intelligence" to inform the origin whether it is a prefetch or a regular fetch, handling 404 responses and a way to avoid endless prefetch loop.
+- The Media Services origin needs to have the "intelligence" (Origin-Assist) to inform CDN the next object to prefetch.
+- CDN does the prefetch and caching (CDN-Prefetch part). CDN also needs to have the "intelligence" to inform the origin whether it's a prefetch or a regular fetch, handle the 404 responses, and a way to avoid endless prefetch loop.
 
 ### Benefits
 
 The benefits of the *Origin-Assist CDN-Prefetch* feature includes:
 
-- Prefetch improves video playback quality by: pre-positioning anticipated video segments at the edge during playback, reducing latency to the viewer and improving video segment download times. This results in faster video start-up time and lower rebuffering occurrences.
-- This concept is applicable to general CDN-origin scenario, not limited to media.
+- Prefetch improves video playback quality by pre-positioning anticipated video segments at the edge during playback, reducing latency to the viewer, and improving video segment download times. This results in faster video start-up time and lower rebuffering occurrences.
+- This concept is applicable to general CDN-origin scenario and isn't limited to media.
 - Akamai has added this feature to [Akamai Cloud Embed (ACE)](https://learn.akamai.com/en-us/products/media_delivery/cloud_embed.html).
 
 > [!NOTE]
-> This feature is not yet applicable to the Akamai CDN integrated with Media Services streaming endpoint. However, it is available for Media Services customers that have a pre-existing Akamai contract and require custom integration between Akamai CDN and the Media Services origin.
+> This feature is not yet applicable to the Akamai CDN integrated with Media Services streaming endpoint. However, it's available for Media Services customers that have a pre-existing Akamai contract and require custom integration between Akamai CDN and the Media Services origin.
 
 ### How it works
 
-CDN support for the *Origin-Assist CDN-Prefetch* headers (for both live and video on-demand streaming) is available to customers who have direct contract with Akamai CDN. The feature involves the following HTTP header exchanges between Akamai CDN and the Media Services origin:
+CDN support for the `Origin-Assist CDN-Prefetch` headers (for both live and video on-demand streaming) is available to customers who have direct contract with Akamai CDN. The feature involves the following HTTP header exchanges between Akamai CDN and the Media Services origin:
 
 |HTTP header|Values|Sender|Receiver|Purpose|
 | ---- | ---- | ---- | ---- | ----- |
-|CDN-Origin-Assist-Prefetch-Enabled | 1 (default) or 0 |CDN|Origin|To indicate CDN is prefetch enabled|
-|CDN-Origin-Assist-Prefetch-Path| Example: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|Origin|CDN|To provide prefetch path to CDN|
-|CDN-Origin-Assist-Prefetch-Request|1 (prefetch request) or 0 (regular request)|CDN|Origin|To indicate the request from CDN is a prefetch|
+|`CDN-Origin-Assist-Prefetch-Enabled` | 1 (default) or 0 |CDN|Origin|To indicate CDN is prefetch enabled.|
+|`CDN-Origin-Assist-Prefetch-Path`| Example: <br/>Fragments(video=1400000000,format=mpd-time-cmaf)|Origin|CDN|To provide prefetch path to CDN.|
+|`CDN-Origin-Assist-Prefetch-Request`|1 (prefetch request) or 0 (regular request)|CDN|Origin|To indicate the request from CDN is a prefetch.|
 
 To see part of the header exchange in action, you can try the following steps:
 
-1. Use Postman or curl to issue a request to the Media Services origin for an audio or video segment or fragment. Make sure to add the header CDN-Origin-Assist-Prefetch-Enabled: 1 in the request.
-2. In the response, you should see the header CDN-Origin-Assist-Prefetch-Path with a relative path as its value.
+1. Use Postman or cURL to issue a request to the Media Services origin for an audio or video segment or fragment. Make sure to add the header `CDN-Origin-Assist-Prefetch-Enabled: 1` in the request.
+2. In the response, you should see the header `CDN-Origin-Assist-Prefetch-Path` with a relative path as its value.
 
-### Supported streaming protocols 
+### Supported streaming protocols
 
-The *Origin-Assist CDN-Prefetch* feature supports the following streaming protocols for live and on-demand streaming:
+The `Origin-Assist CDN-Prefetch` feature supports the following streaming protocols for live and on-demand streaming:
 
 * HLS v3
 * HLS v4
