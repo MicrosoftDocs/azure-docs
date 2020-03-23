@@ -789,7 +789,6 @@ Add the following helper methods to the `ViewController` class to complete the s
 
      func updateCurrentAccount(account: MSALAccount?) {
         self.currentAccount = account
-        UserDefaults.standard.setValue(account?.identifier, forKey: "current_account")
         self.updateAccountLabel()
         self.updateSignOutButton(enabled: account != nil)
     }
