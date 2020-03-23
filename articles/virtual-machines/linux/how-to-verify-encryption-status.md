@@ -84,7 +84,7 @@ You can validate the **general** encryption status of an encrypted VM using the 
 
 You can capture the encryption settings from each individual disk using the following PowerShell commands:
 
-### **Single-Pass**
+### Single-Pass
 If single-pass, the encryption settings are stamp on each of the disks (OS and Data), you can capture the OS disk encryption settings in single pass as follows:
 
 ``` powershell
@@ -132,7 +132,7 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
 ```
 ![Verify data single ps 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
 
-### **Dual-Pass**
+### Dual-Pass
 In Dual Pass, the encryption settings are stamped in the VM model and not on each individual disk.
 
 To verify the encryption settings were stamped in dual-pass, you can use the following commands:
@@ -156,11 +156,11 @@ Write-Host "====================================================================
 ```
 ![Verify dual pass PowerShell  1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
-### **Unattached disks**
+### Unattached disks
 
 Check the encryption settings for disks that aren't attached to a VM.
 
-**Managed disks**
+### Managed disks
 ```powershell
 $Sourcedisk = Get-AzDisk -ResourceGroupName ${RGNAME} -DiskName ${TARGETDISKNAME}
 Write-Host "============================================================================================================================================================="
@@ -184,7 +184,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ```
 ![Verify general using CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
-### **Single Pass**
+### Single Pass
 You can validate the encryption settings from each individual disk using the following AZ CLI commands:
 
 ```bash
@@ -239,7 +239,7 @@ done
 
 ![Data single CLI ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
 
-**Dual Pass**
+### Dual Pass
 
 ``` bash
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
@@ -263,11 +263,11 @@ done
 
 ![Verify vm profile dual using CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
-### **Unattached disks**
+### Unattached disks
 
 Check the encryption settings for disks that aren't attached to a VM.
 
-### **Managed disks**
+### Managed disks
 
 ```bash
 RGNAME="RGNAME"
@@ -280,7 +280,7 @@ echo -ne "Disk Encryption Key: "; az disk show -g ${RGNAME} -n ${TARGETDISKNAME}
 echo -ne "key Encryption Key: "; az disk show -g ${RGNAME} -n ${TARGETDISKNAME} --query encryptionSettingsCollection.encryptionSettings[].keyEncryptionKey.keyUrl -o tsv; \
 echo "============================================================================================================================================================="
 ```
-### **Unmanaged disks**
+### Unmanaged disks
 
 Unmanaged disks are VHD files that are stored as page blobs in Azure storage accounts.
 
