@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/20/2020
 ms.custom: mvc
 ---
 
@@ -31,11 +31,13 @@ Open your favorite web browser, and visit the [Microsoft Azure portal](https://p
 ## Create an Azure Database for MySQL server
 An Azure Database for MySQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1. Navigate to **Databases** > **Azure Database for MySQL**. If you cannot find MySQL Server under **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MySQL** in the search box to quickly find the service.
+1. Select the **Create a resource** button (+) in the upper left corner of the portal.
+
+2. Select **Databases** > **Azure Database for MySQL**. If you cannot find MySQL Server under the **Databases** category, click **See all** to show all available database services. You can also type **Azure Database for MySQL** in the search box to quickly find the service.
    
    ![Navigate to MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
 
-2. Click **Azure Database for MySQL** tile, and then click **Create**. Fill out the Azure Database for MySQL form.
+3. Click **Azure Database for MySQL** tile. Fill out the Azure Database for MySQL form.
    
    ![Create form](./media/tutorial-design-database-using-portal/2-create-form.png)
 
@@ -57,7 +59,7 @@ An Azure Database for MySQL server is created with a defined set of [compute and
    > [!TIP]
    > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
 
-3. Click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
+4. Click **Review + create**. You can click on the **Notifications** button on the toolbar to monitor the deployment process. Deployment can take up to 20 minutes.
 
 ## Configure firewall
 Azure Databases for MySQL are protected by a firewall. By default, all connections to the server and the databases inside the server are rejected. Before connecting to Azure Database for MySQL for the first time, configure the firewall to add the client machine's public network IP address (or IP address range).
@@ -90,7 +92,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## Create a blank database
-Once you’re connected to the server, create a blank database to work with.
+Once you're connected to the server, create a blank database to work with.
 ```sql
 CREATE DATABASE mysampledb;
 ```
@@ -106,9 +108,9 @@ Now that you know how to connect to the Azure Database for MySQL database, you c
 First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
-	id serial PRIMARY KEY, 
-	name VARCHAR(50), 
-	quantity INTEGER
+    id serial PRIMARY KEY, 
+    name VARCHAR(50), 
+    quantity INTEGER
 );
 ```
 
