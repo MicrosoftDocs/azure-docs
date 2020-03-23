@@ -3,6 +3,7 @@ title: Enable Active Directory authentication over SMB for Azure Files
 description: Learn how to enable identity-based authentication over SMB for Azure file shares through Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using AD credentials. 
 author: roygara
 ms.service: storage
+ms.subservice: files
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: rogarana
