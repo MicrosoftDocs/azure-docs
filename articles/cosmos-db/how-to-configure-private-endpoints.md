@@ -172,7 +172,6 @@ New-AzPrivateDnsRecordSet -Name $recordName `
 After the private endpoint is provisioned, you can query the IP addresses and the FQDN mapping by using the following PowerShell script:
 
 ```azurepowershell-interactive
-
 $pe = Get-AzPrivateEndpoint -Name MyPrivateEndpoint -ResourceGroupName myResourceGroup
 $networkInterface = Get-AzNetworkInterface -ResourceId $pe.NetworkInterfaces[0].Id
 foreach ($IPConfiguration in $networkInterface.IpConfigurations)
@@ -186,7 +185,6 @@ foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 Run the following Azure CLI script to create a private endpoint named "myPrivateEndpoint" for an existing Azure Cosmos account. Replace the variable values with the details for your environment.
 
 ```azurecli-interactive
-
 # Resource group where the Azure Cosmos account and virtual network resources are located
 ResourceGroupName="myResourceGroup"
 
@@ -237,7 +235,6 @@ az network private-endpoint create \
 After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
 
 ```azurecli-interactive
-
 zoneName="privatelink.documents.azure.com"
 
 az network private-dns zone create --resource-group $ResourceGroupName \
