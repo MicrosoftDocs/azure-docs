@@ -13,7 +13,7 @@ ms.author: kumud
 
 # Azure network support for mitigating Covid-19 related networking challenges
 
-how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
+This article describes how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 
 The Covid-19 (Coronavirus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and even countries across the globe. This has forced most people across a wide range of industries to work from home. Yet, there is an urgency to act; and the onus to act is on all of us. We all need to do the best we can to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
 
