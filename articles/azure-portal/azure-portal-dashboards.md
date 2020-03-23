@@ -93,6 +93,7 @@ Any tile that needs to be set up displays a **Configure tile** banner until you 
 1. Select **Done customizing** in the page header to exit edit mode.
 
 1. Select the banner, then do the required setup.
+
     ![Screenshot of tile that requires configuration](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
 > [!NOTE]
