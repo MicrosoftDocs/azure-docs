@@ -124,7 +124,7 @@ If you created a share before you configured compute on your Azure Stack Edge de
 
 Do the following steps in the Azure portal to unmount a share.
 
-1. In the Azure portal, go to your Azure Stack Box Edge resource and then go to **Gateway > Shares**.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Gateway > Shares**.
 
     ![Select share](media/data-box-edge-manage-shares/select-share-unmount.png)
 

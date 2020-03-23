@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Azure Stack Edge
 
-This article describes how to manage users on your Azure Stack Edge. You can manage the Azure Stack Box Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
+This article describes how to manage users on your Azure Stack Edge. You can manage the Azure Stack Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
 
 In this article, you learn how to:
 
