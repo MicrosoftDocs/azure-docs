@@ -291,3 +291,23 @@ When you retrieve the encoded key at search time, you can then use the `urlDecod
     }
   }]
  ```
+ 
+ ### fixedLengthEncode function
+ 
+ This function converts a string of any length to a fixed length string.
+ 
+ ### Example - map document keys that are too long
+ 
+When facing errors complaining about document key being longer than 1024 characters, this function can be applied to reduce the length of the document key.
+
+ ```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "metadata_storage_path",
+    "targetFieldName" : <your key field>,
+    "mappingFunction" : {
+      "name" : "fixedLengthEncode"
+    }
+  }]
+ ```
