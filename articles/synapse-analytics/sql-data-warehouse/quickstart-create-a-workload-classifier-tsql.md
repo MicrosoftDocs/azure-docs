@@ -104,5 +104,5 @@ Follow these steps to clean up resources.
 ## Next steps
 
 - You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
-- For more information about SQL Analytics workload management, see [Workload Importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md) and [Workload Classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md).
+- For more information about SQL Analytics workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
 - See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

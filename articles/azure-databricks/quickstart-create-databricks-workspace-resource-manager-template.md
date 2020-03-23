@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2019
+ms.date: 03/23/2020
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template
@@ -55,6 +55,8 @@ In this section, you create an Azure Databricks workspace using the Azure Resour
 4. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
 
    ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks deployment tile")
+
+   When a workspace deployment fails, the workspace is still created in a failed state. Delete the failed workspace and create a new workspace that resolves the deployment errors. When you delete the failed workspace, the managed resource group and any successfully deployed resources are also deleted.
 
 ## Create a Spark cluster in Databricks
 
