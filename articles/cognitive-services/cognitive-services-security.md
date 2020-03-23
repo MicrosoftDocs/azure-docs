@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/23/2020
 ms.author: dapine
 ---
 
@@ -47,32 +47,50 @@ To set environment variables, use one the following commands - where the `ENVIRO
 
 # [Command Line](#tab/command-line)
 
+Create and assign environment variable, given the value.
+
 ```CMD
 :: Assigns the env var to the value
-set ENVIRONMENT_VARIABLE_KEY=value
+setx ENVIRONMENT_VARIABLE_KEY=value
+```
 
+In a new instance of the **Command Prompt**, read the environment variable.
+
+```CMD
 :: Prints the env var value
 echo %ENVIRONMENT_VARIABLE_KEY%
 ```
 
 # [PowerShell](#tab/powershell)
 
+Create and assign environment variable, given the value.
+
 ```powershell
 # Assigns the env var to the value
-$Env:ENVIRONMENT_VARIABLE_KEY="value"
+[System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
+```
 
+In a new instance of the **Windows PowerShell**, read the environment variable.
+
+```powershell
 # Prints the env var value
-$Env:ENVIRONMENT_VARIABLE_KEY
+[System.Environment]::GetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY')
 ```
 
 # [Bash](#tab/bash)
 
+Create and assign environment variable, given the value.
+
 ```Bash
 # Assigns the env var to the value
 export ENVIRONMENT_VARIABLE_KEY=value
+```
 
+In a new instance of the **Bash**, read the environment variable.
+
+```Bash
 # Prints the env var value
-echo ENVIRONMENT_VARIABLE_KEY
+echo "${ENVIRONMENT_VARIABLE_KEY}"
 ```
 
 ---
