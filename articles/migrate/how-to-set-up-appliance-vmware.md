@@ -8,19 +8,16 @@ ms.date: 11/18/2019
 
 # Set up an appliance for VMware VMs
 
-This article describes how to set up the Azure Migrate appliance if you're assessing VMware VMs with the Azure Migrate Server Assessment tool, or migrating VMware VMs to Azure with agentless migration using the Azure Migrate Server Migration tool.
+This article describes how to set up the Azure Migrate appliance for assessment and agentless migration of VMware VMs, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
 
-The VMware VM appliance is a lightweight appliance used by Azure Migrate Server Assessment/Migration to do the following:
+The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate:Server Assessment/Migration to discover on-premises VMware VMs, and send VM metadata/performance data to Azure.
 
-- Discover on-premises VMware VMs.
-- Send metadata and performance data for discovered VMs to Azure Migrate Server Assessment/Migration.
-
-[Learn more](migrate-appliance.md) about the Azure Migrate appliance.
+You can set up the Azure Migrate appliance for VMware VM assessment using an OVA template that you download, or using a PowerShell installation script. This article describes how to set up the appliance using the OVA template. If you want to set up the appliance using the script, follow the instructions in [this article](deploy-appliance-script.md).
 
 
-## Appliance deployment steps
+## Appliance deployment (OVA)
 
-To set up the appliance you:
+To set up the appliance using an OVA template you:
 - Download an OVA template file, and import it to vCenter Server.
 - Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
 - Configure the appliance for the first time, and register it with the Azure Migrate project.
@@ -69,7 +66,7 @@ Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md
 
 ## Configure the appliance
 
-Set up the appliance for the first time.
+Set up the appliance for the first time. If you deploy the appliance using a script instead of an OVA template, the first two steps in the procedure aren't applicable.
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password for the appliance.

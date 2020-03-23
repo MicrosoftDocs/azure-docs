@@ -8,9 +8,9 @@ ms.date: 02/17/2020
 
 # Azure Migrate appliance
 
-This article describes the Azure Migrate appliance. You deploy the appliance when you use [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool to discover and assess apps, infrastructure, and workloads for migration to Microsoft Azure. The appliance is also used when you migrate VMware VMs to Azure using [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-migration-tool) with [agentless migration](server-migrate-overview.md).
+This article summarizes the prerequisites and support requirements for the Azure Migrate appliance. 
 
-## Appliance overview
+## Deployment scenarios
 
 The Azure Migrate appliance is used in the following scenarios.
 
@@ -258,30 +258,6 @@ NIC MAC address (synthetic NICs) | Msvm_SyntheticEthernetPortSettingData | Addre
 NIC ID (legacy NICs) | MsvmEmulatedEthernetPortSetting Data | InstanceID
 NIC MAC ID (legacy NICs) | MsvmEmulatedEthernetPortSetting Data | Address
 
-
-
-
-## Discovery and collection process
-
-The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using the following process.
-
-1. **Start discovery**:
-    - When you start the discovery on the Hyper-V appliance, it communicates with the Hyper-V hosts on WinRM ports 5985 (HTTP) and 5986 (HTTPS).
-    - When you start discovery on the VMware appliance, it communicates with the vCenter server on TCP port 443 by default. IF the vCenter server listens on a different port, you can configure it in the appliance web app.
-2. **Gather metadata and performance data**:
-    - The appliance uses a Common Information Model (CIM) session to gather Hyper-V VM data from the Hyper-V host on ports 5985 and 5986.
-    - The appliance communicates with port 443 by default, to gather VMware VM data from the vCenter Server.
-3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet, or you can use ExpressRoute with public/Microsoft peering.
-    - For performance data, the appliance collects real-time utilization data.
-        - Performance data is collected every 20 seconds for VMware, and every 30 seconds for Hyper-V, for each performance metric.
-        - The collected data is rolled up to create a single data point for 10 minutes.
-        - The peak utilization value is selected from all of the 20/30-second data points, and sent to Azure for assessment calculation.
-        - Based on the percentile value specified in the assessment properties (50th/90th/95th/99th), the ten-minute points are sorted in ascending order, and the appropriate percentile value is used to compute the assessment
-    - For Server Migration, the appliance starts collecting VM data, and replicates it to Azure.
-4. **Assess and migrate**: You can now create assessments from the metadata collected by the appliance using Azure Migrate Server Assessment. In addition, you can also start migrating VMware VMs using Azure Migrate Server Migration to orchestrate agentless VM replication.
-
-
-![Architecture](./media/migrate-appliance/architecture.png)
 
 
 ## Appliance upgrades
