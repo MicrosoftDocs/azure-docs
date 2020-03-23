@@ -8,7 +8,6 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
@@ -35,8 +34,6 @@ landingContent:
       links:
         - text: Improve synthesis with SSML
           url: speech-synthesis-markup.md
-        - text: Improve synthesis with Custom Voice
-          url: how-to-custom-voice.md
         - text: Get a list of voices with REST (Python)
           url: quickstart-python-get-text-to-speech-voices.md
         - text: Convert text-to-speech with REST (Python)

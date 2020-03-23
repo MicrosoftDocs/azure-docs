@@ -105,7 +105,7 @@ You can create accounts for non-administrative users using one of two methods:
 For examples showing how to create logins and users, see:
 
 - [Create login for single or pooled databases](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Create login for managed instance database](https://docs.microsoft.com/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Create login for managed instance database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
 - [Create login for Azure Synapse Analytics database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)

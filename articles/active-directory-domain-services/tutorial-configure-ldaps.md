@@ -64,7 +64,7 @@ The certificate you request or create must meet the following requirements. Your
 * **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *aaddscontoso.com*, the certificate's subject name must be **.aaddscontoso.com*.
     * The DNS name or subject alternate name of the certificate must be a wildcard certificate to ensure the secure LDAP works properly with the Azure AD Domain Services. Domain Controllers use random names and can be removed or added to ensure the service remains available.
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
-* **Certificate purpose** - The certificate must be valid for SSL server authentication.
+* **Certificate purpose** - The certificate must be valid for TLS server authentication.
 
 There are several tools available to create self-signed certificate such as OpenSSL, Keytool, MakeCert, [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet etc. In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *aaddscontoso.com*:
 
