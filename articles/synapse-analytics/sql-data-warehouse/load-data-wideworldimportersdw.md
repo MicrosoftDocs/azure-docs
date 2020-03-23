@@ -142,9 +142,9 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
-The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL pool you're using, [data warehouse units](../sql-analytics/resource-consumption-models.md), and [resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data is a memory-intensive operation. Memory maximums are defined according to the Generation of SQL pool you're using, [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md), and [resource class](resource-classes-for-workload-management.md). 
 
-It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
+It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
 Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC60**. Then assign the user to the **staticrc60** resource class. 
 
@@ -165,7 +165,7 @@ Since you are currently connected as the server admin, you can create logins and
 
     ![New query on sample data warehouse](./media/load-data-wideworldimportersdw/create-loading-user.png)
  
-5. Enter the following T-SQL commands to create a database user named LoaderRC60 for the LoaderRC60 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc60 [resource class](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoaderRC60 for the LoaderRC60 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc60 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -193,7 +193,7 @@ The first step toward loading data is to login as LoaderRC60.
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL pool, see the [loading overview](../sql-analytics/data-loading-overview.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL pool, see the [loading overview](design-elt-data-loading.md).
 
 Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a global Azure Blob.
 
@@ -527,7 +527,7 @@ Run the following SQL scripts to specify information about the data you wish to 
 This section uses the external tables you defined to load the sample data from Azure Blob to SQL pool.  
 
 > [!NOTE]
-> This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](../sql-analytics/data-loading-best-practices.md#inserting-data-into-a-production-table).
+> This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
 The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table,  the data is imported into a relational table in the data warehouse. 
@@ -1102,4 +1102,4 @@ You did these things:
 Advance to the development overview to learn how to migrate an existing database to Azure Synapse SQL pool.
 
 > [!div class="nextstepaction"]
->[Design decisions to migrate an existing database to SQL pool](../sql-analytics/development-overview.md)
+>[Design decisions to migrate an existing database to SQL pool](sql-data-warehouse-overview-develop.md)

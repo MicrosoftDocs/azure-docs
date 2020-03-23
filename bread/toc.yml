@@ -762,8 +762,8 @@
     tocHref: /azure/site-reliability-engineering/
     topicHref: /azure/site-reliability-engineering/
   - name: Synapse Analytics
-    tocHref: /azure/sql-data-warehouse/
-    topicHref: /azure/sql-data-warehouse/
+    tocHref: /azure/synapse-analytics/
+    topicHref: /azure/synapse-analytics/
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/

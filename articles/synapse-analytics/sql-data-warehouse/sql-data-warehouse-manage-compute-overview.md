@@ -22,9 +22,10 @@ Learn about managing compute resources in Azure Synapse Analytics SQL pool. Lowe
 The architecture of data warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
 
 ## Scaling compute
-You can scale out or scale back compute by adjusting the [data warehouse units](../sql-analytics/resource-consumption-models.md) setting for your data warehouse. Loading and query performance can increase linearly as you add more data warehouse units. 
 
-For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your SQL pool. Loading and query performance can increase linearly as you add more data warehouse units. 
+
+For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 To perform a scale operation, SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the Compute layer. Each SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
 
@@ -76,7 +77,7 @@ Recommendations for when to scale out data warehouse units:
 
 ## What if scaling out does not improve performance?
 
-Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#performance). 
+Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance). 
 
 ## Pausing and resuming compute
 
@@ -97,7 +98,7 @@ When you resume a SQL pool:
 
 If you always want your SQL pool accessible, consider scaling it down to the smallest size rather than pausing. 
 
-For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
+For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
 ## Drain transactions before pausing or scaling
 
@@ -105,7 +106,7 @@ We recommend allowing existing transactions to finish before you initiate a paus
 
 When you pause or scale your SQL pool, behind the scenes your queries are canceled when you initiate the pause or scale request. Canceling a simple SELECT query is a quick operation and has almost no impact to the time it takes to pause or scale your instance.  However, transactional queries, which modify your data or the structure of the data, may not be able to stop quickly. **Transactional queries, by definition, must either complete in their entirety or rollback their changes.** Rolling back the work completed by a transactional query can take as long, or even longer, than the original change the query was applying. For example, if you cancel a query which was deleting rows and has already been running for an hour, it could take the system an hour to insert back the rows which were deleted. If you run pause or scaling while transactions are in flight, your pause or scaling may seem to take a long time because pausing and scaling has to wait for the rollback to complete before it can proceed.
 
-See also [Understanding transactions](../sql-analytics/development-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
+See also [Understanding transactions](sql-data-warehouse-develop-transactions.md), and [Optimizing transactions](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## Automating compute management
 
@@ -113,7 +114,7 @@ To automate the compute management operations, see [Manage compute with Azure fu
 
 Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the SQL pool state through various endpoints allows you to correctly implement automation of such operations. 
 
-To check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+To check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## Permissions
@@ -122,4 +123,4 @@ Scaling the SQL pool requires the permissions described in [ALTER DATABASE](/sql
 
 
 ## Next steps
-See the how to guide for [manage compute](manage-compute-with-azure-functions.md) Another aspect of managing compute resources is allocating different compute resources for individual queries. For more information, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+See the how to guide for [manage compute](manage-compute-with-azure-functions.md) Another aspect of managing compute resources is allocating different compute resources for individual queries. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
