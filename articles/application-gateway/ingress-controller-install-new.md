@@ -38,7 +38,7 @@ choose to use another environment, please ensure the following command line tool
 Follow the steps below to create an Azure Active Directory (AAD) [service principal object](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). Please record the `appId`, `password`, and `objectId` values - these will be used in the following steps.
 
 1. Create AD service principal ([Read more about RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)):
-    ```bash
+    ```azurecli
     az ad sp create-for-rbac --skip-assignment -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
@@ -47,7 +47,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
 
 
 1. Use the `appId` from the previous command's output to get the `objectId` of the new service principal:
-    ```bash
+    ```azurecli
     objectId=$(az ad sp show --id $appId --query "objectId" -o tsv)
     ```
     The output of this command is `objectId`, which will be used in the Azure Resource Manager template below
@@ -80,7 +80,7 @@ This step will add the following components to your subscription:
     ```
 
 1. Deploy the Azure Resource Manager template using `az cli`. This may take up to 5 minutes.
-    ```bash
+    ```azurecli
     resourceGroupName="MyResourceGroup"
     location="westus2"
     deploymentName="ingress-appgw"
@@ -97,7 +97,7 @@ This step will add the following components to your subscription:
     ```
 
 1. Once the deployment finished, download the deployment output into a file named `deployment-outputs.json`.
-    ```bash
+    ```azurecli
     az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
@@ -112,7 +112,7 @@ For the following steps we need setup [kubectl](https://kubectl.docs.kubernetes.
 which we will use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We will use `az` CLI to obtain credentials for Kubernetes.
 
 Get credentials for your newly deployed AKS ([read more](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)):
-```bash
+```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
 resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
@@ -268,7 +268,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
    > The `identityResourceID` and `identityClientID` are values that were created
    during the [Create an Identity](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-new.md#create-an-identity)
    steps, and could be obtained again using the following command:
-   > ```bash
+   > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
    > `<resource-group>` in the command above is the resource group of your Application Gateway. `<identity-name>` is the name of the created identity. All identities for a given subscription can be listed using: `az identity list`
