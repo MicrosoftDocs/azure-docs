@@ -16,6 +16,10 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Work remotely support
+    items:
+    - name: Work remotely
+      href: work-remotely-support.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
