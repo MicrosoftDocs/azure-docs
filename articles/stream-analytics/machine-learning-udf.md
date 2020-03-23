@@ -53,7 +53,7 @@ The following table describes each property of Azure ML Service functions in Str
 
 ## Supported input parameters
 
-When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema. You have to provide a sample input and output in your scoring script to [automatically generate a schema](../machine-learning/how-to-deploy-and-where.md#optional-automatic-schema-generation). The schema allows Stream Analytics to construct the JSON serialized request for any of the supported data types such as numpy, pandas and PySpark. Multiple input events can be batched together in a single request.
+When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema. You have to provide a sample input and output in your scoring script to [automatically generate a schema](../machine-learning/how-to-deploy-and-where.md). The schema allows Stream Analytics to construct the JSON serialized request for any of the supported data types such as numpy, pandas and PySpark. Multiple input events can be batched together in a single request.
 
 The following Stream Analytics query is an example of how to invoke an Azure Machine Learning UDF:
 

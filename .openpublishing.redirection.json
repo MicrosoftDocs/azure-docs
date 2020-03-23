@@ -1146,6 +1146,211 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/01-hello-world.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/02-intro-to-training.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/03-wait-vs-nonwait-actions.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/04-introduction-to-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/05-expected-entity.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/06-negatable-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/07-multi-value-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/08-pre-trained-entities.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/09-entity-resolvers.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/10-alternative-inputs.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/11-log-dialogs.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/12-entity-detection-callback.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/13-session-callbacks.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/14-api-calls.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/15-cards.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/16-hybrid-bots.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/17-branch-undo.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/18-version-tag.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-password-reset.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/demo-pizza-order.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/tutorials/tutorial-enum-set-entity.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/cl-values-and-boundaries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/control-flow.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/deploy-to-bf.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/how-to-teach-cl.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/languages-supported.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/managing-data.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Conversation-Learner/quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Conversation-Learner",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/index.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/csharp.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/endpoint.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/java-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/javascript.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/node-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/python-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/url-preview-reference.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/URL-Preview/use-display-requirements.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/URL-Preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/project-personality-chat/faq.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/project-personality-chat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/project-personality-chat/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/project-personality-chat",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aci.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -17172,11 +17377,6 @@
     {
       "source_path": "articles/sql-data-warehouse/release-notes-10-0-10106-0.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/release-notes-10-0-10106-0",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
       "redirect_document_id": true
     },
     {
@@ -35416,6 +35616,111 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/KES/calchistogramMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/CommandLine.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/DataFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/evaluateMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/Expressions.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/GettingStarted.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/GrammarFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/interpretMethod.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/Overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/SchemaFormat.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/SemanticInterpretation.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/KES/WebAPI.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/knowledge-exploration-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/c-sharp-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/entity-queries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/fact-queries.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/java-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/node-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/overview.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/python-quickstart.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/reference.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Labs/Answer-Search/use-display-requirements.md",
+      "redirect_url": "https://github.com/microsoft/cognitive-research-technologies-docs/tree/master/Answer-Search",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
       "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
       "redirect_document_id": false
@@ -45382,7 +45687,12 @@
     },
     {
       "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/sql-data-warehouse/",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
       "redirect_document_id": false
     },
     {
@@ -49611,9 +49921,405 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/java-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/node-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/lab-services/classroom-labs/class-type-deep-learning-natural-processing.md",
       "redirect_url": "/azure/lab-services/classroom-labs/class-type-deep-learning-natural-language-processing",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-monitor-workload-portal",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-integrate.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-integrate",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-business-intelligence",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-partner-data-integration.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-integration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-partner-data-management.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-data-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-query-ssms.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-collation-types.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-collation-types",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-table-constraints.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-table-constraints",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-distribute.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-identity.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-index.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-index",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-partition.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-troubleshoot-connectivity.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot-connectivity",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/massively-parallel-processing-mpp-architecture.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/resource-classes-for-workload-management.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-authentication.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-analyze-with-azure-machine-learning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/striim-quickstart.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/striim-quickstart",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/upgrade-to-latest-generation.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/upgrade-to-latest-generation",
+        "redirect_document_id": true
+    },
+
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-manage-monitor.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-faq.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-faq",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-what-is.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-deleted-dw.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-deleted-dw",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-points.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-points",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/analyze-your-workload.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/analyze-your-workload",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/maintenance-scheduling.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/maintenance-scheduling",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-source-control-integration.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-source-control-integration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-troubleshoot.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-troubleshoot",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-videos.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-workload-classification.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-classification",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-workload-importance.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-importance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-workload-isolation.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-workload-management.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/design-elt-data-loading.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/guidance-for-loading-data.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/performance-tuning-materialized-views.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-best-practices.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
+        "redirect_document_id": true
+    },
+   {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-connect-overview.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-connection-strings.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-connection-strings",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-dynamic-sql.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-dynamic-sql",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-group-by-options.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-group-by-options",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-label.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-label",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-loops.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-loops",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-stored-procedures",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-transactions.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-transactions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-user-defined-schemas.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-user-defined-schemas",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-variable-assignment.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-variable-assignment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-connect-sqlcmd",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-develop.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-develop",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-data-types.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-overview.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-statistics.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-tables-temporary.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-temporary",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
+        "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
+        "redirect_document_id": true
     }
   ]
 }
