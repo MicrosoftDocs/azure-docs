@@ -90,7 +90,7 @@ There's a few things you need know about this command:
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` generates a random DNS name. 
 * This sample assumes that you have a resource group that you can use to create a resource. Replace `<resource_group_name>` with a valid resource group associated with your subscription. 
 * You'll need to specify where you want to create the resource. Replace `<region name>` with your desired region for the web app. 
-* Note: This command automatically accepts EULA.
+* This command automatically accepts EULA.
 
 From the Azure CLI, run this command to create a web app resource for the sample labeling tool: 
 
@@ -111,7 +111,7 @@ az container create \
 
 ### Connect to Azure AD for authorization
 
-It's recommended that you connect your web app to Azure Active Director (AAD). This ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to Azure Active Directory.
+It's recommended that you connect your web app to Azure Active Directory. This ensures that only users with valid credentials can sign in and use your web app. Follow the instructions in [Configure your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) to connect to Azure Active Directory.
 
 ## Open source on GitHub
 
