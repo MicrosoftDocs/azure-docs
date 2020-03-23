@@ -41,6 +41,8 @@ If you still choose to send APNS VOIP notifications through Notification Hubs, b
 
 ## Next steps
 
+For more information, see the following links:
+
 - [Documentation for `apns-topic` and `apns-push-type` headers and values, including the special cases for VOIP notifications](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns).
 
 - [Documentation for payload size limit](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
