@@ -1,5 +1,5 @@
 ---
-title: Application Gateway COVID-19 update
+title: Application Gateway COVID-19 guidelines
 description: This article provides an update given the current COVID-19 situation and guidelines on how to set up your Application Gateway. 
 services: application-gateway
 author: caya
@@ -9,7 +9,7 @@ ms.date: 03/21/2020
 ms.author: caya
 ---
 
-# Application Gateway COVID-19 update 
+# Application Gateway COVID-19 guidelines 
 
 This article describes a few suggested guidelines to help you set up your Application Gateway to handle extra traffic due to the COVID-19 pandemic. You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. 
 
