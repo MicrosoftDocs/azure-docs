@@ -39,9 +39,9 @@ You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN 
 
 You have two options here:
 
-1. Set up Site-to-site connectivity with any existing VPN device. When you connect the IPsec VPN device to Azure Virtual WAN hub, interconnectivity between the Point-to-site User VPN (Remote user) and Site-to-site VPN is automatic. For more information on how to set up Site-to-site VPN from your on-premise VPN device to Azure Virtual WAN, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
+* Set up Site-to-site connectivity with any existing VPN device. When you connect the IPsec VPN device to Azure Virtual WAN hub, interconnectivity between the Point-to-site User VPN (Remote user) and Site-to-site VPN is automatic. For more information on how to set up Site-to-site VPN from your on-premise VPN device to Azure Virtual WAN, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
 
-2. Connect your ExpressRoute circuit to the Virtual WAN hub. Connecting an ExpressRoute circuit requires deploying an ExpressRoute gateway in Virtual WAN. As soon as you have deployed one, interconnectivity between the Point-to-site User VPN and ExpressRoute user is automatic. To create the ExpressRoute connection, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md). You can use an existing ExpressRoute circuit to connect to Azure Virtual WAN.
+* Connect your ExpressRoute circuit to the Virtual WAN hub. Connecting an ExpressRoute circuit requires deploying an ExpressRoute gateway in Virtual WAN. As soon as you have deployed one, interconnectivity between the Point-to-site User VPN and ExpressRoute user is automatic. To create the ExpressRoute connection, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md). You can use an existing ExpressRoute circuit to connect to Azure Virtual WAN.
 
 ## <a name="basic vWAN"></a>Existing basic Virtual WAN customer
 
@@ -54,3 +54,7 @@ Virtual WAN supports one hub per region/location. For location information, see 
 ## <a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## Next Steps
+
+For more information about Virtual WAN, see [Virtual WAN overview](virtual-wan-about.md)
