@@ -13,7 +13,7 @@ ms.author: kumud
 
 # Azure network support for mitigating networking challenges with working remotely
 
-This article describes how you can leverage the networking services in Azure to enable working remotely. In addition, you can it includes links to articles that describe how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
+This article describes how you can leverage the networking services in Azure to enable working remotely. In addition, you it includes links to articles that describe how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 
 The Covid-19 (Corona virus) contagion has created unprecedented global crisis, resulting in lockdown of many cities and countries across the globe. This crisis has forced most people across a wide range of industries to work from home. Yet, there is an urgency to act; and the onus to act is on all of us. We all need to do the best we can to stop the contagion spreading, to help the first-responders battle the disease and cure those who have got infected, to maintain the productivity and availability of the necessities all over the world.
 
@@ -29,23 +29,23 @@ Keeping in mind that different traffic types need different network treatment pr
 
 ## Azure is designed for elasticity and high-availability
 
-Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operate one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
+Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operates one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
 
-Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that are destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
+Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
-Using any of the Azure features described below leverages the traffic attraction edge behavior of Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+Using any of the Azure features described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
 
 ## Enabling employees to work remotely
 
-Azure scalable VPN gateway support both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using Azure VPN gateway you can scale your employees connections to securely access both your Azure deployed resources and your on-premises resources. See the article [How to enable users to work remotely][VPN] for further details. 
+Azure scalable VPN gateway support both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. See the article [How to enable users to work remotely][VPN] for further details. 
 
 If you are using SSTP, the number of concurrent connections would be limited to 128. To overcome this limitation we suggest transitioning to OpenVPN or IKEv2. See [Transition to OpenVPN protocol or IKEv2 from SSTP][OpenVPN].
 
 To access your resources deployed in Azure, remote employees could use Azure Bastion solution, instead of VPN connection. See [Azure Bastion COVID-19 update][Bastion] for further details.
 
-For aggregating large scale VPN connection, to support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. See [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help][VWAN] for further details.
+For aggregating large-scale VPN connection, to support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. See [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help][VWAN] for further details.
 
-Azure also have a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. See [Network Virtual Appliance (NVA) Considerations during COVID-19][NVA] for further details.
+Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. See [Network Virtual Appliance (NVA) Considerations during COVID-19][NVA] for further details.
 
 ## Enabling employees to access globally distributed on-premises resources
 
