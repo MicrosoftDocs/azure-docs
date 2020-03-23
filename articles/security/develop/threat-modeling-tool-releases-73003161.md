@@ -27,7 +27,7 @@ The export to CSV function was inconsistently selecting which fields from the th
 - The help menus in the primary workflow (create/open/analyze) and the template editor experience now have consistent menu options.
 - The search bar in the stencils pane now has a standard cursor and appropriate labels have been added.
 
-## New Features
+## New features
 
 ### DiagramReader feature has been added
 
@@ -35,12 +35,12 @@ A new DiagramReader feature has been added in the main menu while a model is ope
 
 ## System requirements
 
-- Supported Operating Systems
+- Supported operating systems:
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
-- .NET Version Required
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
-- Additional Requirements
-  - An Internet connection is required to receive updates to the tool as well as templates.
+- .NET version required:
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
+- Additional requirements:
+  - An internet connection to receive updates to the tool as well as templates
 
 ## Documentation and feedback
 
