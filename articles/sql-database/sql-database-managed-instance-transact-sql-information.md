@@ -13,7 +13,7 @@ ms.date: 03/11/2020
 ms.custom: seoapril2019
 ---
 
-# Managed instance T-SQL differences, limitations, and known issues
+# Managed instance T-SQL differences and limitations
 
 This article summarizes and explains the differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server Database Engine. The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
 
