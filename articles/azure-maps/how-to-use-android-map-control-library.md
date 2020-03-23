@@ -104,7 +104,7 @@ The next step in building your application is to install the Azure Maps Android 
     * set your Azure Maps authentication information
     * get the map control instance in the **onCreate** method
 
-    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won’t have to add your authentication information on every view. 
+    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won't have to add your authentication information on every view. 
 
     The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method. 
 
@@ -268,7 +268,7 @@ A complete list of supported languages and regional views is documented [here](s
 Learn how to add overlay data on the map:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
