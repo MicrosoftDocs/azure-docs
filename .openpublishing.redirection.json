@@ -17380,11 +17380,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity",
       "redirect_document_id": true
