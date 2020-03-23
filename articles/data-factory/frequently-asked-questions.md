@@ -202,7 +202,6 @@ Wrangling data flow is currently supported in data factories created in followin
 * Australia East
 * Canada Central
 * Central India
-* Central US
 * East US
 * East US 2
 * Japan East
