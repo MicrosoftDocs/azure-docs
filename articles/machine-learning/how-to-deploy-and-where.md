@@ -53,9 +53,9 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
    When using the CLI, use the `-w` or `--workspace-name` parameter to specify the workspace for the command.
 
-+ **Using VS Code**
++ **Using Visual Studio Code**
 
-   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) in the VS Code extension documentation.
+   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) in the Visual Studio Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -114,9 +114,9 @@ The code snippets in this section demonstrate how to register a model from a tra
 
   The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
-+ **Using VS Code**
++ **Using Visual Studio Code**
 
-  Register models using any model files or folders by using the [VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) extension.
+  Register models using any model files or folders by using the [Visual Studio Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) extension.
 
 ### Register a model from a local file
 
@@ -171,7 +171,7 @@ For an E2E example which shows how to use multiple models behind a single contai
 
 To deploy the model as a service, you need the following components:
 
-* **Define inference environment**. This environment encapsulates the dependencies required to run your model for inference
+* **Define inference environment**. This environment encapsulates the dependencies required to run your model for inference.
 * **Define scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
 * **Define inference configuration**. The inference configuration specifies the the environment configuration, entry script, and other components needed to run the model as a service.
 
@@ -936,7 +936,7 @@ After you download the model, use the `docker images` command to list the local 
 
 ```text
 REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
-myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43 GB
 ```
 
 To start a local container based on this image, use the following command to start a named container from the shell or command line. Replace the `<imageid>` value with the image ID returned by the `docker images` command.
@@ -983,8 +983,8 @@ To verify that the image is built, use the `docker images` command. You should s
 
 ```text
 REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
-<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
-myimage         latest              739f22498d64        3 minutes ago       1.43GB
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43 GB
+myimage         latest              739f22498d64        3 minutes ago       1.43 GB
 ```
 
 To start a new container based on this image, use the following command:
@@ -1093,7 +1093,7 @@ def run(request):
 
 ### Cross-origin resource sharing (CORS)
 
-Cross-origin resource sharing is a way to allow resources on a web page to be requested from another domain. CORS works via HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in Wikipedia.
+Cross-origin resource sharing is a way to allow resources on a webpage to be requested from another domain. CORS works via HTTP headers sent with the client request and returned with the service response. For more information on CORS and valid headers, see [Cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) in Wikipedia.
 
 To configure your model deployment to support CORS, use the `AMLResponse` class in your entry script. This class allows you to set the headers on the response object.
 
