@@ -18,7 +18,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ## March 2020
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../articles/cognitive-services/cognitive-services-security.md).
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
 
 ## January 2020
 
