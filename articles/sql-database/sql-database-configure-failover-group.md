@@ -638,6 +638,19 @@ Test failover of your failover group using PowerShell.
 
 ---
 
+## Use Private Link
+
+Using a private link allows you to associate a logical server to a specific private IP address within the virtual network and subnet. 
+
+To use a private link with your failover group, do the following:
+
+1. Ensure your primary and secondary servers are in a [paired region](/azure/best-practices-availability-paired-regions). 
+1. Create the virtual network and subnet in each region to host private endpoints for primary and secondary servers such that they have non-overlapping IP address spaces. For example, the primary virtual network address range of 10.0.0.0/16 and the secondary virtual network address range of 10.0.0.1/16 overlaps. For more information about virtual network address ranges, see the blog [designing Azure virtual networks](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
+1. Create a [private endpoint and Azure Private DNS zone for the primary server](../private-link/create-private-endpoint-portal#create-a-private-endpoint.md). 
+1. Create a private endpoint for the secondary server as well, but this time choose to reuse the same Private DNS zone that was created for the primary server. 
+1. Once the private link is established, you can create the failover group following the steps outlined earlier in this article. 
+
+
 ## Locate listener endpoint
 
 Once your failover group is configured, update the connection string for your application to the listener endpoint. This will keep your application connected to the failover group listener, rather than the primary database, elastic pool, or managed instance. That way, you don't have to manually update the connection string every time your Azure SQL database entity fails over, and traffic is routed to whichever entity is currently primary. 
