@@ -181,7 +181,7 @@ foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 }
 ```
 
-### Create a private endpoint by using Azure CLI
+## Create a private endpoint by using Azure CLI
 
 Run the following Azure CLI script to create a private endpoint named "myPrivateEndpoint" for an existing Azure Cosmos account. Replace the variable values with the details for your environment.
 
