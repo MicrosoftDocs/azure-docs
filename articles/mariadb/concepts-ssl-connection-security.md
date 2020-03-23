@@ -20,32 +20,6 @@ Connection strings for various programming languages are shown in the Azure port
 
 To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](howto-configure-ssl.md).
 
-## TLS connectivity in Azure Database for MariaDB
-
-Azure Database for MariaDB supports encryption for clients connecting to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and client applications, allowing you to adhere to compliance requirements.
-
-### TLS settings
-
-Azure Database for MariaDB provides the ability to enforce the TLS version for the client connections. To use the TLS option, use the **Minimum TLS version** option setting. The following values are allowed for this option setting:
-
-|  Minimum TLS Setting             | TLS Version supported                |
-|:---------------------------------|-------------------------------------:|
-| TLSEnforcementDisabled (default) | No TLS required                      |
-| TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 and higher |
-| TLS1_1                           | TLS 1.1, TLS 1.2 and higher          |
-| TLS1_2                           | TLS version 1.2 and higher           |
-
-
-For example, setting this Minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2 and all connections with TLS 1.0 and TLS 1.1 will be rejected.
-
-> [!Note] 
-> Azure Database for MariaDB defaults to TLS being disabled for all new servers.
->
-> Currently the TLS versions supported byAzure Database for MariaDB are TLS 1.0, 1.1, and 1.2.
-
-To learn how to set the TLS setting for your Azure Database for MariaDB, refer to [How to configure TLS setting](howto-tls-configurations.md).
-
 ## Next steps
 - Learn more about [server firewall rules](concepts-firewall-rules.md)
 - Learn how to [configure SSL](howto-configure-ssl.md).
-- Learn how to [configure TLS](howto-tls-configurations.md).

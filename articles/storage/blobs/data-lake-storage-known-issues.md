@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -58,8 +58,7 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## File system support in SDKs
 
-- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md), and [JavaScript](data-lake-storage-directory-file-acl-javascript.md) and support are in public preview. Other SDKs are not currently supported.
-- Get and set ACL operations are not currently recursive.
+Get and set ACL operations are not currently recursive.
 
 ## File system support in PowerShell and Azure CLI
 
@@ -70,17 +69,14 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 * The deletion of blob snapshots is not yet supported.  
 
-* There are currently some bugs affecting lifecycle management policies and the archive access tier. 
+## Archive Tier
 
-## Diagnostic logs
+There is currently a bug that affects the archive access tier.
 
-Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
 
 ## Blobfuse
 
 Blobfuse is not supported.
-
-
 
 <a id="known-issues-tools" />
 
@@ -92,7 +88,7 @@ Use only the latest version of AzCopy ([AzCopy v10](https://docs.microso
 
 ## Azure Storage Explorer
 
-Use only versions `1.6.0` or higher.There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.
+Use only versions `1.6.0` or higher.
 
 <a id="explorer-in-portal" />
 

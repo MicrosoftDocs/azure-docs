@@ -105,3 +105,4 @@ When you disable customer-managed keys, your Cognitive Services resource is then
 * [Language Understanding service encryption of data at rest](../LUIS/luis-encryption-of-data-at-rest.md)
 * [Content Moderator encryption of data at rest](../Content-Moderator/content-moderator-encryption-of-data-at-rest.md)
 * [Translator encryption of data at rest](../translator/translator-encryption-of-data-at-rest.md)
+* [Personalizer encryption of data at rest](../personalizer/personalizer-encryption-of-data-at-rest.md)
