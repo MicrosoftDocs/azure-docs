@@ -22,7 +22,7 @@ Your Microsoft Partner Network (MPN) ID will be [automatically associated](../..
 
 ## Create your offer
 
-For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a new Managed Services offer](../../marketplace/partner-center/portal/create-new-managed-service-offer.md).
+For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a new Managed Services offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
 To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). You should also review the [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies), particularly the [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) section.
 
@@ -33,7 +33,7 @@ Once a customer adds your offer, they will be able to delegate one or more subsc
 
 ## Publish your offer
 
-Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More information about this process can be found [here](../../marketplace/partner-center/portal/create-new-managed-service-offer.md#publish).
+Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More information about this process can be found [here](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish).
 
 You can [publish an updated version of your offer](../../marketplace/partner-center-portal/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
 
