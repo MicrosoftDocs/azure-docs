@@ -13,28 +13,28 @@ ms.author: caya
 
 This article describes a few suggested guidelines for organizations in setting up their Application Gateways to handle extra traffic due to COVID-19. Organizations can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to their web applications. 
 
-The following suggestions are to help organizations to have the best set up possible for their Application Gateways with WAF. 
+The following suggestions are to help organizations have the best set up possible for their Application Gateways with WAF. 
 
 ## Use the v2 SKUs over v1 for their autoscaling capabilities and performance benefits
 The v2 SKUs offer autoscaling to ensure that your Application Gateway can scale up as traffic increases and offers other significant performance benefits such as 5x better SSL offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
 
 ## Set maximum instance count to the maximum possible (125) 
-Assuming you have a v2 SKU Application Gateway, setting the maximum instance count to the maximum possible count of 125 allows the Application Gateway to scale out as needed and will allow it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use.  
+Assuming you have an Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed and will allow it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use.  
 
 ## Set your minimum instance count based on your average CU usage 
-Assuming you have a v2 SKU Application Gateway, autoscaling will take 6-7 minutes to scale out, and by having a higher minimum instance count, the Application Gateway will be better able to handle your traffic when load is increased, as every spike in traffic won't require an autoscaling operation.  
+Assuming you have an Application Gateway v2 SKU, autoscaling will take 6-7 minutes to scale out, and by having a higher minimum instance count, the Application Gateway will be better able to handle your traffic when load is increased, as every spike in traffic won't require an autoscaling operation.  
 
 ## Alert if a certain metric surpasses 75% of average CU utilization 
 See the [Application Gateway Metrics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) for a detailed explanation of our metrics and other walkthroughs. 
 
-### Example: Setting up an alert on 75% of minimum CU usage
-This example shows setting up an alert when 75% of minimum CU usage is reached via Portal. 
+### Example: Setting up an alert on 75% of average CU usage
+This example shows setting up an alert when 75% of average CU usage is reached via Portal. 
 1. Navigate to your **Application Gateway**.
 2. On the left panel, select **Metrics** under the **Monitoring** tab. 
 3. Add a metric for **Average Current Compute Units**. 
-**PLACEHOLDER - ADD A SCREENSHOT PICTURE HERE** 
-4. If you've set your minimum CU count to be your average usage, go ahead and set an alert for if 75% of your minimum instances are in use. If your minimum/average usage is 10 CUs, set an alert on 7.5 CUs. This will alert you if usage is increasing and give you time to respond and raise the minimum if you think this traffic will be sustained and will give you an alert that traffic may be increasing. 
-**PLACEHOLDER - ADD A SCREENSHOT PICTURE HERE** 
+![Setting up WAF metric](./media/application-gateway-covid-guidelines/waf-setup-metrics.png)
+4. If you've set your minimum instance count to be your average CU usage, go ahead and set an alert for if 75% of your minimum instances are in use. For example, if your average usage is 10 CUs, set an alert on 7.5 CUs. This will alert you if usage is increasing and give you time to respond and raise the minimum if you think this traffic will be sustained and will give you an alert that traffic may be increasing. 
+![Setting up WAF alert](./media/application-gateway-covid-guidelines/waf-setup-monitoring-alert.png)
 
 > [!NOTE]
 > You can set the alert to occur at a lower or higher CU utilization percentage depending on how sensitive you want to be to potential traffic spikes.
