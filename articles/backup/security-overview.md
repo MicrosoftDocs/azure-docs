@@ -7,22 +7,22 @@ ms.date: 03/12/2020
 
 # Overview of security features in Azure Backup
 
-This article introduces security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
+One of the most important steps you can take to protect your data is to have a reliable backup infrastructure. But it's just as important to ensure that your data is backed up in a secure fashion, and that your backups are protected at all times. Azure Backup provides security to your backup environment - both when your data is in transit and at rest. This article lists security capabilities in Azure Backup that help you protect your backup data and meet the security needs of your business.
 
-## Separation between guest and Azure storage
-
-With Azure Backup,  which includes full IaaS VM backup and SQL/HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  In the case of IaaS VM backup, the backup snapshot creation and storage is done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  In the case of SQL and HANA, the backup extension gets temporary access to write to specific blobs.  In this way existing backups can't be tampered with or deleted by the guest, should it be compromised.
-
-## Azure VM backup doesn't require network connectivity
+## Network connectivity not required for Azure VM backup
 
 Backup of Azure VMs requires movement of data from your virtual machine's disk to the Recovery Services vault. However, all the required communication and data transfer happens only on the Azure backbone network without needing to access your virtual network. Therefore, backup of Azure VMs placed inside secured networks doesn't require you to allow access to any IPs/FQDNs or any other methods to allow network access.
 
-## Manage and control identity and user access
+## Separation between guest and Azure storage
+
+With Azure Backup, which includes full IaaS VM backup and SQL and SAP HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  In the case of IaaS VM backup, the backup snapshot creation and storage is done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  In the case of SQL and SAP HANA, the backup extension gets temporary access to write to specific blobs.  In this way existing backups can't be tampered with or deleted by the guest, should it be compromised.
+
+## Management and control of identity and user access
 
 Azure Backup enables you to manage fine-grained access using [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
 * Azure Backup provides three built-in roles to control backup management operations:
-  * [Backup Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-contributor) - to create and manage backup, except deleting Recovery Services vault and giving access to others
+  * [Backup Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-contributor) - to create and manage backups, except deleting Recovery Services vault and giving access to others
   * [Backup Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-operator) - everything a contributor does except removing backup and managing backup policies
   * [Backup Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#backup-reader) - permissions to view all backup management operations
 
@@ -30,7 +30,7 @@ Azure Backup enables you to manage fine-grained access using [Azure Role-Based A
 
 * Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. [Learn more about security controls for Azure Backup](https://docs.microsoft.com/azure/backup/backup-security-controls).
 
-## Encryption
+## Encryption of data in transit and at rest
 
 Encryption protects your data and helps you to meet your organizational security and compliance commitments. Within Azure, data in transit between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.
 
@@ -42,11 +42,11 @@ Encryption protects your data and helps you to meet your organizational security
 
 Azure Backup provides security features to help protect backup data even after deletion. One such feature is [soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete). With soft delete, if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
 
-## Monitoring and alerts
+## Monitoring and alerts of suspicious activity
 
-Azure Backup provides [built-in monitoring and alerting capabilities](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) to view and configure actions for business-critical events. [Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports) serve as a one-stop destination for tracking usage, auditing of backups and restores, and identifying key trends at different levels of granularity.
+Azure Backup provides [built-in monitoring and alerting capabilities](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) to view and configure actions for events related to Azure Backup. [Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports) serve as a one-stop destination for tracking usage, auditing of backups and restores, and identifying key trends at different levels of granularity. Using Azure Backup's monitoring and reporting tools can alert you to any unauthorized, suspicious, or malicious activity as soon as they occur.g
 
-## Security of hybrid backup data
+## Protection of backup process for on-premises resources
 
 Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to back up and restore files, folders, and the volume or system state from an on-premises computer to Azure. MARS now provides security features to help protect hybrid backups. These features include:
 
@@ -56,7 +56,7 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 
 * **Recovery**: Deleted backup data is retained for an additional 14 days from the date of deletion. This ensures recoverability of the data within a given time period, so there's no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data. [Learn more about recovering deleted backup data](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
 
-## Compliance
+## Compliance with standardized security requirements
 
 To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
 
