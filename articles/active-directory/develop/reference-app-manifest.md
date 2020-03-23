@@ -244,7 +244,8 @@ Example value:
 Specifies what Microsoft accounts are supported for the current application. Supported values are:
 - **AzureADMyOrg** - Users with a Microsoft work or school account in my organization's Azure AD tenant (for example, single tenant)
 - **AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization's Azure AD tenant (for example, multi-tenant)
-- **AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant 
+- **AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant
+- **PersonalMicrosoftAccount** - Personal accounts that are used to sign in to services like Xbox and Skype.
 
 Example value:  
 `AzureADandPersonalMicrosoftAccount` 

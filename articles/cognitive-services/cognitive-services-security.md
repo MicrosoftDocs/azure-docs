@@ -17,10 +17,10 @@ Security should be considered a top priority when developing any and all applica
 
 ## Transport Layer Security (TLS)
 
-All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With an enforced security protocol, consumers attempting to call a Cognitive Services endpoint should adhere to guidelines:
+All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With an enforced security protocol, consumers attempting to call a Cognitive Services endpoint should adhere to these guidelines:
 
-* The client Operating System (OS) would need to support TLS 1.2
-* The language (and platform) used to make the HTTP call would need to specify TLS 1.2 as part of the request
+* The client Operating System (OS) needs to support TLS 1.2
+* The language (and platform) used to make the HTTP call need to specify TLS 1.2 as part of the request
   * Depending on the language and platform, specifying TLS is done either implicitly or explicitly
 
 For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
