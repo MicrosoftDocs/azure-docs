@@ -1,5 +1,5 @@
 ---
-title: Migration to Azure file shares - Overview
+title: Migrate to Azure file shares
 description: Learn about migrations to Azure file shares and find your migration guide.
 author: fauhse
 ms.service: storage
@@ -9,7 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-# Overview - Migration to Azure file shares
+# Migrate to Azure file shares
 
 This article covers the basic aspects of a migration to Azure file shares.
 
@@ -21,7 +21,7 @@ There are multiple different types of cloud storage available in Azure. A fundam
 
 Azure file shares are great for general purpose file data. Really anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md) you can optionally cache the contents of several Azure file shares on several Windows Servers on-premises.
 
-If you have an application currently running on an on-premises server, then storing files in Azure file shares can be right for you, depending on the application. You can lift the application to run in Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario. For cloud-born applications, that do not depend on the SMB or machine-local access to their data and shared access, object storage, such as [Azure blobs](../blobs/storage-blobs-overview.md), is often the best choice.
+If you have an application currently running on an on-premises server, then storing files in Azure file shares can be right for you, depending on the application. You can lift the application to run in Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario. For cloud-born applications, that don't depend on the SMB or machine-local access to their data or shared access, object storage, such as [Azure blobs](../blobs/storage-blobs-overview.md), is often the best choice.
 
 The key in any migration is to capture all the applicable file fidelity when migrating your files from their current storage location to Azure. A help in picking the right Azure storage is also the aspect of how much fidelity supported by the Azure storage option and is required by your scenario. General purpose file data traditionally depends on file metadata. Application data might not. There are two basic components to a file:
 
@@ -36,7 +36,7 @@ File fidelity, in a migration, can therefore be defined as the ability to store 
 
 In order to ensure your migration proceeds as smoothly as possible, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
-Taking the previous information into account, it becomes clear what the target storage for general purpose files in Azure is: **[Azure file shares]**. Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
+Taking the previous information into account, it becomes clear what the target storage for general purpose files in Azure is: [Azure file shares](storage-files-introduction.md). Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
 
 **[Learn more about file fidelity in Azure file shares]**
 
@@ -63,9 +63,10 @@ A scenario without a link does not yet have a published migration guide. Check t
 
 | **Source** | Target: </br>Hybrid deployment | Target: </br>Cloud-only  deployment |
 |:---|:--|:--|
+| | Tool combination:| Tool combination: |
 | Windows Server 2012 R2 and newer | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync + DataBox](storage-sync-offline-data-transfer.md)</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 and older | <ul><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
-| Network Attached Storage (NAS) | <ul><li>Azure File Sync + RoboCopy</li></ul> | <ul><li>RoboCopy</li></ul> |
+| Network Attached Storage (NAS) | <ul><li>[Azure File Sync + RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux / Samba | <ul><li>RoboCopy + Azure File Sync</li></ul> | <ul><li>RoboCopy</li></ul> |
 | StorSimple 8100 / 8600 | <ul><li>[Azure File Sync + 8020 Virtual Appliance](storage-files-migration-storsimple-8000.md)</li></ul> | |
 | StorSimple 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
@@ -75,7 +76,7 @@ A scenario without a link does not yet have a published migration guide. Check t
 
 ### File copy tools
 
-There are several Microsoft and non-Microsoft file copy tools available. In order to choose the right tool for a migration scenario, there are three fundamental questions one must consider:
+There are several Microsoft and non-Microsoft file copy tools available. In order to select the right file copy tool for your migration scenario, you must consider three fundamental questions:
 
 * Does the copy tool support the source and the target location for a given file copy? 
     * Does it support your network path and/or available protocols (for instance REST/SMB/NFS) to and from the source and target storage locations?
@@ -100,7 +101,7 @@ The following table classifies Microsoft tools and their current suitability for
 
 ### Migration helper tools
 
-This category lists tools that help with planning and executing migrations.
+This section lists tools that help plan and execute migrations.
 
 * **RoboCopy, from Microsoft Corporation**
 
