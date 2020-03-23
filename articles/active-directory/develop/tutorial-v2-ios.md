@@ -257,12 +257,16 @@ func initUI() {
 
 func platformViewDidLoadSetup() {
                 
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(appCameToForeGround(notification:)),
-                                               name: UIApplication.willEnterForegroundNotification,
-                                               object: nil)
+    NotificationCenter.default.addObserver(self,
+                        selector: #selector(appCameToForeGround(notification:)),
+                        name: UIApplication.willEnterForegroundNotification,
+                        object: nil)
         
-    }
+}
+    
+@objc func appCameToForeGround(notification: Notification) {
+    self.loadCurrentAccount()
+}
 
 ```
 
@@ -381,7 +385,7 @@ Add the following after `initMSAL` method to the `ViewController` class.
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(parentViewController: self)
+        self.webViewParameters = MSALWebviewParameters(parentViewController: self)
     }
 ```
 
@@ -389,7 +393,7 @@ func initWebViewParams() {
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters()
+        self.webViewParameters = MSALWebviewParameters()
     }
 ```
 
@@ -673,7 +677,7 @@ To add sign-out capability, add the following code inside the `ViewController` c
              - account:    The account to remove from the cache
              */
             
-            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
+            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParameters!)
             signoutParameters.signoutFromBrowser = false // set this to true if you also want to signout from browser or webview
             
             applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
