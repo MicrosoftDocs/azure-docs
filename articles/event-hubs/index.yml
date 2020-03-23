@@ -111,7 +111,7 @@ landingContent:
             url: event-hubs-go-get-started-send.md
 
 # Card
-  - title: Event Hubs on Azure Stack Hub
+  - title: Event Hubs on Azure Stack Hub preview
     linkLists:
       - linkListType: overview
         links:
