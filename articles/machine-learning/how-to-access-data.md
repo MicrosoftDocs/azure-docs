@@ -212,13 +212,6 @@ To get the workspace's default datastore, use this line:
 datastore = ws.get_default_datastore()
 ```
 
-To define a different default datastore for the current workspace, use the [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) method on the workspace object:
-
-```Python
-# Define the default datastore for the current workspace
-ws.set_default_datastore('your datastore name')
-```
-
 <a name="up-and-down"></a>
 ## Upload and download data
 
