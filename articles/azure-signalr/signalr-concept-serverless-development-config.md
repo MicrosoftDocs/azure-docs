@@ -35,7 +35,7 @@ A client application requires a valid access token to connect to Azure SignalR S
 
 Use an HTTP triggered Azure Function and the *SignalRConnectionInfo* input binding to generate the connection information object. The function must have an HTTP route that ends in `/negotiate`.
 
-For more information on how to create the negotiate function, see the [*SignalRConnectionInfo* input binding reference](../azure-functions/functions-bindings-signalr-service.md#input).
+For more information on how to create the negotiate function, see the [*SignalRConnectionInfo* input binding reference](../azure-functions/functions-bindings-signalr-service-input.md).
 
 To learn about how to create an authenticated token, refer to [Using App Service Authentication](#using-app-service-authentication).
 
@@ -45,7 +45,7 @@ Use the *SignalR* output binding to send messages to clients connected to Azure 
 
 Users can be added to one or more groups. You can also use the *SignalR* output binding to add or remove users to/from groups.
 
-For more information, see the [*SignalR* output binding reference](../azure-functions/functions-bindings-signalr-service.md#output).
+For more information, see the [*SignalR* output binding reference](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### SignalR Hubs
 

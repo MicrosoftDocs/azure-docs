@@ -1,11 +1,11 @@
 ---
 title: Continuously update function app code using Azure DevOps
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
-author: ahmedelnably
+author: craigshoemaker
 
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
+ms.author: cshoe
 ---
 
 # Continuous delivery by using Azure DevOps
@@ -42,7 +42,7 @@ steps:
     arguments: '--configuration Release --output publish_output'
     projects: '*.csproj'
     publishWebProjects: false
-    modifyOutputPath: true
+    modifyOutputPath: false
     zipAfterPublish: false
 - task: ArchiveFiles@2
   displayName: "Archive files"

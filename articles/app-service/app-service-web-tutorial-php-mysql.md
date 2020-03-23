@@ -6,10 +6,9 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build a PHP and MySQL app in Azure
 
 > [!NOTE]
@@ -180,7 +179,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  ...	+  
+  ...    +  
   -  < Output has been truncated for readability >
 }
 ```
@@ -208,7 +207,8 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 In the local terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_. When prompted for a password, use the password you specified when you created the database in Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p<PASSWORD> --ssl-mode=REQUIRED --ssl-ca=<PATH_TO_PEM>
+
 ```
 
 ### Create a production database

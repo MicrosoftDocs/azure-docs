@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 
 > [!NOTE]
 > As of 12/22/2019, the Bulk invite users (Preview) feature has been temporarily disabled.
-> There is currently no known date for when this feature will be re-enabled. 
+> There is currently no known date for when this feature will be re-enabled in the Azure portal. To invite guest users in bulk using PowerShell, see the [B2B bulk invite tutorial](bulk-invite-powershell.md) or the [B2B code and PowerShell samples](code-samples.md).
 
 If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 

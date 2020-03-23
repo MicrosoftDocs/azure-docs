@@ -3,7 +3,7 @@ title: Sign users in/out & call Microsoft Graph (Android) - Microsoft identity p
 description: Get an access token and call Microsoft Graph or APIs that require access tokens from Microsoft identity platform (Android)
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -153,7 +153,7 @@ If you do not already have an Android application, follow these steps to set up 
         jcenter()
     }  
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.2.+'
+        implementation 'com.microsoft.identity.client:msal:1.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{

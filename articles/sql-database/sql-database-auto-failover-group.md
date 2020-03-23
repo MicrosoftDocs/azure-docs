@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 1/05/2020
+ms.date: 2/10/2020
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -237,7 +237,7 @@ Because each instance is isolated in its own VNet, two-directional traffic betwe
 You can create a failover group between managed instances in two different subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
   
 > [!IMPORTANT]
-> Azure Portal does not support failover groups across different subscriptions.
+> Azure portal does not support creation of failover groups across different subscriptions. Also, for the existing failover groups across different subscriptions and/or resource groups, failover cannot be initiated manually via portal from the primary instance. Initiate it from the geo-secondary instance instead.
 
 ### Managing failover to secondary instance
 

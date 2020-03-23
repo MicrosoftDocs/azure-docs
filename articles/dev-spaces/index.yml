@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Dev Spaces documentation # < 60 chars
-summary: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application in Azure Kubernetes Service (AKS) without replicating or mocking dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared AKS cluster. It also allows you to run and debug containers directly in AKS. # < 160 chars
+summary: Azure Dev Spaces is an extension to AKS that allows you to easily run and debug your code in the context of a larger application. You can test your code end-to-end, hit breakpoints on code running in the cluster, and share a development cluster between team members without interference.
 
 metadata:
   title: Azure Dev Spaces documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application in Azure Kubernetes Service (AKS) without replicating or mocking dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared AKS cluster. It also allows you to run and debug containers directly in AKS. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Dev Spaces is an extension to AKS that allows you to easily run and debug your code in the context of a larger application. You can test your code end-to-end, hit breakpoints on code running in the cluster, and share a development cluster between team members without interference.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
@@ -76,3 +76,5 @@ landingContent:
             url: how-to/github-actions.md
           - text: Connect your development machine to an AKS cluster
             url: how-to/connect.md
+          - text: Configure your Azure Dev Spaces cluster to use Helm 3
+            url: how-to/helm-3.md

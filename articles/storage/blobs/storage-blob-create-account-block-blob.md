@@ -15,6 +15,8 @@ ms.subservice: blobs
 
 The BlockBlobStorage account kind lets you create block blobs with premium performance characteristics. This type of storage account is optimized for workloads with high transactions rates or that require very fast access times. This article shows how to create a BlockBlobStorage account by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+
 For more information about BlockBlobStorage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
 ## Prerequisites
@@ -72,7 +74,7 @@ To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.
 
 To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
-```cli
+```azurecli
 az login
 ```
 

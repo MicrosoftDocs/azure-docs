@@ -27,7 +27,7 @@ Choose the log category and metric category you want to monitor.
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
@@ -109,7 +109,7 @@ To learn more about the query language that's used in Log Analytics, see [Azure 
 1. To review application logs, search for a container called **insights-logs-applicationconsole**.
 1. To review application metrics, search for a container called **insights-metrics-pt1m**.
 
-To learn more about sending diagnostics information to a storage account, see [Store and view diagnostics data in Azure Storage](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage).
+To learn more about sending diagnostics information to a storage account, see [Store and view diagnostics data in Azure Storage](../storage/common/storage-introduction.md).
 
 ### Use your event hub
 

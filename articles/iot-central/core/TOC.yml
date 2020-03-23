@@ -21,6 +21,8 @@
   items:
     - name: Get connected
       items:
+      - name: Connect a  device
+        href: tutorial-connect-device.md
       - name: Connect a Plug and Play (preview) device
         href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
@@ -35,7 +37,7 @@
       items:
         - name: Create a rule
           href: tutorial-create-telemetry-rules.md
-        - name: Use the REST API
+        - name: Explore the IoT Central APIs
           href: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/
 - name: Concepts
   items:
@@ -83,8 +85,10 @@
           href: howto-version-device-template.md
     - name: Transform
       items:
-        - name: Configure continuous data export
+        - name: Export data to destinations in Azure
           href: howto-export-data.md
+        - name: Explore the IoT Central APIs
+          href: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
         - name: Connect Azure Monitor action groups on rules
@@ -159,9 +163,11 @@
   items:
     - name: Support and help options
       href: /azure/iot-fundamentals/iot-support-help
-    - name: REST API
+    - name: IoT Central API reference
       href: https://docs.microsoft.com/rest/api/iotcentral/
     - name: Customer data requests
       href: iot-central-customer-data-requests.md
     - name: Supported browsers
       href: iot-central-supported-browsers.md
+    - name: Azure IoT Central (legacy templates)
+      href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central

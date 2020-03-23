@@ -15,6 +15,8 @@
     href: web-query-data.md
 - name: Tutorials
   items:
+  - name: Write queries
+    href: write-queries.md
   - name: E2E programmatic Blob ingestion
     items:
       - name: C#
@@ -32,6 +34,14 @@
     - name: Data ingestion overview
       displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
       href: ingest-data-overview.md
+    - name: Data ingestion properties
+      href: ingestion-properties.md
+    - name: Formats for data ingestion
+      href: ingestion-supported-formats.md
+  - name: Kusto Query Language
+    items:
+    - name: Quick reference guide
+      href: kql-quick-reference.md
   - name: Data visualization overview
     href: viz-overview.md
   - name: Security overview
@@ -51,7 +61,13 @@
     - name: Azure Resource Manager template
       href: create-cluster-database-resource-manager.md
   - name: Ingest data
-    items:
+    items: 
+    - name: One-click ingestion
+      href: ingest-data-one-click.md
+    - name: Streaming ingestion
+      href: ingest-data-streaming.md
+    - name: Using LightIngest
+      href: lightingest.md    
     - name: Event Hub
       items:
       - name: Azure portal
@@ -82,10 +98,6 @@
         href: data-connection-iot-hub-python.md
       - name: Azure Resource Manager template
         href: data-connection-iot-hub-resource-manager.md
-    - name: One-click ingestion
-      href: ingest-data-one-click.md
-    - name: Streaming ingestion
-      href: ingest-data-streaming.md
     - name: Using SDKs
       items: 
       - name: Python
@@ -98,12 +110,10 @@
       href: ingest-data-kafka.md
     - name: Logstash
       href: ingest-data-logstash.md
-    - name: json formatted data
+    - name: JSON formatted data
       href: ingest-json-formats.md  
   - name: Query data
     items:
-    - name: Write queries
-      href: write-queries.md
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
@@ -150,6 +160,8 @@
       href: sisense.md
     - name: Redash
       href: redash.md
+    - name: Kibana (K2Bridge connector)
+      href: k2bridge.md
   - name: Secure
     items:
     - name: Manage cluster security
@@ -229,7 +241,13 @@
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
-        href: data-factory-command-activity.md   
+        href: data-factory-command-activity.md
+    - name: Microsoft Flow connector
+      items:
+      - name: Microsoft Flow connector
+        href: flow.md
+      - name: Microsoft Flow connector usage examples
+        href: flow-usage.md
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python
@@ -282,5 +300,3 @@
       href: pricing-reserved-capacity.md 
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
-
-    

@@ -2,7 +2,7 @@
 title: Register authentication info to reset your own password - Azure AD
 description: Register your verification method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.assetid:
@@ -12,7 +12,7 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Register your verification method info to reset your own password

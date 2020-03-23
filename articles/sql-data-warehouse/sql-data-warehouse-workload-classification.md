@@ -1,21 +1,21 @@
 ---
 title: Workload classification 
-description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure SQL Data Warehouse.
+description: Guidance for using classification to manage concurrency, importance, and compute resources for queries in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/27/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# Azure SQL Data Warehouse workload classification
+# Azure Synapse Analytics workload classification
 
-This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
+This article explains the workload classification process of assigning a workload group and importance to incoming requests with SQL Analytics in Azure Synapse.
 
 ## Classification
 
@@ -31,7 +31,7 @@ Not all statements are classified as they do not require resources or need impor
 
 ## Classification process
 
-Classification in SQL Data Warehouse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter. 
+Classification for SQL Analytics in Azure Synapse is achieved today by assigning users to a role that has a corresponding resource class assigned to it using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability. A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Analytics users can assign importance and how much system resources are assigned to a request via the `workload_group` parameter. 
 
 > [!NOTE]
 > Classification is evaluated on a per request basis. Multiple requests in a single session can be classified differently.
@@ -88,6 +88,6 @@ sp_droprolemember ‘[Resource Class]’, membername
 ## Next steps
 
 - For more information on creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- See the Quickstart on how to create a workload classifier [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md).
-- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- See the Quickstart on how to create a workload classifier [Create a workload classifier](../synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-tsql.md).
+- See the how-to articles to [Configure Workload Importance](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md) and how to [manage and monitor Workload Management](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
