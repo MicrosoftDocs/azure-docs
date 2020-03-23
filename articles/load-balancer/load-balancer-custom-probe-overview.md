@@ -34,6 +34,9 @@ Health probes support multiple protocols. The availability of a specific health 
 >[!IMPORTANT]
 >Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
 
+>[!IMPORTANT]
+>Regardless of configured threshold, HTTP(S) Load Balancer health probes will automatically probe down an instance if the server returns an HTTP 50X Status Code, indicating a server-side failure.
+
 ## <a name="probes"></a>Probe configuration
 
 Health probe configuration consists out of the following elements:
