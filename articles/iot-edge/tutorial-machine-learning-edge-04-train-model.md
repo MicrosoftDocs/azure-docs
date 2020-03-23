@@ -171,7 +171,7 @@ To verify that the notebooks have completed successfully, verify that a few item
 
 You can insert Python statements into the notebook for debugging, such as the `print()` command to show values. If you see variables or objects that are not defined, run the cells where they are first declared or instantiated.
 
-You may have to delete previously created Azure resources if you need to redo the notebooks.
+You may have to delete previously created files and Azure resources if you need to redo the notebooks.
 
 ## Next steps
 
