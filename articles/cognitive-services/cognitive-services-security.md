@@ -27,7 +27,7 @@ For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framewor
 
 ## Authentication
 
-When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity.
+When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity. Several of the Cognitive Services offerings, include role-based access control (RBAC). RBAC could be used to simplify some of the ceremony involved with manually managing principals. For more details, see [role-based access control for Azure resources](../role-based-access-control/overview.md).
 
 For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -83,8 +83,7 @@ Create and assign persisted environment variable, given the value.
 
 ```Bash
 # Assigns the env var to the value
-sudo -H gedit /etc/environment
-ENVIRONMENT_VARIABLE_KEY="value"
+echo export ENVIRONMENT_VARIABLE_KEY="value"" >> /etc/environment && source /etc/environment
 ```
 
 In a new instance of the **Bash**, read the environment variable.
@@ -92,6 +91,9 @@ In a new instance of the **Bash**, read the environment variable.
 ```Bash
 # Prints the env var value
 echo "${ENVIRONMENT_VARIABLE_KEY}"
+
+# Or use printenv:
+# printenv ENVIRONMENT_VARIABLE_KEY
 ```
 
 ---
