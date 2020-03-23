@@ -40,7 +40,7 @@ First, load your data into [Azure Data Lake Storage](../../data-factory/connecto
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](../../sql-data-warehouse/design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](../../sql-data-warehouse/design-elt-data-loading.md). 
+Learn more about [data migration](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [data loading](design-elt-data-loading.md), and the [Extract, Load, and Transform (ELT) process](design-elt-data-loading.md). 
 
 ## Distributed or replicated tables
 
@@ -60,7 +60,7 @@ Use the following strategies, depending on the table properties:
 * Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* to analyze any skewness in the data.
 * Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* to analyze data movements behind queries, monitor the time broadcast, and shuffle operations take. This is helpful to review your distribution strategy.
 
-Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+Learn more about [replicated tables](design-guidance-for-replicated-tables.md) and [distributed tables](sql-data-warehouse-tables-distribute.md).
 
 ## Index your table
 
@@ -80,7 +80,7 @@ Indexing is helpful for reading tables quickly. There is a unique set of technol
 * Based on the incremental load frequency and size, you want to automate when you reorganize or rebuild your indexes. Spring cleaning is always helpful.
 * Be strategic when you want to trim a row group. How large are the open row groups? How much data do you expect to load in the coming days?
 
-Learn more about [indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
+Learn more about [indexes](sql-data-warehouse-tables-index.md).
 
 ## Partitioning
 You might partition your table when you have a large fact table (greater than 1 billion rows). In 99 percent of cases, the partition key should be based on date. Be careful to not overpartition, especially when you have a clustered columnstore index.
@@ -88,11 +88,11 @@ You might partition your table when you have a large fact table (greater than 1 
 With staging tables that require ELT, you can benefit from partitioning. It facilitates data lifecycle management.
 Be careful not to overpartition your data, especially on a clustered columnstore index.
 
-Learn more about [partitions](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).
+Learn more about [partitions](sql-data-warehouse-tables-partition.md).
 
 ## Incremental load
 
-If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](../../sql-data-warehouse/resource-classes-for-workload-management.md) for further details.  
+If you're going to incrementally load your data, first make sure that you allocate larger resource classes to loading your data.  This is particularly important when loading into tables with clustered columnstore indexes.  See [resource classes](resource-classes-for-workload-management.md) for further details.  
 
 We recommend using PolyBase and ADF V2 for automating your ELT pipelines into your data warehouse.
 
@@ -103,22 +103,22 @@ For a large batch of updates in your historical data, consider using a [CTAS](sq
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
-Learn more about [statistics](../../sql-data-warehouse/sql-data-warehouse-tables-statistics.md).
+Learn more about [statistics](sql-data-warehouse-tables-statistics.md).
 
 ## Resource class
 Resource groups are used as a way to allocate memory to queries. If you need more memory to improve query or loading speed, you should allocate higher resource classes. On the flip side, using larger resource classes impacts concurrency. You want to take that into consideration before moving all of your users to a large resource class.
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using Gen2 of [SQL pool](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
+Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
 
-Learn more how to work with [resource classes and concurrency](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+Learn more how to work with [resource classes and concurrency](resource-classes-for-workload-management.md).
 
 ## Lower your cost
-A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 
-A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](../../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](../../sql-data-warehouse/pause-and-resume-compute-portal.md) or [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoscale now at the time you want with Azure Functions:
 

@@ -53,7 +53,7 @@ If you used [Create an image and distribute to a Shared Image Gallery](image-bui
 For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 
-```azurecli-interactive
+```console
 # Resource group name 
 sigResourceGroup=ibLinuxGalleryRG
 # Gallery location 
@@ -70,13 +70,13 @@ runOutputName=aibSIGLinuxUpdate
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
-```azurecli-interactive
+```console
 subscriptionID=<Subscription ID>
 ```
 
 Get the image version that you want to update.
 
-```
+```azurecli
 sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
@@ -102,7 +102,7 @@ You can review the example we are about to use by opening the .json file here: [
 
 Download the .json example and configure it with your variables. 
 
-```azurecli-interactive
+```console
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromSIG.json
@@ -154,13 +154,13 @@ az vm create \
 
 Create an SSH connection to the VM using the public IP address of the VM.
 
-```azurecli-interactive
+```console
 ssh azureuser@<pubIp>
 ```
 
 You should see the image was customized with a "Message of the Day" as soon as your SSH connection is established.
 
-```console
+```output
 *******************************************************
 **            This VM was built from the:            **
 **      !! AZURE VM IMAGE BUILDER Custom Image !!    **

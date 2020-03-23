@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
-ms.date: 01/06/2020
+ms.date: 03/18/2020
 ---
 
 # What are Azure Machine Learning environments?
@@ -87,7 +87,10 @@ See the following diagram that shows three environment definitions. Two of them 
 
 ![Diagram of environment caching as Docker images](./media/concept-environments/environment-caching.png)
 
-If you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. Also, any future environment with matching definition will keep using the old version. To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. Note that new dependencies, including nested ones will be installed that might break a previously working scenario
+>[!IMPORTANT]
+> If you create an environment with an unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed _at the time of environment creation_. Also, any future environment with matching definition will keep using the old version. 
+
+To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. Note that new dependencies, including nested ones will be installed that might break a previously working scenario.
 
 > [!WARNING]
 >  The [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.

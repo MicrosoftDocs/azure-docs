@@ -1,10 +1,8 @@
 ---
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
-
-
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/20/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -305,7 +303,7 @@ For SQL Database limits, see [SQL Database resource limits for single databases]
 
 ## SQL Data Warehouse limits
 
-For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+For SQL Data Warehouse limits, see [SQL Data Warehouse resource limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## Storage limits
 
