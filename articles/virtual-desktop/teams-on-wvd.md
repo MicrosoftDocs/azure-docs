@@ -14,10 +14,7 @@ manager: lizross
 
 > Applies to: Windows 10, and Windows 10 IoT Enterprise
 
-Virtualized environments like Windows Virtual Desktop present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. With Windows Virtual Desktop optimizations for Microsoft Teams, we provide high-performance peer-to-peer audio-video calling based on WebRTC. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://go.microsoft.com/fwlink/?linkid=2123169&clcid=0x409).
-
-> [!NOTE]
-> Microsoft Teams audio-video calling optimizations are currently available in Private Preview and will be publicly available later this year.
+Virtualized environments present a unique set of challenges for collaboration apps like Microsoft Teams, including increased latency, high host CPU usage, and poor overall audio and video performance. To learn more about using Microsoft Teams in VDI environments, check out [Teams for Virtualized Desktop Infrastructure](https://go.microsoft.com/fwlink/?linkid=2123169&clcid=0x409).
 
 ## Environment requirements
 
