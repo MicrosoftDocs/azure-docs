@@ -70,7 +70,7 @@ The following features are enabled in Managed instance deployment model in H1 20
   - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
   - Managed instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) as well as in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.
 
-## Known issues
+### Known issues
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
