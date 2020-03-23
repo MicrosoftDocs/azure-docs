@@ -15,9 +15,9 @@ ms.author: pafarley
 
 The Form Recognizer sample labeling tool is an application that provides a simple user interface (UI), which you can use to manually label forms (documents) for the purpose of supervised learning. In this article, we'll provide links and instructions that teach you how to:
 
-* Run the sample labeling tool locally
-* Deploy the sample labeling tool to an Azure Container Instance (ACI)
-* Use and contribute to the open-source OCR Form Labeling Tool
+* [Run the sample labeling tool locally](#run-the-sample-labeling-tool-locally)
+* [Deploy the sample labeling tool to an Azure Container Instance (ACI)](#deploy-with-azure-container-instances-aci)
+* [Use and contribute to the open-source OCR Form Labeling Tool](#open-source-on-github)
 
 ## Run the sample labeling tool locally
 
@@ -63,13 +63,13 @@ Follow these steps to create a new resource using the Azure portal:
    > [!div class="mx-imgBorder"]
    > ![Select Docker](./media/quickstarts/formre-select-docker.png)
 
-6. Now let's configure your Docker container:
+6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 
    * Options - Select **Single Container**
    * Image Source - Select **Private Registry** 
    * Server URL - Set this to `https://mcr.microsoft.com`
-   * Username - Create a username. 
-   * Password - Create a secure password that you'll remember.
+   * Username (Optional) - Create a username. 
+   * Password (Optional) - Create a secure password that you'll remember.
    * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
    * Startup command - Set this to `./run.sh eula=accept`
 
@@ -106,7 +106,7 @@ az container create \
   --location <region name> \
   --cpu 2 \
   --memory 8
-  --command-line "./run.sh eula=accept”
+  --command-line "./run.sh eula=accept"
 ```
 
 ### Connect to Azure AD for authorization
