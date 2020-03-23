@@ -551,7 +551,7 @@ All your data is accessible after the key rotation operation including data inge
 
   200 OK
 
-- Recover your *Cluster* resource and your data -- during the soft-delete period, create a *Cluster* resource with the same name and in the same subscription, resource group and region. Follow the [Create *Cluster* resource](#Create-Cluster-resource) step to recover your *Cluster* resource.
+- Recover your *Cluster* resource and your data -- during the soft-delete period, create a *Cluster* resource with the same name and in the same subscription, resource group and region. Follow the **Create *Cluster* resource** step to recover your *Cluster* resource.
 
 
 ## Appendix
