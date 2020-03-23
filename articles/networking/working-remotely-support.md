@@ -1,5 +1,5 @@
 ﻿---
-title: 'Azure network support for mitigating Covid-19 related networking challenges | Microsoft Docs'
+title: 'Azure network support for mitigating networking challenges with working remotely'
 description: This page describes how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 services: networking
 author: rambk
@@ -11,7 +11,7 @@ ms.author: kumud
 
 ---
 
-# Azure network support for mitigating Covid-19 related networking challenges
+# Azure network support for mitigating networking challenges with working remotely
 
 This article describes how you can leverage Azure networking services that are available to enable working remotely and how to mitigate traffic issues resulting from increased number of people working from home due to the COVID-19 crisis.
 
@@ -29,7 +29,7 @@ Keeping in mind that different traffic types need different network treatment pr
 
 ## Azure is designed for elasticity and high-availability
 
-Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operate one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an enitre region. 
+Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operate one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an enitre region.
 
 Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that are destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
