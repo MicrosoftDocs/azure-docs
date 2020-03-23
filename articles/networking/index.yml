@@ -33,9 +33,9 @@ highlightedContent:
     - title: Private access to a SQL database server
       itemType: tutorial
       url: ../private-link/create-private-endpoint-portal.md
-    - title: What is virtual network NAT?
+    - title: Working remotely using Azure services
       itemType: concept
-      url: ../virtual-network/nat-overview.md
+      url: working-remotely-support.md
     
 
 
