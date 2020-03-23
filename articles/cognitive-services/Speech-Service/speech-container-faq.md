@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 03/23/2020
 ms.author: dapine
 ---
 
@@ -33,7 +33,7 @@ Furthermore, we pre-package executables for machines with the [advanced vector e
 
 ```console
 2020-01-16 16:46:54.981118943 
-[W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache] 
+[W:onnxruntime:Default, tvm_utils.cc:276 LoadTVMPackedFuncFromCache]
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
@@ -49,15 +49,15 @@ Finally, you can set the number of decoders you want inside a *single* container
 
 **Answer:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with two CPU cores, for a single recognition. We do not recommend keeping more than two concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.
 
-Though we could have each container instance running with more decoders. For example, we may be able to set up 10 decoders per container instance on an eight core machine, to handle 20x. (there's a param `DECODER_MAX_COUNT`). For the extreme case, reliability and latency issues arise, with throughput increased significantly. For a microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
+Though we could have each container instance running with more decoders. For example, we may be able to set up 7 decoders per container instance on an eight core machine (at at more than 2x each), yielding 15x throughput. There is a param `DECODER_MAX_COUNT` to be aware of. For the extreme case, reliability and latency issues arise, with throughput increased significantly. For a microphone, it will be at 1x real time. The overall usage should be at about one core for a single recognition.
 
 For scenario of processing 1 K hours/day in batch processing mode, in an extreme case, 3 VMs could handle it within 24 hours but not guaranteed. To handle spike days, failover, update, and to provide minimum backup/BCP, we recommend 4-5 machines instead of 3 per cluster, and with 2+ clusters.
 
 For hardware, we use standard Azure VM `DS13_v2` as a reference (each core must be 2.6 GHz or better, with AVX2 instruction set enabled).
 
-| Instance | vCPU(s) | RAM | Temp storage | Pay-as-you-go with AHB | 1-year reserve with AHB (% Savings) | 3-year reserved with AHB (% Savings) |
-|----------|---------|-----|--------------|------------------------|---|---|
-| `DS13 v2` | 8 | 56 GiB | 112 GiB | $0.598/hour | $0.3528/hour (~41%) | $0.2333/hour (~61%) |
+| Instance  | vCPU(s) | RAM    | Temp storage | Pay-as-you-go with AHB | 1-year reserve with AHB (% Savings) | 3-year reserved with AHB (% Savings) |
+|-----------|---------|--------|--------------|------------------------|-------------------------------------|--------------------------------------|
+| `DS13 v2` | 8       | 56 GiB | 112 GiB      | $0.598/hour            | $0.3528/hour (~41%)                 | $0.2333/hour (~61%)                  |
 
 Based on the design reference (two clusters of 5 VMs to handle 1 K hours/day audio batch processing), 1-year hardware cost will be:
 
@@ -286,12 +286,12 @@ Carbon fixed this at version 1.8.
 
 Could you help fill the following test metrics, including what functions to test, and how to test the SDK and REST APIs? Especially, differences in "interactive" and "conversation", which I did not see from existing doc/sample.
 
-| Endpoint | Functional test | SDK | REST API |
-|----------|-----------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1` | Synthesize Text (text-to-speech) | | Yes |
-| `/speech/recognition/dictation/cognitiveservices/v1` | Cognitive Services on-prem dictation v1 websocket endpoint | Yes | No |
-| `/speech/recognition/interactive/cognitiveservices/v1` | The Cognitive Services on-prem interactive v1 websocket endpoint | | |
-| `/speech/recognition/conversation/cognitiveservices/v1` | The cognitive services on-prem conversation v1 websocket endpoint | | |
+| Endpoint                                                | Functional test                                                   | SDK | REST API |
+|---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
+| `/speech/synthesize/cognitiveservices/v1`               | Synthesize Text (text-to-speech)                                  |     | Yes      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services on-prem dictation v1 websocket endpoint        | Yes | No       |
+| `/speech/recognition/interactive/cognitiveservices/v1`  | The Cognitive Services on-prem interactive v1 websocket endpoint  |     |          |
+| `/speech/recognition/conversation/cognitiveservices/v1` | The cognitive services on-prem conversation v1 websocket endpoint |     |          |
 
 **Answer:**
 This is a fusion of:
@@ -395,26 +395,26 @@ At real time, 8 with our latest `en-US`, so we recommend using more docker conta
 
 # [Speech-to-text](#tab/stt)
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
+| Container      | Minimum             | Recommended         |
+|----------------|---------------------|---------------------|
 | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 
 # [Custom Speech-to-text](#tab/cstt)
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
+| Container             | Minimum             | Recommended         |
+|-----------------------|---------------------|---------------------|
 | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
 
 # [Text-to-speech](#tab/tts)
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
+| Container      | Minimum             | Recommended         |
+|----------------|---------------------|---------------------|
 | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
 # [Custom Text-to-speech](#tab/ctts)
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
+| Container             | Minimum             | Recommended         |
+|-----------------------|---------------------|---------------------|
 | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
 ***
@@ -486,7 +486,7 @@ Content-Length: 0
 <b>When using the speech-to-text service, why am I getting this error?</b>
 </summary>
 
-```
+```cmd
 Error in STT call for file 9136835610040002161_413008000252496:
 {
     "reason": "ResultReason.Canceled",
@@ -519,7 +519,7 @@ Older containers don't have the required endpoint for Carbon to work with the `F
 const auto host = "http://localhost:5000";
 auto config = SpeechConfig::FromHost(host);
 config->SetSpeechSynthesisVoiceName(
-    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
+    "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)");
 auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
@@ -530,7 +530,7 @@ Below is an example of using the `FromEndpoint` API:
 const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
 auto config = SpeechConfig::FromEndpoint(endpoint);
 config->SetSpeechSynthesisVoiceName(
-    "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)");
+    "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)");
 auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
@@ -581,13 +581,13 @@ In C# to enable dictation, invoke the `SpeechConfig.EnableDictation()` function.
 ### `FromHost` APIs
 
 | Language | API details |
-|----------|:------------|
-| C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+|--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
+| C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-java-stable" target="_blank">`SpeechConfig.fromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithhost" target="_blank">`SPXSpeechConfiguration:initWithHost;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Not currently supported, nor is it planned. |
+| JavaScript | Not currently supported |
 
 > Parameters: host (mandatory), subscription key (optional, if you can use the service without it).
 
