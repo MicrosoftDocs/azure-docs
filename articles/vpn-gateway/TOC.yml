@@ -26,6 +26,8 @@
     href: vpn-gateway-bgp-overview.md
   - name: About highly available connections
     href: vpn-gateway-highlyavailable.md
+  - name: Point-to-Site VPN COVID-19 Update
+    href: vpn-gateway-working-remotely.md   
   - name: About Point-to-Site connections
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
@@ -150,6 +152,8 @@
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
+    - name: Move to OpenVPN protocol or IKEv2 from SSTP
+      href: moving-to-ikev2-or-openvpn-from-sstp.md        
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
