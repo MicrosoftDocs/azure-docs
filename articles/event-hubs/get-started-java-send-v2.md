@@ -20,7 +20,7 @@ This quickstart shows how to send events to and receive events from an event hub
 
 
 ## Prerequisites
-If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
+If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
 
@@ -33,7 +33,7 @@ This section shows you how to create a Java application to send events an event 
 
 ### Add reference to Azure Event Hubs library
 
-The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). You can reference this library using the following dependency declaration inside your Maven project file:
+The Java client library for Event Hubs is available in the [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-eventhubs). You can reference this library using the following dependency declaration inside your Maven project file:
 
 ```xml
 <dependency>
@@ -132,7 +132,7 @@ public class Sender {
 }
 ```
 
-Build the program, and ensure that there are no errors. You will run this program after you run the receiver program. 
+Build the program, and ensure that there are no errors. You'll run this program after you run the receiver program. 
 
 ## Receive events
 The code in this tutorial is based on the [EventProcessorClient sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java), which you can examine to see the full working application.
