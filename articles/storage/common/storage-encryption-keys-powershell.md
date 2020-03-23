@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 03/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -74,7 +74,25 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 By default, Azure Storage encryption uses Microsoft-managed keys. In this step, configure your Azure Storage account to use customer-managed keys and specify the key to associate with the storage account.
 
-Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+When you configure encryption with customer-managed keys, you can choose to automatically rotate the key version used for encryption when the version changes in the associated Azure key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
+
+### Configure encryption for auto-rotation of key versions
+
+To automatically rotate key versions, omit the key version when you configure customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+
+
+### Configure encryption for manual rotation of key versions
+
+To explicitly specify a key version to use for encryption, provide the key version when you configure encryption with customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -84,6 +102,8 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVersion $key.Version `
     -KeyVaultUri $keyVault.VaultUri
 ```
+
+
 
 ## Update the key version
 
