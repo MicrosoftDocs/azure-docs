@@ -21,7 +21,7 @@ When using Cassandra API or Azure Cosmos DB’s API for MongoDB, applications ge
 
 Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees.  Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB’s Cassandra API: 
 
-* The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. The consistency for write operation (CL) can't be changed on per request basis.
+* The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. Consistency for a write operation (CL) can't be changed on a per-request basis.
 
 * Azure Cosmos DB will dynamically map the read consistency level specified by the Cassandra client driver to one of the Azure Cosmos DB consistency levels configured dynamically on a read request. 
 
