@@ -19,7 +19,7 @@ manager: lizross
 >[!IMPORTANT]
 >As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
 >
->Until then, we highly recommend you [use Log Analytics](diagnostics-log-analytics.md) for continued monitoring.
+>Until then, we highly recommend you [use Log Analytics](../diagnostics-log-analytics-2019.md) for continued monitoring.
 
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
