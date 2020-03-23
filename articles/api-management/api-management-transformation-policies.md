@@ -73,7 +73,7 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 
 ### Usage
@@ -118,7 +118,7 @@ This topic provides a reference for the following API Management policies. For i
 |----------|-----------------|--------------|-------------|
 |kind|The attribute must be set to one of the following values.<br /><br /> -   javascript-friendly - the converted JSON has a form friendly to JavaScript developers.<br />-   direct - the converted JSON reflects the original XML document's structure.|Yes|N/A|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - convert always.<br />-   content-type-xml - convert only if response Content-Type header indicates presence of XML.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 
 ### Usage
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
