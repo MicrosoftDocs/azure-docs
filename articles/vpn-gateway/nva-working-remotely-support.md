@@ -38,11 +38,11 @@ All major NVA vendors in Azure Marketplace should have recommendations on the VM
 
 Each NVA solution has its own tools and resources for monitoring the performance of their NVA.  Consult your vendors documentation to make sure you understand the performance limitations and can detect when your NVA is near or reaching capacity.  In addition to this you can look at Azure Monitor Network Insights and see basic performance information about your Network Virtual Appliances such as:
 
-1. CPU Utilization
-2. Network In
-3. Network Out
-4. Inbound Flows
-5. Outbound Flows
+- CPU Utilization
+- Network In
+- Network Out
+- Inbound Flows
+- Outbound Flows
 
 ## Next Steps
 
