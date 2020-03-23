@@ -124,4 +124,4 @@ Follow these steps to clean up resources.
 ## Next steps
 
 - You've now created a workload group. Run a few queries as ELTLogin to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the workload group assigned.
-- For more information about SQL Analytics workload management, see [Workload Management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md) and [Workload Isolation](../../sql-data-warehouse/sql-data-warehouse-workload-isolation.md).
+- For more information about SQL Analytics workload management, see [Workload Management](sql-data-warehouse-workload-management.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).

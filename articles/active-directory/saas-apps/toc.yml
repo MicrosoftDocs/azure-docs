@@ -485,6 +485,8 @@
         href: envoy-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
+      - name: Elqano SSO
+        href: elqano-sso-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -996,6 +998,8 @@
         href: netskope-user-authentication-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
+      - name: Netvision Compas
+        href: netvision-compas-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
       - name: New Relic (Limited Release)
@@ -1064,6 +1068,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palo Alto Networks - Admin UI
+        href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture
         href: paloaltonetworks-aperture-tutorial.md
       - name: Palo Alto Networks - Captive Portal
