@@ -6,6 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
@@ -110,19 +111,19 @@ Paste the following code sample in the `OnBeforeResponse` function, replacing `S
 Once complete, select **File** and **Save** to save your changes. Leave the ScriptEditor window open for use in the following steps.
 
 ```javascript
-	/*
-		// Simulate data center failure
-		// After it is successfully downloading the blob, pause the code in the sample,
-		// uncomment these lines of script, and save the script.
-		// It will intercept the (probably successful) responses and send back a 503 error.
-		// When you're ready to stop sending back errors, comment these lines of script out again
-		//     and save the changes.
+    /*
+        // Simulate data center failure
+        // After it is successfully downloading the blob, pause the code in the sample,
+        // uncomment these lines of script, and save the script.
+        // It will intercept the (probably successful) responses and send back a 503 error.
+        // When you're ready to stop sending back errors, comment these lines of script out again
+        //     and save the changes.
 
-		if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
-	        && (oSession.PathAndQuery.Contains("HelloWorld"))) {
-		    oSession.responseCode = 503;
-		}
-	*/
+        if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.windows.net")
+            && (oSession.PathAndQuery.Contains("HelloWorld"))) {
+            oSession.responseCode = 503;
+        }
+    */
 ```
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)

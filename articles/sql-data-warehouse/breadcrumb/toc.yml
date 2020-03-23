@@ -35,5 +35,5 @@
   topicHref: /azure/index
   items:
   - name: Synapse Analytics
-    tocHref: azure/synapse-analytics/sql-data-warehouse/
+    tocHref: /azure/synapse-analytics/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/index

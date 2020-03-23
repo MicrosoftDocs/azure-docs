@@ -221,8 +221,8 @@ The following example creates a resource group, and deploys a storage account to
               "location": "[parameters('rgLocation')]",
               "sku": {
                 "name": "Standard_LRS"
-              }
-              "kind": "StorageV2",
+              },
+              "kind": "StorageV2"
             }
           ],
           "outputs": {}

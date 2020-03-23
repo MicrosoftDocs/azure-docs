@@ -60,7 +60,7 @@ Follow these steps to create your App Service and publish your web app:
 
 1. In the **Pick a publish target** dialog box, choose **App Service**, select **Create New**, and then select **Create Profile**.
 
-   ![Pick a publish target](./media/app-service-web-get-started-dotnet/pick-a-publish-target-vs2019.png)
+   ![Pick a publish target](./media/app-service-web-get-started-dotnet/pick-publish-target-vs2019.png)
 
 1. In the **App Service: Create new** dialog, provide a globally unique **Name** for your app by either accepting the default name, or entering a new name. Valid characters are: `a-z`, `A-Z`, `0-9`, and `-`. This **Name** is used as the URL prefix for your web app in the format `http://<app_name>.azurewebsites.net`.
 

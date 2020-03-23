@@ -10,8 +10,7 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # T-SQL statements supported in SQL Analytics
