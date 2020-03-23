@@ -21,7 +21,7 @@
 - name: Concepts
   items:
   - name: Working remotely
-    href: working-remotely-support.md
+    href: work-remotely-support.md
   - name: Locations and partners
     items:
     - name: Hub locations and partners
