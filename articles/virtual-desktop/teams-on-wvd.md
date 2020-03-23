@@ -35,20 +35,20 @@ To install Microsoft Teams in your Windows Virtual Desktop environment:
 1. Download the [Teams MSI package](https://docs.microsoft.com/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 2. Run this command to install the MSI to the host VM.
 
-  ```shell
-  msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
-  ```
+      ```shell
+      msiexec /i <msi_name> /l*v < install_logfile_name> ALLUSER=1
+      ```
 
-  This will install Teams to either Program Files or Program Files (x86). The next time you sign in and start Teams, the  app will ask for your credentials.
+      This will install Teams to either Program Files or Program Files (x86). The next time you sign in and start Teams, the app will ask for your credentials.
 
-  > [!NOTE]
-  > Users and admins can't disable automatic launch for Teams during sign-in at this time.
+      > [!NOTE]
+      > Users and admins can't disable automatic launch for Teams during sign-in at this time.
 
-  To uninstall the MSI from the host VM, run this command:
+      To uninstall the MSI from the host VM, run this command:
 
-  ```shell
-  msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
-  ```
+      ```shell
+      msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
+      ```
 
-  > [!NOTE]
-  > If you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month.
+      > [!NOTE]
+      > If you install Teams with the MSI setting ALLUSER=1, automatic updates will be disabled. We recommend you make sure to update Teams at least once a month.
