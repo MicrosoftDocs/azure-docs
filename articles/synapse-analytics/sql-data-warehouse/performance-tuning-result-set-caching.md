@@ -82,4 +82,4 @@ Users can manually empty the entire result set cache by using one of these optio
 Pausing a database won't empty cached result set.  
 
 ## Next steps
-For more development tips, see [development overview](../../sql-data-warehouse/sql-data-warehouse-overview-develop.md). 
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md). 

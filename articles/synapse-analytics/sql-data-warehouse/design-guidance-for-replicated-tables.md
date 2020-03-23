@@ -19,7 +19,7 @@ This article gives recommendations for designing replicated tables in your SQL A
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see the [architecture](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md) article. 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Analytics.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -180,7 +180,7 @@ To create a replicated table, use one of these statements:
 - [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
 - [CREATE TABLE AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
-For an overview of distributed tables, see [distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
 
 
 
