@@ -22,7 +22,7 @@ The v2 SKU offers autoscaling to ensure that your Application Gateway can scale 
 Assuming you have an Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed. This allows it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use.  
 
 ## Set your minimum instance count based on your average CU usage 
-Assuming you have an Application Gateway v2 SKU, autoscaling will take 6-7 minutes to scale out, and by having a higher minimum instance count, the Application Gateway will be better able to handle your traffic when load is increased, as every spike in traffic won't require an autoscaling operation.  
+Assuming you have an Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out. With a higher minimum instance count, the Application Gateway can better handle your traffic when the load is increased, because a spike in traffic doesn't require an autoscaling operation.  
 
 ## Alert if a certain metric surpasses 75% of average CU utilization 
 See the [Application Gateway Metrics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) for a detailed explanation of our metrics and other walkthroughs. 
