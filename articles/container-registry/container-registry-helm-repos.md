@@ -284,7 +284,7 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 With **Helm 2** you:
 
 * Configure your Azure container registry as a *single* Helm chart repository. Azure Container Registry manages the index definition as you add and remove charts to the repository.
-* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command histor
+* Authenticate with your Azure container registry via the Azure CLI, which then updates your Helm client automatically with the registry URI and credentials. You don't need to manually specify this registry information, so the credentials aren't exposed in the command history.
 * Use the [az acr helm][az-acr-helm] commands in the Azure CLI to add your Azure container registry as a Helm chart repository, and to push and manage charts. These Azure CLI commands wrap Helm 2 client commands.
 * Add the chart repository in your Azure container registry to your local Helm repo index, supporting chart search.
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
