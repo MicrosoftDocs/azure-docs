@@ -18,17 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. With RESTful service integration, you can:
-
-- **Validate user input data** - Prevents malformed data from persisting into Azure AD B2C. If the value from the user is not valid, your RESTful service returns an error message that instructs the user to provide an entry. For example, you can verify that the email address provided by the user exists in your customer's database.
-- **Overwrite input claims** - Enables you to reformat values in input claims. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized.
-- **Enrich user data** - Enables you to further integrate with corporate line-of-business applications. For example, your RESTful service can receive the user's email address, query the customer's database, and return the user's loyalty number to Azure AD B2C. The return claims can be stored, evaluated in the next Orchestration Steps, or included in the access token.
-- **Run custom business logic** - Enables you to send push notifications, update corporate databases, run a user migration process, manage permissions, audit databases, and perform other actions.
-
-Your policy may send input claims to your REST API. The REST API may also return output claims that you can use later in your policy, or it can throw an error message. You can design the integration with the RESTful services in the following ways:
-
-- **Validation technical profile** - A validation technical profile calls the RESTful service. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message is display on a self-asserted page and returned in output claims.
-- **Claims exchange** - A call is made to the RESTful service through an orchestration step. In this scenario, there is no user-interface to render the error message. If your REST API returns an error, the user is redirected back to the relying party application with the error message.
+Azure Active Directory B2C (Azure AD B2C) provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in an input claims collection and receives data back in an output claims collection. 
 
 ## Protocol
 
@@ -129,6 +119,7 @@ The technical profile also returns claims, that aren't returned by the identity 
 | DebugMode | No | Runs the technical profile in debug mode. Possible values: `true`, or `false` (default). In debug mode, the REST API can return more information. See the [Returning error message](#returning-error-message) section. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 | ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+| UseClaimAsBearerToken| No| The name of the claim that contains the Bearer token.|
 
 ## Cryptographic keys
 

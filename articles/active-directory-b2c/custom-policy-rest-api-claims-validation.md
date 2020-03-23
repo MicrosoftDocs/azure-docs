@@ -110,7 +110,7 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="REST-ValidateProfile">
-      <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
+      <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
@@ -253,7 +253,7 @@ To return the promo code claim back to the relying party application, add an out
   "iat": 1584292103,
   "auth_time": 1584292103,
   "name": "Emily Smith",
-  "email": "joe@outlook.com",
+  "email": "emitly@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
   "promoCode": "84362"
@@ -267,6 +267,5 @@ To return the promo code claim back to the relying party application, add an out
 To learn how to secure your APIs, see the following articles:
 
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
-- [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
-- [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Secure your RESTful API](secure-rest-api.md.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
