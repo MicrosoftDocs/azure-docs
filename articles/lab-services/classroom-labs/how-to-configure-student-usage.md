@@ -43,7 +43,7 @@ In this section, you add students to a lab manually or by uploading a CSV file. 
     ![Users list](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
-    > The list displays the students' names after they're registered with the lab. The name that's shown in the list is constructed by using the first and last names of the students in Azure Active Directory. 
+    > After the students are registered with the lab, the list displays their names. The name that's shown in the list is constructed by using the first and last names of the students in Azure Active Directory. 
 
 ### Add users by uploading a CSV file
 
@@ -90,8 +90,6 @@ This method shows you how to send email with a registration link and an optional
     ![The "Send registration link by email" window](../media/tutorial-setup-classroom-lab/send-email.png)
 
     The **Invitation** column of the **Users** list displays the invitation status for each added user. The status should change to *Sending** and then to *Sent on \<date>*. 
-
-    For more information about adding students to a class and managing their lab usage, see [Configure student usage](how-to-configure-student-usage.md).
 
 ### Invite selected users
 
