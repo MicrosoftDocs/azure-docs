@@ -26,8 +26,6 @@
     href: vpn-gateway-bgp-overview.md
   - name: About highly available connections
     href: vpn-gateway-highlyavailable.md
-  - name: Point-to-Site VPN COVID-19 Update
-    href: vpn-gateway-working-remotely.md   
   - name: About Point-to-Site connections
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
