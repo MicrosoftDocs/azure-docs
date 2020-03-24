@@ -65,13 +65,11 @@ To create the network security group:
     | Name | AllowAzureDataExplorerManagement
     | | |
     
-1. Repeat the previous two steps for all inbound and outbound dependencies according to [dependencies for VNet deployment](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment)
+1. Repeat the previous two steps for all inbound and outbound dependencies according to [dependencies for VNet deployment](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment). Alternatively, outbound rules can be replaced with single rule to allow *Internet* for ports 443 and 80.
     
     The NSG rules for inbound and outbound dependencies should look like this:
 
     ![NSG rules](media/vnet-create-cluster-portal/nsg-rules.png)
-
-    Alternatively, outbound rules can be replaced with single rule to allow *Internet* for ports 443 and 80.
 
 ## Create public IP addresses
 
@@ -97,8 +95,8 @@ To create the query (Engine) public IP addresses:
 1. Select **Create** to create the public IP address.
 
 1. To create the ingestion (Data Management) public IP address follow the same instructions and select 
-    * **Sku**: **Basic** 
-    * **IP address assignment**: **Static**
+    * **Sku**: Basic
+    * **IP address assignment**: Static
 
 ## Create Virtual Network and subnet
 
@@ -129,7 +127,10 @@ To create the virtual network and subnet:
     
     ![Subnets blade](media/vnet-create-cluster-portal/subnets.png)
 
-1. In your **default** subnet window, select **Network Security Group** and then select your network security group name, in this case **AzureDataExplorerNsg**. Select **Save**.
+1. In your **default** subnet window:
+    1. Select your **Network Security Group** from the drop-down menu. 
+    1. Select your network security group name, in this case **AzureDataExplorerNsg**. 
+    1. **Save**
 
     ![Configure subnet](media/vnet-create-cluster-portal/subnet-nsg.png)
 
