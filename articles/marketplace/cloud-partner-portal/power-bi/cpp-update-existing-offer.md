@@ -1,13 +1,12 @@
 ---
 title: Update a Power BI App offer | Azure Marketplace 
 description: Update a Power BI App offer after it has been published on the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Update a Power BI App offer
