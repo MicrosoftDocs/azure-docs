@@ -8,7 +8,7 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-monikerRange: 'vsts'
+monikerRange: 'azure-devops'
 ---
 
 # Deploy Node.js apps powered by Azure Cosmos DB with DevOps Starter
