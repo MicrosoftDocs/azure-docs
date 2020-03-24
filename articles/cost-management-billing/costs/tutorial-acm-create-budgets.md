@@ -22,7 +22,7 @@ The examples in this tutorial walk you through creating and editing a budget for
 
 Watch the [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) video to see how you can create budgets in Azure to monitor spending.
 
->[!VIDEO https://www.youtube.com/embed/watch?v=UrkHiUx19Po]
+>[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
 In this tutorial, you learn how to:
 

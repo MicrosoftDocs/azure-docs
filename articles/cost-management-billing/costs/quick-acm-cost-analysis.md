@@ -174,7 +174,7 @@ Save and share customized views with others by pinning cost analysis to the Azur
 
 Watch the video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) to learn more about how to use the portal to share cost knowledge around your organization.
 
->[!VIDEO https://www.youtube.com/embed/watch?v=kQkXXj-SmvQ]
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
 To pin cost analysis, select the pin icon in the upper-right corner. Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Note that this shares only the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
 

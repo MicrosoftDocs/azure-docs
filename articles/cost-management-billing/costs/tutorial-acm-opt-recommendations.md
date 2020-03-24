@@ -16,7 +16,7 @@ Azure Cost Management works with Azure Advisor to provide cost optimization reco
 
 Watch the video [Optimizing cloud investments in Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) to learn more about using Advisor to optimize your costs.
 
->[!VIDEO https://www.youtube.com/embed/watch?v=cSNPoAb-TNc]
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 In this tutorial, you learn how to:
 

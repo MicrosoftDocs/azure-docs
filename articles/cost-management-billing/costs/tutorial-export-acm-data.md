@@ -16,7 +16,7 @@ If you read the Cost Analysis tutorial, then you're familiar with manually downl
 
 Watch the [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video about creating a scheduled export of your Azure cost data to Azure Storage.
 
->[!VIDEO https://www.youtube.com/embed/watch?v=rWa_xI1aRzo]
+>[!VIDEO https://www.youtube.com/embed/rWa_xI1aRzo]
 
 The examples in this tutorial walk you though exporting your cost management data and then verify that the data was successfully exported.
 
