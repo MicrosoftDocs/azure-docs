@@ -22,7 +22,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ## March 2020 
 
-### Extraction Enhancements and bug fixes
+### Extraction enhancements
 
 This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. 
  
