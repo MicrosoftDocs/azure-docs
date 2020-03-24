@@ -7,7 +7,7 @@ ms.date: 02/11/2020
 ms.topic: article
 ---
 
-# The session management REST API
+# Use the session management REST API
 
 To use Azure Remote Rendering functionality, you need to create a *session*. Each session corresponds to a virtual machine (VM) being allocated in Azure and waiting for a client device to connect. When a device connects, the VM renders the requested data and serves the result as a video stream. During session creation, you chose which kind of server you want to run on, which determines pricing. Once the session is not needed anymore, it should be stopped. If not stopped manually, it will be shut down automatically when the session's *lease time* expires.
 

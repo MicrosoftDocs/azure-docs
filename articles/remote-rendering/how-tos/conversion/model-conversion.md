@@ -7,7 +7,7 @@ ms.date: 02/04/2020
 ms.topic: how-to
 ---
 
-# Model conversion
+# Convert models
 
 Azure Remote Rendering allows you to render very complex models. To achieve maximum performance, the data must be preprocessed to be in an optimal format. Depending on the amount of data, this step might take a while. It would be impractical, if this time was spent during model loading. Also, it would be wasteful to repeat this process for multiple sessions. 
 For these reasons, ARR service provides a dedicated *conversion service*, which you can run ahead of time.

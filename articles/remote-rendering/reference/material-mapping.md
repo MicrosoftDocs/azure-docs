@@ -7,9 +7,11 @@ ms.date: 02/11/2020
 ms.topic: how-to
 ---
 
-# Material conversion
+# Material mapping for model formats
 
-When a source asset is [converted as a model](model-conversion.md), the converter creates [materials](../../concepts/materials.md) for each [mesh](../../concepts/meshes.md).  The way materials are created can be [overridden](override-materials.md). However by default the conversion will create [PBR materials](../../overview/features/pbr-materials.md). Since every source file format, like FBX, uses its own conventions to define materials, those conventions must be mapped to the PBR material parameters of Azure Remote Rendering. This article lists the exact mappings used to convert materials from source assets to runtime materials.
+When a source asset is [converted as a model](../how-tos/conversion/model-conversion.md), the converter creates [materials](../concepts/materials.md) for each [mesh](../concepts/meshes.md). The way materials are created can be [overridden](../how-tos/conversion/override-materials.md). However by default the conversion will create [PBR materials](../overview/features/pbr-materials.md). Since every source file format, like FBX, uses its own conventions to define materials, those conventions must be mapped to the PBR material parameters of Azure Remote Rendering. 
+
+This article lists the exact mappings used to convert materials from source assets to runtime materials.
 
 ## glTF
 

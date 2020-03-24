@@ -7,7 +7,7 @@ ms.date: 02/04/2020
 ms.topic: how-to
 ---
 
-# The model conversion REST API
+# Use the model conversion REST API
 
 The [model conversion](model-conversion.md) service is controlled through a [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer). This article describes the conversion service API details.
 
@@ -51,20 +51,20 @@ Returns the ID of the ongoing conversion, wrapped in a JSON document. The field 
 
 ```json
 {
-	"input":
-	{
-		"storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-		"blobContainerName": "<the name of the blob container containing your input asset data>",
-		"folderPath": "<optional: can be omitted or empty - a subpath in the input blob container>",
-		"inputAssetPath" : "<path to the model in the input blob container relative to the folderPath (or container root if no folderPath is specified)>"
-	},
-	"output":
-	{
-		"storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-		"blobContainerName": "<the name of the blob container where the converted asset will be copied to>",
-		"folderPath": "<optional: can be omitted or empty - a subpath in the output blob container. Will contain the asset and log files>",
-		"outputAssetFileName": "<optional: can be omitted or empty. The filename of the converted asset. If provided the filename needs to end in .arrAsset>"
-	}
+    "input":
+    {
+        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
+        "blobContainerName": "<the name of the blob container containing your input asset data>",
+        "folderPath": "<optional: can be omitted or empty - a subpath in the input blob container>",
+        "inputAssetPath" : "<path to the model in the input blob container relative to the folderPath (or container root if no folderPath is specified)>"
+    },
+    "output":
+    {
+        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
+        "blobContainerName": "<the name of the blob container where the converted asset will be copied to>",
+        "folderPath": "<optional: can be omitted or empty - a subpath in the output blob container. Will contain the asset and log files>",
+        "outputAssetFileName": "<optional: can be omitted or empty. The filename of the converted asset. If provided the filename needs to end in .arrAsset>"
+    }
 }
 ```
 ### Start conversion using provided shared access signatures
@@ -87,22 +87,22 @@ These tokens provide access to the storage account for reading the input and wri
 
 ```json
 {
-	"input":
-	{
-		"storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-		"blobContainerName": "<the name of the blob container containing your input asset data>",
-		"folderPath": "<optional: can be omitted or empty - a subpath in the input blob container>",
-		"inputAssetPath" : "<path to the model in the input blob container relative to the folderPath (or container root if no folderPath is specified)>",
-		"containerReadListSas" : "<a container SAS token which gives read and list access to the given input blob container>"
-	},
-	"output":
-	{
-		"storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
-		"blobContainerName": "<the name of the blob container where the converted asset will be copied to>",
-		"folderPath": "<optional: can be omitted or empty - a subpath in the output blob container. Will contain the asset and log files>",
-		"outputAssetFileName": "<optional: can be omitted or empty. The filename of the converted asset. If provided the filename needs to end in .arrAsset>",
-		"containerWriteSas" : "<a container SAS token which gives write access to the given output blob container>"
-	}
+    "input":
+    {
+        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
+        "blobContainerName": "<the name of the blob container containing your input asset data>",
+        "folderPath": "<optional: can be omitted or empty - a subpath in the input blob container>",
+        "inputAssetPath" : "<path to the model in the input blob container relative to the folderPath (or container root if no folderPath is specified)>",
+        "containerReadListSas" : "<a container SAS token which gives read and list access to the given input blob container>"
+    },
+    "output":
+    {
+        "storageAccountname": "<the name of a connected storage account - this does not include the domain suffix (.blob.core.windows.net)>",
+        "blobContainerName": "<the name of the blob container where the converted asset will be copied to>",
+        "folderPath": "<optional: can be omitted or empty - a subpath in the output blob container. Will contain the asset and log files>",
+        "outputAssetFileName": "<optional: can be omitted or empty. The filename of the converted asset. If provided the filename needs to end in .arrAsset>",
+        "containerWriteSas" : "<a container SAS token which gives write access to the given output blob container>"
+    }
 }
 ```
 

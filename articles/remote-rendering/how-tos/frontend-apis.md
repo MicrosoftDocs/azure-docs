@@ -7,7 +7,7 @@ ms.date: 02/12/2010
 ms.topic: how-to
 ---
 
-# Azure Frontend APIs for authentication
+# Use the Azure Frontend APIs for authentication
 
 In this section, we will describe how to use the C# API for authentication.
 

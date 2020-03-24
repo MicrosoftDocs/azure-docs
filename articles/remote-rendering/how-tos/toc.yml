@@ -2,11 +2,11 @@
   href: create-an-account.md
 - name: Get service access tokens
   href: tokens.md
-- name: Authentication
+- name: Configure authentication
   href: authentication.md
-- name: Azure Frontend APIs for authentication
+- name: Use the Azure Frontend APIs for authentication
   href: frontend-apis.md
-- name: The session management REST API
+- name: Use the session management REST API
   href: session-rest-api.md
 - name: Convert models
   href: conversion/toc.yml
