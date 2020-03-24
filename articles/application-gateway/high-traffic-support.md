@@ -1,33 +1,36 @@
 ---
-title: Application Gateway COVID-19 guidelines
-description: This article provides an update given the current COVID-19 situation and guidelines on how to set up your Application Gateway. 
+title: Application Gateway high traffic volume support
+description: This article provides guidance to configure Azure Application Gateway in support of high network traffic volume scenarios. 
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/21/2020
+ms.date: 03/24/2020
 ms.author: caya
 ---
 
-# Application Gateway COVID-19 guidelines 
+# Application Gateway high traffic support 
 
-This article describes a few suggested guidelines to help you set up your Application Gateway to handle extra traffic due to the COVID-19 pandemic. You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. 
+This article describes a few suggested guidelines to help you set up your Application Gateway to handle extra traffic due to high traffic volume scenarios, such as the COVID-19 situation. You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. 
 
-The following suggestions help you set up Application Gateway with WAF to handle extra traffic . 
+The following suggestions help you set up Application Gateway with WAF to handle extra traffic. 
 
 ## Use the v2 SKU over v1 for its autoscaling capabilities and performance benefits
 The v2 SKU offers autoscaling to ensure that your Application Gateway can scale up as traffic increases. It also offers other significant performance benefits, such as 5x better SSL offload performance, quicker deployment and update times, zone redundancy, and more when compared to v1. For more information, see our [v2 documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 
 
-## Set maximum instance count to the maximum possible (125) 
+## Set maximum instance count to the maximum possible (125)
+ 
 Assuming you have an Application Gateway v2 SKU, setting the maximum instance count to the maximum possible value of 125 allows the Application Gateway to scale out as needed. This allows it to handle the possible increase in traffic to your applications. You will only be charged for the Capacity Units (CUs) you use.  
 
-## Set your minimum instance count based on your average CU usage 
+## Set your minimum instance count based on your average CU usage
+
 Assuming you have an Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out. With a higher minimum instance count, the Application Gateway can better handle your traffic when the load is increased, because a spike in traffic doesn't require an autoscaling operation.  
 
 ## Alert if a certain metric surpasses 75% of average CU utilization 
 See the [Application Gateway Metrics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-visualization) for a detailed explanation of our metrics and other walkthroughs. 
 
 ### Example: Setting up an alert on 75% of average CU usage
+
 This example shows you how to use the Azure portal to set up an alert when 75% of average CU usage is reached. 
 1. Navigate to your **Application Gateway**.
 2. On the left panel, select **Metrics** under the **Monitoring** tab. 
@@ -45,6 +48,7 @@ If you want an extra layer of security in front of your application, use the App
 Enable bot protection to block known bad bots. This should reduce the amount of traffic getting to your application. For more information, see [bot protection with set up instructions](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 
 ## Turn on diagnostics on Application Gateway and WAF
+
 Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways. For more information, see our [diagnostics documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging). 
 
 ## Set up an SSL policy for extra security
