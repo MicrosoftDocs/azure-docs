@@ -45687,7 +45687,12 @@
     },
     {
       "source_path": "articles/synapse-analytics/index.yml",
-      "redirect_url": "/azure/sql-data-warehouse/",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/index.yml",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/",
       "redirect_document_id": false
     },
     {
@@ -47334,6 +47339,11 @@
       "source_path": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
       "redirect_url": "/azure/active-directory/authentication/tutorial-configure-custom-password-protection",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/security/fundamentals/ad-passwordless.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
