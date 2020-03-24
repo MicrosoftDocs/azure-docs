@@ -10,9 +10,9 @@ ms.author: jgao
 
 ---
 
-# Quickstart: Create Azure Resource Manager templates by using Visual Studio Code
+# Quickstart: Create ARM templates by using Visual Studio Code
 
-Learn how to use Visual Studio code and the Azure Resource Manager Tools extension to create and edit Azure Resource Manager templates. You can create Resource Manager templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to use Visual Studio code and the Azure Resource Manager Tools extension to create and edit Azure Resource Manager (ARM) templates. You can create ARM templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 In this quickstart, you deploy a storage account:
 
@@ -34,7 +34,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates.
+Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for ARM templates.
 
 The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
