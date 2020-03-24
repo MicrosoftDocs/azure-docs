@@ -197,7 +197,7 @@ The number of nodes and VM size are set using defined constants. Batch supports 
 >[Note]
 >Be sure you check your node quotas. See [Batch service quotas and limits](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) for instructions on how to create a quota request."
 
-The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool configuration.
+The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool configuration. To ensure [application activation](https://docs.microsoft.com/cli/azure/batch/application/package?view=azure-cli-latest#az-batch-application-package-activate).
 
 The [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) method submits the pool to the Batch service.
 
