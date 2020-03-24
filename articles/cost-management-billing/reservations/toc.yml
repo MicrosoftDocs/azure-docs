@@ -44,12 +44,12 @@
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: View, Manage and Optimize after purchase
     items:
+    - name: View reservations and utilization
+      href: view-reservations.md
     - name: Manage reservations
       href: manage-reserved-vm-instance.md
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-    - name: View reservations
-      href: view-reservations.md
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
   - name: Renew reservations
