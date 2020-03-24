@@ -144,28 +144,28 @@ Some examples include:
 
 1.    Classification experiment using AUC weighted as the primary metric with experiment timeout minutes set to 30 minutes and 2 cross-validation folds.
 
-    ```python
+```python
     automl_classifier=AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        blacklist_models=['XGBoostClassifier'],
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=2)
-    ```
+    task='classification',
+    primary_metric='AUC_weighted',
+    experiment_timeout_minutes=30,
+    blacklist_models=['XGBoostClassifier'],
+    training_data=train_data,
+    label_column_name=label,
+    n_cross_validations=2)
+```
 2.    Below is an example of a regression experiment set to end after 60 minutes with five validation cross folds.
 
-    ```python
+```python
     automl_regressor = AutoMLConfig(
-        task='regression',
-        experiment_timeout_minutes=60,
-        whitelist_models=['kNN regressor'],
-        primary_metric='r2_score',
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=5)
-    ```
+    task='regression',
+    experiment_timeout_minutes=60,
+    whitelist_models=['kNN regressor'],
+    primary_metric='r2_score',
+    training_data=train_data,
+    label_column_name=label,
+    n_cross_validations=5)
+```
 
 The three different `task` parameter values (the third task-type is `forecasting`, and uses a similar algorithm pool as `regression` tasks) determine the list of models to apply. Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) for ([Classification](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [Forecasting](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting), and [Regression](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
