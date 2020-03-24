@@ -16,7 +16,7 @@ In this article, you'll learn how to configure a virtual machine scale set with 
 
 - An Azure subscription.
 - An existing Azure Load Balancer in the subscription where the virtual machine scale set will be deployed.
-- An Azure Virtual Network where the Azure Load Balancer is.
+- An Azure Virtual Network for the virtual machine scale set.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -65,7 +65,7 @@ az vmss create \
     --name myVMSS \
     --image Canonical:UbuntuServer:18.04-LTS:latest \
     --admin-username adminuser \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --generate-ssh-keys \
     --upgrade-policy-mode Automatic \
     --instance-count 3 \
     --vnet-name myVnet\
