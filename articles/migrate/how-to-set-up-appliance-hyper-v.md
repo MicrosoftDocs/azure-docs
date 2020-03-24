@@ -2,7 +2,7 @@
 title: Set up an Azure Migrate appliance for Hyper-V
 description: Learn how to set up an Azure Migrate appliance to assess and migrate Hyper-V VMs.
 ms.topic: article
-ms.date: 03/23/2023
+ms.date: 03/23/2020
 ---
 
 
