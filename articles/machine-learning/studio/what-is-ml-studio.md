@@ -23,8 +23,6 @@ Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-d
 
 Machine Learning Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
 
-To learn more about the differences between Machine Learning Studio (classic) and Azure Machine Learning see [Azure Machine Learning vs Machine Learning Studio (classic)](../compare-azure-ml-to-studio-classic.md)
-
 ## The Machine Learning Studio (classic)  interactive workspace
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
