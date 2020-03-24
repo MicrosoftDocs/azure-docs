@@ -162,7 +162,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
 
 ## Add the technical profiles as orchestration steps
 
-Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a sign-in/sign-up request has been received:
+Call `AppInsights-SignInRequest` as orchestration step 2 to track that a sign-in/sign-up request has been received:
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -173,7 +173,7 @@ Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a sign
 </OrchestrationStep>
 ```
 
-Immediately *before* the `SendClaims` orchestration step, add a new step that calls `Azure-Insights-UserSignup`. It's triggered when the user selects the sign-up button in a sign-up/sign-in journey.
+Immediately *before* the `SendClaims` orchestration step, add a new step that calls `AppInsights-UserSignup`. It's triggered when the user selects the sign-up button in a sign-up/sign-in journey.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -195,7 +195,7 @@ Immediately *before* the `SendClaims` orchestration step, add a new step that ca
 </OrchestrationStep>
 ```
 
-Immediately after the `SendClaims` orchestration step, call `Azure-Insights-SignInComplete`. This step shows a successfully completed journey.
+Immediately after the `SendClaims` orchestration step, call `AppInsights-SignInComplete`. This step shows a successfully completed journey.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
