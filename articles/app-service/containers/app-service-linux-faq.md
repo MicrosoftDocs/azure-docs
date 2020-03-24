@@ -71,7 +71,7 @@ Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false
 
 If Git deployment fails to your Linux web app, choose one of the following options to deploy your application code:
 
-- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in an Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Use the Continuous Delivery (Preview) feature: You can store your app's source code in an Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) and go to the folder where you want to deploy your code. Run the following code:
 
@@ -172,7 +172,7 @@ Here are the rules for determining which container is accessible - in the order 
 
 **What is the pricing, now that the service is generally available?**
 
-You are charged the normal Azure App Service pricing for the number of hours that your app runs.
+Pricing varies by SKU and region but you can see more details at our pricing page: [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ## Other questions
 
