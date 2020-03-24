@@ -1,7 +1,7 @@
 ---
 title: Managed Identity based authentication and authorization with Azure Cosmos DB and Azure Active Directory
 description: Learn how to configure an Azure AD identity  to access keys from Azure Cosmos DB.
-author: justipat
+author: j-patrick
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/20/2020
@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # Managed Identity based authentication and authorization with Azure Cosmos DB and Azure Active Directory
 
-In this article we'll setup a **robust, key rotation agnostic,** solution for Cosmos DB key management by leveraging [Managed Service Identities](/articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Though we're using an Azure Function for this example, this solution can be used with any service that [supports managed service identities](/articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md). 
+In this article we'll setup a **robust, key rotation agnostic,** solution for Cosmos DB key management by leveraging [Managed Service Identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Though we're using an Azure Function for this example, this solution can be used with any service that [supports managed service identities](../articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md). 
 
 You'll learn how to:
 
@@ -34,7 +34,7 @@ In this step, you'll assign a managed system identity to your Azure Function.
 1. On the **Identity tab** switch **System Identity** to the "On" position. Be sure to click **Save**, and confirm you want to turn on System Identity. In the end the **System Identity** pane should look like this:  
 ![Managed System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
-## Grant the System Identity Access to your Cosmos DB. 
+## Grant the System Identity Access to your Cosmos DB 
 
 In this step, you'll assign a role to the Azure Function's System Identity. Cosmos DB has multiple built-in roles you can assign the System Identity too. For this exercise we'll just focus on two:
 
@@ -47,7 +47,7 @@ In this step, you'll assign a role to the Azure Function's System Identity. Cosm
 > RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
 
 > [!TIP] 
-> When assigning roles, only assign the needed access. So if your service only need to read, then only assign the Service Identity to **Cosmos DB Account Reader**. For more information about the importance of **least privilege access,** see [lower exposure of privileged accounts](/azure/security/fundamentals/identity-management-best-practices#lower-exposure-of-privileged-accounts).
+> When assigning roles, only assign the needed access. So if your service only need to read, then only assign the Service Identity to **Cosmos DB Account Reader**. For more information about the importance of **least privilege access,** see [lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts).
 
 For our scenario, we'll read the sale receipt documents, summarize them, and then write back that summary to Cosmos DB. Since we need write access, we'll use the **DocumentDB Account Contributor** role. 
 
@@ -71,7 +71,7 @@ For our scenario, we'll read the sale receipt documents, summarize them, and the
 
 Now we have a function app that has a system managed identity. That identity is given the **DocumentDB Account Contributor** role in the Cosmos DB permissions. The **Function App** code below will get the needed Cosmos DB Keys, create a CosmosClient, and run the summarization business logic.
 
-We'll be using to get the Cosmos DB Keys is the [List Keys API](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys).
+We'll be using to get the Cosmos DB Keys is the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys).
 
 
 The api returns DatabaseAccountListKeysResult. This type isn't defined in the C# libraries. The code below is an implementation for this class. Add it to the solution: 
@@ -88,7 +88,7 @@ namespace SummarizationService
 }
 ```
 
-The library we'll use to get our Service Managed token is [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication). You can find other ways to get the token and more information about the Microsoft.Azure.Service.AppAuthentication library by reading up on  [Service To Service Authentication](https://docs.microsoft.com/en-us/azure/key-vault/service-to-service-authentication).
+The library we'll use to get our Service Managed token is [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication). You can find other ways to get the token and more information about the Microsoft.Azure.Service.AppAuthentication library by reading up on  [Service To Service Authentication](../key-vault/service-to-service-authentication.md).
 
 
 ```csharp
@@ -183,10 +183,10 @@ namespace SummarizationService
     }
 }
 ```
-You are now ready to [deploy your Azure Function.](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-csharp#publish-the-project-to-azure) 
+You are now ready to [deploy your Azure Function.](../azure-functions/functions-create-first-function-vs-code.md) 
 
 > [!IMPORTANT] 
-> If you want to [assign the **Cosmos DB Account Reader**](#Grant-the-System-Identity-Access-to-your-Cosmos-DB.) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This would only populate the read only keys on the DatabaseAccountListKeysResult class.
+> If you want to [assign the **Cosmos DB Account Reader**](#Grant-the-System-Identity-Access-to-your-Cosmos-DB) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This would only populate the read only keys on the DatabaseAccountListKeysResult class.
 
 ## Next steps
 
