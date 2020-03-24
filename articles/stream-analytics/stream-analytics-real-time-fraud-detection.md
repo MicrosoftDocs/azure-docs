@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics 
 ms.topic: conceptual 
-ms.date: 12/07/2018
+ms.date: 03/24/2020
 ms.custom: seodec18 
 ---
 # Get started using Azure Stream Analytics: Real-time fraud detection
@@ -81,26 +81,26 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1.	In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
+1.    In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
 
-2.	In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
+2.    In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
 
     >[!NOTE]
     >Make sure you're working with the event hub, not the event hub namespace.
 
-3.	Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
+3.    Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.	Click **Create**.
+4.    Click **Create**.
 
-5.	After the policy has been deployed, click it in the list of shared access policies.
+5.    After the policy has been deployed, click it in the list of shared access policies.
 
-6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
+6.    Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
-7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
+7.    Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
     The connection string looks like this:
 
@@ -123,16 +123,22 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
    * Set the value of the `EventHubName` key to the event hub name (that is, to the value of the entity path).
    * Set the value of the `Microsoft.ServiceBus.ConnectionString` key to the connection string. 
 
-   The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
+   The `<appSettings>` section will look like the following example:
 
-   ![TelcoGenerator config file shows event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ```xml
+   <appSettings>
+    <!-- Service Bus specific app setings for messaging connections -->
+    <add key="EventHubName" value="asa-eh-ns-demo"/>
+    <add key="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://asa-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=GEcnTKf2//1MRn6SN1A2u0O76MP9pj3v0Ccyf1su4Zo="/>
+  </appSettings>
+   ```
  
 4. Save the file. 
 
 ### Start the app
-1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
+1.    Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 
-2.	Enter the following command:
+2.    Enter the following command:
 
    ```cmd
    telcodatagen.exe 1000 0.2 2
@@ -187,7 +193,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
-   |Input alias  |  CallStream   |  Enter a name to identify the job’s input.   |
+   |Input alias  |  CallStream   |  Enter a name to identify the job's input.   |
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the Event Hub you created.   |
    |Event Hub namespace  |  asa-eh-ns-demo |  Enter the name of the Event Hub namespace.   |
    |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
@@ -357,7 +363,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
-   |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job’s output.   |
+   |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job's output.   |
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
