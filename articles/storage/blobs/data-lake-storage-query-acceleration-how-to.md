@@ -54,24 +54,25 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
 
 4. Install each package to your project by using the [nuget.exe CLI](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-nuget-cli).
 
-   These example commands install each package into a subdirectory of a project named `packages`.
-  
+   These example commands install each package into a subdirectory of a project named `packages`.\
+
    ```console
    nuget add Azure.Storage.Blobs.12.4.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
    nuget add Azure.Storage.Common.12.3.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
    nuget add Azure.Storage.QuickQuery.12.0.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
    ```
+
 5. Add the following xml to your project file.
 
    ```xml
-    <ItemGroup>
-        <PackageReference Include="Azure.Storage.Blobs" Version="12.4.0-preview.1" />
-        <PackageReference Include="Azure.Storage.Common" Version="12.3.0-preview.1" />
-        <PackageReference Include="Azure.Storage.QuickQuery" Version="12.0.0-preview.1" />
-  </ItemGroup>
+   <ItemGroup>
+       <PackageReference Include="Azure.Storage.Blobs" Version="12.4.0-preview.1" />
+       <PackageReference Include="Azure.Storage.Common" Version="12.3.0-preview.1" />
+       <PackageReference Include="Azure.Storage.QuickQuery" Version="12.0.0-preview.1" />
+   </ItemGroup>
    ```
 
-   To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
+To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
 
 
 ### [Java](#tab/java)
