@@ -66,7 +66,7 @@ You can configure how the input claims are sent to the RESTful claims provider b
 - **Header**, sent in the HTTP GET request header.
 - **QueryString**, sent in the HTTP GET request query string.
 
-When the **Body** option is configured, the REST API technical profile allows you to send a complex JSON payload to an endpoint. For more information, see [Send a JSON payload](restful-technical-profile.md#anchor=send-a-json-payload).
+When the **Body** option is configured, the REST API technical profile allows you to send a complex JSON payload to an endpoint. For more information, see [Send a JSON payload](restful-technical-profile.md#send-a-json-payload).
 
 ## Receiving data
 
@@ -128,9 +128,9 @@ The output claims should look like following:
 
 You must protect your REST API endpoint so that only authenticated clients can communicate with it. The REST API must use an HTTPS endpoint. Set the AuthenticationType metadata to one of the following authentication methods:
 
-- **Client certificate** restricts access by using client certificate authentication. Only services that have the appropriate certificates can access your API. You store the client certificate in an Azure AD B2C Policy Key. Learn more about how to [secure your RESTful service by using client certificates](secure-rest-api-dotnet-certificate-auth.md).
-- **Basic** secures the REST API with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The username and password are stored in Azure AD B2C policy keys. Learn how to [secure your RESTful services by using HTTP basic authentication](secure-rest-api-dotnet-basic-auth.md).
-- **Bearer** restricts access using a client OAuth2 access token. The access token is stored in an Azure AD B2C policy key. See [custom email verification in Azure Active Directory B2C](custom-email.md) for an example of how to authenticate to a REST API with a bearer token.
+- **Client certificate** restricts access by using client certificate authentication. Only services that have the appropriate certificates can access your API. You store the client certificate in an Azure AD B2C Policy Key. Learn more about how to [secure your RESTful service by using client certificates](secure-rest-api.md#https-client-certificate-authentication).
+- **Basic** secures the REST API with HTTP basic authentication. Only verified users, including Azure AD B2C, can access your API. The username and password are stored in Azure AD B2C policy keys. Learn how to [secure your RESTful services by using HTTP basic authentication](secure-rest-api.md#http-basic-authentication).
+- **Bearer** restricts access using a client OAuth2 access token. The access token is stored in an Azure AD B2C policy key. Learn more about how to [secure your RESTful service by using Bearer token](secure-rest-api.md#oauth2-bearer-authentication).
 
 ## REST API platform
 Your REST API can be based on any platform and written in any programing language, as long as it's secure and can send and receive claims as specified in [RESTful technical profile](restful-technical-profile.md).

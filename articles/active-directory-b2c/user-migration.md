@@ -38,7 +38,7 @@ Use the seamless migration flow if plaintext passwords in the old identity provi
 - The password is stored in a one-way encrypted format, such as with a hash function.
 - The password is stored by the legacy identity provider in a way that you can't access. For example, when the identity provider validates credentials by calling a web service.
 
-The seamless migration flow still requires bulk migration of user accounts, but then uses a [custom policy](custom-policy-get-started.md) to query a [REST API](custom-policy-rest-api-intro.md.md) (which you create) to set each users' password at first sign-in.
+The seamless migration flow still requires bulk migration of user accounts, but then uses a [custom policy](custom-policy-get-started.md) to query a [REST API](custom-policy-rest-api-intro.md) (which you create) to set each users' password at first sign-in.
 
 The seamless migration flow thus has two phases: *bulk import* and *set credentials*.
 
