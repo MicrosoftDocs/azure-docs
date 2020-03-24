@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 03/23/2020
 ms.author: jgao
 
 ---
@@ -29,9 +29,6 @@ The benefits of deployment script:
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
-> [!NOTE]
-> The deployment script is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews).
-
 > [!IMPORTANT]
 > Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
 
@@ -40,7 +37,7 @@ The benefits of deployment script:
 - **A user-assigned managed identity with the contributor's role to the target resource-group**. This identity is used to execute deployment scripts. To perform operations outside of the resource group, you need to grant additional permissions. For example, assign the identity to the subscription level if you want to create a new resource group.
 
   > [!NOTE]
-  > The deployment script engine needs to create a storage account and a container instance in the background.  A user-assigned managed identity with the contributor's role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
+  > The deployment script engine creates a storage account and a container instance in the background.  A user-assigned managed identity with the contributor's role at the subscription level is required if the subscription has not registered the Azure storage account (Microsoft.Storage) and Azure container instance (Microsoft.ContainerInstance) resource providers.
 
   To create an identity, see [Create a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), or [by using Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), or [by using Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). You need the identity ID when you deploy the template. The format of the identity is:
 
