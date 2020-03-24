@@ -59,7 +59,7 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
     ![Select or create Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Accept all other defaults. Select **Review + Create**. 
+6. You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Accept all other defaults. Select **Review + Create**.
 
     ![Create new Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
@@ -67,15 +67,15 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
     ![Create Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
-8. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault. 
+8. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault.
 
 9. If you created a new key vault, select **Create new** to create a key. RSA key size can be 2048 or greater.
 
     ![Create new key in Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
 
-    If the soft delete and purge protection are not enabled when you create the key vault, key vault will be updated to have soft delete and purge protection enabled. 
+    If the soft delete and purge protection are not enabled when you create the key vault, key vault will be updated to have soft delete and purge protection enabled.
 
-10. Provide the name for your key, accept the other defaults, and select **Create**. 
+10. Provide the name for your key, accept the other defaults, and select **Create**.
 
     ![Create new key](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
@@ -95,10 +95,10 @@ If you receive any errors related to your customer managed key, use the followin
 
 | Error code     |Details     | Recoverable?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Applied a customer managed key but the key access is currently revoked. For more information, see how to Enable the key access.                                                      | Yes, customer should check if <ol><li>Key vault still has the MSI in the access policy</li><li>Access policy provides permissions to Get, Wrap, Unwrap</li><li>If key vault is in a vNet behind the firewall, check if Allow Microsoft Trusted Services is enabled</li></ol>                                                                                            |
-| CmkErrorDisabled      | Applied a customer managed key but the key is disabled. For more information, see how to Enable the key.                                                                             | Yes, by enabling the key version     |
+| CmkErrorAccessRevoked | Applied a customer managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>                                                                                            |
+| CmkErrorDisabled      | Applied a customer managed key but the key is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Yes, by enabling the key version     |
 | CmkErrorNotFound      | Applied a customer managed key but can't find the key. <br>If the key is deleted and purged after the retention period, you can't recover the key. If you backed up the key, you can restore the key to resolve this issue. | No, the key has been deleted and also got purged after the retention period. <br>Yes, only if the customer has the key backed-up and restores it.  |
-| CmkErrorVaultNotFound | Applied a customer managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer managed key.  If you migrated the key vault to a different tenant, see how to Migrate the key vault to original tenant. |   No, if the customer has deleted the KV.<br> Yes, if KV underwent a tenant migration, then do one of: <ol><li>move back the KV to the old tenant.</li><li>set Identity = None and then back to Identity = SystemAssigned, this will delete and recreate the identity</li></ol><br>Note: Tenant migration case is based on limited understanding, need to test and confirm actual behavior, could be revised later. |
+| CmkErrorVaultNotFound | Applied a customer managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   No, if the customer has deleted the key vault.<br> Yes, if key vault underwent a tenant migration, then do one of: <ol><li>move back the key vault to the old tenant.</li><li>set Identity = None and then back to Identity = SystemAssigned, this deletes and recreates the identity</li></ol><br>Note: Tenant migration case is based on limited understanding, need to test and confirm actual behavior, could be revised later. |
 
 ## Next steps
 
