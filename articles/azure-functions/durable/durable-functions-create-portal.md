@@ -1,29 +1,23 @@
 ---
 title: Create Durable Functions using the Azure portal  
 description: Learn how to install the Durable Functions extension for Azure Functions for portal development.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+ms.reviewer: azfuncdf
 ---
 
 # Create Durable Functions using the Azure portal
 
 The [Durable Functions](durable-functions-overview.md) extension for Azure Functions is provided in the NuGet package [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). This extension must be installed in your function app. This article shows how to install this package so that you can develop durable functions in the Azure portal.
 
->[!NOTE]
->
->* If you are developing durable functions in C#, you should instead consider [Visual Studio 2017 development](durable-functions-create-first-csharp.md).
-* If you are developing durable functions in JavaScript, you should instead consider [Visual Studio Code development](./quickstart-js-vscode.md).
+> [!NOTE]
+> 
+> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * If you are developing durable functions in JavaScript, you should instead consider [Visual Studio Code development](./quickstart-js-vscode.md).
 
 ## Create a function app
 
-You must have a function app to host the execution of any function. A function app lets you group your functions as a logic unit for easier management, deployment, and sharing of resources. You can create a .NET or JavaScript app.
+You must have a function app to host the execution of any function. A function app lets you group your functions as a logical unit for easier management, deployment, scaling, and sharing of resources. You can create a .NET or JavaScript app.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -46,7 +40,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
     ```json
     {
       "dependencies": {
-        "durable-functions": "^1.1.2"
+        "durable-functions": "^1.3.1"
       }
     }
     ```
@@ -69,7 +63,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
 
 1. In the search field, type `durable` and then choose the  **Durable Functions HTTP starter** template.
 
-1. When prompted, select **Install** to install the Azure DurableTask extension any dependencies in the function app. You only need to install the extension once for a give function app. After installation succeeds, select **Continue**.
+1. When prompted, select **Install** to install the Azure DurableTask extension and any dependencies in the function app. You only need to install the extension once for a give function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
@@ -134,4 +128,4 @@ Your first durable function is now up and running in Azure.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-concepts.md)
+> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

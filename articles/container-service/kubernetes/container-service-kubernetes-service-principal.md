@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in Azure Container Service
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
@@ -24,7 +22,7 @@ resources such as [user-defined routes](../../virtual-network/virtual-networks-u
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs) command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -103,7 +101,7 @@ As with other Kubernetes cluster creation options, you can specify parameters fo
 
 The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
 
-```console
+```azurecli
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
@@ -147,7 +145,7 @@ Output (shown here truncated):
 ...
 ```
 
-If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) command to update the credentials:
+If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp) command to update the credentials:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

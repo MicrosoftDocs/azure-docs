@@ -1,18 +1,11 @@
 ---
 title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: mbullwin
+ms.date: 03/14/2019
+
 ---
+
 # Troubleshooting and Q and A for Application Insights for Java
 Questions or problems with [Azure Application Insights in Java][java]? Here are some tips.
 
@@ -29,7 +22,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Verify that there is no `<DisableTelemetry>true</DisableTelemetry>` node in the xml file.
 * In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com. See the [full list of firewall exceptions](../../azure-monitor/app/ip-addresses.md)
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-* Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs.
+* [Turn on logging](#debug-data-from-the-sdk) by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs. 
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
 * If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During development you can place ApplicationInsights.xml in resources folder of your web project.
 * Please also look at [GitHub issues page](https://github.com/Microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
@@ -51,7 +44,6 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
-* Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
 
 ## No usage data
 **I see data about requests and response times, but no page view, browser, or user data.**
@@ -99,18 +91,61 @@ Using the XML method, you have to restart the application when you change the va
 
 To get more information about what's happening in the API, add `<SDKLogger/>` under the root node of the ApplicationInsights.xml configuration file.
 
+### ApplicationInsights.xml
+
 You can also instruct the logger to output to a file:
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-The files can be found under `%temp%\javasdklogs` or `java.io.tmpdir` in case of Tomcat server.
+### Spring Boot Starter
 
+To enable SDK logging with Spring Boot Apps using the Application Insights Spring Boot Starter, add the following to the `application.properties` file:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+or to print to standard error:
+
+```yaml
+azure.application-insights.logger.type=console
+azure.application-insights.logger.level=trace
+```
+
+### Java Agent
+
+To enable JVM Agent Logging update the [AI-Agent.xml file](java-agent.md):
+
+```xml
+<AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
+
+### Java Command Line Properties
+_Since version 2.4.0_
+
+To enable logging using command line options, without changing configuration files:
+
+```
+java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
+```
+
+or to print to standard error:
+
+```
+java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
+```
 
 ## The Azure start screen
 **I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?**

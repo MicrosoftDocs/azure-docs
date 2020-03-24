@@ -1,5 +1,5 @@
 ---
-title: Azure Diagnostics Extension for Windows | Microsoft Docs
+title: Azure Diagnostics Extension for Windows 
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
 services: virtual-machines-windows
 documentationcenter: ''
@@ -33,7 +33,7 @@ The Azure Diagnostics Extension requires that the target virtual machine is conn
 
 ## Extension schema
 
-[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
 
 ## Template deployment
 
@@ -55,13 +55,17 @@ az vm extension set \
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
+The `Set-AzVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
+
+ 
+
+
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
 $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -VMName $vm_name `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```
@@ -84,4 +88,4 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Next Steps
 * [Learn more about the Azure Diagnostics Extension](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

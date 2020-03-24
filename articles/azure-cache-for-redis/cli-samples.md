@@ -1,21 +1,12 @@
 ---
-title: Azure CLI Azure Cache for Redis samples | Microsoft Docs
-description: Azure CLI samples for Azure Cache for Redis.
-services: azure-cache-for-redis
-documentationcenter: ''
-author: wesmc7777
-manager: cfowler
-editor: ''
-
-ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
+title: Azure CLI Azure Cache for Redis samples
+description: 'Azure CLI samples for Azure Cache for Redis: Create a cache, deleting a cache, get cache details,  hostname, ports and keys, connecting a web app.'
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: wesmc
-
 ---
 # Azure CLI Samples for Azure Cache for Redis
 

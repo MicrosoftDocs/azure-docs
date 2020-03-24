@@ -4,12 +4,12 @@ description: Azure Cosmos DB explorer is a standalone web-based interface that a
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 05/23/2019
 ms.author: dech
 
 ---
 
-# Use Azure Cosmos DB explorer to manage your data 
+# Work with data using Azure Cosmos explorer 
 
 Azure Cosmos DB explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB. Azure Cosmos DB explorer is equivalent to the existing **Data Explorer** tab that is available in Azure portal when you create an Azure Cosmos DB account. The key advantages of Azure Cosmos DB explorer over the existing Data explorer are:
 
@@ -42,6 +42,8 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 ## Known issues
 
 Currently the **Open Full Screen** experience that allows you to share temporary read-write or read access is not yet supported for Azure Cosmos DB Gremlin and Table API accounts. You can still view your Gremlin and Table API accounts by passing the connection string to Azure Cosmos DB Explorer. 
+
+Currently, viewing documents that contain a UUID is not supported in Data Explorer. This does not affect loading collections, only viewing individual documents or queries that include these documents. To view and manage these documents, users should continue to use the tool that was originally used to create these documents.
 
 ## Next steps
 Now that you have learned how to get started with Azure Cosmos DB explorer to manage your data, next you can:

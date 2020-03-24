@@ -5,12 +5,12 @@ services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 12/21/2018
+ms.date: 06/03/2019
 ms.author: diberry
---- 
+---
 
 1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 
 
@@ -22,4 +22,5 @@ ms.author: diberry
 
     ![Create LUIS new HumanResources app](./media/cognitive-services-luis/tutorials-create-new-app/create-app.png)
 
-1. Select **Done**. Next, the app shows the **Intents** page with the **None** Intent.
+1. Select **Done**. 
+

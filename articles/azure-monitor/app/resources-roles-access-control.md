@@ -1,24 +1,20 @@
 ---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.author: mbullwin
+ms.date: 02/14/2019
+
 ---
+
 # Resources, roles, and access control in Application Insights
 
 You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Resources, groups and subscriptions
 
@@ -39,7 +35,7 @@ First, some definitions:
 
 ## <a name="access"></a> Control access in the resource group
 
-It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your application. You might also have put other Azure services in there, such as websites or storage.
+It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your Application Insights resource. You might also have put other Azure services in there, such as websites or storage.
 
 To control access to these resources it's therefore recommended to:
 
@@ -76,7 +72,7 @@ Where applicable we link to the associated official reference documentation.
 | --- | --- |
 | [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Can change anything, including user access. |
 | [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Can edit anything, including all resources. |
-| [Application Insights Component contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Can edit Application Insights resources, web tests and alerts. |
+| [Application Insights Component contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Can edit Application Insights resources. |
 | [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Can view but not change anything. |
 | [Application Insights Snapshot Debugger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Gives the user permission to use Application Insights Snapshot Debugger features. Note that this role is included in neither the Owner nor Contributor roles. |
 | Azure Service Deploy Release Management Contributor | Contributor role for services deploying through Azure Service Deploy. |
@@ -85,7 +81,7 @@ Where applicable we link to the associated official reference documentation.
 | [Log Analytics Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources.  |
 | [Log Analytics Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. |
 | masterreader | Allows a user to view everything but not make changes. |
-| [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Can read all monitoring data and update monitoring settings. |
+| [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Can read all monitoring data and update monitoring settings.|
 | [Monitoring Metrics Publisher](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources. |
 | [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Can read all monitoring data. |
 | Resource Policy Contributor (Preview) | Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resource/hierarchy.  |
@@ -108,9 +104,35 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 * [Role based access control in Azure](../../role-based-access-control/role-assignments-portal.md)
 
+## PowerShell query to determine role membership
+
+Since certain roles can be linked to notifications and e-mail alerts it can be helpful to be able to generate a list of users who belong to a given role. To help with generating these types of lists we offer the following sample queries that can be adjusted to fit your specific needs:
+
+### Query entire subscription for Admin roles + Contributor roles
+
+```powershell
+(Get-AzRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### Query within the context of a specific Application Insights resource for owners and contributors
+
+```powershell
+$resourceGroup = "RGNAME"
+$resourceName = "AppInsightsName"
+$resourceType = "microsoft.insights/components"
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### Query within the context of a specific resource group for owners and contributors
+
+```powershell
+$resourceGroup = "RGNAME"
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../../azure-resource-manager/resource-group-overview.md
+[group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md

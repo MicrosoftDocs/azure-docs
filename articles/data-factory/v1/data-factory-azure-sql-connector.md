@@ -1,16 +1,16 @@
 ---
-title: Copy data to/from Azure SQL Database | Microsoft Docs
+title: Copy data to/from Azure SQL Database 
 description: Learn how to copy data to/from Azure SQL Database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/22/2018
@@ -45,7 +45,7 @@ You can create a pipeline with a copy activity that moves data to/from an Azure 
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -171,7 +171,7 @@ GO
 ```
 
 ## JSON examples for copying data to and from SQL Database
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 ### Example: Copy data from Azure SQL Database to Azure Blob
 The same defines the following Data Factory entities:
@@ -197,7 +197,7 @@ The sample copies time-series data (hourly, daily, etc.) from a table in Azure S
   }
 }
 ```
-See the [Azure SQL Linked Service](#linked-service) section for the list of properties supported by this linked service.
+See the Azure SQL Linked Service section for the list of properties supported by this linked service.
 
 **Azure Blob storage linked service:**
 
@@ -246,7 +246,7 @@ Setting “external”: ”true” informs the Azure Data Factory service that t
 }
 ```
 
-See the [Azure SQL dataset type properties](#dataset) section for the list of properties supported by this dataset type.
+See the Azure SQL dataset type properties section for the list of properties supported by this dataset type.
 
 **Azure Blob output dataset:**
 
@@ -389,7 +389,7 @@ The sample copies time-series data (hourly, daily, etc.) from Azure blob to a ta
   }
 }
 ```
-See the [Azure SQL Linked Service](#linked-service) section for the list of properties supported by this linked service.
+See the Azure SQL Linked Service section for the list of properties supported by this linked service.
 
 **Azure Blob storage linked service:**
 
@@ -497,7 +497,7 @@ The sample copies data to a table named “MyTable” in Azure SQL. Create the t
   }
 }
 ```
-See the [Azure SQL dataset type properties](#dataset) section for the list of properties supported by this dataset type.
+See the Azure SQL dataset type properties section for the list of properties supported by this dataset type.
 
 **A copy activity in a pipeline with Blob source and SQL sink:**
 

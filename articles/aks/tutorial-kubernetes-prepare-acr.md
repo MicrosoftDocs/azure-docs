@@ -1,13 +1,10 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to create and use a container registry so that I can deploy my own applications to Azure Kubernetes Service.
@@ -78,7 +75,7 @@ To get the login server address, use the [az acr list][az-acr-list] command and 
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Now, tag your local *azure-vote-front* image with the *acrloginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
+Now, tag your local *azure-vote-front* image with the *acrLoginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -158,12 +155,12 @@ Advance to the next tutorial to learn how to deploy a Kubernetes cluster in Azur
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 
 <!-- LINKS - internal -->
-[az-acr-create]: /cli/azure/acr#create
-[az-acr-list]: /cli/azure/acr#list
+[az-acr-create]: /cli/azure/acr
+[az-acr-list]: /cli/azure/acr
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
 [az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az-acr-list
-[az-acr-repository-list]: /cli/azure/acr/repository#list
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-acr-repository-list]: /cli/azure/acr/repository
+[az-acr-repository-show-tags]: /cli/azure/acr/repository
 [az-group-create]: /cli/azure/group#az-group-create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md

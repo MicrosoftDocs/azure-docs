@@ -12,28 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 10/24/2019
 ms.author: juliako
 
 ---
 
-# LiveEvent states and billing
+# Live Event states and billing
 
-In Azure Media Services, a LiveEvent begins billing as soon as its state transitions to **Running**. To stop the LiveEvent from billing, you have to stop the LiveEvent.
+In Azure Media Services, a Live Event begins billing as soon as its state transitions to **Running**. You will be billed even if there is no video flowing through the service. To stop the Live Event from billing, you have to stop the Live Event. Live Transcription is billed the same way as the Live Event.
 
-When **LiveEventEncodingType** on your [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) is set to Standard, Media Services auto shuts off any LiveEvent that is still in the **Running** state 12 hours after the input feed is lost, and there are no **LiveOutput**s running. However, you will still be billed for the time the LiveEvent was in the **Running** state.
+When **LiveEventEncodingType** on your [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) is set to Standard or Premium1080p, Media Services auto shuts off any Live Event that is still in the **Running** state 12 hours after the input feed is lost, and there are no **Live Output**s running. However, you will still be billed for the time the Live Event was in the **Running** state.
+
+> [!NOTE]
+> Pass-through Live Events are not automatically shut off and must be explicitly stopped through the API to avoid excessive billing. 
 
 ## States
 
-The LiveEvent can be in one of the following states.
+The Live Event can be in one of the following states.
 
 |State|Description|
 |---|---|
-|**Stopped**| This is the initial state of the LiveEvent after creation (unless autostart was set to true.) No billing occurs in this state. In this state, the LiveEvent properties can be updated but streaming is not allowed.|
-|**Starting**| The LiveEvent is being started and resources are being allocated. No billing occurs in this state. Updates or streaming are not allowed during this state. If an error occurs, the LiveEvent returns to the Stopped state.|
-|**Running**| The LiveEvent resources have been allocated, ingest and preview URLs have been generated, and it is capable of receiving live streams. At this point, billing is active. You must explicitly call Stop on the LiveEvent resource to halt further billing.|
-|**Stopping**| The LiveEvent is being stopped and resources are being de-provisioned. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
-|**Deleting**| The LiveEvent is being deleted. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
+|**Stopped**| This is the initial state of the Live Event after creation (unless autostart was set to true.) No billing occurs in this state. In this state, the Live Event properties can be updated but streaming is not allowed.|
+|**Starting**| The Live Event is being started and resources are being allocated. No billing occurs in this state. Updates or streaming are not allowed during this state. If an error occurs, the Live Event returns to the Stopped state.|
+|**Running**| The Live Event resources have been allocated, ingest and preview URLs have been generated, and it is capable of receiving live streams. At this point, billing is active. You must explicitly call Stop on the Live Event resource to halt further billing.|
+|**Stopping**| The Live Event is being stopped and resources are being de-provisioned. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
+|**Deleting**| The Live Event is being deleted. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
+
+You can choose to enable Live Transcriptions when you create the Live Event. If you do so, you will be billed for Live Transcriptions whenever the Live Event is in the **Running** state. Note that you will be billed even if there is no audio flowing through the Live Event.
 
 ## Next steps
 

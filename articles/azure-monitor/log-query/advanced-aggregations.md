@@ -1,28 +1,22 @@
 ---
-title: Advanced aggregations in Azure Log Analytics queries| Microsoft Docs
-description: Describes some of the more advanced aggregation options available to Log Analytics queries.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Advanced aggregations in Azure Monitor log queries| Microsoft Docs
+description: Describes some of the more advanced aggregation options available to Azure Monitor log queries.
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/16/2018
+
 ---
 
-# Advanced aggregations in Log Analytics queries
+# Advanced aggregations in Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Aggregations in Log Analytics queries](./aggregations.md) before completing this lesson.
+> You should complete [Aggregations in Azure Monitor queries](./aggregations.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes some of the more advanced aggregation options available to Log Analytics queries.
+This article describes some of the more advanced aggregation options available to Azure Monitor queries.
 
 ## Generating lists and sets
 You can use `makelist` to pivot data by the order of values in a particular column. For example, you may want to explore the most common order events take place on your machines. You can essentially pivot the data by the order of EventIDs on each machine. 
@@ -33,6 +27,7 @@ Event
 | order by TimeGenerated desc
 | summarize makelist(EventID) by Computer
 ```
+
 |Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
@@ -49,6 +44,7 @@ Event
 | order by TimeGenerated desc
 | summarize makeset(EventID) by Computer
 ```
+
 |Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
@@ -71,7 +67,7 @@ Heartbeat
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
 | computer3 | "antiMalware", "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 Use `mvexpand` to show each value in a separate row instead of a comma-separated list:
 
@@ -91,7 +87,7 @@ Heartbeat
 | computer2 | "updates" |
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 
 You could then use `makelist` again to group items together, and this time see the list of computers per solution:
@@ -103,6 +99,7 @@ Heartbeat
 | mvexpand Solutions
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
+
 |Solutions | list_Computer |
 |--------------|----------------------|
 | "security" | ["computer1", "computer2"] |
@@ -119,6 +116,7 @@ Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
+
 | Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Direct Agent | 2017-06-06T17:00:00Z | 15 |
@@ -148,6 +146,7 @@ Heartbeat
 | mvexpand TimeGenerated, count_
 | project Category, TimeGenerated, count_
 ```
+
 | Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Direct Agent | 2017-06-06T17:00:00Z | 15 |
@@ -176,7 +175,7 @@ WindowsFirewall
 
 ## Next steps
 
-See other lessons for using the Log Analytics query language:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)

@@ -1,17 +1,9 @@
 ---
-title: Smart Detection - Degradation in trace severity ratio, in Azure Application Insights | Microsoft Docs
-description: Monitor application traces with Azure Application Insights for unusual patterns in trace telemetry.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Degradation in trace severity ratio - Azure Application Insights
+description: Monitor application traces with Azure Application Insights for unusual patterns in trace telemetry with Smart Detection .
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: mbullwin
+
 ---
 
 # Degradation in trace severity ratio (preview)
@@ -21,7 +13,7 @@ Traces are widely used in applications, as they help tell the story of what happ
 This feature requires no special setup, other than configuring trace logging for your app (see how to configure a trace log listener for [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) or [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). It is active when your app generates enough exception telemetry.
 
 ## When would I get this type of smart detection notification?
-You might get this type of notification if the ratio between “good” traces (traces logged with a level of *Info* or *Verbose*) and “bad” traces (traces logged with a level of *Warning*, *Error, or *Fatal*) is degrading in a specific day, compared to a baseline calculated over the previous seven days.
+You might get this type of notification if the ratio between “good” traces (traces logged with a level of *Info* or *Verbose*) and “bad” traces (traces logged with a level of *Warning*, *Error*, or *Fatal*) is degrading in a specific day, compared to a baseline calculated over the previous seven days.
 
 ## Does my app definitely have a problem?
 No, a notification doesn't mean that your app definitely has a problem. Although a degradation in the ratio between “good” and “bad” traces might indicate an application issue, this change in ratio might be benign. For example, the increase might be due to a new flow in the application emitting more “bad” traces than existing flows).

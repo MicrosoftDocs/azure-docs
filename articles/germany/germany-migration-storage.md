@@ -1,19 +1,28 @@
 ---
-title: Migrate Azure storage resources from Azure Germany to global Azure
+title: Migrate Azure storage resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure storage resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
+ms.date: 12/12/2018
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate storage resources to global Azure
 
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+
 This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Blobs
 
@@ -40,12 +49,13 @@ You get the three parts of the URI (*storageaccountname*, *containername*, *blob
 You also need the storage account keys to access the Azure Storage account. Get them from the portal, by using PowerShell, or by using the CLI. For example:
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
+Get-AzStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
 ```
 
 As always, you need only one of the two keys for each storage account.
 
 Example:
+
 URI part | example value
 -------- | --------------
 Source storageAccount | `migratetest`
@@ -125,7 +135,7 @@ As noted earlier, there are multiple ways to create a VM by using this new manag
 For more information:
 
 - Learn how to export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a shared access signature URI. 
-- Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) from an unmanaged blob.
+- Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) from an unmanaged blob.
 
 
 ## Next steps

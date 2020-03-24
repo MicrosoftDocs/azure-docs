@@ -1,21 +1,12 @@
 ---
-title: Create an Android app on Azure App Service Mobile Apps | Microsoft Docs
-description: Follow this tutorial to get started with using Azure mobile app backends for Android development
-services: app-service\mobile
-documentationcenter: android
-author: conceptdev
-manager: crdun
-editor: ''
+title: Create an Android app
+description: Follow this tutorial to get started with using Azure mobile app backends for Android app development.
 
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: hero-article
-ms.date: 10/01/2016
-ms.author: crdun
-
+ms.topic: conceptual
+ms.date: 5/6/2019
 ---
 # Create an Android app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -29,16 +20,16 @@ Completing this tutorial is a prerequisite for all other Android tutorials about
 To complete this tutorial, you need the following:
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
-* Azure Mobile Android SDK, which is automatically referenced as part of the quickstart project you download.
+* Azure Mobile Android SDK.
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create a new Azure mobile app backend
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Configure the server project
+## Create a database connection and configure the client and server project
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Download and run the Android app
+## Run the Android app
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->

@@ -1,0 +1,69 @@
+- name: Overview
+  items:
+  - name: About cloud partner portal
+    href: ./cloud-partner-portal-what-is-the-cloud-partner-portal.md
+- name: Get started
+  items:
+  - name: Getting started with cloud partner portal
+    href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
+  - name: Supported products
+    href: ./Cloud-partner-portal-products-that-can-get-published-via-portal.md
+- name: How-to guides
+  items:
+  - name: Manage Virtual Machines
+    items:
+    - name: Author virtual machine offer
+      href: ./cloud-partner-portal-publish-virtual-machine.md
+      items:
+      - name: Prerequisites
+        href: ./cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm
+      - name: Microsoft developer account registration
+        href: ./cloud-partner-portal-dev-center-accounts-registration.md
+      - name: Create new VM offer
+        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-create-a-new-vm-offer
+      - name: Offer settings form
+        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-fill-out-the-offer-settings-form
+      - name: SKUs form
+        href: ./cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus
+        items:
+        - name: Pricing
+          href: ./cloud-partner-portal-publish-virtual-machine.md#pricing
+        - name: VM images
+          href: cloud-partner-portal-publish-virtual-machine.md#vm-images
+      - name: Marketplace form
+        href: ./cloud-partner-portal-publish-virtual-machine.md#marketplace-form
+      - name: Support form
+        href: cloud-partner-portal-publish-virtual-machine.md#support-form
+    - name: Publish VM offer
+      href: ./Cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md
+    - name: Update existing offer
+      href: ./cloud-partner-portal-update-existing-offer.md
+    - name: Delete a VM offer/SKU
+      href: ./cloud-partner-portal-delete-an-offer.md
+    - name: Migrate to cloud partner portal
+      href: ./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md
+  - name: Azure Marketplace seller guide
+    href: ./cloud-partner-portal-seller-guide.md
+  - name: Get customer leads
+    href: ./cloud-partner-portal-get-customer-leads.md
+    items:
+    - name: Azure table
+      href: ./cloud-partner-portal-lead-management-instructions-azure-table.md
+    - name: Dynamics CRM online
+      href: ./cloud-partner-portal-lead-management-instructions-dynamics.md
+    - name: Salesforce
+      href: ./cloud-partner-portal-lead-management-instructions-salesforce.md
+    - name: Marketo
+      href: ./cloud-partner-portal-lead-management-instructions-marketo.md
+  - name: Manage publisher profile
+    href: ./cloud-partner-portal-manage-publisher-profile.md
+  - name: Manage users
+    href: ./cloud-partner-portal-manage-users.md
+  - name: Get support
+    href: ./cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

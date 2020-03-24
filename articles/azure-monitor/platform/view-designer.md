@@ -1,22 +1,19 @@
 ---
-title: Create views to analyze data in Azure Log Analytics | Microsoft Docs
-description: By using View Designer in Log Analytics, you can create custom views that are displayed in the Azure portal and contain a variety of data visualizations in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Create views to analyze log data in Azure Monitor | Microsoft Docs
+description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
+ms.date: 02/10/2019
+
 ---
 
-# Create custom views by using View Designer in Log Analytics
-By using View Designer in [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
+# Create custom views by using View Designer in Azure Monitor
+By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
+
+> [!IMPORTANT]
+> Views in Azure Monitor are being phased out and replaced with [workbooks](workbooks-overview.md) which provide additional functionality. See [Azure Monitor view designer to workbooks transition guide](view-designer-conversion-overview.md) for details on converting your existing views to workbooks.
 
 For more information about View Designer, see:
 
@@ -25,7 +22,7 @@ For more information about View Designer, see:
 
 
 ## Concepts
-Views are displayed on the **Overview** page of your Log Analytics workspace in the Azure portal. The tiles in each custom view are displayed alphabetically, and the tiles for the solutions are installed the same workspace.
+Views are displayed in the Azure Monitor **Overview** page in the Azure portal. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. The tiles in each custom view are displayed alphabetically, and the tiles for the monitoring solutions are installed the same workspace.
 
 ![Overview page](media/view-designer/overview-page.png)
 
@@ -33,9 +30,12 @@ The views that you create with View Designer contain the elements that are descr
 
 | Part | Description |
 |:--- |:--- |
-| Tiles | Are displayed on your Log Analytics workspace **Overview** page. Each tile displays a visual summary of the custom view it represents. Each tile type provides a different visualization of your records. You select a tile to display a custom view. |
+| Tiles | Are displayed on your Azure Monitor **Overview** page. Each tile displays a visual summary of the custom view it represents. Each tile type provides a different visualization of your records. You select a tile to display a custom view. |
 | Custom view | Displayed when you select a tile. Each view contains one or more visualization parts. |
-| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log searches](../../azure-monitor/log-query/log-query-overview.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log search that provides detailed records. |
+| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log queries](../log-query/log-query-overview.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log query that provides detailed records. |
+
+## Required permissions
+You require at least [contributor level permissions](manage-access.md#manage-access-using-azure-permissions) in the Log Analytics workspace to create or modify views. If you don't have this permission, then the View Designer option won't be displayed in the menu.
 
 
 ## Work with an existing view
@@ -48,7 +48,7 @@ The options are described in the following table:
 | Option | Description |
 |:--|:--|
 | Refresh   | Refreshes the view with the latest data. | 
-| Analytics | Opens the [Advanced Analytics portal](../../azure-monitor/log-query/portals.md) to analyze data with log queries. |
+| Logs      | Opens the [Log Analytics](../log-query/portals.md) to analyze data with log queries. |
 | Edit       | Opens the view in View Designer to edit its contents and configuration.  |
 | Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 | Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |
@@ -96,7 +96,7 @@ The options for working with views in edit mode are described in the following t
 | Save        | Saves your changes and closes the view. |
 | Cancel      | Discards your changes and closes the view. |
 | Delete View | Deletes the view. |
-| Export      | Exports the view to an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
+| Export      | Exports the view to an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
 | Import      | Imports the *omsview* file that you exported from another workspace. This action overwrites the configuration of the existing view. |
 | Clone       | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 

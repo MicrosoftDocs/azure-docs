@@ -1,23 +1,18 @@
 ---
-title: Create datasets in Azure Data Factory | Microsoft Docs
+title: Create datasets in Azure Data Factory 
 description: Learn how to create datasets in Azure Data Factory, with examples that use properties such as offset and anchorDateTime.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Datasets in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-datasets.md)
@@ -52,7 +47,7 @@ A dataset in Data Factory is defined in JSON format as follows:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -84,7 +79,7 @@ The following table describes properties in the above JSON:
 | structure |Schema of the dataset.<br/><br/>For details, see [Dataset structure](#Structure). |No |NA |
 | typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#Type). |Yes |NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. If the input dataset for an activity is not produced by the current pipeline, set this flag to true. Set this flag to true for the input dataset of the first activity in the pipeline.  |No |false |
-| availability | Defines the processing window (for example, hourly or daily) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset availability](#Availability). <br/><br/>For details on the dataset slicing model, see the [Scheduling and execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
+| availability | Defines the processing window (for example, hourly or daily) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see Dataset availability. <br/><br/>For details on the dataset slicing model, see the [Scheduling and execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see the [Dataset policy](#Policy) section. |No |NA |
 
 ## Dataset example
@@ -236,7 +231,7 @@ The following table describes properties you can use in the availability section
 | frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
 | interval |Specifies a multiplier for frequency.<br/><br/>"Frequency x interval" determines how often the slice is produced. For example, if you need the dataset to be sliced on an hourly basis, you set <b>frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/>Note that if you specify **frequency** as **Minute**, you should set the interval to no less than 15. |Yes |NA |
 | style |Specifies whether the slice should be produced at the start or end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>If **frequency** is set to **Month**, and **style** is set to **EndOfInterval**, the slice is produced on the last day of month. If **style** is set to **StartOfInterval**, the slice is produced on the first day of month.<br/><br/>If **frequency** is set to **Day**, and **style** is set to **EndOfInterval**, the slice is produced in the last hour of the day.<br/><br/>If **frequency** is set to **Hour**, and **style** is set to **EndOfInterval**, the slice is produced at the end of the hour. For example, for a slice for the 1 PM - 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
-| anchorDateTime |Defines the absolute position in time used by the scheduler to compute dataset slice boundaries. <br/><br/>Note that if this propoerty has date parts that are more granular than the specified frequency, the more granular parts are ignored. For example, if the **interval** is **hourly** (frequency: hour and interval: 1), and the **anchorDateTime** contains **minutes and seconds**, then the minutes and seconds parts of **anchorDateTime** are ignored. |No |01/01/0001 |
+| anchorDateTime |Defines the absolute position in time used by the scheduler to compute dataset slice boundaries. <br/><br/>Note that if this property has date parts that are more granular than the specified frequency, the more granular parts are ignored. For example, if the **interval** is **hourly** (frequency: hour and interval: 1), and the **anchorDateTime** contains **minutes and seconds**, then the minutes and seconds parts of **anchorDateTime** are ignored. |No |01/01/0001 |
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/>Note that if both **anchorDateTime** and **offset** are specified, the result is the combined shift. |No |NA |
 
 ### offset example
@@ -326,7 +321,6 @@ Unless a dataset is being produced by Data Factory, it should be marked as **ext
 You can create datasets by using one of these tools or SDKs:
 
 - Copy Wizard
-- Azure portal
 - Visual Studio
 - PowerShell
 - Azure Resource Manager template

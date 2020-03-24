@@ -1,26 +1,15 @@
 ---
-title: User profile and ID for use with Azure Notebooks
-description: How to create and manage your user profile and user ID with Azure Notebooks.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2018
-ms.author: kraigb
+title: User profile and ID for use with Azure Notebooks Preview
+description: How to create and manage your user profile and user ID with Azure Notebooks, which becomes part of the URL of shared notebooks.
+ms.topic: conceptual
+ms.date: 02/25/2019
 ---
 
-# Your profile and user ID for Azure Notebooks
+# Your profile and user ID for Azure Notebooks Preview
 
 Within the powerful, collaborative space of Azure Notebooks, your user profile presents your public image to others:
 
-[![](media/accounts/profile-page.png "An Azure Notebooks profile page")](media/accounts/profile-page.png#lightbox)
+[![An Azure Notebooks profile page](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 Your user ID is part of the URLs you use to share projects and notebooks. The following list describes the different URL patterns:
 
@@ -29,6 +18,8 @@ Your user ID is part of the URLs you use to share projects and notebooks. The fo
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Project files.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones of a specific projects.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: The HTML preview of a specific notebook or file.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Your user ID
 
@@ -42,7 +33,7 @@ A **Configure User ID** command also appears next to the temporary user name:
 
 You can also change your user ID at any time on your profile page.
 
-A user ID must be composed of at least four letters, numbers, and hyphens. No other characters are allowed, and the user ID cannot begin or end with a hyphen or use multiple hyphens in a row.
+A user ID must be composed of between four and sixteen letters, numbers, and hyphens. No other characters are allowed, and the user ID cannot begin or end with a hyphen or use multiple hyphens in a row. Because user IDs are unique across all Azure Notebooks accounts, you may see the message, "User ID is already in use." (The message also appears if you attempt to use a Microsoft trademark as a user ID.) In these cases, choose a different user ID.
 
 > [!Important]
 > Changing your ID invalidates any URLs you might have shared using your previous ID. You can change your ID back to your previous ID to revalidate the links. However, it's possible for another user to claim an unused the ID in the meantime.

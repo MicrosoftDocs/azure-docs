@@ -1,24 +1,14 @@
 ---
-title: Build PHP app with MySQL - Azure App Service | Microsoft Docs 
-description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure.
-services: app-service\web
-documentationcenter: php
-author: cephalin
-manager: erikre
-editor: ''
+title: 'Tutorial: PHP app with MySQL' 
+description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure. Laravel is used in the tutorial.
 
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/15/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.date: 11/25/2019
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build a PHP and MySQL app in Azure
 
 > [!NOTE]
@@ -189,7 +179,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  ...	+  
+  ...    +  
   -  < Output has been truncated for readability >
 }
 ```
@@ -206,7 +196,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
+In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -217,7 +207,8 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 In the local terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_. When prompted for a password, use the password you specified when you created the database in Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p<PASSWORD> --ssl-mode=REQUIRED --ssl-ca=<PATH_TO_PEM>
+
 ```
 
 ### Create a production database
@@ -358,7 +349,7 @@ The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-You can use the PHP [getenv](http://www.php.net/manual/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
+You can use the PHP [getenv](https://www.php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
 
 ```php
 'mysql' => [

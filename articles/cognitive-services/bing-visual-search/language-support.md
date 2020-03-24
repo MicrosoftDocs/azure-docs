@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages, countries and regions that are supported by the Bing Visual Search API. The Bing Visual Search API supports more than three dozen countries/regions, many with more than one language.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
-ms.topic: article
+ms.subservice: bing-visual-search
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ---
@@ -29,7 +29,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 > - Recipe, shopping, and pages-including insights are available in the en-US market only.
 
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|
@@ -44,7 +44,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Finland|FI|
 |France|FR|
 |Germany|DE|
-|Hong Kong|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italy|IT|
@@ -88,7 +88,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |Finland|Finnish|fi-FI|
 |France|French|fr-FR|
 |Germany|German|de-DE|
-|Hong Kong|Traditional Chinese|zh-HK|
+|Hong Kong SAR|Traditional Chinese|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italy|Italian|it-IT|

@@ -1,25 +1,18 @@
 ---
-title: Working with strings in Azure Log Analytics queries | Microsoft Docs
-description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Working with strings in Azure Monitor log queries | Microsoft Docs
+description: This article provides a tutorial for using Azure Monitor Log Analytics in the Azure portal to query and analyze log data in Azure Monitor.
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/16/2018
+
 ---
 
-
-# Working with JSON and data Structures in Log Analytics queries
+# Working with JSON and data Structures in Azure Monitor log queries
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) and [Getting started with Azure Monitor log queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -127,7 +120,7 @@ print hosts_object
 ![Build schema](media/json-data-structures/buildschema.png)
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for using log queries in Azure Monitor:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)

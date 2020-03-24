@@ -1,5 +1,5 @@
 ---
-title: Managing credentials in the elastic database client library | Microsoft Docs
+title: Managing credentials in the elastic database client library
 description: How to set the right level of credentials, admin to read-only, for elastic database apps
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Credentials used to access the Elastic Database client library
@@ -73,6 +72,6 @@ As with the admin credentials, do not use values in the form of "username@server
 
 [Securing your SQL Database](sql-database-security-overview.md)
 
-[Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md)
+[Elastic Database jobs](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

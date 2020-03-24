@@ -4,7 +4,7 @@ description: Explains the declarative provisioning configuration model in Azure 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning
 This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
@@ -33,7 +34,7 @@ The pipeline has several different modules. Each one is responsible for one conc
 * Source, The source object
 * [Scope](#scope), Finds all sync rules that are in scope
 * [Join](#join), Determines relationship between connector space and metaverse
-* [Transform](#transform), Calculates how attributes should be transformed and flow
+* Transform, Calculates how attributes should be transformed and flow
 * [Precedence](#precedence), Resolves conflicting attribute contributions
 * Target, The target object
 

@@ -4,10 +4,10 @@ description: Understand the value for Azure DevOps Projects
 services: devops-project
 documentationcenter: ''
 author: mlearned
-manager: douge
+manager: gwallace
 editor: mlearned
 ms.assetid: 
-ms.service: devops-project
+ms.service: az-devops-project
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -73,4 +73,4 @@ After creating your DevOps Project, you can:
 
 ##  DevOps Projects videos
 
-* [Create CI/CD with Azure DevOps Projects](https://channel9.msdn.com/Events/Connect/2017/T174/player/)
+* [Create CI/CD with Azure DevOps Projects](https://www.youtube.com/watch?v=NuYDAs3kNV8)

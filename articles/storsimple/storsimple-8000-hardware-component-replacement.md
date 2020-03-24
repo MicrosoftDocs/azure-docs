@@ -84,7 +84,7 @@ The primary enclosure and the EBOD enclosure differ in their I/O modules. Additi
 
 The plug-in modules on the device are highlighted in the following front and rear diagrams. You can use these diagrams to determine the location of the various plug-in modules if a replacement is required. The front diagram shows the disk drives, and the rear diagrams of the EBOD enclosure and the primary enclosure show the plug-in modules.
 
-![Frontplane of device with disk drives](./media/storsimple-hardware-component-replacement/IC741028.png)
+![Front panel of device with disk drives](./media/storsimple-hardware-component-replacement/IC741028.png)
 
 **Figure 1** Front of the device
 

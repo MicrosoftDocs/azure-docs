@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Get image insights using the Bing Visual Search SDK for Node.js"
+title: "Quickstart: Get image insights using the SDK for Node.js - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Upload an image using the Bing Visual Search SDK and get insights about it.
+description: Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Node.js SDK.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: v-gedod
+ms.date: 12/17/2019
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search SDK for Node.js
@@ -22,10 +22,10 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 * The Bing Visual Search SDK for Node.js
     * To set up a console application using the Bing Visual Search SDK, run the following commands:
         1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-search-visualSearch`.
+        2. `npm install azure-cognitiveservices-visualsearch`.
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 
@@ -48,7 +48,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 2. Instantiate the client.
 
     ```javascript
-    let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
+    let visualSearchClient = new Search.VisualSearchClient(credentials);
     ```
 
 ## Search for images
@@ -60,7 +60,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     let visualSearchRequest = JSON.stringify({});
     let visualSearchResults;
     try {
-        visualSearchResults = await visualSearchApiClient.images.visualSearch({
+        visualSearchResults = await visualSearchClient.images.visualSearch({
             image: fileStream,
             knowledgeRequest: visualSearchRequest
         });

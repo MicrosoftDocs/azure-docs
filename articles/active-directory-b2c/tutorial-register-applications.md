@@ -1,96 +1,107 @@
 ---
-title: Tutorial - Register your applications in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to register your applications in Azure Active Directory B2C using the Azure portal.
+title: "Tutorial: Register an application"
+titleSuffix: Azure AD B2C
+description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: msmimart
+manager: celestedg
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: davidmu
-
+ms.date: 10/16/2019
+ms.author: mimart
+ms.subservice: B2C
 ---
-# Tutorial: Register your applications in Azure Active Directory B2C
 
-Before your [applications](active-directory-b2c-apps.md) can interact with Azure Active Directory (Azure AD) B2C, they must be registered in a tenant that you manage. This tutorial shows you how to register applications using the Azure portal.
+# Tutorial: Register an application in Azure Active Directory B2C
+
+Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Register a web application
-> * Register a web API
-> * Register a mobile or native application
+> * Create a client secret
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing tenant.
+If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 
 ## Register a web application
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
-    ![Switch to subscription directory](./media/tutorial-register-applications/switch-directories.png)
+#### [Applications](#tab/applications/)
 
-2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. Select **Applications**, and then select **Add**.
-
-    ![Add application](./media/tutorial-register-applications/add-application.png)
-
-4. Enter a name for the application. For example, *webapp1*.
-5. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
-6. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you can set it to listen locally at `https://localhost:44316` If you don't yet know the port number, you can enter a placeholder value and change it later. For testing purposes you could set it to `https://jwt.ms`, which displays the contents of a token for inspection. For this tutorial, set it to `https://jwt.ms`. 
-
-    The reply URL must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, if the application has a reply URL of `https://login.contoso.com`, you can add to it like this URL `https://login.contoso.com/new`. Or, you can refer to a DNS subdomain of `login.contoso.com`, such as `https://new.login.contoso.com`. If you want to have an application with `login-east.contoso.com` and `login-west.contoso.com` as reply URLs, you must add those reply URLs in this order: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. You can add the latter two because they're subdomains of the first reply URL, `contoso.com`.
-
-7. Click **Create**.
-
-    ![Set application properties](./media/tutorial-register-applications/application-properties.png)
-
-### Create a client secret
-
-If you’re application exchanges a code for a token, you need to create an application secret.
-
-1. Select **Keys** and then click **Generate key**.
-
-    ![Generate keys](./media/tutorial-register-applications/generate-keys.png)
-
-2. Select **Save** to view the key. Make note of the **App key** value. You use the value as the application secret in your application's code.
-
-    ![Save the key](./media/tutorial-register-applications/save-key.png)
-    
-3. Select **API Access**, click **Add**, and select your web API and scopes (permissions).
-
-    ![Configure API access](./media/tutorial-register-applications/api-access.png)
-
-## Register a web API
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select **Add**.
-3. Enter a name for the application. For example, *webapi1*.
-4. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
-5. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you can set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
-6. For **App ID URI**, enter the identifier used for your web API. The full identifier URI including the domain is generated for you. For example, `https://contosotenant.onmicrosoft.com/api`.
-7. Click **Create**.
-8. Select the *webapi1* application that you created and then select **Published scopes** to add more scopes as necessary. By default, the `user_impersonation` scope is defined. The `user_impersonation` scope gives other applications the ability to access this API on behalf of the signed-in user. If you wish, the `user_impersonation` scope can be removed.
+1. Enter a name for the application. For example, *webapp1*.
+1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
+1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you could set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
 
-    ![Set published scopes](./media/tutorial-register-applications/published-scopes.png)
+    For testing purposes like this tutorial you can set it to `https://jwt.ms` which displays the contents of a token for inspection. For this tutorial, set the **Reply URL** to `https://jwt.ms`.
 
+    The following restrictions apply to reply URLs:
 
-## Register a mobile or native application
+    * The reply URL must begin with the scheme `https`.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
-1. Select **Applications**, and then select **Add**.
-2. Enter a name for the application. For example, *nativeapp1*.
-3. For **Include web app/ web API**, select **No**.
-4. For **Include native client**, select **Yes**.
-5. For **Redirect URI**, enter a valid redirect URI with a custom scheme. There are two important considerations when choosing a redirect URI:
+1. Select **Create** to complete the application registration.
 
-    - **Unique** - The scheme of the redirect URI should be unique for every application. In the example `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` is the scheme. This pattern should be followed. If two applications share the same scheme, the user is given a choice to choose an application. If the user makes an incorrect choice, the sign-in fails.
-    - **Complete** - The redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain. For example, `//contoso/` works and `//contoso` fails. Make sure that the redirect URI doesn't include special characters, such as underscores.
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
-6. Click **Create**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **App registrations (Preview)**, and then select **New registration**.
+1. Enter a **Name** for the application. For example, *webapp1*.
+1. Select **Accounts in any organizational directory or any identity provider**.
+1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
+
+    The redirect URI is the endpoint to which the user is sent by the authorization server (Azure AD B2C, in this case) after completing its interaction with the user, and to which an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
+
+    The following restrictions apply to redirect URIs:
+
+    * The reply URL must begin with the scheme `https`.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+
+1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
+1. Select **Register**.
+
+Once the application registration is complete, enable the implicit grant flow:
+
+1. Under **Manage**, select **Authentication**.
+1. Select **Try out the new experience** (if shown).
+1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
+1. Select **Save**.
+
+* * *
+
+## Create a client secret
+
+If your application exchanges an authorization code for an access token, you need to create an application secret.
+
+#### [Applications](#tab/applications/)
+
+1. In the **Azure AD B2C - Applications** page, select the application you created, for example *webapp1*.
+1. Select **Keys** and then select **Generate key**.
+1. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. In the **Azure AD B2C - App registrations (Preview)** page, select the application you created, for example *webapp1*.
+1. Under **Manage**, select **Certificates & secrets**.
+1. Select **New client secret**.
+1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
+1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
+1. Record the secret's **Value**. You use this value as the application secret in your application's code.
+
+* * *
 
 ## Next steps
 
@@ -98,8 +109,9 @@ In this article, you learned how to:
 
 > [!div class="checklist"]
 > * Register a web application
-> * Register a web API
-> * Register a mobile or native application
+> * Create a client secret
+
+Next, learn how to create user flows to enable your users to sign up, sign in, and manage their profiles.
 
 > [!div class="nextstepaction"]
-> [Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
+> [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md)

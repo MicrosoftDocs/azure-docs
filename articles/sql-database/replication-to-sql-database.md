@@ -1,21 +1,20 @@
 ---
-title: Replication to Azure SQL Database | Microsoft Docs"
+title: Replication
 description: Learn about using SQL Server replication with Azure SQL Database single databases and databases in elastic pools
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
-ms.date: 11/09/2018
+ms.date: 01/25/2019
 ---
 # Replication to SQL Database single and pooled databases
 
-SQL Server replication can be configured to single and pooled databases on a [logical server](sql-database-logical-servers.md) in Azure SQL Database.  
+SQL Server replication can be configured to single and pooled databases on a [SQL Database server](sql-database-servers.md) in Azure SQL Database.  
 
 ## **Supported Configurations:**
   
@@ -27,14 +26,17 @@ SQL Server replication can be configured to single and pooled databases on a [lo
 
 ## Versions  
 
-- The publisher and distributor must be at least at one of the following versions:  
-- SQL Server 2017 (14.x)
-- SQL Server 2016 (13.x)
-- SQL Server 2014 (12.x) SP1 CU3
-- SQL Server 2014 (12.x) RTM CU10
-- SQL Server 2012 (11.x) SP2 CU8 or SP3
-- Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQL_REPL40532 (Cannot open server \<name> requested by the login. The login failed.).  
-- To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
+On-premises SQL Server publishers and distributors must be using (at least) one of the following versions:  
+
+- SQL Server 2016 and greater
+- SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) or [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) or [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
+
+> [!NOTE]
+> Attempting to configure replication using an unsupported version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQL_REPL40532 (Cannot open server \<name> requested by the login. The login failed.).  
+
+To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+
   
 ## Remarks
 
@@ -59,7 +61,7 @@ SQL Server replication can be configured to single and pooled databases on a [lo
 
 1. Create a transactional replication publication on an on-premises SQL Server database.  
 2. On the on-premises SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
-3. With single and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With Azure SQL Database Managed Instance, you can also use a database backup to seed the subscriber database.
+3. With single and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With a managed instance database, you can also use a database backup to seed the subscriber database.
 
 ### Data Migration Scenario  
 
@@ -101,7 +103,7 @@ The following options are not supported for Azure SQL Database subscriptions:
 Create a publication and a push subscription. For more information, see:
   
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL database logical server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL database name as the destination database (for example **AdventureWorks**).  
+- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Database server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL database name as the destination database (for example **AdventureWorks**).  
 
 ## See Also  
 

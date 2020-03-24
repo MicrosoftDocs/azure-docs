@@ -1,20 +1,17 @@
 ---
-title: Transform data using Spark activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Spark activity
 description: Learn how to transform data by running Spark programs from an Azure data factory pipeline using the Spark Activity. 
 services: data-factory
-documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+author: nabhishek
+ms.author: abnarain
+manager: shwang
+ms.custom: seo-lt-2019
 ms.date: 05/31/2018
-ms.author: douglasl
-
 ---
+
 # Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-spark.md)
@@ -22,8 +19,6 @@ ms.author: douglasl
 
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
-> [!IMPORTANT]
-> Spark Activity does not support HDInsight Spark clusters that use an Azure Data Lake Store as primary storage.
 
 ## Spark activity properties
 Here is the sample JSON definition of a Spark Activity:    
@@ -42,7 +37,7 @@ Here is the sample JSON definition of a Spark Activity:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"

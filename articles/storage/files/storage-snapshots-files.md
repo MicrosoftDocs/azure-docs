@@ -1,13 +1,12 @@
 ---
 title: Overview of share snapshots for Azure Files | Microsoft Docs
 description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
-services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
-ms.author: renash
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files 
@@ -36,7 +35,7 @@ Share snapshot capability is provided at the file share level. Retrieval is prov
 A share snapshot of a file share is identical to its base file share. The only difference is that a **DateTime** value is appended to the share URI to indicate the
 time at which the share snapshot was taken. For example, if a file share URI is http://storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Share snapshots persist until they are explicitly deleted. A share snapshot cannot outlive its base file share. You can enumerate the snapshots associated with the base file share to track your current snapshots. 
@@ -68,7 +67,7 @@ You can copy individual files in a file share snapshot over to its base share or
 
 The share snapshot remains intact after copying, but the base file share is overwritten with a copy of the data that was available in the share snapshot. All the restored files count toward "changed content."
 
-You can copy a file in a share snapshot to a destination with a different name. The resulting destination file is a writable file and not a share snapshot.
+You can copy a file in a share snapshot to a different destination with a different name. The resulting destination file is a writable file and not a share snapshot. In this case, your base file share will remain intact.
 
 When a destination file is overwritten with a copy, any
 share snapshots associated with the original destination file remain intact.
@@ -86,4 +85,4 @@ Share snapshots provide only file-level protection. Share snapshots don't preven
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-- [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
+    - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)

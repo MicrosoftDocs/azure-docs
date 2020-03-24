@@ -1,12 +1,12 @@
 ---
-title: Plan capacity and scaling for VMware disaster recovery to Azure by using Azure Site Recovery | Microsoft Docs
+title: Plan capacity for VMware disaster recovery with Azure Site Recovery 
 description: This article can help you plan capacity and scaling when you set up disaster recovery of VMware VMs to Azure by using Azure Site Recovery.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 4/9/2019
 ms.topic: conceptual
-ms.author: mayg
+ms.author: ramamill
 ---
 
 # Plan capacity and scaling for VMware disaster recovery to Azure
@@ -36,7 +36,7 @@ CPU | Memory | Cache disk size | Data change rate | Protected machines
 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz) | 16 GB | 300 GB | 500 GB or less | Use to replicate fewer than 100 machines.
 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 501 GB to 1 TB | Use to replicate 100 to 150 machines.
 16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 GB | 1 TB | >1 TB to 2 TB | Use to replicate 151 to 200 machines.
-Deploy another configuration server by using an [OVF template](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Deploy a new configuration server if you're replicating more than 200 machines.
+Deploy another configuration server by using an [OVF template](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Deploy a new configuration server if you're replicating more than 200 machines.
 Deploy another [process server](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Deploy a new scale-out process server if the overall daily data change rate is greater than 2 TB.
 
 In these configurations:
@@ -48,7 +48,7 @@ In these configurations:
 
 The process server is the component that handles data replication in Azure Site Recovery. If the daily change rate is greater than 2 TB, you must add scale-out process servers to handle the replication load. To scale out, you can:
 
-* Increase the number of configuration servers by deploying by using an [OVF template](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). For example, you can protect up to 400 machines by using two configuration servers.
+* Increase the number of configuration servers by deploying by using an [OVF template](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). For example, you can protect up to 400 machines by using two configuration servers.
 * Add [scale-out process servers](vmware-azure-set-up-process-server-scale.md#download-installation-file). Use the scale-out process servers to handle replication traffic instead of (or in addition to) the configuration server.
 
 The following table describes this scenario:
@@ -109,13 +109,13 @@ Before you set up the Site Recovery infrastructure, access the environment to me
 1. To measure these parameters, run Site Recovery Deployment Planner on your environment. For helpful guidelines, see [About Site Recovery Deployment Planner for VMware to Azure](site-recovery-deployment-planner.md).
 2. Deploy a configuration server that meets the [size recommendations for the configuration server](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). If your production workload exceeds 650 virtual machines, deploy another configuration server.
 3. Based on the measured daily data change rate, deploy [scale-out process servers](vmware-azure-set-up-process-server-scale.md#download-installation-file) with the help of [size guidelines](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. If you expect the data change rate for a disk virtual machine to exceed 2 MBps, [set up a Premium storage account](tutorial-prepare-azure.md#create-a-storage-account). Site Recovery Deployment Planner runs for a specific time period. Peaks in the data change rate at other times might not be captured in the report.
+4. If you expect the data change rate for a disk virtual machine to exceed 2 MBps, ensure that you use premium managed disks. Site Recovery Deployment Planner runs for a specific time period. Peaks in the data change rate at other times might not be captured in the report.
 5. [Set the network bandwidth](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) based on the RPO you want to achieve.
 6. When the infrastructure is set up, enable disaster recovery for your workload. To learn how, see [Set up the source environment for VMware to Azure replication](vmware-azure-set-up-source.md).
 
 ## Deploy additional process servers
 
-If you scale out your deployment beyond 200 source machines or if you have a total daily churn rate of more than 2 TB, you must add process servers to handle the traffic volume. To learn how to set up the process server, see [Scale for failback by using additional process servers](vmware-azure-set-up-process-server-scale.md). After you set up the process server, you can migrate source machines to use it.
+If you scale out your deployment beyond 200 source machines or if you have a total daily churn rate of more than 2 TB, you must add process servers to handle the traffic volume. We have enhanced the product in 9.24 version to provide [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts) on when to set up a scale-out process server. [Set up the process server](vmware-azure-set-up-process-server-scale.md) to protect new source machines or [balance the load](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### Migrate machines to use the new process server
 

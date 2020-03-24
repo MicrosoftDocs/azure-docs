@@ -1,18 +1,11 @@
 ---
 title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
-ms.author: mbullwin
+ms.date: 03/14/2019
+
 ---
+
 # collectd: Linux performance metrics in Application Insights
 
 
@@ -20,20 +13,18 @@ To explore Linux system performance metrics in [Application Insights](../../azur
 
 Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
-![Sample charts](./media/java-collectd/sample.png)
-
 ## Get your instrumentation key
 In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../azure-monitor/app/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../azure-monitor/app/create-new-resource.md ).)
 
 Take a copy of the instrumentation key, which identifies the resource.
 
-![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/java-collectd/02-props.png)
+![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/java-collectd/instrumentation-key-001.png)
 
 ## Install collectd and the plug-in
 On your Linux server machines:
 
 1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 4. Edit `/etc/collectd/collectd.conf`:
    * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
@@ -87,9 +78,7 @@ Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_
 Restart collectd according to its [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## View the data in Application Insights
-In your Application Insights resource, open [Metrics Explorer and add charts][metrics], selecting the metrics you want to see from the Custom category.
-
-![](./media/java-collectd/result.png)
+In your Application Insights resource, open [Metrics and add charts][metrics], selecting the metrics you want to see from the Custom category.
 
 By default, the metrics are aggregated across all host machines from which the metrics were collected. To view the metrics per host, in the Chart details blade, turn on Grouping and then choose to group by CollectD-Host.
 

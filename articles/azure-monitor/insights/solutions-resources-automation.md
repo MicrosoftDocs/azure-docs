@@ -1,20 +1,15 @@
 ---
 title: Azure Automation resources in management solutions | Microsoft Docs
 description: Management solutions will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
-services: monitoring
-documentationcenter: ''
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
 ms.author: bwren
+ms.date: 05/24/2017
+
 ms.custom: H1Hack27Feb2017
 ---
+
 # Adding Azure Automation resources to a management solution (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
@@ -23,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 [Management solutions]( solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ]( solutions-creating.md) 
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure]( solutions-creating.md) 
 
 
 ## Prerequisites
@@ -31,7 +26,7 @@ This article assumes that you're already familiar with the following information
 
 - How to [create a management solution]( solutions-creating.md).
 - The structure of a [solution file]( solutions-solution-file.md).
-- How to [author Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md)
+- How to [author Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
 
 ## Automation account
 All resources in Azure Automation are contained in an [Automation account](../../automation/automation-security-overview.md#automation-account-overview).  As described in [Log Analytics workspace and Automation account]( solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.

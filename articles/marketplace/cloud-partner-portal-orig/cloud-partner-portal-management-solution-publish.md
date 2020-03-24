@@ -1,24 +1,18 @@
 ---
-title: Publish a Azure Management Solution to Azure Marketplace 
-description: Publish a Azure Management Solution to Azure Marketplace 
+title: Publish an Azure Management Solution to Azure Marketplace 
+description: Publish an Azure Management Solution to Azure Marketplace 
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
 manager: pbutlerm 
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
-Publish a Azure Management Solution to Azure Marketplace 
+Publish an Azure Management Solution to Azure Marketplace 
 ========================================================
 
 > [!IMPORTANT]

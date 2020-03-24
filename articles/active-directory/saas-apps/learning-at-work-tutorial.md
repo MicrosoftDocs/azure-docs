@@ -5,224 +5,153 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 1d607174-bea1-4f40-8233-54cabe02c66a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/02/2017
+ms.topic: tutorial
+ms.date: 08/01/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Learning at Work
 
-In this tutorial, you learn how to integrate Learning at Work with Azure Active Directory (Azure AD).
+# Tutorial: Integrate Learning at Work with Azure Active Directory
 
-Integrating Learning at Work with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Learning at Work with Azure Active Directory (Azure AD). When you integrate Learning at Work with Azure AD, you can:
 
-- You can control in Azure AD who has access to Learning at Work
-- You can enable your users to automatically get signed-on to Learning at Work (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* Control in Azure AD who has access to Learning at Work.
+* Enable your users to be automatically signed-in to Learning at Work with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with Learning at Work, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Learning at Work single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Learning at Work single sign-on (SSO) enabled subscription.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Learning at Work from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* Learning at Work supports **SP** initiated SSO
 
 ## Adding Learning at Work from the gallery
+
 To configure the integration of Learning at Work into Azure AD, you need to add Learning at Work from the gallery to your list of managed SaaS apps.
 
-**To add Learning at Work from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Learning at Work** in the search box.
+1. Select **Learning at Work** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
-	![Active Directory][1]
+## Configure and test Azure AD single sign-on
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+Configure and test Azure AD SSO with Learning at Work using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Learning at Work.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+To configure and test Azure AD SSO with Learning at Work, complete the following building blocks:
 
-	![Applications][3]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Learning at Work SSO](#configure-learning-at-work-sso)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create Learning at Work test user](#create-learning-at-work-test-user)** - to have a counterpart of B.Simon in Learning at Work that is linked to the Azure AD representation of user.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-1. In the search box, type **Learning at Work**.
+### Configure Azure AD SSO
 
-	![Creating an Azure AD test user](./media/learning-at-work-tutorial/tutorial_learningatwork_search.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the results panel, select **Learning at Work**, and then click **Add** button to add the application.
+1. In the [Azure portal](https://portal.azure.com/), on the **Learning at Work** application integration page, find the **Manage** section and select **Single sign-on**.
+1. On the **Select a Single sign-on method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	![Creating an Azure AD test user](./media/learning-at-work-tutorial/tutorial_learningatwork_addfromgallery.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Learning at Work based on a test user called "Britta Simon."
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Learning at Work is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Learning at Work needs to be established.
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.sabacloud.com/Saba/Web/<company code>`
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Learning at Work.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<subdomain>.sabacloud.com/Saba/saml/SSO/alias/<company name>`
 
-To configure and test Azure AD single sign-on with Learning at Work, you need to complete the following building blocks:
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Learning at Work Client support team](https://www.learninga-z.com/site/contact/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Learning at Work test user](#creating-a-learning-at-work-test-user)** - to have a counterpart of Britta Simon in Learning at Work that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+5. Learning at Work application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**.
 
-### Configuring Azure AD single sign-on
+	You can update the **nameidentifier** value in Azure AD based on your Organization setup and this value needs to match with the **User ID** in the SABA cloud, for that you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Learning at Work application.
+	![image](common/edit-attribute.png)
 
-**To configure Azure AD single sign-on with Learning at Work, perform the following steps:**
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-1. In the Azure portal, on the **Learning at Work** application integration page, click **Single sign-on**.
+	![The Certificate download link](common/metadataxml.png)
 
-	![Configure Single Sign-On][4]
+6. On the **Set up Learning at Work** section, copy the appropriate URL(s) based on your requirement.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_samlbase.png)
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. On the **Learning at Work Domain and URLs** section, perform the following steps:
+### Configure Learning at Work SSO
 
-	![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_url.png)
+To configure single sign-on on **Learning at Work** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Learning at Work support team](https://www.learninga-z.com/site/contact/support). They set this setting to have the SAML SSO connection set properly on both side
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.sabacloud.com/Saba/Web/<company code>`
+### Create an Azure AD test user
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.sabacloud.com/Saba/saml/SSO/alias/<company name>`
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. Contact [Learning at Work Client support team](https://www.learninga-z.com/site/contact/support) to get these values. 
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_certificate.png) 
+### Assign the Azure AD test user
 
-1. Click **Save** button.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Learning at Work.
 
-	![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_general_400.png)
-
-1. On the **Learning at Work Configuration** section, click **Configure Learning at Work** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_configure.png) 
-
-1. To configure single sign-on on **Learning at Work** side, you need to send the downloaded **Metadata XML**, **SAML Entity ID**, **SAML Single Sign-On Service URL**, and **Sign-Out URL** to [Learning at Work support](https://www.learninga-z.com/site/contact/support).
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-![Create Azure AD User][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/learning-at-work-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/learning-at-work-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/learning-at-work-tutorial/create_aaduser_03.png) 
-
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/learning-at-work-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Learning at Work test user
-
-In this section, you create a user called Britta Simon in Learning at Work. Work with [Learning at Work support](https://www.learninga-z.com/site/contact/support) to add the users in the Learning at Work platform.
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Learning at Work.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Learning at Work, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Learning at Work**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![Configure Single Sign-On](./media/learning-at-work-tutorial/tutorial_learningatwork_app.png) 
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+	![The Add User link](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	![Assign User][203]
+### Create Learning at Work test user
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+In this section, you create a user called B.Simon in Learning at Work. Work with [Learning at Work support team](https://www.learninga-z.com/site/contact/support) to add the users in the Learning at Work platform. Users must be created and activated before you use single sign-on.
 
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+### Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Learning at Work tile in the Access Panel, you should get automatically signed-on to your Learning at Work application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Learning at Work tile in the Access Panel, you should be automatically signed in to the Learning at Work for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/learning-at-work-tutorial/tutorial_general_01.png
-[2]: ./media/learning-at-work-tutorial/tutorial_general_02.png
-[3]: ./media/learning-at-work-tutorial/tutorial_general_03.png
-[4]: ./media/learning-at-work-tutorial/tutorial_general_04.png
-
-[100]: ./media/learning-at-work-tutorial/tutorial_general_100.png
-
-[200]: ./media/learning-at-work-tutorial/tutorial_general_200.png
-[201]: ./media/learning-at-work-tutorial/tutorial_general_201.png
-[202]: ./media/learning-at-work-tutorial/tutorial_general_202.png
-[203]: ./media/learning-at-work-tutorial/tutorial_general_203.png
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: IoT DevKit to cloud -- Connect IoT MXChip DevKit to Azure IoT Hub | Microsoft Docs
+title: Connect MXChip IoT DevKit to Azure IoT Hub Remote Monitoring
 description: In this tutorial, learn how to send status of sensors on IoT DevKit AZ3166 to the Azure IoT Remote Monitoring solution accelerator.
 author: liydu
 manager: jeffya
@@ -71,8 +71,8 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 3. Connect the DevKit to your computer. VS Code automatically detects your DevKit and opens the following pages:
 
-  * The DevKit introduction page.
-  * Arduino Examples: Hands-on samples to get started with DevKit.
+   * The DevKit introduction page.
+   * Arduino Examples: Hands-on samples to get started with DevKit.
 
 4. Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **RemoteMonitoring**. It opens a new VS Code window with a project folder in it.
 
@@ -121,7 +121,7 @@ If you want to change the hardcoded **AZ3166** to a customized device ID in the 
 
 If you encounter problems, refer to [the IoT developer kit FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or reach out to us using the following channels:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## Next steps
@@ -130,6 +130,6 @@ Now that you have learned how to connect a DevKit device to your Azure IoT Remot
 
 * [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit)
 
 * [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/) 

@@ -1,20 +1,13 @@
 ---
-title: Azure Cloud Partner Portal Tour | Microsoft Docs
-description: .
+title: Azure Cloud Partner Portal Tour | Azure Marketplace
+description: Overview of the user experience of the Cloud Partner Portal for Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Cloud Partner Portal Tour

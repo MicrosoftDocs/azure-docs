@@ -2,13 +2,9 @@
 title: Migrating from Orchestrator to Azure Automation
 description: Describes how to migrate runbooks and integration packs from System Center Orchestrator to Azure Automation.
 services: automation
-ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
+ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Migrating from Orchestrator to Azure Automation (Beta)
 Runbooks in [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell.  [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets.
@@ -128,3 +124,4 @@ Runbooks in Orchestrator start other runbooks with the **Invoke Runbook** activi
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator Standard Activities](https://technet.microsoft.com/library/hh403832.aspx)
 * [Download System Center Orchestrator Migration Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

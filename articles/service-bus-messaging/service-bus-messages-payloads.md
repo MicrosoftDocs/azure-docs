@@ -1,19 +1,19 @@
 ---
 title: Azure Service Bus messages, payloads, and serialization | Microsoft Docs
-description: Overview of Service Bus message payloads
+description: This article provides an overview of Azure Service Bus messages, payloads, message routing, and serialization. 
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
+ms.date: 01/24/2020
+ms.author: aschhab
 
 ---
 
@@ -25,7 +25,7 @@ The object model of the official Service Bus clients for .NET and Java reflect t
  
 A Service Bus message consists of a binary payload section that Service Bus never handles in any form on the service-side, and two sets of properties. The *broker properties* are predefined by the system. These predefined properties either control message-level functionality inside the broker, or they map to common and standardized metadata items. The *user properties* are a collection of key-value pairs that can be defined and set by the application.
  
-The predefined broker properties are listed in the following table. The names are used with all official client APIs and also in the [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON object of the HTTP protocol mapping.
+The predefined broker properties are listed in the following table. The names are used with all official client APIs and also in the [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON object of the HTTP protocol mapping.
  
 The equivalent names used at the AMQP protocol level are listed in parentheses. 
 
@@ -74,7 +74,7 @@ When in transit or stored inside of Service Bus, the payload is always an opaque
 
 Unlike the Java or .NET Standard variants, the .NET Framework version of the Service Bus API supports creating **BrokeredMessage** instances by passing arbitrary .NET objects into the constructor. 
 
-When using the legacy SBMP protocol, those objects are then serialized with the default binary serializer, or with a serializer that is externally supplied. When using the AMQP protocol, the object is serialized into an AMQP object. The receiver can retrieve those objects with the [GetBody<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method, supplying the expected type. With AMQP, the objects are serialized into an AMQP graph of **ArrayList** and **IDictionary<string,object>** objects, and any AMQP client can decode them. 
+When using the legacy SBMP protocol, those objects are then serialized with the default binary serializer, or with a serializer that is externally supplied. When using the AMQP protocol, the object is serialized into an AMQP object. The receiver can retrieve those objects with the [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method, supplying the expected type. With AMQP, the objects are serialized into an AMQP graph of **ArrayList** and **IDictionary<string,object>** objects, and any AMQP client can decode them. 
 
 While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. It should also be noted that while AMQP has a powerful binary encoding model, it is tied to the AMQP messaging ecosystem and HTTP clients will have trouble decoding such payloads. 
 

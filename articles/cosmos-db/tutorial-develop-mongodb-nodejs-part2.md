@@ -1,6 +1,5 @@
 ---
-title: Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Node.js Express app
-titleSuffix: Azure Cosmos DB
+title: Create Node.js Express app with Azure Cosmos DB's API for MongoDB (Part2)
 description: Part 2 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB.
 author: johnpapa 
 ms.service: cosmos-db
@@ -97,7 +96,7 @@ This tutorial also requires:
     * Serves everything that's in the dist folder, which will be the static content
     * Serves up the application, and serves index.html for any GET requests not found on the server (for deep links)
     * Starts the server with app.listen
-    * Uses an arow function to log that the port is alive
+    * Uses an arrow function to log that the port is alive
     
    ```node
    const express = require('express');

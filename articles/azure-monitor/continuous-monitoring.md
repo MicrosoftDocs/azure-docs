@@ -1,17 +1,12 @@
 ---
 title: Continuous monitoring with Azure Monitor | Microsoft Docs
 description: Describes specific steps for using Azure Monitor to enable Continuous monitoring throughout your workflows.
-author: bwren
-manager: carmonm
-editor: ''
-services: azure-monitor
-documentationcenter: azure-monitor
-ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 10/12/2018
+author: bwren
 ms.author: bwren
+ms.date: 10/12/2018
+
 ---
 
 # Continuous monitoring with Azure Monitor
@@ -29,7 +24,7 @@ In order to gain observability across your entire environment, you need to enabl
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](../azure-monitor/app/continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
-- If you have access to the code for your application, then enable full monitoring with [Application Insights](../azure-monitor/app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), or [any other programming languages](../azure-monitor/app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
+- If you have access to the code for your application, then enable full monitoring with [Application Insights](../azure-monitor/app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), or [any other programming languages](../azure-monitor/app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
 
@@ -51,7 +46,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 ##	Combine resources in Azure Resource Groups
 A typical application on Azure today includes multiple resources such as VMs and App Services or microservices hosted on Cloud Services, AKS clusters, or Service Fabric. These applications frequently utilize dependencies like Event Hubs, Storage, SQL, and Service Bus.
 
-- Combine resources inAzure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../azure-monitor/insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
+- Combine resources in Azure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](../azure-monitor/insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
 
 ## Ensure quality through Continuous Deployment
 Continuous Integration / Continuous Deployment allows you to automatically integrate and deploy code changes to your application based on the results of automated testing. It streamlines the deployment process and ensures the quality of any changes before they move into production.
@@ -59,13 +54,13 @@ Continuous Integration / Continuous Deployment allows you to automatically integ
 
 - Use [Azure Pipelines](/azure/devops/pipelines) to implement Continuous Deployment and automate your entire process from code commit to production based on your CI/CD tests.
 - Use [Quality Gates](/azure/devops/pipelines/release/approvals/gates) to integrate monitoring into your pre-deployment or post-deployment. This ensures that you are meeting the key health/performance metrics (KPIs) as your applications move from dev to production and any differences in the infrastructure environment or scale is not negatively impacting your KPIs.
-- [Maintain separate monitoring instances](../azure-monitor/app/separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) or create [cross-resource queries in Log Analytics](log-query/cross-workspace-query.md).
+- [Maintain separate monitoring instances](../azure-monitor/app/separate-resources.md) between your different deployment environments such as Dev, Test, Canary, and Prod. This ensures that collected data is relevant across the associated applications and infrastructure. If you need to correlate data across environments, you can use [multi-resource charts in Metrics Explorer](../azure-monitor/platform/metrics-charts.md) or create [cross-resource queries in Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## Create actionable alerts with actions
 A critical aspect of monitoring is proactively notifying administrators of any current and predicted issues. 
 
-- Create [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [dynamic thresholds](platform/alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
+- Create [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md) based on logs and metrics to identify predictable failure states. You should have a goal of making all alerts actionable meaning that they represent actual critical conditions and seek to reduce false positives. Use [Dynamic Thresholds](platform/alerts-dynamic-thresholds.md) to automatically calculate baselines on metric data rather than defining your own static thresholds. 
 - Define actions for alerts to use the most effective means of notifying your administrators. Available [actions for notification](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) are SMS, e-mails, push notifications, or voice calls.
 - Use more advanced actions to [connect to your ITSM tool](platform/itsmc-overview.md) or other alert management systems through [webhooks](platform/activity-log-alerts-webhook.md).
 - Remediate situations identified in alerts as well with [Azure Automation runbooks](../automation/automation-webhooks.md) or [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) that can be launched from an alert using webhooks. 

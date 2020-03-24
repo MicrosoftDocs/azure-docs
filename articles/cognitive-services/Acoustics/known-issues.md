@@ -1,46 +1,42 @@
 ---
-title: Known issues with Project Acoustics plugin
+title: Project Acoustics plug-in known issues
 titlesuffix: Azure Cognitive Services
-description: You might encounter the following known issues when using the Designer Preview for Project Acoustics.
+description: You might experience the following known issues in Project Acoustics.
 services: cognitive-services
-author: kylestorck
-manager: cgronlun
+author: NoelCross
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
-ms.author: kylestorck
+ms.date: 03/20/2019
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
-# Known issues
-You might encounter the following known issues when using the Designer Preview for Project Acoustics.
+# Project Acoustics known issues
+This article describes issues that you might experience when you use Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene
 
-If you rename a scene, all the acoustic parameters that belong to that scene will not automatically transfer to the new scene. They will still exist in the old asset file however. Look for the **SceneName_AcousticParameters.asset** file inside the **Editor** directory next to your scene file. Rename your file to reflect the new scene name.
+If you rename a scene, all the acoustic parameters that belong to that scene don't automatically transfer to the new scene. But they do still exist in the old asset file. Look for the *[SceneName]_AcousticParameters.asset* file in the *Editor* directory next to your scene file. Rename the file to reflect the new scene name.
 
-## Runtime voxels are a different size than scene preview voxels
+## Deploy-to-Android bug from some Unity versions
 
-If you do a **Calculate** on the **Probes** tab and view the voxels, then do a bake and view voxels at runtime for the same scene, the voxels are different sizes. The voxels shown pre-bake are the voxels used in simulation. The voxels shown at runtime are used for interpolation between probe points. This may cause an inconsistency where portals will appear open at runtime that aren't actually open.
+Some versions of Unity have a [bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player) in how they deploy audio plug-ins to Android. Make sure that you aren't using a version that's affected by this bug.
 
-## Unity crashes when closing project
+## "Could not find metadata file System.Security.dll" error
 
-On the latest versions of Unity (2018.2+), there is a known bug where Unity will crash when you close your project. This is tracked by [this Unity issue](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
+Make sure that the **Scripting Runtime Version** in the **Player** settings is *.NET 4.x Equivalent*, and restart Unity.
 
-## Trouble deploying to Android
-To use Project Acoustics on Android, change your build target to Android. Some versions of Unity have a bug with deploying audio plugins -- make sure you are not using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+## Authentication problems when connecting to Azure
 
-## I get an error that 'could not find metadata file System.Security.dll'
+Check that:
+- You used the correct credentials for your Azure account.
+- Your account supports the type of node that you requested in the bake.
+- Your system clock is set correctly.
 
-Ensure the Scripting Runtime Version in Player settings is set to **.NET 4.x Equivalent**, and restart Unity.
-
-## I'm having authentication problems when connecting to Azure
-
-Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.
-
-## Canceling a bake leaves the Bake tab in "deleting" state
-Project Acoustics will cleanup all Azure resources for a job on successful completion or cancellation which can take up to 5 minutes.
+## The Bake tab still shows "deleting" after you cancel
+Project Acoustics cleans up all Azure resources for a job after successful completion or cancellation. This process can take up to 5 minutes.
 
 ## Next steps
-* Get started [integrating acoustics in your Unity project](getting-started.md)
-
+* Try the [Unity](unity-quickstart.md) or [Unreal](unreal-quickstart.md) sample content.

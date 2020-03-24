@@ -1,6 +1,6 @@
 ---
 title: Encode an asset with Media Encoder Standard using .NET | Microsoft Docs
-description: This article shows how to use .NET to encode an asset using Media Encoder Strandard.
+description: This article shows how to use .NET to encode an asset using Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,11 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
-ms.author: juliako;anilmur
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
-# Encode an asset with Media Encoder Standard using .NET 
+
+# Encode an asset with Media Encoder Standard using .NET  
+
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the Azure Marketplace. 
 
 This article shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoders presets described [here](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).

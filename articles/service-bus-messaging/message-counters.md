@@ -1,19 +1,19 @@
 ---
-title: Azure Service Bus message count | Microsoft Docs
-description: Retrieve the count of Azure Service Bus messages.
+title: Azure Service Bus - message count
+description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
+ms.date: 01/24/2020
+ms.author: aschhab
 
 ---
 
@@ -21,10 +21,12 @@ ms.author: spelluru
 
 You can retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 With PowerShell, you can obtain the count as follows:
 
 ```powershell
-(Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
+(Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
 ```
 
 ## Message count details

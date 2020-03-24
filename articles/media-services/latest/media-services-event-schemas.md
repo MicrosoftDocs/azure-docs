@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/25/2020
 ms.author: juliako
 ---
 
@@ -20,15 +20,13 @@ This article provides the schemas and properties for Media Services events.
 
 For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-sources.md#azure-subscriptions).
 
-## Available event types
-
-### Job related event types
+## Job related event types
 
 Media Services emits the **Job** related event types described below. There are two categories for the **Job** related events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
 
-You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled). 
+You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled).   
 
-#### Monitoring Job State Changes
+### Monitoring Job state changes
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -40,7 +38,15 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobCanceled| Get an event when Job transitions to canceled state. This is a final state that includes Job outputs.|
 | Microsoft.Media.JobErrored| Get an event when Job transitions to error state. This is a final state that includes Job outputs.|
 
-#### Monitoring Job Output State Changes
+See [Schema examples](#event-schema-examples) that follow.
+
+### Monitoring job output state changes
+
+A job may contain multiple job outputs (if you configured the transform to have multiple job outputs.) If you want to track the details of the individual job output, listen for a job output change event.
+
+Each **Job** is going to be at a higher level than **JobOutput**, thus job output events get fired inside of a corresponding job. 
+
+The error messages in `JobFinished`, `JobCanceled`, `JobError` output the aggregated results for each job output – when all of them are finished. Whereas, the job output events fire as each task finishes. For example, if you have an encoding output, followed by a Video Analytics output, you would get two events firing as job output events before the final JobFinished event fires with the aggregated data.
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -52,11 +58,21 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobOutputCanceled| Get an event when Job output transitions to canceled state.|
 | Microsoft.Media.JobOutputErrored| Get an event when Job output transitions to error state.|
 
-### Live event types
+See [Schema examples](#event-schema-examples) that follow.
+
+### Monitoring job output progress
+
+| Event type | Description |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value is not guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. This event should not be used to determine that the processing has been completed – you should instead use the state change events.|
+
+See [Schema examples](#event-schema-examples) that follow.
+
+## Live event types
 
 Media Services also emits the **Live** event types described below. There are two categories for the **Live** events: stream-level events and track-level events. 
 
-#### Stream-level events
+### Stream-level events
 
 Stream-level events are raised per stream or connection. Each event has a `StreamId` parameter that identifies the connection or stream. Each stream or connection has one or more tracks of different types. For example, one connection from an encoder may have one audio track and four video tracks. The stream event types are:
 
@@ -66,9 +82,16 @@ Stream-level events are raised per stream or connection. Each event has a `Strea
 | Microsoft.Media.LiveEventEncoderConnected | Encoder establishes connection with live event. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Encoder disconnects. |
 
-#### Track-level events
+See [Schema examples](#event-schema-examples) that follow.
 
-Track-level events are raised per track. The track event types are:
+### Track-level events
+
+Track-level events are raised per track. 
+
+> [!NOTE]
+> All track-level events are raised after a live encoder is connected.
+
+The track-level event types are:
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -76,10 +99,12 @@ Track-level events are raised per track. The track event types are:
 | Microsoft.Media.LiveEventIncomingStreamReceived | Media server receives first data chunk for each track in the stream or connection. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media server detects audio and video streams are out of sync. Use as a warning because user experience may not be impacted. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media server detects any of the two video streams coming from external encoder are out of sync. Use as a warning because user experience may not be impacted. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary.<br/><br/>After the encoder was initially connected, the heartbeat event continues to emit every 20 sec whether the encoder is still connected or not. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
 
-## Event schemas and properties
+See [Schema examples](#event-schema-examples) that follow.
+
+## Event schema examples
 
 ### JobStateChange
 
@@ -177,7 +202,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| Outputs | Array | Gets the Job outputs.|
+| outputs | Array | Gets the Job outputs.|
 
 ### JobOutputStateChange
 
@@ -240,6 +265,29 @@ For each JobOutput state change, the example schema looks similar to the followi
   "metadataVersion": "1"
 }]
 ```
+### JobOutputProgress
+
+The example schema looks similar to the following:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
 
 ### LiveEventConnectionRejected
 
@@ -276,18 +324,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-The result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | Incorrect ingest URL |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | Encoder IP isn't present in IP allow list configured |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Encoder didn't send metadata about the stream. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Codec specified isn't supported. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Received a fragment before receiving and header for that stream. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Number of qualities specified exceeds allowed max limit. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 ### LiveEventEncoderConnected
 
@@ -357,14 +394,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-The error result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP session timed out after being idle for allowed time limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
-| MPE_CAPACITY_LIMIT_REACHED | Encoder sending data too fast. |
-| Unknown Error Codes | These error codes can range from memory error to duplicate entries in hash map. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 The graceful disconnect result codes are:
 
@@ -640,3 +670,4 @@ An event has the following top-level data:
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [Live Event error codes](live-event-error-codes.md)

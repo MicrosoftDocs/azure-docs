@@ -1,19 +1,19 @@
 ---
 title: Azure Service Bus prefetch messages | Microsoft Docs
-description: Improve performance by prefetching Azure Service Bus messages.
+description: Improve performance by prefetching Azure Service Bus messages. Messages are readily available for local retrieval before the application requests for them.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
-ms.author: spelluru
+ms.date: 01/24/2020
+ms.author: aschhab
 
 ---
 

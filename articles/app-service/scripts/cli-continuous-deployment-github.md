@@ -1,30 +1,22 @@
 ---
-title: Azure CLI Script Sample - Create app with continuous deployment from GitHub | Microsoft Docs
-description: Azure CLI Script Sample - Create an app and deploy continuously from GitHub
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Continuous deployment from GitHub'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to create an app with CI/CD from GitHub.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.date: 09/02/2019
+ms.author: msangapu
+ms.custom: mvc, seodec18
 ---
 
 # Create an App Service app with continuous deployment from GitHub using CLI
 
 This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create an app and deploy code from GitHub](cli-deploy-github.md). For this sample, you need:
 
-* A GitHub repository with application code, that you have administrative permissions for.
+* A GitHub repository with application code, that you have administrative permissions for. To get automatic builds, structure your repository according to the [Prepare your repository](../deploy-continuous-deployment.md#prepare-your-repository) table.
 * A [Personal Access Token (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) for your GitHub account.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

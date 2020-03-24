@@ -1,18 +1,11 @@
 ---
-title: Application performance FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about availability, performance, and application issues in the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Application performance FAQs
+description: Get answers to frequently asked questions about availability, performance, and application issues in Azure App Service.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
@@ -20,6 +13,10 @@ ms.custom: seodec18
 
 ---
 # Application performance FAQs for Web Apps in Azure
+
+> [!NOTE]
+> Some of the below guidelines might only work on Windows or Linux App Services. For example, Linux App Services run in 64-bit mode by default.
+>
 
 This article has answers to frequently asked questions (FAQs) about application performance issues for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
@@ -40,7 +37,7 @@ In some high memory-consumption scenarios, your app might truly require more com
 ## How do I automate App Service web apps by using PowerShell?
 
 You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks. 
-For descriptions and syntax for all App Service web apps cmdlets, see [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+For descriptions and syntax for all App Service web apps cmdlets, see [Az.Websites](/powershell/module/az.websites).
 
 ## How do I view my web app's event logs?
 
@@ -85,15 +82,16 @@ To see what is causing the error and to resolve the issue, follow the steps in [
 
 ## Where can I learn more about quotas and limits for various App Service plans?
 
-For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
+For information about quotas and limits, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 ## How do I decrease the response time for the first request after idle time?
 
 By default, web apps are unloaded if they are idle for a set period of time. This way, the system can conserve resources. The downside is that the response to the first request after the web app is unloaded is longer, to allow the web app to load and start serving responses. In Basic and Standard service plans, you can turn on the **Always On** setting to keep the app always loaded. This eliminates longer load times after the app is idle. To change the **Always On** setting:
 
 1. In the Azure portal, go to your web app.
-2. Select **Application settings**.
-3. For **Always On**, select **On**.
+2. Select **Configuration**
+3. Select **General settings**.
+4. For **Always On**, select **On**.
 
 ## How do I turn on failed request tracing?
 
@@ -110,7 +108,7 @@ To turn on failed request tracing:
 10. Select **Web.config**.
 11. In system.webServer, add this configuration (to capture a specific URL):
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -126,7 +124,7 @@ To turn on failed request tracing:
     </tracing>
     ```
 12. To troubleshoot slow-performance issues, add this configuration (if the capturing request is taking more than 30 seconds):
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />
@@ -154,7 +152,7 @@ Consider switching to 64-bit processes so you can take advantage of the addition
 
 Also note that a 64-bit environment requires a Basic or Standard service plan. Free and Shared plans always run in a 32-bit environment.
 
-For more information, see [Configure web apps in App Service](web-sites-configure.md).
+For more information, see [Configure web apps in App Service](configure-common.md).
 
 ## Why does my request time out after 230 seconds?
 

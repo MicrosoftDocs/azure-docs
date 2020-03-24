@@ -1,6 +1,6 @@
 ---
 title: Azure Relay API overview | Microsoft Docs
-description: Overview of available Azure Relay APIs
+description: This article provides an overview of available Azure Relay APIs (.NET Standard, .NET Framework, Node.js, etc.)
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 01/21/2020
 ms.author: spelluru
 ---
 
@@ -39,7 +39,7 @@ The .NET ecosystem has multiple runtimes, hence there are multiple .NET
 libraries for the Relay. The .NET Standard library can be run using either
 .NET Core or the .NET Framework, while the .NET Framework library can only be
 run in a .NET Framework environment. For more information on .NET Frameworks,
-see [framework versions](/dotnet/articles/standard/frameworks#framework-versions).
+see [framework versions](/dotnet/articles/standard/frameworks).
 
 The .NET Framework library only supports the WCF programming model and relies
 on a proprietary binary protocol based on the WCF `net.tcp` transport. This

@@ -1,14 +1,14 @@
 ---
-title: Configure metrics alerts for Azure Database for PostgreSQL in Azure portal
-description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL from the Azure portal.
+title: Configure alerts - Azure portal -  Azure Database for PostgreSQL - Single Server
+description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Single Server from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 5/6/2019
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL 
+# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Single Server
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
@@ -55,21 +55,21 @@ You can configure and get information about alert rules using:
 
 10. Configure an **Email/SMS/Push/Voice** action type.
     
-   Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
+    Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
    
-   Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
+    Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
 
-   Select **OK** when completed.
+    Select **OK** when completed.
 
-   ![Action group](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Action group](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Specify an Alert rule name, Description, and Severity.
 
-   ![Action group](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Action group](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Select **Create alert rule** to create the alert.
 
-   Within a few minutes, the alert is active and triggers as previously described.
+    Within a few minutes, the alert is active and triggers as previously described.
 
 ## Manage your alerts
 Once you have created an alert, you can select it and do the following actions:

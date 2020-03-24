@@ -1,13 +1,9 @@
 ---
 title: Understanding autoscale settings in Azure Monitor
 description: "A detailed breakdown of autoscale settings and how they work. Applies to Virtual Machines, Cloud Services, Web Apps"
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
-ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 # Understand Autoscale settings
 Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure Autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. This article takes a detailed look at the anatomy of an Autoscale setting. The article begins with the schema and properties of a setting, and then walks through the different profile types that can be configured. Finally, the article discusses how the Autoscale feature in Azure evaluates which profile to execute at any given time.
@@ -304,3 +300,4 @@ Learn more about Autoscale by referring to the following:
 * [Best practices for Azure Monitor autoscale](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Use autoscale actions to send email and webhook alert notifications](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+

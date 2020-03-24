@@ -1,18 +1,12 @@
 ---
 title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 09/19/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Create interactive reports with Azure Monitor workbooks
@@ -72,7 +66,7 @@ Query sections are highly flexible and can be used to answer questions like:
 
 * How many exceptions did your site throw during the same time period as a decline in usage?
 * What was the distribution of page load times for users viewing some page?
-* How many users viewed some set of pages on your site, but not some other set of pages? This can be useful to understand if you have clusters of users who use different subsets of your site's functionality (use the `join` operator with the `kind=leftanti` modifier in the Log Analytics query language).
+* How many users viewed some set of pages on your site, but not some other set of pages? This can be useful to understand if you have clusters of users who use different subsets of your site's functionality (use the `join` operator with the `kind=leftanti` modifier in the [Kusto query language](/azure/kusto/query/)).
 
 You also aren't only limited to querying from the context of the application you launched the workbook from. You can query across multiple Application Insights monitored apps as well as Log Analytics workspaces as long as you have access permission to those resources.
 
@@ -201,7 +195,7 @@ Generates the result:
 
 ![Application Insights Workbooks section editing controls](./media/usage-workbooks/011-data-table.png)
 
-A more applicable example is using a dropdown to pick from a set of countries by name:
+A more applicable example is using a dropdown to pick from a set of countries/regions by name:
 
 ```
 customEvents

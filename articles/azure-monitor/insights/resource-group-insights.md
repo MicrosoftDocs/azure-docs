@@ -1,16 +1,13 @@
 ---
-title:  Azure Monitor Resource Group Insights | Microsoft Docs
+title: Azure Monitor Resource Group Insights | Microsoft Docs
 description: Understand the health and performance of your distributed applications and services at the Resource Group level with Azure Monitor
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
+ms.date: 09/19/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Monitor resource groups with Azure Monitor (preview)
@@ -88,9 +85,9 @@ A number of **Edit** boxes appear near the various elements of the workbook. Sel
 
 ![Screenshot of edit boxes](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-This reveals the underlying Log Analytics query that is driving the table visualization.
+This reveals the underlying log query that is driving the table visualization.
 
- ![Screenshot of log analytics query window](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Screenshot of log query window](./media/resource-group-insights/0010-failure-edit-query.png)
 
 You can modify the query directly. Or you can use it as a reference and borrow from it when designing your own custom parameterized workbook.
 

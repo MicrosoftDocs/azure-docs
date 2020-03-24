@@ -1,18 +1,11 @@
 ---
-title: Open-source technologies FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about open-source technologies in the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Open-source technologies FAQs
+description: Get answers to frequently asked questions about open-source technologies in Azure App Service.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
@@ -42,10 +35,10 @@ To turn on PHP logging:
 9. Select **Save**.
 10. Select the pencil icon next to **wp-config.php**.
 11. Change the text to the following code:
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. In the Azure portal, in the web app menu, restart your web app.
 
 For more information, see [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
@@ -57,31 +50,31 @@ For more information, see [Enable WordPress error logs](https://blogs.msdn.micro
 
 To change the version of the Node.js application, you can use one of the following options:
 
-*   In the Azure portal, use **App settings**.
-    1. In the Azure portal, go to your web app.
-    2. On the **Settings** blade, select **Application settings**.
-    3. In **App settings**, you can include WEBSITE_NODE_DEFAULT_VERSION as the key, and the version of Node.js you want as the value.
-    4. Go to your [Kudu console](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. To check the Node.js version, enter the following command:  
-   ```
-   node -v
-   ```
-*   Modify the iisnode.yml file. Changing the Node.js version in the iisnode.yml file only sets the runtime environment that iisnode uses. Your Kudu cmd and others still use the Node.js version that is set in **App settings** in the Azure portal.
+* In the Azure portal, use **App settings**.
+  1. In the Azure portal, go to your web app.
+  2. On the **Settings** blade, select **Application settings**.
+  3. In **App settings**, you can include WEBSITE_NODE_DEFAULT_VERSION as the key, and the version of Node.js you want as the value.
+  4. Go to your [Kudu console](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. To check the Node.js version, enter the following command:  
+     ```
+     node -v
+     ```
+* Modify the iisnode.yml file. Changing the Node.js version in the iisnode.yml file only sets the runtime environment that iisnode uses. Your Kudu cmd and others still use the Node.js version that is set in **App settings** in the Azure portal.
 
-    To set the iisnode.yml manually, create an iisnode.yml file in your app root folder. In the file, include the following line:
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  To set the iisnode.yml manually, create an iisnode.yml file in your app root folder. In the file, include the following line:
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Set the iisnode.yml file by using package.json during source control deployment.
-    The Azure source control deployment process involves the following steps:
-    1. Moves content to the Azure web app.
-    2. Creates a default deployment script, if there isn’t one (deploy.cmd, .deployment files) in the web app root folder.
-    3. Runs a deployment script in which it creates an iisnode.yml file if you mention the Node.js version in the package.json file > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. The iisnode.yml file has the following line of code:
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Set the iisnode.yml file by using package.json during source control deployment.
+  The Azure source control deployment process involves the following steps:
+  1. Moves content to the Azure web app.
+  2. Creates a default deployment script, if there isn’t one (deploy.cmd, .deployment files) in the web app root folder.
+  3. Runs a deployment script in which it creates an iisnode.yml file if you mention the Node.js version in the package.json file > engine `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. The iisnode.yml file has the following line of code:
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## I see the message "Error establishing a database connection" in my WordPress app that's hosted in App Service. How do I troubleshoot this?
 
@@ -186,24 +179,24 @@ App Service doesn't have a built-in email feature. For some good alternatives fo
 
 If you have recently migrated to Azure, WordPress might redirect to the old domain URL. This is caused by a setting in the MySQL database.
 
-WordPress Buddy+ is an Azure Site Extension that you can use to update the redirection URL directly in the database. For more information about using WordPress Buddy+, see [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+WordPress Buddy+ is an Azure Site Extension that you can use to update the redirection URL directly in the database. For more information about using WordPress Buddy+, see [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 Alternatively, if you prefer to manually update the redirection URL by using SQL queries or PHPMyAdmin, see [WordPress: Redirecting to wrong URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## How do I change my WordPress sign-in password?
 
-If you have forgotten your WordPress sign-in password, you can use WordPress Buddy+ to update it. To reset your password, install the WordPress Buddy+ Azure Site Extension, and then complete the steps described in [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+If you have forgotten your WordPress sign-in password, you can use WordPress Buddy+ to update it. To reset your password, install the WordPress Buddy+ Azure Site Extension, and then complete the steps described in [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## I can't sign in to WordPress. How do I resolve this?
 
-If you find yourself locked out of WordPress after recently installing a plugin, you might have a faulty plugin. WordPress Buddy+ is an Azure Site Extension that can help you disable plugins in WordPress. For more information, see [WordPress tools and MySQL migration with WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+If you find yourself locked out of WordPress after recently installing a plugin, you might have a faulty plugin. WordPress Buddy+ is an Azure Site Extension that can help you disable plugins in WordPress. For more information, see [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## How do I migrate my WordPress database?
 
 You have multiple options for migrating the MySQL database that's connected to your WordPress website:
 
 * Developers: Use the [command prompt or PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Non-developers: Use [WordPress Buddy+](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Non-developers: Use [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## How do I help make WordPress more secure?
 

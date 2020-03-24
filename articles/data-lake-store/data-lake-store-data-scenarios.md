@@ -3,14 +3,14 @@ title: Data scenarios involving Data Lake Storage Gen1 | Microsoft Docs
 description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in Data Lake Storage Gen1 (previously known as Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Using Azure Data Lake Storage Gen1 for big data requirements
@@ -127,4 +127,4 @@ You can use a mix of services to create visual representations of data stored in
 ![Visualize data in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen1")
 
 * You can start by using [Azure Data Factory to move data from Data Lake Storage Gen1 to Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.
+* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.

@@ -1,19 +1,8 @@
 ---
-title: OS and runtime patching cadence - Azure App Service | Microsoft Docs
-description: Describes how Azure App Service updates the OS and runtimes, and how you can get update announcements.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: OS and runtime patching cadence
+description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -34,7 +23,7 @@ For security reasons, certain specifics of security information are not publishe
 
 Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
 
-For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
 ## How does Azure deal with significant vulnerabilities?
 
@@ -58,7 +47,7 @@ Runtime updates and deprecations are announced here:
 
 ### New patch updates
 
-Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. Node.js patch updates are installed side by side with the existing versions (similar to major and minor versions in the next section). New Python patch versions can be installed manually through [site extensions](https://www.siteextensions.net/packages?q=Tags%3A%22python%22)), side by side with the built-in Python installations.
+Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. Node.js patch updates are installed side by side with the existing versions (similar to major and minor versions in the next section). New Python patch versions can be installed manually through [site extensions](https://azure.microsoft.com/blog/azure-web-sites-extensions/), side by side with the built-in Python installations.
 
 ### New major and minor versions
 
@@ -90,6 +79,7 @@ The following table shows how to the versions of Windows and of the language run
 | PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `php --version` |
 | Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `python --version` |  
+| Java version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `java -version` |  
 
 > [!NOTE]  
 > Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) is stored, is locked down.

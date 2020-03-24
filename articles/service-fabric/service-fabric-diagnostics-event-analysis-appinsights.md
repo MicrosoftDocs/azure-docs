@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Event Analysis with Application Insights | Microsoft Docs
+title: Azure Service Fabric Event Analysis with Application Insights 
 description: Learn about visualizing and analyzing events using Application Insights for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: timlt
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-
 ---
 
 # Event analysis and visualization with Application Insights
@@ -46,53 +36,9 @@ Application Insights has a designated view for querying against all the data tha
 
 To further explore the capabilities of the Application Insights portal, head over to the [Application Insights portal documentation](../azure-monitor/app/app-insights-dashboards.md).
 
-### Configuring Application Insights with WAD
-
->[!NOTE]
->This is only applicable to Windows clusters at the moment.
-
-There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, as detailed in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### Add an Application Insights Instrumentation Key when creating a cluster in Azure portal
-
-![Adding an AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your Application Insights Key here, the Application Insights sink is automatically configured for you in the Resource Manager template that is used to deploy your cluster.
-
-#### Add the Application Insights Sink to the Resource Manager template
-
-In the "WadCfg" of the Resource Manager template, add a "Sink" by including the following two changes:
-
-1. Add the sink configuration directly after the declaring of the `DiagnosticMonitorConfiguration` is completed:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Include the Sink in the `DiagnosticMonitorConfiguration` by adding the following line in the `DiagnosticMonitorConfiguration` of the `WadCfg` (right before the `EtwProviders` are declared):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-In both the preceding code snippets, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
-
-Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Critical" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->If you use an incorrect Application Insights Key either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
-
 ### Configuring Application Insights with EventFlow
 
-If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
+If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
 
 ```json
 "outputs": [

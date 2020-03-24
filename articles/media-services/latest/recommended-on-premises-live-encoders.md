@@ -1,15 +1,15 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Learn about live streaming on-premises encoders recommended by Media Services -  Azure | Microsoft Docs 
+title: Live streaming encoders recommended by Media Services -  Azure | Microsoft Docs 
 description: Learn about live streaming on-premises encoders recommended by Media Services
 services: media-services
 keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 12/14/2018
+ms.date: 02/10/2020
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -21,95 +21,94 @@ ms.service: media-services
 # ms.reviewer:
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
+ 
+# Tested on-premises live streaming encoders
 
-# Recommended live streaming encoders
+In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. The Live Event receives live input streams in one of two ways.
 
-In Media Services, a [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. A LiveEvent receives live input streams in one of two ways:
+* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not enabled to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. We recommend for the live encoder to send multi-bitrate streams instead of a single-bitrate stream to a pass-through live event to allow for adaptive bitrate streaming to the client. 
 
-* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the LiveEvent that is not enabled to perform live encoding with Media Services. The ingested streams pass through LiveEvents without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass through channel, but this configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
+    If you are using multi-bitrates streams for the pass-through live event, the video GOP size and the video fragments on different bitrates must be synchronized to avoid unexpected behavior on the playback side.
 
-  > [!NOTE]
+  > [!TIP]
   > Using a pass-through method is the most economical way to do live streaming.
+ 
+* An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 
-* An on-premises live encoder sends a single-bitrate stream to the LiveEvent that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The LiveEvent then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
+This article discusses tested on-premises live streaming encoders. For instructions on how to verify your on-premises live encoder, see [verify your on-premises encoder](become-on-premises-encoder-partner.md)
 
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
+
+## Encoder requirements
+
+Encoders must support TLS 1.2 when using HTTPS or RTMPS protocols.
 
 ## Live encoders that output RTMP
 
 Media Services recommends using one of following live encoders that have RTMP as output. The supported URL schemes are `rtmp://` or `rtmps://`.
 
+When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.<br/><br/>
+When streaming via RTMPS, check firewall and/or proxy settings to confirm that outbound TCP ports 2935 and 2936 are open.
+
 > [!NOTE]
- > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.<br/>
- When streaming via RTMPS, check firewall and/or proxy settings to confirm that outbound TCP ports 2935 and 2936 are open.
+> Encoders must support TLS 1.2 when using RTMPS protocols.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- Elemental Live (version 2.14.15 and higher)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
+- Telestream Wirecast S (only RTMP is supported)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
+- [Restream.io](https://restream.io/)
 
-## Live encoders that output fragmented-MP4
+## Live encoders that output fragmented MP4
 
-Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented-MP4) as output. The supported URL schemes are `http://` or `https://`.
+Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented MP4) as output. The supported URL schemes are `http://` or `https://`.
+
+> [!NOTE]
+> Encoders must support TLS 1.2 when using HTTPS protocols.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
-- Envivio 4Caster C4 Gen III
+- Elemental Live (version 2.14.15 and higher due to the TLS 1.2 requirement)
+- Envivio 4Caster C4 Gen III 
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
-## How to become an on-premises encoder partner
+> [!TIP]
+>  If you are streaming live events in multiple languages (for example, one English audio track and one Spanish audio track), you can accomplish this with the Media Excel live encoder configured to send the live feed to a pass-through Live Event.
 
-As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications:
+## Configuring on-premises live encoder settings
 
-### Pass-through LiveEvent verification
+For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison.md).
 
-1. Create or visit your Azure Media Services account.
-2. Create and start a **pass-through** LiveEvent.
-3. Configure your encoder to push a multi-bitrate live stream.
-4. Create a published live event.
-5. Run your live encoder for approximately 10 minutes.
-6. Stop the live event.
-7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6).
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
-9. Reset the LiveEvent state after creating each sample.
-10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
+### Playback requirements
 
-### Live encoding LiveEvent verification
+To play back content, both an audio and video stream must be present. Playback of the video-only stream is not supported.
 
-1. Create or visit your Azure Media Services account.
-2. Create and start a **live encoding** LiveEvent.
-3. Configure your encoder to push a single-bitrate live stream.
-4. Create a published live event.
-5. Run your live encoder for approximately 10 minutes.
-6. Stop the live event.
-7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6).
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
-9. Reset the LiveEvent state after creating each sample.
-10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/various encoding speeds).
+### Configuration tips
 
-### Longevity verification
+- Whenever possible, use a hardwired internet connection.
+- When you're determining bandwidth requirements, double the streaming bitrates. Although not mandatory, this simple rule helps to mitigate the impact of network congestion.
+- When using software-based encoders, close out any unnecessary programs.
+- Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. 
+- Ensure that you give yourself ample time to set up your event. For high-scale events, we recommend starting the setup an hour before your event.
 
-1. Create or visit your Azure Media Services account.
-2. Create and start a **pass-through** channel.
-3. Configure your encoder to push a multi-bitrate live stream.
-4. Create a published live event.
-5. Run your live encoder for one week or longer.
-6. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or archived asset) to ensure that playback has no visible glitches.
-7. Stop the live event.
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
+## See also
 
-Lastly, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow ups. You can contact the Azure Media Services team with any questions regarding this process.
+[Live streaming with Media Services v3](live-streaming-overview.md)
 
 ## Next steps
 
-[Live streaming with Media Services v3](live-streaming-overview.md)
+[How to verify your encoder](become-on-premises-encoder-partner.md)

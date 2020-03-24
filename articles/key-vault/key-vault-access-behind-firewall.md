@@ -2,17 +2,14 @@
 title: Access Key Vault behind a firewall - Azure Key Vault | Microsoft Docs
 description: Learn how to access Azure Key Vault from an application behind a firewall
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.subservice: general
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
 
 ---
@@ -51,7 +48,7 @@ For Key Vault management (CRUD and setting access policy), the key vault client 
 | Type of operation | Endpoint:port |
 | --- | --- |
 | Key Vault control plane operations<br> via Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
-| Azure Active Directory Graph API |**Global:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.windows.net:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
+| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
 
 ## Key Vault operations
 

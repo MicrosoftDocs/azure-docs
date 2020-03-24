@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a managed disk from a VHD file in a storage account in the same subscription | Microsoft Docs
+title: Create a managed disk from a VHD file in a storage account in the same subscription - CLI Sample
 description: Azure CLI Script Sample - Create a managed disk from a VHD file in a storage account in the same subscription
 services: virtual-machines-linux
 documentationcenter: storage
@@ -39,7 +39,7 @@ This script uses following commands to create a managed disk from a VHD. Each co
 
 | Command | Notes |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Creates a managed disk using URI of a VHD in a storage account in the same subscription |
 
 ## Next steps
 

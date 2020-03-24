@@ -1,22 +1,16 @@
 ---
-# required metadata
-title: Connect to Microsoft Translator - Azure Logic Apps | Microsoft Docs
+title: Connect to Microsoft Translator
 description: Translate text and perform other language tasks with Microsoft Translator REST APIs and Azure Logic Apps 
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 11/07/2016
 tags: connectors
 ---
 
 # Get started with the Microsoft Translator connector
+
 Connect to Microsoft Translator to translate text, detect a language, and more. With Microsoft Translator, you can: 
 
 * Build your business flow based on the data you get from Microsoft Translator. 
@@ -25,6 +19,7 @@ Connect to Microsoft Translator to translate text, detect a language, and more. 
 You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Microsoft Translator
+
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 > 
 > 

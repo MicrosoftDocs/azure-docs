@@ -1,5 +1,5 @@
 ---
-title: "PowerShell script: Add a marketplace image to a lab in Azure DevTest Labs | Microsoft Docs"
+title: PowerShell - Add a marketplace image to a lab in Azure DevTest Labs
 description: This PowerShell script adds a marketplace image to a lab in Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -11,13 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 ---
 
 # Use PowerShell to add a marketplace image to a lab in Azure DevTest Labs
 
 This sample PowerShell script adds a marketplace image to a lab in Azure DevTest Labs. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -34,10 +36,10 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Searches for resources based on specified parameters. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets resources. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Create a resource. |
+| Find-AzResource | Searches for resources based on specified parameters. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
 
 ## Next steps
 

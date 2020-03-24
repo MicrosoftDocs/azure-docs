@@ -4,7 +4,7 @@ description: Azure Media Analytics OCR (optical character recognition) enables y
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
@@ -13,11 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Use Azure Media Analytics to convert text content in video files into digital text
+# Use Azure Media Analytics to convert text content in video files into digital text  
+
+> [!NOTE]
+> The **Azure Media OCR** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
+
 ## Overview
 If you need to extract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition). This Azure Media Processor detects text content in your video files and generates text files for your use. OCR enables you to automate the extraction of meaningful metadata from the video signal of your media.
 
@@ -73,7 +77,7 @@ Task configuration (preset). When creating a task with **Azure Media OCR**, you 
 
 ```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
-    <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
+    <VideoOcrPreset xmlns:xsi=""https://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""https://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""https://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
          <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>

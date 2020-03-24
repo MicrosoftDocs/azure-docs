@@ -1,159 +1,209 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Help Scout | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Help Scout.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2017
+ms.topic: tutorial
+ms.date: 10/24/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Help Scout
 
 In this tutorial, you learn how to integrate Help Scout with Azure Active Directory (Azure AD).
-
 Integrating Help Scout with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Help Scout.
-- You can enable your users to automatically get signed-on to Help Scout (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to Help Scout.
+* You can enable your users to be automatically signed-in to Help Scout (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Help Scout, you need the following items:
 
-- An Azure AD subscription
-- A Help Scout single-sign on enabled subscription
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Help Scout single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Help Scout from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Help Scout supports **SP and IDP** initiated SSO
+* Help Scout supports **Just In Time** user provisioning
 
 ## Adding Help Scout from the gallery
+
 To configure the integration of Help Scout into Azure AD, you need to add Help Scout from the gallery to your list of managed SaaS apps.
 
-**To add Help Scout from the gallery, perform the following steps:**
-
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
-
-	![The Azure Active Directory button][1]
-
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
-
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button][3]
-
-1. In the search box, type **Help Scout**, select **Help Scout** from result panel then click **Add** button to add the application.
-
-	![Help Scout in the results list](./media/helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Help Scout** in the search box.
+1. Select **Help Scout** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Help Scout based on a test user called "Britta Simon."
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Help Scout is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Help Scout needs to be established.
-
-Help Scout uses email addresses for logins, so to establish the link relationship, use the same **email address** as **user name** in Azure AD.
+In this section, you configure and test Azure AD single sign-on with Help Scout based on a test user called **B.Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Help Scout needs to be established.
 
 To configure and test Azure AD single sign-on with Help Scout, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Help Scout test user](#create-a-help-scout-test-user)** - to have a counterpart of Britta Simon in Help Scout that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Help Scout SSO](#configure-help-scout-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Help Scout test user](#create-help-scout-test-user)** - to have a counterpart of B.Simon in Help Scout that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Help Scout application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Help Scout, perform the following steps:**
+To configure Azure AD single sign-on with Help Scout, perform the following steps:
 
-1. In the Azure portal, on the **Help Scout** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Help Scout** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/helpscout-tutorial/tutorial_helpscout_samlbase.png)
+1. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Help Scout Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Help Scout Domain and URLs single sign-on information](./media/helpscout-tutorial/tutorial_helpscout_url.png)
+1. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. **Identifier** is the **"Audience URI (Service Provider Entity ID)"** from Help Scout, starts with `urn:`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. **Reply URL** is the **"Post-back URL (Assertion Consumer Service URL)"** from Help Scout, starts with `https://` 
+1. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-	> [!NOTE] 
-	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
+    ![Help Scout Domain and URLs single sign-on information](common/idp-intiated.png)
 
-1. If you wish to configure the application in **SP** initiated mode, check **Show advanced URL settings** and perform the following step:
+    a. **Identifier** is the **Audience URI (Service Provider Entity ID)** from Help Scout, starts with `urn:`
 
-	![Help Scout Domain and URLs single sign-on information](./media/helpscout-tutorial/tutorial_helpscout_url1.png)
+	b. **Reply URL** is the **Post-back URL (Assertion Consumer Service URL)** from Help Scout, starts with `https://` 
+
+	> [!NOTE]
+	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
+
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    ![Help Scout Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** textbox, type a URL as: `https://secure.helpscout.net/members/login/`
-	 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/helpscout-tutorial/tutorial_helpscout_certificate.png) 
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-1. Click **Save** button.
+	![The Certificate download link](common/certificatebase64.png)
 
-	![Configure Single Sign-On Save button](./media/helpscout-tutorial/tutorial_general_400.png)
+1. On the **Set up Help Scout** section, copy the appropriate URL(s) as per your requirement.
 
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. On the **Help Scout Configuration** section, click **Configure Help Scout** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section**.
+	a. Login URL
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/config.png) 
+	b. Azure Ad Identifier
 
-1. In a different web browser window, log in to your Help Scout company site as an administrator.
+	c. Logout URL
 
-1. Once you are logged in click on **"Manage"** from the top menu and then select **"Company"** from the dropdown menu.
+### Create an Azure AD test user
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png) 
- 
-1. Select **"Authentication"** from the left-hand menu. 
+The objective of this section is to create a test user in the Azure portal called B.Simon.
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png) 
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+
+    ![The "Users and groups" and "All users" links](common/users.png)
+
+2. Select **New user** at the top of the screen.
+
+    ![New user Button](common/new-user.png)
+
+3. In the User properties, perform the following steps.
+
+    ![The User dialog box](common/user-properties.png)
+
+    a. In the **Name** field enter **B.Simon**.
+  
+    b. In the **User name** field type **B.Simon\@yourcompanydomain.extension**  
+    For example, B.Simon@contoso.com
+
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+
+    d. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Help Scout.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Help Scout**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Help Scout**.
+
+	![The Help Scout link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog select **B.Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+## Configure Help Scout SSO
+
+1. To automate the configuration within Help Scout, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Help Scout** will direct you to the Help Scout application. From there, provide the admin credentials to sign into Help Scout. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Help Scout manually, open a new web browser window and sign into your Help Scout company site as an administrator and perform the following steps:
+
+1. Click on **Manage** from the top menu and then select **Company** from the dropdown menu.
+
+	![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png)
+
+1. Select **Authentication** from the left navigation pane.
+
+	![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png)
 
 1. This takes you to the SAML settings section and perform the following steps:
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png) 
- 
-	a. Copy the **Post-back URL (Assertion Consumer Service URL)** value and paste the value in the **Reply URL** box in the Azure portal, under Help Scout **Domain and URLs** section.
-	
-	b. Copy the **Audience URI (Service Provider Entity ID)** value and paste the value in the **Identifier** box in the Azure portal, under Help Scout **Domain and URLs** section.
+	![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png)
+
+	a. Copy the **Post-back URL (Assertion Consumer Service URL)** value and paste the value in the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+
+	b. Copy the **Audience URI (Service Provider Entity ID)** value and paste the value in the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Toggle **Enable SAML** on and perform the following steps:
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png) 
- 
-	a. In **Single Sign-On URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
-	
+	![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
+
+	a. In **Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+
 	b. Click **Upload Certificate** to upload the **Certificate(Base64)** downloaded from Azure portal.
 
 	c. Enter your organization's email domain(s) e.x.- `contoso.com` in the **Email Domains** textbox. You can separate multiple domains with a comma. Anytime a Help Scout User or Administrator who enters that specific domain on the [Help Scout log-in page](https://secure.helpscout.net/members/login/) will be routed to Identity Provider to authenticate with their credentials.
@@ -162,102 +212,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### Create Help Scout test user
 
-### Create an Azure AD test user
+In this section, a user called B.Simon is created in Help Scout. Help Scout supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Help Scout, a new one is created after authentication.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-   ![Create an Azure AD test user][100]
-
-**To create a test user in Azure AD, perform the following steps:**
-
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
-
-    ![The Azure Active Directory button](./media/helpscout-tutorial/create_aaduser_01.png)
-
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
-
-    ![The "Users and groups" and "All users" links](./media/helpscout-tutorial/create_aaduser_02.png)
-
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
-
-    ![The Add button](./media/helpscout-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/helpscout-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
-
-    d. Click **Create**.
- 
-### Create a Help Scout test user
-
-The objective of this section is to create a user called Britta Simon in Help Scout. Help Scout supports just-in-time provisioning, which is by default enabled.
-
-There is no action item for you in this section. If a user doesn't already exist in Help Scout, a new one is created when you attempt to access Help Scout.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Help Scout.
-
-![Assign the user role][200] 
-
-**To assign Britta Simon to Help Scout, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **Help Scout**.
-
-	![The Help Scout link in the Applications list](./media/helpscout-tutorial/tutorial_helpscout_app.png)  
-
-1. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Help Scout tile in the Access Panel, you should get automatically signed-on to your Help Scout application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Help Scout tile in the Access Panel, you should be automatically signed in to the Help Scout for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/helpscout-tutorial/tutorial_general_01.png
-[2]: ./media/helpscout-tutorial/tutorial_general_02.png
-[3]: ./media/helpscout-tutorial/tutorial_general_03.png
-[4]: ./media/helpscout-tutorial/tutorial_general_04.png
-
-[100]: ./media/helpscout-tutorial/tutorial_general_100.png
-
-[200]: ./media/helpscout-tutorial/tutorial_general_200.png
-[201]: ./media/helpscout-tutorial/tutorial_general_201.png
-[202]: ./media/helpscout-tutorial/tutorial_general_202.png
-[203]: ./media/helpscout-tutorial/tutorial_general_203.png
-
+- [Try Help Scout with Azure AD](https://aad.portal.azure.com/)
