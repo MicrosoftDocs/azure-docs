@@ -88,4 +88,4 @@ See how to design and set up an event route:
 * [Route event data](how-to-route-events.md)
 
 Or, see how to use an Azure Function with Azure Digital Twins:
-* [Work with Azure Functions](how-to-create-azure-function.md)
+* [Set up an Azure Function](how-to-create-azure-function.md)

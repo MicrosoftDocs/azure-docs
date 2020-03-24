@@ -38,7 +38,7 @@
     href: how-to-manage-graph.md
   - name: Route event data
     href: how-to-route-events.md
-  - name: Work with Azure Functions
+  - name: Set up an Azure Function
     href: how-to-create-azure-function.md
 - name: Reference
   items:
