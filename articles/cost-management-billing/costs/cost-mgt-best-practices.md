@@ -122,7 +122,7 @@ Organize your resources with cost in mind. As you create subscriptions and resou
 
 Watch the video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) to understand the tools available to you to enforce scalable resource tagging in your organization.
 
->[!VIDEO https://www.youtube.com/watch?v=nHQYcYGKuyw]
+>[!VIDEO https://www.youtube.com/embed/watch?v=nHQYcYGKuyw]
 
 
 ### Use cost analysis
