@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -39,7 +39,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 * **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
    * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Service accounts** and **service principals**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
+* **Service accounts** and **service principals**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can't be completed programmatically.
    * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 
 ## Create a Conditional Access policy
@@ -52,6 +52,7 @@ The following steps will help create a Conditional Access policy to require thos
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **Directory roles (preview)** and choose the following roles at a minimum:
+      * Authentication Administrator
       * Billing administrator
       * Conditional Access administrator
       * Exchange administrator
