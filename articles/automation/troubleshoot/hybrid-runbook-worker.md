@@ -42,7 +42,7 @@ The following are possible causes:
 
 #### Resolution
 
-Verify that the computer has outbound access to *.azure-automation.net on port 443.
+Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be over-used and cause runbook job delays or timeouts.
 
@@ -88,7 +88,7 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 
 #### Resolution
 
-Start the worker machine and then rereregister it with Azure Automation. See [Install the runbook environment and connect to Azure Automation](../automation-windows-hrw-install#step-4---install-the-runbook-environment-and-connect-to-azure-automation).
+Start the worker machine and then rereregister it with Azure Automation. See instructions for installing the runbook environment and connecting to Azure Automation in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install).
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
 
@@ -155,7 +155,7 @@ If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from com
 
 #### Resolution
 
- Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions aren't enabled, none of the following processes are running.
+ Verify the agent is running by entering the command `ps -ef | grep python`. You should see output similar to the following, the Python processes with **nxautomation** user account. If the Update Management or Azure Automation solution isn't enabled, none of the following processes are running.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -163,19 +163,19 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the `/var/opt/microsoft/omsagent/state/automationworker/` directory.
+The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the **/var/opt/microsoft/omsagent/state/automationworker/** directory.
 
 * **oms.conf** - The worker manager process. It's started directly from DSC.
 
-* **worker.conf** - The Auto Registered Hybrid worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
+* **worker.conf** - The Auto-Registered hybrid worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
 
-* **diy/worker.conf** - The DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto registered Hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled and the DIY Linux Hybrid Worker isn't registered.
+* **diy/worker.conf** - The DIY hybrid worker process. The DIY hybrid worker process is used to execute user runbooks on the Hybrid Runbook Worker. It only differs from the Auto-Registered hybrid worker process in the key detail that it uses a different configuration. This process isn't present if the Azure Automation solution is disabled and the DIY Linux Hybrid Worker isn't registered.
 
 If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>Scenario: The specified class doesn't exist
 
-If you see the error **The specified class does not exist..** in the  `/var/opt/microsoft/omsconfig/omsconfig.log`, the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
+If you see the error `The specified class does not exist..` in the  **/var/opt/microsoft/omsconfig/omsconfig.log**, the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -183,7 +183,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## Windows
 
-The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
+The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
 
 ### <a name="mma-not-running"></a>Scenario: The Microsoft Monitoring Agent isn't running
 
@@ -193,27 +193,27 @@ The `healthservice` service isn't running on the Hybrid Runbook Worker machine.
 
 #### Cause
 
-If the Microsoft Monitoring Agent Microsoft service isn't running, this state prevents the Hybrid Runbook Worker from communicating with Azure Automation.
+If the Microsoft Monitoring Agent service isn't running, the Hybrid Runbook Worker is prevented from communicating with Azure Automation.
 
 #### Resolution
 
-Verify the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
+Verify that the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
 
 ### <a name="event-4502"></a>Scenario: Event 4502 in Operations Manager log
 
 #### Issue
 
-In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage that contains **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.*
+In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage that contains `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` with the following description:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### Cause
 
-This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443. 
+This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to ***.azure-automation.net** on port 443. 
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that indicate a connectivity or other issue that affects onboarding of the role to Azure Automation or issue while under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects onboarding of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
-[Runbook output and messages](../automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs that run in the cloud. You can also enable the Verbose and Progress streams the same way you would for other runbooks.
+Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
 ### <a name="corrupt-cache"></a>Scenario: Hybrid Runbook Worker not reporting
 
@@ -235,7 +235,7 @@ This issue can be caused by a corrupt cache on the Hybrid Runbook Worker.
 
 #### Resolution
 
-To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Microsoft Monitoring Agent, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to redownload its configuration from Azure Automation.
+To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Microsoft Monitoring Agent, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -261,7 +261,7 @@ This issue can be caused if the machine is already registered with a different A
 
 #### Resolution
 
-To resolve this issue, remove the following registry key and restart the `HealthService` and try the `Add-HybridRunbookWorker` cmdlet again:
+To resolve this issue, remove the following registry key, restart the `HealthService`, and try the `Add-HybridRunbookWorker` cmdlet again.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
@@ -269,6 +269,6 @@ To resolve this issue, remove the following registry key and restart the `Health
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
-* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
