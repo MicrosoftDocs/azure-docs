@@ -17,7 +17,7 @@ ms.custom: oldportal;it-pro;
 ---
 # Delegate user management with My Staff (preview)
 
-**My Staff** enables an organization to delegate user management tasks to figures of authority, such as a store manager or team leader, to help their team members access the applications that they need to be productive. When a team member can't access an application because they forgot their password, productivity is lost. Not only does this impact team productivity, but it drives up helpdesk costs and causes a bottleneck in the organizational structure.  With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
+**My Staff** enables an organization to delegate user management tasks to figures of authority, such as a store manager or team leader, to help their team members access the applications that they need. When a team member can't access an application because they forgot their password, productivity is lost. Not only does this impact team productivity, but it drives up helpdesk costs and causes a bottleneck in the organizational structure.  With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
 
 ## Manage your staff in My Staff
 
