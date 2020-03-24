@@ -34,7 +34,7 @@ Azure is designed to withstand sudden changes in the utilization of the resource
 Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
 >[!NOTE] 
->Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; >thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+>Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
 >
 
 ## Enable employees to work remotely
