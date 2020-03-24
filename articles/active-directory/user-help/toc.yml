@@ -28,8 +28,6 @@
   items:
   - name: My staff user management
     href: my-staff-team-manager.md
-  - name: Delegate My staff roles
-    href: my-staff-configure.md
 - name: Microsoft Authenticator app help
   items:
   - name: What is the Microsoft Authenticator app?
