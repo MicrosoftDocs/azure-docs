@@ -13,7 +13,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Add REST API claims exchanges to custom policies in Azure Active Directory B2C
+# Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

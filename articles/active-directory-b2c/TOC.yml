@@ -233,13 +233,15 @@
         href: direct-signin.md
     - name: Add your own business logic
       items:
+      - name: Integrate REST API
+        href: custom-policy-rest-api-intro.md
       - name: Validate user input
         href: custom-policy-rest-api-claims-validation.md
         displayName: rest claims validation, validate
       - name: Obtain additional claims
         href: custom-policy-rest-api-claims-exchange.md
         displayName: rest claims exchange
-      - name: Secure RESTful APIs
+      - name: Secure REST API
         href: secure-rest-api.md
     - name: Define custom attributes
       href: custom-policy-custom-attributes.md

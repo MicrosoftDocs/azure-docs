@@ -263,7 +263,6 @@ To return the promo code claim back to the relying party application, add an out
 
 ## Next steps
 
-
 To learn how to secure your APIs, see the following articles:
 
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
