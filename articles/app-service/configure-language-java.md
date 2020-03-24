@@ -39,12 +39,12 @@ All Java runtimes on App Service that use the Azul JVMs have the Zulu Flight Rec
 
 #### Start a timed recording
 
-To take a timed recording first navigate to Kudu > Process Explorer and get the PID (Process ID) for "java" in the table.
+To take a timed recording you will need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
 
-Then open the Debug Console and run the following command, replacing `<pid>` with the process ID you found in the previous step. This command will start a 30 second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` with 
+Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command will start a 30 second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` in the `D:\home` directory.
 
 ```
-jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:/home/timed_recording_example.JFR"
+jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
 ```
 
 For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
@@ -53,11 +53,15 @@ For more information, please see the [Jcmd Command Reference](https://docs.oracl
 
 You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting named `JAVA_OPTS` with the necessary configuration. The contents of the `JAVA_OPTS` App Setting are passed to the `java` command when your app is started.
 
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
 For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
 
 #### Analyze `.jfr` files
 
-Use [FTPS](../deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ### Stream diagnostic logs
 
