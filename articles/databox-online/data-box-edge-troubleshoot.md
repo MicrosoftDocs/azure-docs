@@ -1,6 +1,6 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Data Box Edge | Microsoft Docs 
-description: Describes how to troubleshoot Azure Data Box Edge issues.
+title: Use the Azure portal to troubleshoot Azure Stack Edge | Microsoft Docs 
+description: Describes how to troubleshoot Azure Stack Edge issues.
 services: databox
 author: alkohli
 
