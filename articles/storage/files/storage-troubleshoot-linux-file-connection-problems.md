@@ -285,10 +285,10 @@ If you can't upgrade to the latest kernel versions, you can work around this pro
 ## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.0
 
 ### Cause
-This error is logged because Linux kernel send ioctl despite Azure files  [does not support SMB multichannel](https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+This error is logged because Azure files [does not currently support SMB multichannel](https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### Solution
-This error is harmless and safely ignorable.
+This error can be ignored.
 
 ## Need help? Contact support.
 
