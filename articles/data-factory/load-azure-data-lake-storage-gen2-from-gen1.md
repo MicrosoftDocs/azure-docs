@@ -158,7 +158,7 @@ In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lak
 
 ### Preserve ACLs from Data Lake Storage Gen1
 
-If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1/Gen2](connector-azure-data-lake-storage.md#-preserve-acls-from-data-lake-storage-gen1gen2). 
+If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1/Gen2](connector-azure-data-lake-storage.md#-preserve-acls-from-data-lake-storage-gen1-gen2). 
 
 ### Incremental copy 
 
