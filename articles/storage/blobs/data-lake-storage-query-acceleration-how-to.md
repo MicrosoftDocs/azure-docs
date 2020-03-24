@@ -70,9 +70,8 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
         <PackageReference Include="Azure.Storage.QuickQuery" Version="12.0.0-preview.1" />
   </ItemGroup>
    ```
-   
-   > [!NOTE]
-   > To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
+
+   To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
 
 
 ### [Java](#tab/java)
