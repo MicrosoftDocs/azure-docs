@@ -91,6 +91,9 @@ Yes. In addition to multiple instances of a given Application Gateway deployment
 
 A single subnet can't support both Standard_v2 and Standard Application Gateway together.
 
+### Does Application Gateway v2 support user-defined routes (UDR)? 
+Yes, but only specific scenarios. See [User-defined routes supported on the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet) for more details on which scenarios are and aren't supported. 
+
 ### Does Application Gateway support x-forwarded-for headers?
 
 Yes. See [Modifications to a request](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).

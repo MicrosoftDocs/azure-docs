@@ -67,10 +67,48 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
 For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gateway subnet, as long as they don't alter end-to-end request/response communication. For example, you can set up a UDR in the Application Gateway subnet to point to a firewall appliance for packet inspection. But you must make sure that the packet can reach its intended destination after inspection. Failure to do so might result in incorrect health-probe or traffic-routing behavior. This includes learned routes or default 0.0.0.0/0 routes that are propagated by Azure ExpressRoute or VPN gateways in the virtual network.
 
-For the v2 SKU, UDRs are not supported on the Application Gateway subnet. For more information, see [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
+For the v2 SKU, there are specific scenarios that UDRs currently support and others that UDRs don't support yet. A few scenarios that require UDR with Application Gateway that are currently supported are:
+
+- Disable Border Gateway Protocol (BGP) route propagation
+- Route 0.0.0.0/0 traffic directly to the Internet
+- Allow Application Gateway Ingress Controller to work with kubenet in Azure Kubernetes Service (AKS)
+
+Scenarios that are currently **not** supported include:
+
+- Using a route table to route traffic through a virtual appliance, through a hub/spoke virtual network, or on-premise (forced tunneling).
+
+> [!WARNING]
+> An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Please ensure that all management/control plane traffic is sent **directly to the internet** and not through a virtual appliance. Logging and metrics could also be affected. 
+
+##### Supported Scenarios
+###### Scenario 1: UDR to disable Border Gateway Protocol (BGP) Route Propagation to Application Gateway subnet
+Sometimes 0.0.0.0/0 is advertised via ExpressRoute or VPN gateways associated with the Application Gateway virtual network. This breaks management plane traffic which requires a direct path to the internet. In such scenarios, UDR can be used to disable BGP route propagation. To disable BGP route propagation, follow the steps below: 
+
+1. Create a Route Table resource in Azure.
+2. Disable the "Virtual network gateway route propagation" parameter. 
+3. Associate the Route Table to the appropriate subnet. 
+
+Enabling UDR for this scenario should not break any existing setups. 
+
+###### Scenario 2: UDR to direct 0.0.0.0/0 to the Internet
+UDR can currently be used on Application Gateway to send 0.0.0.0/0 traffic directly to the internet. 
+
+###### Scenario 3: UDR for Azure Kubernetes Service kubenet 
+If you're using kubenet with Azure Kubernetes Service (AKS) and Application Gateway Ingress Controller (AGIC), you will need to set up a route table to allow traffic sent to the pods to be routed to the correct node. This won't be necessary if you use Azure CNI. To set up the route table to enable kubenet to work, follow the steps below:
+
+1. Create a Route Table resource in Azure. 
+2. Go to the Route Table resource once it's created and go to the Routes blade. 
+3. Add a new route.
+    - Address prefix should be the IP range of the pods you want to reach in AKS. 
+    - Next hop type should be Virtual Appliance. 
+    - Next hop address should be the IP address of the node hosting the pods within the IP range defined in the address prefix field. 
+    
+##### Unsupported Scenarios
+###### Scenario: UDR for Virtual Appliances
+Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premise (forced tunneling) is not yet supported. 
 
 > [!NOTE]
-> UDRs are not supported for the v2 SKU as of now.
+> UDRs are in public preview for v2 SKUs.
 
 > [!NOTE]
 > Using UDRs on the Application Gateway subnet might cause the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
