@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting while deploy Azure Data Explorer cluster into your Virtual Network
-description: Troubleshoot connectivity, operational and cluster creation issues when deploying cluster into your virtual network
+title: Troubleshoot access, ingestion, and cluster operation in your virtual network
+description: Troubleshoot connectivity, ingestion, cluster creation, and operation in your virtual network
 author: basaba
 ms.author: basaba
 ms.reviewer: orspodek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ---
 
-# Troubleshoot connectivity, operational and cluster creation when deploying a cluster into your virtual network
+# Troubleshoot access, ingestion, and cluster operation in your virtual network
 
 In this section you learn how to troubleshoot connectivity, operational, and cluster creation issues for a cluster that is deployed into your [Virtual Network](/azure/virtual-network/virtual-networks-overview).
 
@@ -59,7 +59,7 @@ If the test isn't successful, proceed with the following steps. If the test is s
 
 ### Check route table
 
-   If the cluster's subnet has force-tunneling setup to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0'), make sure that the machine IP address has a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview) to VirtualNetwork/Internet. This is required to prevent asymmetric route issues.
+   If the cluster's subnet has force-tunneling setup to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0'), make sure that the machine IP address has a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview) to VirtualNetwork/Internet. This route is required to prevent asymmetric route issues.
 
 ## Ingestion issues
 
@@ -141,7 +141,7 @@ The [ARMClient](https://chocolatey.org/packages/ARMClient) is used to call the R
     }
     ```
 
-If the *Findings* property shows an empty result, it means that all network tests passed and no connections are broken. If it shows an error as follows: *Outbound dependency '{dependencyName}:{port}' might be not satisfied (Outbound)*, the cluster can't reach the dependent service endpoints. Proceed with the following steps to troubleshoot.
+If the *Findings* property shows an empty result, it means that all network tests passed and no connections are broken. If the following error is shown, *Outbound dependency '{dependencyName}:{port}' might be not satisfied (Outbound)*, the cluster can't reach the dependent service endpoints. Proceed with the following steps.
 
 ### Check Network Security Group (NSG)
 
@@ -149,7 +149,7 @@ Make sure that the [Network Security Group](/azure/virtual-network/security-over
 
 ### Check route table
 
-If the cluster's subnet has force-tunneling set up to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](vnet-deployment.md#azure-data-explorer-management-ip-addresses)) and [health monitoring IP addresses](vnet-deployment.md#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
+If the cluster's subnet has force-tunneling set up to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](vnet-deployment.md#azure-data-explorer-management-ip-addresses)) and [health monitoring IP addresses](vnet-deployment.md#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This route required to prevent asymmetric route issues.
 
 ### Check firewall rules
 
