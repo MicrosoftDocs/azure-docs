@@ -111,6 +111,21 @@ landingContent:
             url: /powershell/module/az.resources/#policies
           - text: Azure PowerShell (Policy Insights)
             url: /powershell/module/az.policyinsights#policy_insights
+          - text: REST (Policy Insights)
+            url: /rest/api/policy-insights/
+          - text: REST (Assignments)
+            url: /rest/api/resources/policyassignments
+          - text: REST (Definitions)
+            url: /rest/api/resources/policydefinitions
+          - text: REST (Initiatives)
+            url: /rest/api/resources/policysetdefinitions
+          - text: Resource Manager templates
+            url: /azure/templates/microsoft.authorization/allversions
+
+  - title: Reference (more)
+    linkLists:
+      - linkListType: reference
+        links:
           - text: Azure SDK for .NET (Assignments)
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
           - text: Azure SDK for .NET (Policy Definitions)
@@ -125,13 +140,3 @@ landingContent:
             url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
           - text: Azure SDK for Python (Policy Insights)
             url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
-          - text: REST (Policy Insights)
-            url: /rest/api/policy-insights/
-          - text: REST (Assignments)
-            url: /rest/api/resources/policyassignments
-          - text: REST (Definitions)
-            url: /rest/api/resources/policydefinitions
-          - text: REST (Initiatives)
-            url: /rest/api/resources/policysetdefinitions
-          - text: Resource Manager templates
-            url: /azure/templates/microsoft.authorization/allversions
