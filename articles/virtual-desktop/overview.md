@@ -93,7 +93,12 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |prod.warmpath.msftcloudes.com|443|Agent traffic|None|
 |catalogartifact.azureedge.net|443|Azure Marketplace|None|
 |kms.core.windows.net|1688|Windows 10 activation|None|
-
+|*.microsoftonline.com|443|Authentication to MS Online Services|None|
+|*.events.data.microsoft.com|443|Telemetry Service|None|
+|www.msftconnecttest.com|443|Detects if the OS is connected to the internet|None|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update in Windows 10|None|
+|login.windows.net|443|Login to MS Online Services, Office 365|None|
+|*.sfx.ms|443|Updates for OneDrive client software|None|
 
 >[!IMPORTANT]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
