@@ -74,7 +74,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Download the data and scripts for this tutorial from the [HDInsight sales insights ETL repository](https://github.com/Azure-Samples/hdinsight-sales-insights-etl).  Enter the following command:
 
-    ```azurecli
+    ```bash
     git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
     cd hdinsight-sales-insights-etl
     ```
