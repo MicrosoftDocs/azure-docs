@@ -131,13 +131,13 @@ This section creates the fallback topic conversation flow.
 
 ## Create Power Automate Flow to connect to your knowledge base
 
-The following procedure creates an action that:
+The following procedure creates a **Power Automate** flow that:
 * takes the incoming user text
 * sends it to QnA Maker
 * assigns the QnA Maker response to a variable
 * sends only the top answer as the response back to your agent
 
-1. In **Power Automate**, the **Flow Template** is started. On the **Power Virtual Agents** item, select **Edit** to configure the input variable coming from your agent to your knowledge base. The text-based input variable is the user-submitted text question from your agent.
+1. In **Power Automate**, the **Flow Template** is started. On the **Power Virtual Agents** flow item, select **Edit** to configure the input variable coming from the agent to your knowledge base. The text-based input variable is the user-submitted text question from your agent.
 
     > [!div class="mx-imgBorder"]
     > ![Configure your input variable as a text string](../media/how-to-integrate-power-virtual-agent/power-automate-configure-input-variable.png)
@@ -154,7 +154,7 @@ The following procedure creates an action that:
     > [!div class="mx-imgBorder"]
     > ![Search for `Qna` to find the **QnA Maker** actions, then select **Generate answer**](../media/how-to-integrate-power-virtual-agent/generate-answer-action-selected.png)
 
-    The connections settings for QnA Maker appear in the action.
+    The three (3) required connections settings for QnA Maker appear in the action and the question settings from the virtual agent..
 
     > [!div class="mx-imgBorder"]
     > ![The connections settings for QnA Maker appear in the action.](../media/how-to-integrate-power-virtual-agent/generate-answer-knowledge-base-settings.png)
@@ -181,6 +181,8 @@ The following procedure creates an action that:
 
     Select the GenerateAnswer `answers`, which is the entire JSON from the GenerateAnswer API call. In the same **Apply to each** box, select **Add an action**. This subsequent action gets only the top answer and sets that to the variable.
 
+1. Search for and select **Set variable**.
+
 1. In the **Set variable** box, select the text box for **Name**, then select **OutgoingQnAAnswer** from the list.
 
     Select the text box for **Value**, then select **Answers Answer** from the list.
@@ -188,7 +190,7 @@ The following procedure creates an action that:
     > [!div class="mx-imgBorder"]
     > ![Set the name and value for the variable ](../media/how-to-integrate-power-virtual-agent/power-automate-flow-apply-to-each-set-variable.png)
 
-1. To return the variable (and its value), select the **Return value(s) to Power Virtual Agent** then select **Add an output**. Select a **Text** output type then enter the **Title** of `FinalAnswer`. Select the text box for the **Value**, then select the `OutgoingQnAAnswer` variable.
+1. To return the variable (and its value), select the **Return value(s) to Power Virtual Agent** flow item then select **Edit**, then **Add an output**. Select a **Text** output type then enter the **Title** of `FinalAnswer`. Select the text box for the **Value**, then select the `OutgoingQnAAnswer` variable.
 
     > [!div class="mx-imgBorder"]
     > ![Set the return value](../media/how-to-integrate-power-virtual-agent/power-automate-flow-return-value.png)
@@ -201,37 +203,38 @@ In order for the Power Virtual Agent to find and connect to the flow, the flow m
 
 1. While still in Power Automate, select **Solutions** from the left-side navigation.
 
-1. Select **+ New solution** and configure the solution. Select **Create** to finish the process.
+1. Select **+ New solution**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Create new solution](../media/how-to-integrate-power-virtual-agent/power-automate-create-new-solution.png)
+1. Enter a display name. The list of solutions includes every solution in your organization or school. Choose a naming convention that helps you filter to just your solutions such as prefixing your email to your solution name: `jondoe-power-virtual-agent-qnamaker-fallback`.
 
-1. In the list of solutions, select the solution you just created. It should be at the top of the list.
+1. Select your publisher from the list of choices.
+
+1. Accept the default values for the name and version.
+
+1. Select **Create** to finish the process.
+
+## Add flow to solution
+
+1. In the list of solutions, select the solution you just created. It should be at the top of the list. If it isn't, search by your email name, which is part of the solution name.
 
 1. In the solution, select **+ Add existing**, then select **Flow** from the list.
 
-1. Select the **Outside solutions** tab, then select the flow you just created. Select **Add** to finish the process.
-
-    > [!div class="mx-imgBorder"]
-    > ![Add flow to solution](../media/how-to-integrate-power-virtual-agent/power-automate-add-flow-to-solution.png)
+1. Find your flow, then select **Add** to finish the process. If there are many flows, look at the **Modified** column to find the most recent flow.
 
 ## Add solution's flow to Power Virtual Agent
 
 1. Return to the browser tab with your Power Virtual Agent. The authoring canvas should still be open.
 
-1. Select the **+** connector under the **Trigger Phrases** action box to insert a new step in the flow, then select **Call an action**.
+1. Select the **+** connector under the **Message** action box to insert a new step in the flow, then select **Call an action**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Call an action from the authoring canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-call-an-action.png)
-
-1. In the new action, select the input value of **UnrecognizedTriggerPhrase**.
+1. In the new action, select the input value of **UnrecognizedTriggerPhrase**. This passes the text from the agent to the flow.
 
     > [!div class="mx-imgBorder"]
     > ![In the new action, select the input value of **UnrecognizedTriggerPhrase**.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-select-unrecognized-trigger-phrase.png)
 
 1. Select the **+** connector under the **Action** box to insert a new step in the flow, then select **Show a message**.
 
-1. Enter the message text and the `FinalAnswer` from the Power Automate Flow.
+1. Enter the `Your answer is:` message text and select `FinalAnswer` as a context variable using the function of the in-place toolbar.
 
     > [!div class="mx-imgBorder"]
     > ![Enter the message text and the `FinalAnswer` from the Power Automate Flow.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-show-message-final-answer.png)
@@ -245,10 +248,46 @@ The final canvas is shown below.
 
 ## Test Power Virtual Agent
 
-Test the agent by typing in a question that your knowledge base can answer. The authoring canvas reports the successful steps with a green check mark.
+1. In the test pane, toggle **Track between topics**. This allows you to watch the progression between topics as well as in topic.
+
+1. Test the agent by entering the user text in the order provided below. The authoring canvas reports the successful steps with a green check mark.
+
+|Question order|Test questions|Purpose|
+|--|--|--|
+|1|Hello|Begin conversation|
+|2|Store hours|Sample topic - configured for you without any additional work on your part.|
+|3|Yes|In reply to `Did that answer your question?`|
+|4|Excellent|In reply to `Please rate your experience.`|
+|5|Yes|In reply to `Can I help with anything else?`|
+|6|What is a knowledge base?|This question triggers the fallback action which sends the text to your knowledge base to answer, then the answer is displayed. |
 
 > [!div class="mx-imgBorder"]
-> [![Test you Power Virtual Agent with a query meant for your knowledge base.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png)](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png#lightbox)
+> ![Final agent canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png)
+
+## Publish your bot
+
+In order to make the agent available to all members of your school or organization, you need to publish it to a channel.
+
+1. Select **Publish** from the left-navigation.
+
+1. Select **Publish** on the page.
+
+1. Try your bot on the demo website, provided as a link below the **Publish** button .
+
+    A new web page opens with your bot. Ask the bot the same test question: `What is a knowledge base?`
+
+    > [!div class="mx-imgBorder"]
+    > ![Final agent canvas](../media/how-to-integrate-power-virtual-agent/demo-chat-bot.png)
+
+## Share your bot
+
+In order to share the demo website, configure it as a channel.
+
+1. Select **Manage** then **Channels** from the left-navigation.
+
+1. Select **Demo website** from the channels list.
+
+1. Copy the link and select **Save**. Paste the link to your demo website into an email to your school or organization members.
 
 ## Clean up resources
 
