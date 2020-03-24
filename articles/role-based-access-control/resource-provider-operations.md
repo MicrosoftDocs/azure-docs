@@ -8779,7 +8779,7 @@ Azure service: [Azure Managed Applications](../azure-resource-manager/managed-ap
 
 ## Microsoft.Sql
 
-Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
