@@ -28,21 +28,13 @@ Next, you create a function in the new function app.
 
 <a name="create-function"></a>
 
-## Create a Blob storage triggered function
+## Create an Azure Blob storage triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
+1. Select **Functions**, and then select **+Add** to add a new function.
 
-   ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
+   ![Choose a Function template in the Azure portal.](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png)
 
-1. Choose **More templates** then **Finish and view templates**.
-
-    ![Functions quickstart choose more templates](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
-
-1. In the search field, type `blob` and then choose the **Blob trigger** template.
-
-1. If prompted, select **Install** to install the Azure Storage extension and any dependencies in the function app. After installation succeeds, select **Continue**.
-
-    ![Install binding extensions](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+1. Choose the **Azure Blob Storage trigger** template.
 
 1. Use the settings as specified in the table below the image.
 
@@ -50,11 +42,11 @@ Next, you create a function in the new function app.
 
     | Setting | Suggested value | Description |
     |---|---|---|
-    | **Name** | Unique in your function app | Name of this blob triggered function. |
+    | **New Function** | Unique in your function app | Name of this blob triggered function. |
     | **Path**   | samples-workitems/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
 
-1. Click **Create** to create your function.
+1. Select **Create Function** to create your function.
 
 Next, you connect to your Azure Storage account and create the **samples-workitems** container.
 
