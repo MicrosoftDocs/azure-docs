@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database instance. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact. 
+Learn how to secure the artifacts used in your Azure Resource Manager templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database instance. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact.
 
 In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -133,7 +133,7 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 
 ## Edit the template
 
-1. Replace the storageAccountKey parameter definition with the following parameter definition: 
+1. Replace the storageAccountKey parameter definition with the following parameter definition:
 
     ```json
         "_artifactsLocationSasToken": {
@@ -206,7 +206,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file by using an SAS token. To learn how to create an Azure pipeline to continuously develop and deploy Resource Manager templates, see:
+In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file by using an SAS token. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
 
 > [!div class="nextstepaction"]
-> [Continuous integration with Azure Pipeline](./template-tutorial-use-azure-pipelines.md)
+> [Use safe deployment practices](./deployment-manager-tutorial.md)
