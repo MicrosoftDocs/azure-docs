@@ -13,7 +13,7 @@ ms.author: travisw
 
 **Choose your target environment**
 
-# [Java Runtime](#tab/java-runtime)
+# [Java Runtime](#tab/jre)
 
 [!INCLUDE [JRE](./jre.md)]
 

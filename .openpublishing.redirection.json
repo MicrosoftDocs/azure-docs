@@ -50325,6 +50325,14 @@
         "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=android"
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
     }
   ]
 }
