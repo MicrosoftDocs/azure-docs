@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2019
+ms.date: 03/24/2020
 ---
 
 # Aggregate transformation in mapping data flow 
@@ -47,7 +47,7 @@ A common use of the aggregate transformation is removing or identifying duplicat
 
 ![Deduplication](media/data-flow/agg-dedupe.png "Deduplication")
 
-In the above example, columns `ProductID` and `Name` are being use for grouping. If two rows have the same values for those two columns, they're considered duplicates. In this aggregate transformation, the values of the first row matched will be kept and all others will be dropped. Using column pattern syntax, all columns whose names aren't `ProductID` and `Name` are mapped to their existing column name and given the value of the first matched rows.
+In the above example, columns `ProductID` and `Name` are being use for grouping. If two rows have the same values for those two columns, they're considered duplicates. In this aggregate transformation, the values of the first row matched will be kept and all others will be dropped. Using column pattern syntax, all columns whose names aren't `ProductID` and `Name` are mapped to their existing column name and given the value of the first matched rows. The output schema is the same as the input schema.
 
 For data validation scenarios, the `count()` function can be used to count how many duplicates there are.
 
