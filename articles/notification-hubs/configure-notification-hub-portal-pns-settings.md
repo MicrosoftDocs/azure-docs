@@ -19,7 +19,7 @@ ms.lastreviewed: 02/14/2019
 
 Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal.  [Google Firebase Cloud Messaging](/azure/notification-hubs/configure-notification-hub-portal-pns-settings?tabs=azure-cli#google-firebase-cloud-messaging) includes instructions for using the Azure CLI.
+In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal.  [Google Firebase Cloud Messaging](/azure/notification-hubs/configure-notification-hub-portal-pns-settings?tabs=azure-cli#google-firebase-cloud-messaging-(FCM)) includes instructions for using the Azure CLI.
 
 If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md) or [Create an Azure notification hub using the Azure CLI](create-notification-hub-azure-cli.md)
 
@@ -47,14 +47,14 @@ To set up Apple Push Notification Service (APNS):
 
 For more information, see [Push notifications to iOS by using Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
-## Google Firebase Cloud Messaging
+## Google Firebase Cloud Messaging (FCM)
 
 # [Portal](#tab/azure-portal)
 
-To set up push notifications for Google Firebase Cloud Messaging (FCM):
+To set up push notifications for Google FCM:
 
 1. In the Azure portal, on the **Notification Hub** page, select **Google (GCM/FCM)** from the left menu.
-2. Paste the **API Key** for the Google Firebase Cloud Messaging (FCM) project that you saved earlier.
+2. Paste the **API Key** for the Google FCM project that you saved earlier.
 3. Select **Save**.
 
    ![Screenshot that shows how to configure Notification Hubs for Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
@@ -72,7 +72,7 @@ Before you begin, you must have the following:
 * The Azure CLI [extension for Notification Hubs](/cli/azure/ext/notification-hub/notification-hub).
 * The **API Key** for a Google Firebase Cloud Messaging (FCM) project.
 
-### Set up push notifications for Google Firebase Cloud Messaging (FCM)
+### Set up push notifications for Google FCM
 
 1. Use the [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) command to add your Google API Key to your notification hub.
 
