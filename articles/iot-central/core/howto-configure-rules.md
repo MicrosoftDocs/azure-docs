@@ -32,6 +32,12 @@ In the following screenshot, the conditions check when the temperature is greate
 
 ![Conditions](media/howto-configure-rules/conditions.png)
 
+## Use value field advanced
+
+Cloud properties that have been added to the device template can be referenced as a value. The evaluation between a telemetry and a cloud property only works as long as they are of a similar type. For example, if Temperature is of data type double, then cloud properties of type double will be shown as options.
+
+If the telemetry selected is of type event, in the drop-down of the value section will be the option **[Any]**. It means that the rule will fire upon receiving any payload of that event type, regardless of the value carried in the payload.
+
 ## Use aggregate windowing
 
 Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
