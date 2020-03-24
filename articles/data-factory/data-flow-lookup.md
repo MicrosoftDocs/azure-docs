@@ -28,7 +28,7 @@ A lookup transformation is similar to a left outer join. All rows from the prima
 
 **Match on:** Only visible if 'Match multiple rows' is enabled. Choose whether to match on any row, the first match, or the last match. Any row is recommended as it executes the fastest. If first row or last row is selected, you'll be required to specify sort conditions.
 
-**Lookup conditions:** Choose which columns to match on. If the equality condition is met, then the rows will be considered a match. Hover and select 'Computed column' to extract a value using the [data flow expression language](data-flow-expression-functions).
+**Lookup conditions:** Choose which columns to match on. If the equality condition is met, then the rows will be considered a match. Hover and select 'Computed column' to extract a value using the [data flow expression language](data-flow-expression-functions.md).
 
 The lookup transformation only supports equality matches. To customize the lookup expression to include other operators such as greater than, it's recommended to use a [cross join in the join transformation](data-flow-join.md#custom-cross-join). A cross join will avoid any possible cartesian product errors on execution.
 
