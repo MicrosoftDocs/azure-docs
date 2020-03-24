@@ -50105,7 +50105,6 @@
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/upgrade-to-latest-generation",
         "redirect_document_id": true
     },
-
     {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md",
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase",
