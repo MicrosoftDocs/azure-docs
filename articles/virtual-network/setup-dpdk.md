@@ -34,7 +34,7 @@ DPDK can run on Azure virtual machines that are supporting multiple operating sy
 
 ## Supported operating systems
 
-The following distributions from the Azure Gallery are supported:
+The following distributions from the Azure Marketplace are supported:
 
 | Linux OS     | Kernel version               | 
 |--------------|---------------------------   |
