@@ -50,7 +50,7 @@ landingContent:
       - linkListType: concept
         links:
         - text: Choosing the right tier
-          url: iot-hub-scaling
+          url: iot-hub-scaling.md
         - text: Device configuration in an IoT solution
           url: iot-hub-configuration-best-practices.md
  -   title: Message Routing
@@ -88,4 +88,4 @@ landingContent:
         - text: using IoT Tools for VS Code
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
-          url: "./iot-pnp/howto-install-iot-explorer.md"
+          url: ./iot-pnp/howto-install-iot-explorer.md
