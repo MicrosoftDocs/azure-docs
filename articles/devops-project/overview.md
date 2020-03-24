@@ -22,7 +22,7 @@ ms.author: mlearned
 
  DevOps Starter sets up everything you need for developing, deploying, and monitoring your application. You can use the DevOps Starter dashboard to monitor code commits, builds, and deployments, all from a single view in the Azure portal.
 
-## Why should I use DevOps Starter?
+## Advantages of using DevOps Starter
 
   DevOps Starter automates the setup of an entire continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  You can start with existing code or use one of the provided sample applications. Then you can quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database, and Azure Service Fabric.  
 
@@ -35,7 +35,7 @@ You can use DevOps Starter to:
 * View and understand how to properly set up a CI/CD pipeline
 * Further customize the release pipelines based on your specific scenarios
 
-## How do I use DevOps Starter?
+## How to use DevOps Starter?
 
   DevOps Starter is available from the Azure portal. You create a DevOps Starter resource just like you create any other Azure resource from the portal. DevOps Projects provides a step-by-step wizard-like experience for the various configuration options.  
 
@@ -67,7 +67,7 @@ After creating your DevOps Starter, you can:
 * Test and build each commit before you merge your code to raise the quality bar
 * Track your backlog and issues right along with your application
 
-## How do I start using DevOps Starter?
+## Getting started with DevOps Starter
 
 * [Get started with DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
