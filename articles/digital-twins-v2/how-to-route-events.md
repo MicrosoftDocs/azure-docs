@@ -22,8 +22,8 @@ Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, thro
 ## Define event routes
 
 Event routes are defined using data plane APIs. A route definition can contain these elements:
-* The desired route ID 
-* The desired endpoint ID
+* The route ID you want to use
+* The ID of the endpoint you want to use
 * A filter that defines which events are sent to the endpoint 
 
 If there is no route ID, no messages are routed outside of Azure Digital Twins. 
@@ -62,7 +62,7 @@ Some notifications conform to the CloudEvents standard. CloudEvents conformance 
 * Notifications emitted from Azure digital twin based on twin types conform to CloudEvents
 * Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
 
-Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
+Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
 
 ### Notification body examples
 
@@ -113,7 +113,7 @@ Life-cycle notifications message
 }
 ```
 
-## Message format detail for different event types
+## Message-format detail for different event types
 
 This section goes into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
 
@@ -127,7 +127,7 @@ Life-cycle notifications are triggered when:
 
 #### Properties
 
-These are the fields in the body of a life-cycle notification.
+Here are the fields in the body of a life-cycle notification.
 
 | Name | Value |
 | --- | --- |
@@ -138,8 +138,8 @@ These are the fields in the body of a life-cycle notification.
 | datacontenttype | application/json |
 | subject | ID of the Azure digital twin |
 | time | Timestamp for when the operation occurred on the twin |
-| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
-| sequencetype | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value. |
+| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 
 #### Body details
 
@@ -213,7 +213,7 @@ Edge change notifications are triggered when any relationship of an Azure digita
 
 #### Properties
 
-These are the fields in the body of an edge change notification.
+Here are the fields in the body of an edge change notification.
 
 | Name    | Value |
 | --- | --- |
@@ -223,8 +223,8 @@ These are the fields in the body of an edge change notification.
 | type    | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
 | subject    | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
 | time    | Timestamp for when the operation occurred on the relationship |
-| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
-| sequencetype | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value. |
+| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 
 #### Body details
 
@@ -265,7 +265,7 @@ Twin type change notifications are triggered when a Digital Twins Definition Lan
 
 #### Properties
 
-These are the fields in the body of a twin type change notification.
+Here are the fields in the body of a twin type change notification.
 
 | Name    | Value |
 | --- | --- |
@@ -276,14 +276,14 @@ These are the fields in the body of a twin type change notification.
 | datacontenttype    | application/json |
 | subject    | ID of the twin type, in the form `urn:<domain>:<unique twin type identifier>:<twin type version number>` |
 | time    | Timestamp for when the operation occurred on the twin type |
-| sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
-| sequencetype    | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |
+| sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| sequencetype    | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 | modelstatus    | The resolution status for resolving a twin type. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
 | updatereason    | Update twin type reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
 
 #### Body details
 
-There is no message body for upload, reload, and patch twin type actions. The user must make a `GET` call to get the twin type content. 
+There is no message body for the actions of uploading, reloading, and patching twin types. The user must make a `GET` call to get the twin type content. 
 
 For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the Azure Digital Twins API surface. So, to decommission a twin type, you would use:
 
@@ -307,7 +307,7 @@ These notifications are triggered when an Azure digital twin is being updated, l
 
 #### Properties
 
-These are the fields in the body of a digital twin change notification.
+Here are the fields in the body of a digital twin change notification.
 
 | Name    | Value |
 | --- | --- |
@@ -318,8 +318,8 @@ These are the fields in the body of a digital twin change notification.
 | datacontenttype    | application/json-patch+json |
 | subject    | ID of the digital twin |
 | time    | Timestamp for when the operation occurred on the digital twin |
-| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
-| sequencetype | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value. |
+| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 
 #### Body details
 
