@@ -29,6 +29,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To create and run the sample, copy the following code into the code editor. 
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline
