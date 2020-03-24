@@ -13,7 +13,6 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc
-monikerRange: 'vsts'
 ---
 
 #  Quickstart: Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Starter
