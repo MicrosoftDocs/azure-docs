@@ -1,6 +1,6 @@
 ---
 title: Designing tables
-description: Introduction to designing tables in Azure SQL Data Warehouse. 
+description: Introduction to designing tables in Azure Synapse Analytics (formerly Azure SQL Data Warehouse). 
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Designing tables in Azure SQL Data Warehouse
+# Designing tables in Azure Synapse Analytics (formerly Azure SQL Data Warehouse)
 
-Learn key concepts for designing tables in Azure SQL Data Warehouse. 
+Learn key concepts for designing tables in Azure Synapse Analytics (formerly Azure SQL Data Warehouse). 
 
 ## Determine table category 
 
