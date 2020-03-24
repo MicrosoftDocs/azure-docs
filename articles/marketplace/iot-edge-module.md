@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # IoT Edge modules

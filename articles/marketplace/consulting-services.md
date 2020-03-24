@@ -7,7 +7,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Consulting Services for Azure Marketplace and AppSource

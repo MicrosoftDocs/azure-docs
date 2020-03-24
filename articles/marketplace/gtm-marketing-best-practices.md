@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 6/24/2018
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Marketing best practices

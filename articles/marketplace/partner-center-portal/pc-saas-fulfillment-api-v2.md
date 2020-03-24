@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # SaaS fulfillment APIs, version 2 

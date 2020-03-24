@@ -1,12 +1,12 @@
 ---
 title: Go-To-Market Services - your commercial marketplace benefits | Azure
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.author: jasonh
+ms.author: dsindona
 
 ---
 

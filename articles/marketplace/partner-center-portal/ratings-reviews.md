@@ -1,8 +1,8 @@
 ---
 title: Ratings and Reviews dashboard in Commercial Marketplace analytics on Partner Center
 description: Learn how to access a consolidated view of customer feedback for your offers on Azure Marketplace and AppSource.
-author: JasonWHowell
-ms.author: jasonh
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

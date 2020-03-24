@@ -1,12 +1,12 @@
 ---
 title: Integrated solutions - Azure Marketplace
 description: Integrated solutions in Azure Marketplace and Microsoft AppSource
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: jasonh
+ms.author: dsindona
 
 ---
 # Publish an integrated solution

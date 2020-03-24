@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/4/2019
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Microsoft Commercial Marketplace FAQs

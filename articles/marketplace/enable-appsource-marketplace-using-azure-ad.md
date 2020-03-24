@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pabutler
+ms.author: dsindona
 
 ---
 # Enable an AppSource and Marketplace listing by using Azure Active Directory

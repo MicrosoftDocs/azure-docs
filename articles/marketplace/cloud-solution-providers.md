@@ -1,12 +1,12 @@
 ---
 title: Cloud Solution Providers | Azure Marketplace
 description: Publishers can now sell their offers through Microsoft Cloud Solution Provider (CSP) partner channel.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Cloud Solution Providers

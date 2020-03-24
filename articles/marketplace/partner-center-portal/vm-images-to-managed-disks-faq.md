@@ -1,8 +1,8 @@
 ---
 title: We're moving virtual machine (VM) images to managed disk storage in the Azure Marketplace 
 description: To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.  
-author: JasonWHowell 
-ms.author: jasonh
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

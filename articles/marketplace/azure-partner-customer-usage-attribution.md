@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 9/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure partner customer usage attribution

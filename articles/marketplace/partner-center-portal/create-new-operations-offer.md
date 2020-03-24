@@ -1,8 +1,8 @@
 ---
 title: Create a new Dynamics 365 for Operations offer in the Commercial Marketplace 
 description: How to create a new Dynamics 365 for Operations offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: JasonWHowell 
-ms.author: jasonh 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

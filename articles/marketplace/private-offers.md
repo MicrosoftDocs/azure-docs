@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Private offers

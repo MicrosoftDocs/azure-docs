@@ -7,7 +7,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: pabutler
+ms.author: dsindona
 
 ---
 # Commercial marketplace transaction capabilities and considerations

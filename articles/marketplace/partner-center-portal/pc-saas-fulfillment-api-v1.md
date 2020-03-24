@@ -1,12 +1,12 @@
 ---
 title: SaaS Fulfillment APIs v1 | Azure Marketplace 
 description: Explains how to create and manage a SaaS offer on the Azure Marketplace using the associated Fulfillment v1 APIs.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
-ms.author: jasonh
+ms.author: dsindona
 
 ROBOTS: NOINDEX
 ---

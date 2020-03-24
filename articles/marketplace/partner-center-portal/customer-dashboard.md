@@ -1,8 +1,8 @@
 ---
 title: Customer dashboard in Commercial Marketplace analytics on Partner Center
 description: Learn how to access information about your customers, including growth trends, using the customer dashboard in Commercial Marketplace analytics.
-author: JasonWHowell
-ms.author: jasonh
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

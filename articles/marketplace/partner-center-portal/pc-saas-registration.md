@@ -1,12 +1,12 @@
 ---
 title: Register a SaaS application | Azure Marketplace 
 description: Explains how to register a SaaS application using the Azure portal.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Register a SaaS application

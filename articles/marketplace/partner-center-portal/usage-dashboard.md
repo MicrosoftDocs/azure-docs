@@ -1,8 +1,8 @@
 ---
 title: Usage dashboard in Commercial Marketplace analytics on Partner Center
 description: Learn how to access all VM offers usage and metered billing metrics.
-author: JasonWHowell
-ms.author: jasonh
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

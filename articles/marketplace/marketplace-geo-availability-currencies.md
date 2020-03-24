@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.author: ellacroi
+ms.author: dsindona
 
 ---
 # Geographic availability and currency support

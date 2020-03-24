@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/31/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Azure Marketplace listing guidelines
