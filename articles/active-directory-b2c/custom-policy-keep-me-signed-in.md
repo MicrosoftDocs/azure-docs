@@ -103,6 +103,8 @@ We recommend that you set the value of SessionExpiryInSeconds to be a short peri
 </RelyingParty>
 ```
 
+## Test your policy
+
 1. Save your changes, and then upload the file.
 1. To test the custom policy you uploaded, in the Azure portal, go to the policy page, and then select **Run now**.
 1. Type your **username** and **password**, select **Keep me signed in**, and then click **sign-in**.
