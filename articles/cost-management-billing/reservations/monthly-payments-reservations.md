@@ -45,7 +45,7 @@ Like other reservations, you can refund or exchange reservations purchased with 
 
 When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for up front to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
 
-If you cancel a reservation that's paid for monthly. Canceled future payments accrue towards the $50,000 USD refund limit.
+If you cancel a reservation that's paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
 
 For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
