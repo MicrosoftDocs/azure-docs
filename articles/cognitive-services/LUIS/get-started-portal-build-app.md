@@ -1,15 +1,8 @@
 ---
 title: "Quickstart: Create a new app in the LUIS portal"
-titleSuffix: Azure Cognitive Services
 description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/24/2020
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances.
 ---
 
