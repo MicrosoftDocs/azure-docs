@@ -6,10 +6,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ---
+
+> [!NOTE]
+> For new applications, we have added **bulk support** directly into the [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md). This page is maintained for applications using the previous .NET SDK 2.x.
 
 # Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
@@ -19,7 +22,7 @@ Currently, bulk executor library is supported by the Azure Cosmos DB SQL API and
 
 ## Prerequisites
 
-* If you don’t already have Visual Studio 2019 installed, you can download and use the [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable "Azure development" during the Visual Studio setup.
+* If you don't already have Visual Studio 2019 installed, you can download and use the [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable "Azure development" during the Visual Studio setup.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -35,7 +38,7 @@ Now let's switch to working with code by downloading a sample .NET application f
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample". You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it.
+The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample". You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account's connection strings, build the solution, and run it.
 
 The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
 
@@ -43,7 +46,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
 
 1. Navigate to the "BulkImportSample" folder and open the "BulkImportSample.sln" file.  
 
-2. The Azure Cosmos DB’s connection strings are retrieved from the App.config file as shown in the following code:  
+2. The Azure Cosmos DB's connection strings are retrieved from the App.config file as shown in the following code:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -161,7 +164,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |NumberOfDocumentsUpdated (long)    |   The number of documents that were successfully updated out of the total documents supplied to the bulk update API call.      |
    |TotalRequestUnitsConsumed (double)   |    The total request units (RUs) consumed by the bulk update API call.    |
    |TotalTimeTaken (TimeSpan)   | The total time taken by the bulk update API call to complete the execution. |
-	
+    
 ## Performance tips 
 
 Consider the following points for better performance when using the bulk executor library:
@@ -192,6 +195,10 @@ Consider the following points for better performance when using the bulk executo
     </trace>
   </system.diagnostics>
   ```
+
+## Migration to .NET SDK version 3
+
+[.NET SDK version 3](tutorial-sql-api-dotnet-bulk-import.md) **includes bulk support** and does not require any external library. If you are currently using the bulk executor library and planning to migrate to bulk support on the newer SDK, follow the steps in our [migration guide](how-to-migrate-from-bulk-executor-library.md).
 
 ## Next steps
 
