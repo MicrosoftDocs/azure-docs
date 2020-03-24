@@ -52,10 +52,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Send push notifications to all registered devices
+          - text: Send push notifications to all registered Android devices
             url: notification-hubs-android-push-notification-google-fcm-get-started.md
-          - text: Send push notifications to specific devices
-            url: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+          - text: Send push notifications to Swift iOS apps
+            url: notification-hubs-ios-push-notifications-swift-apps-get-started.md
       - linkListType: how-to-guide
         links:
           - text: Send cross-platform notifications
@@ -84,3 +84,15 @@ landingContent:
             url: /powershell/module/az.notificationhubs/?view=azps-3.6.1
           - text: CLI
             url: /cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: FAQ
+            url: notification-hubs-push-notification-faq.md
+          - text: Support options
+            url: https://azure.microsoft.com/support/options/
+          - text: MSDN forums
+            url: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
