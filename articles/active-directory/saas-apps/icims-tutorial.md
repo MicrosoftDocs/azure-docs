@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 03/20/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -135,7 +135,7 @@ To configure single sign-on on **ICIMS** side, you need to send the downloaded *
 
 ### Create ICIMS test user
 
-In this section, you create a user called Britta Simon in ICIMS. Work with [ICIMS support team](https://www.icims.com/contact-us) to add the users in the ICIMS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in ICIMS. Work with [ICIMS support team](https://www.icims.com/contact-us) to add the users in the ICIMS platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
