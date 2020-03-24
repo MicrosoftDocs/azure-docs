@@ -253,17 +253,11 @@ On the identity page, set the *Status* toggle to *On*.
 
 Because Azure Digital Twins uses role-based access control to manage access (see [Secure Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function that you want to allow to access Azure Digital Twins.
 
-To assign a role, you need the **resource ID** of the Azure Digital Twins instance you have created. If you did not record it earlier when you created your instance, you can retrieve it using this command:
-
-```bash
-az dt show --name <your-instance-name> -g <your-resource-group-name>
-```
-The resource ID will be part of the output, as a long string named "id" that begins with the letters "/subscriptions/…".
-
+[!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
 Use the resource ID along with the Azure function ID in the command below: 
 ```bash
-az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <Azure-function-ID> --scope <resource-instance-ID>
+az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <Azure-function-ID> --scope <resource-ID>
 ```
 
 This assigns an Owner role to the Azure function.
