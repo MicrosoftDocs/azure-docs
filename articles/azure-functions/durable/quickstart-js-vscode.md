@@ -57,6 +57,14 @@ Visual Studio Code installs the Azure Functions Core Tools, if needed. It also c
 
 A package.json file is also created in the root folder.
 
+### Enable Azure Functions V2 compatibility mode
+
+Currently, JavaScript Durable Functions require Azure Functions V2 compatability mode to be enabled.
+
+1. Open *local.settings.json* to edit the settings used when running the app locally.
+
+1. Add a setting named `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true`.
+
 ## Install the Durable Functions npm package
 
 To work with Durable Functions in a Node.js function app, you use a library called `durable-functions`.
@@ -166,6 +174,20 @@ After you've verified that the function runs correctly on your local computer, i
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
+
+### Enable Azure Functions V2 compatibility mode
+
+The same Azure Functions V2 compatability that you enabled locally needs to be enabled in the app in Azure.
+
+1. Using the command palette, search for and select `Azure Functions: Edit Setting...`.
+
+1. Follow the prompts to locate your function app in your Azure subscription.
+
+1. Select `Create new App Setting...`.
+
+1. Enter a new setting key of `FUNCTIONS_V2_COMPATIBILITY_MODE`.
+
+1. Enter a setting value of `true`.
 
 ## Test your function in Azure
 
