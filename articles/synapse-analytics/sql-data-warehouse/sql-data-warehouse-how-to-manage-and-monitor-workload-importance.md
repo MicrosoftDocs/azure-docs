@@ -64,8 +64,8 @@ GO
 ```
 
 ## Next steps
-- For more information on Classification, see [Workload Classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md).
-- For more information on Importance, see [Workload Importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md)
+- For more information on Classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
+- For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)
