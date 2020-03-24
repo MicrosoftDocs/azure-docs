@@ -40,6 +40,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
+    ![Create function](media/quickstart-js-vscode/functions-vscode-create-project.png)
+
 1. Choose an empty folder location for your project and choose **Select**.
 
 1. Following the prompts, provide the following information:
@@ -57,7 +59,7 @@ A package.json file is also created in the root folder.
 
 ## Install the Durable Functions npm package
 
-To work with Durable Functions from a Node.js function app, you use a library called `durable-functions`.
+To work with Durable Functions in a Node.js function app, you use a library called `durable-functions`.
 
 1. Use the *View* menu or Ctrl+Shift+` to open a new terminal in VS Code.
 
@@ -71,13 +73,11 @@ The most basic Durable Functions app contains three functions:
 * *Activity function* - called by the orchestrator function, performs work, and optionally returns a value.
 * *Client function* - a regular Azure Function that starts an orchestrator function. This example uses an HTTP triggered function.
 
-### Orchestrator
+### Orchestrator function
 
 You use a template to create the durable function code in your project.
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
-
-    ![Create function](media/quickstart-js-vscode/functions-vscode-create-project.png)
 
 1. Following the prompts, provide the following information:
 
@@ -90,7 +90,7 @@ You've added an orchestrator to coordinate activity functions. Open *HelloOrches
 
 Next, you'll add the referenced `Hello` activity function.
 
-### Activity
+### Activity function
 
 1. In the command palette, search for and select `Azure Functions: Create Function...`.
 
@@ -101,7 +101,7 @@ Next, you'll add the referenced `Hello` activity function.
     | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
-You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it is taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
+You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
 
 Finally, you'll add an HTTP triggered function that starts the orchestration.
 
@@ -125,14 +125,14 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.js*). Press F5 or select *Debug: Start Debugging* from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.js*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
     > [!NOTE]
     > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](media/durable-functions-create-first-csharp/functions-vscode-f5.png)
+    ![Azure local output](media/quickstart-js-vscode/functions-vscode-f5.png)
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
@@ -169,9 +169,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in the following format:
-
-    http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
