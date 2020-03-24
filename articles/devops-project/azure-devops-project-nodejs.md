@@ -15,7 +15,7 @@ ms.author: angrobe
 ms.custom: mvc
 ---
 
-#  Quickstart: Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Starter
+# Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Starter
 
 In this quickstart, you create a NodeJS progressive web app (PWA) using [GatsbyJS](https://www.gatsbyjs.org/) and the simplified Azure DevOps Starter creation experience. When finished, you have a continuous integration (CI) and continuous delivery (CD) pipeline for your PWA in Azure Pipelines. Azure DevOps Starter sets up what you need for developing, deploying, and monitoring.
 
