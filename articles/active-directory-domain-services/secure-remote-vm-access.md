@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/24/2020
 ms.author: iainfou
 
 ---
-# Secure remote access to virtual machines in Azure Active Directory Domain Services using Remote Desktop Services and Network Policy Server (NPS) with Azure Multi-Factor Authentication
+# Secure remote access to virtual machines in Azure Active Directory Domain Services
 
 To secure remote access to virtual machines (VMs) that run in an Azure Active Directory Domain Services (Azure AD DS) managed domain, you can use Remote Desktop Services (RDS) and Network Policy Server (NPS). Azure AD DS authenticates users as they request access through the RDS environment. For enhanced security, you can integrate Azure Multi-Factor Authentication to provide an additional authentication prompt during sign-in events. Azure Multi-Factor Authentication uses an extension for NPS to provide this feature.
 
