@@ -138,6 +138,16 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     > [!NOTE]
     > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
+1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**. Following the prompts, provide the following information to create a new storage account in Azure.
+
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | Select subscription | *name of your subscription* | Select your Azure subscription |
+    | Select a storage account | Create a new storage account |  |
+    | Enter the name of the new storage account | *unique name* | Name of the storage account to create |
+    | Select a resource group | *unique name* | Name of the resource group to create |
+    | Select a location | *region* | Select a region close to you |
+
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
     ![Azure local output](media/quickstart-js-vscode/functions-vscode-f5.png)
