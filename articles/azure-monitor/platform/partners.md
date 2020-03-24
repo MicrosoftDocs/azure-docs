@@ -45,7 +45,7 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 ![Circonus Logo](./media/partners/circonus.png)
 
-Circonus is a microservices monitoring and analytics platform built for on premises or SaaS deployment. It is fully automatable API-Centric platform is more scalable and reliable than systems it monitors. Developed for the requirements of DevOps, Circonus delivers percentile-based alerts, graphs, dashboards, and machine-learning intelligence that enable business optimization. Circonus monitors your Microsoft Azure cloud resources and their applications in real time. You can use Circonus to collect and track metrics for the variables you want to measure for your resources and applications. With Circonus, you gain system-wide visibility into Azure's resource utilization, application performance, and operational health.
+Circonus is the machine data intelligence expert, providing the only machine data intelligence platform capable of handling billions of metric streams in real time to drive unprecedented business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure’s resource utilization, application performance, and operational health.
 
 [Go to the documentation.][circonus-doc]
 
