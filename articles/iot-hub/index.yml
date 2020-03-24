@@ -49,6 +49,12 @@ landingContent:
         links:
         - text: Device configuration in an IoT solution
           url: iot-hub-configuration-best-practices.md
+      - linkListType: how-to-guide
+        links:
+        - text: Device twins
+          url: iot-hub-devguide-device-twins.md
+        - text: Module twins
+          url: iot-hub-devguide-module-twins.md
  -  title: Routing and Enrichments
     linkLists:
      -  linkListType: tutorial
@@ -59,5 +65,5 @@ landingContent:
           url: tutorial-routing-config-message-routing-rm-template.md
      -  linkListType: tutorial
         links:
-        - text: View results
+        - text: View routing results
           url: tutorial-routing-view-message-routing-results.md
