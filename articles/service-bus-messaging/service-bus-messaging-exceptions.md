@@ -144,6 +144,15 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 
+## Issues that may occur with service upgrades/restarts
+Backend service upgrades and restarts may cause the following impact to your applications:
+
+- Requests may be momentarily throttled.
+- There may be a drop in incoming messages/requests.
+- The log file may contain error messages.
+- The applications may be disconnected from the service for a few seconds.
+
+If the application code utilizes SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
 
 ## Next steps
 
