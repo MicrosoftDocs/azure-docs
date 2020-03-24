@@ -32,13 +32,13 @@ Here are the operations available in Azure Digital Twins Query Store language:
 * Get digital twins based on actual state condition (information about digital twins and their last known property value)
 * Use custom twin type function: `IS_OF_MODEL(twinToCheck, twinTypeName)` allows query authors to filter based on information within DTDL twin types
 * Use any combination (`AND`, `OR`, `NOT` operator) of the above
-* Use scalar functions support: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
-* Use support for query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
-* Use continuation support: The query object is instantiated with a page size (up to 100). You can retrieve the digital twin one page at a time, by repeating calls to the `nextAsTwin` method
+* Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
+* Use query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
+* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twin one page at a time, by repeating calls to the `nextAsTwin` method.
 
-## Basic query syntax
+## Query syntax
 
-Here are some sample queries that illustrate the query language structure and perform two possible query operations.
+Here are some sample queries that illustrate the query language structure and perform possible query operations.
 
 Get Azure digital twins by properties (including ID and metadata):
 ```sql
@@ -60,6 +60,8 @@ AND T.roomSize > 50
 > [!TIP]
 > The ID of an Azure digital twin is queried using the metadata field `$dtId`.
 
+### Run queries with an API call
+
 Once you have decided on a query string, you execute it by making a call to the Query API.
 The following code snippet illustrates this call from the client app:
 
@@ -71,9 +73,9 @@ QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
 QueryResult result = await client.Query.QueryTwinsAsync(spec);
 ```
 
-This call returns query results in form of a QueryResult object. 
+This call returns query results in the form of a QueryResult object. 
 
-Query calls support paging. A complete example with error handling and paging:
+Query calls support paging. Here is a complete example with error handling and paging:
 
 ```csharp
 string query = "SELECT * FROM digitaltwins";
@@ -110,10 +112,10 @@ try
 
 When querying based on digital twins' relationships, Azure Digital Twins Query Store Language has a special syntax.
 
-Relationships are pulled into the query scope in the `FROM` clause. An important distinction here from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
+Relationships are pulled into the query scope in the `FROM` clause. An important distinction from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
 Recall that with the Azure Digital Twins [twin type](concepts-twin-types.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
-To mark this difference, the keyword `RELATED` is used in the `JOIN` clause to reference a twin's set of relationships. 
+To incorporate this difference, the keyword `RELATED` is used in the `JOIN` clause to reference a twin's set of relationships. 
 
 The following section gives several examples of what this looks like.
 
@@ -134,9 +136,9 @@ WHERE T.$dtId = 'ABC'
 ```
 
 >[!NOTE] 
-> The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves classify the target entity.
+> The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
-You can reference the same digital twin collection multiple times in one query. The below example shows how to traverse two different relationship types, *contains* and *servicedBy*, for the digital twin `T`.
+You can reference the same digital twin collection multiple times in one query. The next example shows how to traverse two different relationship types, *contains* and *servicedBy*, for the digital twin `T`.
 
 ```sql
 SELECT T, CT, SBT1
@@ -146,7 +148,7 @@ JOIN SBT1 RELATED T.servicedBy
 WHERE T.$dtId = 'ABC' 
 ```
 
-You can also query over multiple levels of relationships, and based on related digital twins' properties. The following example extends the previous example to get:
+You can also query over multiple levels of relationships, and based on related digital twins' properties. The next example extends the previous example to get:
 * the digital twins with a *v1* value of '123', that are serviced by  
     * the digital twins contained by
         * the digital twins with an *ID* property of 'ABC'
@@ -165,7 +167,7 @@ AND SBT2.v1 = 123
 Similarly to the way Azure digital twins have properties described via DTDL, relationships can also have properties. 
 The Azure Digital Twins Query Store Language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
-As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'SBR' in order to reference its property.
+As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.
 
 ```sql
 SELECT T, SBT, R
@@ -175,7 +177,7 @@ WHERE T.$dtId = 'ABC'
 AND R.reportedCondition = 'clean'
 ```
 
-In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (and not of a digital twin with a *servicedBy* relationship).
+In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
 ### Limitations
 
