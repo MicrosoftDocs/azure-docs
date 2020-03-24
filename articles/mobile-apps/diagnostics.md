@@ -1,12 +1,12 @@
 ---
 title: Monitor your application for real-time failures and errors with Visual Studio App Center
 description: Learn about App Center as a service to monitor your mobile application for failures and errors.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Monitor failures and errors in real time for your mobile application
