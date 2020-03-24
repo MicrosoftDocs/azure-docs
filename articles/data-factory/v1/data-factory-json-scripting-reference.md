@@ -3553,7 +3553,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises FTP server |No |&nbsp; |
 | port |Port on which the FTP server is listening |No |21 |
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when using FTP over SSL/TLS channel |No |true |
 
 #### Example: Using Anonymous authentication
 
@@ -4068,7 +4068,7 @@ To define a HTTP linked service, set the **type** of the linked service to **Htt
 | --- | --- | --- |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation if source is HTTPS Web Server | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
 | encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
