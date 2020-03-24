@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 11/27/2019
 ---
-# Deployment functions for Azure Resource Manager templates 
+# Deployment functions for ARM templates 
 
-Resource Manager provides the following functions for getting values related to the current deployment:
+Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager (ARM) template:
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -267,13 +267,13 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"stringParameter": {
-			"type" : "string",
-			"defaultValue": "option 1"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringParameter": {
+            "type" : "string",
+            "defaultValue": "option 1"
+        },
         "intParameter": {
             "type": "int",
             "defaultValue": 1
@@ -290,31 +290,31 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "type": "string",
             "defaultValue": "[parameters('stringParameter')]"
         }
-	},
-	"variables": {},
-	"resources": [],
-	"outputs": {
-		"stringOutput": {
-			"value": "[parameters('stringParameter')]",
-			"type" : "string"
-		},
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "value": "[parameters('stringParameter')]",
+            "type" : "string"
+        },
         "intOutput": {
-			"value": "[parameters('intParameter')]",
-			"type" : "int"
-		},
+            "value": "[parameters('intParameter')]",
+            "type" : "int"
+        },
         "objectOutput": {
-			"value": "[parameters('objectParameter')]",
-			"type" : "object"
-		},
+            "value": "[parameters('objectParameter')]",
+            "type" : "object"
+        },
         "arrayOutput": {
-			"value": "[parameters('arrayParameter')]",
-			"type" : "array"
-		},
+            "value": "[parameters('arrayParameter')]",
+            "type" : "array"
+        },
         "crossOutput": {
-			"value": "[parameters('crossParameter')]",
-			"type" : "string"
-		}
-	}
+            "value": "[parameters('crossParameter')]",
+            "type" : "string"
+        }
+    }
 }
 ```
 
@@ -376,37 +376,37 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"variables": {
-		"var1": "myVariable",
-		"var2": [ 1,2,3,4 ],
-		"var3": "[ variables('var1') ]",
-		"var4": {
-			"property1": "value1",
-			"property2": "value2"
-  		}
-	},
-	"resources": [],
-	"outputs": {
-		"exampleOutput1": {
-			"value": "[variables('var1')]",
-			"type" : "string"
-		},
-		"exampleOutput2": {
-			"value": "[variables('var2')]",
-			"type" : "array"
-		},
-		"exampleOutput3": {
-			"value": "[variables('var3')]",
-			"type" : "string"
-		},
-		"exampleOutput4": {
-			"value": "[variables('var4')]",
-			"type" : "object"
-		}
-	}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "var1": "myVariable",
+        "var2": [ 1,2,3,4 ],
+        "var3": "[ variables('var1') ]",
+        "var4": {
+            "property1": "value1",
+            "property2": "value2"
+          }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput1": {
+            "value": "[variables('var1')]",
+            "type" : "string"
+        },
+        "exampleOutput2": {
+            "value": "[variables('var2')]",
+            "type" : "array"
+        },
+        "exampleOutput3": {
+            "value": "[variables('var3')]",
+            "type" : "string"
+        },
+        "exampleOutput4": {
+            "value": "[variables('var4')]",
+            "type" : "object"
+        }
+    }
 }
 ```
 
