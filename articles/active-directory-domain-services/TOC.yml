@@ -23,7 +23,7 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Create an advanced managed domain
       href: tutorial-create-instance-advanced.md
-    - name: Create a forest trust (preview)
+    - name: Create a forest trust
       href: tutorial-create-forest-trust.md
 - name: Samples
   items:
