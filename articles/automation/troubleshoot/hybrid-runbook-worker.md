@@ -76,6 +76,20 @@ You have two options for resolving this issue:
 
 * Manually configure the worker machine to run in an Orchestrator sandbox. Then run a runbook created in the Azure Automation account on the worker to test the functionality.
 
+### <a name="vm-automatically-dropped"></a>Scenario: Windows Azure VMs automatically dropped from hybrid worker group
+
+#### Issue
+
+You can't see the Hybrid Runbook Worker or VMs when the worker machine has been turned off for a long time.
+
+#### Cause
+
+The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 30 days. As a result, Automation has purged the Hybrid Runbook Worker group or the System Worker group. 
+
+#### Resolution
+
+Start the worker machine and then rereregister it with Azure Automation. See [Install the runbook environment and connect to Azure Automation](../automation-windows-hrw-install#step-4---install-the-runbook-environment-and-connect-to-azure-automation).
+
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
 
 #### Issue
