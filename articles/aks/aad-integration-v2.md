@@ -13,11 +13,11 @@ ms.date: 03/24/2020
 > Existing AAD v1.0 clusters are not affected by the new AAD v2.0 feature for AKS.
 
 AAD v2.0 is designed to simplify the AAD v1.0 experience, where users were required to create a client app, a server app, and required the AAD tenant to grant Directory Read permissions. 
-In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. Finally, AAD v2.0 enabled clusters uses a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
+In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. AAD v2.0 enabled clusters use a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
 
 ## Limitations
 
-* You can't currently upgrade an existing AAD v1.0 enabled AKS clusters to AAD v2.0.
+* You can't currently upgrade an existing AAD v1.0 cluster to AAD v2.0.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -45,7 +45,7 @@ az extension update --name aks-preview
 az extension list
 ```
 
-To install kubectl use the following
+To install kubectl, use the following
 ```azurecli
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.18.0-beta.2/bin/darwin/amd64/kubectl"
 chmod +x ./kubectl
@@ -90,9 +90,9 @@ Then, create an AKS cluster:
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
 ```
-The above command creates a 3 node AKS cluster, but the user, who created the cluster, by default, is not a member of a group that has access to this cluster. This user needs to create an AAD group, add themselves as a member of the group, and then update the cluster as shown below. Follow instructions [here](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+The above command creates a three node AKS cluster, but the user, who created the cluster, by default, is not a member of a group that has access to this cluster. This user needs to create an AAD group, add themselves as a member of the group, and then update the cluster as shown below. Follow instructions [here](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
-Once you have created a group and added yourself (and others) as a member, you can update the cluster with the aad group using the following command
+Once you've created a group and added yourself (and others) as a member, you can update the cluster with the aad group using the following command
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
