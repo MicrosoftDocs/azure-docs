@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 02/10/2020
 ---
-# Resource functions for Azure Resource Manager templates
+# Resource functions for ARM templates
 
-Resource Manager provides the following functions for getting resource values:
+Resource Manager provides the following functions for getting resource values in your Azure Resource Manager (ARM) template:
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
