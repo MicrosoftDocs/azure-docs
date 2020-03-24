@@ -74,7 +74,7 @@
       href: domains-manage.md
     - name: Delete a directory    
       href: directory-delete-howto.md
-    - name: Administrative units    
+    - name: Administrative units
       href: directory-administrative-units.md
     - name: Multiple directories    
       href: licensing-directory-independence.md
