@@ -20,7 +20,7 @@ Automatic language detection is used to determine the most likely match for audi
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
 > [!IMPORTANT]
-> This feature is only available for the Speech SDK for C#, C++ and Java.
+> This feature is only available for the Speech SDK for C#, C++, Java and Python.
 
 ## Automatic language detection with the Speech SDK
 
