@@ -47,6 +47,11 @@ If Cloud App Security is deployed and ingesting your data, the alert data can ea
 
 1. To use the relevant schema in Log Analytics for the Cloud App Security alerts, search for **SecurityAlert**.
 
+> [!NOTE]
+> Cloud Discovery helps with detecting and identifying trends in the aggregate data underlying all of the user connections to cloud apps. 
+Since Cloud Discovery data is aggregated on a per-day basis, be aware that up to 24 hours' worth of the most recent data will not be reflected in Azure Sentinel.
+In specific cases where more immediate data is required for a low-level investigation, it should be done directly in the source appliance or service where the raw data resides.
+
 
 
 
