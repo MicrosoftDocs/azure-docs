@@ -65,6 +65,17 @@ Currently, JavaScript Durable Functions require Azure Functions V2 compatability
 
 1. Add a setting named `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true`.
 
+    ```json
+    {
+        "IsEncrypted": false,
+        "Values": {
+            "AzureWebJobsStorage": "",
+            "FUNCTIONS_WORKER_RUNTIME": "node",
+            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
+        }
+    }
+    ```
+
 ## Install the Durable Functions npm package
 
 To work with Durable Functions in a Node.js function app, you use a library called `durable-functions`.
@@ -138,7 +149,11 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     > [!NOTE]
     > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
-1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**. Following the prompts, provide the following information to create a new storage account in Azure.
+1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
+
+    ![Create storage account](media/quickstart-js-vscode/functions-vscode-select-storage.png)
+
+1. Following the prompts, provide the following information to create a new storage account in Azure.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
