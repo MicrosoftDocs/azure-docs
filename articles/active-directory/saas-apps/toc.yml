@@ -1642,6 +1642,8 @@
         href: zoom-tutorial.md
       - name: Zscaler
         href: zscaler-tutorial.md
+      - name: Zscaler B2B User Portal
+        href: zscaler-b2b-user-portal-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
       - name: Zscaler Internet Access Administrator
