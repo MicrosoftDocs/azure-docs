@@ -8,15 +8,13 @@ ms.date: 03/24/2020
 
 # Quickstart: Create a new app in the LUIS portal
 
-In this quickstart, you build a new app in the LUIS portal. First you create the basic parts of an app, **intents**, and **entities**. Then you test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
-
-Building an app is free and doesn't require an Azure subscription. When you're ready to deploy your app, see the [quickstart to deploy an app](get-started-portal-deploy-app.md). It shows you how to create an Azure Cognitive Service Resource and assign it to the app.
+In this quickstart, you build a new app in the LUIS portal. First, create the basic parts of an app, **intents**, and **entities**. Then test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## Create an app
 
-1. Select **+ Create** from the context toolbar.
+1. Select **+ New app for conversation** from the context toolbar, then select **New app for conversation**.
 
    [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
@@ -147,6 +145,8 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 1. Add a new utterance and then press Enter:
 
    ```Is there a form named hrf-234098```
+
+    Select **Inspect** to see entity predictions.
 
    ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
