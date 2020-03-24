@@ -21,7 +21,7 @@ The important fields are:
 
     public class AzureFrontendAccountInfo
     {
-        // Something akin to "<azure endpoint>.mixedreality.azure.com"
+        // Something akin to "<region>.mixedreality.azure.com"
         public string AccountDomain;
 
         // Can use one of:
@@ -35,6 +35,8 @@ The important fields are:
     }
 
 ```
+
+For the _region_ part in the domain, use a [region near you](../reference/regions.md).
 
 The account information can be obtained from the portal as described in the [retrieve account information](create-an-account.md#retrieve-the-account-information) paragraph.
 
