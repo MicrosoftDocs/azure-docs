@@ -1,6 +1,6 @@
 ---
 title: Azure Stream Analytics JavaScript user-defined functions
-description: Introduction to JavaScript user-defined functions in Stream Analytics
+description: This article is an introduction to JavaScript user-defined functions in Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -39,14 +39,14 @@ Although functions like **Date.GetDate()** or **Math.random()** are not blocked 
 To create a JavaScript user-defined function in your Stream Analytics job, select **Functions** under **Job Topology**. Then, select **JavaScript UDF** from the **+Add** dropdown menu. 
 ![Add JavaScript UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
-You must then provide the following properties and hit **Save**.
+You must then provide the following properties and select **Save**.
 |Property|Description|
 |--------|-----------|
 |Function alias|Enter a name to invoke the function in your query.|
 |Output type|Type that will be returned by your JavaScript user-defined function to your Stream Analytics query.|
 |Function defintion|Implementation of your Javascript function that will be executed each time your UDF gets invoked from your query.|
 
-## Testing and troubleshooting JavaScript UDFs 
+## Test and troubleshoot JavaScript UDFs 
 You can test and debug your JavaScript UDF logic in any browser. Debugging and testing the logic of these user-defined functions is currently not supported in the Stream Analytics portal. Once the function works as expected, you can add it to the Stream Analytics job as mentioned above and then invoke it directly from your query. You can test your query logic with JavaScript UDF using [Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 JavaScript runtime errors are considered fatal, and are surfaced through the Activity log. To retrieve the log, in the Azure portal, go to your job and select **Activity log**.
