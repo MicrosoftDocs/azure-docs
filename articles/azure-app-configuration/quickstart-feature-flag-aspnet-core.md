@@ -85,7 +85,7 @@ To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
         </PropertyGroup>
 
     </Project>
-
+    ```
     ---
 
 1. Save the *.csproj* file.
@@ -93,7 +93,7 @@ To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
 The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
 > [!TIP]
-> To learn more about Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+> To learn more about Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
 
 ## Connect to an App Configuration store
 

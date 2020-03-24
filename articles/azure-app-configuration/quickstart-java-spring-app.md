@@ -27,7 +27,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
