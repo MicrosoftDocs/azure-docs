@@ -22,7 +22,7 @@ Create and extend a [Power Virtual Agent](https://powervirtualagents.microsoft.c
 
 ## Integrate a Power Virtual agent with a knowledge base
 
-[Power Virtual Agents](https://powervirtualagents.microsoft.com/) empowers teams to easily create powerful bots using a guided, no-code graphical interface without the need for data scientists or developers.
+[Power Virtual Agents](https://powervirtualagents.microsoft.com/) allows teams to easily create powerful bots using a guided, no-code graphical interface without the need for data scientists or developers.
 
 A Power Virtual Agent is created with a series of topics (subject areas), in order to answer user questions by performing actions. If an answer can't be found, a system fallback can return an answer.
 
@@ -89,7 +89,7 @@ The agent uses the topic collection to answer questions in your subject area. In
 
 ## Create Power Virtual Agent's System fallback topic
 
-While the agent can connect to your knowledge base from any topic, this tutorial uses the System **Fallback** topic. The fallback topic is used when the agent can't find an answer in the current topic. The agent passes the user's text to QnA Maker's GenerateAnswer API, receives the answer and displays it back to the user as a message.
+While the agent can connect to your knowledge base from any topic, this tutorial uses the System **Fallback** topic. The fallback topic is used when the agent can't find an answer in the current topic. The agent passes the user's text to QnA Maker's GenerateAnswer API, receives the answer, and displays it back to the user as a message.
 
 1. In the [Power Virtual Agents](https://powerva.microsoft.com/#/) portal, on the top-right corner of the navigation, select the **Settings** page. The icon for this page is the gear. Select **System Fallback**.
 
@@ -108,7 +108,7 @@ While the agent can connect to your knowledge base from any topic, this tutorial
 
 ## Use authoring canvas to add an action
 
-Use the Power Virtual Agents authoring canvas to connect the Fallback topic to your knowledge base. The topic starts with the **unrecognized user text**. You need to add an action that passes that text to QnA Maker, then shows the answer as a message. The last step of displaying an answer is handled as a separate step later.
+Use the Power Virtual Agents authoring canvas to connect the Fallback topic to your knowledge base. The topic starts with the **unrecognized user text**. Add an action that passes that text to QnA Maker, then shows the answer as a message. The last step of displaying an answer is handled as a separate step later.
 
 This section creates the fallback topic conversation flow.
 
@@ -259,7 +259,7 @@ The final canvas is shown below.
 |3|Yes|In reply to `Did that answer your question?`|
 |4|Excellent|In reply to `Please rate your experience.`|
 |5|Yes|In reply to `Can I help with anything else?`|
-|6|What is a knowledge base?|This question triggers the fallback action which sends the text to your knowledge base to answer, then the answer is displayed. |
+|6|What is a knowledge base?|This question triggers the fallback action, which sends the text to your knowledge base to answer, then the answer is displayed. |
 
 > [!div class="mx-imgBorder"]
 > ![Final agent canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png)
