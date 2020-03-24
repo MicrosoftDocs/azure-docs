@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/8/2019
-ms.author: lenalepa
+ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ---
