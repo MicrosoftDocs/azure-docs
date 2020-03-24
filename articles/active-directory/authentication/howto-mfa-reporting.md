@@ -123,13 +123,13 @@ The sign-in activity reports for MFA give you access to the following informatio
 
 First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
 
-Identify users who have registered for MFA using the PowerShell that follows.
+Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods -ne $null -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
 
-Identify users who have not registered for MFA using the PowerShell that follows.
+Identify users who have not registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$.StrongAuthenticationMethods.Count -eq 0 -and $.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName```
 
 Identify users and output methods registered. 
 

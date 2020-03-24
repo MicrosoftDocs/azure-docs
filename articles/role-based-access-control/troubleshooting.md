@@ -50,11 +50,18 @@ $ras.Count
 
 ## Problems with custom roles
 
-- If you need steps for how to create a custom role, see the custom role tutorials using [Azure PowerShell](tutorial-custom-role-powershell.md) or [Azure CLI](tutorial-custom-role-cli.md).
+- If you need steps for how to create a custom role, see the custom role tutorials using the [Azure portal](custom-roles-portal.md) (currently in preview), [Azure PowerShell](tutorial-custom-role-powershell.md), or [Azure CLI](tutorial-custom-role-cli.md).
 - If you are unable to update an existing custom role, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 - If you are unable to delete a custom role and get the error message "There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)", then there are role assignments still using the custom role. Remove those role assignments and try to delete the custom role again.
 - If you get the error message "Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **5000** custom roles in a directory. (For Azure Germany and Azure China 21Vianet, the limit is 2000 custom roles.)
 - If you get an error similar to "The client has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/{subscriptionid}', however the linked subscription was not found" when you try to update a custom role, check whether one or more [assignable scopes](role-definitions.md#assignablescopes) have been deleted in the directory. If the scope was deleted, then create a support ticket as there is no self-service solution available at this time.
+
+## Custom roles and management groups
+
+- You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+- Custom roles with `DataActions` cannot be assigned at the management group scope.
+- Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
+- For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
 ## Transferring a subscription to a different directory
 
@@ -130,7 +137,9 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## Role assignment changes are not being detected
 
-Azure Resource Manager sometimes caches configurations and data to improve performance. When creating or deleting role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
+Azure Resource Manager sometimes caches configurations and data to improve performance. When you add or remove role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
+
+If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
 
 ## Web app features that require write access
 
