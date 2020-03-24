@@ -110,4 +110,6 @@ We recommend that you set the value of SessionExpiryInSeconds to be a short peri
 1. In the browser address bar, remove the `&prompt=login` query string parameter, which forces the user to enter their credentials on that request.
 1. In the browser, click **Go**. Now Azure AD B2C will issue an access token without prompting you to sign-in again. 
 
-You can find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
+## Next steps
+
+Find the sample policy [here](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
