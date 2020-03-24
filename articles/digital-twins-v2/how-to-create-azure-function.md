@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Work with Azure Functions
+title: Set up an Azure Function
 titleSuffix: Azure Digital Twins
 description: See how to create an Azure function that can access and be triggered by Azure digital twins.
 author: cschormann
