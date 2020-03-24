@@ -39,6 +39,8 @@ To create and run the landmark sample, do the following steps:
 1. At the prompt, use the `python` command to run the sample. For example, `python get-landmarks.py`.
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline

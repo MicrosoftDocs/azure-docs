@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/24/2020
 ms.author: radeltch
 
 ---
@@ -89,7 +89,7 @@ Before you begin, refer to the following SAP Notes and papers first:
 
 The virtual machines, that participate in the cluster must be sized to be able to run all resources, in case failover occurs. Each SAP SID can fail over independent from each other in the multi-SID high availability cluster.  If using SBD fencing, the SBD devices can be shared between multiple clusters.  
 
-To achieve high availability, SAP NetWeaver requires highly available NFS shares. In this example, we assume the SAP NFS shares are either hosted on highly available [NFS file server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), which can be used by multiple SAP systems. Or the shares are deployed on [Azure NetApp files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+To achieve high availability, SAP NetWeaver requires highly available NFS shares. In this example, we assume the SAP NFS shares are either hosted on highly available [NFS file server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), which can be used by multiple SAP systems. Or the shares are deployed on [Azure NetApp Files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
@@ -155,7 +155,7 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
 
 SAP NetWeaver requires shared storage for the transport, profile directory, and so on. For highly available SAP system, it is important to have highly available NFS shares. You will need to decide on the architecture for your SAP NFS shares. One option is to build [Highly available NFS cluster on Azure VMs on SUSE Linux Enterprise Server][nfs-ha], which can be shared between multiple SAP systems. 
 
-Another option is to deploy the shares on [Azure NetApp files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  With Azure NetApp Files, you will get built-in high availability for the SAP NFS shares.
+Another option is to deploy the shares on [Azure NetApp Files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  With Azure NetApp Files, you will get built-in high availability for the SAP NFS shares.
 
 ## Deploy the first SAP system in the cluster
 

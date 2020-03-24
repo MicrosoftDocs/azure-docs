@@ -39,15 +39,17 @@ az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
 
-```azurelci
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 After the registration is complete, run the following command:
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
+
 ## Create a resource group
 
 Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *DsResourceGroup01* in the *eastus* location:
@@ -146,12 +148,14 @@ az network lb address-pool create \
 --name dsLbBackEndPool_v6  \
 --resource-group DsResourceGroup01
 ```
+
 ### Create a health probe
 Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
 
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
 ```
+
 ### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. 
@@ -295,7 +299,7 @@ az network vnet subnet create \
 ### Create NICs
 
 Create virtual NICs for each VM with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). The following example creates a virtual NIC for each VM. Each NIC has two IP configurations (1 IPv4 config, 1 IPv6 config). You create the IPV6 configuration with [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
- 
+
 ```azurecli
 # Create NICs
 az network nic create \
@@ -358,6 +362,7 @@ Create virtual machine *dsVM0* as follows:
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Create virtual machine *dsVM1* as follows:
 
 ```azurecli
