@@ -34,13 +34,13 @@ The overall solution comprises the following components:
 
 1. **Azure AD**: If the `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants.
 
-2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Secure Sockets Layer (SSL) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Azure AD.
+2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Transport Layer Security (TLS) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Azure AD.
 
 3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Office 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
 
 4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Office 365 cloud services to use modern authentication protocols by default. For the latest information on Office 365 support for modern authentication, read [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-The following diagram illustrates the high-level traffic flow. Tenant restrictions requires SSL inspection only on traffic to Azure AD, not to the Office 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
+The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Office 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
 ![Tenant restrictions traffic flow - diagram](./media/tenant-restrictions/traffic-flow.png)
 
@@ -58,9 +58,9 @@ The following configuration is required to enable tenant restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform SSL interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
+- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
 
-- Clients must trust the certificate chain presented by the proxy for SSL communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
+- Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 
 - This feature is included in Office 365 subscriptions, but if you want to use tenant restrictions to control access to other SaaS apps, then Azure AD Premium 1 licenses are required.
 

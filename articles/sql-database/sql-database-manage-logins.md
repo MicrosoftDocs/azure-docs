@@ -1,6 +1,6 @@
 ---
-title: Logins and users
-description: Learn about SQL Database and Azure Synapse security management, specifically how to manage database access and login security through the server-level principal account.
+title: Authorize server and database access using logins and user accounts
+description: Learn about how Azure SQL Database and Azure Synapse Analytics authenticate users for access using logins and user accounts. Also learn how to database roles and explicit permissions to authorize logins and users to perform actions and query data.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 ms.service: sql-database
@@ -11,213 +11,156 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/06/2020
-tags: azure-synapse
+ms.date: 03/23/2020
 ---
-# Controlling and granting database access to SQL Database and Azure Synapse Analytics
+# Authorizing database access to authenticated users to SQL Database and Azure Synapse Analytics using logins and user accounts
 
-After firewall rules configuration, you can connect to Azure [SQL Database](sql-database-technical-overview.md) and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as one of the administrator accounts, as the database owner, or as a database user in the database.  
+In this article, you learn about:
 
-> [!NOTE]  
-> This topic applies to Azure SQL server, and to SQL Database and Azure Synapse created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure  Synapse.
-> [!TIP]
-> For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). This tutorial does not apply to **Azure SQL Database Managed Instance**.
+- Options for configuring Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to the access the data stored in these databases.
+- The access and authorization configuration after initially creating a new Azure SQL Database
+- How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions
+- How to add user accounts in user databases, either associated with logins or as contained user accounts
+- Configure user accounts with permissions in user databases by using database roles and explicit permissions
 
-## Unrestricted administrative accounts
+> [!IMPORTANT]
+> Databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) are referred to collectively in the remainder of this article as either databases or as Azure SQL (for simplicity).
 
-There are two administrative accounts (**Server admin** and **Active Directory admin**) that act as administrators. To identify these administrator accounts for your SQL server, open the Azure portal, and navigate to the Properties tab of your SQL server or SQL Database.
+## Authentication and authorization
+
+[**Authentication**](sql-database-security-overview.md#authentication) is the process of proving the user is who they claim to be. A user connects to a database using a user account.
+When a user attempts to connect to a database, they provide a user account and authentication information. The user is authenticated using one of the following two authentication methods:
+
+- [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
+
+  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user account for user accounts not linked to a login.
+- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
+
+  With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory.
+
+**Logins and users**: In Azure SQL, a user account in a database can be associated with a login that is stored in the master database or can be a user name that is stored in an individual database.
+
+- A **login** is an individual account in the master database, to which a user account in one or more databases can be linked. With a login, the credential information for the user account is stored with the login.
+- A **user account** is an individual account in any database that may be but does not have to be linked to a login. With a user account that is not linked to a login, the credential information is stored with the user account.
+
+[**Authorization**](sql-database-security-overview.md#authorization) to access data and perform various actions are managed using database roles and explicit permissions. Authorization refers to the permissions assigned to a user, and determines what that user is allowed to do. Authorization is controlled by your user account's database [role memberships](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) and [object-level permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). As a best practice, you should grant users the least privileges necessary.
+
+## Existing logins and user accounts after creating a new database
+
+When you create your first Azure SQL deployment, you specify an admin login and an associated password for that login. This administrative account is called **Server admin**. The following configuration of logins and users in the master and user databases occurs during deployment:
+
+- A SQL login with administrative privileges is created using the login name you specified. A [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) is an individual user accounts for logging on to SQL Database.
+- This login is granted full administrative permissions on all databases as a [server-level principal](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). This login has all available permissions within SQL Database and cannot be limited. In a managed instance, this login is added to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (this role does not exist with single or pooled databases).
+- A [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) called `dbo` is created for this login in each user database. The [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) user has all database permissions in the database and is mapped to the `db_owner` fixed database role. Additional fixed database roles are discussed later in this article.
+
+To identify the administrator accounts for a database, open the Azure portal, and navigate to the **Properties** tab of your server or managed instance.
 
 ![SQL Server Admins](media/sql-database-manage-logins/sql-admins.png)
 
-- **Server admin**
-
-  When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
-
-  > [!NOTE]
-  > To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
-
-- **Azure Active Directory admin**
-
-  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or Azure Synapse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and Azure Synapse](sql-database-ssms-mfa-authentication.md).
-
-The **Server admin** and **Azure AD admin** accounts have the following characteristics:
-
-- Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
-- These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.) 
-- Do not enter the `master` database as the `dbo` user, and have limited permissions in master. 
-- Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL database.  
-- Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
-- Can add and remove members to the `dbmanager` and `loginmanager` roles.
-- Can view the `sys.sql_logins` system table.
-- Cannot be renamed.
-- To change the Azure AD admin account, use the Portal or Azure CLI.
-- The Server Admin account cannot be changed afterwards.
-
-### Configuring the firewall
-
-When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-single-database-get-started.md), using [PowerShell](sql-database-powershell-samples.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level IP firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
-
-### Administrator access path
-
-When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
-
-![configuration of the two administration accounts](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
-
-When using an open port in the server-level firewall, administrators can connect to any SQL Database.
-
-### Connecting to a database by using SQL Server Management Studio
-
-For a walk-through of creating a server, a database, server-level IP firewall rules, and using SQL Server Management Studio to query a database, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-single-database-get-started.md).
+![SQL Server Admins](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
-> It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for a managed instance server, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
 
-## Additional server-level administrative roles
+## Create additional logins and users having administrative permissions
 
->[!IMPORTANT]
->This section does not apply to **Azure SQL Database Managed Instance** as these roles are specific to **Azure SQL Database**.
+At this point, your Azure SQL instance is only configured for access using a single SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
 
-In addition to the server-level administrative roles discussed previously, SQL Database provides two restricted administrative roles in the master database to which user accounts can be added that grant permissions to either create databases or manage logins.
+- **Create an Azure Active Directory administrator account having full administrative permissions**
 
-### Database creators
+  Enable Azure Active Directory authentication and create an Azure AD administrator login. One Azure Active Directory account can be configured as an administrator of the SQL Database deployment with full administrative permissions. This account can be either an individual or security group account. An Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For detailed information on enabling Azure AD authentication for all SQL Database deployment types, see the following articles:
 
-One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the `master` database or contained database user based on an Azure Active Directory user.
+  - [Use Azure Active Directory Authentication for authentication with SQL](sql-database-aad-authentication.md)
+  - [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md)
 
-1. Using an administrator account, connect to the `master` database.
-2. Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
+- **In a managed instance deployment, create SQL logins having full administrative permissions**
 
-   ```sql
-   CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
-   ```
+  - Create an additional SQL Server login in the managed instance
+  - Add the login to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
+  - Alternatively, create an [Azure AD login](sql-database-aad-authentication-configure.md?tabs=azure-powershell#new-azure-ad-admin-functionality-for-mi) using the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax.
 
-   > [!NOTE]
-   > Use a strong password when creating a login or contained database user. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
+- **In a single or pooled deployment, create SQL logins having limited administrative permissions**
 
-   To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
+  - Create an additional SQL login in the master database for a single or pooled database deployment, or a managed instance deployment
+  - Create a user account in the master database associated with this new login
+  - Add the user account to the `dbmanager`, the `loginmanager` role, or both in the `master` database using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement (for Azure Synapse Analytics, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement).
 
-3. In the `master` database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
+  > [!NOTE]
+  > `dbmanager` and `loginmanager` roles do **not** pertain to managed instance deployments.
 
-   ```sql
-   CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
-   CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
-   ```
+  Members of these [special master database roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) for single or pooled databases enable the users have authority to create and manage databases or to create and manage logins. In databases created by a user that is a member of the `dbmanager` role, the member is mapped to the `db_owner` fixed database role and can log into and manage that database using the `dbo` user account. These roles have no explicit permissions outside of the master database.
 
-4. Add the new user, to the **dbmanager** database role in `master` using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
+  > [!IMPORTANT]
+  > You cannot create an additional SQL login with full administrative permissions in a single or pooled database.
 
-   ```sql
-   ALTER ROLE dbmanager ADD MEMBER Mary; 
-   ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
-   ```
+## Create accounts for non-administrator users
 
-   > [!NOTE]
-   > The dbmanager is a database role in master database so you can only add a database user to the dbmanager role. You cannot add a server-level login to database-level role.
+You can create accounts for non-administrative users using one of two methods:
 
-5. If necessary, configure a firewall rule to allow the new user to connect. (The new user might be covered by an existing firewall rule.)
+- **Create a login**
 
-Now the user can connect to the `master` database and can create new databases. The account creating the database becomes the owner of the database.
+  Create a SQL login in the master database. Then create a user account in each database to which that user needs access and associate the user account with that login. This approach is preferred when the user must access multiple databases and you wish to keep the passwords synchronized. However, this approach has complexities when used with geo-replication as the login must be created on both the primary server and the secondary server(s). For more information, see [Configure and manage Azure SQL Database security for geo-restore or failover](sql-database-geo-replication-security-config.md).
+- **Create a user account**
 
-### Login managers
+  Create a user account in the database to which a user needs access (also called a [contained user](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
-The other administrative role is the login manager role. Members of this role can create new logins in the master database. If you wish, you can complete the same steps (create a login and user, and add a user to the **loginmanager** role) to enable a user to create new logins in the master. Usually logins are not necessary as Microsoft recommends using contained database users, which authenticate at the database-level instead of using users based on logins. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+  - With a single or pooled database, you can always create this type of user account.
+  - With a managed instance database that does not support [Azure AD server principals](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities), you can only create this type of user account in a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). With managed instance supporting [Azure AD server principals](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities), you can create user accounts to authenticate to the managed instance without requiring database users to be created as a contained database user.
 
-## Non-administrator users
+  With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
-Generally, non-administrator accounts do not need access to the master database. Create contained database users at the database level using the [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+> [!IMPORTANT]
+> To create contained users mapped to Azure AD identities, you must be logged in using an Azure AD account that is an administrator in the SQL Database. In managed instance, a SQL login with `sysadmin` permissions can also create an Azure AD login or user.
 
-To create users, connect to the database, and execute statements similar to the following examples:
+For examples showing how to create logins and users, see:
 
-```sql
-CREATE USER Mary FROM LOGIN Mary; 
-CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
-```
+- [Create login for single or pooled databases](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
+- [Create login for managed instance database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Create login for Azure Synapse Analytics database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Create user](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
+- [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 
-Initially, only one of the administrators or the owner of the database can create users. To authorize additional users to create new users, grant that selected user the `ALTER ANY USER` permission, by using a statement such as:
+> [!TIP]
+> For a security tutorial that includes creating SQL Server a contained users in a single or pooled database, see [Tutorial: Secure a single or pooled database](sql-database-security-tutorial.md).
 
-```sql
-GRANT ALTER ANY USER TO Mary;
-```
+## Using fixed and custom database roles
 
-To give additional users full control of the database, make them a member of the **db_owner** fixed database role.
+After creating a user account in a database, either based on a login or as a contained user, you can authorize that user to perform various actions and to access data in a particular database. You can use the following methods to authorize access:
 
-In Azure SQL Database use the `ALTER ROLE` statement.
+- **Fixed database roles**
 
-```sql
-ALTER ROLE db_owner ADD MEMBER Mary;
-```
+  Add the user account to a [fixed database role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). There are 9 fixed database roles, each with a defined set of permissions. The most common fixed database roles are: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, and **db_denydatareader**. **db_owner** is commonly used to grant full permission to only a few users. The other fixed database roles are useful for getting a simple database in development quickly, but are not recommended for most production databases. For example, the **db_datareader** fixed database role grants read access to every table in the database, which is more than is strictly necessary.
 
-In Azure Synapse use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
-```sql
-EXEC sp_addrolemember 'db_owner', 'Mary';
-```
+  - To add a user to a fixed database role:
 
+    - In Azure SQL Database, use the [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) statement. For examples, see [ALTER ROLE examples](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql#examples)
+    - Azure Synapse Analytics, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement. For examples, see [sp_addrolemember examples](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
 
-> [!NOTE]
-> One common reason to create a database user based on a SQL Database server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](sql-database-geo-replication-security-config.md).
+- **Custom database role**
 
-### Configuring the database-level firewall
+  Create a custom database role using the [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql) statement. A custom role enables you to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. You can then add users to the custom role. When a user is a member of multiple roles, they aggregate the permissions of them all.
+- **Grant permissions directly**
 
-As a best practice, non-administrator users should only have access through the firewall to the databases that they use. Instead of authorizing their IP addresses through the server-level firewall and giving them access to all databases, use the [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) statement to configure the database-level firewall. The database-level firewall cannot be configured by using the portal.
+  Grant the user account [permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) directly. There are over 100 permissions that can be individually granted or denied in SQL Database. Many of these permissions are nested. For example, the `UPDATE` permission on a schema includes the `UPDATE` permission on each table within that schema. As in most permission systems, the denial of a permission overrides a grant. Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. Start with the list of permissions at [Permissions (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) and review the [poster size graphic](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) of the permissions.
 
-### Non-administrator access path
+## Using groups
 
-When the database-level firewall is properly configured, the database users can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical non-administrator access path.
+Efficient access management uses permissions assigned to Active Directory security groups and fixed or custom roles instead of to individual users.
 
-![Non-administrator access path](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
+- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory security group. Create a contained database user for the group. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 
-## Groups and roles
+- When using SQL authentication, create contained database users in the database. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 
-Efficient access management uses permissions assigned to groups and roles instead of individual users. 
+  > [!NOTE]
+  > You can also use groups for non-contained database users.
 
-- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory group. Create a contained database user for the group. Place one or more database users into a [database role](https://msdn.microsoft.com/library/ms189121) and then assign [permissions](https://msdn.microsoft.com/library/ms191291.aspx) to the database role.
+You should familiarize yourself with the following features that can be used to limit or elevate permissions:
 
-- When using SQL Server authentication, create contained database users in the database. Place one or more database users into a [database role](https://msdn.microsoft.com/library/ms189121) and then assign [permissions](https://msdn.microsoft.com/library/ms191291.aspx) to the database role.
-
-The database roles can be the built-in roles such as **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, and **db_denydatareader**. **db_owner** is commonly used to grant full permission to only a few users. The other fixed database roles are useful for getting a simple database in development quickly, but are not recommended for most production databases. For example, the **db_datareader** fixed database role grants read access to every table in the database, which is usually more than is strictly necessary. It is far better to use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create your own user-defined database roles and carefully grant each role the least permissions necessary for the business need. When a user is a member of multiple roles, they aggregate the permissions of them all.
-
-## Permissions
-
-There are over 100 permissions that can be individually granted or denied in SQL Database. Many of these permissions are nested. For example, the `UPDATE` permission on a schema includes the `UPDATE` permission on each table within that schema. As in most permission systems, the denial of a permission overrides a grant. Because of the nested nature and the number of permissions, it can take careful study to design an appropriate permission system to properly protect your database. Start with the list of permissions at [Permissions (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) and review the [poster size graphic](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) of the permissions.
-
-
-### Considerations and restrictions
-
-When managing logins and users in SQL Database, consider the following:
-
-- You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements.   
-- The database user corresponding to the **Server admin** login cannot be altered or dropped. 
-- US-English is the default language of the **Server admin** login.
-- Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
-- You must be connected to the master database when executing the `CREATE/ALTER/DROP LOGIN` statements. However using logins is discouraged. Use contained database users instead.
-- To connect to a user database, you must provide the name of the database in the connection string.
-- Only the server-level principal login and the members of the **loginmanager** database role in the **master** database have permission to execute the `CREATE LOGIN`, `ALTER LOGIN`, and `DROP LOGIN` statements.
-- When executing the `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP DATABASE` statements in an ADO.NET application, using parameterized commands is not allowed. For more information, see [Commands and Parameters](https://msdn.microsoft.com/library/ms254953.aspx).
-- When executing the `CREATE/ALTER/DROP DATABASE` and `CREATE/ALTER/DROP LOGIN` statements, each of these statements must be the only statement in a Transact-SQL batch. Otherwise, an error occurs. For example, the following Transact-SQL checks whether the database exists. If it exists, a `DROP DATABASE` statement is called to remove the database. Because the `DROP DATABASE` statement is not the only statement in the batch, executing the following Transact-SQL statement results in an error.
-
-  ```sql
-  IF EXISTS (SELECT [name]
-           FROM   [sys].[databases]
-           WHERE  [name] = N'database_name')
-  DROP DATABASE [database_name];
-  GO
-  ```
-  
-  Instead, use the following Transact-SQL statement:
-  
-  ```sql
-  DROP DATABASE IF EXISTS [database_name]
-  ```
-
-- When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.
-- When executing the `ALTER USER` statement with the `WITH LOGIN` option, it must be the only statement in a Transact-SQL batch.
-- To `CREATE/ALTER/DROP` a user requires the `ALTER ANY USER` permission on the database.
-- When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user is not visible to the owner. To resolve this issue, grant the role owner the `VIEW DEFINITION` permission on the user. 
-
+- [Impersonation](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/customizing-permissions-with-impersonation-in-sql-server) and [module-signing](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server) can be used to securely elevate permissions temporarily.
+- [Row-Level Security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) can be used limit which rows a user can access.
+- [Data Masking](sql-database-dynamic-data-masking-get-started.md) can be used to limit exposure of sensitive data.
+- [Stored procedures](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) can be used to limit the actions that can be taken on the database.
 
 ## Next steps
 
-- To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
-- For an overview of all the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
-- For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).
-- For information about views and stored procedures, see [Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
-- For information about granting access to a database object, see [Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
+For an overview of all the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).

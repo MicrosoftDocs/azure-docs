@@ -103,7 +103,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
     }
 ```
 
-
+> [!IMPORTANT]
+> Services created after July 15, 2020 will provide a different highlighting experience. Services created before that date will not change in their highlighting behavior. With this change, only phrases that match the full phrase query will be returned. Also, it will be possible to specify the fragment size returned for the highlight.
+>
+> When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 
 ## Faceted navigation
 

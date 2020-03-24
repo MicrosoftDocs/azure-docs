@@ -4,7 +4,7 @@ description: 'Tutorial: Prepare your environment for development and deployment 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -171,7 +171,7 @@ The script takes about two minutes to run. Once complete, the script outputs the
 
 ## Review route to storage in IoT Hub
 
-As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a blob container in a storage account. Let’s use the Azure portal to review the route created by our script.
+As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a blob container in a storage account. Let's use the Azure portal to review the route created by our script.
 
 1. Open the [Azure portal](https://portal.azure.com) and go to the resource group you're using for this tutorial.
 
@@ -183,18 +183,19 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Expand the **Storage** section:
 
-   ![Verify turbofandevicestorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Verify turbofanDeviceStorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   We see **turbofandevicestorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
+   We see **turbofanDeviceStorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
    * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
    * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
+   * Its **Status** should be healthy.
 
 1. Select the **Routes** tab.
 
 1. Select the route named **turbofanDeviceDataToStorage**.
 
-1. On the **Routes details** page, note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
+1. On the **Routes details** page, note that the route's endpoint is the **turbofanDeviceStorage** endpoint.
 
    ![Review details about the turbofanDeviceDataToStorage route](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
 

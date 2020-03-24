@@ -93,10 +93,10 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-After the pipeline is submitted successfully, you can preview the image in the right panel of the module
+After the pipeline run is finished, you can preview the image in the right panel of the module
 
-[!div class="mx-imgBorder"]
-![Uploaded-image](media/module/upload-image-in-r-script.png)
+> [!div class="mx-imgBorder"]
+> ![Uploaded-image](media/module/upload-image-in-r-script.png)
 
 ## How to configure Execute R Script
 
@@ -154,7 +154,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
 1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Results
 
@@ -173,9 +173,9 @@ There are many ways that you can extend your pipeline by using custom R script. 
 
 The **Execute R Script** module supports arbitrary R script files as inputs. To do so, they must be uploaded to your workspace as part of the ZIP file.
 
-1. To upload a ZIP file containing R code to your workspace, click **New**, click **Dataset**, and then select **From local file** and the **Zip file** option.  
+1. To upload a ZIP file containing R code to your workspace, go to the **Datasets** asset page, click **Create dataset**, and then select **From local file** and the **File** dataset type option.  
 
-1. Verify that the zipped file is available in the **Saved Datasets** list.
+1. Verify that the zipped file is available in the **My Datasets** list under **Datasets** category in the left module tree.
 
 1.  Connect the dataset to the **Script Bundle** input port.
 

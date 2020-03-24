@@ -3,7 +3,6 @@ title: Model interpretability in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -24,7 +23,7 @@ Interpretability is critical for data scientists and business decision makers al
 
 Enabling the capability of explaining a machine learning model is important during two main phases of model development:
 + During the training phase of the machine learning model development cycle. Model designers and evaluators can use interpretability output of a model to verify hypotheses and build trust with stakeholders. They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias or insignificant features.
-+ During the inferencing phase, as having transparency around deployed models empowers executives to understand “when deployed” how the model is working and how its decisions are treating and impacting people in real life. 
++ During the inferencing phase, as having transparency around deployed models empowers executives to understand "when deployed" how the model is working and how its decisions are treating and impacting people in real life. 
 
 ## Interpretability with Azure Machine Learning
 
@@ -55,9 +54,9 @@ The interpretability classes are made available through multiple SDK packages. L
 
 ## How to interpret your model
 
-You can apply the interpretability classes and methods to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
+You can apply the interpretability classes and methods to understand the model's global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
 
-The methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP’s tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP’s kernel explainer. The `interpret` package leverages these different approaches based on data sets, model types, and use cases.
+The methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP's tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP's kernel explainer. The `interpret` package leverages these different approaches based on data sets, model types, and use cases.
 
 The output is a set of information on how a given model makes its prediction, such as:
 * Global/local relative feature importance
@@ -67,7 +66,7 @@ The output is a set of information on how a given model makes its prediction, su
 
 This package uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
 
-* **SHAP Tree Explainer**: [SHAP](https://github.com/slundberg/shap)’s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to trees and ensembles of trees.
+* **SHAP Tree Explainer**: [SHAP](https://github.com/slundberg/shap)'s tree explainer, which focuses on polynomial time fast SHAP value estimation algorithm specific to trees and ensembles of trees.
 * **SHAP Deep Explainer**: Based on the explanation from [SHAP](https://github.com/slundberg/shap), Deep Explainer "is a high-speed approximation algorithm for SHAP values in deep learning models that builds on a connection with DeepLIFT described in the [SHAP NIPS paper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). TensorFlow models and Keras models using the TensorFlow backend are supported (there is also preliminary support for PyTorch)".
 * **SHAP Linear Explainer**: [SHAP](https://github.com/slundberg/shap)'s Linear explainer computes SHAP values for a linear model, optionally accounting for inter-feature correlations.
 

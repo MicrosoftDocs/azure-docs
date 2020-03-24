@@ -89,10 +89,10 @@
     href: concept-workspace.md
   - name: Environments
     href: concept-environments.md
-  - name: Data access
-    href: concept-data.md    
   - name: Data ingestion
-    href: concept-data-ingestion.md  
+    href: concept-data-ingestion.md    
+  - name: Data access
+    href: concept-data.md  
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md

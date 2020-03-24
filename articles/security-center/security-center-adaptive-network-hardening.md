@@ -27,7 +27,7 @@ Adaptive Network Hardening provides recommendations to further harden the NSG ru
 For example, let's say the existing NSG rule is to allow traffic from 140.20.30.10/24 on port 22. The Adaptive Network Hardening's recommendation, based on the analysis, would be to narrow the range and allow traffic from 140.23.30.10/29 – which is a narrower IP range, and deny all other traffic to that port.
 
 >[!TIP]
-> Adaptive Network Hardening recommendations are only supported on specific ports. For the full list, see [#which-ports-are-supported](Which ports are supported?) below. 
+> Adaptive Network Hardening recommendations are only supported on specific ports. For the full list, see [Which ports are supported?](#which-ports-are-supported) below. 
 
 
 ![Network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)

@@ -1,7 +1,7 @@
 ---
 title: Azure Stream Analytics JavaScript user-defined functions
 description: In this tutorial, you perform advanced query mechanics with JavaScript user-defined functions
-author: rodrigoamicrosoft
+author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Add the function to the portal
 > * Define a query that runs the function
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## JavaScript user-defined functions
 JavaScript user-defined functions support stateless, compute-only scalar functions that do not require external connectivity. The return value of a function can only be a scalar (single) value. After you add a JavaScript user-defined function to a job, you can use the function anywhere in the query, like a built-in scalar function.
@@ -47,15 +47,15 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 > [!NOTE]
 > These steps work on the Stream Analytics jobs configured to run in the cloud. If your Stream Analytics job is configured to run on Azure IoT Edge, instead use Visual Studio and [write the user-defined function using C#](stream-analytics-edge-csharp-udf.md).
 
-1.	In the Azure portal, find your Stream Analytics job.
+1.    In the Azure portal, find your Stream Analytics job.
 
 2. Under the **Job topology** heading, select **Functions**. An empty list of functions appears.
 
-3.	To create a new user-defined function, select **+ Add**.
+3.    To create a new user-defined function, select **+ Add**.
 
-4.	On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
+4.    On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
 
-5.	For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
+5.    For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
     ```javascript
     // Convert Hex value to integer.
@@ -64,8 +64,8 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
     }
     ```
 
-6.	Select **Save**. Your function appears in the list of functions.
-7.	Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
+6.    Select **Save**. Your function appears in the list of functions.
+7.    Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
 
 ## Testing JavaScript UDFs 
 You can test and debug your JavaScript UDF logic in any browser. Debugging and testing the logic of these user-defined functions is currently not supported in the Stream Analytics portal. Once the function works as expected, you can add it to the Stream Analytics job as mentioned above and then invoke it directly from your query.
@@ -73,7 +73,7 @@ You can test and debug your JavaScript UDF logic in any browser. Debugging and t
 ## Call a JavaScript user-defined function in a query
 
 1. In the query editor, under the **Job topology** heading, select **Query**.
-2.	Edit your query, and then call the user-defined function, like this:
+2.    Edit your query, and then call the user-defined function, like this:
 
     ```SQL
     SELECT
@@ -85,8 +85,8 @@ You can test and debug your JavaScript UDF logic in any browser. Debugging and t
         InputStream
     ```
 
-3.	To upload the sample data file, right-click the job input.
-4.	To test your query, select **Test**.
+3.    To upload the sample data file, right-click the job input.
+4.    To test your query, select **Test**.
 
 
 ## Supported JavaScript objects

@@ -102,6 +102,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
+[Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
 ## Mapping data flow scenarios
 
 [Fuzzy lookups](http://youtu.be/7gdwExjHBbw)
