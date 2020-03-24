@@ -33,7 +33,7 @@ To configure the application manifest:
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
 
 ## Manifest reference
-This section describes the attributes found in the appliction manifest.
+This section describes the attributes found in the application manifest.
 
 ### accessTokenAcceptedVersion attribute
 | Key | Value type |
@@ -77,7 +77,7 @@ Example value:
 | :--- | :--- |
 | availableToOtherTenants | Boolean |
 
-true if the application is shared with other tenants; otherwise, false. <br><br> Note: This is available only in the **App registrations (Legacy)** experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
+true if the application is shared with other tenants; otherwise, false. <br><br> Note that this attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
 
 ### appId attribute
 | Key | Value type |
@@ -104,7 +104,7 @@ Example value:
 | :--- | :--- |
 | displayName | String |
 
-The display name for the app. <br><br> Note: This is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
+The display name for the app. <br><br> Note that this attribute is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
 
 Example value: 
 `"MyRegisteredApp"` 
@@ -134,7 +134,7 @@ Example value:
 | :--- | :--- |
 | homepage |String |
 
-The URL to the application's homepage. <br><br> Note: This is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
+The URL to the application's homepage. <br><br> Note that this attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
 
 Example value: 
 `"https://MyRegisteredApp"` 
