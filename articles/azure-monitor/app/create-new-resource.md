@@ -37,7 +37,7 @@ When your app has been created, a new pane opens. This pane is where you see per
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need copy to add the instrumentation key to your application's code.
+The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
 ![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
 
