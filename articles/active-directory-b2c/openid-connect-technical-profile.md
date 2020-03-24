@@ -88,6 +88,16 @@ The technical profile also returns claims that aren't returned by the identity p
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT token. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
+### Error messages
+ 
+The following settings can be used to configure the error message displayed upon failure. The metadata should be configured in the OpenID Connect technical profile. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalDoesNotExist | No | The message to display to the user if the username not found. |
+| UserMessageIfInvalidPassword | No | The message to display to the user if the password is incorrect. |
+| UserMessageIfOldPasswordUsed| No |  The message to display to the user used an old password.|
+
 ## Cryptographic keys
 
 The **CryptographicKeys** element contains the following attribute:
