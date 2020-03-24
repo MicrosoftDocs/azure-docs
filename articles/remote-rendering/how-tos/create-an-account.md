@@ -16,11 +16,10 @@ This chapter guides you through the steps to create an account for the **Azure R
 The following steps are needed to create an account for the Azure Remote Rendering service:
 
 1. Go to the [Mixed Reality Preview page](https://aka.ms/MixedRealityPrivatePreview)
-1. Click on 'More services'
-1. Click on 'All services'
-1. In the search box, type 'Remote Rendering'
-1. Select 'Remote Rendering Accounts'
-1. Click on '+Add'
+1. Click the 'Create a resource' button
+1. In the search field ("<Search the marketplace>"), type in "Remote Rendering" and hit 'enter'.
+1. In the result list, click on the "Remote Rendering" tile
+1. In the next screen, click the "Create" button. A form opens to create a new Remote Rendering account:
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
@@ -69,7 +68,7 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 
 ![Storage account IAM](./media/azure-storage-account.png)
 
- Ensure you have owner permissions over this storage account to ensure that you can add role assignments. If you don’t have access, the **Add a role assignment** option will be disabled.
+ Ensure you have owner permissions over this storage account to ensure that you can add role assignments. If you don't have access, the **Add a role assignment** option will be disabled.
 
  You need to add three distinct roles as described in the next steps. If you do not provide all three levels of access, there will be permission issues while trying to access the storage account.
 
