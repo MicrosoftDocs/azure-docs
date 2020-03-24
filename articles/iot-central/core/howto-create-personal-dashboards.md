@@ -4,7 +4,7 @@ description: As a user, learn how to create and manage your personal dashboards.
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
