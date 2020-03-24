@@ -222,8 +222,8 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AAD v2.0 integration
-          href: aad-integration-v2.md
+        - name: Azure AD v2.0
+          href: azure-ad-v2.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
         - name: Use the Azure portal

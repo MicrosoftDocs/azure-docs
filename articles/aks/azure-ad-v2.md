@@ -140,7 +140,7 @@ To get the user credentials to access the cluster:
 kubectl get nodes
 ```
 
-You see To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.  You receive an error:
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.  You receive an error:
 
 **error: You must be logged in to the server (Unauthorized)**
 
