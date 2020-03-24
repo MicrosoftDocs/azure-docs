@@ -70,7 +70,7 @@ Enabling broadcasting pushes the entire dataset into memory. For smaller dataset
 ```
 ### Example
 
-![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
+![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
 
 The data flow script for the above lookup configuration is in the code snippet below.
 
