@@ -17,24 +17,16 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can add interactions with multiple RESTful APIs within your [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). This article shows you how to create an Azure AD B2C user journey that interacts with a RESTful service.
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.  At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with [RESTful services](custom-policy-rest-api-intro.md).
 
-The interaction includes a claims exchange between the REST API and Azure AD B2C. REST API claims exchanges have the following characteristics:
+In this scenario, we enrich the user's token data, by integrating with a corporate line-of-business workflow. During the sign-up or sign-in, with local or federated account, Azure AD B2C invokes a REST API to get a users extended profile data from a remote data source. In this sample Azure AD B2C sends the users unique identifier, the objectId. The REST API then returns the user's account balance (a random number). Use this sample as a starting point to integrate with your own CRM system, marketing database, or any line-of-business workflow.
 
-- Can be designed as an orchestration step.
-- Can trigger an external action. For instance, it can log an event in an external database.
-- Can be used to fetch a value and then store it in the user database.
-- Can influence which subsequent orchestration steps or validation technical profiles are executed.
-
-## Scenario
-
-In this scenario, we enrich the user's token data, by integrating with a corporate line-of-business workflow. During the sign-up or sign-in, with local or federated account, Azure AD B2C invokes a REST API to get a users extended profile data from a remote data source. 
-
-In this sample Azure AD B2C sends the users unique identifier, the objectId. The REST API then returns the user's account balance (a random number). Use this sample as a starting point to integrate with your own CRM system, marketing database, or any line-of-business workflow.
+You can also design the interaction as an validation technical profile. This is suitable when the REST API will be validating data on screen, and return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey to validate user input](custom-policy-rest-api-claims-validation.md).
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Learn how to [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).
 
 ## Prepare a REST API endpoint
 

@@ -18,28 +18,16 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.
-
-At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.
-
-IEF can send data that has been stored in a claims bag during a user journey to your REST API. It can also parse JSON responses received from the REST API into the Azure AD B2C claim bag. The interaction with the API:
-
-- Can be designed as a REST API claims exchange called from an orchestration step, or as a [validation technical profile](validation-technical-profile.md) called from within a [self asserted technical profile](self-asserted-technical-profile.md).
-- Typically validates input from the user. If the value from the user is rejected, the user can try again to enter a valid value with the opportunity to return an error message.
-
-You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
-
-For the validation profile example, we will use the profile edit user journey in the starter pack file ProfileEdit.xml.
-
-We can verify that the name provided by the user in the profile edit is not part of an exclusion list.
-
-## Scenario
+The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.  At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with  [RESTful services](custom-policy-rest-api-intro.md) to validate user input.
 
 In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. We'll validate whether this combination of email and loyalty number is mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
 
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
+
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Learn how to [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).
 
 ## Prepare a REST API endpoint
 
