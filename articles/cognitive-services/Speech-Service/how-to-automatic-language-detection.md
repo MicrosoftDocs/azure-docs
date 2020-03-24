@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-thirteen
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Automatic language detection for speech to text
