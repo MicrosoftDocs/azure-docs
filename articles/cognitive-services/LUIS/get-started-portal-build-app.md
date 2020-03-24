@@ -16,7 +16,8 @@ In this quickstart, you build a new app in the LUIS portal. First, create the ba
 
 1. Select **+ New app for conversation** from the context toolbar, then select **New app for conversation**.
 
-   [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. In the pop-up window, configure the app with the following settings and then select **Done**.
 
@@ -57,7 +58,8 @@ You add example utterances after you create intents. Example utterances are text
 
 For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
 
-[![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Add the following 15 example utterances to the `FindForm` intent.
 
@@ -134,7 +136,8 @@ The **None** intent's example utterances should be outside of your client applic
 
    The entity is marked where it appears in the example utterances. If you want to see the original text instead of the entity name, toggle **Entities View** from the toolbar.
 
-   [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## Test your new app with the interactive test pane
 
@@ -148,7 +151,8 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 
     Select **Inspect** to see entity predictions.
 
-   ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
+   > [!div class="mx-imgBorder"]
+   > ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
    The top predicted intent is correctly **FindForm** with over 90% confidence (0.977). The **Human Resources Form Number** entity is extracted with a value of hrf-234098.
 
