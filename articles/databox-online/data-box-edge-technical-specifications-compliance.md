@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Box Edge technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Data Box Edge
+title: Microsoft Azure Stack Edge technical specifications and compliance| Microsoft Docs
+description: Learn about the technical specifications and compliance for your Azure Stack Edge
 services: databox
 author: alkohli
 
@@ -10,12 +10,7 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ---
-<<<<<<< HEAD
 # Azure Stack Edge technical specifications
-=======
-
-# Azure Data Box Edge technical specifications
->>>>>>> 23d54abc280228453d491a94b86c00da7b1816db
 
 The hardware components of your Microsoft Azure Stack Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
 
@@ -55,7 +50,7 @@ The following table lists the typical power consumption data (actual values may 
 
 ## Network interface specifications
 
-You Data Box Edge device has 6 network interfaces, PORT1- PORT6.
+Your Azure Stack Edge device has 6 network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
