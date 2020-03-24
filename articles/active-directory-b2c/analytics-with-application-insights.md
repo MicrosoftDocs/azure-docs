@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-When you use Azure Active Directory B2C (Azure AD B2C) together with Azure Application Insights, you can get detailed and customized event logs for your user journeys. In this article, you learn how to:
+Azure Active Directory B2C (Azure AD B2C) supports sending event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C.  With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
 
 * Gain insights on user behavior.
 * Troubleshoot your own policies in development or in production.
@@ -27,19 +27,17 @@ When you use Azure Active Directory B2C (Azure AD B2C) together with Azure Appli
 
 ## How it works
 
-The Identity Experience Framework in Azure AD B2C includes the provider `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. It sends event data directly to Application Insights by using the instrumentation key provided to Azure AD B2C.
-
-A technical profile uses this provider to define an event from Azure AD B2C. The profile specifies the name of the event, the claims that are recorded, and the instrumentation key. To post an event, the technical profile is then added as an `orchestration step` in a custom user journey.
+The [Application Insights](application-insights-technical-profile.md) technical profile defines an event from Azure AD B2C. The profile specifies the name of the event, the claims that are recorded, and the instrumentation key. To post an event, the technical profile is then added as an orchestration step in a [user journey](userjourneys.md).
 
 Application Insights can unify the events by using a correlation ID to record a user session. Application Insights makes the event and session available within seconds and presents many visualization, export, and analytical tools.
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies](custom-policy-get-started.md). This article assumes that you're using the custom policy starter pack. But the starter pack isn't required.
+Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
 ## Create an Application Insights resource
 
-When you're using Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key.
+When you're using Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key. For information, see [Create an Application Insights resource](../azure-monitor/app/create-new-resource.md)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure subscription by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your subscription. This tenant is not your Azure AD B2C tenant.
@@ -60,7 +58,7 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city claim to the **ClaimsSchema** element. 
+1. Add the following claims to the **ClaimsSchema** element. 
 
 ```xml
 <ClaimType Id="EventType">
@@ -115,6 +113,23 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
 <ClaimsProvider>
   <DisplayName>Application Insights</DisplayName>
   <TechnicalProfiles>
+    <TechnicalProfile Id="AzureInsights-Common">
+      <DisplayName>Application Insights</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <!-- The ApplicationInsights instrumentation key which will be used for logging the events -->
+        <Item Key="InstrumentationKey">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
+        <Item Key="DeveloperMode">false</Item>
+        <Item Key="DisableTelemetry ">false</Item>
+      </Metadata>
+      <InputClaims>
+        <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
+        <InputClaim ClaimTypeReferenceId="EventTimestamp" PartnerClaimType="{property:EventTimestamp}" DefaultValue="{Context:DateTimeInUtc}" />
+        <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
+        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
+        <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
+    </TechnicalProfile>
+
     <TechnicalProfile Id="AzureInsights-SignInRequest">
       <InputClaims>
         <!-- An input claim with a PartnerClaimType="eventName" is required. This is used by the AzureApplicationInsightsProvider to create an event with the specified value. -->
@@ -135,24 +150,6 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
         <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="UserSignup" />
       </InputClaims>
       <IncludeTechnicalProfile ReferenceId="AzureInsights-Common" />
-    </TechnicalProfile>
-    <TechnicalProfile Id="AzureInsights-Common">
-      <DisplayName>Alternate Email</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <!-- The ApplicationInsights instrumentation key which will be used for logging the events -->
-        <Item Key="InstrumentationKey">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
-        <!-- A Boolean that indicates whether developer mode is enabled. This controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to ApplicationInsights. -->
-        <Item Key="DeveloperMode">false</Item>
-        <!-- A Boolean that indicates whether telemetry should be enabled or not. -->
-        <Item Key="DisableTelemetry ">false</Item>
-      </Metadata>
-      <InputClaims>
-        <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
-        <InputClaim ClaimTypeReferenceId="EventTimestamp" PartnerClaimType="{property:EventTimestamp}" DefaultValue="{Context:DateTimeInUtc}" />
-        <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
-        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
-        <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}"
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -221,7 +218,7 @@ Save and upload the *TrustFrameworkExtensions.xml* file. Then, call the relying 
 
 ![Application Insights USAGE-Events Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
 
-## Next steps
+## [Optional] Collect more data
 
 Add claim types and events to your user journey to fit your needs. You can use [claim resolvers](claim-resolver-overview.md) or any string claim type, add the claims by adding an **Input Claim** element to the Application Insights event or to the AzureInsights-Common technical profile.
 
@@ -235,3 +232,6 @@ Add claim types and events to your user journey to fit your needs. You can use [
 <InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />
 ```
 
+## Next steps
+
+- Learn more about [Application Insights](application-insights-technical-profile.md) technical profile in the IEF reference. 
