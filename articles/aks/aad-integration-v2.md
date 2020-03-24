@@ -141,9 +141,8 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 error: You must be logged in to the server (Unauthorized)
 ```
-
 The user above gets an error because the user is not a part of a group that has access to the cluster.
-```
+
 
 
 
