@@ -38,7 +38,7 @@
     href: how-to-manage-graph.md
   - name: Route event data
     href: how-to-route-events.md
-  - name: Create an Azure Function for Azure Digital Twins
+  - name: Set up an Azure Function
     href: how-to-create-azure-function.md
 - name: Reference
   items:

@@ -52,11 +52,11 @@ To get started, you need to set up an Azure NetApp Files account.
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 

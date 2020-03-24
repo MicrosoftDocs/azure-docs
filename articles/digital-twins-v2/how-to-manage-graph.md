@@ -17,31 +17,44 @@ ms.service: digital-twins
 
 # Create digital twins and relationships
 
-Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. In this example, we are going to use an Autorest-generated SDK, as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
+Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. 
 
-This section assumes that you: 
-* Already have a working instance of Azure Digital Twins set up, with appropriate access permissions. See [Create an Azure Digital Twins instance](how-to-set-up-instance.md) for more information.
+[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
-* Know how to authenticate against Azure Digital Twins and how to create a service client object. See [Authenticate against Azure Digital Twins](how-to-authenticate.md) for more information.
+There are two other prerequisites that this article assumes you've completed: 
+* Set up a working instance of Azure Digital Twins, with appropriate access permissions. For more information about this step, see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+* Learn how to authenticate against Azure Digital Twins and how to create a service client object. For more information about authentication, see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
 
-## Create a twin graph (preview)
+## Create a digital twin (preview)
 
-To create a twin, you use the DigitalTwins.Add method on the service client:
+The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your environment as a whole. The twin graph is made up of individual twins that represent individual entities in your environment.
+
+To create a twin, you use the `DigitalTwins.Add` method on the service client like this:
+
 ```csharp
 await client.DigitalTwins.AddAsync("myNewTwinID", initData);
 ```
 
-To create a twin instance, you need to provide:
-* The desired ID for the twin
-* The twin type you want to use 
-* Initial values for all properties of the twin (in this preview)
+> [!TIP]
+> All SDK functions come in synchronous and asynchronous versions.
+
+To create a digital twin in this preview release, you need to provide:
+* The desired ID for the digital twin
+* The [twin type](concepts-twin-types.md) you want to use 
+* Initial values for all properties of the digital twin
+
+The twin type and initial property values are provided through the `initData` parameter.
 
 ### Initialize properties
 
-All non-optional properties and components of Azure digital twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twin-graph.md) for a description of the JSON format for a twin.
+All non-optional properties and components of Azure digital twins must be initialized at creation time, and are provided in the create call as `initData`. 
 
-A serializable parameter object can be constructed for example as in the following example: 
+> [!NOTE]
+> Relationships may be initialized, but do not need to be. 
+
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
+
+You can create a serializable parameter object with the following example code, which sets up some twin properties:
 
 ```csharp
 Dictionary<string, object> moonData = new Dictionary<string, object>()
@@ -51,7 +64,8 @@ Dictionary<string, object> moonData = new Dictionary<string, object>()
 };
 ```
 
-One mandatory property for a digital twin instance is the twin type. This can be set using the property "$model" in the metadata section of the initialization data:
+One mandatory property for a digital twin is the twin type. This can be set using the property "$model" in the metadata section of the initialization data. Here is a code sample that sets a model along with a few other twin properties:
+
 ```csharp
 // Define the model type for the twin to be created
 Dictionary<string, object> meta = new Dictionary<string, object>()
@@ -67,14 +81,14 @@ Dictionary<string, object> initData = new Dictionary<string, object>()
 };
 ```
 
-### Create a digital twin
+### Full twin creation code
 
-The following code sample shows a function that creates a twin of type room and initializes it:
+The following code sample uses the information you've learned in this section to create a twin of type *Room* and initialize it:
 
 ```csharp
 public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
 {
-    // Define the model type for the twin to be created
+    // Define the twin type (model) for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
     {
       { "$model", "urn:example:Room:2" }
@@ -99,16 +113,22 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-### Create relationships
+## Create relationships
 
-Relationships are created with `DigitalTwins.AddEdge'. To create a relationship, you need to specify:
-* The source twin ID - the twin where the relationship originates
-* The target twin ID - the twin where the relationship arrives
+Digital twins are connected to each other with relationships, and this is how a twin graph is formed.
+
+Relationships are created with `DigitalTwins.AddEdge`. 
+
+To create a relationship, you need to specify:
+* The source twin ID (the twin where the relationship originates)
+* The target twin ID (the twin where the relationship arrives)
 * A relationship name
 * A relationship ID
 
 The relationship ID must be unique within the given source twin and relationship name. It does not need to be globally unique.
-As an example, within the twin "foo" and the relationship "contains" the relationship ID must be unique.
+For example, within the twin *foo* and its *contains* relationships, each specific relationship ID must be unique.
+
+The following code sample illustrates how to add a relationship to your Azure Digital Twins instance.
 
 ```csharp
 static async Task<bool> AddRelationship(string source, string relationship, string id, string target)
@@ -129,10 +149,10 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 }
 ```
 
-
 ### Create a digital twin hierarchy 
 
-The following snippet is a more complete sample that creates a basic hierarchy of twins with relationships.
+The following code snippet incorporates the method above to create a larger hierarchy of twins with relationships.
+
 ```csharp
 static async Task CreateTwins()
 {
@@ -165,7 +185,7 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 
 static async Task<bool> CreateRoom(string id, double temperature, double humidity)
 {
-    // Define the model type for the twin to be created
+    // Define the twin type (model) for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
             { "$model", "urn:example:Room:2" }
@@ -195,7 +215,7 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
     string type = "urn:example:Building:3";
     if (makeFloor==true)
         type = "urn:example:Floor:2";
-    // Define the model type for the twin to be created
+    // Define the twin type (model) for the twin to be created
     Dictionary<string, object> meta = new Dictionary<string, object>()
         {
             { "$model", type }
@@ -219,10 +239,11 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
 }
 ```
 
+## Create digital twins graph from a spreadsheet
 
-## Create Azure digital twins: a more complete example
+In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet. This section illustrates how a spreadsheet can be parsed.
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet. Here is a snippet that illustrates how a spreadsheet can be parsed:
+Consider the following data table, describing a set of digital twins and relationships to be created.
 
 | Twin type    | ID | Parent | Relationship name | Other data |
 | --- | --- | --- | --- | --- |
@@ -234,7 +255,7 @@ In practical use cases, twin hierarchies will often be created from data stored 
 | room    | Room21 | Floor02 | contains | … |
 | room    | Room22 | Floor02 | contains | … |
 
-The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results:
+The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
 
 ```csharp
 // Connect to MSFT graph and open spreadsheet from OnDrive
@@ -285,7 +306,9 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     }
 }
 ```
-With RelationshipRecord defined as:
+
+`RelationshipRecord` in this sample is defined as:
+
 ```csharp
 public class RelationshipRecord
 {
@@ -303,7 +326,7 @@ public class RelationshipRecord
 
 You can delete twins using `DigitalTwins.Delete(ID)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
 
-Here is example code:
+Here is an example of the code for this:
 
 ```csharp
 static async Task DeleteTwin()
@@ -388,9 +411,11 @@ static async Task FindAndDeleteIncomingRelationships(string id)
     }
 }
 ```
+
 ### Delete all digital twins
 
-The following example shows how to delete all twins in the system:
+The following example shows how to delete all twins in the system at once.
+
 ```csharp
 static async Task DeleteAllTwins()
 {

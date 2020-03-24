@@ -405,7 +405,7 @@ All your data is accessible after the key rotation operation including data inge
 - The CMK feature is supported at ADX cluster level and requires a
     dedicated Azure Monitor ADX cluster
 
-- The max number of *Cluster* resources per subscription is limited to 5
+- The max number of *Cluster* resources per subscription is limited to 2
 
 - *Cluster* resource association to workspace should be carried ONLY
     after you received a confirmation from the product group that the
@@ -414,8 +414,8 @@ All your data is accessible after the key rotation operation including data inge
 
 - CMK encryption applies to newly ingested data after the CMK
     configuration. Data that was ingested prior to the CMK
-    configuration, remained encrypted with Microsoft key. You can query
-    data before and after the configuration seamlessly.
+    configuration, remaines encrypted with Microsoft key. You can query
+    data before and after the CMK configuration seamlessly.
 
 - Once workspace is associated to a *Cluster* resource, it cannot be
     de-associated from the *Cluster* resource, since data is encrypted

@@ -3,7 +3,7 @@
 title: Create an Azure Digital Twins instance
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service.
-author: cschorm
+author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
@@ -17,36 +17,34 @@ ms.service: digital-twins
 
 # Set up an Azure Digital Twins instance
 
-## Introduction
+If you just got access to the preview for the new version of Azure Digital Twins, you may be wondering where to begin.
 
-Ok, you just got access to the preview for the new version of Azure Digital Twins. How do you create and set up an Azure Digital Twins instance? 
+This how-to will walk you through the basic steps to create and set up a new Azure Digital Twins instance.
 
-This how-to will walk you through the basic steps.
+In order to complete these steps, you should first have:
 
-Prerequisites:
-
-* Access to a subscription that is whitelisted with access to Azure Digital Twins
+* Access to a subscription that is approved for access to Azure Digital Twins
 * Access to the [Azure CLI extensions for Digital Twins preview](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)
 
 ## Prepare
 
-Install the Azure CLI extensions for Azure Digital Twins. The instructions are here:
-https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI
+Install the Azure CLI extensions for Azure Digital Twins. For instructions on how to do this, see [Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
 
 ## Create an Azure Digital Twins instance
 
 To create an Azure Digital Twins instance, open a command prompt or PowerShell window.
 
-First, you need to log in into your Azure account:
+First, run this command and complete the associated prompts to log into your Azure account for this session:
 ```bash
 az login
 ```
 
-Next, set your working subscription to the whitelisted subscription that has access to Azure Digital Twins:
+Next, set your working subscription to the approved subscription that has access to Azure Digital Twins:
 ```bash
-az account set -s <your-whitelisted-subscription-ID>
+az account set -s <your-approved-subscription-ID>
 ```
-To make life easier, let's set a default location for all resources to be created for the rest of this walk-through:
+
+For simplicity, you can set a default location for all resources that will be created in this walk-through:
 ```bash
 az configure --defaults location="West Central US"
 ```
@@ -58,12 +56,13 @@ If you have never created an Azure Digital Twins instance before in your whiteli
 
 Before we can create an Azure Digital Twins instance, you will need an existing resource group. If you don't have one in your subscription, you can create one with:
 ```bash
-az group create -n <your-rg-name>
+az group create -n <your-resource-group-name>
 ```
 
-And now you are ready to create your Azure Digital Twins instance:
+Now, you can create your Azure Digital Twins instance with the following command:
+
 ```bash
-az dt create --name <your-instance-name> -g <your-rg-name>
+az dt create --name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group-name>
 ```
 
 You should  take note of the "hostname" value returned, as you will need this value later.
