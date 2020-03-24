@@ -40,4 +40,4 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
-* Use [Import Data](./algorithm-module-reference/import-data.md) module to import sample datasets
+* Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.

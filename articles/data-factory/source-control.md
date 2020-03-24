@@ -136,7 +136,7 @@ The configuration pane shows the following GitHub repository settings:
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository. | GitHub |
 | **Use GitHub Enterprise** | Checkbox to select GitHub Enterprise | unselected (default) |
-| **GitHub Enterprise URL** | The GitHub Enterprise root URL. For example: https://github.mydomain.com. Required only if **Use GitHub Enterprise** is selected | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise URL** | The GitHub Enterprise root URL (must be HTTPS for local GitHub Enterprise server). For example: https://github.mydomain.com. Required only if **Use GitHub Enterprise** is selected | `<your GitHub enterprise url>` |                                                           
 | **GitHub account** | Your GitHub account name. This name can be found from https:\//github.com/{account name}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub account. | `<your GitHub account name>` |
 | **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. | `<your repository name>` |
 | **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, it's master. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch>` |

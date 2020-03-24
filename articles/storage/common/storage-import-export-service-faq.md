@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -137,17 +137,7 @@ Max Page Blob size is 8TB.
 
 
 ### Does Azure Import/Export support AES-256 encryption?
-Azure Import/Export service uses AES-128 bitlocker encryption by default. You can change this to AES-256 by manually encrypting with bitlocker before the data is copied. 
-
-- If using [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
-    ```
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
-    ```
-- If using [WAImportExport V2](https://www.microsoft.com/download/details.aspx?id=55280) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
-    ```
-    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
-    ```
+Yes. Azure Import/Export service uses AES-256 BitLocker encryption. 
 
 ## Next steps
 
