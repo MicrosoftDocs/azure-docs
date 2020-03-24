@@ -27,7 +27,7 @@ To secure web servers, a Transport Layer Security (TLS), previously known as Sec
 > * Create an Azure Key Vault
 > * Generate or upload a certificate to the Key Vault
 > * Create a VM and install the NGINX web server
-> * Inject the certificate into the VM and configure NGINX with an TLS binding
+> * Inject the certificate into the VM and configure NGINX with a TLS binding
 
 This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
