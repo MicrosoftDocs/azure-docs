@@ -10,4 +10,4 @@
  ms.custom: include file
 ---
 
-Incremental snapshots is not available in all the public regions in GA.
+Incremental snapshots is now available in all the public regions in GA.
