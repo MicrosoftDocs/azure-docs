@@ -12,8 +12,8 @@ ms.date: 03/24/2020
 > [!Note]
 > Existing AAD v1.0 clusters are not affected by the new AAD v2.0 feature for AKS.
 
-AAD V1.0 is designed to simplify the AAD V1.0 experience, where users were required to create a client app, a server app, and required the AAD tenant to grant Directory Read permissions. 
-In the new version, the AKS resource provider manages the client and server apps behind the scenes. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an On-Behalf-Of flow to get access token to Graph API. Finally, it uses a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
+AAD v2.0 is designed to simplify the AAD v1.0 experience, where users were required to create a client app, a server app, and required the AAD tenant to grant Directory Read permissions. 
+In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. Finally, AAD v2.0 enabled clusters uses a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
 
 ## Limitations
 
@@ -30,7 +30,7 @@ In the new version, the AKS resource provider manages the client and server apps
 You must have the following resources installed:
 
 - The Azure CLI, version 2.2.0 or later
-- The aks-preview 0.4.37 extension [TBD]
+- The aks-preview 0.4.38 extension
 - Kubectl with a minimum version of [1.18 beta](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#client-binaries)
 
 To install/update the aks-preview  extension or later, use the following Azure CLI commands:
