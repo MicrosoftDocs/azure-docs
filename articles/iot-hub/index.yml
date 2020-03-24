@@ -57,7 +57,7 @@ landingContent:
           url: tutorial-routing-config-message=routing-cli.md
         - text: with Azure Resource Manager template
           url: tutorial-routing-config-message-routing-rm-template.md
-      - linkListType: tutorial
+     -  linkListType: tutorial
         links:
         - text: View results
           url: tutorial-routing-view-message-routing-results.md
