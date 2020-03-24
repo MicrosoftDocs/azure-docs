@@ -29,7 +29,7 @@ You assess physical servers with the [Azure Migrate:Server Assessment](migrate-s
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** You need a local or domain user account on all the Windows servers you want to discover. The user account should be added to these groups: Remote Desktop Users, Performance Monitor Users, and Performance Log users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Permissions**           | **Windows:** You need a local or domain user account on all the Windows servers you want to discover. The user account should be a local administrator<br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems are supported except for Windows Server 2003, and SUSE Linux.|
 
 
