@@ -40,7 +40,7 @@ az vmss create \
     --name <vmss-name>\
     --image <your-image> \
     --admin-username <admin-username> \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --generate-ssh-keys  \
     --upgrade-policy-mode Automatic \
     --instance-count 3 \
     --vnet-name <virtual-network-name> \
