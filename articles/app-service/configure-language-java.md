@@ -33,6 +33,32 @@ Do not deploy your .war using FTP. The FTP tool is designed to upload startup sc
 
 Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 
+### Use Flight Recorder
+
+All Java runtimes on App Service that use the Azul JVMs have the Zulu Flight Recorder installed. You can use this to connect to the JVM and start a profiler recording or generate a heap dump. You can use the Flight Recorder to take a single timed recording, or to start a continuous recording with a fixed buffer size.
+
+#### Start a timed recording
+
+To take a timed recording first navigate to Kudu > Process Explorer and get the PID (Process ID) for "java" in the table.
+
+Then open the Debug Console and run the following command, replacing `<pid>` with the process ID you found in the previous step. This command will start a 30 second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` with 
+
+```
+jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:/home/timed_recording_example.JFR"
+```
+
+For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+#### Start a continuous recording
+
+You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting named `JAVA_OPTS` with the necessary configuration. The contents of the `JAVA_OPTS` App Setting are passed to the `java` command when your app is started.
+
+For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+#### Analyze `.jfr` files
+
+Use [FTPS](../deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+
 ### Stream diagnostic logs
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
