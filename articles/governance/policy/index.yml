@@ -115,6 +115,16 @@ landingContent:
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
           - text: Azure SDK for .NET (Policy Definitions)
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+          - text: Azure SDK for Node (Policy)
+            url: /javascript/api/@azure/arm-policy
+          - text: Azure SDK for Node (Policy Insights)
+            url: /javascript/api/@azure/arm-policyinsights
+          - text: Azure SDK for Python (Policy)
+            url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+          - text: Azure SDK for Python (Policy client)
+            url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+          - text: Azure SDK for Python (Policy Insights)
+            url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
           - text: REST (Policy Insights)
             url: /rest/api/policy-insights/
           - text: REST (Assignments)

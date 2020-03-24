@@ -132,6 +132,14 @@ additionalContent:
             - text: Azure SDK for .NET
               url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
               note: (Policy Definitions)
+            - text: Azure SDK for Node
+              url: /javascript/api/@azure/arm-policy
+              note: (Policy)
+            - text: Azure SDK for Node
+              url: /javascript/api/@azure/arm-policyinsights
+              note: (Policy Insights)
+            - text: Azure SDK for Python
+              url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
             - text: REST
               url: /rest/api/policy-insights/
               note: (Policy Insights)
