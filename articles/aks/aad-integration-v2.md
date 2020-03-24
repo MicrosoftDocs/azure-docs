@@ -135,12 +135,15 @@ aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
 
 To get the user credentials to access the cluster:
+
 ```azurecli-interactive
 kubectl get nodes
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
-
-error: You must be logged in to the server (Unauthorized)
 ```
+
+You see To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.  You receive an error:
+
+**error: You must be logged in to the server (Unauthorized)**
+
 The user above gets an error because the user is not a part of a group that has access to the cluster.
 
 
