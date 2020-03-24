@@ -16,6 +16,10 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
+## March 2020
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
 ## January 2020
 
 ### Read API 3.0 preview
