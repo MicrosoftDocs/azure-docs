@@ -3,7 +3,7 @@ title: Working with Reliable Collections
 description: Learn the best practices for working with Reliable Collections within an Azure Service Fabric application.
 
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/10/2020
 ---
 
 # Working with Reliable Collections
@@ -45,6 +45,18 @@ Once the lock is acquired, AddAsync adds the key and value object references to 
 In the code above, the call to CommitAsync commits all of the transaction’s operations. Specifically, it appends commit information to the log file on the local node and also sends the commit record to all the secondary replicas. Once a quorum (majority) of the replicas has replied, all data changes are considered permanent and any locks associated with keys that were manipulated via the ITransaction object are released so other threads/transactions can manipulate the same keys and their values.
 
 If CommitAsync is not called (usually due to an exception being thrown), then the ITransaction object gets disposed. When disposing an uncommitted ITransaction object, Service Fabric appends abort information to the local node’s log file and nothing needs to be sent to any of the secondary replicas. And then, any locks associated with keys that were manipulated via the transaction are released.
+
+## Volatile Reliable Collections 
+In some workloads, like a replicated cache for example, occasional data loss can be tolerated. Avoiding persistence of the data to disk can allow for better latencies and throughputs when writing to Reliable Dictionaries. The tradeoff for a lack of persistence is that if quorum loss occurs, full data loss will occur. Since quorum loss is a rare occurrence, the increased performance may be worth the rare possibility of data loss for those workloads.
+
+Currently, volatile support is only available for Reliable Dictionaries and Reliable Queues, and not ReliableConcurrentQueues. Please see the list of [Caveats](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) to inform your decision on whether to use volatile collections.
+
+To enable volatile support in your service, set the ```HasPersistedState``` flag in service type declaration to ```false```, like so:
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+**Note**: Existing persisted services cannot be made volatile, and vice versa. If you wish to do so, you will need to delete the existing service and then deploy the service with the updated flag. This means that you must be willing to incur full data loss if you wish to change the ```HasPersistedState``` flag. 
 
 ## Common pitfalls and how to avoid them
 Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:

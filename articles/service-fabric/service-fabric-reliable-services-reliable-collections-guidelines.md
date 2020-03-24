@@ -3,7 +3,7 @@ title: Guidelines for Reliable Collections
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
 
 ms.topic: conceptual
-ms.date: 12/10/2017
+ms.date: 03/10/2020
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
 This section provides guidelines for using Reliable State Manager and Reliable Collections. The goal is to help users avoid common pitfalls.
@@ -35,6 +35,18 @@ Here are some things to keep in mind:
   This means that a version of data that is read from a single secondary might be false progressed.
   Reads from Primary are always stable: can never be false progressed.
 * Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.  
+
+## Volatile Reliable Collections
+When deciding to use volatile reliable collections, consider the following:
+
+* ```ReliableDictionary``` does have volatile support
+* ```ReliableQueue``` does have volatile support
+* ```ReliableConcurrentQueue``` does NOT have volatile support
+* Persisted services CANNOT be made volatile. Changing the ```HasPersistedState``` flag to ```false``` requires recreating the entire service from scratch
+* Volatile services CANNOT be made persisted. Changing the ```HasPersistedState``` flag to ```true``` requires recreating the entire service from scratch
+* ```HasPersistedState``` is a service level config. This means that **ALL** collections will either be persisted or volatile. You cannot mix volatile and persisted collections
+* Quorum loss of a volatile partition results in complete data loss
+* Backup and restore is NOT available for volatile services
 
 ### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
