@@ -279,7 +279,7 @@ We'll refer to the style properties of this feature as states, and we'll use the
     }
     ```
 
-4. Copy the state set ID from the response body.
+4. Copy the state set ID from the response body
 
 5. Use the [Feature Update States API]() to update the state. Pass the state set ID, data set ID, and feature ID, with your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
 
@@ -301,7 +301,7 @@ We'll refer to the style properties of this feature as states, and we'll use the
     }
     ```
 
-7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you had [Implement dynamic styling]() for an indoor map, then the update would reflect in your rendered map at the specified time stamp.
+7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you had [dynamic styling implemented]() for an indoor map, then the update would reflect in your rendered map at the specified time stamp.
 
 The [Feature Get States API]() lets you learn about the state of a feature using its feature ID. You can also delete the state set and its resource using the [Feature State Delete API]().
 
