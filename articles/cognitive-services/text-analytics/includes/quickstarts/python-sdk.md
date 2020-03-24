@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 
@@ -10,7 +10,7 @@ ms.author: aahi
 
 #### [Version 3.0-preview](#tab/version-3)
 
-[v3 Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3 Reference documentation](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3 Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 #### [Version 2.1](#tab/version-2)
 
