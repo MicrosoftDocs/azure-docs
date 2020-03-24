@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot access, ingestion, and cluster operation in your virtual network
-description: Troubleshoot connectivity, ingestion, cluster creation, and operation in your virtual network
+title: Troubleshoot access, ingestion, and operation of your Azure Data Explorer cluster in your virtual network
+description: Troubleshoot connectivity, ingestion, cluster creation, and operation of your Azure Data Explorer cluster in your virtual network
 author: basaba
 ms.author: basaba
 ms.reviewer: orspodek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/24/2020
 ---
 
-# Troubleshoot access, ingestion, and cluster operation in your virtual network
+# Troubleshoot access, ingestion, and operation of your Azure Data Explorer cluster in your virtual network
 
 In this section you learn how to troubleshoot connectivity, operational, and cluster creation issues for a cluster that is deployed into your [Virtual Network](/azure/virtual-network/virtual-networks-overview).
 
@@ -67,11 +67,11 @@ If you're experiencing ingestion issues and you suspect it's related to virtual 
 
 ### Check ingestion health
 
-    Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
+Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
 
 ### Check security rules on data source resources
 
-If the metrics indicate that no events were processed from the data source (*Events processed* (for Event/IoT Hubs) metric), make sure that the data source resources (Event Hub or Storage) allow access from cluster's subnet in the firewall rules or service endpoints.
+If the metrics indicate that no events were processed from the data source (*Events processed* metric for Event/IoT Hubs), make sure that the data source resources (Event Hub or Storage) allow access from cluster's subnet in the firewall rules or service endpoints.
 
 ### Check security rules configured on cluster's subnet
 
