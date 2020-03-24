@@ -127,7 +127,7 @@ If using version 1.4.0.300 of the WAImportExport tool, use the following command
 
 If using earlier versions of the tool, use the BitLocker dialog to unlock the drive.
 
-You can either delete the job now or it automatically gets deleted after 90 days.
+At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 
 ## Check the number of drives
 
