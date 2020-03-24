@@ -168,6 +168,14 @@ Here are the rules for determining which container is accessible - in the order 
 - The first container to define port 80 or 8080
 - If neither of the above is true, the first container defined in the file will be accessible (exposed)
 
+
+## Web Sockets
+
+Web Sockets are supported on Linux apps.
+
+> [!IMPORTANT]
+> Web Sockets are not currently supported for Linux apps on Free App Service Plans. We are working on removing this limitation and plan to support up to 5 web socket connections on Free App Service plans.
+
 ## Pricing and SLA
 
 **What is the pricing, now that the service is generally available?**
