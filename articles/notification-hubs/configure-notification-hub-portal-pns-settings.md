@@ -61,7 +61,7 @@ To set up push notifications for Google Firebase Cloud Messaging (FCM):
 
 When you complete these steps, an alert indicates that the notification hub has been successfully updated. The **Save** button is disabled.
 
-For more information, see [Push notifications to Android devices by using Notification Hubs and Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
+For more information on using Azure Notification Hubs and Firebase Cloud Messaging (FCM) to push notifications to an Android application, see [Tutorial: Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -99,14 +99,17 @@ Before you begin, you must have the following:
 
    ```azurecli
    #test with message body
-   az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --message "test notification"
+   az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --message "my message body"
 
    #test with JSON string
-   az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --payload "{\"data\":{\"message\":\"test notification\"}}"
+   az notification-hub test-send --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --notification-format gcm --payload "{\"data\":{\"message\":\"my JSON string\"}}"
    ```
 
-> [!NOTE]
-> Get Azure CLI references for other platforms with the [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) command.
+### See also
+
+* Get Azure CLI references for other platforms with the [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) command.
+
+* For more information on using Azure Notification Hubs and Firebase Cloud Messaging (FCM) to push notifications to an Android application, see [Tutorial: Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ---
 
