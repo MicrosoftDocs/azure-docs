@@ -102,8 +102,8 @@ Details for RHEL 8 image types are below.
 
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
-|RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories.
-|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8 LVM-partitioned images connected to standard Red Hat repositories.
+|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## RHEL longer support add-ons
 
