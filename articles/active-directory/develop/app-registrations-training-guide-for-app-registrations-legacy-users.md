@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.author: aragra
+ms.author: lenalepa
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ---
