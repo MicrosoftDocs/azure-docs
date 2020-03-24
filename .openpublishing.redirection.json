@@ -47341,7 +47341,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/security/fundamentals/ad-concepts.md",
+      "source_path": "articles/security/fundamentals/ad-passwordless.md",
       "redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
       "redirect_document_id": false
     },
