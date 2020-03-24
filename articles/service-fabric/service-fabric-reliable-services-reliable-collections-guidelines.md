@@ -15,7 +15,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
 * Do not use a transaction after it has been committed, aborted, or disposed.
 * Do not use an enumeration outside of the transaction scope it was created in.
-* Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
+* Do not create a transaction within another transaction's `using` statement because it can cause deadlocks.
 * Do not create reliable state with `IReliableStateManager.GetOrAddAsync` and use the reliable state in the same transaction. This results in an InvalidOperationException.
 * Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on `IComparable<TKey>` for merging checkpoints and rows.
 * Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
@@ -48,7 +48,7 @@ When deciding to use volatile reliable collections, consider the following:
 * Quorum loss of a volatile partition results in complete data loss
 * Backup and restore is NOT available for volatile services
 
-### Next steps
+## Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Managing Data
@@ -57,5 +57,5 @@ When deciding to use volatile reliable collections, consider the following:
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
-  * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+  * [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

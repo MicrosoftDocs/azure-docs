@@ -52,5 +52,5 @@ Today, **Microsoft.ServiceFabric.Data.Collections** contains three collections:
   * [Serialization and Upgrade](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
-  * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+  * [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
