@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/10/2019
+  ms.date: 03/24/2020
 
 highlightedContent:
   items:
@@ -113,6 +113,8 @@ additionalContent:
               url: /dotnet/api/overview/azure/managementgroups
             - text: Azure SDK for Node
               url: /javascript/api/@azure/arm-managementgroups/managementgroups
+            - text: REST
+              url: /rest/api/resources/managementgroups
         - title: Azure Policy
           links:
             - text: Azure CLI
