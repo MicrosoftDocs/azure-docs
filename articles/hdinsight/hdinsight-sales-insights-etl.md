@@ -35,28 +35,28 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 1. List your subscriptions by typing the command `az account list --output table`. Note the ID of the subscription that you will use for this project.
 1. Set the subscription you will use for this project and set the subscriptionID variable which will be used later.
 
-    ```cli
+    ```azurecli
     subscriptionID="<SUBSCRIPTION ID>"
     az account set --subscription $subscriptionID
     ```
 
 1. Create a new resource group for the project and set the resourceGroup variable which will be used later.
 
-    ```cli
+    ```azurecli
     resourceGroup="<RESOURCE GROUP NAME>"
     az group create --name $resourceGroup --location westus
     ```
 
 1. Download the data and scripts for this tutorial from the [HDInsight sales insights ETL repository](https://github.com/Azure-Samples/hdinsight-sales-insights-etl) by entering the following commands in Cloud Shell:
 
-    ```cli
+    ```console
     git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
     cd hdinsight-sales-insights-etl
     ```
 
 1. Enter `ls` at the shell prompt to verify that the following files and directories have been created:
 
-   ```
+   ```output
    salesdata scripts templates
    ```
 
@@ -78,7 +78,7 @@ The `resources.sh` script contains the following commands. It is not required fo
 
 * `az group deployment create` - This command uses an Azure Resource Manager template (`resourcestemplate.json`) to create the specified resources with the desired configuration. 
 
-    ```cli
+    ```azurecli
     az group deployment create --name ResourcesDeployment \
         --resource-group $resourceGroup \
         --template-file resourcestemplate.json \
@@ -87,7 +87,7 @@ The `resources.sh` script contains the following commands. It is not required fo
 
 * `az storage blob upload-batch` - This command uploads the sales data .csv files into the newly created Blob storage account by using this command:
 
-    ```cli
+    ```azurecli
     az storage blob upload-batch -d rawdata \
         --account-name <BLOB STORAGE NAME> -s ./ --pattern *.csv
     ```
@@ -111,7 +111,7 @@ The default password for SSH access to the clusters is `Thisisapassword1`. If yo
 
 > [!Note]
 > After you know the names of the storage accounts, you can get the account keys by using the following command at the Azure Cloud Shell prompt:
-> ```cli
+> ```azurecli
 > az storage account keys list \
 >    --account-name <STORAGE NAME> \
 >    --resource-group $rg \
@@ -174,19 +174,19 @@ For other ways to transform data by using HDInsight, see [this article on using 
 
 1. Copy the `query.hql` file to the LLAP cluster by using SCP:
 
-    ```
+    ```console
     scp scripts/query.hql sshuser@<clustername>-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
 2. Use SSH to access the LLAP cluster by using the following command, and then enter your password. If you haven't altered the `resourcesparameters.json` file, the password is `Thisisapassword1`.
 
-    ```
+    ```console
     ssh sshuser@<clustername>-ssh.azurehdinsight.net
     ```
 
 3. Use the following command to run the script:
 
-    ```
+    ```console
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
     ```
 
@@ -211,7 +211,7 @@ After the data is loaded, you can experiment with the dashboard that you want to
 
 If you're not going to continue to use this application, delete all resources by using the following command so that you aren't charged for them.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete -n $resourceGroup
 ```
 
