@@ -94,9 +94,9 @@ The following settings can be used to configure the error message displayed upon
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalDoesNotExist | No | The message to display to the user if the username not found. |
+| UserMessageIfClaimsPrincipalDoesNotExist | No | The message to display to the user if an account with the provided username not found in the directory. |
 | UserMessageIfInvalidPassword | No | The message to display to the user if the password is incorrect. |
-| UserMessageIfOldPasswordUsed| No |  The message to display to the user used an old password.|
+| UserMessageIfOldPasswordUsed| No |  The message to display to the user if an old password used.|
 
 ## Cryptographic keys
 
