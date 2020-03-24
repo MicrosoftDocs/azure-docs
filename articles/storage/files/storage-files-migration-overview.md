@@ -19,9 +19,9 @@ Alongside migration basics, this article contains a list of existing, individual
 
 There are multiple different types of cloud storage available in Azure. A fundamental aspect of a migration of files to Azure is to determine which Azure storage option is right for your data.
 
-Azure file shares are great for general purpose file data. Really anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md) you can optionally cache the contents of several Azure file shares on several Windows Servers on-premises.
+Azure file shares are great for general purpose file data. Really anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can optionally cache the contents of several Azure file shares on several Windows Servers on-premises.
 
-If you have an application currently running on an on-premises server, then storing files in Azure file shares can be right for you, depending on the application. You can lift the application to run in Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario. For cloud-born applications, that don't depend on the SMB or machine-local access to their data or shared access, object storage, such as [Azure blobs](../blobs/storage-blobs-overview.md), is often the best choice.
+If you have an application currently running on an on-premises server, then storing files in Azure file shares can be right for you, depending on the application. You can lift the application to run in Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario. For cloud-born applications that don't depend on the SMB or machine-local access to their data or shared access, object storage, such as [Azure blobs](../blobs/storage-blobs-overview.md), is often the best choice.
 
 The key in any migration is to capture all the applicable file fidelity when migrating your files from their current storage location to Azure. A help in picking the right Azure storage is also the aspect of how much fidelity supported by the Azure storage option and is required by your scenario. General purpose file data traditionally depends on file metadata. Application data might not. There are two basic components to a file:
 
@@ -37,8 +37,6 @@ File fidelity, in a migration, can therefore be defined as the ability to store 
 In order to ensure your migration proceeds as smoothly as possible, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
 Taking the previous information into account, it becomes clear what the target storage for general purpose files in Azure is: [Azure file shares](storage-files-introduction.md). Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
-
-**[Learn more about file fidelity in Azure file shares]**
 
 Azure file shares also preserve the file and folder hierarchy. Additionally:
 * NTFS permissions can be stored on files and folders as they are on-premises
