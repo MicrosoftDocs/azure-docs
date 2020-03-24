@@ -267,3 +267,11 @@ groups:
     title: C+
   - id: programming-language-java
     title: Java
+- id: code-editors-set-one
+  title: Code Editors
+  prompt: Choose a code editor
+  pivots:
+  - id: code-editor-vscode
+    title: Visual Studio Code
+  - id: code-editor-visualstudio
+    title: Visual Studio
