@@ -102,8 +102,6 @@
         href: concepts-data-access-and-security-private-link.md
       - name: Data Encryption
         href: concepts-data-encryption-postgresql.md
-      - name: Security baseline
-        href: security-baseline.md
     - name: Business continuity
       items:
       - name: Business continuity intro
