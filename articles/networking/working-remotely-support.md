@@ -13,10 +13,10 @@ ms.author: kumud
 
 # Working remotely using Azure networking services
 
-This article describes how you can leverage Azure networking services to enable working remotely. The Covid-19 has forced people across a wide range of industries to work from home. As a result, network architects are faced with the following challenges:
+This article describes how you can leverage Azure networking services to enable working remotely. Covid-19 is creating a need for organizations to support more remote workers. As a result, network architects are faced with the following challenges:
 
-- address the steep increase in network utilization
-- provide reliable-secure connectivity to all the employees of their company and customers,
+- address an increased in network utilization
+- provide reliable-secure connectivity to more employees of their company and customers,
 - provide connectivity to remote locations across the globe. 
 
 Not all networks (for example, the Internet backbone, private WAN, and corporate core networks) are experiencing congestion because of Covid-19. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
@@ -27,13 +27,15 @@ Network planners can help ease the bottlenecks and alleviate the network congest
 >Towards the end of this article, links for Covid-19 preparation articles leveraging different Azure networking features and ecosystems are listed.
 >
 
-## Azure is designed for elasticity and high-availability
+## Sharing our best practices - Azure network is designed for elasticity and high-availability
 
 Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operates one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
 
 Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
-Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+>[!NOTE] 
+>Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; >thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+>
 
 ## Enable employees to work remotely
 
@@ -53,7 +55,7 @@ Use ExpressRoute Global Reach, Azure VPN gateway, or Azure Virtual WAN services 
 
 ## Scale customer connectivity to frontend resources
 
-Lockdown is forcing people to go online. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see[Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
+Covid-19 is also creating a need for people to go online more. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see[Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
 
 ## Microsoft support for multi-cloud traffic
 
