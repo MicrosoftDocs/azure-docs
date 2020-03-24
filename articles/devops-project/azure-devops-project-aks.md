@@ -44,7 +44,7 @@ DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box, type **DevOps Starter**, and then select. Click on **Add** to cerate a new one.
+1. In the search box, type **DevOps Starter**, and then select. Click on **Add** to create a new one.
 
     ![The DevOps Starter dashboard](_img/azure-devops-starter-aks/search-devops-starter.png)
 
