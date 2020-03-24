@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://hub.fcm.travel/SsoSp/SpInit?clientid=<CUSTOMID>`
 
     > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [FCM HUB Client support team](mailto:James.Cotton@us.fcm.travel) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL. Contact account manager who is assined to you to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Save**.
 
@@ -132,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FCM HUB SSO
 
-To configure single sign-on on **FCM HUB** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [FCM HUB support team](mailto:James.Cotton@us.fcm.travel). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **FCM HUB** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to your account manager who is assigned to you for the support. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create FCM HUB test user
 
-In this section, you create a user called B.Simon in FCM HUB. Work with [FCM HUB support team](mailto:James.Cotton@us.fcm.travel) to add the users in the FCM HUB platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in FCM HUB. Work with your account manager to add the users in the FCM HUB platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
