@@ -12,9 +12,9 @@ ms.reviewer: jamsbak
 
 # Filter data by using Azure Data Lake Storage query acceleration (preview)
 
-This article shows you how to use .NET and query acceleration (Preview) to retrieve a subset of data from your storage account. 
+This article shows you how to use .NET and query acceleration (preview) to retrieve a subset of data from your storage account. 
 
-Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
+Query acceleration (preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (preview)](data-lake-storage-query-acceleration.md).
 
 > [!NOTE]
 > The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
@@ -48,11 +48,11 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 1. Download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
 
-2. Extract the files in this .zip file to any directory on your local drive. 
+2. Extract the contents of this file to any directory on your local drive. 
 
 3. In a console window (such as cmd, PowerShell, or Bash), switch to the directory that contains the extracted files.
 
-4. Use the [nuget.exe CLI](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-nuget-cli) to install each package to your project. 
+4. Install each package to your project by using the [nuget.exe CLI](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-nuget-cli).
 
    These example commands install each package into a subdirectory of a project named `packages`.
   
@@ -71,8 +71,8 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
   </ItemGroup>
    ```
    
-> ![NOTE]
-> To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
+  > ![NOTE]
+  > To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
 
 
 ### [Java](#tab/java)
@@ -198,8 +198,8 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
     try
     {
         using (var reader = new StreamReader((await blob.GetQuickQueryClient().QueryAsync(query,
-                new CvsTextConfiguration() { HasHeaders = headers }, 
-                new CvsTextConfiguration() { HasHeaders = false }, 
+                new CsvTextConfiguration() { HasHeaders = headers }, 
+                new CsvTextConfiguration() { HasHeaders = false }, 
                 new ErrorHandler(),
                 new BlobRequestConditions(), 
                 new ProgressHandler(),
@@ -354,6 +354,6 @@ static void QueryMysteryBooks(BlobClient blobClient)
 ## Next steps
 
 - [Query acceleration enrollment form](https://aka.ms/adls/queryaccelerationpreview)    
-- [Azure Data Lake Storage query acceleration (Preview)](data-lake-storage-query-acceleration.md)
+- [Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
 - Query acceleration SQL language reference
 - Query acceleration REST API reference
