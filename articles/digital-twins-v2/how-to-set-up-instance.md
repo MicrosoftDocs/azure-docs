@@ -17,36 +17,34 @@ ms.service: digital-twins
 
 # Set up an Azure Digital Twins instance
 
-## Introduction
+If you just got access to the preview for the new version of Azure Digital Twins, you may be wondering where to begin.
 
-Ok, you just got access to the preview for the new version of Azure Digital Twins. How do you create and set up an Azure Digital Twins instance? 
+This how-to will walk you through the basic steps to create and set up a new Azure Digital Twins instance.
 
-This how-to will walk you through the basic steps.
+In order to complete these steps, you should first have:
 
-Prerequisites:
-
-* Access to a subscription that is whitelisted with access to Azure Digital Twins
+* Access to a subscription that is approved for access to Azure Digital Twins
 * Access to the [Azure CLI extensions for Digital Twins preview](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)
 
 ## Prepare
 
-Install the Azure CLI extensions for Azure Digital Twins. The instructions are here:
-https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI
+Install the Azure CLI extensions for Azure Digital Twins. For instructions on how to do this, see [Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
 
 ## Create an Azure Digital Twins instance
 
 To create an Azure Digital Twins instance, open a command prompt or PowerShell window.
 
-First, you need to log into your Azure account:
+First, run this command and complete the associated prompts to log into your Azure account for this session:
 ```bash
 az login
 ```
 
-Next, set your working subscription to the whitelisted subscription that has access to Azure Digital Twins:
+Next, set your working subscription to the approved subscription that has access to Azure Digital Twins:
 ```bash
-az account set -s <your-whitelisted-subscription-ID>
+az account set -s <your-approved-subscription-ID>
 ```
-To make life easier, let's set a default location for all resources to be created for the rest of this walk-through:
+
+For simplicity, you can set a default location for all resources that will be created in this walk-through:
 ```bash
 az configure --defaults location="West Central US"
 ```
@@ -56,26 +54,26 @@ Before you can create an Azure Digital Twins instance, you will need an existing
 az group create -n <your-resource-group-name>
 ```
 
-Now, you are ready to create your Azure Digital Twins instance:
+Now, you can create your Azure Digital Twins instance with the following command:
+
 ```bash
-az dt create --name <your-instance-name> -g <your-resource-group-name>
+az dt create --name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group-name>
 ```
 
-Before you can use the instance, there is one more step: setting up access control for the newly created instance. 
+The output of this command contains information about your newly created instance. Look for the resource ID and note its value, as you will need it in the next step.
 
 ## Assign a role to the instance
 
-To assign a role, you need the resource ID of the Azure Digital Twins instance you have created. If you did not record it earlier from the output of the creation command, you can get it now by running:
-```bash
-az dt show --name <your-instance-name> -g <your-resource-group-name>
-```
+Before you can use your new Azure Digital Twins instance, there is one more step: setting up access control for the instance. 
 
-The output will contain a long string named "id" that will begin with the letters "/subscriptions/…". Use that string in the command below: 
-```bash
-az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <your-AAD-email> --scope <resource-instance-ID>
-```
+[!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
-Take note of the "hostname" value returned by `az dt show`, as you will need this value later.
+The `az dt show` command also outputs a *hostname* value. Take note of this, as you will need it later.
+
+Use the resource ID string in the command below to set up an Owner role: 
+```bash
+az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <your-AAD-email> --scope <resource-ID>
+```
 
 You now have an Azure Digital Twins instance ready to go.
 
