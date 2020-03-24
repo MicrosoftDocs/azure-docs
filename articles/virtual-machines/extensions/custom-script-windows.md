@@ -4,7 +4,6 @@ description: Automate Windows VM configuration tasks by using the Custom Script 
 services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
-manager: carmonm
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows

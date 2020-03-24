@@ -379,6 +379,8 @@
         href: coupa-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
+      - name: CrossKnowledge Learning Suite
+        href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
       - name: CyberArk SAML Authentication
@@ -483,6 +485,8 @@
         href: envoy-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
+      - name: Elqano SSO
+        href: elqano-sso-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -994,6 +998,8 @@
         href: netskope-user-authentication-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
+      - name: Netvision Compas
+        href: netvision-compas-tutorial.md
       - name: New Relic
         href: new-relic-tutorial.md
       - name: New Relic (Limited Release)
@@ -1062,6 +1068,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palo Alto Networks - Admin UI
+        href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture
         href: paloaltonetworks-aperture-tutorial.md
       - name: Palo Alto Networks - Captive Portal
@@ -1334,6 +1342,8 @@
         href: skillsbase-tutorial.md
       - name: Skills Manager
         href: skillsmanager-tutorial.md
+      - name: Skills Workflow
+        href: skills-workflow-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
       - name: Skyhigh Networks
@@ -1664,7 +1674,7 @@
       - name: Airstack
         href: airstack-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
-        href: amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on
+        href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Asana
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
