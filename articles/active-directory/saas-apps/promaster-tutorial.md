@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with ProMaster (by Inlogik), perform the fo
 	| |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ProMaster (by Inlogik) Client support team](mailto:michael.boldiston@inlogik.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ProMaster (by Inlogik) Client support team](https://www.inlogik.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -153,11 +153,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ProMaster (by Inlogik) SSO
 
-To configure single sign-on on **ProMaster (by Inlogik)** side, you need to send the **App Federation Metadata Url** to [ProMaster (by Inlogik) support team](mailto:michael.boldiston@inlogik.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **ProMaster (by Inlogik)** side, you need to send the **App Federation Metadata Url** to [ProMaster (by Inlogik) support team](https://www.inlogik.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create ProMaster (by Inlogik) test user
 
-In this section, you create a user called B.Simon in ProMaster (by Inlogik). Work with [ProMaster (by Inlogik) support team](mailto:michael.boldiston@inlogik.com) to add the users in the ProMaster (by Inlogik) platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in ProMaster (by Inlogik). Work with [ProMaster (by Inlogik) support team](https://www.inlogik.com/contact) to add the users in the ProMaster (by Inlogik) platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO
 
