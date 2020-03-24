@@ -75,7 +75,7 @@ DevOps Starter automatically configures function app, which you can explore and 
 
 1. Go to the DevOps Starter dashboard.
 
-    ![DevOps Projects Dashboard](_img/azure-devops-project-functions/devops-projects-dashboard.png)
+    ![DevOps Projects Dashboard](_img/azure-devops-project-functions/fapp-dashboard.png)
 
 1. At the right, select the function app. A pane opens for the function app. From this view you can perform various actions such as operations monitoring, searching logs.
 
@@ -146,7 +146,7 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 ## Clean up resources
 
-You can delete the related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
+You can delete the related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Starter dashboard.
 
 ## Next steps
 

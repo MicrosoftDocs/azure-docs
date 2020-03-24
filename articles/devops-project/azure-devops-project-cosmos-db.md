@@ -79,7 +79,7 @@ DevOps Starter automatically configures Azure Cosmos DB, which you can explore a
 
 1. Go to the DevOps Starter dashboard.
 
-    ![DevOps Projects dashboard](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![DevOps Projects dashboard](_img/azure-devops-project-cosmos-db/devops-starter-dashboard.png)
 
 1. At the right, select Azure Cosmos DB. A pane opens for Azure Cosmos DB. From this view, you can perform various actions, such as monitoring operations and searching logs.
 
