@@ -38,7 +38,7 @@ After you have reset the user's password, give the user the temporary password. 
 
 ## Manage a user's phone number
 
-If your organization has given you permission, you can manage phone numbers for your staff members. To do this, first select a user.
+If your organization has given you permission, you can manage phone numbers for your staff members. To do this, select a user in My Staff.
 
 - If the user doesn't have a phone number set up, select the plus icon to add their phone number. Once you set up a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
 - If the user has a phone number and needs to change it, select the pencil icon and enter their new number.
