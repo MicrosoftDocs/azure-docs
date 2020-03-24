@@ -102,10 +102,10 @@ Technical profiles can be considered functions in the Identity Experience Framew
 
 | Technical Profile | Task |
 | ----------------- | -----|
-| AzureInsights-Common | Creates a common set of parameters to be included in all AzureInsights technical profiles. |
-| AzureInsights-SignInRequest | Creates a SignIn event with a set of claims when a sign-in request has been received. |
-| AzureInsights-UserSignup | Creates a UserSignup event when the user triggers the sign-up option in a sign-up/sign-in journey. |
-| AzureInsights-SignInComplete | Records the successful completion of an authentication when a token has been sent to the relying party application. |
+| AppInsights-Common | The common set of parameters to be included in all Azure Insights technical profiles. |
+| AppInsights-SignInRequest | Records a `SignInRequest` event with a set of claims when a sign-in request has been received. |
+| AppInsights-UserSignUp | Records a `UserSignUp` event when the user triggers the sign-up option in a sign-up/sign-in journey. |
+| AppInsights-SignInComplete | Records a `SignInComplete` event on successful completion of an authentication, when a token has been sent to the relying party application. |
 
 Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pack. Add these elements to the **ClaimsProviders** element:
 
@@ -113,7 +113,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
 <ClaimsProvider>
   <DisplayName>Application Insights</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="AzureInsights-Common">
+    <TechnicalProfile Id="AppInsights-Common">
       <DisplayName>Application Insights</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
@@ -130,33 +130,35 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
     </TechnicalProfile>
 
-    <TechnicalProfile Id="AzureInsights-SignInRequest">
+    <TechnicalProfile Id="AppInsights-SignInRequest">
       <InputClaims>
         <!-- An input claim with a PartnerClaimType="eventName" is required. This is used by the AzureApplicationInsightsProvider to create an event with the specified value. -->
         <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="SignInRequest" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="AzureInsights-Common" />
+      <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
     </TechnicalProfile>
-    <TechnicalProfile Id="AzureInsights-SignInComplete">
+
+    <TechnicalProfile Id="AppInsights-UserSignUp">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="UserSignUp" />
+      </InputClaims>
+      <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
+    </TechnicalProfile>
+    
+    <TechnicalProfile Id="AppInsights-SignInComplete">
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="SignInComplete" />
         <InputClaim ClaimTypeReferenceId="federatedUser" PartnerClaimType="{property:FederatedUser}" DefaultValue="false" />
         <InputClaim ClaimTypeReferenceId="parsedDomain" PartnerClaimType="{property:FederationPartner}" DefaultValue="Not Applicable" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="AzureInsights-Common" />
-    </TechnicalProfile>
-    <TechnicalProfile Id="AzureInsights-UserSignup">
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="EventType" PartnerClaimType="eventName" DefaultValue="UserSignup" />
-      </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="AzureInsights-Common" />
+      <IncludeTechnicalProfile ReferenceId="AppInsights-Common" />
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
 > [!IMPORTANT]
-> Change the instrumentation key in the `AzureInsights-Common` technical profile to the GUID that your Application Insights resource provides.
+> Change the instrumentation key in the `AppInsights-Common` technical profile to the GUID that your Application Insights resource provides.
 
 ## Add the technical profiles as orchestration steps
 
@@ -166,7 +168,7 @@ Call `Azure-Insights-SignInRequest` as orchestration step 2 to track that a sign
 <!-- Track that we have received a sign in request -->
 <OrchestrationStep Order="1" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AzureInsights-SignInRequest" />
+    <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AppInsights-SignInRequest" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +190,7 @@ Immediately *before* the `SendClaims` orchestration step, add a new step that ca
     </Precondition>
   </Preconditions>
   <ClaimsExchanges>
-    <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AzureInsights-UserSignup" />
+    <ClaimsExchange Id="TrackUserSignUp" TechnicalProfileReferenceId="AppInsights-UserSignup" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -199,7 +201,7 @@ Immediately after the `SendClaims` orchestration step, call `Azure-Insights-Sign
 <!-- Track that we have successfully sent a token -->
 <OrchestrationStep Order="10" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AzureInsights-SignInComplete" />
+    <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AppInsights-SignInComplete" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -220,7 +222,7 @@ Save and upload the *TrustFrameworkExtensions.xml* file. Then, call the relying 
 
 ## [Optional] Collect more data
 
-Add claim types and events to your user journey to fit your needs. You can use [claim resolvers](claim-resolver-overview.md) or any string claim type, add the claims by adding an **Input Claim** element to the Application Insights event or to the AzureInsights-Common technical profile.
+Add claim types and events to your user journey to fit your needs. You can use [claim resolvers](claim-resolver-overview.md) or any string claim type, add the claims by adding an **Input Claim** element to the Application Insights event or to the AppInsights-Common technical profile.
 
 - **ClaimTypeReferenceId** is the reference to a claim type.
 - **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax of `{property:NAME}`, where `NAME` is property being added to the event.
