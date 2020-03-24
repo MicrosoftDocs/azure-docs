@@ -295,7 +295,7 @@ When you are done with the knowledge base, remove the QnA Maker resources in the
 
 ## Next step
 
-[Get analytics on your knowledge base](../How-To-/get-analytics-knowledge-base.md)
+[Get analytics on your knowledge base](../How-To/get-analytics-knowledge-base.md)
 
 Learn more about:
 * [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
