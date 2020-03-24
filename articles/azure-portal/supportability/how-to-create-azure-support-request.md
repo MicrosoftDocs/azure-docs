@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: kfollis
 ---
+
 # How to create an Azure support request
 
 ## Overview
 
-Azure customers can create and manage support requests in the [Azure portal](https://portal.azure.com).
+Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
 
 > [!NOTE]
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.

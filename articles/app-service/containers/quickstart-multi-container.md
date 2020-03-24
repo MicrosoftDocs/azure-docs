@@ -7,9 +7,9 @@ author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Create a multi-container (preview) app using a Docker Compose configuration
 
 > [!NOTE]
@@ -92,6 +92,9 @@ When the App Service plan has been created, the Azure CLI shows information simi
 ```
 
 ## Create a Docker Compose app
+
+> [!NOTE]
+> Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
 In your Cloud Shell terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
