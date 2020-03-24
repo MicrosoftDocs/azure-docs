@@ -25,7 +25,6 @@ Before you configure My Staff for your organization, we recommend that you revie
 
 My Staff is based on administrative units (AUs), which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. In My Staff, AUs are used to define a subset of an organization's users such as a store or department. Then, for example, a team manager could be assigned to a role whose scope is one or more AUs. In the example below, the user has been granted the Authentication Administrative role, and the three AUs are the scope of the role.
 
-
 ## How to enable My Staff
 
 Once you have configured AUs, you can enable your users to access my staff. Regardless of who is enabled to use my staff, only users who have been assigned an administrative role will be able to access my staff. To enable My Staff, complete the following steps:
@@ -67,7 +66,7 @@ You can also search for a user within an AU. To do this, use the search bar at t
 
 You can view audit logs for My Staff in the Azure Active Directory portal. The following audit logs are generated from My Staff:
 
-- Reset password by My STaff admin
+- Reset password by My Staff admin
 
 ## Manage a phone number
 
