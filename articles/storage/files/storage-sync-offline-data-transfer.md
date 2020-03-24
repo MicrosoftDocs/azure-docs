@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Migrate bulk data to Azure File Sync
+# Migrate bulk data to Azure File Sync with Azure DataBox
 You can migrate bulk data to Azure File Sync in two ways:
 
 * **Upload your files by using Azure File Sync.** This is the simplest method. Move your files locally to Windows Server 2012 R2 or later, and install the Azure File Sync agent. After you set up the sync, your files will be uploaded from the server. (Our customers currently experience an average upload speed of 1 TiB about every two days.) To ensure that your server doesn't use too much of the bandwidth for your datacenter, you might want to set up a [bandwidth throttling schedule](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).

@@ -34,7 +34,7 @@ The key in any migration is to capture all the applicable file fidelity when mig
 
 File fidelity, in a migration, can therefore be defined as the ability to store all applicable file information on the source, the ability to transfer them with the migration tool and the ability to store them on the target storage of the migration.
 
-In order to ensure your migration proceeds as smoothly as possible, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
+To ensure your migration proceeds as smoothly as possible, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
 Taking the previous information into account, it becomes clear what the target storage for general purpose files in Azure is: [Azure file shares](storage-files-introduction.md). Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
 
@@ -80,7 +80,7 @@ There are several Microsoft and non-Microsoft file copy tools available. In orde
     * Does it support your network path and/or available protocols (for instance REST/SMB/NFS) to and from the source and target storage locations?
 * Does the copy tool preserve the necessary file fidelity that is supported by the source/target location? In some cases, your target storage does not support the same fidelity as your source. You have already made the decision that the target storage is sufficient for your needs, hence the copy tool only needs to match the targets file fidelity capabilities.
 * Does the copy tool have features that make it fit into my migration strategy? 
-    * For example, consider if it has options that allow you to minimize your downtime. A good question to ask is: Can I run this copy multiple times on the same, by users actively accessed location? If so, you can reduce the amount of downtime significantly. Compare that to a situation where you can only start the copy when the source stops changing, in order to guarantee a complete copy.
+    * For example, consider if it has options that allow you to minimize your downtime. A good question to ask is: Can I run this copy multiple times on the same, by users actively accessed location? If so, you can reduce the amount of downtime significantly. Compare that to a situation where you can only start the copy when the source stops changing, to guarantee a complete copy.
 
 The following table classifies Microsoft tools and their current suitability for Azure file shares:
 
