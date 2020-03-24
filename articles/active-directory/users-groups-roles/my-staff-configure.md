@@ -30,8 +30,8 @@ My Staff is based on administrative units (AUs), which are a container of resour
 
 Once you have configured AUs, you can enable your users to access my staff. Regardless of who is enabled to use my staff, only users who have been assigned an administrative role will be able to access my staff. To enable My Staff, complete the following steps:
 
-1. Sign into the Azure portal as a User administrator or a Global administrator.
-2. Browse to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
+1. Sign into the Azure portal as a User administrator.
+2. Browse to **Azure Active Directory** > **User settings** > **User feature previews** > **Manage user feature preview settings**.
 3. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
 
 ## Using My Staff
