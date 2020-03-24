@@ -4,7 +4,7 @@ description: Monitor device messages and observe device twin changes through the
 author: viv-liu
 ms.author: viviali
 ms.date: 12/18/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
