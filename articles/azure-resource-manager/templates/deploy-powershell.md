@@ -4,9 +4,9 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy resources
 ms.topic: conceptual
 ms.date: 03/16/2020
 ---
-# Deploy resources with Resource Manager templates and Azure PowerShell
+# Deploy resources with ARM templates and Azure PowerShell
 
-Learn how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. For more information about the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+Learn how to use Azure PowerShell with Azure Resource Manager (ARM) templates to deploy your resources to Azure. For more information about the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
 ## Deployment scope
 
@@ -72,7 +72,7 @@ The deployment can take a few minutes to complete.
 
 ## Deploy remote template
 
-Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
 To deploy an external template, use the **TemplateUri** parameter. Use the URI in the example to deploy the sample template from GitHub.
 
@@ -85,7 +85,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md). To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](template-tutorial-use-key-vault.md).
+The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md). To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](template-tutorial-use-key-vault.md).
 
 ## Deploy from Azure Cloud Shell
 
@@ -198,5 +198,5 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 - For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
