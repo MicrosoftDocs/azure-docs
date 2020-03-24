@@ -131,5 +131,5 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 * To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 * To find out about how your services can be constrained to only be placed on certain nodes see [Node properties and placement constraints](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
-[Image1]:./media/service-fabric-cluster-resource-manager-subclustering/subclustered-placement.png
-[Image2]:./media/service-fabric-cluster-resource-manager-subclustering/subset-superset-nodes.png
+[Image1]:./media/cluster-resource-manager-subclustering/subclustered-placement.png
+[Image2]:./media/cluster-resource-manager-subclustering/subset-superset-nodes.png
