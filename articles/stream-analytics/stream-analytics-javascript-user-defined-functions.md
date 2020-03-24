@@ -60,7 +60,7 @@ JavaScript runtime errors are considered fatal, and are surfaced through the Act
 
 You can easily invoke your JavaScript function in your query using the function alias prefixed with **udf**. Here is an example of a JavaScript UDF that converts hexadecimal values to integer being invoked in a Stream Analytics query.
 
-    ```SQL
+```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -68,7 +68,7 @@ You can easily invoke your JavaScript function in your query using the function 
         output
     FROM
         InputStream
-    ```
+```
 
 ## Supported JavaScript objects
 
