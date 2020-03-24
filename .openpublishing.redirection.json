@@ -26595,6 +26595,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/nva-working-remotely-support.md",
+      "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/working-remotely-support.md",
+      "redirect_url": "/azure/expressroute/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/bastion/working-remotely-support.md",
+      "redirect_url": "/azure/bastion/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
       "redirect_document_id": false
@@ -50325,6 +50340,18 @@
         "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=android"
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
     }
   ]
 }
