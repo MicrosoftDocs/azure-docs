@@ -22,7 +22,7 @@
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
-  - name: Beginner
+  - name: Beginner templates
     items:
     - name: 1 - Create first template
       href: template-tutorial-create-first-template.md
