@@ -19,15 +19,22 @@ ms.service: digital-twins
 
 Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
+[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
+
 ## Get twin data for an entire digital twin
 
-You can access data on any Azure digital twin by calling
+You can access data on any Azure digital twin by calling:
 
 ```csharp
 object result = await client.DigitalTwins.GetByIdAsync(id);
 ```
 
-This returns twin data in a JSON.Net object form (for preview). Assuming the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) defines a digital twin of twin type *Moon*:
+> [!TIP]
+> All SDK functions come in synchronous and asynchronous versions.
+
+This call returns twin data in a JSON.Net object form during preview. 
+
+Consider the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) that defines a *Moon*:
 
 ```json
 {
@@ -51,7 +58,7 @@ This returns twin data in a JSON.Net object form (for preview). Assuming the fol
 }
 ```
 
-The call `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` might return:
+The result of calling `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` on a *Moon*-type twin might look like this:
 
 ```json
 {
@@ -78,20 +85,20 @@ The call `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` mi
 }
 ```
 
-The defined properties of the Azure digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix:
-* The ID of the digital twin in this Azure Digital Twins instance.
-* Metadata. The metadata section contains a variety of metadata. For example:
+The defined properties of the Azure digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
+* The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
+* Other properties in a `$metadata` section. This includes:
     - The DTMI of the twin type of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
 ## Patch digital twins
 
-To update multiple properties on a digital twin, use 
-`await client.DigitalTwins.UpdateAsync(id, patch);`.
-The JSON document passed in to `Update` must be in JSON patch format.
+To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
-For example:
+`await client.DigitalTwins.UpdateAsync(id, patch);`.
+
+Here is an example of JSON Patch code. This document replaces the *mass* and *temperature* property values of the digital twin it is applied to.
 
 ```json
 [
@@ -108,11 +115,11 @@ For example:
 ]
 ```
 
-This JSON patch document replaces the *mass* property of the digital twin it is applied to. 
-
 ### Patch properties in components
 
-To patch properties in components, use path syntax in JSON Patch:
+Recall that a twin type may contain components, allowing it to be made up of other twin types. 
+
+To patch properties in a digital twin's components, you will use path syntax in JSON Patch:
 
 ```json
 [
@@ -126,7 +133,9 @@ To patch properties in components, use path syntax in JSON Patch:
 
 ## Change the twin type
 
-`Update` can also be used to migrate an Azure digital twin to a different twin type. For example:
+The `Update` function can also be used to migrate an Azure digital twin to a different twin type. 
+
+For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` (twin type) field:
 
 ```json
 [
@@ -138,12 +147,14 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
-This operation will only succeed if the digital twin being modified after application of the patch is conformant with the new twin type. For example:
+This operation will only succeed if the digital twin being modified by the patch conforms with the new twin type. 
+
+Consider the following example:
 1. Imagine an Azure digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
 2. The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
 3. After the patch, the digital twin must have both a temperature and humidity property. 
 
-The patch thus needs to be:
+The patch for this situation needs to update both the model and the humidity property, like this:
 
 ```json
 [
@@ -162,13 +173,14 @@ The patch thus needs to be:
 
 ## List relationships
 
-To access relationships, you can write:
+To access the list of relationships in the twin graph, you can write:
 
 ```csharp
 await client.DigitalTwins.ListEdgesAsync(id)
 ```
 
-Here is a more complete example that includes paging:
+Here is a more sophisticated example, that gets relationships in the context of a larger method and includes paging on the result.
+
 ```csharp
 static async Task ListOutgoingRelationships(string id)
 {
@@ -203,19 +215,21 @@ static async Task ListOutgoingRelationships(string id)
 }
 ```
 
-You can use retrieved relationships to navigate to other twins in your graph. SImply retrieve the `target` field from the relationship returned and use it as the ID for your next call to `DigitalTwins.GetById`. 
+You can use retrieved relationships to navigate to other twins in your graph. To do this, retrieve the `target` field from the relationship that is returned, and use it as the ID for your next call to `DigitalTwins.GetById`. 
 
 ## Delete Relationships
 
 You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
-In the first parameter, you specify the source twin (the twin the relationship originates from). The other parameters are the relationship name, and the relationship's ID. All of these parameters are needed, because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
+
+The first parameter specifies the source twin (the twin where the relationship originates). The other parameters are the relationship's name and the relationship's ID. All of these parameters are needed, because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
 
 
 ## Find incoming relationships
 
-Azure Digital Twins also has an API to find all incoming relationships to a given twin. These are often useful for reverse navigation, or for deletion of twins.
+Azure Digital Twins also has an API to find all incoming relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 
-A similar example to the above one for outgoing relationships - this code finds and deletes all incoming relationships to a twin.
+The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
+
 ```csharp
 static async Task FindAndDeleteIncomingRelationships(string id)
 {

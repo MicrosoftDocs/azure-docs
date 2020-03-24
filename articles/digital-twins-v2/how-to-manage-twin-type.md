@@ -17,12 +17,17 @@ ms.service: digital-twins
 
 # Manage your Azure Digital Twins twin type set
 
-Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the twin types that a given Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the [twin types](concepts-twin-types.md) that an Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of twin types authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+
+[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
 ## Create twin types
 
-Consider an example in which a hospital wants to digitally represent their rooms, complete with sensors to monitor traffic into/out of the rooms and handwashing stations in each room.
-The first step towards the solution is to create twin types to represent aspects of the hospital. Twin types for Azure Digital Twins are written in DTDL. A patient room might be described as:
+Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
+
+The first step towards the solution is to create twin types to represent aspects of the hospital. 
+
+Twin types for Azure Digital Twins are written in DTDL. A patient room in this scenario might be described like this:
 
 ```json
 {
@@ -54,13 +59,15 @@ The first step towards the solution is to create twin types to represent aspects
 }
 ```
 
-This description defines a name and a unique ID for the patient room, a few properties to represent handwash status (counters that will be updated from motion sensors and soap dispensers, as well as a computed *handwash percentage* property). The twin type also defines a relationship *hasDevices* that will be used to connect to the actual devices.
-In a similar manner, twin types for the hospital itself, as well as hospital wards or zones, can be defined.
+This twin type defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The twin type also defines a relationship *hasDevices*, which will be used to connect the Room twin to the actual devices.
+
+Following this method, you can go on to define twin types for the hospital's wards, zones, or the hospital itself.
 
 ## Upload twin types
 
-Once twin types are created, you can upload them to the Azure Digital Twins instance. 
-An example:
+Once twin types are created, you can upload them to the Azure Digital Twins instance.
+
+Here is a code sample showing how to do this:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");
@@ -84,7 +91,10 @@ foreach (string fileName in dtdlFiles)
 Task<Response> rUpload client.UploadDTDLAsync(dtdlStrings.ToArray());
 ```
 
-The DTDL upload API provides two overloads for loading DTDL. One overload lets you pass a single string containing DTDL twin types, the other lets you pass an array of DTDL twin types. Each string can either contain a single DTDL twin type, or multiple twin types as a JSON array:
+> [!TIP]
+> All SDK functions come in synchronous and asynchronous versions.
+
+The DTDL upload API provides two overloads for loading DTDL. One overload lets you pass a single string containing DTDL twin types; the other lets you pass an array of DTDL twin types. Each string can either contain a single DTDL twin type, or multiple twin types as a JSON array:
 
 ```json
 [
@@ -101,17 +111,19 @@ The DTDL upload API provides two overloads for loading DTDL. One overload lets y
 ]
 ```
  
-On upload, twin type files are validated. 
+On upload, twin type files are validated.
 
 ## Retrieve twin types
 
-You can list and retrieve twin types stored on your Azure Digital Twins instance. Your options are:
+You can list and retrieve twin types stored on your Azure Digital Twins instance. 
+
+Here are your options for this:
 * Retrieve all twin types
 * Retrieve a single twin type
 * Retrieve a single twin type with dependencies
 * Retrieve metadata for twin types
 
-An example:
+Here are some example calls:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");
@@ -129,19 +141,22 @@ Response<ModelData> oneModel = client.RetrieveModel(modelId, IncludeModels.All);
 IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies = client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
 ```
 
-The API calls to retrieve twin types return `ModelData` objects. `ModelData` contains metadata about the twin type stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the twin type. The `ModelData` object also optionally includes the twin type itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire twin type.
+The API calls to retrieve twin types all return `ModelData` objects. `ModelData` contains metadata about the twin type stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the twin type. The `ModelData` object also optionally includes the twin type itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire twin type.
 
 The `RetrieveModelWithDependencies` call returns not only the requested twin type, but also all twin types that the requested twin type depends on.
-Twin types are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
+
+Twin types are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
 
 ## Parse twin types
 
 As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides twin type access to the DTDL definitions—effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
 
-To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these twin type documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow is as follows.
+To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these twin type documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. 
+
+The overall workflow is as follows.
 1. You retrieve all (or, potentially, some) DTDL documents from the service.
 2. You pass the returned in-memory DTDL documents to the parser.
-3. The parser will validate the set of documents passed to it and return detailed error information. This ability is useful in editor scenarios.
+3. The parser will validate the set of documents passed to it, and return detailed error information. This ability is useful in editor scenarios.
 4. You can use the parser APIs to analyze the twin types included in the document set. 
 
 The functionalities of the parser are:
@@ -151,11 +166,14 @@ The functionalities of the parser are:
 * Determine whether a twin type is assignable from another twin type.
 
 > [!NOTE]
-> IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same twin type for both PnP and Azure Digital Twins syntax.
+> [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same twin type for both PnP and Azure Digital Twins syntax.
 
 ### Twin type parsing example
 
-The following twin types are defined in the service (the `urn:contosocom:example:coffeeMaker` twin type is using the *capability model* syntax, which implies that it was installed in the service by connecting an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device exposing that twin type):
+Here is an example defining several twin types in an Azure Digital Twins instance.
+
+> [!TIP] 
+> The `urn:contosocom:example:coffeeMaker` twin type is using the *capability model* syntax, which implies that it was installed in the service by connecting a PnP device exposing that twin type.
 
 ```json
 {
@@ -182,7 +200,8 @@ The following twin types are defined in the service (the `urn:contosocom:example
 }
 ```
 
-The following code shows an example on how to use the parser library to reflect on these definitions in C#:
+The following code shows an example of how to use the parser library to reflect on these definitions in C#:
+
 ```csharp
 public void LogModel(DTInterface model)
 {
@@ -237,19 +256,25 @@ public void ParseModels()
 
 ## Delete twin types
 
-Twin types can also be deleted from the service. Deletion is a multi-step process:
-1. First, **decommission** the twin type. A decommissioned twin type is still valid for use by existing Azure digital twins, including the ability to change properties or add and delete relationships. However, new digital twins of this twin type can't be created anymore.
-2. After decommissioning a twin type, you will typically either delete existing digital twins of that twin type, or transition the Azure digital twin to a different twin type.
-3. Once there are no more digital twins of a given twin type, and the twin type is not referenced by any other twin type any longer, you can **delete** it. 
+Twin types can also be deleted from the service. 
+
+Deletion is a multi-step process:
+1. First, **decommission** the twin type. A decommissioned twin type is still valid for use by existing Azure digital twins, including the ability to change properties and add or delete relationships. However, new digital twins of this twin type can't be created anymore.
+2. After decommissioning a twin type, you will either delete existing digital twins of that twin type, or transition those digital twins to a different twin type.
+3. Once there are no more digital twins of a given twin type, and the twin type is no longer referenced by any other twin type, you can **delete** it. 
+
+Here is the  code to decommission a model:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
-client.DecommisionModel(dtmiOfPlanetInterface);
+client.DecommissionModel(dtmiOfPlanetInterface);
 // Write some code that deletes or transitions digital twins
 ...
 ```
 
-`DecommissionModel()` can take one or more than one URN(s), so developers can process one or multiple ones in one statement. The decommissioning status is also included in the `ModelData` records returned by the twin type retrieval APIs.
+`DecommissionModel()` can take one or more URNs, so developers can process one or multiple twin types in one statement. 
+
+A twin type's decommissioning status is also included in the `ModelData` records returned by the twin type retrieval APIs.
 
 ## Next steps
 

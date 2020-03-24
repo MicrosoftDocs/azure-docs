@@ -19,6 +19,8 @@ ms.service: digital-twins
 
 Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Route Azure Digital Twins events to external services](concepts-route-events.md).
 
+[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
+
 ## Define event routes
 
 Event routes are defined using data plane APIs. A route definition can contain these elements:
