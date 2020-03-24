@@ -1,23 +1,23 @@
 ---
-title: Use Azure Active Directory v2.0 in Azure Kubernetes Service
-description: Learn how to use Azure Active Directory v2.0 in Azure Kubernetes Service (AKS) 
+title: Use Azure AD v2.0 in Azure Kubernetes Service
+description: Learn how to use Azure AD v2.0 in Azure Kubernetes Service (AKS) 
 services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
 ---
 
-# Integrate Azure Active Directory v2.0 in Azure Kubernetes Service (Preview)
+# Integrate Azure AD v2.0 in Azure Kubernetes Service (Preview)
 
 > [!Note]
-> Existing Azure Active Directory v1.0 clusters are not affected by the new Azure Active Directory v2.0 feature for AKS.
+> Existing Azure AD v1.0 clusters are not affected by the new Azure AD v2.0 feature for AKS.
 
-Azure Active Directory v2.0 is designed to simplify the Azure Active Directory v1.0 experience, where users were required to create a client app, a server app, and required the Azure Active Directory tenant to grant Directory Read permissions. 
-In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. Azure Active Directory v2.0 enabled clusters use a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
+Azure AD v2.0 is designed to simplify the Azure AD v1.0 experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. 
+In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. Azure AD v2.0 enabled clusters use a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
 
 ## Limitations
 
-* You can't currently upgrade an existing Azure Active Directory v1.0 cluster to Azure Active Directory v2.0.
+* You can't currently upgrade an existing Azure AD v1.0 cluster to Azure AD v2.0.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -74,7 +74,7 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Create an AKS cluster with Azure Active Directory v1.0 enabled
+## Create an AKS cluster with Azure AD v1.0 enabled
 
 You can now create an AKS cluster by using the following CLI commands.
 
@@ -90,22 +90,22 @@ Then, create an AKS cluster:
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad
 ```
-The above command creates a three node AKS cluster, but the user, who created the cluster, by default, is not a member of a group that has access to this cluster. This user needs to create an Azure Active Directory group, add themselves as a member of the group, and then update the cluster as shown below. Follow instructions [here](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+The above command creates a three node AKS cluster, but the user, who created the cluster, by default, is not a member of a group that has access to this cluster. This user needs to create an Azure AD group, add themselves as a member of the group, and then update the cluster as shown below. Follow instructions [here](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
 
-Once you've created a group and added yourself (and others) as a member, you can update the cluster with the Azure Active Directory group using the following command
+Once you've created a group and added yourself (and others) as a member, you can update the cluster with the Azure AD group using the following command
 
 ```azurecli-interactive
 az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
 ```
-Alternatively, if you first create a group and add members, you can enable the Azure Active Directory group at create time using the following command,
+Alternatively, if you first create a group and add members, you can enable the Azure AD group at create time using the following command,
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
 ```
 
-A successful creation of an Azure Active Directory v2 cluster has the following section in the response body
+A successful creation of an Azure AD v2 cluster has the following section in the response body
 ```
-"Azure Active DirectoryProfile": {
+"Azure ADProfile": {
     "adminGroupObjectIds": null,
     "clientAppId": null,
     "managed": true,
@@ -117,7 +117,7 @@ A successful creation of an Azure Active Directory v2 cluster has the following 
 
 The cluster is created within a few minutes.
 
-## Accessing an Azure Active Directory v1.0 enabled cluster
+## Accessing an Azure AD v1.0 enabled cluster
 To get the admin credentials to access the cluster:
 
 ```azurecli-interactive
