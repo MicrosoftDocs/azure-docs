@@ -55,15 +55,15 @@ landingContent:
           url: iot-hub-devguide-device-twins.md
         - text: Module twins
           url: iot-hub-devguide-module-twins.md
- -  title: Routing and Enrichments
-    linkLists:
+ -   title: Message Routing
+     linkLists:
      -  linkListType: tutorial
         links:
-        - text: with Azure CLI
+        - text: Prep with Azure CLI
           url: tutorial-routing-config-message-routing-cli.md
-        - text: with Azure Resource Manager template
+        - text: Prep with Azure Resource Manager template
           url: tutorial-routing-config-message-routing-rm-template.md
      -  linkListType: tutorial
         links:
-        - text: View routing results
+        - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
