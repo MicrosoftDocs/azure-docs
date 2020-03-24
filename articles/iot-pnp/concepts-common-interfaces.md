@@ -32,11 +32,11 @@ All IoT Plug and Play devices are expected to implement some common interfaces. 
 
 You can use the Azure IoT extension for Azure CLI to retrieve the common interfaces from the public model repository.
 
-```cmd/sh
+```azurecli
 az iot pnp interface show --interface {InterfaceID}
 ```
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model show --model {ModelID}
 ```
 
