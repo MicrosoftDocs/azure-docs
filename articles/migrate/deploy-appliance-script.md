@@ -11,16 +11,16 @@ ms.date: 03/23/2020
 This article describes how to set up the [Azure Migrate appliance](deploy-appliance.md) using a PowerShell installer script.
 
 The script provides:
-- An alternative to setting up the appliance using a OVA template, for assessment and agentless migration of VMware VMs.
+- An alternative to setting up the appliance using an OVA template, for assessment and agentless migration of VMware VMs.
 - An alternative to setting up the appliance using a VHD template, for assessment and migration of Hyper-V VMs.
-- For assessment of physical servers, the script is the only method available for setting up the appliance.
+- For assessment of physical servers (or VMs that you want to migrate as physical servers), the script is the only method for setting up the appliance.
 
 ## Prerequisites
 
 The script sets up the Azure Migrate appliance on an existing physical machine or VM.
 
-- The machine on which you run the script to set up the appliance must be running Windows Server 2016, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage, and an external virtual switch. 
-- Before you start, review appliance requirements for [VMware VMs](migrate-appliance.md#appliance---vmware), [Hyper-V VMs](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
+- The machine that will act as the appliance must be running Windows Server 2016, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage, and an external virtual switch. It requires a static or dynamic IP address, and access to the internet.
+- Before you deploy the appliance, review detailed appliance requirements for [VMware VMs](migrate-appliance.md#appliance---vmware), [Hyper-V VMs](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
 - Don't run the script on an existing Azure Migrate appliance.
 
 
@@ -41,7 +41,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Verify that the generated hash values match these settings (these are for the latest appliance version):
+3. Verify that the generated hash values match these settings (for the latest appliance version):
 
     **Algorithm** | **Hash value**
       --- | ---
@@ -50,12 +50,12 @@ Check that the zipped file is secure, before you deploy it.
 
 ## Run the script
 
-Run the installer script to:
+Here's what the script does:
 
 - Installs agents and a web application.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
-- Updates a registry key (HKLM), with persistent setting details for Azure Migrate.
+- Installs Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+- Downloads and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
+- Updates a registry key (HKLM), with persistent settings for Azure Migrate.
 - Creates log and configuration files as follows:
     - **Config Files**: %ProgramData%\Microsoft Azure\Config
     - **Log Files**: %ProgramData%\Microsoft Azure\Logs
@@ -63,7 +63,7 @@ Run the installer script to:
 To run the script:
 
 1. Extract the zipped file to a folder on the machine that will host the appliance.
-2. Launch PowerShell with administrator (elevated) privileges.
+2. Launch PowerShell on the machine, with administrator (elevated) privileges.
 3. Change the PowerShell directory to the folder containing the contents extracted from the downloaded zipped file.
 4. Run the script **AzureMigrateInstaller.ps1** as follows:
 
@@ -83,4 +83,8 @@ To run the script:
 
 ## Next steps
 
-After you've set up the appliance using the script, follow the instructions to configure the appliance for [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance), [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance), or physical servers for the first time.
+After you've set up the appliance using the script, follow these instructions:
+
+- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Set up the appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
+- Set up the appliance for [physical servers](how-to-set-up-appliance-physical.md).

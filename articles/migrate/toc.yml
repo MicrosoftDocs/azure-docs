@@ -104,6 +104,8 @@
       href: deploy-appliance-script.md
     - name: Deploy appliance for physical servers
       href: how-to-set-up-appliance-physical.md
+  - name: Limit discovery scope for VMware VMs
+    href: set-discovery-scope.md
   - name: Discover applications/roles/features
     href: how-to-discover-applications.md
   - name: Group machines for assessment

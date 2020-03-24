@@ -2,7 +2,7 @@
 title: Support for physical server assessment in Azure Migrate
 description: Learn about support for physical server assessment with Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/23/2020
 ---
 
 # Support matrix for physical server assessment 
@@ -10,7 +10,7 @@ ms.date: 03/12/2020
 This article summarizes prerequisites and support requirements for assessing physical servers in preparation for migration to Azure. If you want to migrate physical servers to Azure, review the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
 
-You assess physical servers with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
+You assess physical servers with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
 
 
 ## Limitations
@@ -46,7 +46,7 @@ The following table summarizes port requirements for assessment.
 
 **Device** | **Connection**
 --- | ---
-**Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), 5671 and 5672 (AMQP), to send discovery and performance metadata to Azure Migrate.
+**Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 **Physical servers** | **Windows:** Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS), to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (UDP), to pull configuration and performance metadata from Linux servers. |
 
 ## Agentless dependency analysis requirements

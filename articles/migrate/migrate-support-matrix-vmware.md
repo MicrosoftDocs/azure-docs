@@ -2,14 +2,14 @@
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/23/2020
 ---
 
 # Support matrix for VMware assessment 
 
 This article summarizes prerequisites and support requirements for assessing VMware VMs in preparation for migration to Azure. If you want to migrate VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
-You assess physical servers with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
+You assess physical servers with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
 
 ## Limitations
 
@@ -62,7 +62,7 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), 5671 and 5672 (AMQP) to send discovery and performance metadata to Azure Migrate.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [app discovery](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), then the appliance connects to ESXi hosts on TCP port 443, to discover applications, to and run agentless dependency visualization on VMs.
 

@@ -2,15 +2,14 @@
 title: Prepare Hyper-V VMs for assessment/migration with Azure Migrate 
 description: Learn how to prepare for assessment/migration of Hyper-V VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 03/23/2020
 ms.custom: mvc
 ---
 
 # Prepare for assessment and migration of Hyper-V VMs to Azure
 
-This article describes how to prepare for assessment and migration of on-premises Hyper-V VMs to Azure with [Azure Migrate](migrate-services-overview.md).
+This article describes how to prepare for assessment of on-premises Hyper-V VMs with Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
 This tutorial is the first in a series that shows you how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
 
@@ -34,10 +33,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need set up permissions for Azure Migrate deployment.
 
-**Task** | **Permissions**
---- | ---
-**Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
-**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs with Azure Migrate Server Assessment. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During appliance registration, the following Resource Providers are registered with the subscription chosen in the appliance- Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. Registering a resource provider configures your subscription to work with the resource provider. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/><br/> As part of onboarding, Azure Migrate creates an Azure Active Directory (Azure AD) app:<br/> The AAD app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.
+**Task** | **Details** 
+--- | --- 
+**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project. | 
+**Register resource providers** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs with Azure Migrate Server Assessment.<br/><br/> During appliance registration, resource providers are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> To register the resource providers, you need a Contributor or Owner role on the subscription.
+**Create Azure AD app** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication  between the agents running on the appliance with their respective services running on Azure. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
 
 
 
@@ -125,7 +125,7 @@ Run the script as follows:
     SHA256
     ```
 
-4.	After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+4.    After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
@@ -140,7 +140,7 @@ Hash values are:
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
 
 
-## Prepare Hyper-V manually
+## Prepare manually
 
 Follow the procedures in this section to prepare Hyper-V manually, instead of using the script.
 

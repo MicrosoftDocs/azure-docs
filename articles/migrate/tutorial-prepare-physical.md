@@ -36,10 +36,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need set up permissions for Azure Migrate deployment.
 
-**Task** | **Permissions**
---- | ---
-**Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
-**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess physical servers with Azure Migrate Server Assessment. This appliance discovers servers, and sends their metadata and performance data to Azure Migrate.<br/><br/>During appliance registration, the following Resource Providers are registered with the subscription chosen in the appliance- Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. Registering a resource provider configures your subscription to work with the resource provider. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/><br/> As part of onboarding, Azure Migrate creates an Azure Active Directory (Azure AD) app:<br/> The AAD app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.
+**Task** | **Details** 
+--- | --- 
+**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project. | 
+**Register resource providers** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs with Azure Migrate Server Assessment.<br/><br/> During appliance registration, resource providers are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> To register the resource providers, you need a Contributor or Owner role on the subscription.
+**Create Azure AD app** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication  between the agents running on the appliance with their respective services running on Azure. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
 
 
 

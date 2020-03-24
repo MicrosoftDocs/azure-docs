@@ -2,15 +2,14 @@
 title: Support for Hyper-V assessment in Azure Migrate
 description: Learn about support for Hyper-V assessment with Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/23/2020
 ---
 
 # Support matrix for Hyper-V assessment
 
 This article summarizes prerequisites and support requirements for assessing Hyper-V VMs in preparation for migration to Azure. If you want to migrate Hyper-V VMs to Azure, review the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
 
-
-You assess Hyper-V VMs with the with [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
+You assess Hyper-V VMs with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
 
 
 ## Limitations
@@ -57,7 +56,7 @@ The following table summarizes port requirements for assessment.
 
 **Device** | **Connection**
 --- | ---
-**Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), 5671 and 5672 (AMQP) to send discovery and performance metadata to Azure Migrate.
+**Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 **Hyper-V host/cluster** | Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS), to pull metadata and performance data for Hyper-V VMs using a Common Information Model (CIM) session.
 
 ## Agentless dependency analysis requirements

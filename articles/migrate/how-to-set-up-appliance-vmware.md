@@ -2,15 +2,15 @@
 title: Set up an Azure Migrate appliance for VMware 
 description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 03/23/2020
 ---
 
 
 # Set up an appliance for VMware VMs
 
-This article describes how to set up the Azure Migrate appliance for assessment and agentless migration of VMware VMs, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
+This article describes how to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
-The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate:Server Assessment/Migration to discover on-premises VMware VMs, and send VM metadata/performance data to Azure.
+The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Server Assessment and Server Migration to discover on-premises VMware VMs, send VM metadata/performance data to Azure, and for replication of VMware VMs during agentless migration.
 
 You can set up the Azure Migrate appliance for VMware VM assessment using an OVA template that you download, or using a PowerShell installation script. This article describes how to set up the appliance using the OVA template. If you want to set up the appliance using the script, follow the instructions in [this article](deploy-appliance-script.md).
 
