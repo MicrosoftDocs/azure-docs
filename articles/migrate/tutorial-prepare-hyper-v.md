@@ -85,8 +85,7 @@ The tenant/global admin can assign the Application Developer role to an account.
 
 ## Prepare Hyper-V for assessment
 
-You can prepare Hyper-V for VM assessment manually, or using a configuration script. Here's what needs to be prepared, either with the script or [manually](#prepare-hyper-v-manually).
-
+You can prepare Hyper-V for VM assessment manually, or using a configuration script. Preparation steps are as follows:
 - [Verify](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) Hyper-V host settings, and make sure that the [required ports](migrate-support-matrix-hyper-v.md#port-access) are open on Hyper-V hosts.
 - Set up PowerShell remoting on each host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.
 - Delegate credentials if VM disks are located on remote SMB shares.
