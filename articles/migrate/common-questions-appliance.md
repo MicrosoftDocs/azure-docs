@@ -50,8 +50,8 @@ See the following articles for information about network connectivity requiremen
 
 See the following articles for information about data that the Azure Migrate appliance collects on VMs:
 
-- **VMware VM**: [performance data](migrate-appliance.md#collected-performance-data-vmware) and [metadata](migrate-appliance.md#collected-metadata-vmware)
-- **Hyper-V VM**: [performance data](migrate-appliance.md#collected-performance-data-hyper-v) and [metadata](migrate-appliance.md#collected-metadata-hyper-v)
+- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data. [
+- **Hyper-V VM**: [Review](migrate-appliance.md#ccollected-data---hyper-v) collected data.
 
 ## How is data stored?
 
