@@ -29,7 +29,15 @@ landingContent:
         links:
           - text: Frequently asked questions
             url: application-gateway-faq.md
-       
+
+  # Card
+  - title: COVID-19 guidelines
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Application Gateway COVID-19 update
+            url: application-gateway-covid-guidelines.md
+
   # Card
   - title: Deploy an Application Gateway
     linkLists:

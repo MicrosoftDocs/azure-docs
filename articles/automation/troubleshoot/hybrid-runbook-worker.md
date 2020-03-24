@@ -48,7 +48,33 @@ Computers running the Hybrid Runbook Worker should meet the minimum hardware req
 
 Confirm that the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate that an increase is necessary.
 
-Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Runbook Worker group. Review runbook permissions in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) to confirm that you have correctly configured authentication for your runbooks.
+Check the **Microsoft-SMA** event log for a corresponding event with description `Win32 Process Exited with code [4294967295]`. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Runbook Worker group. Review runbook permissions in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) to confirm that you have correctly configured authentication for your runbooks.
+
+### <a name="cannot-connect-signalr"></a>Scenario: Event 15011 in Hybrid Runbook Worker
+
+#### Issue
+
+The Hybrid Runbook Worker receives event 15011, indicating that a query result is not valid. The following error appears when the worker attempts to open a connection with the [SignalR server](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+
+```error
+[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+[Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect​
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()​
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)​
+   at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()​
+```
+
+#### Cause
+
+The Hybrid Runbook Worker has not been configured correctly for the automated deployment solution. This solution contains a part that connects the VM to the Log Analytics workspace. The PowerShell script looks for the workspace in the subscription with the supplied name. In this case, the Log Analytics workspace is in a different subscription. The script can't find the workspace and tries to create one, but the name is already taken. Thus the deployment fails.
+
+#### Resolution
+
+You have two options for resolving this issue:
+
+* Modify the PowerShell script to look for the Log Analytics workspace in another subscription. This is a good solution if you plan to deploy many Hybrid Runbook Worker machines in the future.
+
+* Manually configure the worker machine to run in an Orchestrator sandbox. Then run a runbook created in the Azure Automation account on the worker to test the functionality.
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
 
@@ -85,13 +111,13 @@ The worker's initial registration phase fails and you receive the following erro
 #### Cause
 
 The following are possible causes:
-* There's a mistyped workspace ID or workspace key (primary) in the agent’s settings. 
+* There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
 * The Hybrid Runbook Worker can't download the configuration, causing an account linking error. When Azure enables solutions, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date and/or time is set on the computer. If the time is +/-15 minutes from the current time, onboarding fails.
 
 #### Resolution
 
 ##### Mistyped workspace ID/key
-To verify if the agent’s workspace ID or workspace key has been mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/platform/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/platform/agent-manage.md#linux-agent) for the Linux agent.  Make sure to select the full string from the Azure portal and copy and paste it carefully.
+To verify if the agent's workspace ID or workspace key has been mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/platform/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/platform/agent-manage.md#linux-agent) for the Linux agent.  Make sure to select the full string from the Azure portal and copy and paste it carefully.
 
 ##### Configuration not downloaded
 
