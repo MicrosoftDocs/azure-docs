@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Send a query to the API using Java - Bing Local Business Search
+title: Quickstart - Send a query to the API using Java using Bing Local Business Search
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 
@@ -32,16 +32,16 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ```java
     // construct URL of search request (endpoint + query string)
-	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
-	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
+    HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-	// receive JSON body
-	InputStream stream = connection.getInputStream();
-	String response = new Scanner(stream).useDelimiter("\\A").next();
+    // receive JSON body
+    InputStream stream = connection.getInputStream();
+    String response = new Scanner(stream).useDelimiter("\\A").next();
 
-	// construct result object for return
-	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+    // construct result object for return
+    SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ```
 
 ## Run the complete application
@@ -81,81 +81,81 @@ import com.google.gson.JsonParser;
 
 public class LocalSearchCls {
 
-	// ***********************************************
-	// *** Update or verify the following values. ***
-	// **********************************************
+    // ***********************************************
+    // *** Update or verify the following values. ***
+    // **********************************************
 
-	    // Replace the subscriptionKey string value with your valid subscription key.
-	    static String subscriptionKey = "YOUR-ACCESS-KEY";
+        // Replace the subscriptionKey string value with your valid subscription key.
+        static String subscriptionKey = "YOUR-ACCESS-KEY";
 
-	    static String host = "https://api.cognitive.microsoft.com/bing";
-	    static String path = "/v7.0/localbusinesses/search";
+        static String host = "https://api.cognitive.microsoft.com/bing";
+        static String path = "/v7.0/localbusinesses/search";
 
-	    static String searchTerm = "Hotel in Bellevue";
+        static String searchTerm = "Hotel in Bellevue";
 
-	    public static SearchResults SearchLocal (String searchQuery) throws Exception {
-	        // construct URL of search request (endpoint + query string)
-	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "&mkt=en-us");
-	        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+        public static SearchResults SearchLocal (String searchQuery) throws Exception {
+            // construct URL of search request (endpoint + query string)
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "&mkt=en-us");
+            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-	        // receive JSON body
-	        InputStream stream = connection.getInputStream();
-	        String response = new Scanner(stream).useDelimiter("\\A").next();
+            // receive JSON body
+            InputStream stream = connection.getInputStream();
+            String response = new Scanner(stream).useDelimiter("\\A").next();
 
-	        // construct result object for return
-	        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+            // construct result object for return
+            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 
-	        // extract Bing-related HTTP headers
-	        Map<String, List<String>> headers = connection.getHeaderFields();
-	        for (String header : headers.keySet()) {
-	            if (header == null) continue;      // may have null key
-	            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-	                results.relevantHeaders.put(header, headers.get(header).get(0));
-	            }
-	        }
+            // extract Bing-related HTTP headers
+            Map<String, List<String>> headers = connection.getHeaderFields();
+            for (String header : headers.keySet()) {
+                if (header == null) continue;      // may have null key
+                if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
+                    results.relevantHeaders.put(header, headers.get(header).get(0));
+                }
+            }
 
-	        stream.close();
-	        return results;
-	    }
+            stream.close();
+            return results;
+        }
 
-	    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-	    public static String prettify(String json_text) {
-	        JsonParser parser = new JsonParser();
-	        JsonObject json = parser.parse(json_text).getAsJsonObject();
-	        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	        return gson.toJson(json);
-	    }
+        // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+        public static String prettify(String json_text) {
+            JsonParser parser = new JsonParser();
+            JsonObject json = parser.parse(json_text).getAsJsonObject();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(json);
+        }
 
-	    public static void main (String[] args) {
-	        try {
-	            System.out.println("Searching the Web for: " + searchTerm);
+        public static void main (String[] args) {
+            try {
+                System.out.println("Searching the Web for: " + searchTerm);
 
-	            SearchResults result = SearchLocal(searchTerm);
+                SearchResults result = SearchLocal(searchTerm);
 
-	            System.out.println("\nRelevant HTTP Headers:\n");
-	            for (String header : result.relevantHeaders.keySet())
-	                System.out.println(header + ": " + result.relevantHeaders.get(header));
+                System.out.println("\nRelevant HTTP Headers:\n");
+                for (String header : result.relevantHeaders.keySet())
+                    System.out.println(header + ": " + result.relevantHeaders.get(header));
 
-	            System.out.println("\nJSON Response:\n");
-	            System.out.println(prettify(result.jsonResponse));
-	        }
-	        catch (Exception e) {
-	            e.printStackTrace(System.out);
-	            System.exit(1);
-	        }
-	    }
-	}
+                System.out.println("\nJSON Response:\n");
+                System.out.println(prettify(result.jsonResponse));
+            }
+            catch (Exception e) {
+                e.printStackTrace(System.out);
+                System.exit(1);
+            }
+        }
+    }
 
-	// Container class for search results encapsulates relevant headers and JSON data
-	class SearchResults{
-	    HashMap<String, String> relevantHeaders;
-	    String jsonResponse;
-	    SearchResults(HashMap<String, String> headers, String json) {
-	        relevantHeaders = headers;
-	        jsonResponse = json;
-	    }
-	}
+    // Container class for search results encapsulates relevant headers and JSON data
+    class SearchResults{
+        HashMap<String, String> relevantHeaders;
+        String jsonResponse;
+        SearchResults(HashMap<String, String> headers, String json) {
+            relevantHeaders = headers;
+            jsonResponse = json;
+        }
+    }
 
 ```
 
