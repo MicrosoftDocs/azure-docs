@@ -15,6 +15,8 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It ingests text from forms and outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Form Recognizer is comprised of custom models, the prebuilt receipt model, and the layout API. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application.
 
 Form Recognizer is made up of the following services:

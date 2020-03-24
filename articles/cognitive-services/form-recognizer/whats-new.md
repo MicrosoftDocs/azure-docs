@@ -61,6 +61,10 @@ This is an example of how tables are recognized and extracted:
 > [!IMPORTANT]
 > Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, please label each cell as a value.
 
+### TLS 1.2 enforcement
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
 ## January 2020
 
 This release introduces the Form Recognizer 2.0 (preview). In the sections below, you'll find more information about new features, enhancements, and changes. 
