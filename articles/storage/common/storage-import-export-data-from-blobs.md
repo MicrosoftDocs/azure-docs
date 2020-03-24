@@ -113,11 +113,11 @@ When the dashboard reports the job is complete, the disks are shipped to you and
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
 2. Select and click your export job from the list. Go to **BitLocker keys** and copy the keys.
 
-   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
+   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
 
 3. Use the BitLocker keys to unlock the disks.
 
-The export is complete. At this time, you can delete the job or it automatically gets deleted after 90 days.
+The export is complete.
 
 ## Step 5: Unlock the disks
 
@@ -126,6 +126,8 @@ If using version 1.4.0.300 of the WAImportExport tool, use the following command
     `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
 
 If using earlier versions of the tool, use the BitLocker dialog to unlock the drive.
+
+You can either delete the job now or it automatically gets deleted after 90 days.
 
 ## Check the number of drives
 
