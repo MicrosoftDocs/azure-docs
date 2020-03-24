@@ -1,23 +1,32 @@
 ---
-title: Integrate Power Virtual Agent - QnA Maker
-description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
-ms.topic: conceptual
+title: "Tutorial: Integrate with Power Virtual Agent - QnA Maker"
+description: In this tutorial, improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.topic: tutorial
 ms.date: 03/11/2020
 ---
 
-# How to add a QnA Maker knowledge base to Power Virtual Agent
+# Tutorial: Add knowledge base to Power Virtual Agent
+Create and extend a [Power Virtual Agent](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base.
 
-Extend your [Power Virtual Agent](https://powervirtualagents.microsoft.com/) bot to provide answers from your knowledge base. You can configure your bot topic _conversation path_ to send the user's text, as the _trigger phrase_, to your knowledge base, then return the answer to your user shown in a message.
+**In this tutorial, you learn how to:**
 
-## Use QnA Maker knowledge base with a Power Virtual Agent
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Create Power Virtual Agent
+> * Create System fallback topic
+> * Add QnA Maker as action to topic as Power Automate flow
+> * Create Power Automate solution
+> * Add Power Automate flow to solution
+> * Publish Power Virtual Agent
+> * Test Power Virtual Agent, recieve answer from QnA Maker knowledge base
 
-QnA Maker is a cloud-based API service that lets you create a conversational question-and-answer layer over your existing data. Use it to build a knowledge base by extracting questions and answers from your semi-structured content, including FAQs, manuals, and documents. Answer questions from the QnA sets in your knowledge base. Your knowledge base gets smarter, too, as it continually learns from user behavior.
+## Integrate a Power Virtual agent with a knowledge base
 
-## Power Virtual agent
+[Power Virtual Agents](https://powervirtualagents.microsoft.com/) empowers teams to easily create powerful bots using a guided, no-code graphical interface without the need for data scientists or developers.
 
 A Power Virtual Agent is created with a series of topics (subject areas), in order to answer user questions by performing actions. If an answer can't be found, a system fallback can return an answer.
 
-You can send the question to your knowledge base as part of a topic's action or as part of the System Fallback topic path. They both use the same mechanism of an action to connect to your knowledge base and return an answer.
+Configure the agent to send the question to your knowledge base as part of a topic's action or as part of the System Fallback topic path. They both use the same mechanism of an action to connect to your knowledge base and return an answer.
 
 ## Power Automate connects to GenerateAnswer action
 
@@ -26,6 +35,8 @@ To connect your agent to your knowledge base, use Power Automate to create the a
 Once the **flow** is designed and saved, it is available from a Power Automate **Solution**.  Once the GenerateAnswer flow is added to a solution, use that solution as an action in your agent.
 
 ## Process steps to connect an agent to your knowledge base
+
+The following steps are presented as an overview to help you understand how the steps relate the goal of connecting Power Virtual Agent to a QnA Maker knowledge base.
 
 Steps to use a Power Virtual agent with QnA Maker:
 * In [QnA Maker](https://www.qnamaker.ai/) portal
@@ -47,15 +58,38 @@ Steps to use a Power Virtual agent with QnA Maker:
 * Return to Power Virtual Agent
     * Select solution's output as message for topic
 
+## Create and publish a knowledge base
+
+Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to create a knowledge base. Do not complete the last section to create a bot. This tutorial uses the Power Virtual Agent instead of the Bot Framework bot in the quickstart.
+
 ## Get your published knowledge base information
 
 Before you build your agent, create and publish your knowledge base. Next, find the endpoint key, endpoint host, and knowledge base ID on the **Settings** page in the QnA Maker portal.
 
+> [!div class="mx-imgBorder"]
+> ![Enter your published knowledge base settings found on the **Settings** page in the [QnA Maker](https://www.qnamaker.ai/) portal.](../media/how-to-integrate-power-virtual-agent/published-knowledge-base-settings.png)
+
 You will need this information for the [Power Automate step](#create-power-automate-flow-to-connect-to-your-knowledge-base) to configure your QnA Maker GenerateAnswer connection.
+
+## Create Power Virtual Agent
+
+1. [Sign into](https://go.microsoft.com/fwlink/?LinkId=2108000&clcid=0x409) the Power Virtual Agent with your school or work email account.
+1. If this is not your first Power Virtual Agent, select the bot from the top-right navigation and select **+ New Bot**. If this is your first bot, you should be on the **Home** page of the agent.
+
+    > [!div class="mx-imgBorder"]
+    > ![Enter your published knowledge base settings found on the **Settings** page in the [QnA Maker](https://www.qnamaker.ai/) portal.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-home.png)
+
+## Several topics are provided in the bot
+
+The agent uses the topic collection to answer questions in your subject area. In this tutorial, the agent has many topics provided for divided into **User Topics** and **System topics**.
+
+> [!div class="mx-imgBorder"]
+> ![The agent uses the topic collection to answer questions in your subject area. In this tutorial, the agent has many topics provided for divided into **User Topics** and **System topics**.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topics-provided.png)
+
 
 ## Create Power Virtual Agent's System fallback topic
 
-The first step is to configure an agent topic. While it can be any topic, this procedure uses the System **Fallback** topic. If the agent can't find an answer, it should pass the answer to QnA Maker's GenerateAnswer API.
+While the agent can connect to your knowledge base from any topic, this tutorial uses the System **Fallback** topic. The fallback topic is used when the agent can't find an answer in the current topic. The agent passes the user's text to QnA Maker's GenerateAnswer API, receives the answer and displays it back to the user as a message.
 
 1. In the [Power Virtual Agents](https://powerva.microsoft.com/#/) portal, on the top-right corner of the navigation, select the **Settings** page. The icon for this page is the gear. Select **System Fallback**.
 
@@ -74,14 +108,16 @@ The first step is to configure an agent topic. While it can be any topic, this p
 
 ## Use authoring canvas to add an action
 
-Use the Power Virtual Agent's authoring canvas to connect the Fallback topic to your knowledge base. The topic starts with the **unrecognized user text**. You need to add an action that passes that text to QnA Maker, then shows the answer as a message. The last step of displaying an answer is handled as a separate step later.
+Use the Power Virtual Agents authoring canvas to connect the Fallback topic to your knowledge base. The topic starts with the **unrecognized user text**. You need to add an action that passes that text to QnA Maker, then shows the answer as a message. The last step of displaying an answer is handled as a separate step later.
 
-1. The new Fallback action may already have conversation flow elements. Delete all items in the flow except for the first item, **Trigger Phrases**, with the `Unrecognized user input`.
+This section creates the fallback topic conversation flow.
+
+1. The new Fallback action may already have conversation flow elements. Delete the **Escalate** item by selecting the Options menu.
 
     > [!div class="mx-imgBorder"]
-    > ![Start fallback action with trigger phrases](../media/how-to-integrate-power-virtual-agent/fallback-action-start-trigger-phrases.png)
+    > ![Start fallback action with trigger phrases](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fallback-topic-delete-escalate.png)
 
-1. Select the **+** connector flowing from the **Trigger Phrases** box, then select **Call an action**.
+1. Select the **+** connector flowing from the **Message** box, then select **Call an action**.
 
     > [!div class="mx-imgBorder"]
     > ![Call an action](../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png)
@@ -90,6 +126,8 @@ Use the Power Virtual Agent's authoring canvas to connect the Fallback topic to 
 
     > [!div class="mx-imgBorder"]
     > ![Call an action](../media/how-to-integrate-power-virtual-agent/create-a-flow.png)
+
+    A new browser window opens to the **Power Automate** portal.
 
 ## Create Power Automate Flow to connect to your knowledge base
 
@@ -211,6 +249,10 @@ Test the agent by typing in a question that your knowledge base can answer. The 
 
 > [!div class="mx-imgBorder"]
 > [![Test you Power Virtual Agent with a query meant for your knowledge base.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png)](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png#lightbox)
+
+## Clean up resources
+
+When you are done with the knowledge base, remove the QnA Maker resources in the Azure portal.
 
 ## Next step
 

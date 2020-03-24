@@ -22,6 +22,8 @@
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
+  - name: Integrate with Power Virtual Agent
+    href: How-To/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
 - name: Concepts
@@ -103,8 +105,6 @@
     items:
     - name: LUIS and QnA Maker
       href: Tutorials/integrate-qnamaker-luis.md
-    - name: Integrate with Power Virtual Agent
-      href: How-To/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
   - name: Using REST APIs
