@@ -1768,6 +1768,9 @@
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
             maintainContext: true
+          - name: Databricks Runtime 7.0 (Beta)
+            href: /azure/databricks/release-notes/runtime/7.0.md
+            maintainContext: true
           - name: Databricks Runtime 6.5 (Beta)
             href: /azure/databricks/release-notes/runtime/6.5.md
             maintainContext: true
