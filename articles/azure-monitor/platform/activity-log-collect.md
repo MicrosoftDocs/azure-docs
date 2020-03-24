@@ -10,23 +10,30 @@ ms.date: 03/20/2020
 ---
 
 # Collect and analyze Azure Activity log in Azure Monitor
-The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. While you can view the Activity log in the Azure portal, you can send the entries to other destinations to provide different methods of analysis. The methods to configure different destinations for the Activity log are in the process of changing.  This article describes this transition and the roadmap for the collection and analysis for the Activity log.
+The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. While you can view the Activity log in the Azure portal, you should configure it to send to a Log Analytics workspace to enable additional features of Azure Monitor. This article describes how to perform this configuration and how to send the Activity log to Azure storage and event hubs.
 
-## Summary of changes
+Collecting the Activity Log in a Log Analytics workspace provides the following advantages:
 
-### Collection of Activity log
-Like other platform logs, the Activity log can be sent to a Log Analytics workspace, Azure storage, or Azure Event Hubs. This configuration is now performed for the Activity log with a [diagnostic setting](diagnostic-setting.md), which is the same method used by resource logs. Prior to this change, there were two ways to sent the Activity log to these destinations: 
-
-- Send to a Log Analytics workspace by connect the Activity log to the workspace in the workspace configuration.
-- Send to Azure storage or event hubs by creating a log profile. 
-
-### Analysis of Activity log
-You can still [view the Activity log in the Azure portal](activity-log-view.md) without any configuration. What is changing is analysis of Activity log entries in a Log Analytics workspace. Activity log events are still sent to the *AzureActivity* table, and the same log queries can be used to analyze them. The Activity Logs Analytics monitoring solution is being deprecated along with the deprecation of Azure Monitor views. A new Azure Monitor workbook will be provided in the near future providing queries and visualizations for gaining insights into the Activity log.
+- No charge for space Activity log data stored in a Log Analytics workspace.
+- Correlate Activity log data with other monitoring data collected by Azure Monitor.
+- Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
+- Store Activity log entries for longer than 90 days.
+- Consolidate log entries from multiple Azure subscriptions into one location for analysis together.
 
 
 
 ## Collecting Activity log
-The method to send Activity log entries to an event hub or storage account or to a Log Analytics workspace has changed to use [diagnostic settings](diagnostic-settings.md) which has the following advantages over the previous methods:
+The Activity log is collected automatically for [viewing in the Azure portal](activity-log-view.md). To send it to other destinations, create a [diagnostic setting](diagnostic-settings.md), which is the same method used by resource logs. 
+
+To create a diagnostic setting for the Activity log, select **Diagnostic settings** from the **Activity log** menu in Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](diagnostic-settings.md) for details on creating the setting. See [Categories in the Activity log](activity-log-view.md#categories-in-the-activity-log) for a description of the categories you can filter in the setting. If you have any legacy settings, make sure you disable them before creating a diagnostic setting. Having both enabled may result in duplicate data.
+
+
+> [!NOTE]
+> Currently, you can only create a subscription level diagnostic setting using the Azure portal. To use other methods such as PowerShell or CLI, you can create a Resource Manager template.
+
+
+## Legacy settings 
+While diagnostic settings are the preferred method to send the Activity log to different destinations, legacy methods are still available and will continue to work if you don't choose to replace with a diagnostic setting. Diagnostic settings have the following advantages over the previous methods, and it's recommended that you change any legacy configuration to this new strategy:
 
 - Consistent method for collecting all platform logs.
 - Collect Activity log across multiple subscriptions and tenants.
@@ -34,22 +41,9 @@ The method to send Activity log entries to an event hub or storage account or to
 - Collect all Activity log categories. Some categories are not collected using legacy method.
 - Faster latency for log ingestion. The previous method has about 15 minutes latency while diagnostic settings adds only about 1 minute.
 
-Connecting the Activity Log to a Log Analytics workspace provides the following benefits:
 
-- Consolidate the Activity Log from multiple Azure subscriptions into one location for analysis.
-- Store Activity Log entries for longer than 90 days.
-- Correlate Activity Log data with other monitoring data collected by Azure Monitor.
-- Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
-
-### Considerations
-Consider the following details of Activity log collection using diagnostic settings before enabling this feature.
-
-- The retention setting for collecting the Activity log to Azure storage has been removed meaning that data will be stored indefinitely until you remove it.
-- Currently, you can only create a subscription level diagnostic setting using the Azure portal. To use other methods such as PowerShell or CLI, you can create a Resource Manager template.
-
-
-### Work with legacy settings
-Legacy settings for collecting the Activity log will continue to work if you don't choose to replace with a diagnostic setting. Use the following method to manage the log profile for a subscription.
+### Log profiles
+Log profiles are the legacy method for sending the Activity log to Azure storage or event hubs. Use the following procedure to continue working with a log profile or to disable it in preparation for migrating to a diagnostic setting.
 
 1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
 3. Click **Diagnostic settings**.
@@ -60,10 +54,19 @@ Legacy settings for collecting the Activity log will continue to work if you don
 
     ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
 
+### Log Analytics workspace
+The legacy method for collecting the Activity log into a Log Analytics workspace is by connecting the log in the workspace configuration. 
 
+1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the Activity Log.
+1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
+1. Click the subscription you want to connect.
 
-### Disable existing settings
-If you have existing settings to collect the Activity log, you should disable them before enabling it using diagnostic settings. Having both enabled may result in duplicate data.
+    ![Workspaces](media/activity-log-collect/workspaces.png)
+
+1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
+
+    ![Connect Workspaces](media/activity-log-collect/connect-workspace.png)
+
 
 ### Disable collection into Log Analytics workspace
 
@@ -72,10 +75,12 @@ If you have existing settings to collect the Activity log, you should disable th
 3. Click the subscription you want to disconnect.
 4. Click **Disconnect** and then **Yes** when asked to confirm your choice.
 
-### Disable log profile
 
-1. Use the procedure described in [Work with legacy settings](#work-with-legacy-settings) to open legacy settings.
-2. Disable any current collection to storage or event hubs.
+### Analysis of Activity log
+You can [view the Activity log in the Azure portal](activity-log-view.md) without any configuration. When you configure it to be collected into a Log Analytics workspace, 
+
+What is changing is analysis of Activity log entries in a Log Analytics workspace. Activity log events are still sent to the *AzureActivity* table, and the same log queries can be used to analyze them. The Activity Logs Analytics monitoring solution is being deprecated along with the deprecation of Azure Monitor views. A new Azure Monitor workbook will be provided in the near future providing queries and visualizations for gaining insights into the Activity log.
+
 
 
 ## Analyze Activity log in Log Analytics workspace
@@ -83,18 +88,18 @@ When you connect an Activity Log to a Log Analytics workspace, entries will be w
 
 
 ### Differences in data
-Diagnostic settings collect the same data as the previous methods used to collect the Activity log with the following current differences:
+Diagnostic settings collect the same data as the legacy method used to collect the Activity log with some changes to the structure of the *AzureActivity* table.
 
-The following columns have been removed. The replacement for these columns are in a different format, so you may need to modify log queries that use them. You may still see removed columns in the schema, but they won't be populated with data.
+The columns in the following table have been deprecated. They still exist in *AzureActivity* but they will have no data. The replacement for these columns are not new, but they contain the same data as the deprecated column. They are in a different format, so you may need to modify log queries that use them. 
 
-| Removed column | Replacement column |
+| Deprecated column | Replacement column |
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus | ActivitySubstatusValue |
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 
-The following column have been added:
+The following column have been added to *AzureActivity*:
 
 - Authorization_d
 - Claims_d
@@ -103,9 +108,15 @@ The following column have been added:
 > [!IMPORTANT]
 > In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
 
+### Query sample
+
+
 
 ## Activity Logs Analytics monitoring solution
-The Azure Log Analytics monitoring solution is currently being deprecated but can still be used if you already have it enabled. The option to enable the solution for a new subscription has been removed from the Azure portal, but you can enable it using the template and procedure in [Enable solution for new subscription](#enable-solution-for-new-subscription).
+The Azure Log Analytics monitoring solution is currently being deprecated but can still be used if you already have it enabled. It cannot be used if you collect the Activity log using a diagnostic setting as described above. The option to enable the solution for a new subscription has been removed from the Azure portal, but you can enable it using the template and procedure in [Enable solution for new subscription](#enable-solution-for-new-subscription).
+
+> [!IMPORTANT]
+> The Activity Logs Analytics monitoring solution is not supported if you're collecting the Activity log using a diagnostic setting. You must continue to connect your subscription to a workspace to use the solution.
 
 
 ### Use the solution
@@ -118,15 +129,9 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 ![Azure Activity Logs dashboard](media/collect-activity-logs/activity-log-dash.png)
 
-| Visualization part | Description |
-| --- | --- |
-| Azure Activity Log Entries | Shows a bar chart of the top Azure Activity Log entry record totals for the date range that you have selected and shows a list of the top 10 activity callers. Click the bar chart to run a log search for `AzureActivity`. Click a caller item to run a log search returning all Activity Log entries for that item. |
-| Activity Logs by Status | Shows a doughnut chart for Azure Activity Log status for the selected date range and a list of the top ten status records. Click the chart to run a log query for `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Click a status item to run a log search returning all Activity Log entries for that status record. |
-| Activity Logs by Resource | Shows the total number of resources with Activity Logs and lists the top ten resources with record counts for each resource. Click the total area to run a log search for `AzureActivity | summarize AggregatedValue = count() by Resource`, which shows all Azure resources available to the solution. Click a resource to run a log query returning all activity records for that resource. |
-| Activity Logs by Resource Provider | Shows the total number of resource providers that produce Activity Logs and lists the top ten. Click the total area to run a log query for `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, which shows all Azure resource providers. Click a resource provider to run a log query returning all activity records for the provider. |
 
-## Enable solution for new subscription
-To enable the solution to collect and analyze the Activity log for a new subscription, follow the procedure below.
+### Enable the solution for new subscriptions
+You can no longer add a new subscription to the Activity Logs Analytics solution using the Azure portal, but you can add a new subscription using a resource manager template. 
 
 1. Copy the following json into a file called *ActivityLogTemplate*.json.
 
@@ -220,3 +225,14 @@ To enable the solution to collect and analyze the Activity log for a new subscri
 - Learn more about the [Activity Log](platform-logs-overview.md).
 - Learn more about the [Azure Monitor data platform](data-platform.md).
 - Use [log queries](../log-query/log-query-overview.md) to view detailed information from your Activity Log.
+
+
+
+
+### Considerations
+Consider the following details of Activity log collection using diagnostic settings before enabling this feature.
+
+- The retention setting for collecting the Activity log to Azure storage has been removed meaning that data will be stored indefinitely until you remove it.
+
+
+
