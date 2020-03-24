@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/17/2020
+ms.date: 03/24/2020
 ms.author: rolyon
 ---
 
@@ -22,11 +22,14 @@ ms.author: rolyon
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you transfer an Azure subscription to a different Azure Active Directory (Azure AD) directory, some artifacts are not transferred to the destination directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are by default **permanently** deleted from the source directory and are not be transferred to the destination directory. Also, managed identities do not get updated. To retain your custom role definitions and role assignments and to ensure you managed identities still work, you must take additional steps.
+When you transfer an Azure subscription to a different Azure Active Directory (Azure AD) directory, some artifacts are not transferred to the destination directory. For example, all role assignments in Azure role-based access control (Azure RBAC) are by default **permanently** deleted from the source directory and are not be transferred to the destination directory. Also, managed identities do not get updated. To retain your custom role definitions and role assignments and to ensure your managed identities still work, you must take additional steps.
 
 This article describes the procedure and scripts you can use to transfer your subscription to different Azure AD directory and still maintain your custom roles, role assignments, and managed identities.
 
 ## Understand the impact of transferring a subscription
+
+> [!IMPORTANT]
+> Transferring a subscription does require downtime to complete the process.
 
 Depending on your situation, the following table lists the impact of transferring a subscription.
 
@@ -45,11 +48,11 @@ The following table lists the artifacts that will get transferred when you follo
 | --------- | :---------: |
 | Role assignments for built-in roles | Yes |
 | Role assignments for users | Yes |
-| Role assignments for groups | No |
+| Role assignments for groups | Yes |
 | Role assignments for service principals | No |
-| Role assignments for SQL Azure | No |
+| Role assignments for SQL Azure | Yes |
 | Role assignments for managed identities | Yes |
-| Role assignments for applications | No |
+| Role assignments for applications | Yes |
 | Custom role definitions | Yes |
 | Role assignments for custom roles | Yes |
 
@@ -66,7 +69,7 @@ To complete these steps, you will need:
 
 ## Step 1: Clean up source directory
 
-You can't skip the transfer of some role assignments. If you do not want a role assignment to be transferred, you must delete it prior to the transfer.
+If you have role assignments in the source directory that aren't needed, you should delete. This will also ensure that your service can successfully run without the role assignment prior to the transfer rather than during the transfer process.
 
 1. Sign into the Azure portal for the source directory.
 
@@ -74,186 +77,59 @@ You can't skip the transfer of some role assignments. If you do not want a role 
 
 1. Delete any role assignments that you no longer need or do not want to transfer.
 
-## Step 2: Save data and generate a report about source directory
+## Step 2: Inventory artifacts in the source directory
 
-In this step, you save data about the following artifacts:
+1. If you have multiple subscriptions, select the subscription you want to transfer by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) and [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
-- Azure custom role definitions
-- Azure custom role assignments
-- Azure role assignments
-    - User objects are saved using e-mail address
-    - User-assigned or system-assigned managed identities
-    - (Service principals and groups are not preserved)
-
-In this step, you also generate an HTML report that includes the following information:
-
-- List of resources that have a dependency on the directory
-- List of Azure SQL Databases with configured Azure AD authentication
-- List of Azure role assignments
-
-1. In the source directory, open Cloud Shell in a Bash session.
-
-1. Run the following command to ensure you are set to the subscription you want to transfer.
-
-    ```bash
-    az account set --subscription {subscriptionId}
+    ```azurepowershell
+    # Select subscription
+    Get-AzSubscription -SubscriptionName "Marketing" | Set-AzContext
     ```
 
-1. To generate a report, run the following command.
+1. List all the role assignments.
 
-    ```bash
-    curl -L https://aka.ms/as/dirchange | bash
+    To list of all the role assignments (including inherited role assignments from root and management groups), use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To make it easier to review the list, you can export the output as a CSV file that you can open in a spreadsheet.
+
+    ```azurepowershell
+    Get-AzRoleAssignment | Export-Csv "RoleAssignments.csv"
     ```
 
-    ```bash
-    The output will be similar to the following:
-    Azure:~$ curl -L https://aka.ms/as/dirchange | bash
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100   273  100   273    0     0    231      0  0:00:01  0:00:01 --:--:--   231
-    Archive:  tmp.zip
-      inflating: apply-rbac.py
-      inflating: check-aad-deps.sh
-      inflating: dump-rbac.py
-    Checking for graph extension on Azure CLI...
-    --------------------------------------------
-    Graph extension is already installed...
-    
-    Azure resources with known Azure AD Tenant dependencies:
-    --------------------------------------------------------
-    
-    
-    Azure SQL Servers with Azrue AD Authentication
-    ----------------------------------------------
-    az sql server ad-admin list: error: argument --ids: expected at least one argument
-    usage: az sql server ad-admin list [-h] [--verbose] [--debug]
-                                       [--output {json,jsonc,table,tsv,yaml,yamlc,none}]
-                                       [--query JMESPATH]
-                                       [--subscription _SUBSCRIPTION]
-                                       [--resource-group RESOURCE_GROUP_NAME]
-                                       [--server-name SERVER_NAME]
-                                       [--ids ID [ID ...]]
-    RBAC role assignments:
-    ----------------------
-    Principal                             Role                 Scope
-    ------------------------------------  -------------------  ---------------------------------------------------
-    alain@contoso.com                     Billing Reader Plus  /subscriptions/{subscriptionId}
-    alain@contoso.com                     Owner                /subscriptions/{subscriptionId}
-    admin1@contoso.com                    Owner                /subscriptions/{subscriptionId}
-    alain@contoso.com                     Billing Reader       /subscriptions/{subscriptionId}
-    Writing custom RBAC roles ...
-    Getting rbac assignments ...
-    Matching assignments ...
-    Download report from '/clouddrive/dirchange-{subscriptionId}/report-{subscriptionId}.html'
+1. List of Azure SQL Databases with Azure AD authentication.
+
+1. List the custom roles. 
+
+    ```azurepowershell
+    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
-## Step 3: View data and report
+1. List Key Vault access policies.
 
-In this step, you view the data and report about the source directory.
+## Step 3: Determine object mappings
 
-1. Open the the clouddrive/dirchange-{subscriptionId} folder.
+1. Based on the list of role assignments, determine which of the following objects will be needed in the destination directory:
 
-1. View the groups_mapping.csv.
+- Users
+- Groups
+- User-assigned managed identities
+- System-assigned managed identities
 
-    ```
-    GroupName,GroupObjectId,NewGroupObjectId
-    ```
+## Step 4: Create objects in destination directory
 
-1. View rbac_custom_roles.json.
+1. In the target directory, create the objects that you will need:
 
-    ```json
-    [
-        {
-            "description": "Read billing data and download invoices",
-            "type": "Microsoft.Authorization/roleDefinitions",
-            "name": "{name}",
-            "assignableScopes": [
-                "/subscriptions/{subscriptionId}"
-            ],
-            "permissions": [
-                {
-                    "notActions": [
-                        "Microsoft.CostManagement/exports/delete"
-                    ],
-                    "notDataActions": [],
-                    "dataActions": [],
-                    "actions": [
-                        "Microsoft.Authorization/*/read",
-                        "Microsoft.Billing/*/read",
-                        "Microsoft.Commerce/*/read",
-                        "Microsoft.Consumption/*/read",
-                        "Microsoft.Management/managementGroups/read",
-                        "Microsoft.CostManagement/*/read",
-                        "Microsoft.CostManagement/exports/*",
-                        "Microsoft.Billing/invoices/download/action"
-                    ]
-                }
-            ],
-            "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{name}",
-            "roleName": "Billing Reader Plus",
-            "roleType": "CustomRole"
-        }
-    ]
-    ```
+- Users
+- Groups
+- User-assigned managed identities
+- System-assigned managed identities
 
-1. View rbac.json.
+## Step 5: Create custom roles in destination directory
 
-    ```json
-    [
-        {
-            "scope": "/subscriptions/{subscriptionId}",
-            "roleName": "Billing Reader Plus",
-            "managedIdentityReosurceId": null,
-            "principalId": "{principalId}",
-            "principalEmail": null,
-            "principalType": "User",
-            "msiType": null
-        },
-        {
-            "scope": "/subscriptions/{subscriptionId}",
-            "roleName": "Owner",
-            "managedIdentityReosurceId": null,
-            "principalId": "{principalId}",
-            "principalEmail": null,
-            "principalType": "User",
-            "msiType": null
-        },
-        {
-            "scope": "/subscriptions/{subscriptionId}",
-            "roleName": "Owner",
-            "managedIdentityReosurceId": null,
-            "principalId": "{principalId}",
-            "principalEmail": null,
-            "principalType": "User",
-            "msiType": null
-        },
-        {
-            "scope": "/subscriptions/{subscriptionId}",
-            "roleName": "Owner",
-            "managedIdentityReosurceId": null,
-            "principalId": "{principalId}",
-            "principalEmail": null,
-            "principalType": "User",
-            "msiType": null
-        },
-        {
-            "scope": "/subscriptions/{subscriptionId}",
-            "roleName": "Billing Reader",
-            "managedIdentityReosurceId": null,
-            "principalId": "{principalId}",
-            "principalEmail": null,
-            "principalType": "User",
-            "msiType": null
-        }
-    ]
-    ```
+1. In the target directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
 
-1. View report-{subscriptionId}.html.
+## Step 6: Update Key Vault
 
-    ![Source directory HTML report](./media/transfer-subscription/report-html.png)
-    
-## Step 4: Transfer billing ownership of the subscription
+
+## Step 6: Transfer billing ownership of the subscription
 
 In this step, you transfer the billing ownership of the subscription from the source directory to the destination directory.
 
@@ -265,7 +141,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 1. Once you finish transferring ownership, return back to this article to restore the role assignments in the destination directory.
 
-## Step 5: Restore data in destination directory
+## Step 5: Create role assignments in destination directory
 
 
 
