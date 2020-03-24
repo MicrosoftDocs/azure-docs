@@ -191,8 +191,6 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ```
 
-
-
 ## Next steps
 
 - Learn more about [alerts in Azure Monitor](../platform/alerts-overview.md).
