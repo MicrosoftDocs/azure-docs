@@ -46,7 +46,7 @@ You assess Hyper-V VMs with the with [Azure Migrate:Server Assessment](migrate-s
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for Hyper-V runs on a Hyper-V VM, and is deployed using a compressed Hyper-V VHD that you download from the Azure portal. 
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance using a compressed Hyper-V VHd that you download from the portal, or using an PowerShell script.
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---hyper-v) for Hyper-V.
 - Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
