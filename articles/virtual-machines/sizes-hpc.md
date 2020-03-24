@@ -35,7 +35,7 @@ Azure H-series virtual machines (VMs) are designed to deliver leadership-class p
 
 ## RDMA-capable instances
 
-Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series] (https://docs.microsoft.com/en-us/azure/virtual-machines/nc-series) sizes designated with 'r' such as the NC24rs configurations (NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
+Most of the HPC VM sizes (HBv2, HB, HC, H16r, H16mr, A8 and A9) feature a network interface for remote direct memory access (RDMA) connectivity. Selected [N-series] (https://docs.microsoft.com/azure/virtual-machines/nc-series) sizes designated with 'r' such as the NC24rs configurations (NC24rs_v3, NC24rs_v2 and NC24r) are also RDMA-capable. This interface is in addition to the standard Azure network interface available in the other VM sizes.
 
 This interface allows the RDMA-capable instances to communicate over an InfiniBand (IB) network, operating at HDR rates for HBv2, EDR rates for HB, HC, FDR rates for H16r, H16mr, and RDMA-capable N-series virtual machines, and QDR rates for A8 and A9 VMs. These RDMA capabilities can boost the scalability and performance of certain Message Passing Interface (MPI) applications. For more information on speed, see the details in the tables on this page.
 
@@ -125,6 +125,6 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 ## Next steps
 
-- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads] (https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/hpc/overview) 
+- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
