@@ -40,7 +40,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
-```azurecli-interactive
+```
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -80,7 +80,7 @@ az vm show --name "myVM" -g "MyResourceGroup"
 
 When encryption is enabled, you will see the following in the returned output:
 
-```azurecli-interactive
+```
 "EncryptionOperation": "EnableEncryption"
 ```
 

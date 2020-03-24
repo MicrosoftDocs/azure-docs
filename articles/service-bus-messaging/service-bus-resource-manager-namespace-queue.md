@@ -6,7 +6,6 @@ documentationcenter: .net
 author: spelluru
 manager: timlt
 editor: ''
-
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -15,7 +14,6 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: spelluru
-
 ---
 # Quickstart: Create a Service Bus namespace and a queue using an Azure Resource Manager template
 
@@ -54,6 +52,7 @@ With Azure Resource Manager, you define parameters for values you want to specif
 The template defines the following parameters.
 
 ### serviceBusNamespaceName
+
 The name of the Service Bus namespace to create.
 
 ```json
@@ -66,6 +65,7 @@ The name of the Service Bus namespace to create.
 ```
 
 ### serviceBusQueueName
+
 The name of the queue created in the Service Bus namespace.
 
 ```json
@@ -75,6 +75,7 @@ The name of the queue created in the Service Bus namespace.
 ```
 
 ### serviceBusApiVersion
+
 The Service Bus API version of the template.
 
 ```json
@@ -87,20 +88,21 @@ The Service Bus API version of the template.
 ```
 
 ## Resources to deploy
+
 Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
 ```json
 {
-	"resources": [{
-		"apiVersion": "2017-04-01",
-		"name": "[parameters('serviceBusNamespaceName')]",
-		"type": "Microsoft.ServiceBus/namespaces",
-		"location": "[parameters('location')]",
-		"sku": {
-			"name": "Standard"
-		},
-		"properties": {},
-		"resources": [{
+    "resources": [{
+        "apiVersion": "2017-04-01",
+        "name": "[parameters('serviceBusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+            "name": "Standard"
+        },
+        "properties": {},
+        "resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[parameters('serviceBusQueueName')]",
             "type": "Queues",
@@ -111,30 +113,32 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
                 "path": "[parameters('serviceBusQueueName')]"
             }
         }]
-	}]
+    }]
 }
 ```
 
 For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces) and [queues](/azure/templates/microsoft.servicebus/namespaces/queues).
 
 ## Commands to run deployment
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 
-```powershell
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
 
-```azurecli
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## Next steps
+
 See the following topic that shows how to create an authorization rule for the namespace/queue: 
 [Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template](service-bus-resource-manager-namespace-auth-rule.md)
 

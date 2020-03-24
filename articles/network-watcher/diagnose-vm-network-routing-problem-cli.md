@@ -8,7 +8,6 @@ author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
-
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
@@ -18,7 +17,6 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom:
-
 ---
 
 # Diagnose a virtual machine network routing problem - Azure CLI
@@ -110,7 +108,7 @@ az network nic show-effective-route-table \
 
 The following text is included in the returned output:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -130,7 +128,7 @@ When you used the `az network watcher show-next-hop` command to test outbound co
 
 When you used the `az network watcher show-next-hop` command to test outbound communication to 172.31.0.100 however, the result informed you that there was no next hop type. In the returned output you also see the following text:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
