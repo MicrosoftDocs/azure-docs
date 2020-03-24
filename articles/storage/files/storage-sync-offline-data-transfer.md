@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Migrate bulk data to Azure File Sync
+# Migrate bulk data to Azure File Sync with Azure DataBox
 You can migrate bulk data to Azure File Sync in two ways:
 
 * **Upload your files by using Azure File Sync.** This is the simplest method. Move your files locally to Windows Server 2012 R2 or later, and install the Azure File Sync agent. After you set up the sync, your files will be uploaded from the server. (Our customers currently experience an average upload speed of 1 TiB about every two days.) To ensure that your server doesn't use too much of the bandwidth for your datacenter, you might want to set up a [bandwidth throttling schedule](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
@@ -20,7 +20,7 @@ This article explains how to migrate files offline in a way that's compatible wi
 ## Migration tools
 The process we describe in this article works not only for Data Box but also for other offline migration tools. It also works for tools such as AzCopy, Robocopy, or partner tools and services that work straight over the internet. However to overcome the initial upload challenge, follow the steps in this article to use these tools in a way that's compatible with Azure File Sync.
 
-In some cases you need to move from one Windows Server to another Windows Server before adopting Azure File Sync. [Storage Migration Service](https://aka.ms/storagemigrationservice) (SMS) can help with that. Whether you need to migrate to a Server OS version that is supported by Azure File Sync (Windows Server 2012R2 and up) or you simply need to migrate because you are buying a new system for Azure File Sync, SMS has numerous features and advantages that will help get your migration done smoothly.
+In some cases, you need to move from one Windows Server to another Windows Server before adopting Azure File Sync. [Storage Migration Service](https://aka.ms/storagemigrationservice) (SMS) can help with that. Whether you need to migrate to a Server OS version that is supported by Azure File Sync (Windows Server 2012R2 and up) or you simply need to migrate because you are buying a new system for Azure File Sync, SMS has numerous features and advantages that will help get your migration done smoothly.
 
 ## Benefits of using a tool to transfer data offline
 Here are the main benefits of using a transfer tool like Data Box for offline migration:
@@ -74,7 +74,7 @@ As the server completes its initial sync of the namespace, the Data Box bulk-mig
 Now you can clean up the staging share to save costs:
 
 1. On the **Server Endpoint Properties** blade, when the status is **Completed**, select **Disable offline data transfer**.
-2. Consider deleting the staging share to save costs. The staging share probably doesn't contain file and folder ACLs, so it's not very useful. For backup point-in-time purposes, create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [set up Azure Backup to take snapshots]( ../../backup/backup-afs.md) on a schedule.
+2. Consider deleting the staging share to save costs. The staging share probably doesn't contain file and folder ACLs, so it's unlikely to be useful. For backup point-in-time purposes, create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [set up Azure Backup to take snapshots]( ../../backup/backup-afs.md) on a schedule.
 
 Disable the offline data transfer mode only when the state is **Completed** or when you want to cancel because of a misconfiguration. If you disable the mode during a deployment, files will start to upload from the server even if your staging share is still available.
 
