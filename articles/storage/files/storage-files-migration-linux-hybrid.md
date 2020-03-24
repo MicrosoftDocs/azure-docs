@@ -1,6 +1,6 @@
 ---
-title: Linux Samba migration to Azure File Sync
-description: Learn how to migrate files from a Linux Samba server location to a hybrid cloud deployment with Azure File Sync and Azure file shares.
+title: Linux migration to Azure File Sync
+description: Learn how to migrate files from a Linux server location to a hybrid cloud deployment with Azure File Sync and Azure file shares.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-# Migrate from Linux Samba to a hybrid cloud deployment with Azure File Sync
+# Migrate from Linux to a hybrid cloud deployment with Azure File Sync
 
-Azure File Sync works on Windows Servers with Direct Attached Storage (DAS). It does not support sync to and from a remote SMB share.
+Azure File Sync works on Windows Servers with Direct Attached Storage (DAS). It does not support sync to and from Linux or a remote SMB share.
 As a result, transforming your file services into a hybrid deployment makes a migration to a Windows Server necessary. This article guides you through the planning and execution of such a migration.
 
 ## Migration goals
@@ -21,6 +21,8 @@ The goal is to move the shares that you have on your Linux Samba server to a Win
 ## Migration overview
 
 As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your Linux Samba server is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
+
+If you are not running Samba on your Linux server and rather want to migrate folders to a hybrid deployment on a Windows Server, you can use Linux copy tools instead of RoboCopy. If you do, be aware of the fidelity capabilities in your file copy tool. Review the [migration basics section](storage-files-migration-overview.md#migration-basics) in the migration overview article to learn what to look for in a copy tool.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)

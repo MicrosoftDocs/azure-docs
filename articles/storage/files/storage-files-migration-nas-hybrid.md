@@ -20,7 +20,7 @@ The goal is to move the shares that you have on your NAS appliance to a Windows 
 
 ## Migration overview
 
-As mentioned in the Azure Files migration overview article, using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
+As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
