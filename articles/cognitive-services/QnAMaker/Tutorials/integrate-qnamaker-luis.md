@@ -235,4 +235,4 @@ In the Azure portal, select **Test in Web Chat** to test the bot. Type messages 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Integrate your knowledge base with a Power Virtual Agent](../How-To/integrate-with-power-virtual-assistant-fallback-topic.md)
+> [Integrate your knowledge base with a Power Virtual Agent](integrate-with-power-virtual-assistant-fallback-topic.md)
