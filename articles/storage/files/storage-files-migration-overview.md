@@ -25,12 +25,12 @@ If you have an application currently running on an on-premises server, then stor
 
 The key in any migration is to capture all the applicable file fidelity when migrating your files from their current storage location to Azure. A help in picking the right Azure storage is also the aspect of how much fidelity supported by the Azure storage option and is required by your scenario. General purpose file data traditionally depends on file metadata. Application data might not. There are two basic components to a file:
 
-1. **Data stream**: The data stream of a file stores the file content.
-2. **File metadata**: The file meta data has several sub components:
-    * file attributes: read-only, for instance
-    * file permissions: referred to as *NTFS permissions* or *file and folder ACLs*
-    * timestamps: most notably the *create-* and *last modified-* timestamps
-    * alternative data stream: a space to store larger amounts of non-standard properties
+- **Data stream**: The data stream of a file stores the file content.
+- **File metadata**: The file meta data has several sub components:
+   * File attributes: Read-only, for instance.
+   * File permissions: Referred to as *NTFS permissions* or *file and folder ACLs*.
+   * Timestamps: Most notably the *create-* and *last modified-* timestamps.
+   * Alternative data stream: A space to store larger amounts of non-standard properties.
 
 File fidelity, in a migration, can therefore be defined as the ability to store all applicable file information on the source, the ability to transfer them with the migration tool and the ability to store them on the target storage of the migration.
 
@@ -39,8 +39,8 @@ To ensure your migration proceeds as smoothly as possible, identify [the best co
 Taking the previous information into account, it becomes clear what the target storage for general purpose files in Azure is: [Azure file shares](storage-files-introduction.md). Compared to object storage in Azure blobs, file metadata can be natively stored on files in an Azure file share.
 
 Azure file shares also preserve the file and folder hierarchy. Additionally:
-* NTFS permissions can be stored on files and folders as they are on-premises
-* AD users (or AAD DS users) can natively access an Azure file share. 
+* NTFS permissions can be stored on files and folders as they are on-premises.
+* AD users (or Azure AD DS users) can natively access an Azure file share. 
     They use their current identity and get access based on share permissions as well as file and folder ACLs. A behavior not unlike when users connect to an on-premises file share.
 *  The alternative data stream is the primary aspect of file fidelity that currently cannot be stored on a file in an Azure file share.
    It is preserved on-premises when Azure File Sync is involved.
@@ -59,7 +59,7 @@ Navigate it by:
 
 A scenario without a link does not yet have a published migration guide. Check this table occasionally for updates. New guides will be published when available.
 
-| **Source** | Target: </br>Hybrid deployment | Target: </br>Cloud-only  deployment |
+| Source | Target: </br>Hybrid deployment | Target: </br>Cloud-only  deployment |
 |:---|:--|:--|
 | | Tool combination:| Tool combination: |
 | Windows Server 2012 R2 and newer | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync + DataBox](storage-sync-offline-data-transfer.md)</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
