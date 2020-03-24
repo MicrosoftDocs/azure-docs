@@ -12,7 +12,7 @@
   href: samples/toc.yml
 - name: Concepts
   href: concepts/toc.yml
-- name: How to guides
+- name: How-to guides
   href: how-tos/toc.yml
 - name: Reference
   href: reference/toc.yml

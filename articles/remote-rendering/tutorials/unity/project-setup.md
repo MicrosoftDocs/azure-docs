@@ -24,7 +24,7 @@ In this tutorial you will learn:
 
 For this tutorial you need:
 
-* Your account information (account ID, account key, subscription ID), If you don't have an account, [create an account](../../how-tos/create-an-account.md).
+* Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
