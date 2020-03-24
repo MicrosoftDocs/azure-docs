@@ -10,7 +10,7 @@ ms.topic: how-to
 # Override materials during model conversion
 
 During conversion, the material settings in the source model are used to define the [PBR materials](../../overview/features/pbr-materials.md) used by the renderer.
-Sometimes the default conversion does not give the desired results and adjustments need to be made.
+Sometimes the [default conversion](../../reference/material-mapping.md) does not give the desired results and adjustments need to be made.
 When a model is converted for use in Azure Remote Rendering, a material-override file can be provided to customize how material conversion is done on a per-material basis.
 The section on [configuring model conversion](configure-model-conversion.md) has instructions for declaring the material override filename.
 

@@ -1,3 +1,5 @@
+- name: Material mapping for model formats
+  href: material-mapping.md
 - name: Regions
   href: regions.md
 - name: Network requirements

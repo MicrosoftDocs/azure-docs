@@ -1,15 +1,17 @@
 ---
-title: Material conversion
-description: Describes the PBR material type.
+title: Material mapping for model formats
+description: Describes the default conversion from model source formats to PBR material
 author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
-ms.topic: how-to
+ms.topic: reference
 ---
 
-# Material conversion
+# Material mapping for model formats
 
-When a source asset is [converted as a model](model-conversion.md), the converter creates [materials](../../concepts/materials.md) for each [mesh](../../concepts/meshes.md).  The way materials are created can be [overridden](override-materials.md). However by default the conversion will create [PBR materials](../../overview/features/pbr-materials.md). Since every source file format, like FBX, uses its own conventions to define materials, those conventions must be mapped to the PBR material parameters of Azure Remote Rendering. This article lists the exact mappings used to convert materials from source assets to runtime materials.
+When a source asset is [converted as a model](../how-tos/conversion/model-conversion.md), the converter creates [materials](../concepts/materials.md) for each [mesh](../concepts/meshes.md). The way materials are created can be [overridden](../how-tos/conversion/override-materials.md). However by default the conversion will create [PBR materials](../overview/features/pbr-materials.md). Since every source file format, like FBX, uses its own conventions to define materials, those conventions must be mapped to the PBR material parameters of Azure Remote Rendering. 
+
+This article lists the exact mappings used to convert materials from source assets to runtime materials.
 
 ## glTF
 
@@ -48,7 +50,7 @@ Additionally to the base feature set, Azure Remote Rendering supports the follow
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
 * [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
-* [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): Corresponds to [color materials](../../overview/features/color-materials.md). For *emissive* materials, it's recommended to use this extension.
+* [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): Corresponds to [color materials](../overview/features/color-materials.md). For *emissive* materials, it's recommended to use this extension.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): Instead of metallic-roughness textures, you can provide diffuse-specular-glossiness textures. The Azure Remote Rendering implementation directly follows the conversion formulas from the extension.
 
 ## FBX
@@ -163,10 +165,10 @@ To summarize here, `Albedo` will be very close to the original `Diffuse`, if `Sp
 
 ### Known issues
 
-* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
+* The current formula does not work well for simple colored geometry. If `Specular` is bright enough, then all geometries become reflective metallic surfaces without any color. The workaround here is to lower `Specular` to 30% from the original or to use the conversion setting [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
 * PBR materials were recently added to `Maya` and `3DS Max` content creation tools. They use custom user-defined black-box properties to pass it to FBX. Azure Remote Rendering does not read those additional properties because they are not documented and the format is closed-source.
 
 ## Next steps
 
-* [Model conversion](model-conversion.md)
-* [Overriding materials during model conversion](override-materials.md)
+* [Model conversion](../how-tos/conversion/model-conversion.md)
+* [Overriding materials during model conversion](../how-tos/conversion/override-materials.md)

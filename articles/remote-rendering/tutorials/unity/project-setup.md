@@ -24,8 +24,14 @@ In this tutorial you will learn:
 
 For this tutorial you need:
 
-* The prerequisites from [Quickstart: Render a model with Unity](../../quickstarts/render-model.md#prerequisites).
-* Your account information (account ID, account key, subscription ID)
+* Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../how-tos/create-an-account.md).
+* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
+* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* GIT [(download)](https://git-scm.com/downloads)
+* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
+  * Install these modules in Unity:
+    * **UWP** - Universal Windows Platform Build Support
+    * **IL2CPP** - Windows Build Support (IL2CPP)
 
 > [!TIP]
 > The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials. You can use those projects as a reference.
