@@ -10,7 +10,12 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ---
+<<<<<<< HEAD
 # Azure Stack Edge technical specifications
+=======
+
+# Azure Data Box Edge technical specifications
+>>>>>>> 23d54abc280228453d491a94b86c00da7b1816db
 
 The hardware components of your Microsoft Azure Stack Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
 
