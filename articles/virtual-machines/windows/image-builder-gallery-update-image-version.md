@@ -55,7 +55,7 @@ If you used [Create an image and distribute to a Shared Image Gallery](image-bui
 
 For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
-```console
+```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
 sigResourceGroup=myIBWinRG
 # Datacenter location - we are using West US 2 in this example
@@ -75,7 +75,7 @@ vmpassword="password for the VM"
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
-```console
+```azurecli-interactive
 subscriptionID=<Subscription ID>
 ```
 
@@ -107,7 +107,7 @@ You can review the example we are about to use by opening the .json file here: [
 
 Download the .json example and configure it with your variables. 
 
-```console
+```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforSIGfromWinSIG.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforSIGfromWinSIG.json

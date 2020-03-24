@@ -62,7 +62,7 @@ az provider register -n Microsoft.Storage
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
 
-```console
+```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
 imageResourceGroup=myWinImgBuilderRG
 # Region location 
@@ -77,7 +77,7 @@ imageName=aibWinImage
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
-```console
+```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
 ## Create a resource group
@@ -106,7 +106,7 @@ az role assignment create \
 
 A parameterized image configuration template has been created for you to try. Download the example .json file and configure it with the variables you set previously.
 
-```console
+```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json -o helloImageTemplateWin.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateWin.json
@@ -119,7 +119,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
 
 You can modify this example, in the terminal using a text editor like `vi`.
 
-```console
+```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
 
