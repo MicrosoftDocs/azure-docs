@@ -149,7 +149,7 @@ Make sure that the [Network Security Group](/azure/virtual-network/security-over
 
 ### Check route table
 
-If the cluster's subnet has force-tunneling set up to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](#azure-data-explorer-management-ip-addresses) and [health monitoring IP addresses](#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
+If the cluster's subnet has force-tunneling set up to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](vnet-deployment.md#azure-data-explorer-management-ip-addresses)) and [health monitoring IP addresses](vnet-deployment.md#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
 
 ### Check firewall rules
 
