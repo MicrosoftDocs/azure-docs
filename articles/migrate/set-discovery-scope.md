@@ -1,8 +1,7 @@
 ---
-title: Set discovery scope VMware VM assessment/migration with Azure Migrate
-description: Describes how to set the discovery scope for VMware VM assessment/migration with Azure Migrate
-rate
-ms.topic: article
+title: Set the scope for VMware VM discovery with Azure Migrate
+description: Describes how to set the discovery scope for VMware VM assessment and migration with Azure Migrate.
+ms.topic: how-to
 ms.date: 03/23/2020
 
 ---
