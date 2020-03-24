@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/24/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ---
@@ -14,7 +14,7 @@ ms.reviewer: jamsbak
 
 This article shows you how to use .NET and query acceleration (Preview) to retrieve a subset of data from your storage account. 
 
-Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
+Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (Preview)](data-lake-storage-query-acceleration.md).
 
 > [!NOTE]
 > The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
@@ -50,9 +50,29 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 2. Extract the files in this .zip file to any directory on your local drive. 
 
-3. Install the **Azure.Storage.Blobs**, **Azure.Storage.Common**, and **Azure.Storage.QuickQuery** packages into your solution. 
+3. In a console window (such as cmd, PowerShell, or Bash), switch to the directory that contains the extracted files.
 
-   The way that you do this depends on what type of .NET project you have. For guidance, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
+4. Use the [nuget.exe CLI](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-nuget-cli) to install each package to your project. 
+
+   These example commands install each package into a subdirectory of a project named `packages`.
+  
+   ```console
+   nuget add Azure.Storage.Blobs.12.4.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
+   nuget add Azure.Storage.Common.12.3.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
+   nuget add Azure.Storage.QuickQuery.12.0.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
+   ```
+5. Add the following xml to your project file.
+
+   ```xml
+    <ItemGroup>
+        <PackageReference Include="Azure.Storage.Blobs" Version="12.4.0-preview.1" />
+        <PackageReference Include="Azure.Storage.Common" Version="12.3.0-preview.1" />
+        <PackageReference Include="Azure.Storage.QuickQuery" Version="12.0.0-preview.1" />
+  </ItemGroup>
+   ```
+   
+> ![NOTE]
+> To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
 
 
 ### [Java](#tab/java)
@@ -160,7 +180,7 @@ You can use SQL to specify the row filter predicates and column projections in a
 
 - In the SQL query, the keyword `BlobStorage` is used to denote the file that is being queried.
 
-- Column references are specified as `_N` where the first column is `_1`. If the source file contains a header row, then you can specify `CvsTextConfiguration.HasHeaders = true` which will allow you to refer to columns by their name.
+- Column references are specified as `_N` where the first column is `_1`. If the source file contains a header row, then you can refer to columns by the name that is specified in the header row. 
 
 ### [.NET](#tab/dotnet)
 
@@ -179,14 +199,14 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
     {
         using (var reader = new StreamReader((await blob.GetQuickQueryClient().QueryAsync(query,
                 new CvsTextConfiguration() { HasHeaders = headers }, 
-                new CvsTextConfiguration() { HasHeaders = true }, 
+                new CvsTextConfiguration() { HasHeaders = false }, 
                 new ErrorHandler(),
                 new BlobRequestConditions(), 
                 new ProgressHandler(),
                 CancellationToken.None)).Value.Content))
         {
             using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) 
-            { HasHeaderRecord = true }))
+            { HasHeaderRecord = false }))
             {
                 while (await parser.ReadAsync())
                 {

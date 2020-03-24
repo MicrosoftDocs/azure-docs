@@ -5,31 +5,44 @@ author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 11/14/2019
+ms.date: 03/24/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
 
 # Azure Data Lake Storage query acceleration (preview)
 
-Query acceleration (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
+Query acceleration (preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
 
 > [!NOTE]
-> The query acceleration feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
+> The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup).
 
 ## Overview
 
-Query acceleration accepts filtering *predicates* and *projections* which enable applications to filter rows and columns at the time that data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. This reduces network latency and compute cost.  
+Query acceleration accepts filtering *predicates* and *column projections* which enable applications to filter rows and columns at the time that data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. This reduces network latency and compute cost.  
 
-You can use SQL to specify the row filter predicates and column projections in a query acceleration request. A request processes only one file. Therefore, advanced relational features of SQL, such as joins and group by aggregates, aren't supported. Query acceleration supports CSV and Json formatted data as input to each request.
-
-The following diagram illustrates how a typical application uses query acceleration to process data.
-
-![Query acceleration overview](./media/data-lake-storage-query-acceleration/query-acceleration.png)
+You can use SQL to specify the row filter predicates and column projections in a query acceleration request. A request processes only one file. Therefore, advanced relational features of SQL, such as joins and group by aggregates, aren't supported. Query acceleration supports CSV and JSON formatted data as input to each request.
 
 The query acceleration feature isn't limited to Data Lake Storage (storage accounts that have the hierarchical namespace enabled on them). Query acceleration is completely compatible with the blobs in storage accounts that **don't** have a hierarchical namespace enabled on them. This means that you can achieve the same reduction in network latency and compute costs when you process data that you already have stored as blobs in storage accounts.
 
-For an example of how to use query acceleration in a .NET application, see [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md).
+For an example of how to use query acceleration in a client application, see [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md).
+
+## Data flow
+
+The following diagram illustrates how a typical application uses query acceleration to process data.
+
+> [!div class="mx-imgBorder"]
+> ![Query acceleration overview](./media/data-lake-storage-query-acceleration/query-acceleration.png)
+
+1. The client application requests file data by specifying predicates and column projections.
+
+2. Query acceleration parses the specified SQL query and distributes work to parse and filter data.
+
+3. Processors read the data from the disk, parses the data by using the appropriate format, and then filters data by applying the specified predicates and column projections.
+
+4. Query acceleration combines the response shards to stream back to client application.
+
+5. The client application receives and parses the streamed response. The application doesn't need to filter any additional data and can apply the desired calculation or transformation directly.
 
 ## Better performance at a lower cost
 
