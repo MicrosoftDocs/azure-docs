@@ -988,19 +988,19 @@ if ($fileShare -eq $null) {
 # [Portal](#tab/azure-portal)
 1. Click **Access control (IAM)** on the left-hand table of contents.
 1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
-1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
+1. Verify **Microsoft.StorageSync** or **Hybrid File Sync Service** (old application name) appears in the list with the **Reader and Data Access** role. 
 
     ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
-	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+	If **Microsoft.StorageSync** or **Hybrid File Sync Service** does not appear in the list, perform the following steps:
 
 	- Click **Add**.
 	- In the **Role** field, select **Reader and Data Access**.
-	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
+	- In the **Select** field, type **Microsoft.StorageSync**, select the role and click **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 ```powershell    
-$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Hybrid File Sync Service" }
+$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 
 if ($role -eq $null) {
     throw [System.Exception]::new("The storage account does not have the Azure File Sync " + `

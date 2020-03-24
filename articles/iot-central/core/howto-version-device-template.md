@@ -4,7 +4,7 @@ description: Iterate over your device templates by creating new versions and wit
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 12/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
