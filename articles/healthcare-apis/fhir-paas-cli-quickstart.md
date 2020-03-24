@@ -59,7 +59,7 @@ where `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` is the identity object ID for a use
 
 Obtain a capability statement from the FHIR API with:
 
-```azurecli-interactive
+```console
 curl --url "https://nameoffhiraccount.azurehealthcareapis.com/metadata"
 ```
 
