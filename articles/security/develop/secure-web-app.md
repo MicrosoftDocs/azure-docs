@@ -369,7 +369,7 @@ A root certificate is included in the container. The steps taken to obtain the c
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](h/azure/postgresql/concepts-ssl-connection-security).
+Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](/azure/postgresql/concepts-ssl-connection-security).
 
 #### Deploy Azure Web Apps on Linux
 
