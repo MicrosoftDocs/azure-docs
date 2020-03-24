@@ -105,7 +105,7 @@ See examples and learn how to build models using automated machine learning:
 + Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure Machine Learning studio, [use these steps](how-to-create-portal-experiments.md).
+  + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 
