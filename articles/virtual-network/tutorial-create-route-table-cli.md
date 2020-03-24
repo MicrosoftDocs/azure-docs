@@ -151,6 +151,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 The command may take up to a minute to execute.
 
 ## Create virtual machines
@@ -227,7 +228,7 @@ traceroute myVmPublic
 
 The response is similar to the following example:
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
