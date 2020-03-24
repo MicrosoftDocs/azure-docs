@@ -8,7 +8,6 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-monikerRange: 'azure-devops'
 ---
 
 # Deploy ASP.NET Core apps to Azure Kubernetes Service with Azure DevOps Starter

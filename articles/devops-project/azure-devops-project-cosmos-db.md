@@ -8,7 +8,6 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-monikerRange: 'azure-devops'
 ---
 
 # Deploy Node.js apps powered by Azure Cosmos DB with DevOps Starter
@@ -41,8 +40,6 @@ You need an Azure subscription, which you can get through [Visual Studio Dev Ess
 DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Starter also creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service, and App Service plans, in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the left pane, select **Create a resource**.
 
 1. In the search box, type **DevOps Starter**, and then select. Click on **Add** to create a new one.
 
