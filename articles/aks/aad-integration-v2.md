@@ -135,7 +135,7 @@ aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
 
 To get the user credentials to access the cluster:
-```
+```azurecli-interactive
 kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
