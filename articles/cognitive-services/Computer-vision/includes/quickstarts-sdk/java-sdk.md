@@ -6,19 +6,12 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/19/2019
 ms.author: pafarley
 ---
 
-# Quickstart: Computer Vision client library for Java
-
-Get started with the Computer Vision client library for Java. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information.
-
-Use the Computer Vision client library for Java to:
-
-* Analyze an image for tags, text description, faces, adult content, and more.
-* Recognize printed and handwritten text with the Batch Read API.
+<a name="HOLTop"></a>
 
 [Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Artifact (Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -90,7 +83,7 @@ In your project's *build.gradle.kts* file, include the Computer Vision client li
 
 ```kotlin
 dependencies {
-	compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
 }
 ```
 
@@ -156,43 +149,43 @@ The following sections show how to parse this information in detail.
 
 ### Get image description
 
-The following code gets the list of generated captions for the image. For more information, see [Describe images](../concept-describing-images.md).
+The following code gets the list of generated captions for the image. For more information, see [Describe images](../../concept-describing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
 
 ### Get image category
 
-The following code gets the detected category of the image. For more information, see [Categorize images](../concept-categorizing-images.md).
+The following code gets the detected category of the image. For more information, see [Categorize images](../../concept-categorizing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
 
 ### Get image tags
 
-The following code gets the set of detected tags in the image. For more information, see [Content tags](../concept-tagging-images.md).
+The following code gets the set of detected tags in the image. For more information, see [Content tags](../../concept-tagging-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
 ### Detect faces
 
-The following code returns the detected faces in the image with their rectangle coordinates and selects face attributes. For more information, see [Face detection](../concept-detecting-faces.md).
+The following code returns the detected faces in the image with their rectangle coordinates and selects face attributes. For more information, see [Face detection](../../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
 ### Detect adult, racy, or gory content
 
-The following code prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../concept-detecting-adult-content.md).
+The following code prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../../concept-detecting-adult-content.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
 
 ### Get image color scheme
 
-The following code prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../concept-detecting-color-schemes.md).
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../../concept-detecting-color-schemes.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
 
 ### Get domain-specific content
 
-Computer Vision can use specialized model to do further analysis on images. For more information, see [Domain-specific content](../concept-detecting-domain-content.md). 
+Computer Vision can use specialized model to do further analysis on images. For more information, see [Domain-specific content](../../concept-detecting-domain-content.md). 
 
 The following code parses data about detected celebrities in the image.
 
@@ -249,8 +242,8 @@ gradle run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
@@ -259,5 +252,5 @@ In this quickstart, you learned how to use the Computer Vision Java library to d
 > [!div class="nextstepaction"]
 >[Computer Vision reference (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
 
-* [What is Computer Vision?](../Home.md)
+* [What is Computer Vision?](../../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).
