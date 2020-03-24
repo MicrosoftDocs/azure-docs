@@ -12,7 +12,7 @@ ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
 # Security practices for Azure IoT device manufacturers
-As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices. This articles overviews recommended security practices to consider when you manufacture devices for use with DPS.  
+As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices. This article overviews recommended security practices to consider when you manufacture devices for use with DPS.  
 
 > [!div class="checklist"]
 > * Integrating a Trusted Platform Module (TPM) into the manufacturing process
@@ -111,42 +111,31 @@ If you use pre-loaded certificates with an HSM, the process is simplified. After
 
 If you don't use a pre-loaded certificate, you must install the certificate as part of your production process. The simplest approach is to install the certificate with the initial firmware image. Your process must add a step to install the image on each device. After this step, you can run final quality checks and any other steps, before you package and ship the device. 
 
-> [!TIP]
-> There are software tools available that let you run the installation process and final quality check in a single step. You can modify these tools to generate a certificate, or to pull a certificate from a pre-generated certificate store. Then the software can install the certificate where you need to install it. Software tools of this type enable you to run production quality manufacturing at scale. 
+There are software tools available that let you run the installation process and final quality check in a single step. You can modify these tools to generate a certificate, or to pull a certificate from a pre-generated certificate store. Then the software can install the certificate where you need to install it. Software tools of this type enable you to run production quality manufacturing at scale. 
 
 If you need help installing certificates in your IoT devices, please contact the Microsoft security auditor program. After you have certificates installed on your devices, the next step is to learn how to enroll the devices with DPS.  
 
 ## Selecting device authentication options
 The ultimate aim of any IoT device security measure is to create a secure IoT solution. But issues such as hardware limitations, cost, and level of security expertise, all impact which options you choose. Further, your approach to security impacts how your IoT devices connect to the cloud. While there are [several elements of IoT security](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) to consider, a key element that every customer encounters is what authentication type to use. 
 
-Three authentication types are widely used with Azure IoT Hub, and Azure IoT Hub DPS. 
+Three authentication types commonly used with IoT solutions are X.509 certificate, Trusted Platform Module (TPM), and symmetric key. While other authentication types exist, most customers building solutions on Azure IoT Hub and DPS use one of these three types. The rest of this article surveys the pros and cons of using each authentication type with IoT devices.
 
-Azure IoT published a whitepaper about evaluating your IoT security, and we also offer the Security Program for Azure IoT. This security program helps you find the right security auditor for your situation and who can help you figure out how much security you need for your solution. These companies are experts at evaluating IoT security; if you have any in-depth questions around security, I highly recommend you give them a try. You can also learn about how to select secure hardware in this blog post "Whitepaper: Selecting the right secure hardware for your IoT deployment" or in the accompanying whitepaper.
+### X.509 certificate
+X.509 certificates are a type of digital identity you can use for authentication. The X.509 certificate standard is documented in [IETF RFC 5280](https://tools.ietf.org/html/rfc5280). In Azure IoT, there are two ways to authenticate certificates:
+- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifer or thumbprint for the certificate. 
+- CA authentication based on a full chain. A certificate chain is a hierarchical list of all certificates needed to authenticate an end-entity (EE) certificate. To authenticate an EE certificate, it's necessary to authenticate each certificate in the chain including a trusted root CA. 
 
-This blog post is not a replacement for a security audit, and it is not meant as a recommendation for any specific form of security. I want you all to be as secure as possible and cannot in good conscience recommend anything less. Take this blog post as a lay of the land to help you understand at a high level what all is possible, and what you should keep in mind as you embark on your IoT security journey. Remember: when in doubt, find an expert.
-X.509 certificates
+Pros for X.509:
+- The most secure key type supported in Azure IoT
+- Allows a high level of control for purposes of certificate management
+- Many vendors are available to provide X.509 based authentication solutions
 
-X.509 certificates are a type of digital identity that is standardized in IETF RFC 5280. If you have the time and inclination, I recommend reading the RFC to learn about what makes X.509 certificates useful in IoT scenarios. Learn about installing certs in devices.
+Cons for X.509:
+- Many customers must rely on external vendors for their certificates
+- Certificate management can be costly and adds to total solution cost
+- Certificate life cycle management can be difficult due to the logistical complexity
 
-There are several ways certificates can be authenticated:
-
-    Thumbprint: A hex string uniquely identifying a cert generated by running a thumbprint algorithm on the cert.
-    CA authentication based on a full chain: Ensuring the certificate chain was signed by a trusted signer somewhere in the cert.
-
-Pros
-
-    Most secure key type supported in Azure IoT.
-    It allows lots of control around management.
-    There are lots of vendor options.
-
-Cons
-
-    Many customers rely on external vendors for certificates.
-    Management comes at a price, adding to the overall solution cost.
-    Lifecycle management can be a challenge due to the logistical complexities involved.
-
-Trusted Platform Module (TPM)
-
+### Trusted Platform Module (TPM)
 TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based modules, or software-based modules. Some of the key differences between TPMs and symmetric keys (discussed below) are that:
 
     TPM chips can also store X.509 certificates.
@@ -165,8 +154,7 @@ Cons
     May require board re-design to include in hardware.
     You can't roll the EK without essentially destroying the identity of the chip and giving it a new one. It's like if you had a clone, your clone would have the same physical characteristics as you but they are ultimately a different person. Although the physical chip stays the same, it has a new identity in your IoT solution.
 
-Symmetric key
-
+### Symmetric key
 A symmetric key is known to both the device and the service, and the key is used to both encrypt and decrypt messages sent between parties. Azure IoT supports SAS token-based symmetric key connections. The best way to protect symmetric keys is via a hardware security module.
 Pros
 
@@ -195,6 +183,9 @@ Cons
 Making the right choice for your devices
 
 You have to evaluate your specific risks and benefits to make your IoT authentication decision. This blog post is too short to cover everything, but Azure IoT offers the Security Program for Azure IoT if you need help making this decision. You can also read our whitepaper about evaluating your IoT security to learn more about your options.
+
+> [!NOTE]
+> Azure IoT provides additional resources to help create secure deployments.  The team published a set of [security recommendations](../iot-fundamentals/security-recommendations.md) to guide the deployment process. The [Azure Security Center](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. For help evaluating your hardware environment, see the whitepaper [Evaluating your IoT Security](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). For help with selecting secure hardware, see [The Right Secure Hardware for your IoT Deployment](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf).
 
 ## Next steps
 To learn how several manufacturers have implemented security practices into their process for Azure IoT devices, see the case studies at [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
