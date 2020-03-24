@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 04/15/2019
 ---
-# Logical functions for Azure Resource Manager templates
+# Logical functions for ARM templates
 
-Resource Manager provides several functions for making comparisons in your templates.
+Resource Manager provides several functions for making comparisons in your Azure Resource Manager (ARM) templates.
 
 * [and](#and)
 * [bool](#bool)
