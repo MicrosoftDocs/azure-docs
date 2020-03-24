@@ -440,6 +440,8 @@ namespace functionapp0915
 }
 ```
 
+[GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) is the currently recommended API for creating a metric.
+
 ### Version 1.x
 
 ```cs

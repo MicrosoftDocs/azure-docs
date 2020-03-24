@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/17/2019
+ ms.date: 03/24/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -16,6 +16,10 @@ Virtual WAN provides many functionalities built into a single pane of glass such
 ### What client does the Azure Virtual WAN User VPN (Point-to-site) support?
 
 Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Azure AD authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required.  OpenVPN client(s) can support certificate based authentication. Once cert-based auth is selected on the gateway, you will see the .ovpn file to download to your device. Both certificate and RADIUS auth is supported with IKEv2. 
+
+### For User VPN (Point-to-site)- Why is the P2S client pool split into two routes?
+
+Each gateway has two instances, the split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
