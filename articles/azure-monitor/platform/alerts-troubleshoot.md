@@ -17,7 +17,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 If you can see a fired alert in the Azure portal, but have an issue with some of its actions or notifications, see the following sections.
 
-## Expected an email, but did not receive it
+## Did not receive expected email
 
 If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps: 
 
@@ -73,7 +73,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
    If you would like to receive high-volume of notifications without rate limiting, consider using a different action, such as webhook, logic app, Azure function, or automation runbooks, none of which are rate limited. 
 
-## Expected an SMS, a voice call, or a push notification, but did not receive it
+## Did not receive expected SMS, voice call, or push notification
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
@@ -236,5 +236,5 @@ If you received an error while trying to create, update or delete an [action rul
 
 
 ## Next steps
-
-Go back to the [Azure portal](https://portal.azure.com) to check if you've solved your issue with any of the advice above
+- If using a log alert, also see [Troubleshooting Log Alerts](alert-log-troubleshoot.md).
+- Go back to the [Azure portal](https://portal.azure.com) to check if you've solved your issue with guidance above 
