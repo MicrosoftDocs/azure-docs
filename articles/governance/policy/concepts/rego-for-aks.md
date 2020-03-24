@@ -14,10 +14,10 @@ makes it possible to manage and report on the compliance state of your Azure res
 clusters from one place.
 
 > [!IMPORTANT]
-> [Azure Policy for AKS](rego-for-aks.md) is in Preview and only supports built-in policy
-> definitions. Built-in policies are in the **Kubernetes** category. The **EnforceRegoPolicy**
-> effect and related **Kubernetes Service** category policies are being _deprecated_. Instead, use
-> the updated [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+> Azure Policy for AKS is in Preview and only supports built-in policy definitions. Built-in
+> policies are in the **Kubernetes** category. The **EnforceRegoPolicy** effect and related
+> **Kubernetes Service** category policies are being _deprecated_. Instead, use the updated
+> [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 
 ## Overview
 
