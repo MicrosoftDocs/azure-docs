@@ -1,12 +1,12 @@
 ---
 title: Seller Insights Release Notes 
 description: Provides information on changes to the Seller Insights feature.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 3/3/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Seller Insights release notes 

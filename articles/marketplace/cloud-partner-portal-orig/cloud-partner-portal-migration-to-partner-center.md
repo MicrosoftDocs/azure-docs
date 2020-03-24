@@ -1,12 +1,12 @@
 ---
 title: Migration to Partner Center | Azure Marketplace
 description: Migrating offers from Cloud Partner Portal to Partner Center.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Cloud Partner Portal migration to Partner Center

@@ -2,7 +2,7 @@
 title: Create a Commercial Marketplace account in Partner Center
 description: Learn how to create a Commercial Marketplace account in Partner Center.
 author: qianw211
-ms.author: jasonh
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide

@@ -7,7 +7,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Guidelines  

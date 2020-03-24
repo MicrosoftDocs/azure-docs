@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Promote your business with Microsoft

@@ -1,12 +1,12 @@
 ---
 title: Business Process Libraries | Azure Marketplace
 description: Deprecated this CPP article and linked to PC article; Was "Explanation of business process libraries and methodologies."
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Business Process Libraries

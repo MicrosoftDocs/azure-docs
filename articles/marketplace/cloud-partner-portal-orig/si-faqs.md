@@ -1,12 +1,12 @@
 ---
 title: Seller Insights FAQ 
 description: Frequently Asked Questions about the Seller Insights feature of the Cloud Partner Portal.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Seller Insights FAQ

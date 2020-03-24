@@ -1,8 +1,8 @@
 ---
 title: Onboarding API for Azure apps in the Commercial Marketplace 
 description: API prerequisites for Azure apps in commercial marketplace on Microsoft Partner Center. 
-author: JasonWHowell 
-ms.author: jasonh
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

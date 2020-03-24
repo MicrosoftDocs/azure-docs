@@ -1,8 +1,8 @@
 ---
 title: Analytics for the Commercial Marketplace in Partner Center
 description: Overview on accessing analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
-author: JasonWHowell
-ms.author: jasonh
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Configure lead management in Marketo

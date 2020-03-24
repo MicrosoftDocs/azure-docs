@@ -1,12 +1,12 @@
 ---
 title:  Request to publish the application 
 description: App publishing information in the Partner Center marketplace.
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Request to publish the app

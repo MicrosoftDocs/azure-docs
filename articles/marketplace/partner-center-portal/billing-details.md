@@ -1,8 +1,8 @@
 ---
 title: Commercial marketplace billing | Azure Marketplace
 description: This article covers commerce-related topics for commercial marketplace.
-author: JasonWHowell
-ms.author: jasonh
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019

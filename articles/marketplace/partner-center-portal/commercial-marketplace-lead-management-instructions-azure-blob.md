@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Lead management instructions for Azure Blob

@@ -1,15 +1,13 @@
 ---
 title: include file
 description: include file
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 08/13/2019
-ms.author: jasonh
+ms.author: dsindona
 ms.custom: include file
 
 ---

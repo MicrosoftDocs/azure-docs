@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Manage 'Azure Marketplace' and 'AppSource' publisher profile

@@ -1,12 +1,12 @@
 ---
 title: Prerequisites for Application Curation 
 description: Deprecated CPP article, linked to PC article; was "List of prerequisites for application curation."
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Prerequisites for Application Curation

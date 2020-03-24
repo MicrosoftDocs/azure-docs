@@ -1,12 +1,12 @@
 ---
 title: Virtual machine prerequisites for Microsoft Azure | Azure Marketplace
 description: List of prerequisites required to publish a VM offer to the Azure Marketplace.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine prerequisites

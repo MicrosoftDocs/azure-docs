@@ -1,12 +1,12 @@
 ---
 title: LCS Subscription 
 description: Deprecated this CPP article, linked to PC article; was "Introduction to a tutorial for creating a subscription."
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # LCS Subscription

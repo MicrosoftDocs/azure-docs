@@ -1,12 +1,12 @@
 ---
 title: Data Entities 
 description: Deprecated this CPP article and linked to PC article; was "An overview of data entities."
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: jasonh
+ms.author: dsindona
 ---
 
 # Data Entities

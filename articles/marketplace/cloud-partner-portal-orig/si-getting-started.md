@@ -1,12 +1,12 @@
 ---
 title: Getting Started with Seller Insights 
 description: Introduction to the Seller insights feature of the Cloud Partner Portal.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Getting Started with Seller Insights

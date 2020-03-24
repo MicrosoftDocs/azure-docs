@@ -1,12 +1,12 @@
 ---
 title: Seller Insights Definitions 
 description: Provides definitions for many of the terms you will find in Seller Insights
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Seller Insights Definitions

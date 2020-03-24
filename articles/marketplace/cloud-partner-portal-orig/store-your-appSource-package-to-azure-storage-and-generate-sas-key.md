@@ -1,12 +1,12 @@
 ---
 title: Store your AppSource Package to Azure storage and generate a URL with SAS key 
 description: Details the steps required to upload and secure an AppSource package.
-author: JasonWHowell
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Store your AppSource Package to Azure storage and generate a URL with SAS key

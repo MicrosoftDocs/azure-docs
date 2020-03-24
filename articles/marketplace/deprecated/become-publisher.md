@@ -1,12 +1,12 @@
 ---
 title: Become a Publisher in the storefronts on the marketplace | Azure Marketplace
 description: This article describes how to become a publisher on the marketplace.  
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Become a Cloud Marketplace Publisher

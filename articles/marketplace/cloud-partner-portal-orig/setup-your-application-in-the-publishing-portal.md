@@ -1,12 +1,12 @@
 ---
 title: Setup your application in the Publishing Portal 
 description: Instructions in how to setup your application in the Cloud Publishing Portal.
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Setup your application in the Publishing Portal

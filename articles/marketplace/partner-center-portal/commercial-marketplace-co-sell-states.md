@@ -1,8 +1,8 @@
 ---
 title: Co-sell state codes | Azure Marketplace
 description: Use these state/province codes when providing contact info on your offer's Co-sell page.
-author: JasonWHowell 
-ms.author: jasonh 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
