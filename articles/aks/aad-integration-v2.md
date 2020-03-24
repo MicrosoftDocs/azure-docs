@@ -10,7 +10,7 @@ ms.date: 03/24/2020
 # Integrate Azure AD v2.0 in Azure Kubernetes Service (Preview)
 
 > [!Note]
-> Existing Azure AD v1.0 clusters are not affected by the new Azure AD v2.0 feature for AKS.
+> Existing Azure AD v1.0 clusters are not affected by the new Azure AD v2.0 feature for Azure Kubernetes Service (AKS).
 
 Azure AD v2.0 is designed to simplify the Azure AD v1.0 experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. 
 In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. Azure AD v2.0 enabled clusters use a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
