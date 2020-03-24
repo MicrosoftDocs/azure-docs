@@ -36,16 +36,15 @@ This app registration is where you configure access permissions to the Azure Dig
 
 To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs and the baseline permissions to the API:
 ```json
-requiredResourceAccess":[
-  {
-     "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-     "resourceAccess": [
+[{
+    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
+    "resourceAccess": [
      {
        "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
        "type": "Scope"
      }
-  ]
-]
+    ]
+}]
 ``` 
 
 In your working directory, save this JSON snippet as file *manifest.json*.
@@ -66,6 +65,8 @@ Depending on your scenario, you may need to make additional changes to the app r
 
 These settings are easiest set up in the portal. See [Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/graph/auth-register-app-v2) for more information.
 
+> [!TIP] If your Azure subscription is created using a Microsoft Account such as Live, Xbox or hotmail, you need to set the signInAudience on the app registration to support personal accounts.
+
 ## Client app authentication code
 
 To follow the example in this section, you will need the SDK library as described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
@@ -75,11 +76,13 @@ To authenticate a .NET app with Azure services, you can use the following minima
 ```csharp
 private string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
 private string clientId = "<your-app-registration-ID>";
+private string tenantId = "<your-tenant-id>";
 private AuthenticationResult authResult;
 static async Task Authenticate()
 {
     string[] scopes = new[] { adtAppId + "/.default" };
     var app = PublicClientApplicationBuilder.Create(clientId)
+                                            .WithTenantId(tenantId)
                                             .WithRedirectUri("http://localhost")
                                             .Build();
     var accounts = await app.GetAccountsAsync();
@@ -97,6 +100,8 @@ static async Task Authenticate()
 ```
 
 Note that this sample is the most minimal code for authentication using the MSAL authentication library. There are many more options you can use to implement for example caching and several other authentication flows. For more information see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
+
+> [!TIP] If your Azure subscription is created using a Microsoft Account such as Live, Xbox or hotmail, you can find the tenat id in the default directory overview in the Azure Active Directory section. 
 
 You will need to have references to the following libraries, which you can find on NuGet:
 * Microsoft.Identity.Client. This is the MSAL client library.
