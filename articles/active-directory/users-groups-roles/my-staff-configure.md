@@ -68,7 +68,7 @@ You can view audit logs for My Staff in the Azure Active Directory portal. The f
 
 - Reset password (by admin)
 
-## Manage a user's phone number
+## Manage a phone number
 
 From **My Staff**, open a user's profile.
 
