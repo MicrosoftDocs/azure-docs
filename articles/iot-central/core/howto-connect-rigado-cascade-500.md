@@ -3,7 +3,7 @@ title: Connect a Rigado Cascade 500 in Azure IoT Central | Microsoft Docs
 description: Learn how to connect a Rigado Cascade 500 gateway device to your IoT Central application. 
 services: iot-central
 ms.service: iot-central
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
 ms.author: avneets
 author: avneet723
