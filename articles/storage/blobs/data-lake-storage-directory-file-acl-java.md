@@ -1,23 +1,20 @@
 ---
-title: Azure Data Lake Storage Gen2 Java SDK for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 Java SDK for files & ACLs
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
-> [!IMPORTANT]
-> The Java library that is featured in this article is currently in public preview.
-
-[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## Prerequisites
 
@@ -49,19 +46,15 @@ import com.azure.storage.file.datalake.models.PathPermissions;
 import com.azure.storage.file.datalake.models.RolePermissions;
 ```
 
-If you plan to authenticate your client application by using Azure AD, then add these imports statements to your code file.
-
-```java
-import com.azure.identity.ClientSecretCredential;
-import com.azure.identity.ClientSecretCredentialBuilder;
-import com.azure.core.credential.TokenCredential;
-````
-
 ## Connect to the account 
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
 
-This example creates an instance of the **DataLakeServiceClient** by using an account key.
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a **DataLakeServiceClient** instance by using an account key.
 
 ```java
 
@@ -78,8 +71,35 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 
     return builder.buildClient();
 }      
-
 ```
+
+### Connect by using Azure Active Directory (Azure AD)
+
+You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Azure AD.
+
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+```java
+static public DataLakeServiceClient GetDataLakeServiceClient
+    (String accountName, String clientId, String ClientSecret, String tenantID){
+
+    String endpoint = "https://" + accountName + ".dfs.core.windows.net";
+        
+    ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+    .clientId(clientId)
+    .clientSecret(ClientSecret)
+    .tenantId(tenantID)
+    .build();
+           
+    DataLakeServiceClientBuilder builder = new DataLakeServiceClientBuilder();
+    return builder.credential(clientSecretCredential).endpoint(endpoint).buildClient();
+ } 
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentation.
+
+
 ## Create a file system
 
 A file system acts as a container for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.
@@ -367,8 +387,8 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 
 ## See also
 
-* [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
-* [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
+* [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
+* [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 * [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
