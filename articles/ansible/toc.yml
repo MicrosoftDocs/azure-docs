@@ -10,7 +10,7 @@
     - name: Deploy Ansible solution template to CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Install Ansible on Linux virtual machines
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Run playbooks in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
       - name: Configure Linux virtual machines
-        href: /azure/virtual-machines/linux/ansible-create-vm
+        href: ./ansible-create-vm.md
         maintainContext: true
       - name: Manage Linux virtual machines
-        href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+        href: ./ansible-manage-linux-vm.md
         maintainContext: true
 - name: Tutorials 
   items:
@@ -111,7 +111,7 @@
     href: ./ansible-matrix.md  
   - name: All modules for Azure
     href: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
-- name: Tools
+- name: Resources
   items:
   - name: Visual Studio Code extension for Ansible
     href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible

@@ -153,9 +153,9 @@ If an error message appears, complete the following steps:
 
 4. Run the test again until it completes successfully.
 
-For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 ## Next steps
 
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
-- [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)
+- [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

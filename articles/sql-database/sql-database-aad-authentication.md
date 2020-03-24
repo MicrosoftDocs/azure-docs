@@ -14,7 +14,7 @@ ms.date: 02/20/2019
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
 
-Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
+Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
@@ -142,8 +142,7 @@ The following authentication methods are supported for Azure AD server principal
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database or Azure SQL Data Warehouse, see [Configure and manage Azure Active Directory authentication with SQL Database, Managed Instance, or SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - For a tutorial of using Azure AD server principals (logins) with Managed Instances, see [Azure AD server principals (logins) with Managed Instances](sql-database-managed-instance-aad-security-tutorial.md)
-- For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
-- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
+- For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and permissions](sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For syntax on creating Azure AD server principals (logins) for Managed Instances, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).

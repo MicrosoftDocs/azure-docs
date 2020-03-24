@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 03/15/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -35,7 +35,7 @@ Import/Export service uses the following components:
 - **WAImportExport tool**: This is a command-line tool that does the following: 
     - Prepares your disk drives that are shipped for import.
     - Facilitates copying your data to the drive.
-    - Encrypts the data on the drive with BitLocker.
+    - Encrypts the data on the drive with AES 256-bit BitLocker. You can use an external key protector to protect your BitLocker key.
     - Generates the drive journal files used during import creation.
     - Helps identify numbers of drives needed for export jobs.
     
@@ -127,17 +127,17 @@ The Azure Import/Export service supports copying data to and from all Azure stor
 
 ## Security considerations
 
-The data on the drive is encrypted using BitLocker Drive Encryption. This encryption protects your data while it is in transit.
+The data on the drive is encrypted using AES 256-bit BitLocker Drive Encryption. This encryption protects your data while it is in transit.
 
 For import jobs, drives are encrypted in two ways.  
 
 
 - Specify the option when using *dataset.csv* file while running the WAImportExport tool during drive preparation. 
 
-- Enable BitLocker encryption manually on the drive. Specify the encryption key in the *driveset.csv* when running WAImportExport tool command line during drive preparation.
+- Enable BitLocker encryption manually on the drive. Specify the encryption key in the *driveset.csv* when running WAImportExport tool command line during drive preparation. The BitLocker encryption key can be further protected by using an external key protector (also known as the Microsoft managed key) or a customer managed key. For more information, see how to [Use a customer mananged key to protect your BitLocker key](storage-import-export-encryption-key-portal.md).
 
 
-For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal.
+For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. The drive needs to be unlocked using the WAImporExport tool using the key.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

@@ -1,8 +1,8 @@
-- name: Azure Resource Manager template documentation
+- name: ARM template documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure Resource Manager templates?
+  - name: What are ARM templates?
     href: overview.md
 - name: Quickstarts
   items:
@@ -10,9 +10,19 @@
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
+  - name: Azure services
+    items:
+    - name: Cosmos DB
+      href: ../../cosmos-db/quick-create-template.md
+    - name: Event Grid
+      href: ../../event-grid/blob-event-quickstart-template.md
+    - name: Key Vault
+      href: ../../key-vault/quick-create-template.md
+    - name: Load Balancer
+      href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
-  - name: Beginner
+  - name: Beginner templates
     items:
     - name: 1 - Create first template
       href: template-tutorial-create-first-template.md
@@ -34,6 +44,15 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
+  - name: Deployment
+    items:
+    - name: 1 - Deploy a local template
+      href: deployment-tutorial-local-template.md
+    - name: 2 - Deploy a linked template
+      href: deployment-tutorial-linked-template.md
+    - name: 3 - Create a pipeline
+      displayName: Devop
+      href: deployment-tutorial-pipeline.md
   - name: Advanced
     items:
     - name: Utilize template reference
@@ -61,9 +80,6 @@
       href: template-tutorial-deploy-sql-extensions-bacpac.md
     - name: Secure artifacts
       href: template-tutorial-secure-artifacts.md
-    - name: Continuous integration with Azure Pipelines
-      displayName: DevOps
-      href: template-tutorial-use-azure-pipelines.md
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
@@ -132,11 +148,19 @@
       displayName: linked templates, nested templates
       href: linked-templates.md
     - name: Create multiple instances
-      href: create-multiple-instances.md
-    - name: Subscription level resources
-      href: deploy-to-subscription.md
-    - name: Management group level resources
-      href: deploy-to-management-group.md
+      items:
+      - name: Resources
+        displayName: iteration,copy
+        href: copy-resources.md
+      - name: Properties
+        displayName: iteration,copy
+        href: copy-properties.md
+      - name: Variables
+        displayName: iteration,copy
+        href: copy-variables.md
+      - name: Outputs
+        displayName: iteration,copy
+        href: copy-outputs.md
   - name: Use authoring tools
     items:
     - name: VS Code
@@ -161,6 +185,8 @@
     - name: Deploy - REST API
       displayName: deployment
       href: deploy-rest.md
+    - name: Deploy from GitHub
+      href: deploy-to-azure-button.md
     - name: What-if deployment
       href: template-deploy-what-if.md
     - name: Redeploy on error
@@ -168,7 +194,15 @@
       href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
-    - name: Deploy to multiple resource groups or subscriptions
+  - name: Scoped deployments
+    items:
+    - name: Subscription
+      href: deploy-to-subscription.md
+    - name: Management group
+      href: deploy-to-management-group.md
+    - name: Tenant
+      href: deploy-to-tenant.md
+    - name: Multiple resource groups or subscriptions
       href: cross-resource-group-deployment.md
   - name: Provide parameters
     items:

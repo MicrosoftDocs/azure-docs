@@ -4,6 +4,7 @@ description: Storage account keys provide seamless integration between Azure Key
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin

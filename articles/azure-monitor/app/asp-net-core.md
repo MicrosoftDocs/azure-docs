@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitor ASP.NET Core web applications for availability, performance, and usage.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/22/2019
 
 ---
@@ -62,7 +58,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
         </ItemGroup>
     ```
 
@@ -159,6 +155,14 @@ The preceding steps are enough to help you start collecting server-side telemetr
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
     ```
+    
+Alternatively to using the `FullScript` the `ScriptBody` is available starting in SDK v2.14. Use this if you need to control the `<script>` tag to set a Content Security Policy:
+
+    ```cshtml
+        <script> // apply custom changes to this script tag.
+            @Html.Raw(JavaScriptSnippet.ScriptBody)
+        </script>
+    ```
 
 The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. You can accomplish this goal for this application template by adding the JavaScript snippet to `_Layout.cshtml`. 
 
@@ -193,6 +197,12 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 
 |Setting | Description | Default
 |---------------|-------|-------
+|EnablePerformanceCounterCollectionModule  | Enable/Disable `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | Enable/Disable `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | Enable/Disable `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | Enable/Disable `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  Enable/Disable `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  Enable/Disable `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
 |EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15-min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
@@ -308,6 +318,9 @@ public void ConfigureServices(IServiceCollection services)
     }
 }
 ```
+
+Starting with 2.12.2 version, [`ApplicationInsightsServiceOptions`](#using-applicationinsightsserviceoptions) contains easy
+option to disable any of the default modules.
 
 ### Configuring a telemetry channel
 

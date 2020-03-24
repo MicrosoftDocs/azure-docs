@@ -2,12 +2,12 @@
 title: Working with VMs and NSGs in Azure Bastion
 description: This article describes how to incorporate NSG access with Azure Bastion
 services: bastion
-author: ashjain
+author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ashishj
+ms.author: charwen
 ---
 # Working with NSG access and Azure Bastion
 

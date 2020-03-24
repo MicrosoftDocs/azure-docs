@@ -80,4 +80,4 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Configure a Linux virtual machine in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Quickstart: Configure a Linux virtual machine in Azure using Ansible](./ansible-create-vm.md)

@@ -5,10 +5,9 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
@@ -36,7 +35,7 @@ What you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install .NET Core](https://www.microsoft.com/net/core/)
+* [Install .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create local .NET Core app
 

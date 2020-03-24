@@ -163,9 +163,9 @@ expression. To resolve this error message, change `equals` to either `in` or `no
 
 Aliases that have **\[\*\]** attached to their name indicate the **type** is an _array_. Instead of
 evaluating the value of the entire array, **\[\*\]** makes it possible to evaluate each element of
-the array individually, with logical AND between them. There are three standard scenarios this per 
-item evaluation is useful in: _None_, _Any_, or _All_ elements match.
-For complex scenarios, use [count](../concepts/definition-structure.md#count).
+the array individually, with logical AND between them. There are three standard scenarios this per
+item evaluation is useful in: _None_, _Any_, or _All_ elements match. For complex scenarios, use
+[count](../concepts/definition-structure.md#count).
 
 The policy engine triggers the **effect** in **then** only when the **if** rule evaluates as true.
 This fact is important to understand in context of the way **\[\*\]** evaluates each individual

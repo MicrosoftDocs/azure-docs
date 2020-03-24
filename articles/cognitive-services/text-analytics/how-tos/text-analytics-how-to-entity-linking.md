@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/10/2020
 ms.author: aahi
 ---
 
@@ -24,7 +24,9 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 ### Named Entity Recognition (NER)
 
-Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types. For example: people, places and organizations.
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
+
+Starting in version 3, this feature of the Text Analytics API can also identify personal and sensitive information types such as: phone number, Social Security Number, email address, and bank account number.  Identifying these entities can help in classifying sensitive documents, and redacting personal information.
 
 ## Named Entity Recognition versions and features
 
@@ -40,7 +42,35 @@ The Text Analytics API offers two versions of Named Entity Recognition - v2 and 
 
 See [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) for information.
 
-#### [Version 2](#tab/version-2)
+
+#### [Version 3.0-preview](#tab/version-3)
+
+### Entity types
+
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities:
+
+* General
+* Personal Information 
+
+For a detailed list of supported entities and languages, see the [NER v3 supported entity types](../named-entity-types.md) article.
+
+### Request endpoints
+
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+NER
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Personal information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Entity linking
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### Model versioning
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+#### [Version 2.1](#tab/version-2)
 
 ### Entity types
 
@@ -79,33 +109,6 @@ Named Entity Recognition v2 uses a single endpoint for NER and entity linking re
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
-#### [Version 3 (Public preview)](#tab/version-3)
-
-### Entity types
-
-Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities:
-
-* General
-* Personal Information 
-
-For a detailed list of supported entities and languages, see the [NER v3 supported entity types](../named-entity-types.md) article.
-
-### Request endpoints
-
-Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
-
-NER
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
-
-* Personal information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
-
-Entity linking
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
-
-### Model versioning
-
-[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
-
 ---
 
 ## Sending a REST API request
@@ -114,23 +117,16 @@ Entity linking
 
 You must have JSON documents in this format: ID, text, language.
 
-Each document must must be under 5,120 characters, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
+Each document must be under 5,120 characters, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
 
 ### Structure the request
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following links to quickly structure and send one. 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-#### [Version 2](#tab/version-2)
-
-[Named Entity Recognition (NER) v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-Version 2 uses the following endpoint for entity linking and NER requests: 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### [Version 3](#tab/version-3)
+#### [Version 3.0-preview](#tab/version-3)
 
 [Named Entity Recognition v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -143,6 +139,14 @@ NER
 
 Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+#### [Version 2.1](#tab/version-2)
+
+[Named Entity Recognition (NER) v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+Version 2 uses the following endpoint for entity linking and NER requests: 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
 ---
 
@@ -174,50 +178,13 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 All POST requests return a JSON formatted response with the IDs and detected entity properties.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
 
-#### [Version 2](#tab/version-2)
-
-### Example NER v2 response
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
-#### [Version 3 (Public preview)](#tab/version-3)
+#### [Version 3.0-preview)](#tab/version-3)
 
 ### Example v3 responses
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below.
+Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
 
 #### Example NER response
 
@@ -267,6 +234,43 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   }],
   "errors": [],
   "modelVersion": "2019-10-01"
+}
+```
+
+#### [Version 2.1](#tab/version-2)
+
+### Example NER v2 response
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
 }
 ```
 

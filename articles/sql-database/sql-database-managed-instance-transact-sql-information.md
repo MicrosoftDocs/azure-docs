@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 12/30/2019
+ms.date: 03/11/2020
 ms.custom: seoapril2019
 ---
 
@@ -134,8 +134,8 @@ A managed instance can't access files, so cryptographic providers can't be creat
     Managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
 - Windows logins created with the `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
-- The Azure AD user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Non-administrator Azure AD database-level users can be created by using the `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- The Azure AD user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md).
+- Non-administrator Azure AD database-level users can be created by using the `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
 - Azure AD server principals (logins) support SQL features within one managed instance only. Features that require cross-instance interaction, no matter whether they're within the same Azure AD tenant or different tenants, aren't supported for Azure AD users. Examples of such features are:
 
   - SQL transactional replication.
@@ -465,6 +465,7 @@ Cross-instance service broker isn't supported:
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
+  - `remote access`
   - `remote data archive`
   - `remote proc trans`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
@@ -527,6 +528,15 @@ The following MSDB schemas in managed instance must be owned by their respective
 A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) or [managed instance extension(preview)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) for Azure Data Studio.
 
 ## <a name="Issues"></a> Known issues
+
+
+### Limitation of manual failover via portal for failover groups
+
+**Date:** Jan 2020
+
+If failover group spans across instances in different Azure subscriptions or resource groups, manual failover cannot be initiated from the primary instance in the failover group.
+
+**Workaround**: Initiate failover via portal from the geo-secondary instance.
 
 ### SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins
 

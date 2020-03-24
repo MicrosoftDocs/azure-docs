@@ -119,6 +119,8 @@
     href: compliance/azure-services-in-fedramp-auditscope.md
   - name: Secure Azure Computing Architecture 
     href: compliance/secure-azure-computing-architecture.md
+  - name: Accelerate your path to ATO with Azure
+    href: compliance/documentation-accelerate-compliance.md
 - name: Resources
   items:
   - name: Azure Government Website
