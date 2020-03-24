@@ -28,15 +28,15 @@ Each logic app specifies a location to use for deployment. This location is eith
 > If your logic apps also use B2B artifacts that are stored in an integration account, 
 > both your integration account and logic apps must use the same location. 
 
-This disaster recovery strategy focuses on setting up your primary logic app to *failover* onto a standby or backup logic app in an alternate location where Azure Logic Apps is available. That way, if the primary suffers losses or failures, the secondary can perform the work instead. For this strategy, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
+This disaster recovery strategy focuses on setting up your primary logic app to *failover* onto a standby or backup logic app in an alternate location where Azure Logic Apps is available. That way, if the primary suffers losses or failures, the secondary can perform the work instead. For this strategy, you need to have your secondary and dependent resources already deployed and ready to run in the alternate location.
 
-If you follow good DevOps practices, you already use Azure Resource Manager templates to define and deploy logic apps and their dependent resources These templates give you the capability to use parameter files that specify different configuration values to use for deployment, based on the destination region or environment, such as build, test, and production.
+If you follow good DevOps practices, you already use Azure Resource Manager templates to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use parameter files that specify different configuration values to use for deployment, based on the destination region or environment, such as build, test, and production.
 
-For example, this illustration shows primary and secondary logic apps, which are deployed to different locations in global multi-tenant Azure for this scenario. A single Resource Manager template defines both logic apps and the dependent resources required by those logic apps for deployment. Separate parameter files define the configuration values to use for deployment to each location:
+For example, this illustration shows primary and secondary logic app instances, which are deployed to separate locations in the global multi-tenant Azure for this scenario. A single Resource Manager template defines both the logic app instances and the dependent resources required by those logic apps. Separate parameter files specify the configuration values to use for each deployment location:
 
-![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
+![Primary and secondary logic app instances in separate locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
 
-This illustration shows the same primary and secondary logic apps, which are deployed to different and separate ISEs for this scenario. A single Resource Manager template defines both logic apps, the dependent resources required by those logic apps, and ISEs to use for deployment. Separate parameter files define the configuration values to use for deployment to each location:
+This illustration shows the same primary and secondary logic app instances but deployed to separate ISEs for this scenario. A single Resource Manager template defines both the logic app instances, the dependent resources required by those logic apps, and the ISEs as the deployment locations. Separate parameter files define the configuration values to use for deployment in each location:
 
 ![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations-ise.png)
 
@@ -91,14 +91,21 @@ The data gateway resource is associated with a location or Azure region, just li
 
 ## Active-active and active-passive roles
 
-You can set up your primary and secondary locations so that the logic app instances in those locations play these roles.
+You can set up your primary and secondary locations so that your logic app instances in these locations play these roles:
 
 | Primary-secondary role | Description |
 |------------------------|-------------|
-| *Active-active* | Logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen to an HTTP endpoint, and then load balance traffic between the two instances as necessary. <p>- You can have the secondary instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| *Active-passive* | The primary instance handles the entire workload, while the secondary instance is passive, or inactive. The secondary waits for a signal that the primary can no longer function due to a disruption. Upon receiving the signal, the secondary takes over as the active instance. |
-| Some combination of both | For example, some logic apps play an active-active role, while other logic apps play an active-passive role. |
+| *Active-active* | Both logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen to an HTTP endpoint and then load balance traffic between the two instances as necessary. <p>- Or, you can have the second instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
+| *Active-passive* | The primary logic app instance handles the entire workload, while the secondary instance stays passive or inactive. The secondary waits for a signal that when the primary can no longer function due to disruption, the secondary can take over as the active instance. |
+| Combination | Some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
+
+For example, here is an active-active setup where both logic app instances actively handle requests, but they either use a load balancer to distribute these requests, or they "compete" for requests from a queue:
+
+
+You can call or access the instances through a physical or "soft" load balancer and message queue:
+
+!["Active-active" pattern - ](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
 
 <a name="state-history"></a>
 
