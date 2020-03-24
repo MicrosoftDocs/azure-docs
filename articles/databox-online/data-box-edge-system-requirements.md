@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Box Edge system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Data Box Edge
+title: Microsoft Azure Stack Edge system requirements| Microsoft Docs
+description: Learn about the software and networking requirements for your Azure Stack Edge
 services: databox
 author: alkohli
 

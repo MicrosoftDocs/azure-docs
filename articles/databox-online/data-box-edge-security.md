@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge security | Microsoft Docs
-description: Describes the security and privacy features that protect your Azure Data Box Edge device, service, and data on-premises and in the cloud.
+title: Azure Stack Edge security | Microsoft Docs
+description: Describes the security and privacy features that protect your Azure Stack Edge device, service, and data on-premises and in the cloud.
 services: Data Box Edge
 author: alkohli
 
