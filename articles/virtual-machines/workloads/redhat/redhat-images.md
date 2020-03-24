@@ -43,22 +43,22 @@ az vm image list --publisher RedHat --all
 
 VM images in Azure are organized by publisher, offer, SKU, and version. The combination of Publisher:Offer:SKU:Version is the image URN and uniquely identifies the image to be used.
 
-For example, `RedHat:RHEL:7-LVM:7.6.2018103108` refers to a RHEL 7.6 LVM-partitioned image built on October 31, 2018.
+For example, `RedHat:RHEL:8-LVM:8.1.20200318` refers to a RHEL 8.1 LVM-partitioned image built on March 18, 2020.
 
-A sample of how to create a RHEL 7.6 VM is shown here.
+A sample of how to create a RHEL 8.1 VM is shown here.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:7.6.2018103108 --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:8.1.20200318 --no-wait
 ```
 
 ### The "latest" moniker
 
 The Azure REST API allows use of the moniker "latest" for the version instead of the specific version. Using "latest" provisions the latest available image for the given publisher, offer, and SKU.
 
-For example, `RedHat:RHEL:7-LVM:latest` refers to the latest RHEL 7 family LVM-partitioned image available.
+For example, `RedHat:RHEL:8-LVM:latest` refers to the latest RHEL 8 family LVM-partitioned image available.
 
 ```azurecli-interactive
-az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:latest --no-wait
+az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:latest --no-wait
 ```
 
 >[!NOTE]
