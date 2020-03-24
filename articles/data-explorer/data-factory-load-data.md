@@ -139,6 +139,9 @@ You can load your data in either of the following ways:
 
 The new Azure Data Explorer linked service is created to copy the data into the Azure Data Explorer destination table (sink) that's specified in this section.
 
+    > [!NOTE]
+    > If you’d like to use any of the [ingest from query commands], such as .set-or-replace, then you can use the [Azure Data Explorer Command] activity in ADF. This activity can be used for executing and control command. (https://kusto.azurewebsites.net/docs/management/data-ingestion/ingest-from-query.html?q=set-or-append)(https://docs.microsoft.com/en-us/azure/data-explorer/data-factory-command-activity)
+
 #### Create the Azure Data Explorer linked service
 
 To create the Azure Data Explorer linked service, do the following;
