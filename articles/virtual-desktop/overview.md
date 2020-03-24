@@ -128,7 +128,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 
 > [!IMPORTANT]
-> Windows Virtual Desktop doesn't yet support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
+> Windows Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
 
 The Remote Desktop clients must have access to the following URLs:
 
