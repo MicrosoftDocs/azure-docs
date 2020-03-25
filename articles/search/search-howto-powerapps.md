@@ -174,5 +174,5 @@ Now *AzureSearchQuery* is a data source that is available to be used from your a
 
 ## Next Steps
 
-To learn more about creating your own PowerApps, check the [PowerApps Learning Catalog](https://docs.microsoft.com/en-us/powerapps/learning-catalog/get-started)
+To learn more about creating your own PowerApps, check the [PowerApps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
 
