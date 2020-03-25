@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/25/2020
 ---
 
 # Security and data privacy in Azure Cognitive Search
@@ -52,7 +52,7 @@ All Azure services support role-based access controls (RBAC) for setting levels 
 
 <a name="service-access-and-authentication"></a>
 
-## Service access and authentication
+## Endpoint access
 
 ### Public access
 
@@ -69,19 +69,11 @@ There are two levels of access to your search service, enabled by two types of k
 
 Authentication is required on each request, where each request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels (full or read-only) plus the context (for example, a query operation on an index) are sufficient for providing full-spectrum security on service operations. For more information about keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-> [!Important]
-> **Private Endpoint** and **virtual network** support features for Azure Cognitive Search are available [upon request](https://aka.ms/SearchPrivateLinkRequestAccess) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
->
-> Once you are granted access to the preview, you'll be able to configure Private Endpoints for your service and create a virtual network using the Azure portal or the [Management REST API version 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
+### Restricted access
 
-The **IpRule** feature is in preview as well and can only be applied when using the [Management REST API version: 2019-10-01-Preview](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview).
->
+When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2020-03-13/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
 
-### Restricted access (preview)
-
-When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2019-10-01-Preview, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
-
-### Private access (preview)
+### Private access
 
 [Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). The private endpoint uses an IP address from the virtual network address space for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
@@ -97,11 +89,13 @@ Administrator and developer access to indexes is undifferentiated: both need wri
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
-## Admin access
+## Authentication
+
+### Admin access
 
 [Role-based access (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determines whether you have access to controls over the service and its content. If you are an Owner or Contributor on an Azure Cognitive Search service, you can use the portal or the PowerShell **Az.Search** module to create, update, or delete objects on the service. You can also use the [Azure Cognitive Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-## User access
+### User access
 
 By default, user access to an index is determined by the access key on the query request. Most developers create and assign [*query keys*](search-security-api-keys.md) for client-side search requests. A query key grants read access to all content within the index.
 
