@@ -1,6 +1,6 @@
 ---
-title: Log support ticket for Azure Data Box Edge, Azure Data Box Gateway | Microsoft Docs
-description: Learn how to log support request for issues related to your Data Box Edge or Data Box Gateway orders.
+title: Log support ticket for Azure Stack Edge, Azure Data Box Gateway | Microsoft Docs
+description: Learn how to log support request for issues related to your Azure Stack Edge or Data Box Gateway orders.
 services: databox
 author: alkohli
 ms.service: databox
@@ -10,9 +10,9 @@ ms.date: 07/11/2019
 ms.author: alkohli
 ---
 
-# Open a support ticket for Azure Data Box Edge and Azure Data Box Gateway
+# Open a support ticket for Azure Stack Edge and Azure Data Box Gateway
 
-This article applies to Azure Data Box Edge and Azure Data Box Gateway both of which are managed by the Azure Data Box Edge/Azure Data Box Gateway service. If you encounter any issues with your service, you can create a service request for technical support. This article walks you through:
+This article applies to Azure Stack Edge and Azure Data Box Gateway both of which are managed by the Azure Stack Edge / Azure Data Box Gateway service. If you encounter any issues with your service, you can create a service request for technical support. This article walks you through:
 
 * How to create a support request.
 * How to manage a support request lifecycle from within the portal.
@@ -21,13 +21,13 @@ This article applies to Azure Data Box Edge and Azure Data Box Gateway both of w
 
 Perform the following steps to create a support request:
 
-1. Go to your Data Box Edge or Data Box Gateway order. Navigate to **Support + troubleshooting** section and then select **New support request**.
+1. Go to your Azure Stack Edge or Data Box Gateway order. Navigate to **Support + troubleshooting** section and then select **New support request**.
    
 2. In **New support request**, on the **Basics** tab, take the following steps:
     
     1. From the **Issue type** dropdown list, select **Technical**.
     2. Choose your **Subscription**.
-    3. Under **Service**, check **My Services**. From the dropdown list, select **Data Box Edge and Data Box Gateway**.
+    3. Under **Service**, check **My Services**. From the dropdown list, select **Azure Stack Edge and Data Box Gateway**.
     4. Select your **Resource**. This corresponds to the name of your order.
     5. Provide a brief **Summary** of the issue you are experiencing. 
     6. Select your **Problem type**.
@@ -60,9 +60,9 @@ Perform the following steps to create a support request:
 
 ## Get hardware support
 
-This information only applies to Data Box Edge device. The process to report hardware issues is as follows:
+This information only applies to Azure Stack device. The process to report hardware issues is as follows:
 
-1. Open a Support ticket from the Azure portal for a hardware issue. Under **Problem type**, select **Data Box Edge Hardware**. Choose the **Problem subtype** as **Hardware failure**. 
+1. Open a Support ticket from the Azure portal for a hardware issue. Under **Problem type**, select **Azure Stack Hardware**. Choose the **Problem subtype** as **Hardware failure**. 
 
     ![Hardware issue](./media/data-box-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
@@ -94,5 +94,5 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
    
 ## Next steps
 
-Learn how to [Troubleshoot issues related to Data Box Edge](data-box-edge-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Azure Stack Edge](data-box-edge-troubleshoot.md).
 Learn how to [Troubleshoot issues related to Data Box Gateway](data-box-gateway-troubleshoot.md).
