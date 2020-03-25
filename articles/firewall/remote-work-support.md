@@ -4,7 +4,7 @@ description: This article shows how Azure Firewall can support your remote work 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: victorh
 ---
