@@ -179,9 +179,9 @@ The **Location** - The location the connection was initiated from:
 
 - **Not applied**: No policy applied to the user and application during sign-in.
 
-- **Success**: One or more Conditional Access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
+- **Success**: One or more conditional access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
 
-- **Failure**: One or more Conditional Access policies applied and was not satisfied during sign-in.
+- **Failure**: One or more conditional access policies applied and was not satisfied during sign-in.
 
 
 
