@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
+ms.custom: fasttrack-edit
 ---
 
 # Migrate bulk data to Azure File Sync
