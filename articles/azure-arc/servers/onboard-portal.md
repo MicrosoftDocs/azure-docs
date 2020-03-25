@@ -149,58 +149,6 @@ After you install the agent and configure it to connect to Azure Arc for servers
 
 ![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
-## Clean up
-
-To disconnect a machine from Azure Arc for servers (preview), do the following:
-
-1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
-
-1. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
-
-1. To uninstall the Windows agent from the machine, do the following:
-
-    a. Sign in to the computer with an account that has administrator permissions.  
-    b. In **Control Panel**, select **Programs and Features**.  
-    c. In **Programs and Features**, select **Azure Connected Machine Agent**, select **Uninstall**, and then select **Yes**.  
-
-    >[!NOTE]
-    > You can also run the agent setup wizard by double-clicking the **AzureConnectedMachineAgent.msi** installer package.
-
-    If you want to script removal of the agent, you can use the following example, which retrieves the product code and uninstalls the agent by using the Msiexec.exe command line - `msiexec /x {Product Code}`. To do so:  
-    
-    a. Open the Registry Editor.  
-    b. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.  
-    c. You can then uninstall the agent by using Msiexec.
-
-    The following example demonstrates how to uninstall the agent:
-
-    ```powershell
-    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-    Get-ItemProperty | `
-    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
-    ```
-
-1. To uninstall the Linux agent, the command to use depends on the Linux operating system.
-
-    - For Ubuntu, run the following command:
-
-      ```bash
-      sudo apt purge azcmagent
-      ```
-
-    - For RHEL, CentOS, and Amazon Linux, run the following command:
-
-      ```bash
-      sudo yum remove azcmagent
-      ```
-
-    - For SLES, run the following command:
-
-      ```bash
-      sudo zypper remove azcmagent
-      ```
-
 ## Next steps
 
 - Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), and much more.
