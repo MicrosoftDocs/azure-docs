@@ -227,5 +227,5 @@ For example, you can't join a temporary table with data from files in storage. T
 
 ## Next steps
 
-To learn more about developing tables, see the [Designing tables using the SQL Analytics resources](development-tables-overview.md) article.
+To learn more about developing tables, see the [Designing tables using the SQL Analytics resources](sql-data-warehouse-tables-overview.md) article.
 

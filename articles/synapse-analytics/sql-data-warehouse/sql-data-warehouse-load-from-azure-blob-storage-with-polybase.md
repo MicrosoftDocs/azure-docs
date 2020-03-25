@@ -287,7 +287,7 @@ For more information on maintaining columnstore indexes, see the [manage columns
 
 It's best to create single-column statistics immediately after a load. If you know certain columns aren't going to be in query predicates, you can skip creating statistics on those columns. If you create single-column statistics on every column, it might take a long time to rebuild all the statistics. 
 
-If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics](../synapse-analytics/sql-analytics/development-tables-statistics.md) article.
+If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics](sql-data-warehouse-tables-statistics.md) article.
 
 The following example is a good starting point for creating statistics. It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables. You can always add single or multi-column statistics to other fact table columns later on.
 
@@ -348,4 +348,4 @@ GROUP BY p.[BrandName]
 
 ## Next steps
 To load the full data set, run the example [load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
-For more development tips, see [Design decisions and coding techniques for data warehouses](../synapse-analytics/sql-analytics/development-overview.md).
+For more development tips, see [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).

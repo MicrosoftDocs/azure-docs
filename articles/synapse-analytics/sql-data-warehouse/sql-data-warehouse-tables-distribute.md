@@ -131,7 +131,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 
 To identify which tables have more than 10% data skew:
 
-1. Create the view dbo.vTableSizes that is shown in the [Tables overview](../synapse-analytics/sql-analytics/development-tables-overview.md#table-size-queries) article.  
+1. Create the view dbo.vTableSizes that is shown in the [Tables overview](sql-data-warehouse-tables-overview.md#table-size-queries) article.  
 2. Run the following query:
 
 ```sql

@@ -344,4 +344,4 @@ Check the execution plan of the original query again.  Now the number of joins c
 With materialized views, the same query runs much faster without any code change.  
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview](development-overview.md).
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

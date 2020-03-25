@@ -64,32 +64,32 @@ Before you can run a test, you will need to create the table in your data wareho
 ```sql
 CREATE TABLE SensorLog
 (
-	RecordType VARCHAR(2)
-	, SystemIdentity VARCHAR(2)
-	, FileNum INT
-	, SwitchNum VARCHAR(50)
-	, CallingNum VARCHAR(25)
-	, CallingIMSI VARCHAR(25)
-	, CalledNum VARCHAR(25)
-	, CalledIMSI VARCHAR(25)
-	, DateS VARCHAR(25)
-	, TimeS VARCHAR(25)
-	, TimeType INT
-	, CallPeriod INT
-	, CallingCellID VARCHAR(25)
-	, CalledCellID VARCHAR(25)
-	, ServiceType VARCHAR(25)
-	, [Transfer] INT
-	, IncomingTrunk VARCHAR(25)
-	, OutgoingTrunk VARCHAR(25)
-	, MSRN VARCHAR(25)
-	, CalledNum2 VARCHAR(25)
-	, FCIFlag VARCHAR(25)
-	, callrecTime VARCHAR(50)
-	, EventProcessedUtcTime VARCHAR(50)
-	, PartitionId int
-	, EventEnqueuedUtcTime VARCHAR(50)
-	)
+    RecordType VARCHAR(2)
+    , SystemIdentity VARCHAR(2)
+    , FileNum INT
+    , SwitchNum VARCHAR(50)
+    , CallingNum VARCHAR(25)
+    , CallingIMSI VARCHAR(25)
+    , CalledNum VARCHAR(25)
+    , CalledIMSI VARCHAR(25)
+    , DateS VARCHAR(25)
+    , TimeS VARCHAR(25)
+    , TimeType INT
+    , CallPeriod INT
+    , CallingCellID VARCHAR(25)
+    , CalledCellID VARCHAR(25)
+    , ServiceType VARCHAR(25)
+    , [Transfer] INT
+    , IncomingTrunk VARCHAR(25)
+    , OutgoingTrunk VARCHAR(25)
+    , MSRN VARCHAR(25)
+    , CalledNum2 VARCHAR(25)
+    , FCIFlag VARCHAR(25)
+    , callrecTime VARCHAR(50)
+    , EventProcessedUtcTime VARCHAR(50)
+    , PartitionId int
+    , EventEnqueuedUtcTime VARCHAR(50)
+    )
 WITH (DISTRIBUTION = ROUND_ROBIN)
 ```
 
@@ -119,5 +119,5 @@ click on the ***Start*** button on the start job pane.
 ## Next steps
 
 For an overview of integration, see [Integrate other services](sql-data-warehouse-overview-integrate.md).
-For more development tips, see [ Design decisions and coding techniques for data warehouses](../synapse-analytics/sql-analytics/development-overview.md).
+For more development tips, see [ Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).
 

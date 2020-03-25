@@ -156,7 +156,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](../synapse-analytics/sql-analytics/data-loading-overview.md) and  [Loading best practices](../synapse-analytics/sql-analytics/data-loading-best-practices.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
 
 ## System views
 

@@ -43,7 +43,7 @@ First, choose by Compliance title. Then expand Azure in the Microsoft in-scope c
 
 Q. Can I connect Power BI?
 
-A. Yes! Though Power BI supports direct query with Azure Synapse, it’s not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
+A. Yes! Though Power BI supports direct query with Azure Synapse, it's not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
 
 Q. What are SQL Analytics capacity limits?
 
@@ -71,11 +71,11 @@ A. [Support Tickets](sql-data-warehouse-get-started-create-support-ticket.md) ca
 
 Q. What data types are supported?
 
-A. See  [data types](../synapse-analytics/sql-analytics/development-tables-data-types.md).
+A. See  [data types](sql-data-warehouse-tables-data-types.md).
 
 Q. What table features do you support?
 
-A. Many features are supported. Features that aren't supported can be found in [Unsupported Table Features](../synapse-analytics/sql-analytics/development-tables-data-types.md).
+A. Many features are supported. Features that aren't supported can be found in [Unsupported Table Features](sql-data-warehouse-tables-data-types.md).
 
 ## Tooling and administration
 
@@ -89,7 +89,7 @@ A. Yes. Most REST functionality that can be used with SQL Database is also avail
 
 Q. What client drivers do you support?
 
-A. Driver support for SQL Analytics can be found on the [Connection Strings](../synapse-analytics/sql-analytics/connection-strings.md) page
+A. Driver support for SQL Analytics can be found on the [Connection Strings](sql-data-warehouse-connection-strings.md) page
 
 Q: What file formats are supported by PolyBase?
 

@@ -47,7 +47,7 @@ There are a few scenarios where clustered columnstore may not be a good option:
 
 ## Heap tables
 
-When you are temporarily landing data in SQL Data Warehouse, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](../synapse-analytics/sql-analytics/development-tables-temporary.md) loads faster than loading a table to permanent storage.  
+When you are temporarily landing data in SQL Data Warehouse, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
 
 For small lookup tables, less than 60 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 60 million rows.
 
@@ -282,4 +282,4 @@ For more details about re-creating partitions using CTAS, see [Using partitions 
 
 ## Next steps
 
-For more information about developing tables, see [Developing tables](../synapse-analytics/sql-analytics/development-tables-overview.md).
+For more information about developing tables, see [Developing tables](sql-data-warehouse-tables-overview.md).

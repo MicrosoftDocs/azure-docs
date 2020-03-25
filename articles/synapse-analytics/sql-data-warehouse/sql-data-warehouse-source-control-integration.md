@@ -27,7 +27,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Create Project](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Create Project")
 
-2. Open Visual Studio and connect to your Azure DevOps organization and project from step 1 by selecting “Manage Connections”
+2. Open Visual Studio and connect to your Azure DevOps organization and project from step 1 by selecting "Manage Connections"
 
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
@@ -75,4 +75,4 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Next steps
 
-- [Developing for Developing for SQL pool](../synapse-analytics/sql-analytics/development-overview.md)
+- [Developing for Developing for SQL pool](sql-data-warehouse-overview-develop.md)

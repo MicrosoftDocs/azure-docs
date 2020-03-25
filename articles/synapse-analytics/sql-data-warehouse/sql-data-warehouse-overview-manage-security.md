@@ -41,7 +41,7 @@ Authentication refers to how you prove your identity when connecting to the data
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
-However, as a best practice, your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
+However, as a best practice, your organization's users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
 To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  It's a good idea to also create a user in the master database. Creating a user in master allows a user to log in using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.
 
@@ -94,4 +94,4 @@ In SQL Database, the database encryption key is protected by a built-in server c
 You can encrypt your database using the [Azure portal](sql-data-warehouse-encryption-tde.md) or [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Next steps
-For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL pool](../synapse-analytics/sql-analytics/connect-overview.md).
+For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).

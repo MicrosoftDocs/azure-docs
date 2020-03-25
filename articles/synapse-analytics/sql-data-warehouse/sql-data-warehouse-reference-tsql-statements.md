@@ -22,7 +22,7 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 | ---- | ---- | ---- |
 | [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx) | Yes      | Yes           |
 | [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx) | Yes      | No          |
-| [ALTER MATERIALIZED VIEW](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (Preview)  | Yes      | No          |
+| [ALTER MATERIALIZED VIEW](/sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)) (Preview)  | Yes      | No          |
 | [ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx) | Yes      | No          |
 | [ALTER SCHEMA](https://msdn.microsoft.com/library/ms173423.aspx) | Yes      | Yes           |
 | [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) | Yes      | No          |
@@ -32,10 +32,10 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 | [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) | Yes      | Yes           |
 | [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx) | Yes      | Yes           |
 | [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) | Yes      | Yes           |
-| [CREATE EXTERNAL TABLE AS SELECT](../synapse-analytics/sql-analytics/development-tables-cetas.md) | No | Yes |
+| [CREATE EXTERNAL TABLE AS SELECT]( /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | No | Yes |
 | [CREATE FUNCTION](https://msdn.microsoft.com/library/mt203952.aspx) | Yes      | No          |
 | [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx) | Yes      | Yes (on temp tables only) |
-| [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (Preview)  | Yes      | No          |
+| [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)) (Preview)  | Yes      | No          |
 | [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx) | Yes      | No          |
 | [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx) | Yes      | Yes           |
 | [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx) | Yes      | Yes           |
@@ -52,9 +52,9 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 | [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx) | Yes      | Yes           |
 | [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx) | Yes      | Yes           |
 | [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx) | Yes      | Yes           |
-| [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql) | Yes      | No          |
+| [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)) | Yes      | No          |
 | [RENAME](https://msdn.microsoft.com/library/mt631611.aspx) | Yes      | No          |
-| [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql)  | Yes      | No          |
+| [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))  | Yes      | No          |
 | [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx) | Yes      | Yes           |
 | [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx) | Yes      | No          |
 
@@ -100,7 +100,7 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 | [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx) | Yes      | Yes           |
 | [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)   | Yes      | Yes           |
 | [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx) | Yes      | Yes           |
-| [OPENROWSET](../synapse-analytics/sql-analytics/development-openrowset.md) | No       | Yes           |
+| [OPENROWSET](../sql-analytics/development-openrowset.md) | No       | Yes           |
 | [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)   | Yes      | No            |
 | [UNION](https://msdn.microsoft.com/library/ms180026.aspx)    | Yes      | Yes           |
 | [WHERE](https://msdn.microsoft.com/library/ms188047.aspx)    | Yes      | Yes           |
