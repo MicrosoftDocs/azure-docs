@@ -1,5 +1,7 @@
 ---
-title: Boot Error – This is not a Bootable Disk | Microsoft Docs
+title: Boot Error – This 
+
+a Bootable Disk | Microsoft Docs
 description: This article provides steps to resolve issues where the disk isn't bootable in an Azure Virtual Machine
 services: virtual-machines-windows
 documentationcenter: ''
@@ -25,7 +27,7 @@ This article provides steps to resolve issues where the disk isn't bootable in a
 
 ## Symptoms
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays a prompt with the message 'This is not a bootable disk. Please insert a bootable floppy and press any key to try again...'.
+When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you'll see that the screenshot displays a prompt with the message 'This is not a bootable disk. Please insert a bootable floppy and press any key to try again...'.
 
    Figure 1
 
@@ -33,7 +35,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 ## Cause
 
-If you encounter this error message, it means that the OS boot process could not locate an active system partition. Alternatively, it could mean that there is a missing reference in the Boot Configuration Data (BCD) store, which is preventing it from locating the Windows partition.
+This error message means the OS boot process couldn't locate an active system partition. This error could also mean that there's a missing reference in the Boot Configuration Data (BCD) store, preventing it from locating the Windows partition.
 
 ## Solution
 
@@ -46,7 +48,7 @@ If you encounter this error message, it means that the OS boot process could not
 5. Rebuild the Original VM
 
    > [!NOTE]
-   > When encountering this boot error, the Guest OS is not operational. You will be troubleshooting in offline mode to resolve this issue.
+   > When encountering this boot error, the Guest OS isn't operational. You'll be troubleshooting in offline mode to resolve this issue.
 
 ### Create and Access a Repair VM
 
@@ -64,24 +66,24 @@ Generation 1 VMs should first verify that the OS partition, which holds the BCD 
 
    Figure 2
 
-   ![Figure 2 shows the *diskpart* window showing the output of list disk command, Disk 0 and Disk 1 displayed in the table.  Also shows output of the sel disk 1 command, Disk 1 is the selected disk](media/troubleshoot-guide-not-a-bootable-disk/2.jpg)
+   ![Figure 2 shows the *DISKPART* window showing the output of list disk command, Disk 0 and Disk 1 displayed in the table.  Also shows output of the sel disk 1 command, Disk 1 is the selected disk](media/troubleshoot-guide-not-a-bootable-disk/2.jpg)
 
 5. Once the disk is selected, enter *list partition* to list the partitions of the selected disk
 6. Once the boot partition is identified, enter *sel partition #* to select the partition.  Usually the boot partition will be around 350 MB in size.  See Figure 3, where Partition 1 is the boot partition.
 
    Figure 3
 
-   ![Figure 3 shows the diskpart window with the output of the *list partition* command. Partition 1 and Partition 2 are displayed in the table. It also shows the output of the *sel partition 1* command, when Partition 1 is the selected disk.](media/troubleshoot-guide-not-a-bootable-disk/3.jpg)
+   ![Figure 3 shows the *DISKPART* window with the output of the *list partition* command. Partition 1 and Partition 2 are displayed in the table. It also shows the output of the *sel partition 1* command, when Partition 1 is the selected disk.](media/troubleshoot-guide-not-a-bootable-disk/3.jpg)
 
 7. Enter 'detail partition' to check the status of the partition. See Figure 4, where the partition is *Active: No*, or Figure 5, where the partition is 'Active: Yes'.
 
    Figure 4
 
-   ![Figure 4 shows the diskpart window with the output of the *detail partition* command, when Partition 1 is set to *Active: No*](media/troubleshoot-guide-not-a-bootable-disk/4.jpg)
+   ![Figure 4 shows the *DISKPART* window with the output of the *detail partition* command, when Partition 1 is set to *Active: No*](media/troubleshoot-guide-not-a-bootable-disk/4.jpg)
 
    Figure 5
 
-   ![Figure 5 shows the diskpart window with the output of the *detail partition* command, when Partition 1 is set to *Active:  Yes*.](media/troubleshoot-guide-not-a-bootable-disk/5.jpg)
+   ![Figure 5 shows the *DISKPART* window with the output of the *detail partition* command, when Partition 1 is set to *Active:  Yes*.](media/troubleshoot-guide-not-a-bootable-disk/5.jpg)
 
 8. If the partition is **Not Active**, enter *active* to change the *Active* flag.
 9. Check that the status change was done properly by typing *detail partition*.
@@ -95,7 +97,7 @@ Generation 1 VMs should first verify that the OS partition, which holds the BCD 
 ### Fix the Disk Partition
 
 1. Open an elevated command prompt (cmd.exe).
-2. Use the following command to run *CHKDSK* on the disk(s) and perform error fixes:
+2. Use the following command to run *CHKDSK* on the disk(s) and fix errors:
 
    `chkdsk <DRIVE LETTER>: /f`
 
