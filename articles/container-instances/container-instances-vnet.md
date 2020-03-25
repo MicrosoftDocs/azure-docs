@@ -2,7 +2,7 @@
 title: Deploy container group to Azure virtual network
 description: Learn how to deploy container groups to a new or existing Azure virtual network.
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 03/25/2020
 ms.author: danlep
 
 ---
@@ -18,6 +18,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * Retrieve content for container instances from a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) in the virtual network
 * Container communication with virtual machines in the virtual network
 * Container communication with on-premises resources through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)
+* 
 
 > [!IMPORTANT]
 > Container group deployments to a virtual network are generally available for production workloads only in the following regions: **East US, South Central US, and West US 2**. In other regions where the feature is available, virtual network deployments are currently in preview, with general availability planned in the near future. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. 
@@ -40,10 +41,9 @@ Container resource limits may differ from limits for non-networked container ins
 
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
 * **Virtual network peering**
-  * VNet peering will not work for ACI if the network that the ACI VNet is peering to uses a public IP space. The peered network needs an RFC 1918 private IP space in order for VNet peering to work. 
-  * You can only peer your VNet to one other VNet
-* **Virtual network traffic routing** - Custom routes cannot be set up around public IPs. Routes can be set up within the private IP space of the delegated subnet in which the ACI resources are deployed 
-* **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
+  * You can only peer your virtual network to one other virtual network
+  * Global virtual network peering (connecting virtual networks across Azure regions) is not supported
+* **Private link** - Accessing Azure resources at a private endpoint over a private link is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
 * **Internal name resolution** - Name resolution for Azure resources in the virtual network via the internal Azure DNS is not supported
 
