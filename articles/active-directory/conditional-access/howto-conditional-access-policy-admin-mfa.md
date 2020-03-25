@@ -68,6 +68,8 @@ The following steps will help create a Conditional Access policy to require thos
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
+Note: If "All cloud apps" or "Microsoft Azure management" is selected, the logged administrator will be added to the exclusion list for the conditional access policy, so the risk of all administrators losing access to Azure management portal is mitigated. To have more information about actions to avoid doing, see this article. https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/best-practices#what-you-should-avoid-doing
+
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
