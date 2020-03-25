@@ -26,7 +26,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 #### Symptom
 
-When you add an TLS binding, you receive the following error message:
+When you add a TLS binding, you receive the following error message:
 
 "Failed to add SSL binding. Cannot set certificate for existing VIP because another VIP already uses that certificate."
 
