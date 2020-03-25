@@ -18,7 +18,7 @@ This article describes guidance and best practices as you develop your data ware
 ## Development best practices for SQL Analytics
 
 ### Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
 
 
 ### Maintain statistics
@@ -86,28 +86,28 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md
-[Create table as select (CTAS)]: ../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md
+[Create a support ticket]: ../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Create table as select (CTAS)]: ../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Table overview]:development-tables-overview.md
-[Table distribution]: ../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md
-[Table indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md
-[Causes of poor columnstore index quality]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: ../../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: ../../sql-data-warehouse/sql-data-warehouse-tables-partition.md
+[Table distribution]: ../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Table indexes]: ../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Causes of poor columnstore index quality]: ../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Rebuilding columnstore indexes]: ../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Table partitioning]: ../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Temporary tables]: ./development-tables-temporary.md
 [Guide for using PolyBase]:data-loading-best-practices.md
-[Load data]: ../../sql-data-warehouse/esign-elt-data-loading.md
-[Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md
+[Load data]: ../sql-data-warehouse/esign-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Move data with Azure Data Factory]: ../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Load data with Azure Data Factory]: ../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Load data with bcp]: /sql/tools/bcp-utility
-[Load data with PolyBase]: ../../sql-data-warehouse/load-data-wideworldimportersdw.md
-[Monitor your workload using DMVs]: ../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Load data with PolyBase]: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Monitor your workload using DMVs]: ../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Pause compute resources]: ../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#pause-compute-bk?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Resume compute resources]: ../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#resume-compute-bk?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Scale compute resources]: ../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scale-compute?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [Understanding transactions]:development-transactions.md
-[Optimizing transactions]: ../../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md
+[Optimizing transactions]: ../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+[Troubleshooting]: ../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 [LABEL]: development-label.md
 
 <!--MSDN references-->

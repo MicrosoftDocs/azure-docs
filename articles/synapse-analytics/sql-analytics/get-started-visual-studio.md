@@ -30,8 +30,8 @@ Visual studio is not currently supported for SQL on-demand (preview). However, A
 ## Prerequisites
 To use this tutorial, you need to have the following components:
 
-* An existing SQL pool. If you do not have one, see [Create a SQL pool](../../sql-data-warehouse/create-data-warehouse-portal.md) to complete this prerequisite.
-* SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+* An existing SQL pool. If you do not have one, see [Create a SQL pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to complete this prerequisite.
+* SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 * The fully qualified SQL server name. To find this, see [Connect to SQL pool](connect-overview.md).
 
 ## 1. Connect to SQL pool
@@ -75,5 +75,5 @@ Now that a connection has been established to your database, you'll write a quer
 
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](../../sql-data-warehouse/sql-data-warehouse-authentication.md).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

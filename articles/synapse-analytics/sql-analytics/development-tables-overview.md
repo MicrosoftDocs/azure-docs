@@ -98,7 +98,7 @@ For more information, see  [Temporary tables](development-tables-temporary.md).
 
 [External tables](development-tables-external-tables.md) point to data located in Azure Storage blob or Azure Data Lake Storage. 
 
-Import data from external tables into SQL pool using the [CREATE TABLE AS SELECT](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+Import data from external tables into SQL pool using the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 For SQL on-demand, you can use [CETAS](development-tables-cetas.md) to save the query result to an external table in Azure Storage.
 
@@ -108,7 +108,7 @@ SQL pool supports the most commonly used data types. For a list of the supported
 
 ## Distributed tables
 
-A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](../../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions).  SQL pool supports three methods for distributing data: 
+A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md#distributions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  SQL pool supports three methods for distributing data: 
 
 - Round-robin (default)
 - Hash
@@ -118,19 +118,19 @@ A fundamental feature of SQL pool is the way it can store and operate on tables 
 
 A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 
 
-For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+For more information, see [Design guidance for distributed tables](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Replicated tables
 
 A replicated table has a full copy of the table available on every Compute node. Queries run fast on replicated tables because joins on replicated tables don't require data movement. Replication requires extra storage, though, and isn't practical for large tables. 
 
-For more information, see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md).
+For more information, see [Design guidance for replicated tables](../sql-data-warehouse/design-guidance-for-replicated-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Round-robin tables
 
 A round-robin table distributes table rows evenly across all distributions. The rows are distributed randomly. Loading data into a round-robin table is fast.  But, queries can require more data movement than the other distribution methods. 
 
-For more information, see [Design guidance for distributed tables](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
+For more information, see [Design guidance for distributed tables](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Common distribution methods for tables
 The table category often determines the optimal option for table distribution.
@@ -145,7 +145,7 @@ The table category often determines the optimal option for table distribution.
 
 In SQL pool, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. 
 
-You can also maintain the data through partition switching. Since the data in SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md).  
+You can also maintain the data through partition switching. Since the data in SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
 > When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. 
@@ -195,7 +195,7 @@ Statistical updating doesn't happen automatically. Update statistics after a sig
 
 ## Primary key and unique key
 
-PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [SQL pool Table Constraints](../../sql-data-warehouse/sql-data-warehouse-table-constraints.md) article.
+PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.  UNIQUE constraint is only supported when NOT ENFORCED is used.  For more information, see the [SQL pool Table Constraints](../sql-data-warehouse/sql-data-warehouse-table-constraints.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article.
 
 ## Commands for creating tables
 
@@ -225,7 +225,7 @@ SQL pool supports many, but not all, of the table features offered by other data
 - [Indexed Views](https://docs.microsoft.com/sql/relational-databases/views/create-indexed-views?view=sql-server-ver15)
 - [Sequence](https://docs.microsoft.com/sql/t-sql/statements/create-sequence-transact-sql?view=sql-server-ver15)
 - [Sparse Columns](https://docs.microsoft.com/sql/relational-databases/tables/use-sparse-columns?view=sql-server-ver15)
-- Surrogate Keys, implement with [Identity](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md)
+- Surrogate Keys, implement with [Identity](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Synonyms](https://docs.microsoft.com/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver15)
 - [Triggers](https://docs.microsoft.com/sql/t-sql/statements/create-trigger-transact-sql?view=sql-server-ver15)
 - [Unique Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql?view=sql-server-ver15)
@@ -432,4 +432,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-sql-pool).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-sql-pool?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

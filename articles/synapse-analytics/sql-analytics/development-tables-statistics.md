@@ -525,7 +525,7 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL pool compared to SQL 
 
 ### Next steps
 
-For further improve query performance, see [Monitor your workload](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md)
+For further improve query performance, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 
 
