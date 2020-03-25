@@ -1,66 +1,27 @@
 ---
-title: 'Quickstart: Custom voice assistant for Java (Windows, Linux) - Speech service'
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Cognitive Services Speech SDK in a Java console application. You'll learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice assistant experience.
-services: cognitive-services
-author: IEvangelist
-manager: nitinme
-
+author: trrwilson
 ms.service: cognitive-services
-ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
+ms.topic: include
+ms.date: 03/20/2020
+ms.author: travisw
 ---
-
-# Quickstart: Create a voice assistant with the Speech SDK, Java (Preview)
-
-Quickstarts are also available for [speech-to-text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [text-to-speech](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre), and [speech translation](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
-
-In this article, you create a Java console application by using the [Azure Cognitive Services Speech SDK](speech-sdk.md). The application connects to a previously authored bot configured to use the Direct Line Speech channel, sends a voice request, and returns a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-- Operating system: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), RHEL/CentOS 8 (x64), or macOS 10.13 or later.
-- [Eclipse Java IDE](https://www.eclipse.org/downloads/).
-- [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it in the [Azure portal](https://portal.azure.com).
-- A preconfigured bot created by using Bot Framework version 4.2 or above. The bot needs to subscribe to the new Direct Line Speech channel to receive voice inputs.
+> [!div class="checklist"]
+> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre)
+> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Make sure that you have access to a microphone for audio capture
 
   > [!NOTE]
-  > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
-
-If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before you start Eclipse:
-
-```sh
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
-
-On RHEL/CentOS 8:
-
-```sh
-sudo yum update
-sudo yum groupinstall "Development tools"
-sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
-```
-
-> [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-If you're running Windows (64-bit), make sure you installed the Microsoft Visual C++ Redistributable for your platform:
-
-- [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-
-## Optional: Get started fast
-
-This quickstart describes, step by step, how to make a simple client application to connect to your speech-enabled bot. If you want to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+  > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Create and configure project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 Additionally, to enable logging, update the _pom.xml_ file to include the following dependency:
 
@@ -78,7 +39,7 @@ Additionally, to enable logging, update the _pom.xml_ file to include the follow
 
 1. In the **New Java Class** window, enter _speechsdk.quickstart_ in the **Package** field and _Main_ in the **Name** field.
 
-   ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](~/articles/cognitive-services/speech-service/media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Open the newly created `Main` class, and replace the contents of the `Main.java` file with the following starting code:
 
@@ -149,11 +110,11 @@ Additionally, to enable logging, update the _pom.xml_ file to include the follow
 
 1. In the `main` method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
 
-   - Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](get-started.md).
-   - Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
+   - Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](~/articles/cognitive-services/speech-service/get-started.md).
+   - Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/speech-service/regions.md) associated with your subscription.
 
    > [!NOTE]
-   > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+   > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    ```java
    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
@@ -472,19 +433,8 @@ Select F11, or select **Run** > **Debug**.
 The console displays the message "Say something."
 At this point, speak an English phrase or sentence that your bot can understand. Your speech is transmitted to your bot through the Direct Line Speech channel where it's recognized and processed by your bot. The response is returned as an activity. If your bot returns speech as a response, the audio is played back by using the `AudioPlayer` class.
 
-![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-08-console-output.png)
+![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-08-console-output.png)
 
 ## Next steps
 
-Additional samples, such as how to read speech from an audio file, are available on GitHub.
-
-> [!div class="nextstepaction"]
-> [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-
-## See also
-
-- [About voice assistants](voice-assistants.md)
-- [Get a Speech service subscription key for free](get-started.md)
-- [Custom keywords](speech-devices-sdk-create-kws.md)
-- [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-- [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]

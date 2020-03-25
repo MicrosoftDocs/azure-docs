@@ -101,12 +101,6 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
 
-## Quotas
-Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  For more details on quota limits:
-
-* [Azure Subscription Service Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-
-
 ## Storage
 * [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Add a disk to a Linux VM using the azure-cli](add-disk.md)
