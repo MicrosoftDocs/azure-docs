@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/25/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -34,6 +34,202 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items that are older than six months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
+## March 2020
+
+[866644](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=866644&triage=true&fullScreen=false&_a=edit)
+
+### Users with the default access role will be in scope for provisioning
+
+**Type:** Plan for change  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+ 
+Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. We're working on deploying a change so that all new provisioning configurations will allow users with the default access role to be provisioned. Gradually, we'll change the behavior for existing provisioning configurations to support provisioning users with this role. No customer action is required. We'll post an update to our documentation once this behavior change is in place.
+
+---
+
+[595810](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=595810&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD B2B collaboration will be available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) tenants
+
+**Type:** Plan for change  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+The Azure AD B2B collaboration capabilities will be made available in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) tenants, enabling users in an Azure China 21Vianet tenant to collaborate seamlessly with users in other Azure China 21Vianet tenants. [Learn more information about Azure AD B2B collaboration](https://docs.microsoft.com/azure/active-directory/b2b/).
+
+---
+ 
+[882848](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=882848&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD B2B Collaboration invitation email redesign
+
+**Type:** Plan for change  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+The [emails](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) that are sent by the Azure AD B2B collaboration invitation service to invite users to the directory will be redesigned to make information about the invitation and what to do with it more clear.
+
+---
+
+[725442](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=725442&triage=true&fullScreen=false&_a=edit)
+
+### The new My Account experience is now GA! 
+
+**Type:** New feature  
+**Service category:** My Profile/Account  
+**Product capability:** End User Experiences
+
+My Account, the one stop shop for all end user account management needs, is now GA! End users can access this new site via [URL](https://myworkaccount.microsoft.com/), or in the header of the new My Apps experience. Learn more about all the self-service capabilities the new experience offers at [My Account Portal Overview](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+
+---
+
+[880054](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=880054&triage=true&fullScreen=false&_a=edit)
+
+### My Account site URL updating to myaccount.microsoft.com
+
+**Type:** Fixed  
+**Service category:** My Profile/Account  
+**Product capability:** End User Experiences
+ 
+The new My Account end user experience will be updating its URL to https://myaccount.microsoft.com in the next month. Find more information about the experience and all the account self-service capabilities it offers to end users at [My Account portal help](https://docs.microsoft.com/azure/active-directory/user-help/my-account-portal-overview).
+
+---
+
+[423568](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=423568&triage=true&fullScreen=false&_a=edit)
+
+### Custom role creation for Azure RBAC, now in the Azure portal
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+ 
+We are happy to announce that you can now create, edit, or delete a custom role without ever leaving the Azure Portal! In the past, this capability was only available through command line tools or the Azure Resource Manager API. For more information, see the [new portal-based documentation](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal).
+
+---
+
+[539640](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=539640&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD B2B Collaboration available in Azure Government tenants
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+The Azure AD B2B collaboration features are now available between some Azure Government tenants.  To find out if your tenant is able to use these capabilities, follow the instructions at [How can I tell if B2B collaboration is available in my Azure US Government tenant?](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
+
+---
+
+[891882](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=891882&triage=true&fullScreen=false&_a=edit)
+
+### Azure Monitor integration for Azure Logs is now available in Gov Cloud
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+Azure Monitor integration with Azure AD logs is now available in Gov Cloud. You can route Azure AD Logs (Audit and Sign-in Logs) to a storage account, Event Hub and Log Analytics. Please check out the [detailed documentation](https://aka.ms/aadlogsinamd) as well as [deployment plans for reporting and monitoring](https://docs.microsoft.com/azure/active-directory/reports-monitoring/plan-monitoring-and-reporting) for Azure AD scenarios.
+
+---
+
+[596564](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=596564&triage=true&fullScreen=false&_a=edit)
+
+### "Last Signed-in Date" attribute for Azure AD user object is now available through MS graph API (Public Preview)
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+The last sign-in provides potential insight into a user's continued need for access to resources.  It can help with determining if group membership or app access is still need or could be removed.  For external user management, you can understand if an external user is still active within the tenant or should be cleaned up. Users can now use the [MS Graph API to access the "Last signed-in date" attribute](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta) for a given user.
+
+The following is an example of a supported scenario:
+
+`https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'Dhanyah')&$select=displayName,signInActivity`
+
+---
+
+[965567](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=965567&triage=true&fullScreen=false&_a=edit)
+
+### Identity Protection Refresh in Azure Government
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+We’re excited to share that we have now rolled out the refreshed [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) experience in the [Microsoft Azure Government portal](https://portal.azure.us/).
+
+---
+
+[887958](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=887958&triage=true&fullScreen=false&_a=edit)
+
+### Disaster recovery: download and store your provisioning configuration
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** Identity Lifecycle Management
+ 
+The Azure AD provisioning service provides a rich set of configuration capabilities. Customers need to be able to save their configuration so that they can refer to it later or roll back to a known good version. We've added the ability to download your provisioning configuration as a JSON file and upload it back when you need it.
+
+---
+ 
+[730765](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=730765&triage=true&fullScreen=false&_a=edit)
+
+### SSPR (self-service password reset) now requires two gates for admins in Microsoft Azure operated by 21Vianet (Azure China 21Vianet) 
+
+**Type:** Changed feature  
+**Service category:** Self-Service Password Reset  
+**Product capability:** Identity Security & Protection
+ 
+Previously in Microsoft Azure operated by 21Vianet (Azure China 21Vianet), admins using self-service password reset (SSPR) to reset their own passwords needed only one "gate" (challenge) to prove their identity. In public and other national clouds, admins generally must use two gates to prove their identity when using SSPR. But because we didn't support SMS or phone calls in Azure China 21Vianet, we allowed one-gate password reset by admins.
+
+We're creating SSPR feature parity between Azure China 21Vianet and the public cloud. Going forward, admins must use two gates when using SSPR. SMS, phone calls, and Authenticator app notifications and codes will be supported.
+
+[Learn more](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-policy#administrator-reset-policy-differences).
+
+---
+
+[939436](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=939436&triage=true&fullScreen=false&_a=edit)
+
+### Passwords will be restricted to 256 characters
+
+**Type:** Changed feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+To ensure the reliability of the Azure AD service, user passwords will be length limited to 256 characters.  Users with passwords longer than this will be asked to change their password on a subsequent login, either by contacting their admin or by using the self-service password reset (SSPR) feature. 
+
+This change will be enabled on March 13th at 10AM PST (18:00 UTC), and the error number will be AADSTS 50052, InvalidPasswordExceedsMaxLength.
+
+See the breaking change notice for more details.
+
+---
+
+[590167](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=590167&triage=true&fullScreen=false&_a=edit)
+
+### Azure AD sign-in logs are now available for all free tenants through the Azure portal
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+Starting now, customers who have free tenants can access the [Azure AD sign-in logs from the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) for up to 7 days. Previously, sign-in logs were only available for customers with Premium licenses. With this change, every tenant can access these logs through the portal.
+
+> [!NOTE]
+> Customers still need a premium license (Azure Active Directory Premium P1 or P2) to access the sign-in logs through Microsoft Graph API and Azure Monitor.
+
+---
+
+[880608](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=880608&triage=true&fullScreen=false&_a=edit)
+
+### Deprecation of Directory-wide groups option from Groups General Settings on Azure Portal
+
+**Type:** Deprecated  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+To provide a more flexible way for customers to create directory-wide groups that best meet their needs, we've replaced the **Directory-wide Groups** option from the **Groups** > **General** settings in the Azure portal with a link to [dynamic group documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership). We've improved our documentation to include more instructions so administrators can create all-user groups that include or exclude guest users.
+
+---
 
 ## February 2020
 
@@ -46,6 +242,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 We're planning to replace the current custom controls preview with an approach that allows partner-provided authentication capabilities to work seamlessly with the Azure Active Directory administrator and end user experiences. Today, partner MFA solutions face the following limitations: they work only after a password has been entered; they don't serve as MFA for step-up authentication in other key scenarios; and they don't integrate with end user or administrative credential management functions. The new implementation will allow partner-provided authentication factors to work alongside built-in factors for key scenarios, including registration, usage, MFA claims, step up authentication, reporting, and logging. 
 
 Custom controls will continue to be supported in preview alongside the new design until it reaches general availability. At that point, we'll give customers time to migrate to the new design. Because of the limitations of the current approach, we won't onboard new providers until the new design is available. We are working closely with customers and providers and will communicate the timeline as we get closer. [Learn more](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/upcoming-changes-to-custom-controls/ba-p/1144696#).
+
+---
 
 ### Identity Secure Score - MFA improvement action updates
 
