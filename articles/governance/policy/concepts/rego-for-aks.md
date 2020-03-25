@@ -14,10 +14,10 @@ makes it possible to manage and report on the compliance state of your Azure res
 clusters from one place.
 
 > [!IMPORTANT]
-> [Azure Policy for AKS](rego-for-aks.md) is in Preview and only supports built-in policy
-> definitions. Built-in policies are in the **Kubernetes** category. The **EnforceRegoPolicy**
-> effect and related **Kubernetes Service** category policies are being _deprecated_. Instead, use
-> the updated [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+> Azure Policy for AKS is in Preview and only supports built-in policy definitions. Built-in
+> policies are in the **Kubernetes** category. The **EnforceRegoPolicy** effect and related
+> **Kubernetes Service** category policies are being _deprecated_. Instead, use the updated
+> [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 
 ## Overview
 
@@ -184,7 +184,7 @@ The Azure Policy language structure for managing Kubernetes follows that of exis
 effect _EnforceOPAConstraint_ is used to manage your Kubernetes clusters and takes details
 properties specific to working with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint)
-and Gatekeeper v3. For details and examples, see the  
+and Gatekeeper v3. For details and examples, see the 
 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
   
 As part of the _details.constraintTemplate_ and _details.constraint_ properties in the policy
