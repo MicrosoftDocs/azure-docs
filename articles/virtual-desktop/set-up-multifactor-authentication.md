@@ -17,69 +17,65 @@ The Windows client for Windows Virtual Desktop is an excellent option for integr
 
 ![](media/7ea383c402a58cd8ae4363c07cc57de0.png)
 
-While this is beneficial in some scenarios, in Enterprise scenarios or personal devices, this could make your deployment less secure. To counteract this, you'll need to make sure the client keeps asking for Azure multi-factor authentication credentials. This article will show you how to enable this feature by opting in to the Conditional Access policy for Windows Virtual Desktop.
-
->[!NOTE]
->In order to use this procedure and Conditional Access feature, you need to have at least the Enterprise Mobility + Security E5 or Azure Active Directory Premium P2 license.
+While this is great for some scenarios, in Enterprise scenarios or personal devices, this could make your deployment less secure. To protect your users, you'll need to make sure the client keeps asking for Azure multi-factor authentication credentials. This article will show you how to enable this feature by opting in to the Conditional Access policy for Windows Virtual Desktop.
 
 ## Prerequisites
 
 Before you start, make sure you have these things:
 
-- A license for one of these:
+- One of the following licenses:
   - Enterprise Mobility and Security E5
   - Azure Active Directory Premium P2
-- An Azure Active Directory group named 
+- Create Azure Active Directory group and make your users group members
 
-*Pre-step: Make sure to create one Azure AD group named e.g. WVD – MFA Users and make your users a group member to filter the rule based on AAD group membership.*
+## Opt in to the Conditional Access policy
 
-**Switch** back to the Azure Portal
+1. Open **Azure Active Directory**.
 
-**Open** (again) Azure Active Directory
-
-Go to **Enterprise Applications** and search/click on **Windows Virtual Desktop Client**
+2. Go to **Enterprise Applications** > **Windows Virtual Desktop Client**.
 
 ![](media/b3ea9a297f407546aee226f2c403149e.png)
 
-Click on **Conditional Access**
+3. Select **Conditional Access**.
 
 ![](media/27b2b35cca5341adbc2d2178162ce40f.png)
 
-Click on **+ New policy**
+4. Select **+ New policy**.
 
 ![](media/8788d56dca954aa8844baeeee77171b1.png)
 
-**Give** in a **name** for the **Rule** – select the – **WVD – MFA Users** - group that you created earlier.
+5. Enter a name for the rule, then select the name of the group you created in the prerequisites. In the following example, the group's name is "WVD - MFA Users."
 
-Click on **Select** followed by **Done**
+6. Select **Select**, then select **Done**.
 
 ![](media/3b0b9060dd42f5f1feb0ae9318e0c154.png)
 
-**Open** your **Cloud Apps or actions**.
+7. Next, open **Cloud Apps or actions**.
 
-Make sure to **select both** the Windows Virtual Desktop – and client - **Enterprise Applications.**
+8. On the **Select** panel, select both the **Windows Virtual Desktop** and **Windows Virtual Desktop Client** Enterprise applications.
 
-**Click** on **Select** and **Done**
+9. Finally, select **Select**, then select **Done**.
 
 ![](media/4d310d3500156228aedeaab7c58d0862.png)
 
-**Optional: Whitelist users from MFA enforcement based on (trusted IPs) Named Locations**
+## Whitelist users with a filter for trusted locations
 
-There is also the option to create conditions to filter out this rule based on your company's public IP address. The result is that your users (working on trusted locations) can access your Windows Virtual Desktop environment with only the username and password. Once they switch back to another network e.g. from home – Azure MFA will prompt again.
+After you set up your Selective Access policy, you have the option to create a filter for policy enforcement based on your company's public IP address. With this filter, users working in trusted locations can access your Windows Virtual Desktop environment without multi-factor authentication. However, when they switch to a network outside of a trusted location, they'll get the multi-factor authentication prompt again.
 
 >[!NOTE]
->The following setting will also apply to the Windows Virtual Desktop - HTML5 RDWeb environment (aka.ms/WVDWeb).
+>The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
 ![](media/4dd11194626b7eb5f46acc8b0a1e6a3f.png)
 
-Enter in all your (public) IP addresses that you want to whitelist from Azure
-MFA enforcement – in the - **trusted ips** - section.
+To set up a filter:
+
+1. Enter the public IP addresses that you want to whitelist from Azure MFA enforcement – in the - **trusted ips** - section.
 
 ![](media/8b83563ff08dbe60168ee4e741501160.png)
 
-**Switch back to the Rule**
+2. Go back to the Selective Access rule page.
 
-**Select** MFA Trusted IPs
+3. Select **MFA Trusted IPs**.
 
 ![](media/ce3bf9e0d17320dee52caacddf12e368.png)
 
