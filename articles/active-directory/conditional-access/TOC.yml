@@ -68,7 +68,7 @@
       href: howto-conditional-access-policy-all-users-mfa.md
     - name: Risk-based Conditional Access
       href: howto-conditional-access-policy-risk.md
-    - name: Require trusted location for MFA registration
+    - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
