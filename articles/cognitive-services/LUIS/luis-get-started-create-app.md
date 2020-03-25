@@ -55,6 +55,7 @@ Select the **HomeAutomation.TurnOff** intent. You can see that the intent contai
 
 ## Test your app
 Once you've trained your app, you can test it.
+
 1. Select **Test** from the top-right navigation. 1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter.
 
     ```
