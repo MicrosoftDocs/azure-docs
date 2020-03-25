@@ -23,7 +23,7 @@ Alex Weinert, Director of Identity Security at Microsoft, in his March 12, 2020 
 
 > For MFA to be effective, you also need to block legacy authentication. This is because legacy authentication protocols like POP, SMTP, IMAP, and MAPI can't enforce MFA, making them preferred entry points for adversaries attacking your organization...
 > 
->The numbers on legacy authentication from an analysis of Azure Active Directory (Azure AD) traffic are stark:
+>...The numbers on legacy authentication from an analysis of Azure Active Directory (Azure AD) traffic are stark:
 > 
 > - More than 99 percent of password spray attacks use legacy authentication protocols
 > - More than 97 percent of credential stuffing attacks use legacy authentication
