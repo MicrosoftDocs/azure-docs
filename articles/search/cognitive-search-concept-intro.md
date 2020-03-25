@@ -87,6 +87,26 @@ The index is like any other you might create for Azure Cognitive Search: you can
 
 Indexes are generated from an index schema that defines the fields, attributes, and other constructs attached to a specific index, such as scoring profiles and synonym maps. Once an index is defined and populated, you can index incrementally to pick up new and updated source documents. Certain modifications require a full rebuild. You should use a small data set until the schema design is stable. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
+**Checklist: A typical workflow**
+
+1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
+
+1. Create a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Azure Cognitive Search to provide a connection string for data retrieval.
+
+1. Create a [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) with enrichment steps.
+
+1. Define the [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index). The *Fields* collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
+
+1. Define the [indexer](https://docs.microsoft.com/rest/api/searchservice/create-skillset) referencing the data source, skillset, and index.
+
+1. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (in step 3) to the inputs fields in the index schema (in step 4).
+
+1. Send *Create Indexer* request you just created (a POST request with an indexer definition in the request body) to express the indexer in Azure Cognitive Search. This step is how you run the indexer, invoking the pipeline.
+
+1. Run queries to evaluate results and modify code to update skillsets, schema, or indexer configuration.
+
+1. [Reset the indexer](search-howto-reindex.md) before rebuilding the pipeline.
+
 ## Next steps
 
 + [AI enrichment documentation links](cognitive-search-resources-documentation.md)
