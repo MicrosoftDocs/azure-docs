@@ -78,7 +78,7 @@ azds prep --enable-ingress
 You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
 
 > [!TIP]
-> The `prep` command attempts to generate [a Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The `prep` command attempts to generate [a Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project. Azure Dev Spaces uses these files to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 ## Build and run code in Kubernetes
 
