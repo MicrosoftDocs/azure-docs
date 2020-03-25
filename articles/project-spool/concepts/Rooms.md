@@ -22,7 +22,7 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - TODO
+  - {shawn} This might not be a concept… you might only use it when using VOIP…
 
 - TODOs:
   - Draft initial content

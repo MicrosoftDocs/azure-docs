@@ -22,7 +22,7 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - TODO
+  - Should we tie this into Bot framework?
 
 - TODOs:
   - Draft initial content

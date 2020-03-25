@@ -22,7 +22,8 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - TODO
+  - {shawn} Should we ship without PSTN? TBD. The PSTN story may be more about Bot scenarios - IVR scenarios - call tree stuff.
+  
 
 - TODOs:
   - Draft initial content
