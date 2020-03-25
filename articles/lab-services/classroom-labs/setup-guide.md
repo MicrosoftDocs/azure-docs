@@ -49,7 +49,7 @@ There are a variety of compute sizes that you can choose from that includes:
 Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
 
 > [!NOTE]
-> Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  If you need to create a lab using a large number of GPU VMs, you should coordinate with your account specialist to submit a request to ensure that the number VMs are available within your region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
+> Depending on the region you select for your lab, you may see fewer compute sizes available since this varies by region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Lab Services, you can easily set up a new lab with a different compute capacity later if needed.
 
 **What dependencies does the class have on external Azure or network resources?**
 
@@ -70,6 +70,18 @@ Lab Services uses a pay-as-you go pricing model which means that you only pay fo
 
     > [!NOTE]
     > This setting currently only exists for Windows.
+
+**How will students save their work?**
+
+Students are each assigned their own VM that is assigned to them for the lifetime of the lab.  They can choose to:
+
+- Save directly to the VM.
+- Save to an external repository, such as OneDrive, GitHub, etc.
+
+To use OneDrive, you may choose to configure this automatically for students on their lab VMs.  Additional information on this is provided below.
+
+> [!NOTE]
+> To ensure that your students have continued access to their saved work outside of the lab, which includes after the class ends, we recommend that students save their work to an external repository.
 
 **How will students connect to their VM?**
 

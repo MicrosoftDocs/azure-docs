@@ -27,7 +27,7 @@ To understand how to configure your lab account based on your school's needs, yo
 
 **Do I have access to an Azure subscription?**
 
-To create a lab account, you will need access to an Azure subscription that is configured for your school; your school may have one or more subscriptions.  A subscription is used to manage billing and security for all your Azure resources\services that are used within it, including Lab Accounts.  If you don't have a subscription, you should contact your account specialist to help with setting this up.
+To create a lab account, you will need access to an Azure subscription that is configured for your school; your school may have one or more subscriptions.  A subscription is used to manage billing and security for all your Azure resources\services that are used within it, including Lab Accounts.  If you don't have a subscription, you should contact your account specialist or email azlabspilot@microsoft.com for help with setting this up.
 
 **How many lab accounts need to be created?**
 
