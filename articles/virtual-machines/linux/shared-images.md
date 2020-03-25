@@ -1,24 +1,13 @@
 ---
 title: Create shared image galleries with the Azure CLI 
 description: In this article, you learn how to use the Azure CLI to create a shared image of a VM in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: axayjo
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
+author: cynthn
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/06/2019
-ms.author: akjosh
-ms.reviewer: cynthn
-ms.custom: 
-
+ms.date: 03/24/2020
+ms.author: cynthn
+#PMcontact: akjosh
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Create a shared image gallery with the Azure CLI
@@ -35,22 +24,9 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
-
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../../includes/virtual-machines-common-shared-images-cli.md)]
 
-## Create a VM
 
-Create a VM from the latest image version using [az vm create](/cli/azure/vm#az-vm-create).
-
-```azurecli-interactive 
-az vm create\
-   --resource-group myGalleryRG \
-   --name myVM \
-   --image "/subscriptions/subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-   --generate-ssh-keys
-```
-
-You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
