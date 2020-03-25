@@ -67,7 +67,7 @@
   - name: Virtual machine scale sets
     items:
     - name: Use with an existing Azure Load Balancer - Portal
-      href: configure-vm-scale-set-portal.md.md
+      href: configure-vm-scale-set-portal.md
     - name: Use with an existing Azure Load Balancer - CLI
       href: use-existing-lb-vmss-cli.md
   - name: Upgrade a Basic Load Balancer to Standard Load Balancer
