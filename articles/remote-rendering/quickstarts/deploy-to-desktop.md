@@ -25,7 +25,7 @@ In this quickstart we will deploy the sample project from [Quickstart: Render a 
 
 Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
 
-## Disable Virtual Reality Support
+## Disable virtual reality support
 
 Only flat desktop apps are currently supported on desktop so VR support has to be disabled.
 
@@ -59,7 +59,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the PC.
 
 The sample app should launch and then start a new session. After a while, the session is ready and the remotely rendered model will appear in front of you.
-If you want to launch the sample a second time later, you can also find it from the start menu now.
+If you want to launch the sample a second time later, you can also find it from the Start menu now.
 
 ## Next steps
 
