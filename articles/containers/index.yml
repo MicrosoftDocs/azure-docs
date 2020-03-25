@@ -53,7 +53,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
     links:
       - url: https://docs.microsoft.com/azure/azure-functions/
-        text: Accelerate and simplify application development with serverless compute
+        text: Accelerate and simplify application development with serverless architecture
 
 # conceptualContent section (optional)
 conceptualContent:
