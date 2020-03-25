@@ -97,13 +97,14 @@ When initializing the HSM, securely store credentials. Shell and HSM credentials
 
 ### Failed Logins
 
-Providing incorrect credentials to HSMs can have destructive consequences. The following are default   behaviors for HSM Roles.
+Providing incorrect credentials to HSMs can have destructive consequences. The following are default behaviors for HSM Roles.
+
 | Role | Threshold (# of tries) | Result of too many bad login attempts | Recovery |
 |--|--|--|--|
-| HSM SO  |  3  |  HSM is zeroized (all HSM objects identities, and all partitions are gone)  |  HSM must be reinitialized. Contents can be restored from backup(s).  | 
-| Partition SO  |  10  |  Partition is zeroized.  |  Partition must be reinitialized. Contents can be restored from backup.  |  
-| Audit  |  10  |  Lockout  |  Unlocked automatically after 10 minutes.  |  
-| Crypto Officer  |  10 (can be decreased)  |  If HSM policy 15: Enable SO reset of partition PIN is set to 1 (enabled), the CO and CU roles are locked out.<br>If HSM policy 15: Enable SO reset of partition PIN is set to 0 (disabled), the CO and CU roles are permanently locked out and the partition contents are no longer accessible. This is the default setting.    |  CO role must be unlocked and the credential reset by the Partition SO, using `role resetpw -name co`.<br>The partition must be re-initialized, and key material restored from a backup device.  |  
+| HSM SO | 3 |  HSM is zeroized (all HSM objects identities, and all partitions are gone)  |  HSM must be reinitialized. Contents can be restored from backup(s). | 
+| Partition SO | 10 |  Partition is zeroized. |  Partition must be reinitialized. Contents can be restored from backup. |  
+| Audit | 10 | Lockout | Unlocked automatically after 10 minutes. |  
+| Crypto Officer | 10 (can be decreased) | If HSM policy 15: Enable SO reset of partition PIN is set to 1 (enabled), the CO and CU roles are locked out.<br>If HSM policy 15: Enable SO reset of partition PIN is set to 0 (disabled), the CO and CU roles are permanently locked out and the partition contents are no longer accessible. This is the default setting. | CO role must be unlocked and the credential reset by the Partition SO, using `role resetpw -name co`.<br>The partition must be re-initialized, and key material restored from a backup device. |  
 
 ## HSM Configuration 
 
@@ -124,13 +125,11 @@ Some configuration changes require the HSM to be power cycled or rebooted. Micro
 A client may lose connectivity to an HSM when a certificate expires or has been overwritten through configuration updates. The certificate exchange client configuration should be reapplied with each HSM.
 Example NTLS logging with invalid certificate:
 
-```console
-NTLS[8508]: info : 0 : Incoming connection request... : 192.168.50.2/59415
-NTLS[8508]: Error message from SSLAccept is : error:14094418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca
-NTLS[8508]: Error during SSL accept ( RC_SSL_ERROR )
-NTLS[8508]: info : 0xc0000711 : Fail to establish a secure channel with client : 192.168.50.2/59415 : RC_SSL_FAILED_HANDSHAKE
-NTLS[8508]: info : 0 : NTLS Client "Unknown host name" Connection instance removed : 192.168.50.2/59415
-```
+> NTLS[8508]: info : 0 : Incoming connection request... : 192.168.50.2/59415
+> NTLS[8508]: Error message from SSLAccept is : error:14094418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca
+> NTLS[8508]: Error during SSL accept ( RC_SSL_ERROR )
+> NTLS[8508]: info : 0xc0000711 : Fail to establish a secure channel with client : 192.168.50.2/59415 : RC_SSL_FAILED_HANDSHAKE
+> NTLS[8508]: info : 0 : NTLS Client "Unknown host name" Connection instance removed : 192.168.50.2/59415
 
 ### Failed TCP Communication
 
