@@ -119,6 +119,8 @@
       href: network-security.md
     - name: Built-in security controls
       href: event-hubs-security-controls.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: AMQP 1.0 protocol guide
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true
