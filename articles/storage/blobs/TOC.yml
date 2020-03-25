@@ -49,6 +49,8 @@
             href: storage-quickstart-blobs-nodejs.md
           - name: JavaScript (v10 SDK for Node.js)
             href: storage-quickstart-blobs-nodejs-legacy.md
+          - name: JavaScript (v12 SDK for browser)
+            href: storage-quickstart-blobs-browser.md
           - name: JavaScript (v10 SDK for browser)
             href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
       - name: Go
