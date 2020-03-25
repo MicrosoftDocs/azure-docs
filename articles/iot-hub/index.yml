@@ -33,43 +33,11 @@ landingContent:
           url: quickstart-control-device-dotnet.md
         - text: using Node.js
           url: quickstart-control-device-node.md
- -  title: Configure device within an IoT solution
-    linkLists:
-      - linkListType: concept
-        links:
-        - text: Configure device in an IoT solution
-          url: iot-hub-configuration-best-practices.md
-      - linkListType: how-to-guide
-        links:
-        - text: Device twins
-          url: iot-hub-devguide-device-twins.md
-        - text: Module twins
-          url: iot-hub-devguide-module-twins.md
- -  title: Scale your IoT solution
-    linkLists:
-      - linkListType: concept
-        links:
-        - text: Choosing the right tier
-          url: iot-hub-scaling.md
-        - text: Device configuration in an IoT solution
-          url: iot-hub-configuration-best-practices.md
- -   title: Message Routing
-     linkLists:
-     -  linkListType: tutorial
-        links:
-        - text: Prep with Azure CLI
-          url: tutorial-routing-config-message-routing-cli.md
-        - text: Prep with Azure Resource Manager template
-          url: tutorial-routing-config-message-routing-rm-template.md
-     -  linkListType: tutorial
-        links:
-        - text: Run and view routing results
-          url: tutorial-routing-view-message-routing-results.md
- -   title: Protocols
+ -   title: Select Protocol
      linkLists:
      -  linkListType: concept
         links:
-        - text: Overall protocols
+        - text: Protocol
           url: iot-hub-devguide-protocols.md
         - text: TLS Support
           url: iot-hub-tls-support.md 
@@ -81,6 +49,32 @@ landingContent:
           url: iot-hub-amqp-support.md
         - text: Custom gateway
           url: iot-hub-protocol-gateway.md
+ -  title: Scale your solution
+    linkLists:
+      - linkListType: concept
+        links:
+        - text: Choosing the right tier
+          url: iot-hub-scaling.md
+        - text: Best practices for configuring devices
+          url: iot-hub-configuration-best-practices.md
+      - linkListType: how-to-guide
+        links:
+        - text: Device twins
+          url: iot-hub-devguide-device-twins.md
+        - text: Module twins
+          url: iot-hub-devguide-module-twins.md
+ -   title: Route device data
+     linkLists:
+     -  linkListType: tutorial
+        links:
+        - text: Prep with Azure CLI
+          url: tutorial-routing-config-message-routing-cli.md
+        - text: Prep with Azure Resource Manager template
+          url: tutorial-routing-config-message-routing-rm-template.md
+     -  linkListType: tutorial
+        links:
+        - text: Run and view routing results
+          url: tutorial-routing-view-message-routing-results.md
  -   title: Tools
      linkLists:
      -  linkListType: how-to-guide
@@ -88,4 +82,4 @@ landingContent:
         - text: using IoT Tools for VS Code
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
-          url: ./iot-pnp/howto-install-iot-explorer.md
+          url: ../iot-pnp/howto-install-iot-explorer.md
