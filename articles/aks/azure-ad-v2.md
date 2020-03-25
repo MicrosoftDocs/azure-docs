@@ -144,3 +144,9 @@ You receive: **You must be logged in to the server (Unauthorized)**
 
 The user above gets an error because the user is not a part of a group that has access to the cluster.
 
+## Next steps
+
+Learn about [Azure AD Role Based Access Control][azure-ad-rbac].
+
+<!-- LINKS - Internal -->
+[azure-ad-rbac]: azure-ad-rbac.md
