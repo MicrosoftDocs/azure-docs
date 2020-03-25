@@ -54,11 +54,7 @@ Your project has been configured to use [extension bundles](../articles/azure-fu
 
 Extension bundles is enabled in the host.json file at the root of the project, which looks like the following:
 
-<<<<<<< HEAD
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
-=======
-:::code language="json" source="~/functions-quickstart-java/functions-quickstarts-java/blob/master/functions-add-output-binding-storage-queue/host.json":::
->>>>>>> 2728d1fe59cb9cb00f42491515f3094cbbd163ad
 
 ::: zone-end
 
