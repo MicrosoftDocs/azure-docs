@@ -801,6 +801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
+      "redirect_url": "/azure/machine-learning/samples-notebooks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -7047,6 +7052,11 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-covid-guidelines.md",
+      "redirect_url": "/azure/application-gateway/high-traffic-support",
       "redirect_document_id": false
     },
     {
@@ -31851,11 +31861,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/security/azure-ad-choose-authn.md",
-      "redirect_url": "/azure/security/fundamentals/choose-ad-authn",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-enable.md",
       "redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
       "redirect_document_id": true
@@ -43761,6 +43766,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Acoustics/index.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-export-data.md",
       "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus",
       "redirect_document_id": false
@@ -50348,6 +50358,11 @@
     {
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
+    },
+	{
+      "source_path": "articles/security/fundamentals/choose-ad-authn.md",
+      "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
+	  "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",

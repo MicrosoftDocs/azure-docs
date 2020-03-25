@@ -44,8 +44,12 @@
       href: kql-quick-reference.md
   - name: Data visualization overview
     href: viz-overview.md
-  - name: Security overview
-    href: security.md
+  - name: Security
+    items:  
+    - name: Security overview
+      href: security.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Create cluster and database
@@ -164,6 +168,14 @@
       href: k2bridge.md
   - name: Secure
     items:
+    - name: Network isolation (VNet)
+      items:
+        - name: Create a cluster in your VNet - Portal
+          href: vnet-create-cluster-portal.md
+        - name: Deploy your cluster to your VNet
+          href: vnet-deployment.md  
+        - name: Troubleshoot VNet cluster creation, connectivity, and operation 
+          href: vnet-deploy-troubleshoot.md
     - name: Manage cluster security
       href: manage-cluster-security.md
     - name: Configure managed identities
@@ -220,10 +232,6 @@
         href: delete-data.md
       - name: Deal with duplicate data
         href: dealing-with-duplicates.md
-  - name: Deploy
-    items:
-    - name: Deploy your cluster to your virtual network
-      href: vnet-deployment.md  
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
