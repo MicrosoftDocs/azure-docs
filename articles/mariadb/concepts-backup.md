@@ -39,7 +39,7 @@ For more information on backup storage cost, visit the [MariaDB pricing page](ht
 
 ## Restore
 
-In Azure Database for MariaDB, performing a restore creates a new server from the original server's backups. and restores all databases contained in the server.
+In Azure Database for MariaDB, performing a restore creates a new server from the original server's backups and restores all databases contained in the server.
 
 There are two types of restore available:
 
