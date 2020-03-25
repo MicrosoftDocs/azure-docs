@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 03/25/2020
 ---
 
 # Configure customer-managed-keys using the Azure Portal
@@ -18,20 +18,15 @@ ms.date: 03/17/2020
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
-## Configure encryption with customer-managed keys
+## Enable customer-managed keys in the Azure Portal
 
-This section shows you how to configure customer-managed keys encryption using the Azure portal. 
+This section shows you how to enable customer-managed keys encryption using the Azure portal. 
 
 ### Prerequisites
 
 * An Azure subscription. Create a [free Azure account](https://azure.microsoft.com/free/).
 * [A cluster and database](create-cluster-database-portal.md).
 * [Configure managed identities for your Azure Data Explorer cluster](managed-identities.md)
-
-### Authentication
-\\Needed?
-
-To run the examples in this article, [create an Azure AD application](/azure/active-directory/develop/howto-create-service-principal-portal) and service principal that can access resources. You can add role assignment at the subscription scope and get the required `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ### Configure cluster
 
@@ -43,7 +38,9 @@ You can configure customer-managed keys for your Azure Data Explorer cluster.
 1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under the Settings heading, select Encryption.
 2. In the Encryption window, select **On** for the Customer-managed key setting.
 3. Click Select Key
-ToDo\\ screenshot
+
+![Show databases command](media/customer-managed-key-portal/.png)
+
 4. In the **Select key from Azure Key Vault** screen you can either create a new Key Vault or select an existing one.
     1. If you choose to create a new Key Vault you'll be routed to the **Create Key Vault** screen where you can create a new Key Vault resource following these instructions. (link to create a key vault)
     2. If you choose an existing Key Vault you need to either create a new key select an existing key.
