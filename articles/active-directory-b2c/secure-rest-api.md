@@ -9,9 +9,9 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/25/2020
 ms.author: mimart
-ms.subservice: B2C
+ms.subservice: B2C. 
 ---
 # Secure your RESTful services 
 
@@ -203,7 +203,7 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city claim to the **ClaimsSchema** element.  
+1. Add the city bearerToken to the **ClaimsSchema** element.  
 
 ```xml
 <ClaimType Id="bearerToken">
@@ -214,7 +214,11 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
 
 ### Acquiring an access token 
 
-Obtaining an access token in not in the scope on this article. You can obtain an access token in many ways. For example get the access token return from a federated identity provider, calling a REST API that returns an access token, or using client credential flow. The following example uses client credential flow. This type of flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  The client credentials pass to the Azure AD in the Authorization header. The credentials are formatted as the string "application-id:application-secret", base64-encoded.  
+You may obtain your access token from a federated identity provider, calling a REST API that returns an access token, or using client the credentials flow. 
+
+The following example uses a REST API Technical profile to make a request to the Azure AD Token endpoint using the client credentials passed as HTTP Basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
+
+You may need to modify this to interface with your Identity Provider. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
 
 ```xml
 <TechnicalProfile Id="SecureREST-AccessToken">
