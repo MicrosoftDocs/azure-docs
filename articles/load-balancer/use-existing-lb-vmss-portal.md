@@ -26,7 +26,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Deploy a virtual machine scale set with existing load balancer
 
-In this section you will create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
+In this section, you'll create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
 
 > [!NOTE]
 > The following steps assume a virtual network named **myVNet** and a Azure load balancer named **myLoadBalancer** has been previously deployed.
@@ -35,7 +35,7 @@ In this section you will create a virtual machine scale set in the Azure portal 
 
 2. Select **Create**.
 
-3. In **Create a virtual machine scale set**, enter or select this information in the **Basics** tab:
+3. In **Create a virtual machine scale set**, enter, or select this information in the **Basics** tab:
 
     | Setting                        | Value                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,7 @@ In this section you will create a virtual machine scale set in the Azure portal 
     | Authentication type            | Select **Password**                                                                                   |
     | Username                       | Enter your admin username        |
     | Password                       | Enter your admin password    |
-    | Confirm password               | Re-enter your admin password |
+    | Confirm password               | Reenter your admin password |
 
 
     :::image type="content" source="./media/load-balancer-vmss/lb-vmss-01.png" alt-text="Create virtual machine scale set." border="true":::
