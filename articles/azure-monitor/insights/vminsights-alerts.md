@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2019
+ms.date: 03/23/2020
 
 ---
 
@@ -31,7 +31,7 @@ For the **Condition** of the alert rule, use one of the queries in the [section 
 
 In the **Alert logic**, select **Metric measurement** and then provide a **Threshold value**. In **Trigger Alert Based On**, specify how many times the threshold must be exceeded before an alert is created. For example, you probably don't care if the processor exceeds a threshold once and then returns to normal, but you do care if it continues to exceed the threshold over multiple consecutive measurements.
 
-The **Evaluated based on** section defines how often the query is run and the time window for the query. In the example shown below, the query will run every 15 minutes and evalute performance values collected over the previous 15 minutes.
+The **Evaluated based on** section defines how often the query is run and the time window for the query. In the example shown below, the query will run every 15 minutes and evaluate performance values collected over the previous 15 minutes.
 
 
 ![Metric measurement alert rule](media/vminsights-alerts/metric-measurement-alert.png)
@@ -146,7 +146,7 @@ InsightsMetrics
 ```
 
 ### Virtual machine scale set
-Modify with your subscription ID, resource group, and VM scale set name.
+Modify with your subscription ID, resource group, and virtual machine scale set name.
 
 ```kusto
 InsightsMetrics
