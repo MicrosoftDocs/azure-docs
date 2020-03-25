@@ -74,7 +74,7 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Create an AKS cluster with Azure AD v1.0 enabled
+## Create an AKS cluster with Azure AD v2.0 enabled
 
 You can now create an AKS cluster by using the following CLI commands.
 
@@ -117,7 +117,7 @@ A successful creation of an Azure AD v2 cluster has the following section in the
 
 The cluster is created within a few minutes.
 
-## Accessing an Azure AD v1.0 enabled cluster
+## Accessing an Azure AD v2.0 enabled cluster
 To get the admin credentials to access the cluster:
 
 ```azurecli-interactive
@@ -140,7 +140,7 @@ To get the user credentials to access the cluster:
 kubectl get nodes
 ```
 
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.  You receive an error:
+Follow the instructions to sign in.
 
 **error: You must be logged in to the server (Unauthorized)**
 
