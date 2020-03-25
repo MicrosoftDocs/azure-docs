@@ -370,14 +370,17 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     1. Sign in to the Azure portal, then search for and select **Function App**.
 
-    1. Select the name of your function.
+    1. Select the function you want to verify.
 
     1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
 
         ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
-    1. Select **Get function URL**:
+    1. Select **Get Function Url**.
+
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+
     
     1. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
 
