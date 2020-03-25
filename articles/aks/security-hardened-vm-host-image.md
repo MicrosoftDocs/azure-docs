@@ -26,10 +26,6 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 * Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
-Below is a summary of image hardening work that has been implemented in the AKS-Engine project to produce the security optimized host OS. Further details can be found [in this GitHub project](https://github.com/Azure/aks-engine/projects/7).  
-
-AKS-Engine does not promote or adhere to any specific security standard at this time, but CIS (Center for Internet Security) audit IDs are provided for convenience where applicable.
-
 ## What is configured
 
 | CIS  | Audit description|
