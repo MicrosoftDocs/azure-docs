@@ -63,7 +63,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
     
 5. Select a subscription and create or choose a resource group, then click **Create**.<br/><br/>
 
-    <br/><br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 6. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
@@ -73,7 +73,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
  
 8. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
-    <br/><br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
 9. Click **Create**.
 
@@ -90,7 +90,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 3. Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
 
-    <br/><br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
 4. Click **Create**.
 
@@ -98,7 +98,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 6. Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
 
-    <br/><br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
 7. Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
@@ -178,7 +178,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
-    <br/><br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
 3. Click **Create**.
 
@@ -341,7 +341,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 3. Click **Save** to save the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
 
-    <br/><br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
 ## Create an output sink to store transformed data
 
