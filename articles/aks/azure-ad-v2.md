@@ -7,17 +7,16 @@ ms.topic: article
 ms.date: 03/24/2020
 ---
 
-# Integrate Azure AD v2.0 in Azure Kubernetes Service (Preview)
+# Integrate Azure AD in Azure Kubernetes Service (Preview)
 
 > [!Note]
-> Existing Azure AD v1.0 clusters are not affected by the new Azure AD v2.0 feature for Azure Kubernetes Service (AKS).
+> Existing AKS v1 clusters with AD integration are not affected by the new AKS v2 experience.
 
-Azure AD v2.0 is designed to simplify the Azure AD v1.0 experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. 
-In the new version, the AKS resource provider manages the client and server apps for you. Instead of using a persistent "Application Permission," the AKS resource provider uses a "Delegated Permission" via an on-behalf-of flow to get an access token to Graph API. Azure AD v2.0 enabled clusters use a limited scoped Graph API privilege (GroupMembers.Read.All) to query group membership only when the overage indicator is present (when there are more than 250 group claims).
+Azure AD integration with AKS v2 is designed to simplify the Azure AD integration with AKS v1 experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
-* You can't currently upgrade an existing Azure AD v1.0 cluster to Azure AD v2.0.
+* You can't currently upgrade an existing Azure AD enabled AKS v1.0 cluster to v2.0.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -74,7 +73,7 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Create an AKS cluster with Azure AD v2.0 enabled
+## Create an AKS cluster with Azure AD enabled
 
 You can now create an AKS cluster by using the following CLI commands.
 
@@ -117,7 +116,7 @@ A successful creation of an Azure AD v2 cluster has the following section in the
 
 The cluster is created within a few minutes.
 
-## Accessing an Azure AD v2.0 enabled cluster
+## Accessing an Azure AD enabled cluster
 To get the admin credentials to access the cluster:
 
 ```azurecli-interactive
@@ -135,17 +134,20 @@ aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
 
 To get the user credentials to access the cluster:
-
+ 
 ```azurecli-interactive
-kubectl get nodes
+ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-
 Follow the instructions to sign in.
 
-**error: You must be logged in to the server (Unauthorized)**
+You receive: **You must be logged in to the server (Unauthorized)**
 
 The user above gets an error because the user is not a part of a group that has access to the cluster.
 
+## Next steps
+
+Learn about [Azure AD Role Based Access Control][azure-rd-rbac].
 
 
-
+<!-- LINKS - Internal -->
+[azure-ad-rbac]: ../azure-ad-rbac.md
