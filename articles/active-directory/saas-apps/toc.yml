@@ -748,6 +748,8 @@
         href: ip-platform-tutorial.md
       - name: iPass SmartConnect
         href: ipasssmartconnect-tutorial.md
+      - name: iPoint Service Provider
+        href: ipoint-service-provider-tutorial.md
       - name: iProva
         href: iprova-tutorial.md
       - name: IQNavigator VMS
