@@ -125,7 +125,7 @@ No. All drives are encrypted with BitLocker.
 
 ### How can I access data that is imported by this service?
 
-Use the Azure Portal or [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to access the data under your Azure storage account.  
+Use the Azure portal or [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to access the data under your Azure storage account.  
 
 ### After the import is complete, what does my data look like in the storage account? Is my directory hierarchy preserved?
 
