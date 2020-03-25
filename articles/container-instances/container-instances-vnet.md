@@ -18,7 +18,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * Retrieve content for container instances from a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) in the virtual network
 * Container communication with virtual machines in the virtual network
 * Container communication with on-premises resources through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)
-* 
+* Integrate with [Azure Firewall](../firewall/overview.md) to identify outbound traffic originating from the container group
 
 > [!IMPORTANT]
 > Container group deployments to a virtual network are generally available for production workloads only in the following regions: **East US, South Central US, and West US 2**. In other regions where the feature is available, virtual network deployments are currently in preview, with general availability planned in the near future. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. 
