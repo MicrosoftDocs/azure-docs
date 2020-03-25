@@ -36,8 +36,10 @@
     href: how-to-manage-twin.md
   - name: Manage a twin graph
     href: how-to-manage-graph.md
-  - name: Route event data
-    href: how-to-route-events.md
+  - name: Set up an endpoint
+    href: how-to-create-endpoints-routes.md
+  - name: Understand event data
+    href: how-to-interpret-event-data.md
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
 - name: Reference
