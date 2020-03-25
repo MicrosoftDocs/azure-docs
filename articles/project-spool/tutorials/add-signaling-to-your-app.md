@@ -1,5 +1,5 @@
 ---
-title: WebRTC
+title: Add Signaling To Your App
 description: TODO
 author: mikben    
 manager: jken
@@ -12,8 +12,10 @@ ms.service: azure-project-spool
 
 ---
 
+#### Temporary:
+
 -  Customer intent statements: 
-   - I want to know what WebRTC is and how it helps me help my customers.
+   - I need to send messages from one client to other clients and/or my server. I'd like to use Spool to make this easy. I don't need persistent storage - just transient signaling. I'll handle the processing and storage.
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -21,4 +23,7 @@ ms.service: azure-project-spool
 - TODOs:
   - Draft initial content
 
-# WebRTC
+
+# Add Signaling to Your App
+
+TODO

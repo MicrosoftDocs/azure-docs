@@ -1,15 +1,24 @@
 ---
-title: Logging and diagnostics
-description: In-depth explanation of how to generate and retrieve logging and diagnostics in Azure Spatial Anchors.
-author: ramonarguelles
-manager: vriveras
-services: azure-spatial-anchors
+title: Logging and Diagnostics
+description: TODO
+author: mikben    
+manager: jken
+services: azure-project-spool
 
-ms.author: rgarcia
-ms.date: 02/22/2019
-ms.topic: conceptual
-ms.service: azure-spatial-anchors
+ms.author: mikben
+ms.date: 03/10/2020
+ms.topic: overview
+ms.service: azure-project-spool
+
 ---
-# Logging and diagnostics in Project Spool
 
-TODO
+-  Customer intent statements: 
+   - I want to know what logging and diagnostics tools Spool offers.
+
+- Resources: 
+  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
+
+- TODOs:
+  - Draft initial content
+
+# Logging and Diagnostics

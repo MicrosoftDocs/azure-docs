@@ -25,6 +25,12 @@
     href: tutorials/add-sms-to-your-app.md
   - name: Add Calling To Your App
     href: tutorials/add-calling-to-your-app.md  
+  - name: Add Signaling To Your App
+    href: tutorials/add-signaling-to-your-app.md
+  - name: Add Persistent Chat To Your App
+    href: tutorials/add-persistent-chat-to-your-app.md
+  - name: Add Network Traversal To Your App
+    href: tutorials/add-network-traversal-to-your-app.md
   - name: Add Video To Your UWP App
     href: tutorials/add-video-to-your-uwp-app.md
 - name: Samples
@@ -45,8 +51,18 @@
         href: concepts/Signaling.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
+  - name: Calling
+    href: concepts/calling.md
+  - name: Chat
+    href: concepts/chat.md
   - name: Rooms
     href: concepts/Rooms.md
+  - name: IVR Trees
+    href: concepts/IVR-Trees.md
+  - name: Authentication and Authorization
+    href: concepts/authentication.md
+  - name: Logging and Diagnostics
+    href: concepts/logging-diagnostics.md
 - name: References
   items:
   - name: Client SDK for C#

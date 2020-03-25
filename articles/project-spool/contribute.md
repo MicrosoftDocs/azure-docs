@@ -27,9 +27,13 @@ Once you've made your changes, click Commit with the "direct" option selected:
 
 I'll then be notified, and I'll merge your changes into the docs.
 
-To preview your markdown, you can use Visual Studio Code. The TBD extension will allow you to preview docs UI components (code snippets, inline tabs, platform selectors, alerts). The Docs Components Demo shows you some commonly used components.
+To preview your markdown, you can use Visual Studio Code.
 
-To add **new docs** or **images to existing docs**, feel free to ping Mick. 
+For a list of available docs UI components and Markdown features, see [the Docs Markdown Reference](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
+
+For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.com/en-us/help/contribute/writing-principles?branch=master) and [this](https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700).
+
+To add **new docs** or **images to existing docs**, feel free to ping Mick.
 
 
 -----------------
