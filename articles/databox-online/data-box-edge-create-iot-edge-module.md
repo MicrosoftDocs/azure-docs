@@ -40,7 +40,7 @@ Once the file is in the cloud share, it automatically gets uploaded to your Azur
 
 Before you begin, make sure you have:
 
-- A Azure Stack Edge device that is running.
+- An Azure Stack Edge device that is running.
 
     - The device also has an associated IoT Hub resource.
     - The device has Edge compute role configured.
