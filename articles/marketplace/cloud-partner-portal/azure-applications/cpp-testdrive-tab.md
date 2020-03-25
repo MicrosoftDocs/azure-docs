@@ -1,13 +1,12 @@
 ---
 title: Azure Application offer test drive | Azure Marketplace
 description: How to configure test drive for Azure Application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure applications Test Drive tab
