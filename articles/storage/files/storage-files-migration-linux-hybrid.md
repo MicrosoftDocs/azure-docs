@@ -1,6 +1,6 @@
 ---
-title: On-premises NAS migration to Azure File Sync
-description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment with Azure File Sync and Azure file shares.
+title: Linux migration to Azure File Sync
+description: Learn how to migrate files from a Linux server location to a hybrid cloud deployment with Azure File Sync and Azure file shares.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
@@ -9,18 +9,20 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-# Migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync
+# Migrate from Linux to a hybrid cloud deployment with Azure File Sync
 
-Azure File Sync works on Direct Attached Storage (DAS) locations and does not support sync to Network Attached Storage (NAS) locations.
-This fact makes a migration of your files necessary and this article guides you through the planning and execution of such a migration.
+Azure File Sync works on Windows Servers with Direct Attached Storage (DAS). It does not support sync to and from Linux or a remote SMB share.
+As a result, transforming your file services into a hybrid deployment makes a migration to a Windows Server necessary. This article guides you through the planning and execution of such a migration.
 
 ## Migration goals
 
-The goal is to move the shares that you have on your NAS appliance to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the shares that you have on your Linux Samba server to a Windows Server. Then utilize Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
-As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
+As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your Linux Samba server is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files in this migration scenario.
+
+If you are not running Samba on your Linux server and rather want to migrate folders to a hybrid deployment on a Windows Server, you can use Linux copy tools instead of RoboCopy. If you do, be aware of the fidelity capabilities in your file copy tool. Review the [migration basics section](storage-files-migration-overview.md#migration-basics) in the migration overview article to learn what to look for in a copy tool.
 
 - Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
 - Phase 2: [Provision a suitable Windows Server on-premises](#phase-2-provision-a-suitable-windows-server-on-premises)
@@ -40,14 +42,14 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 * Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
-    The amount of storage you provision can be smaller than what you are currently using on your NAS appliance, if you use Azure File Syncs [cloud tiering](storage-sync-cloud-tiering.md) feature.
-    However, when you copy your files from the larger NAS space to the smaller Windows Server volume in a later phase, you will need to work in batches:
+    The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server, if you use Azure File Syncs [cloud tiering](storage-sync-cloud-tiering.md) feature.
+    However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you will need to work in batches:
 
-    1. Move a set of files that fits onto the disk
-    2. let file sync and cloud tiering engage
-    3. when more free space is created on the volume, proceed with the next batch of files. 
+    1. Move a set of files that fits onto the disk.
+    2. Let file sync and cloud tiering engage.
+    3. When more free space is created on the volume, proceed with the next batch of files. 
     
-    You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before adjusting the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
+    You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the Linux Samba server. Consider enabling deduplication on Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before adjusting the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
 The resource configuration (compute and RAM) of the Windows Server you deploy depends mostly on the number of items (files and folders) you will be syncing. We recommend going with a higher performance configuration if you have any concerns.
 
@@ -80,7 +82,7 @@ Your registered on-premises Windows Server must be ready and connected to the in
 > Cloud tiering is the AFS feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast access performance. Cloud tiering is an optional feature per Azure File Sync "server endpoint".
 
 > [!WARNING]
-> If you provisioned less storage on your Windows server volume(s) than your data used on the NAS appliance, then cloud tiering is mandatory. If you do not turn on cloud tiering, your server will not free up space to store all files. Set your tiering policy, temporarily for the migration, to 99% volume free space. Be sure to return to your cloud tiering settings after the migration is complete, and set it to a more long-term useful level.
+> If you provisioned less storage on your Windows server volume(s) than your data used on the Linux Samba server, then cloud tiering is mandatory. If you do not turn on cloud tiering, your server will not free up space to store all files. Set your tiering policy, temporarily for the migration, to 99% volume free space. Be sure to return to your cloud tiering settings after the migration is complete, and set it to a more long-term useful level.
 
 Repeat the steps of sync group creation and addition of the matching server folder as a server endpoint for all Azure file shares / server locations, that need to be configured for sync.
 
@@ -90,17 +92,17 @@ Both locations, the server folders and the Azure file shares are otherwise empty
 
 ## Phase 7: RoboCopy
 
-The basic migration approach is a RoboCopy from your NAS appliance to your Windows Server, and Azure File Sync to Azure file shares.
+The basic migration approach is a RoboCopy from your Linux Samba server to your Windows Server, and Azure File Sync to Azure file shares.
 
 Run the first local copy to your Windows Server target folder:
 
-* Identify the first location on your NAS appliance.
-* Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
-* Start the copy using RoboCopy
+1. Identify the first location on your Linux Samba server.
+1. Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
+1. Start the copy using RoboCopy.
 
-The following RoboCopy command will copy files from your NAS storage to your Windows Server target folder. The Windows Server will sync it to the Azure file share(s). 
+The following RoboCopy command will copy files from your Linux Samba servers storage to your Windows Server target folder. The Windows Server will sync it to the Azure file share(s). 
 
-If you provisioned less storage on your Windows Server than your files take up on the NAS appliance, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
+If you provisioned less storage on your Windows Server than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 It is possible, that RoboCopy moves files faster than you can sync to the cloud and tier locally, thus running out of local disk space. RoboCopy will fail. It is recommended that you work through the shares in a sequence that prevents that. For example, not starting RoboCopy jobs for all shares at the same time, or only moving shares that fit on the current amount of free space on the Windows Server, to mention a few.
 
 ```console
@@ -176,14 +178,14 @@ Background:
 
 ## Phase 8: User cut-over
 
-When you run the RoboCopy command for the first time, your users and applications are still accessing files on the NAS and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (NAS) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
+When you run the RoboCopy command for the first time, your users and applications are still accessing files on the Linux Samba server and potentially change them. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (Linux) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
 
 The first run is about moving the bulk of the data to your Windows Server and into the cloud via Azure File Sync. This first copy can take a long time, depending on:
 
-* your download bandwidth
-* the upload bandwidth
-* the local network speed and number of how optimally the number of RoboCopy threads matches it
-* the number of items (files and folders), that need to be processed by RoboCopy and Azure File Sync
+* Your download bandwidth.
+* The upload bandwidth.
+* The local network speed, and the number of how optimally the number of RoboCopy threads matches it.
+* The number of items (files and folders) that need to be processed by RoboCopy and Azure File Sync.
 
 Once the initial run is complete, run the command again.
 
@@ -191,19 +193,19 @@ The second time it will finish faster, because it only needs to transport change
 
 Repeat this process until you are satisfied that the amount of time it takes to complete a RoboCopy for a specific location is within an acceptable window for downtime.
 
-When you consider the downtime acceptable and you are prepared to take the NAS location offline: In order to take user access offline, you have the option to change ACLs on the share root such that users can no longer access the location or take any other appropriate step that prevents content to change in this folder on your NAS.
+When you consider the downtime acceptable and you are prepared to take the Linux location offline: In order to take user access offline, you have the option to change ACLs on the share root such that users can no longer access the location or take any other appropriate step that prevents content to change in this folder on your Linux server.
 
 Run one last RoboCopy round. It will pick up any changes, that might have been missed.
 How long this final step takes, is dependent on the speed of the RoboCopy scan. You can estimate the time (which is equal to your downtime) by measuring how long the previous run took.
 
-Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your NAS SMB share. If you had an enterprise-class domain-joined NAS, then the user SIDs will automatically match as the users exist in Active Directory and RoboCopy copies files and metadata at full fidelity. If you have used local users on your NAS, you need to re-create these users as Windows Server local users and map the existing SIDs RoboCopy moved over to your Windows Server to the SIDs of your new, Windows Server local users.
+Create a share on the Windows Server folder and possibly adjust your DFS-N deployment to point to it. Be sure to set the same share-level permissions as on your Linux Samba server SMB shares. If you have used local users on your Linux Samba server, you need to re-create these users as Windows Server local users and map the existing SIDs RoboCopy moved over to your Windows Server to the SIDs of your new, Windows Server local users. If you used AD accounts and ACLs, RoboCopy will move them as is and there is no further action necessary.
 
 You have finished migrating a share / group of shares into a common root or volume. (Depending on your mapping from Phase 1)
 
 You can try to run a few of these copies in parallel. We recommend processing the scope of one Azure file share at a time.
 
 > [!WARNING]
-> Once you have moved all the data from you NAS to the Windows Server, and your migration is complete: Return to ***all***  sync groups in the Azure portal and adjust the cloud tiering volume free space percent value to something better suited for cache utilization, say 20%. 
+> Once you have moved all the data from you Linux Samba server to the Windows Server, and your migration is complete: Return to ***all***  sync groups in the Azure portal and adjust the cloud tiering volume free space percent value to something better suited for cache utilization, say 20%. 
 
 The cloud tiering volume free space policy acts on a volume level with potentially multiple server endpoints syncing from it. If you forget to adjust the free space on even one server endpoint, sync will continue to apply the most restrictive rule and attempt to keep 99% free disk space, making the local cache not performing as you might expect. Unless it is your goal to only have the namespace for a volume that only contains rarely accessed, archival data and you are reserving the rest of the storage space for another scenario.
 
