@@ -212,7 +212,7 @@ To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-con
 
 ### More information
 
-To specify [required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the guidance in [About networking in Azure to Azure replication](site-recovery-azure-to-azure-networking-guidance.md).
+To specify [required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the guidance in [About networking in Azure to Azure replication](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## Disk not found in the machine (error code 150039)
 
