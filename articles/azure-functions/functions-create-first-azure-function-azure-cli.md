@@ -96,18 +96,7 @@ In Azure Functions, a function project is a container for one or more individual
         
     This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
     
-1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. 
-
-    ```
-    func new --name HttpExample --template "HTTP trigger"
-    ```
-
-    ::: zone pivot="programming-language-csharp"
-    `func new` creates a HttpExample.cs code file.
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
-    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
-    ::: zone-end
+[!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 
 ### (Optional) Examine the file contents
 
