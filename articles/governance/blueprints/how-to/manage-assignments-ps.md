@@ -275,7 +275,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
 
 For an example of the JSON assignment definition file for a user-assigned managed identity, see the
 request body in
-[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity)
+[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#examples)
 for REST API.
 
 ## Update blueprint assignments
