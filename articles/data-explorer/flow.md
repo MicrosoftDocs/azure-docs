@@ -148,7 +148,7 @@ You can include a step in any flow to send reports by email to any email address
 1. Enter the email address to where you want the email report sent.
 1. Enter the subject of the email.
 1. Select **Code view**.
-1. Place your cursor in the *Body* field, and select from the Dynamic content field, select **Add dynamic content**. 
+1. Place your cursor in the *Body* field, and select **Add dynamic content**.
 1. Select **BodyHtml**.
     ![Send email](./media/flow/flow-send-email.png)
 1. Select **Show advanced options**.
