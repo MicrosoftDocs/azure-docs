@@ -186,7 +186,8 @@ Best model registration| ✓|✓
 Best model deployment| ✓| ✓
 Best model explainability| ✓|✓
 Enable voting ensemble & stack ensemble models| ✓|✓
-Show best model based on non-primary metric|✓|Enable/disable ONNX model compatibility|✓|
+Show best model based on non-primary metric|✓|
+Enable/disable ONNX model compatibility|✓|
 Test the model | ✓| |
 
 ### Run control settings
