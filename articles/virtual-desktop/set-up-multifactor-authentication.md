@@ -13,9 +13,11 @@ manager: lizross
 
 # Set up and enforce Azure multi-factor authentication
 
-The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client. When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure AD Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
+The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client.
 
-![](media/7ea383c402a58cd8ae4363c07cc57de0.png)
+When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure AD Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
+
+![A screenshot of the credentials window where you enter your password. A check box labeled "Remember me" is underneath the password field.](media/credentials-window.png)
 
 While this is great for some scenarios, in Enterprise scenarios or personal devices, this could make your deployment less secure. To protect your users, you'll need to make sure the client keeps asking for Azure multi-factor authentication credentials. This article will show you how to enable this feature by opting in to the Conditional Access policy for Windows Virtual Desktop.
 
@@ -32,23 +34,23 @@ Before you start, make sure you have these things:
 
 1. Open **Azure Active Directory**.
 
-2. Go to **Enterprise Applications** > **Windows Virtual Desktop Client**.
+2. Go to the **All applications** tab. In the "Application type" drop-down menu, select **Enterprise Applications**, then search for **Windows Virtual Desktop Client**.
 
-![](media/b3ea9a297f407546aee226f2c403149e.png)
+![A screenshot of the All applications tab. The user entered "windows virtual desktop client" into the search bar, and the app has shown up in the search results.](media/all-applications-search.png)
 
 3. Select **Conditional Access**.
 
-![](media/27b2b35cca5341adbc2d2178162ce40f.png)
+![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
 
 4. Select **+ New policy**.
 
-![](media/8788d56dca954aa8844baeeee77171b1.png)
+![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
 
 5. Enter a name for the rule, then select the name of the group you created in the prerequisites. In the following example, the group's name is "WVD - MFA Users."
 
-6. Select **Select**, then select **Done**.
+![A screenshot of the Users and Groups page. Select and the name of the app being configured are selected.](media/users-and-groups-selection.png)
 
-![](media/3b0b9060dd42f5f1feb0ae9318e0c154.png)
+6. Select **Select**, then select **Done**.
 
 7. Next, open **Cloud Apps or actions**.
 
@@ -60,55 +62,56 @@ Before you start, make sure you have these things:
 
 ## Whitelist users with a filter for trusted locations
 
-After you set up your Selective Access policy, you have the option to create a filter for policy enforcement based on your company's public IP address. With this filter, users working in trusted locations can access your Windows Virtual Desktop environment without multi-factor authentication. However, when they switch to a network outside of a trusted location, they'll get the multi-factor authentication prompt again.
+Now that you've set up your Selective Access policy, you have the option to create a filter for policy enforcement based on your company's public IP address. With this filter, users working in trusted locations can access your Windows Virtual Desktop environment without multi-factor authentication. However, when they switch to a network outside of a trusted location, they'll get the multi-factor authentication prompt again.
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-![](media/4dd11194626b7eb5f46acc8b0a1e6a3f.png)
+![A screenshot of the named locations tab. Configure MFA trusted IPs is highlighted in red.](media/configure-mfa-trusted-ips.png)
 
 To set up a filter:
 
-1. Enter the public IP addresses that you want to whitelist from Azure MFA enforcement – in the - **trusted ips** - section.
+1. In the **Named locations** tab, select **Configure MFA trusted IPs**.
+   
+2. When the **Multi-factor authentication** page opens, go to the **Trusted IPs** section and enter the public IP addresses that you want to whitelist from Azure MFA enforcement.
 
-![](media/8b83563ff08dbe60168ee4e741501160.png)
+![A screenshot of the multi-factor authentication page.](media/mfa-page.png)
 
-2. Go back to the Selective Access rule page.
+3. Go back to the Selective Access rule page.
 
-3. Select **MFA Trusted IPs**.
+4. Select **MFA Trusted IPs**.
 
-![](media/ce3bf9e0d17320dee52caacddf12e368.png)
+![A screenshot of the Conditions page. The checkbox named "MFA Trusted IPs" is selected.](media/mfa-trusted-ips.png)
 
-**Select** (at least) – Require multi-factor authentication – and – **require one** of the **selected controls**.
+5. Select **Require multi-factor authentication**, then select at least one of the **selected controls**.
 
-Click on **Select** and **Done**
+6. Select **Select**, then select **Done**.
 
-Click on **Grant**
+7. Select **Grant**.
 
-**Active** the **Require multi-factor authentication** setting
+8. Select **Require multi-factor authentication**.
+   
+   ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
 
->[!NOTE]
->If some of your users in your organization run the Windows Client from a Azure AD Domain Joined (AADJ) compliant computer account (Intune managed) and don't want to enforce MFA for those users – please activate then as well the – Require device to be marked as compliant – to avoid this for AADJ compliant devices.
+    >[!NOTE]
+    >If some of your users in your organization run the Windows Client from an Azure AD Domain Joined-compliant computer account that's managed by InTune and don't want to enforce MFA for those users, you should also select **Require device to be marked as compliant**.
 
-![](media/551af8389868bb190d5eb65fb4babf22.png)
+9. Select **Session**.
 
-Click on **Session**
+10. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
 
-**Activate** the **Sign-in frequency** setting – set it on - **1 Hours.**
+    ![A screenshot of the Session page. The session menu shows the sign-in frequency drop down menus have been changed to "1" and "Hours."](media/sign-in-frequency.png)
+   
+    >[!NOTE]
+    >Active sessions in your Windows Virtual Desktop environment will continue to work as you change the policy. However, if you disconnect or sign off, you'll need to provide your credentials again after 60 minutes. As you change the settings, you can extend the timeout period as much as you want (as long as it aligns with your organization's security policy).
+    >
+    >The default setting is a rolling window of 90 days, which means the client will ask users to sign in again when they try to access a resource after being inactive on their machine for 90 days or longer.
 
->[!NOTE]
->Active sessions to your Windows Virtual Desktop environment will continue to work. However, if you disconnect or logoff – you will need to provide MFA again after 60 minutes. You can set it to 1 day to extent this time-out. It's what you prefer – and what aligns with your security policy!*
 
-*The default setting is a rolling window of 90 days, i.e. users will be asked to re-authenticate on the first attempt to access a resource after being inactive on their machine for 90 days or longer.*
+11. Enable the policy.
 
-![](media/4ebd37ff1ecb8445dc3d2532632cfdeb.png)
+12. Select **Create** to confirm the policy.
 
-**Enable** the Policy
+    ![A screenshot of the Create button.](media/create-button.png)
 
-**Confirm** the settings – click on **Create**
-
-![](media/fe7c51d65332e67ef26e2507826a4588.png)
-
-The **Conditional Access** rule **is created** – let's test the rule!
-
-![](media/770e9f35e4d7d75f39f248dc72fe185a.png)
+13. You're all done! Feel free to test the policy to make sure your whitelist is working as intended.
