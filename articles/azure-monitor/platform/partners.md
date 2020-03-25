@@ -201,6 +201,14 @@ Serverless360 is a one platform tool to operate, manage, and monitor Azure serve
 
 [Learn more.][serverless360-doc]
 
+## ServiceNow
+
+![ServiceNow Logo](./media/partners/servicenow.png)
+
+Reduce incidents and MTTR with NOW AIOps platform to eliminate noise, prioritize, identify root cause detection using ML, and remediate with ITX workflows.  Understand the current state of your Iaas/PaaS/FaaS services from Azure and build service maps from tags to build application service context for the business impact analysis.    
+
+[Learn more.](https://www.servicenow.com/solutions/aiops.html)
+
 ## SignalFx
 
 ![SignalFX Logo](./media/partners/signalfx.png)
