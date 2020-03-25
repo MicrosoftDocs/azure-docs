@@ -497,7 +497,7 @@
     },
     {
       "path_to_root": "azure-sdk-for-js",
-      "url": "https://github.com/Azure/azure-sdk-for-js/tree/master/sdk",
+      "url": "https://github.com/Azure/azure-sdk-for-js",
       "branch": "master"
     }
   ],
