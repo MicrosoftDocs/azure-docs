@@ -5,31 +5,19 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: banders
 ---
 
 # Purchase reservations with monthly payments
 
-Until now, Azure reservations required payment up front. Now you can pay for reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
+You can pay for reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
 
-Your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
+If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are available for:
+Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Compute.
 
-- Virtual machines
-- Azure Storage
-- SQL Databases
-- SQL Data Warehouse
-- Cosmos DB
-- App Service stamp fee
-- Managed Disk
-- Azure Data Explorer
-- Azure Database for MariaDB, MySQL, and PostgreSQL
-- Azure VMware Solution by CloudSimple
-
-
-Purchase reservations in the [Azure portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
+Purchase reservations in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
 
 ![Example showing reservation purchase](./media/monthly-payments-reservations/purchase-reservation.png)
 
@@ -53,11 +41,11 @@ When you renew a reservation, you can change the billing frequency to monthly.
 
 ## Exchange and refunds
 
-Like other reservations, you can refund or exchange reservations purchased with monthly billing. Currently, you can submit a support request to start an exchange or refund for a reservation purchased with monthly billing.
+Like other reservations, you can refund or exchange reservations purchased with monthly billing. 
 
 When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for up front to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
 
-If you cancel a reservation that's paid for monthly, Microsoft might apply a 12% cancellation fee to the canceled committed payments. However, Microsoft isn’t currently charging the penalty. Canceled committed payments accrue towards the $50,000 USD refund limit. If a cancellation penalty is charged, it doesn’t affect the refund limit.
+If you cancel a reservation that's paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
 
 For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
