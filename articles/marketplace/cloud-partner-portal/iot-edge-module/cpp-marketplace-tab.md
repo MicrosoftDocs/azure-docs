@@ -1,13 +1,12 @@
 ---
 title: Marketplace description for an Azure IoT Edge module | Azure Marketplace
 description: Create the marketplace description for an IoT Edge module.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # IoT Edge module Marketplace tab
