@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 24/03/2020
+ms.date: 03/24/2020
 ---
 
 # What is Azure SQL Database Edge Preview?
