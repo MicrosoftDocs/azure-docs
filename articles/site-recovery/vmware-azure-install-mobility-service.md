@@ -27,7 +27,7 @@ On each Windows machine you want to protect, do the following:
    ![Firewall settings](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. Add the account that you created in CSPSConfigtool. To do this, sign in to your configuration server.
-5. Open **cspsconfigtool.exe**. It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.
+5. Open **cspsconfigtool.exe**. It's available as a shortcut on the desktop and in the %ProgramData%\ASR\home\svsystems\bin folder.
 6. On the **Manage Accounts** tab, select **Add Account**.
 7. Add the account you created.
 8. Enter the credentials you use when you enable replication for a computer.
@@ -61,6 +61,6 @@ If machines you want to replicate have active anti-virus software running, make 
 
 ## Next steps
 
-After the Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs. Learn more about enabling replication for [VMware VMs(vmware-azure-enable-replication.md) and [physical servers](physical-azure-disaster-recovery.md#enable-replication).
+After the Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs. Learn more about enabling replication for [VMware VMs](vmware-azure-enable-replication.md) and [physical servers](physical-azure-disaster-recovery.md#enable-replication).
 
 

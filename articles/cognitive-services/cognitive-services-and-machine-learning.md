@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/22/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -59,7 +59,7 @@ Generally, the audiences are different:
 
 A Cognitive Service provides a trained model for you. This brings data and an algorithm together, available from a REST API(s) or SDK. You can implement this service within minutes, depending on your scenario.  A Cognitive Service provides answers to general problems such as key phrases in text or item identification in images. 
 
-Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, cleaning, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. With machine learning, it is possible to provide answers to any kind of problem including highly specialized or specific problems. These machine learning problems require familiarity with one or more of the following: subject matter, machine learning, data science.
+Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, cleaning, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. With machine learning, it is possible to provide answers to highly specialized and/or specific problems. Machine learning problems require familiarity with the specific subject matter and data of the problem under consideration, as well as expertise in data science.
 
 ## What kind of data do you have?
 
@@ -111,9 +111,9 @@ The following data categorizes each service by which kind of data it allows or r
  
 The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
 
-## How is Cognitive search related to Cognitive Services?
+## How is Azure Cognitive Search related to Cognitive Services?
 
-[Azure Search](../search/search-what-is-azure-search.md) uses Cognitive Services to provide this feature. Cognitive Services is exposed in Azure Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
+[Azure Cognitive Search](../search/search-what-is-azure-search.md) is a separate cloud search service that optionally uses Cognitive Services to add image and natural language processing to indexing workloads. Cognitive Services is exposed in Azure Cognitive Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
 
 ## How can you use Cognitive Services?
 
@@ -125,6 +125,10 @@ Cognitive Services that provide exported models for other machine learning tools
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for iOS11, ONNX for Windows ML|
 
+## Learn more
+
+* [Architecture Guide - What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## Next steps
 

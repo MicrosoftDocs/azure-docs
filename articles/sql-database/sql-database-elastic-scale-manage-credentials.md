@@ -1,5 +1,5 @@
 ---
-title: Managing credentials in the elastic database client library | Microsoft Docs
+title: Managing credentials in the elastic database client library
 description: How to set the right level of credentials, admin to read-only, for elastic database apps
 services: sql-database
 ms.service: sql-database

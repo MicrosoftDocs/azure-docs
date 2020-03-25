@@ -1,18 +1,12 @@
 ---
 title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 09/19/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Create interactive reports with Azure Monitor workbooks

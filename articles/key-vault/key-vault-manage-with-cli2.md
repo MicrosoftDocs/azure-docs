@@ -2,14 +2,14 @@
 title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
-author: barclayn
-manager: barbkess
-tags: azure-resource-manager
+author: msmbaldwin
+manager: rkarlin
 
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: barclayn
+ms.subservice: general
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
 
 ---
 # Manage Key Vault using the Azure CLI 
@@ -32,7 +32,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 > This article does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
 
-For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -233,9 +233,9 @@ Enable Key Vault for disk encryption: Required when using the vault for Azure Di
 
 Enable Key Vault for template deployment: Allows Resource Manager to retrieve secrets from the vault.
 
-```azurecli 
- az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
- ```
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
+```
 
 ## Working with Hardware security modules (HSMs)
 
@@ -261,7 +261,7 @@ You can use the following command to import a key from a .pem file on your compu
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --pem-file "/.softkey.pem" --protection "hsm" --pem-password "PaSSWORD"
 ```
 
-The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
+The next command imports a "bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
 ```azurecli
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"

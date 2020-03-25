@@ -1,7 +1,7 @@
 ---
 
-title: Enable Azure Security Center for IoT service in IoT Hub| Microsoft Docs
-description: Learn how to enable Azure Security Center for IoT service in your IoT Hub.
+title: "Quickstart: Enable Azure Security Center for IoT service in IoT Hub"
+description: Learn how to onboard and enable the Azure Security Center for IoT security service in your Azure IoT Hub.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/16/2019
+ms.date: 11/08/2019
 ms.author: mlottner
 
 ---
@@ -26,7 +26,7 @@ This article provides an explanation of how to enable the Azure Security Center 
 
 > [!NOTE]
 > Azure Security Center for IoT currently only supports standard tier IoT Hubs.
-> Azure Security Center for IoT is a single hub solution. If you require multiple hubs, multiple Azure Security Center for IoT solutions are required. 
+
 
 ## Prerequisites for enabling the service
 
@@ -36,34 +36,42 @@ This article provides an explanation of how to enable the Azure Security Center 
 - IoT Hub (standard tier)
 - Meet all [service prerequisites](service-prerequisites.md) 
 
-|Supported Azure service regions | ||
-|---|---|---|
-| Central US |East US |East US 2 |
-| West Central US |West US |West US2 |
-| Central US South|North Central US | Canada Central|
-| Canada East| North Europe|Brazil South|
-| France Central| UK West|UK South|
-|West Europe|Northern Europe| Japan West|
-|Japan East | Australia Southeast|Australia East|
-|East Asia| Southeast Asia| Korea Central|
-|Korea South| Central India| South India|
-|
-
 ## Enable Azure Security Center for IoT on your IoT Hub 
 
-To enable security on your IoT Hub, do the following: 
+To enable security on your IoT Hub: 
 
 1. Open your **IoT Hub** in Azure portal. 
-1. Under the **Security** menu, click **Secure your IoT solution**
-1. Leave **Enable** selected as the default. 
-1. Select your Log analytics workspace.
-1. Provide your Log Analytics workspace details. 
-   - Elect to enable **twin collection** by leaving the **twin collection** toggle **On**.
-   - Elect to store **raw events** in addition to the default information types of storage by selecting the **Store raw device security events** in Log Analytics. Leave the **raw event** toggle **On**. 
-    
-1. Click **Save**. 
+1. Under the **Security** menu, click **Secure your IoT solution**.    
+
 
 Congratulations! You've completed enabling Azure Security Center for IoT on your IoT Hub. 
+
+### Geolocation and IP address handling
+
+To secure your IoT solution, IP addresses of incoming and outgoing connections to and from your IoT devices, IoT Edge, and IoT Hub(s) are collected and stored by default. This information is essential to detect abnormal connectivity from suspicious IP sources. For example, when attempts are made to establish connections from an IP source of a known botnet or from an IP source outside your geolocation. Azure Security Center for IoT service offers the flexibility to enable and disable collection of IP address data at any time. 
+
+To enable or disable collection of IP address data: 
+
+1. Open your IoT Hub and then select **Overview** from the **Security** menu. 
+2. Choose the **Settings** screen and modify the geolocation and/or IP handling settings as you wish.
+
+### Log Analytics creation
+
+When Azure Security Center for IoT is turned on, a default Azure Log Analytics workspace is created to store raw security events, alerts, and recommendations for your IoT devices, IoT Edge, and IoT Hub. Each month, the first five (5) GB of data ingested per customer to the Azure Log Analytics service  is free. Every GB of data ingested into your Azure Log Analytics workspace is retained at no charge for the first 31 days. Learn more about [Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) pricing.
+
+To change the workspace configuration of Log Analytics:
+
+1. Open your IoT Hub and then select **Overview** from the **Security** menu. 
+2. Choose the **Settings** screen and modify the workspace configuration of Log Analytics settings as you wish.
+
+### Customize your IoT security solution
+By default, turning on the Azure Security Center for IoT solution automatically secures all IoT Hubs under your Azure subscription. 
+
+To turn Azure Security Center for IoT service on a specific IoT Hub on or off: 
+
+1. Open your IoT Hub and then select **Overview** from the **Security** menu. 
+2. Choose the **Settings** screen and modify the security settings of any IoT hub in your Azure subscription as you wish.
+
 
 ## Next steps
 
@@ -71,5 +79,3 @@ Advance to the next article to configure your solution...
 
 > [!div class="nextstepaction"]
 > [Configure your solution](quickstart-configure-your-solution.md)
-
-

@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
 ---
 
 # What is the Bing Visual Search API?
 
-The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images.
+The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images. 
 
 If you use the [Bing Image Search API](../bing-image-search/overview.md), you can use insight tokens from that API's search results for your Bing Visual Search instead of uploading an image.
 
@@ -34,6 +34,7 @@ You can discover the following insights by using Bing Visual Search:
 | Related searches                     | Related searches made by others or that are based on the contents of the image.            |
 | Webpages that include the image     | Webpages that include the input image.            |
 | Recipes                              | Webpages that include recipes for making the dish shown in the input image.            |
+| Entities                             | Well-known people, places, and things. |
 
 In addition to insights, Bing Visual Search returns a variety of terms (that is, tags) derived from the input image. The tags enable users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags may be the name of the athlete, another tag could be Sports. Or, if the input image is of an apple pie, the tags could be Apple Pie, Pies, and Desserts.
 
@@ -59,3 +60,5 @@ To get started quickly with your first request, see the quickstarts: [C#](quicks
 * The [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) reference describes definitions and information on the endpoints, request headers, responses, and query parameters that you can use to request image-based search results.
 
 * The [Bing Search API use and display requirements](../bing-web-search/use-display-requirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
+
+* Visit the [Bing Search API hub page](../bing-web-search/search-the-web.md) to explore the other available APIs.

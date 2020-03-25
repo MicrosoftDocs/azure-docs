@@ -1,21 +1,11 @@
 ﻿---
-title: Visualizing your cluster using Azure Service Fabric Explorer | Microsoft Docs
+title: Visualizing your cluster using Azure Service Fabric Explorer 
 description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
 
-ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-
 ---
 # Visualize your cluster with Service Fabric Explorer
 
@@ -124,7 +114,20 @@ Image store viewer is a feature offered if using Native Image Store that allows 
 
 ![Service Fabric Explorer cluster map][sfx-imagestore]
 
+## Backup and Restore
+Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). In order to see Backup and Restore features in SFX, advanced mode must be enabled.
 
+![Enable advanced mode][0]
+ 
+The following operations are possible:
+
+* Create, edit, and delete a Backup Policy.
+* Enable and disable Backup for an application, service, or partition.
+* Suspend and resume Backup for an application, service, or partition.
+* Trigger and track Backup of a partition.
+* Trigger and track Restore for a partition.
+
+For more on the Backup and Restore service, see the [REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## Next steps
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
@@ -138,3 +141,4 @@ Image store viewer is a feature offered if using Native Image Store that allows 
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

@@ -50,35 +50,15 @@ When you try to select the source machine to enable replication by using Site Re
 
 Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
-## Common errors and solutions
+## No crash consistent recovery point available for the VM in the last 'XXX' minutes
+
+Some of the most common issues are listed below
 
 ### Initial replication issues [error 78169]
 
 Over an above ensuring that there are no connectivity, bandwidth or time sync related issues, ensure that:
 
 - No anti-virus software is blocking Azure Site Recovery. Learn [more](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) on folder exclusions required for Azure Site Recovery.
-
-### Missing app-consistent recovery points [error 78144]
-
- This happens due to issues with Volume Shadow copy Service (VSS). To resolve: 
- 
-- Verify that the installed version of the Azure Site Recovery agent is at least 9.22.2. 
-- Verify that VSS Provider is installed as a service in Windows Services and also verify the Component Service MMC to check that Azure Site Recovery VSS Provider is listed.
-- If the VSS Provider is not installed, refer the [installation failure troubleshooting article](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- If VSS is disabled,
-    - Verify that the startup type of the VSS Provider service is set to **Automatic**.
-    - Restart the following services:
-        - VSS service
-        - Azure Site Recovery VSS Provider
-        - VDS service
-
-- If you are running SQL or Exchange workloads, check the logs of these application writers for failures. Frequent errors and their resolution are captured in following articles:
-    -  [Auto-Close option of SQL Server database is set to TRUE](https://support.microsoft.com/help/4504104)
-    - [SQL Server 2008 R2 throwing a non-retryable error](https://support.microsoft.com/help/4504103)
-    - [Known issue in SQL Server 2016 and 2017](https://support.microsoft.com/help/4493364)
-    - [Common issue with Exchange Servers 2013 and 2016](https://support.microsoft.com/help/4037535)
-
 
 ### Source machines with high churn [error 78188]
 
@@ -133,8 +113,21 @@ To resolve the issue, use the following steps to verify the service status:
     - Check the logs at the location for error details:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. To register master target with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
+
+Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
 
 Some of the most common issues are listed below
 

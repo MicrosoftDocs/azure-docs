@@ -3,10 +3,11 @@ title: Configure Azure Key Vault firewalls and virtual networks - Azure Key Vaul
 description: Step-by-step instructions to configure Key Vault firewalls and virtual networks
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/02/2019
+ms.subservice: general
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
 ---
 # Configure Azure Key Vault firewalls and virtual networks
@@ -21,7 +22,7 @@ This article provides step-by-step instructions to configure Azure Key Vault fir
 Here's how to configure Key Vault firewalls and virtual networks by using the Azure portal:
 
 1. Browse to the key vault you want to secure.
-2. Select **Firewalls and virtual networks**.
+2. Select **Networking**, and then select the **Firewalls and virtual networks** tab.
 3. Under **Allow access from**, select **Selected networks**.
 4. To add existing virtual networks to firewalls and virtual network rules, select **+ Add existing virtual networks**.
 5. In the new blade that opens, select the subscription, virtual networks, and subnets that you want to allow access to this key vault. If the virtual networks and subnets you select don't have service endpoints enabled, confirm that you want to enable service endpoints, and select **Enable**. It might take up to 15 minutes to take effect.

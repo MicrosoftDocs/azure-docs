@@ -59,7 +59,7 @@ Azure IoT Hub grants access to endpoints by verifying a token against the shared
 Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [!NOTE]
-> The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 For more information about how to construct and use security tokens, see [IoT Hub security tokens](iot-hub-devguide-security.md#security-tokens).
 
@@ -152,7 +152,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     var toSign = resourceUri + '\n' + expires;
 
     // Use crypto
-    var hmac = crypto.createHmac('sha256', new Buffer(signingKey, 'base64'));
+    var hmac = crypto.createHmac('sha256', Buffer.from(signingKey, 'base64'));
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
@@ -170,14 +170,14 @@ As a comparison, the equivalent Python code to generate a security token is:
 from base64 import b64encode, b64decode
 from hashlib import sha256
 from time import time
-from urllib import quote_plus, urlencode
+from urllib import parse
 from hmac import HMAC
 
 def generate_sas_token(uri, key, policy_name, expiry=3600):
     ttl = time() + expiry
-    sign_key = "%s\n%d" % ((quote_plus(uri)), int(ttl))
+    sign_key = "%s\n%d" % ((parse.quote_plus(uri)), int(ttl))
     print sign_key
-    signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+    signature = b64encode(HMAC(b64decode(key), sign_key.encode('utf-8'), sha256).digest())
 
     rawtoken = {
         'sr' :  uri,
@@ -188,7 +188,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     if policy_name is not None:
         rawtoken['skn'] = policy_name
 
-    return 'SharedAccessSignature ' + urlencode(rawtoken)
+    return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
 
 The following are the installation instructions for the prerequisites.
@@ -343,7 +343,7 @@ The result, which would grant access to read all device identities, would be:
 
 ## Supported X.509 certificates
 
-You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. Authentication using certificate thumbprints only verifies that the presented thumbprint matches the configured thumbprint. Authentication using certificate authority validates the certificate chain. 
+You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. Authentication using certificate thumbprints verifies that the presented thumbprint matches the configured thumbprint. Authentication using certificate authority validates the certificate chain. Either way, TLS handshake requires the device to have a valid certificate and private key. Refer to the TLS specification for details, for example: [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/).
 
 Supported certificates include:
 
@@ -359,7 +359,7 @@ For more information about authentication using certificate authority, see [Devi
 
 ### Register an X.509 certificate for a device
 
-The [Azure IoT Service SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service) (version 1.0.8+) supports registering a device that uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
+The [Azure IoT Service SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (version 1.0.8+) supports registering a device that uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
 
 You can also use the CLI extension command [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) to configure X.509 certificates for devices.
 
@@ -386,7 +386,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### Use an X.509 certificate during run-time operations
 
-The [Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device) (version 1.0.11+) supports the use of X.509 certificates.
+The [Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (version 1.0.11+) supports the use of X.509 certificates.
 
 ### C\# Support
 
@@ -458,6 +458,8 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub query language](iot-hub-devguide-query-language.md) describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+
+* [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/) provides more information about TLS authentication.
 
 ## Next steps
 

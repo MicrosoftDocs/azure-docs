@@ -1,10 +1,7 @@
 ---
 title: Integrate Azure Functions with an Azure virtual network
 description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
@@ -22,9 +19,6 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Connect the function app to the virtual network
 > * Create a function proxy to access WordPress resources
 > * Request a WordPress file from inside the virtual network
-
-> [!NOTE]  
-> This tutorial creates a function app in the Premium plan. This hosting plan is currently in preview. For more information, see [Premium plan].
 
 ## Topology
 
@@ -63,7 +57,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
     | **Virtual machine name** | VNET-Wordpress | The VM name needs to be unique in the resource group |
     | **[Region](https://azure.microsoft.com/regions/)** | (Europe) West Europe | Choose a region near you or near the functions that access the VM. |
     | **Size** | B1s | Choose **Change size** and then select the B1s standard image, which has 1 vCPU and 1 GB of memory. |

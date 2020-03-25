@@ -1,27 +1,16 @@
 ---
-title: Get started with Mobile Apps by using Xamarin.Forms
+title: Get started with Xamarin.Forms
 description: Follow this tutorial to start using Mobile Apps for Xamarin.Forms development
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Create a Xamarin.Forms app with Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-> [!NOTE]
-> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started) today.
->
 
 ## Overview
 This tutorial shows you how to add a cloud-based back-end service to a Xamarin.Forms mobile app by using the Mobile Apps feature of Azure App Service as the back end. You create both a new Mobile Apps back end and a simple to-do list Xamarin.Forms app that stores app data in Azure.

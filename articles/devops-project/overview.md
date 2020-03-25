@@ -4,7 +4,7 @@ description: Understand the value for Azure DevOps Projects
 services: devops-project
 documentationcenter: ''
 author: mlearned
-manager: douge
+manager: gwallace
 editor: mlearned
 ms.assetid: 
 ms.service: az-devops-project

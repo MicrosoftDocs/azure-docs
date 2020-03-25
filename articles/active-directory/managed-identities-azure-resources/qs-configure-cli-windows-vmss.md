@@ -1,5 +1,5 @@
 ---
-title: How to configure system and user-assigned managed identities on an Azure virtual machine scale set using Azure CLI
+title: Configure managed identities on virtual machine scale set - Azure CLI - Azure AD
 description: Step by step instructions for configuring system and user-assigned managed identities on an Azure virtual machine scale set, using Azure CLI.
 services: active-directory
 documentationcenter: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -31,7 +31,7 @@ In this article, you learn how to perform the following managed identities for A
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the management operations in this article, your account needs the following Azure role based access control assignments:
 
@@ -65,7 +65,7 @@ To create a virtual machine scale set with the system-assigned managed identity 
    az login
    ```
 
-2. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have a resource group you would like to use instead:
+2. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have a resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -110,8 +110,7 @@ If you have a virtual machine that no longer needs system-assigned managed ident
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-> [!NOTE]
-> If you have provisioned the managed identity for Azure resources VM extension (to be deprecated), you need to remove it using [az vmss extension delete](https://docs.microsoft.com/cli/azure/vm/). For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
+
 
 ## user-assigned managed identity
 
@@ -121,7 +120,7 @@ In this section, you learn how to enable and remove a user-assigned managed iden
 
 This section walks you through creation of a virtual machine scale set and assignment of a user-assigned managed identity to the virtual machine scale set. If you already have a virtual machine scale set you want to use, skip this section and proceed to the next.
 
-1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your user-assigned managed identity, using [az group create](/cli/azure/group/#az-group-create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
+1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/management/overview.md#terminology) for containment and deployment of your user-assigned managed identity, using [az group create](/cli/azure/group/#az-group-create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>

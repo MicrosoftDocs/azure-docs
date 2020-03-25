@@ -11,7 +11,6 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
@@ -68,7 +67,7 @@ With caching policies shown in this example, the first request to the **GetSpeak
 
 9. In the **outbound** element, add the following policy:
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **Duration** specifies the expiration interval of the cached responses. In this example, the interval is **20** seconds.
 

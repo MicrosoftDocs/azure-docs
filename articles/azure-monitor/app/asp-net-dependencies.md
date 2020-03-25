@@ -1,23 +1,14 @@
 ---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: mbullwin
 
 ---
+
 # Dependency Tracking in Azure Application Insights 
 
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency and so on. You can investigate specific dependency calls, and correlate them to requests and exceptions.
+A *dependency* is an external component that is called by your application. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency and so on. You can investigate specific dependency calls, and correlate them to requests and exceptions.
 
 ## Automatically tracked dependencies
 
@@ -35,6 +26,7 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
+If you're missing a dependency, or using a different SDK make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If the dependency isn't auto-collected, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## Setup automatic dependency tracking in Console Apps
 
@@ -86,7 +78,7 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 ## Tracking AJAX calls from Web Pages
 
-For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies as described [here](javascript.md#ajax-performance). This document focuses on dependencies from server components.
+For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies.
 
 ## Advanced SQL tracking to get full SQL Query
 
@@ -109,7 +101,7 @@ In the above cases, the correct way of validating that instrumentation engine is
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
 * [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
-* [Browsers tab](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
+* [Browsers tab](javascript.md) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#logs-analytics) can be used to query dependency data.
 

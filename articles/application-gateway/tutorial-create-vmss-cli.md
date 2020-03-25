@@ -1,18 +1,15 @@
 ---
-title: Create an application gateway with a virtual machine scale set - Azure CLI | Microsoft Docs
+title: Use a virtual machine scale set backend - CLI
+titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway with a virtual machine scale set using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with a virtual machine scale set using the Azure CLI
 
 You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
@@ -126,7 +123,7 @@ az vmss extension set \
 
 To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

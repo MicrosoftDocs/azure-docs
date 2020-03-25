@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure API for FHIR using Azure portal
-description: Deploy Azure API for FHIR using Azure portal.
+title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
+description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -44,17 +44,16 @@ Confirm creation and await FHIR API deployment.
 
 ## Additional settings
 
-Click **Next: Additional settings** to configure the authority, audience, identity object IDs that should be allowed to access this Azure API for FHIR, enable SMART on FHIR if needed, and configure Cosmos DB throughput:
+Click **Next: Additional settings** to configure the authority, audience, identity object IDs that should be allowed to access this Azure API for FHIR, enable SMART on FHIR if needed, and configure database throughput:
 
 - **Authority:** You can specify different Azure AD tenant from the one that you are logged into as authentication authority for the service.
-- **Audience:** You can specify audience, that is different from https:\//azurehealthcareapis.com.
-- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR  
+- **Audience:** Best practice, and the default setting, is that the audience is set to the URL of the FHIR server. You can change that here. The audience identifies the recipient that the token is intended for. In this context, it should be set to something representing the FHIR API itself.
+- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR. You can learn more on finding the object id for users and service principals in the [Find identity object IDs](find-identity-object-ids.md) how-to guide.  
 - **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
-- **Cosmos DB throughput:** Azure API for FHIR relies on Cosmos DB as its underlying database. Here you can specify Cosmos DB throughput settings for your Azure API for FHIR. You can change this setting later in the Cosmos DB blade. For details on Cosmos DB RUs please read [Request Units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)
+- **Provisioned throughput (RU/s):** Here you can specify throughput settings for the underlying database for your Azure API for FHIR. You can change this setting later in the Database blade. For more details, please see the [configure database settings](configure-database.md) page.
+
 
 ![Configure allowed object IDs](media/quickstart-paas-portal/configure-audience.png)
-
-See [how to find identity object IDs](find-identity-object-ids.md) for details on how to locate identity object IDs for users and service principals.
 
 ## Fetch FHIR API capability statement
 
@@ -66,7 +65,7 @@ When no longer needed, you can delete the resource group, Azure API for FHIR, an
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

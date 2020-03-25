@@ -1,10 +1,10 @@
 ---
-title: Migrate database from SQL Server instance to Azure SQL Database - Managed instance | Microsoft Docs
+title: Migrate from SQL Server to managed instance
 description: Learn how to migrate a database from SQL Server instance to Azure SQL Database - Managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
@@ -66,7 +66,7 @@ Some of the parameters that you would need to measure on your SQL Server instanc
 - Monitor workload and query performance or your SQL Server instance by examining Dynamic Management Views or Query Store if you are migrating from SQL Server 2016+ version. Identify average duration and CPU usage of the most important queries in your workload to compare them with the queries that are running on the Managed Instance.
 
 > [!Note]
-> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parametrization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
+> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parameterization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
 
 As an outcome of this activity you should have documented average and peak values for CPU, memory, and IO usage on your source system, as well as average and max duration and CPU usage of the dominant and the most critical queries in your workload. You should use these values later to compare performance of your workload on Managed Instance with the baseline performance of the workload on the source SQL Server.
 
@@ -163,7 +163,7 @@ As a result, you should compare performance parameters with the baseline and ide
 The outcome of the performance comparison might be:
 - Workload performance on Managed Instance is aligned or better that the workload performance on SQL Server. In this case you have successfully confirmed that migration is successful.
 - Majority of the performance parameters and the queries in the workload work fine, with some exceptions with degraded performance. In this case, you would need to identify the differences and their importance. If there are some important queries with degraded performance, you should investigate are the underlying SQL plans changed or the queries are hitting some resource limits. Mitigation in this case could be to apply some hints on the critical queries (for example changed compatibility level, legacy cardinality estimator) either directly or using plan guides, rebuild or create statistics and indexes that might affect the plans. 
-- Most of the queries are slower on Managed Instance compared to your source SQL Server. In this case try to identify the root causes of the difference such as [reaching some resource limit]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) like IO limits, memory limit, instance log rate limit, etc. If there are no resource limits that can cause the difference, try to change compatibility level of the database or change database settings like legacy cardinality estimation and re-start the test. Review the recommendations provided by Managed Instance or Query Store views to identify the queries that regressed performance.
+- Most of the queries are slower on Managed Instance compared to your source SQL Server. In this case try to identify the root causes of the difference such as [reaching some resource limit]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) like IO limits, memory limit, instance log rate limit, etc. If there are no resource limits that can cause the difference, try to change compatibility level of the database or change database settings like legacy cardinality estimation and re-start the test. Review the recommendations provided by Managed Instance or Query Store views to identify the queries that regressed performance.
 
 > [!IMPORTANT]
 > Managed Instance has built-in automatic plan correction feature that is enabled by default. This feature ensures that queries that worked fine in the paste would not degrade in the future. Make sure that this feature is enabled and that you have executed the workload long enough with the old settings before you change new settings in order to enable Managed Instance to learn about the baseline performance and plans.

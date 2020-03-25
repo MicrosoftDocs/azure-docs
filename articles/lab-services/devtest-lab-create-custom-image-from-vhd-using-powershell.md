@@ -1,5 +1,5 @@
-﻿---
-title: Create an Azure DevTest Labs custom image from a VHD file using PowerShell | Microsoft Docs
+---
+title: Create a custom image from VHD file using Azure PowerShell
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file using PowerShell
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 ---
 
@@ -52,13 +52,6 @@ The following steps walk you through creating a custom image from a VHD file usi
 	$lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 	```
 
-1.	Get the lab storage account and lab storage account key values from the lab object.
-
-	```powershell
-	$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-	$labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
-	```
-
 1.	Replace the following placeholder for the **$vhdUri** variable with the URI to your uploaded VHD file. You can get the VHD file's URI from the storage account's blob blade in the Azure portal.
 
 	```powershell
@@ -92,10 +85,6 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $labRg = '<Specify your lab resource group name here>'
 $labName = '<Specify your lab name here>'
 $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-
-# Get the lab storage account and lab storage account key values.
-$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-$labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
 # Set the URI of the VHD file.
 $vhdUri = '<Specify the VHD URI here>'

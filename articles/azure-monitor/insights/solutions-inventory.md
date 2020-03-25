@@ -1,19 +1,14 @@
 ---
 title: Inventory of monitoring solutions in Azure | Microsoft Docs
 description: Monitoring solutions in Azure Monitor are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.  This article provides a list of monitoring solutions available from Microsoft and details about their method and frequency of data collection.
-services: log-analytics
-documentationcenter: ''
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 06/26/2018
+ms.subservice: logs
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 06/26/2018
+
 ---
+
 # Inventory and data collection details for monitoring solutions in Azure
 [Monitoring solutions](solutions.md) leverage services in Azure to provide additional insight into the operation of a particular application or service. Monitoring solutions typically collect log data and provide queries and views to analyze collected data. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges.
 

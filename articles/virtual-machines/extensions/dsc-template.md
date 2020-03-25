@@ -8,7 +8,6 @@ tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
@@ -201,7 +200,7 @@ for the default configuration script, see
 ## Default configuration script
 
 For more information about the following values, see
-[Local Configuration Manager basic settings](/powershell/dsc/metaconfig#basic-settings).
+[Local Configuration Manager basic settings](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 You can use the DSC extension default configuration script
 to configure only the LCM properties that are listed in the following table.
 
@@ -250,8 +249,10 @@ to set LCM metadata.
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -466,4 +467,4 @@ or settings.configuration.module is specified"
 - Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Find more details about [DSC's secure credential management](dsc-credentials.md).
 - Get an [introduction to the Azure DSC extension handler](dsc-overview.md).
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).

@@ -1,21 +1,11 @@
 ---
 title: ASP.NET Output Cache Provider for Azure Cache for Redis
-description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis
-services: cache
-documentationcenter: na
+description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis. The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data.
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-
-ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
-ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.date: 04/22/2018
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 04/22/2018
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 
@@ -71,7 +61,6 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 | *throwOnError* | boolean | true | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>Whether to throw an exception when an error occurs.<br/><br/>For more about *throwOnError*, see [Notes on *throwOnError*](#notes-on-throwonerror) in the [Attribute notes](#attribute-notes) section. |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
 | *retryTimeoutInMilliseconds* | positive integer | 5000 | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>How long to retry when an operation fails. If this value is less than *operationTimeoutInMilliseconds*, the provider will not retry.<br/><br/>For more about *retryTimeoutInMilliseconds*, see [Notes on *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) in the [Attribute notes](#attribute-notes) section. |
 | *redisSerializerType* | string | *n/a* | Specifies the assembly qualified type name of a class that implements Microsoft.Web.Redis. ISerializer and that contains the custom logic to serialize and deserialize the values. For more information, see [About *redisSerializerType*](#about-redisserializertype) in the [Attribute notes](#attribute-notes) section. |
-|
 
 ## Attribute notes
 
@@ -167,7 +156,7 @@ namespace MyCompany.Redis
 
         public object Deserialize(byte[] data)
         {
-            if (data == null)6t6
+            if (data == null)
             {
                 return null;
             }
@@ -201,6 +190,12 @@ Add an OutputCache directive to each page for which you wish to cache the output
 In the previous example, the cached page data remains in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837).
 
 Once these steps are performed, your application is configured to use the Redis Output Cache Provider.
+
+## Third-party output cache providers
+
+* [NCache](https://www.alachisoft.com/blogs/how-to-use-a-distributed-cache-for-asp-net-output-cache/)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-output-caching)
+
 
 ## Next steps
 

@@ -1,18 +1,12 @@
 ---
 title: Search queries in Azure Monitor logs | Microsoft Docs
 description: This article provides a tutorial for getting started using search in Azure Monitor log queries.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/06/2018
+
 ---
 
 # Search queries in Azure Monitor logs
@@ -46,7 +40,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### Table and column scoping
-By default, **search** will evaluate all columns in the data set. To search only a specific column, use this syntax:
+By default, **search** will evaluate all columns in the data set. To search only a specific column (named *Source* in the below example), use this syntax:
 
 ```Kusto
 search in (Event) Source:"error"

@@ -1,8 +1,9 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
+title: PowerShell script to list and get Azure Cosmos DB Table API operations
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown

@@ -1,5 +1,5 @@
 ---
-title: OpenShift in Azure overview | Microsoft Docs
+title: OpenShift in Azure overview 
 description: An overview of OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -46,9 +46,9 @@ OKD is an [open-source](https://www.okd.io/) upstream project of OpenShift that'
 
 ## Next steps
 
-- [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
-- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
-- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-marketplace-self-managed.md)
+- [Configure common prerequisites for OpenShift in Azure](./openshift-container-platform-3x-prerequisites.md)
+- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform-3x.md)
+- [Deploy OpenShift Container Platform Self-Managed Marketplace Offer](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Deploy OpenShift in Azure Stack](./openshift-azure-stack.md)
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)

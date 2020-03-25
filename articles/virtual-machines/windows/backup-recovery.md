@@ -1,5 +1,5 @@
 ---
-title: Overview backup options for Azure Windows VMs | Microsoft Docs
+title: Overview backup options for Azure Windows VMs 
 description: Overview backup options for Azure Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure

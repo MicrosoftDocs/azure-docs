@@ -1,21 +1,23 @@
 ---
 title: Prepare model for deployment
-titleSuffix: Azure Machine Learning Studio
-description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio training experiment to a predictive experiment.
+titleSuffix: ML Studio (classic) - Azure
+description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio (classic) training experiment to a predictive experiment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.date: 03/28/2017
 ---
-# How to prepare your model for deployment in Azure Machine Learning Studio
+# How to prepare your model for deployment in Azure Machine Learning Studio (classic)
 
-Azure Machine Learning Studio gives you the tools you need to develop a predictive analytics model and then operationalize it by deploying it as an Azure web service.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-To do this, you use Studio to create an experiment - called a *training experiment* - where you train, score, and edit your model. Once you're satisfied, you get your model ready to deploy by converting your training experiment to a *predictive experiment* that's configured to score user data.
+Azure Machine Learning Studio (classic) gives you the tools you need to develop a predictive analytics model and then operationalize it by deploying it as an Azure web service.
+
+To do this, you use Studio (classic) to create an experiment - called a *training experiment* - where you train, score, and edit your model. Once you're satisfied, you get your model ready to deploy by converting your training experiment to a *predictive experiment* that's configured to score user data.
 
 You can see an example of this process in [Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 
@@ -110,7 +112,7 @@ Now that the predictive experiment has been sufficiently prepared, you can deplo
 
 For more information on the complete deployment process, see [Deploy an Azure Machine Learning web service][deploy]
 
-[deploy]: publish-a-machine-learning-web-service.md
+[deploy]: deploy-a-machine-learning-web-service.md
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

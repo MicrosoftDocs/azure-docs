@@ -1,5 +1,6 @@
 ---
 title: "Azure Cloud Services Def. NetworkTrafficRules Schema | Microsoft Docs"
+description: Learn about NetworkTrafficRules, which limits the roles that can access the internal endpoints of a role. It combines with roles in a service definition file.
 ms.custom: ""
 ms.date: "04/14/2015"
 services: cloud-services
@@ -10,9 +11,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: georgewallace
-ms.author: gwallace
-manager: gwallace
+author: tgore03
+ms.author: tagore
+
 ---
 
 # Azure Cloud Services Definition NetworkTrafficRules Schema
@@ -95,3 +96,7 @@ The `FromRole` element specifies the roles that can communicate with the endpoin
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
+
+

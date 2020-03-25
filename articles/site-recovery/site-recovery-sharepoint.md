@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery | Microsoft Docs
+title: Disaster recovery for a multi-tier SharePoint app using Azure Site Recovery 
 description: This article describes how to set up disaster recovery for a multi-tier SharePoint application using Azure Site Recovery capabilities.
 author: sujayt
 manager: rochakm
@@ -51,7 +51,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 ## Site Recovery support
 
-For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well.
+Site Recovery is application-agnostic and should work with any version of SharePoint running on a supported machine. For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used.
 
 ### Source and target
 
@@ -62,13 +62,6 @@ For creating this article, VMware virtual machines with Windows Server 2012 R2 E
 **Physical server** | Yes | Yes
 **Azure** | NA | Yes
 
-### SharePoint Versions
-The following SharePoint server versions are supported.
-
-* SharePoint server 2013 Standard
-* SharePoint server 2013 Enterprise
-* SharePoint server 2016 Standard
-* SharePoint server 2016 Enterprise
 
 ### Things to keep in mind
 
@@ -84,7 +77,7 @@ Follow [this guidance](site-recovery-vmware-to-azure.md) to start replicating th
 
 * For guidance on protecting Active Directory and DNS, refer to [Protect Active Directory and DNS](site-recovery-active-directory.md) document.
 
-* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-active-directory.md) document.
+* For guidance on protecting database tier running on SQL server, refer to [Protect SQL Server](site-recovery-sql.md) document.
 
 ## Networking configuration
 

@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Detect anomalies in time series data using the Anomaly Detector client library for .NET'
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data. 
+description: Learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data. 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 
@@ -21,12 +21,13 @@ Use the Anomaly Detector client library for .NET to:
 * Detect anomalies throughout your time series dataset, as a batch request
 * Detect the anomaly status of the latest data point in your time series
 
-[Library reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Library reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Find the code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* An Anomaly detector key and endpoint
 
 ## Setting up
 
@@ -34,27 +35,23 @@ Use the Anomaly Detector client library for .NET to:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-After you get a key from your trial subscription or resource, [create an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key, named `ANOMALY_DETECTOR_KEY`.
+### Create a new .NET Core application
 
-### Create a new C# application
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*. 
 
-Create a new .NET Core application in your preferred editor or IDE. 
-
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*. 
-
-```console
+```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
 The build output should contain no warnings or errors. 
 
-```console
+```output
 ...
 Build succeeded.
  0 Warning(s)
@@ -62,23 +59,21 @@ Build succeeded.
 ...
 ```
 
-From the project directory, open the *program.cs* file in your preferred editor or IDE. Add the following using `directives`:
+### Install the client library
+
+Within the application directory, install the Anomaly Detector client library for .NET with the following command:
+
+```dotnetcli
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
+```
+
+From the project directory, open the *program.cs* file and add the following using `directives`:
 
 [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
 
 In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
 
 [!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
-### Install the client library
-
-Within the application directory, install the Anomaly Detector client library for .NET with the following command:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
-```
-
-If you're using the Visual Studio IDE, the client library is available as a NuGet package. 
 
 ## Object model
 
@@ -132,30 +127,10 @@ Create a method to call the client's [LastDetectAsync()](https://docs.microsoft.
 
 ## Run the application
 
-Run the application with the dotnet `run` command from your application directory.
+Run the application with the `dotnet run` command from your application directory.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-You can also run the following cloud shell command to remove the resource group and its associated resources. This may take a few minutes to complete. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* What is the [Anomaly Detector API?](../overview.md)
-* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 09/18/2019
 ms.author: shvija
 
 ---
 # Azure Event Hubs metrics in Azure Monitor
 
-Event Hubs metrics gives you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
+Event Hubs metrics give you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
@@ -28,7 +28,8 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+
 
 ## Access metrics in the portal
 
@@ -106,6 +107,19 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 | ------------------- | ----------------- |
 |EntityName| Event Hubs supports the event hub entities under the namespace.|
 
+## Azure Monitor integration with SIEM tools
+Routing your monitoring data (activity logs, diagnostics logs, etc.) to an event hub with Azure Monitor enables you to easily integrate with Security Information and Event Management (SIEM) tools. For more information, see the following articles/blog posts:
+
+- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [Introduction to Azure Log Integration](../security/fundamentals/azure-log-integration-overview.md)
+- [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+
+In the scenario where an SIEM tool consumes log data from an event hub, if you see no incoming messages or you see incoming messages but no outgoing messages in the metrics graph, follow these steps:
+
+- If there are **no incoming messages**, it means that the Azure Monitor service is not moving audit/diagnostics logs into the event hub. Open a support ticket with the Azure Monitor team in this scenario. 
+- if there are incoming messages, but **no outgoing messages**, it means that the SIEM application is not reading the messages. Contact the SIEM provider to determine whether the configuration of the event hub those applications is correct.
+
+
 ## Next steps
 
 * See the [Azure Monitoring overview](../monitoring-and-diagnostics/monitoring-overview.md).
@@ -113,7 +127,11 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 
 For more information about Event Hubs, visit the following links:
 
-* Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
+- Get started with an Event Hubs tutorial
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

@@ -1,6 +1,6 @@
 ---
-title: Manage a process server used for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
-description: This article describes manage a process server set up for disaster recovery of VMware VMs and physical servers to Azure using Azure Site Recovery.
+title: Manage a process server for VMware VMs/physical server disaster recovery in Azure Site Recovery
+description: This article describes manage a process server for disaster recovery of VMware VMs/physical servers using Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -63,7 +63,20 @@ Move the entire workload handled by a process server to a different process serv
 
 It will take around 15 minutes for changes to be reflected in the portal. For a quicker effect, [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
+## Register a master target server
 
+Master target server resides on configuration server and scale-out process servers. It must be registered with configuration server. In case there is a failure in this registration, it can impact the health of protected items. To register master target server with configuration server, login to the specific configuration server/scale-out process server on which the registration is required. Navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on administrator command prompt.
+
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## Reregister a process server
 

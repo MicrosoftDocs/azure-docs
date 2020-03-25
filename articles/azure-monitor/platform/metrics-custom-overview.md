@@ -3,9 +3,9 @@ title: Custom metrics in Azure Monitor
 description: Learn about custom metrics in Azure Monitor and how they are modeled.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -52,7 +52,7 @@ This property captures what Azure region the resource you're emitting metrics fo
 Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the DateTime at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future. The timestamp must be in ISO 8601 format.
 
 ### Namespace
-Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **ContosoMemoryMetrics** that tracks memory-use metrics which profile your app. Another namespace called **ContosoAppTransaction** might track all metrics about user transactions in your application.
+Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **contosomemorymetrics** that tracks memory-use metrics which profile your app. Another namespace called **contosoapptransaction** might track all metrics about user transactions in your application.
 
 ### Name
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
@@ -147,30 +147,50 @@ In the following example, you create a custom metric called **Memory Bytes in Us
 There's no need to predefine a custom metric in Azure Monitor before it's emitted. Each metric data point published contains namespace, name, and dimension information. So the first time a custom metric is emitted to Azure Monitor, a metric definition is automatically created. This metric definition is then discoverable on any resource the metric is emitted against via the metric definitions.
 
 > [!NOTE]  
-> Azure Monitor doesn’t yet support defining **Units** for a custom metric.
+> Azure Monitor doesn't yet support defining **Units** for a custom metric.
 
 ## Using custom metrics
 After custom metrics are submitted to Azure Monitor, you can browse them via the Azure portal and query them via the Azure Monitor REST APIs. You can also create alerts on them to notify you when certain conditions are met.
+
+> [!NOTE]
+> You need to be a reader or contributor role to view custom metrics.
+
 ### Browse your custom metrics via the Azure portal
-1.	Go to the [Azure portal](https://portal.azure.com).
-2.	Select the **Monitor** pane.
-3.	Select **Metrics**.
-4.	Select a resource you've emitted custom metrics against.
-5.	Select the metrics namespace for your custom metric.
-6.	Select the custom metric.
+1.    Go to the [Azure portal](https://portal.azure.com).
+2.    Select the **Monitor** pane.
+3.    Select **Metrics**.
+4.    Select a resource you've emitted custom metrics against.
+5.    Select the metrics namespace for your custom metric.
+6.    Select the custom metric.
 
 ## Supported regions
 During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
-|Azure region|Regional endpoint prefix|
+|Azure region |Regional endpoint prefix|
 |---|---|
-|East US| https:\//eastus.monitoring.azure.com/ |
+| **US and Canada** | |
+|West Central US | https:\//westcentralus.monitoring.azure.com/ |
+|West US 2       | https:\//westus2.monitoring.azure.com/ |
+|North Central US | https:\//northcentralus.monitoring.azure.com
 |South Central US| https:\//southcentralus.monitoring.azure.com/ |
-|West Central US| https:\//westcentralus.monitoring.azure.com/ |
-|West US 2| https:\//westus2.monitoring.azure.com/ |
-|Southeast Asia| https:\//southeastasia.monitoring.azure.com/ |
-|North Europe| https:\//northeurope.monitoring.azure.com/ |
-|West Europe| https:\//westeurope.monitoring.azure.com/ |
+|Central US      | https:\//centralus.monitoring.azure.com |
+|Canada Central | https:\//canadacentral.monitoring.azure.comc
+|East US| https:\//eastus.monitoring.azure.com/ |
+| **Europe** | |
+|North Europe    | https:\//northeurope.monitoring.azure.com/ |
+|West Europe     | https:\//westeurope.monitoring.azure.com/ |
+|UK South | https:\//uksouth.monitoring.azure.com
+|France Central | https:\//francecentral.monitoring.azure.com |
+| **Africa** | |
+|South Africa North | https:\//southafricanorth.monitoring.azure.com
+| **Asia** | |
+|Central India | https:\//centralindia.monitoring.azure.com
+|Australia East | https:\//australiaeast.monitoring.azure.com
+|Japan East | https:\//japaneast.monitoring.azure.com
+|Southeast Asia  | https:\//southeastasia.monitoring.azure.com |
+|East Asia | https:\//eastasia.monitoring.azure.com
+|Korea Central   | https:\//koreacentral.monitoring.azure.com
+
 
 ## Quotas and limits
 Azure Monitor imposes the following usage limits on custom metrics:

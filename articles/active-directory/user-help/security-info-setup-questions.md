@@ -1,8 +1,8 @@
 ---
-title: Set up security info (preview) to use your security questions - Azure Active Directory | Microsoft Docs
-description: How to set up your security info to verify your identity using pre-defined security questions.
+title: Set up security questions as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity using pre-defined security questions as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,17 +11,30 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
-# Set up security info (preview) to use security questions
+# Set up security questions as your verification method
 
 You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
-After you set up your password reset method, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>If you don't see the security questions option, it's possible that your organization doesn't allow you to use this option for your password reset method. In this case, you'll need to choose another method or contact your organization's help desk for more help.
+
+## Security verification versus password reset authentication
+
+Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
+
+| Method | Used for |
+| ------ | -------- |
+| Authenticator app | Two-factor verification and password reset authentication. |
+| Text messages | Two-factor verification and password reset authentication. |
+| Phone calls | Two-factor verification and password reset authentication. |
+| Security key | Two-factor verification and password reset authentication. |
+| Email account | Password reset authentication only. You'll need to choose another method for two-factor verification. |
+| Security questions | Password reset authentication only. You'll need to choose another method for two-factor verification. |
 
 ## Set up your security questions from the Security info page
 
@@ -90,6 +103,6 @@ You have additional options for how your organization contacts you to verify you
 
 ## Next steps
 
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 
 - Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.

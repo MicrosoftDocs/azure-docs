@@ -2,10 +2,8 @@
 title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/22/2019
+ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -26,10 +24,8 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Create an action group by using the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
-    ![The "Monitor" service](./media/action-groups/home-monitor.png)
-    
 1. Select **Alerts** then select **Manage actions**.
 
     ![Manage Actions button](./media/action-groups/manage-action-groups.png)
@@ -60,7 +56,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Manage your action groups
 
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
+After you create an action group, you can view **Action groups** by selecting **Manage actions** from the **Alerts** landing page in **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
@@ -68,7 +64,12 @@ After you create an action group, it's visible in the **Action groups** section 
 ## Action specific information
 
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
+
+### Automation Runbook
+Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads.
+
+You may have a limited number of Runbook actions in an Action Group. 
 
 ### Azure app Push Notifications
 You may have a limited number of Azure app actions in an Action Group.
@@ -81,6 +82,16 @@ Emails will be sent from the following email addresses. Ensure that your email f
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
+### Email Azure Resource Manager Role
+Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
+
+You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
+
+### Function
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+
+You may have a limited number of Function actions in an Action Group.
+
 ### ITSM
 ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -89,53 +100,7 @@ You may have a limited number of ITSM actions in an Action Group.
 ### Logic App
 You may have a limited number of Logic App actions in an Action Group.
 
-### Function
-The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”. For more information, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets).
-
-You may have a limited number of Function actions in an Action Group.
-
-### Automation Runbook
-Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads.
-
-You may have a limited number of Runbook actions in an Action Group. 
-
-### SMS
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information.
-
-You may have a limited number of SMS actions in an Action Group.  
-
-### Voice
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
-
-You may have a limited number of Voice actions in an Action Group.
-
-### Webhook
-Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 
-
-Source IP address ranges
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-To receive updates about changes to these IP addresses, we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
-
-You may have a limited number of Webhook actions in an Action Group.
-
-#### Secure Webhook
-**The Secure Webhook functionality is currently in Preview.**
-
+### Secure Webhook
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 1. Create an Azure AD Application for your protected web API. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
@@ -150,12 +115,12 @@ The Action Groups Webhook action enables you to take advantage of Azure Active D
     - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application
     - Run the modified script.
     
-1. Configure the Action Group Webhook action.
+1. Configure the Action Group Secure Webhook action.
     - Copy the value $myApp.ObjectId from the script and enter it in the Application Object ID field in the Webhook action definition.
     
     ![Secure Webhook action](./media/action-groups/action-groups-secure-webhook.png)
 
-##### Secure Webhook PowerShell Script
+#### Secure Webhook PowerShell Script
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -223,6 +188,41 @@ Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
+
+### SMS
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information.
+
+You may have a limited number of SMS actions in an Action Group.  
+
+### Voice
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
+
+You may have a limited number of Voice actions in an Action Group.
+
+### Webhook
+Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 
+
+Source IP address ranges
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 13.106.57.197
+ - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
+
+To receive updates about changes to these IP addresses, we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
+
+You may have a limited number of Webhook actions in an Action Group.
+
 
 
 ## Next steps

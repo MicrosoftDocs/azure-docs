@@ -1,16 +1,16 @@
 ---
 title: Traffic View in Azure Traffic Manager
-description: Introduction to Traffic Manager Traffic View
+description: In this introduction, learn how Traffic manager Traffic view works.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
+ms.author: rohink
 ms.custom: 
 ---
 
@@ -39,6 +39,8 @@ The frequency of Traffic view data update depends on multiple internal service v
 ## Visual overview
 
 When you navigate to the **Traffic View** section in your Traffic Manager page, you are presented with a geographical map with an overlay of Traffic View insights. The map provides information about the user base and endpoints for your Traffic Manager profile.
+
+![Traffic Manager Traffic View Geographic view][1]
 
 ### User base information
 
@@ -89,3 +91,5 @@ When you use Traffic View, you are billed based on the number of data points use
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
 - Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

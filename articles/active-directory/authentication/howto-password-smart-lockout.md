@@ -1,15 +1,15 @@
 ---
-title: Preventing brute-force attacks using Azure AD smart lockout - Azure Active Directory
+title: Preventing attacks using smart lockout - Azure Active Directory
 description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 
@@ -42,10 +42,10 @@ When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you n
 * The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
 * The Azure AD lockout duration must be set longer than the Active Directory reset account lockout counter after duration. Be aware that the Azure AD duration is set in seconds, while the AD duration is set in minutes. 
 
-For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on prem AD is set to 1 minute (60 seconds).
+For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on-premises AD is set to 1 minute (60 seconds).
 
 > [!IMPORTANT]
-> Currently an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire.
+> Currently, an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire. However, the user can unlock by using self-service password reset (SSPR) from a trusted device or location.
 
 ## Verify on-premises account lockout policy
 
@@ -64,7 +64,8 @@ Based on your organizational requirements, smart lockout values may need to be c
 
 To check or modify the smart lockout values for your organization, use the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and click on **Azure Active Directory**, then  **Authentication Methods**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select *Azure Active Directory*. Select **Security** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout. The default is 10.
 1. Set the **Lockout duration in seconds**, to the length in seconds of each lockout. The default is 60 seconds (one minute).
 

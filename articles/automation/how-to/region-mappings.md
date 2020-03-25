@@ -4,8 +4,8 @@ description: This article describes the mappings allowed between an Automation A
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm

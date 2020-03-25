@@ -3,10 +3,8 @@ title: Azure Security Center and Azure Virtual Machines | Microsoft Docs
 description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -30,7 +28,7 @@ Security Center helps you safeguard virtual machine data in Azure by providing v
 * Endpoint protection recommendations
 * Disk encryption validation
 * Vulnerability assessment and remediation
-* Threat detection
+* Security alerts from the threat protection features
 
 In addition to helping protect your Azure VMs, Security Center also provides security monitoring and management for Cloud Services, App Services, Virtual Networks, and more. 
 
@@ -44,7 +42,7 @@ To get started with Azure Security Center, you’ll need to know and consider th
 
 * You must have a subscription to Microsoft Azure. See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information on Security Center’s free and standard tiers.
 * Plan your Security Center adoption, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md) to learn more about planning and operations considerations.
-* For information regarding operating system supportability, see [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md). 
+* For information regarding supported operating systems, see [Azure Security Center frequently asked questions (FAQ)](faq-vms.md). 
 
 ## Set security policy
 Data collection needs to be enabled so that Azure Security Center can gather the information it needs to provide recommendations and alerts that are generated based on the security policy you configure. In the figure below, you can see that **Data collection** has been turned **On**.
@@ -55,8 +53,6 @@ A security policy defines the set of controls which are recommended for resource
 
 > [!NOTE]
 > To learn more about each **Prevention policy** available, see [Set security policies](tutorial-security-policy.md) article.
-> 
-> 
 
 ## Manage security recommendations
 Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
@@ -65,15 +61,15 @@ After setting a security policy, Security Center analyzes the security state of 
 
 | Recommendation | Description |
 | --- | --- |
-| [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
-| [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
-| [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
-| [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
-| [Install Endpoint Protection](security-center-install-endpoint-protection.md) |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
-| [Enable VM Agent](security-center-enable-vm-agent.md) |Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
-| [Apply disk encryption](security-center-apply-disk-encryption.md) |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM. |
-| [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
-| [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
+| Enable data collection for subscriptions |Recommends that you turn on data collection in the security policy for each of your subscriptions and all virtual machines (VMs) in your subscriptions. |
+| Remediate OS vulnerabilities |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
+| Apply system updates |Recommends that you deploy missing system security and critical updates to VMs. |
+| Reboot after system updates |Recommends that you reboot a VM to complete the process of applying system updates. |
+| Install Endpoint Protection |Recommends that you provision antimalware programs to VMs (Windows VMs only). |
+| Enable VM Agent |Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision patch scanning, baseline scanning, and antimalware programs. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
+| Apply disk encryption |Recommends that you encrypt your VM disks using Azure Disk Encryption (Windows and Linux VMs). Encryption is recommended for both the OS and data volumes on your VM. |
+| Vulnerability assessment not installed |Recommends that you install a vulnerability assessment solution on your VM. |
+| Remediate vulnerabilities |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 
 > [!NOTE]
 > To learn more about recommendations, see [Managing security recommendations](security-center-recommendations.md) article.
@@ -86,16 +82,15 @@ After you enable [security policies](tutorial-security-policy.md) for a subscrip
 ![Security health](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## Manage and respond to security alerts
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-detection-capabilities.md), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-alerts-overview.md#detect-threats), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
 
 ![Security alerts](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
-Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by [type](security-center-alerts-type.md) and date.
+Select a security alert to learn more about the event(s) that triggered the alert and what, if any, steps you need to take to remediate an attack. Security alerts are grouped by type and date.
 
 ## See also
 To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-
+* [FAQ - Virtual Machines](faq-vms.md) -- Find frequently asked questions about using the service.

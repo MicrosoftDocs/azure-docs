@@ -1,20 +1,18 @@
 ---
-title: Create tumbling window trigger dependencies in Azure Data Factory | Microsoft Docs
+title: Create tumbling window trigger dependencies
 description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: daperlov
 author: djpmsft
-manager: craigg
-editor:
-
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.author: daperlov
 ---
+
 # Create a tumbling window trigger dependency
 
 This article provides steps to create a dependency on a tumbling window trigger. For general information about Tumbling Window triggers, see [How to create tumbling window trigger](how-to-create-tumbling-window-trigger.md).
@@ -144,6 +142,10 @@ A daily job with no gaps in the output streams of the job:
 
 ![Self-dependency example](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Self-dependency example")
 
+For a demonstration on how to create dependent pipelines in your Azure Data Factory using tumbling window trigger, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
+
 ## Monitor dependencies
 
 You can monitor the dependency chain and the corresponding windows from the trigger run monitoring page. Navigate to  **Monitoring > Trigger Runs**. Under the actions column, you can rerun the trigger or view its dependencies.
@@ -153,6 +155,10 @@ You can monitor the dependency chain and the corresponding windows from the trig
 If you click on 'View Trigger Dependencies', you can see the status of the dependencies. If one of the dependency triggers fails, you must successfully rerun it in order for the dependent trigger to run. A tumbling window trigger will wait on dependencies for seven days before timing out.
 
 ![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies")
+
+For a more visual to view the trigger dependency schedule, select the Gantt view.
+
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitor dependencies")
 
 ## Next steps
 

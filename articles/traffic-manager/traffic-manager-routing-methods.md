@@ -2,14 +2,14 @@
 title: Azure Traffic Manager - traffic routing methods
 description: This articles helps you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Traffic Manager routing methods
@@ -18,7 +18,7 @@ Azure Traffic Manager supports six traffic-routing methods to determine how to r
 
 The following traffic routing methods are available in Traffic Manager:
 
-* **[Priority](#priority):** Select **Priority** when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
+* **[Priority](#priority-traffic-routing-method):** Select **Priority** when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.
 * **[Weighted](#weighted):** Select **Weighted** when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
 * **[Performance](#performance):** Select **Performance** when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
 * **[Geographic](#geographic):** Select **Geographic** so that users are directed to specific endpoints (Azure, External, or Nested) based on which geographic location their DNS query originates from. This empowers Traffic Manager customers to enable scenarios where knowing a user’s geographic region and routing them based on that is important. Examples include complying with data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
@@ -28,7 +28,7 @@ The following traffic routing methods are available in Traffic Manager:
 
 All Traffic Manager profiles include monitoring of endpoint health and automatic endpoint failover. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). A single Traffic Manager profile can use only one traffic routing method. You can select a different traffic routing method for your profile at any time. Changes are applied within one minute, and no downtime is incurred. Traffic-routing methods can be combined by using nested Traffic Manager profiles. Nesting enables sophisticated and flexible traffic-routing configurations that meet the needs of larger, complex applications. For more information, see [nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
 
-## <a name = "priority"></a>Priority traffic-routing method
+## Priority traffic-routing method
 
 Often an organization wants to provide reliability for its services by deploying one or more backup services in case their primary service goes down. The 'Priority' traffic-routing method allows Azure customers to easily implement this failover pattern.
 
@@ -141,7 +141,7 @@ As explained in [How Traffic Manager Works](traffic-manager-how-it-works.md), Tr
 * [Are there any restrictions on the API version that supports this routing type?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
 
 ## <a name = "multivalue"></a>Multivalue traffic-routing method
-The **Multivalue** traffic-routing method allows you to get multiple healthy endpoints in a single DNS query response. This enables to caller to do client-side retries with other endpoints in the event of a returned endpoint being unresponsive. This pattern can increase the availability of a service and reduce the latency associated with a new DNS query to obtain a healthy endpoint. MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses. When a query is received for this profile, all healthy endpoints are returned and are subject to a configurable maximum return count.
+The **Multivalue** traffic-routing method allows you to get multiple healthy endpoints in a single DNS query response. This enables the caller to do client-side retries with other endpoints in the event of a returned endpoint being unresponsive. This pattern can increase the availability of a service and reduce the latency associated with a new DNS query to obtain a healthy endpoint. MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses. When a query is received for this profile, all healthy endpoints are returned and are subject to a configurable maximum return count.
 
 ### FAQs
 

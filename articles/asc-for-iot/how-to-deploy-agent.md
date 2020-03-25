@@ -77,7 +77,7 @@ Answer the following questions about your IoT devices to select the correct agen
 
 - Are you using a Linux distribution with x64 architecture?
 
-    You can use either agent flavor. <br>
+    Both agent flavors can be used. <br>
     [Deploy a C-based security agent for Linux](how-to-deploy-linux-c.md) and/or 
     [Deploy a C#-based security agent for Linux](how-to-deploy-linux-cs.md).
 
@@ -91,13 +91,13 @@ The following list includes all currently supported platforms.
 |Azure Security Center for IoT agent |Operating System |Architecture |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |	x64|
-|C|Ubuntu 18.04 |	x64|
+|C|Ubuntu 18.04 |	x64, ARMv7|
 |C|Debian 9 |	x64, x86|
 |C#|Ubuntu 16.04 	|x64|
-|C#|Ubuntu 18.04	|x64|
+|C#|Ubuntu 18.04	|x64, ARMv7|
 |C#|Debian 9	|x64|
 |C#|Windows Server 2016|	X64|
-|C#|Windows 10 IoT Core build 17763	|x64|
+|C#|Windows 10 IoT Core, build 17763	|x64|
 |
 
 ## Next steps

@@ -1,7 +1,7 @@
 ---
-title: "Example: Use the Large-Scale feature - Face API"
+title: "Example: Use the Large-Scale feature - Face"
 titleSuffix: Azure Cognitive Services
-description: Use the large-scale feature in the Face API.
+description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -19,16 +19,16 @@ This guide is an advanced article on how to scale up from existing PersonGroup a
 
 LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1 million persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1 million faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
-The samples are written in C# by using the Azure Cognitive Services Face API client library.
+The samples are written in C# by using the Azure Cognitive Services Face client library.
 
 > [!NOTE]
 > To enable Face search performance for Identification and FindSimilar in large scale, introduce a Train operation to preprocess the LargeFaceList and LargePersonGroup. The training time varies from seconds to about half an hour based on the actual capacity. During the training period, it's possible to perform Identification and FindSimilar if a successful training operating was done before. The drawback is that the new added persons and faces don't appear in the result until a new post migration to large-scale training is completed.
 
 ## Step 1: Initialize the client object
 
-When you use the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
+When you use the Face client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
@@ -70,7 +70,7 @@ Add all of the faces and persons from the PersonGroup to the new LargePersonGrou
 The preceding table is a comparison of list-level operations between FaceList and LargeFaceList. As is shown, LargeFaceList comes with new operations, Train and Get Training Status, when compared with FaceList. Training the LargeFaceList is a precondition of the 
 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation. Training isn't required for FaceList. The following snippet is a helper function to wait for the training of a LargeFaceList:
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -120,7 +120,7 @@ private static async Task TrainLargeFaceList(
 
 Previously, a typical use of FaceList with added faces and FindSimilar looked like the following:
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
@@ -153,7 +153,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 When migrating it to LargeFaceList, it becomes the following:
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
@@ -231,7 +231,7 @@ If a relatively long latency is acceptable, it isn't necessary to trigger the Tr
 
 Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.

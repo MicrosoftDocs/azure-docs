@@ -15,7 +15,10 @@ When you set up disaster recovery for VMware VMs and physical servers using [Azu
 
 - [Push installation](#push-installation): Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
 - Install manually: You can install the Mobility service manually on each machine through [UI](#install-mobility-agent-through-ui) or [command prompt](#install-mobility-agent-through-command-prompt).
-- [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as System Center Configuration Manager.
+- [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate installation with software deployment tools such as Configuration Manager.
+
+> [!NOTE]
+> The Mobility agent uses approximately 6%-10% of memory on source machines for VMware VMs or physical machines.
 
 ## Anti-virus on replicated machines
 
@@ -68,7 +71,7 @@ During push installation of mobility agent, following steps are performed
 
     ![Mobility Service registration page](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. In **Configuration Server Details**, specify the IP address and passphrase you configured.  
+5. In **Configuration Server Details**, specify the IP address and passphrase you configured.
 
     ![Mobility Service registration page](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -114,7 +117,7 @@ Usage | UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Pl
 Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 /InstallLocation| Optional parameter. Specifies the Mobility service installation location (any folder).
-/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs.
+/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings

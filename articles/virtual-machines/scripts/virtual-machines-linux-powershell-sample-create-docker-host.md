@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Docker | Microsoft Docs
+title: Azure PowerShell Script Sample - Docker 
 description: Azure PowerShell Script Sample - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -27,7 +27,7 @@ This script creates a virtual machine with Docker enabled and starts a container
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

@@ -3,7 +3,7 @@ title: Azure Application Insights log-based metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
@@ -88,7 +88,7 @@ availabilityResults
 Browser metrics are collected by the Application Insights JavaScript SDK from real end-user browsers. They provide great insights into your users' experience with your web app. Browser metrics are typically not sampled, which means that they provide higher precision of the usage numbers compared to server-side metrics which might be skewed by sampling.
 
 > [!NOTE]
-> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK snippet](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
 
 ### Browser page load time (browserTimings/totalDuration)
 
@@ -220,7 +220,7 @@ exceptions
 
 ### Failed requests (requests/failed)
 
-The count of tracked server requests that were marked as *failed*. By default, the Application Insights SDK automatically marks each server request that returned HTTP response code 5xx or 4xx as a failed request. You can customize this logic by modifying  *success* property of request telemetry item in a [custom telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+The count of tracked server requests that were marked as *failed*. By default, the Application Insights SDK automatically marks each server request that returned HTTP response code 5xx or 4xx as a failed request. You can customize this logic by modifying  *success* property of request telemetry item in a [custom telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unit of measure|Supported aggregations|Pre-aggregated dimensions|Notes|
 |---|---|---|---|

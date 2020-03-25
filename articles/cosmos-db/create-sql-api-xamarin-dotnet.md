@@ -13,12 +13,12 @@ ms.author: masoucou
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -132,7 +132,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
     The `IDocumentQuery<T>.ExecuteNextAsync<T>` function retrieves the page of results from Azure Cosmos DB, which `HasMoreResults` checking to see if additional results remain to be returned.
 
 > [!TIP]
-> Several functions that operate on Azure Cosmos DB containers and documents take an URI as a parameter which specifies the address of the container or document. This URI is constructed using the `URIFactory` class. URIs for databases, containers, and documents can all be created with this class.
+> Several functions that operate on Azure Cosmos containers and documents take an URI as a parameter which specifies the address of the container or document. This URI is constructed using the `URIFactory` class. URIs for databases, containers, and documents can all be created with this class.
 
 * The `ComsmosDBService.InsertToDoItem` function demonstrates how to insert a new document:
 

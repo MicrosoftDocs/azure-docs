@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -26,13 +26,16 @@ Azure AD Application Proxy makes your on-premises apps available to users who ar
 The best way to make sure that links work the same both inside and outside of your corporate network is to configure the external URLs of your apps to be the same as their internal URLs. Use [custom domains](application-proxy-configure-custom-domain.md) to configure your external URLs to have your corporate domain name instead of the default application proxy domain.
 
 
-If you can't use custom domains in your tenant, there are several other options for providing this functionality. All of these are also compatible with custom domains and each other, so you can configure custom domains and other solutions if needed. 
+If you can't use custom domains in your tenant, there are several other options for providing this functionality. All of these are also compatible with custom domains and each other, so you can configure custom domains and other solutions if needed.
+
+> [!NOTE]
+> Link translation is not supported for hard-coded internal URLs generated through Javascript.
 
 **Option 1: Use the Managed Browser or Microsoft Edge** – This solution is only applicable if you plan to recommend or require that users access the application through the Intune Managed Browser or Microsoft Edge Browser. It will handle all published URLs. 
 
 **Option 2: Use the MyApps Extension** – This solution requires users to install a client-side browser extension, but it will handle all published URLs and works with most popular browsers. 
 
-**Option 3: Use the link translation setting** – This is an admin side setting that is invisible to users. However, it will only handle URLs in HTML and CSS. Hard-coded internal URLs generated through Javascript (for example) will not work.  
+**Option 3: Use the link translation setting** – This is an admin side setting that is invisible to users. However, it will only handle URLs in HTML and CSS.   
 
 These three features keep your links working no matter where your users are. When you have apps that point directly to internal endpoints or ports, you can map these internal URLs to the published external Application Proxy URLs. 
 

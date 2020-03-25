@@ -1,5 +1,5 @@
 ---
-title: How to diagnose errors with the Azure Active Directory connected service
+title: Diagnose errors with Azure AD connected service (Visual Studio)
 description: The active directory connected service detected an incompatible authentication type
 author: ghogen
 manager: jillfra
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
 ---
 # Diagnosing errors with the Azure Active Directory Connected Service
 
-While detecting previous authentication code, the Azure Active Director connect server detected an incompatible authentication type.
+While detecting previous authentication code, the Azure Active Directory connected service detected an incompatible authentication type.
 
-To correctly detect previous authentication code in a project, the project must be built.  If you see this error and you don't have a previous authentication code in your project, rebuild and try again.
+To correctly detect previous authentication code in a project, the project must be rebuilt. If you see this error and you don't have a previous authentication code in your project, rebuild and try again.
 
 ## Project types
 

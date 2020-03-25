@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and Python
@@ -30,7 +30,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     import http.client, urllib.parse, json
     ```
 
-2. Create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query.
+2. Create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     subscriptionKey = 'enter key here'

@@ -1,5 +1,5 @@
 ---
-title: Move Azure IaaS VMs to another Azure region by using the Azure Site Recovery service | Microsoft Docs
+title: Move Azure VMs to another region with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure IaaS VMs from one Azure region to another.
 services: site-recovery
 author: rajani-janaki-ram
@@ -10,7 +10,7 @@ ms.author: rajanaki
 ms.custom: MVC
 ---
 
-# Move Azure VMs to another region
+# Move Azure VMs to another Azure region
 
 You might want to move Azure infrastructure as a service (IaaS) virtual machines from one region to another to improve reliability, availability, management, or governance. This tutorial shows you how to move VMs to another region by using Azure Site Recovery. You'll learn how to:
 
@@ -62,10 +62,10 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
    Azure Site Recovery automatically discovers and creates a virtual network and storage account when you enable replication for the source VM. You can also pre-create these resources and assign them to the VM as part of the enable-replication step. But you must manually create any other resources in the target region. Refer to the following documents to create the most commonly used network resources based on the your source VM configuration:
 
    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+   - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
-   For any other networking components, see the [Azure networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
+   For any other networking components, see the [Azure networking documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
 
 4. To test the configuration before you perform the move, manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region. Testing the setup creates minimal interference with the production environment, and we recommend it.
     

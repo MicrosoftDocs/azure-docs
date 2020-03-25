@@ -1,13 +1,12 @@
 ---
 title: Understand job monitoring in Azure Stream Analytics
 description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 06/21/2018
 ms.custom: seodec18
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries

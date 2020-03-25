@@ -1,19 +1,15 @@
 ---
-title: Best practices in Azure Container Registry
+title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: danlep
 ---
 
 # Best practices for Azure Container Registry
 
 By following these best practices, you can help maximize the performance and cost-effective use of your private Docker registry in Azure.
+
+See also [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md) for strategies to tag and version images in your registry. 
 
 ## Network-close deployment
 
@@ -32,14 +28,12 @@ To learn how to use geo-replication, see the three-part tutorial, [Geo-replicati
 
 By leveraging repository namespaces, you can allow sharing a single registry across multiple groups within your organization. Registries can be shared across deployments and teams. Azure Container Registry supports nested namespaces, enabling group isolation.
 
-For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Production and Marketing groups each use their own namespaces.
+For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Products and Marketing groups each use their own namespaces.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## Dedicated resource group
 
@@ -64,8 +58,11 @@ The storage constraints of each [container registry SKU][container-registry-skus
 
 Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes

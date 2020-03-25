@@ -1,23 +1,13 @@
 ---
-title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
+title: 'Tutorial: ASP.NET Core with SQL Database' 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
@@ -45,7 +35,7 @@ What you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install .NET Core](https://www.microsoft.com/net/core/)
+* [Install .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create local .NET Core app
 
@@ -174,7 +164,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 To set connection strings for your Azure app, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. In the following command, replace *\<app name>*, as well as the *\<connection_string>* parameter with the connection string you created earlier.
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
+az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection="<connection_string>" --connection-string-type SQLServer
 ```
 
 In ASP.NET Core, you can use this named connection string (`MyDbConnection`) using the standard pattern, like any connection string specified in *appsettings.json*. In this case, `MyDbConnection` is also defined in your *appsettings.json*. When running in App Service, the connection string defined in App Service takes precedence over the connection string defined in your *appsettings.json*. The code uses the *appsettings.json* value during local development, and the same code uses the App Service value when deployed.
@@ -405,13 +395,15 @@ For more information on customizing the ASP.NET Core logs, see [Logging in ASP.N
 
 ## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the app you created.
+To see the app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-From the left menu, click **App Services**, then click the name of your Azure app.
+![Select App Services in Azure portal](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The left side of the page shows the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

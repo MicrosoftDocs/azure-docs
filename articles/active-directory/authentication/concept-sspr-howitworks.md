@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -18,11 +18,6 @@ ms.collection: M365-identity-device-management
 # How it works: Azure AD self-service password reset
 
 How does self-service password reset (SSPR) work? What does that option mean in the interface? Continue reading to find out more about Azure Active Directory (Azure AD) SSPR.
-
-|     |
-| --- |
-| Mobile app notification and Mobile app code as methods for Azure AD self-service password reset are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 ## How does the password reset portal work?
 
@@ -58,8 +53,8 @@ Read through the following steps to learn about the logic behind the password re
 
 If SSPR is enabled, you must select at least one of the following options for the authentication methods. Sometimes you hear these options referred to as "gates." We highly recommend that you **choose two or more authentication methods** so that your users have more flexibility in case they are unable to access one when they need it. Additional details about the methods listed below can be found in the article [What are authentication methods?](concept-authentication-methods.md).
 
-* Mobile app notification (preview)
-* Mobile app code (preview)
+* Mobile app notification
+* Mobile app code
 * Email
 * Mobile phone
 * Office phone
@@ -83,7 +78,7 @@ Users can choose to supply more authentication methods if the administrator enab
 
 If a user does not have the minimum required methods registered, they see an error page that directs them to request that an administrator reset their password.
 
-#### Mobile app and SSPR (Preview)
+#### Mobile app and SSPR
 
 When using a mobile app, like the Microsoft Authenticator app, as a method for password reset, you should be aware of the following caveats:
 
@@ -98,6 +93,12 @@ Users do not have the option to register their mobile app when registering for s
 
 > [!WARNING]
 > You must enable the [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md) before users will be able to access the new experience at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!IMPORTANT]
+> The authenticator app cannot be selected as the only authentication method when configuring a 1-gate policy. Similarly, the authenticator app and only one additional method cannot be selected when configuring a 2-gates policy.
+> Then, when configuring SSPR policies that include the authenticator app as a method, at least an additional method should be selected when configuring a 1-gate policy, and at least two additional methods should be selected when configuring a 2-gates policy.
+> The reason for this requirement is because the current SSPR registration experience does not include the option to register the authenticator app. The option to register the authenticator app is included with the new [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md).
+> Allowing policies that only use the authenticator app (for 1-gate policies), or the authenticator app and only one additional method (for 2-gates policies), could lead to users being blocked from registering for  SSPR until they have been configured to use the new registration experience.
 
 ### Change authentication methods
 
@@ -216,5 +217,5 @@ The following articles provide additional information regarding password reset t
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"
+[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Azure AD authentication methods available and quantity required"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-on-premises-integration-writeback.png "On-premises integration password writeback configuration and troubleshooting information"

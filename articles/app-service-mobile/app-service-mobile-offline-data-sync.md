@@ -1,23 +1,15 @@
 ---
-title: Offline Data Sync in Azure Mobile Apps | Microsoft Docs
+title: Offline Data Sync
 description: Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps
-documentationcenter: windows
 author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: crdun
-
 ---
 # Offline Data Sync in Azure Mobile Apps
+
 ## What is offline data sync?
 Offline data sync is a client and server SDK feature of Azure Mobile Apps that makes it easy for
 developers to create apps that are functional without a network connection.

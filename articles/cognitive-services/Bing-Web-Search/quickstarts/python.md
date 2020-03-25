@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
@@ -37,7 +37,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Declare the Bing Web Search API endpoint. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
+Declare the Bing Web Search API endpoint. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"

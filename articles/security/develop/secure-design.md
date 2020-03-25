@@ -50,7 +50,7 @@ with security best practices on Azure:
     started using the Azure platform for their development needs.
 
   - [SDKs and
-    tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+    tools](https://docs.microsoft.com/azure/index?pivot=sdkstools)
     describes the tools that are available on Azure.
 
   - [Azure DevOps
@@ -227,7 +227,7 @@ environments (IDEs) and editors that have advanced debugging
 capabilities and built-in Azure support.
 
 Microsoft offers a variety of [languages, frameworks, and
-tools](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all)
+tools](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all)
 that you can use to develop applications on Azure. An example is [Azure
 for .NET and .NET Core
 developers](https://docs.microsoft.com/dotnet/azure/). For each language
@@ -484,7 +484,7 @@ Always put your keys, certificates, secrets, and connection strings in a
 key management solution. You can use a centralized solution in which
 keys and secrets are stored in hardware security modules (HSMs). Azure
 provides you with an HSM in the cloud with [Azure Key
-Vault](../../key-vault/key-vault-whatis.md).
+Vault](../../key-vault/key-vault-overview.md).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -550,7 +550,7 @@ public knowledge when it is deployed. Avoid including sensitive data of
 any kind in the project.
 
 Earlier, we discussed [Azure Key
-Vault](../../key-vault/key-vault-whatis.md). You
+Vault](../../key-vault/key-vault-overview.md). You
 can use Key Vault to store secrets like keys and passwords instead of
 hard-coding them. When you use Key Vault in combination with managed
 identities for Azure resources, your Azure web app can access secret

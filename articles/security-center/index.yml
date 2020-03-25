@@ -1,88 +1,86 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Security Center Documentation
+### YamlMime:Landing
+
+title: Azure Security Center documentation # < 60 chars
+summary: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. # < 160 chars
+
 metadata:
-  title: Azure Security Center Documentation - Tutorials, API Reference | Microsoft Doc
-  meta.description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..
+  title: Azure Security Center documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
-  author: cmcclister
-  manager: carolz
-  ms.service: security-center
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 07/26/18
-  ms.author: cmcclister
-abstract:
-  description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials.
-sections:
-- title: 5-Minute Quickstarts
-  items: 
-  - type: paragraph
-    text: Learn how to onboard your VMs and computers to Security Center and connect your security solutions.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /media/common/i_subscription.svg
-      text: Onboard Azure subscriptions
-      href: /azure/security-center/security-center-get-started
-    - image: 
-        src: /media/logos/logo_Windows.svg
-      text: Onboard Windows computers
-      href: /azure/security-center/quick-onboard-windows-computer
-    - image: 
-        src: /media/logos/logo_linux.svg
-      text: Onboard Linux computers
-      href: /azure/security-center/quick-onboard-linux-computer
-    - image: 
-        src: /media/common/i_multi-connect.svg
-      text: Connect security solutions
-      href: /azure/security-center/quick-security-solutions
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to define security policies, protect your resources against malicious activity, and respond to security alerts and incidents.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/security-center/tutorial-security-policy">Define and assess security policies</a>
-    - html: <a href="/azure/security-center/tutorial-protect-resources">Protect your resources</a>
-    - html: <a href="/azure/security-center/tutorial-security-incident">Respond to security incidents</a>
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title:   Introduction to Security in Azure
-      href: /learn/modules/intro-to-security-in-azure/
-      image: 
-        src: /learn/achievements/intro-to-security-in-azure.svg
-        href: /learn/modules/intro-to-security-in-azure/
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
-- title: Free Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Simplify protection of cloud resources with Azure Security Center - Ignite 2018
-      href: https://youtu.be/0txX1Y0GXDc
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_azure.svg
-        href: https://youtu.be/0txX1Y0GXDc
-    - title: Protect server workloads with Azure Security Center - Ignite 2018
-      href: https://youtu.be/Kb_xeIJVROo
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_azure.svg
-        href: https://youtu.be/Kb_xeIJVROo
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - html: <a href="https://docs.microsoft.com/rest/api/securitycenter/">REST API reference</a>
-    - html: <a href="https://azure.microsoft.com/updates/?product=security-center">Service updates</a>
+  ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: memildin #Required; your GitHub user alias, with correct capitalization.
+  ms.author: memildin #Required; microsoft alias of author; optional team alias.
+  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Security Center
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are the key capabilities of Security Center?
+            url: security-center-intro.md
+          - text: Which versions of Windows server and Linux are supported?
+            url: security-center-os-coverage.md
+ 
+  # Card
+  - title: Stay current
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Protect your containers
+            url: container-security.md
+          - text: Integrated vulnerability assessment for VMs
+            url: built-in-vulnerability-assessment.md
+          - text: Review the schemas for security alerts 
+            url: alerts-schemas.md
+          - text: Automate responses to alerts and recommendations
+            url: workflow-automation.md
+          - text: Export security alerts and recommendations
+            url: continuous-export.md
+          - text: Set up threat protection for Azure Key Vault 
+            url: advanced-threat-protection-key-vault.md
+ 
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Configure your security policies
+            url: tutorial-security-policy.md
+          - text: Evaluate your security posture
+            url: security-center-secure-score.md
+          - text: Upgrade to advanced security
+            url: security-center-onboarding.md
+
+  # Card
+  - title: Improve your Secure Score
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
+          - text: Remediate security recommendations
+            url: security-center-remediate-recommendations.md
+          - text: Customize your security recommendations
+            url: tutorial-security-policy.md
+          - text: Use recommendations to enhance security
+            url: security-center-using-recommendations.md
+
+  # Card
+  - title: Mitigate threats
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage just-in-time access
+            url: security-center-just-in-time.md
+          - text: Set up adaptive application controls
+            url: security-center-adaptive-application.md
+          - text: Implement Adaptive Network Hardening
+            url: security-center-adaptive-network-hardening.md

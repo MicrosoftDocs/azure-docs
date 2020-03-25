@@ -1,10 +1,11 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB Update RU/s for SQL (Core) API
-description: Azure PowerShell script - Azure Cosmos DB Update RU/s for SQL (Core) API
+title: PowerShell script to Update RU/s for Azure Cosmos DB SQL (Core) API
+description: Update the throughput for an Azure Cosmos database or container by using a PowerShell script- SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Lifecycle and states of a Linux VM in Azure | Microsoft Docs
+title: Lifecycle and states of a Linux VM in Azure 
 description: Overview of the lifecycle of a Linux VM in Azure including descriptions of the various states a VM can be in at any time.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

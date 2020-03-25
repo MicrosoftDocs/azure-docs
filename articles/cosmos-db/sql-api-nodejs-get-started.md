@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 
@@ -90,7 +90,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
 1. Copy and paste the ```database```, ```container```, and ```items``` data to your ```config``` object below where you set your ```config.endpoint``` and ```config.key``` properties. If you already have data you'd like to store in your database, you can use the Data Migration tool in Azure Cosmos DB rather than defining the data here. You config.js file should have the following code:
 
-   [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
+   :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
    JavaScript SDK uses the generic terms *container* and *item*. A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
    
@@ -133,7 +133,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 1. Copy and paste the code below to set the database ID, and the container ID. These IDs are how the Azure Cosmos DB client will find the right database and container.
 
    ```javascript
-   const client = new CosmosClient({ endpoint, key } });
+   const client = new CosmosClient({ endpoint, key });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };
@@ -433,7 +433,7 @@ Azure Cosmos DB supports rich queries against JSON documents stored in each cont
         ]
     };
 
-    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec).fetchAll();
     for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);
@@ -597,7 +597,7 @@ Deleting the created database will remove the database and all children resource
 
 Altogether, your code should look like this:
 
-[!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/app.js)]
+:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js":::
 
 In your terminal, locate your ```app.js``` file and run the command: 
 
@@ -657,7 +657,7 @@ Install the project's dependencies via npm. Use the following command:
 
 * ```npm install``` 
 
-Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
+Next, in the ```config.js``` file, update the config.endpoint and config.key values as described in [Step 3: Set your app's configurations](#Config).  
 
 Then in your terminal, locate your ```app.js``` file and run the command:  
 

@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Update an Azure Cosmos account
-description: Azure PowerShell script sample - Update an Azure Cosmos account with added regions
+title: PowerShell script to update an Azure Cosmos account
+description: Azure PowerShell script sample - Update an Azure Cosmos account or modify regions
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.author: mjbrown
 ---
 
-# Update an Azure Cosmos account and add a region using PowerShell
+# Update an Azure Cosmos account or modify regions using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,12 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-account-update.ps1 "Update and add regions to an Azure Cosmos account")]
+> [!NOTE]
+> You cannot modify regions and change other Cosmos account properties in the same operation. These must be done as two separate operations.
+> [!NOTE]
+> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply to your API specific script.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
 
 ## Clean up deployment
 
@@ -33,8 +38,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Resources**| |
-| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | Gets a resource. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Updates a resource. |
+| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Create a resource. |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Update a resource. |
 |**Azure Resource Groups**| |
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |

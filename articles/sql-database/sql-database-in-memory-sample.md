@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database In-Memory sample | Microsoft Docs
+title: In-Memory sample
 description: Try Azure SQL Database In-Memory technologies with OLTP and columnstore sample. 
 services: sql-database
 ms.service: sql-database
@@ -43,7 +43,7 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard. The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
+3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard. The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
 
 4. Paste the T-SQL script into SSMS, and then execute the script. The `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements are crucial. For example:
 
@@ -273,7 +273,7 @@ For real-time analytics on an OLTP workload, it's often best to use a noncluster
    - Use that exact name.
    - Choose any Premium service tier.
 
-2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
+2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
    - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
    - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
    - The script might take 15 minutes to complete.
@@ -296,7 +296,7 @@ For real-time analytics on an OLTP workload, it's often best to use a noncluster
 #### Key queries to compare the columnstore index
 
 
-There are [several T-SQL query types that you can run](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) to see performance improvements. In step 2 in the T-SQL script, pay attention to this pair of queries. They differ only on one line:
+There are [several T-SQL query types that you can run](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/clustered_columnstore_sample_queries.sql) to see performance improvements. In step 2 in the T-SQL script, pay attention to this pair of queries. They differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`

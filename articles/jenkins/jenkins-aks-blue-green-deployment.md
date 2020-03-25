@@ -1,13 +1,9 @@
 ---
-title: Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
+title: Deploy to Azure Kubernetes Service using Jenkins and the blue/green deployment pattern
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
-ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
+ms.date: 10/23/2019
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
@@ -83,19 +79,19 @@ In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](https:/
 
 1. Sign in to your Azure account. After you enter the following command, you  receive instructions that explain how to complete the sign-in. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. When you run the `az login` command in the previous step, a list of all your Azure subscriptions appears (along with their subscription IDs). In this step, you set the default Azure subscription. Replace the &lt;your-subscription-id> placeholder with the desired Azure subscription ID. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. Create a resource group. Replace the &lt;your-resource-group-name> placeholder with the name of your new resource group, and replace the &lt;your-location> placeholder with the location. The command `az account list-locations` displays all Azure locations. During the AKS preview, not all locations are available. If you enter a location that is not valid at this time, the error message lists the available locations.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -128,7 +124,7 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 #### Set up a Kubernetes cluster manually 
 1. Download the Kubernetes configuration to your profile folder.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -156,13 +152,13 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
     
     Update the DNS name for the corresponding IP address with the following command:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     Repeat the call for `todoapp-test-blue` and `todoapp-test-green`:
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -174,13 +170,13 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 
 1. Run the `az acr create` command to create an instance of Container Registry. In the next section, you can then use `login server` as the Docker registry URL.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. Run the `az acr credential` command to show your Container Registry credentials. Note the Docker registry username and password, as you need them in the next section.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -213,7 +209,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
     1. Select **Manage Jenkins > Manage Plugins > Available**.
     1. Search for and install the Azure Container Service plug-in.
 
-1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plugin.
+1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plug-in.
 
 1. Add your Azure Service Principal credential as the type **Microsoft Azure Service Principal**.
 
@@ -275,7 +271,7 @@ For more on zero-downtime deployment, see this [quickstart template](https://git
 
 When you no longer need the resources you created in this tutorial, you can delete them.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 

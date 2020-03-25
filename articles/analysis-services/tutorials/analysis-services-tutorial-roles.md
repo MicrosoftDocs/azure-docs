@@ -1,11 +1,10 @@
 ---
-title: Tutorial - Configure Azure Analysis Services administrator and user roles | Microsoft Docs
-description: Learn how to configure Azure Analysis Services roles.
+title: Tutorial - Configure Azure Analysis Services roles | Microsoft Docs
+description: Learn how to configure Azure Analysis Services administrator and user roles by using the Azure portal or SQL Server Management Studio.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
@@ -79,7 +78,7 @@ In this task, you add a user or group account from your Azure AD to the server a
 
 ## Add a user to the model database administrator role
 
-In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) TMSL command in a script created for you.
+In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) TMSL command in a script created for you.
 
 1. In **Object Explorer**, expand **Databases** > **adventureworks** > **Roles**. 
 2. Right-click **Internet Sales Administrator**, then click **Script Role as** > **CREATE OR REPLACE To** > **New Query Editor Window**.
@@ -95,7 +94,7 @@ In this task, you add a user or group account to the Internet Sales Administrato
 
 ## Add a new model database role and add a user or group
 
-In this task, you use the [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
+In this task, you use the [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
 
 1. In **Object Explorer**, right-click **adventureworks**, and then click **New Query** > **XMLA**. 
 2. Copy and paste the following TMSL script into the query editor:

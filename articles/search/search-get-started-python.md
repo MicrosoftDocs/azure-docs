@@ -1,17 +1,19 @@
 ---
-title: 'Python Quickstart: Create, load, and query indexes using REST APIs - Azure Search'
-description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Search REST API.
+title: 'Quickstart: Create a search index in Python using REST APIs'
+titleSuffix: Azure Cognitive Search
+description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Cognitive Search REST API.
 
-ms.date: 07/11/2019
-author: heidisteen
-manager: cgronlun
-ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+author: tchristiani
+manager: nitinme
+ms.author: terrychr
+ms.service: cognitive-search
 ms.topic: quickstart
+ms.devlang: rest-api
+ms.date: 02/10/2020
 ---
-# Quickstart: Create an Azure Search index in Python using Jupyter notebooks
+
+# Quickstart: Create an Azure Cognitive Search index in Python using Jupyter notebooks
+
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -20,7 +22,7 @@ ms.topic: quickstart
 > * [Portal](search-create-index-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,11 +32,11 @@ The following services and tools are required for this quickstart.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), providing Python 3.x and Jupyter Notebooks.
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
 
 ## Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -44,9 +46,9 @@ REST calls require the service URL and an access key on every request. A search 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## Connect to Azure Search
+## Connect to Azure Cognitive Search
 
-In this task, start a Jupyter notebook and verify that you can connect to Azure Search. You'll do this by requesting a list of indexes from your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
+In this task, start a Jupyter notebook and verify that you can connect to Azure Cognitive Search. You'll do this by requesting a list of indexes from your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
 
 1. Create a new Python3 notebook.
 
@@ -67,6 +69,8 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
+   If you get ConnectionError `"Failed to establish a new connection"`, verify that the api-key is a primary or secondary admin key, and that all leading and trailing characters (`?` and `/`) are in place.
+
 1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property of existing indexes.
 
    ```python
@@ -78,7 +82,7 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
 
 1. Run each step. If indexes exist, the response contains a list of index names. In the screenshot below, the service already has an azureblob-index and a realestate-us-sample index.
 
-   ![Python script in Jupyter notebook with HTTP requests to Azure Search](media/search-get-started-python/connect-azure-search.png "Python script in Jupyter notebook with HTTP requests to Azure Search")
+   ![Python script in Jupyter notebook with HTTP requests to Azure Cognitive Search](media/search-get-started-python/connect-azure-search.png "Python script in Jupyter notebook with HTTP requests to Azure Cognitive Search")
 
    In contrast, an empty index collection returns this response: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
@@ -118,7 +122,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     }
     ```
 
-2. In another cell, formulate the request. This PUT request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
+2. In another cell, formulate the request. This POST request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -244,7 +248,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 This step shows you how to query an index using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. In a cell, provide a query expression that executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add $count=true to get a count of all documents in the results.
+1. In a cell, provide a query expression that executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Cognitive Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add $count=true to get a count of all documents in the results.
 
    ```python
    searchstring = '&search=*&$count=true'

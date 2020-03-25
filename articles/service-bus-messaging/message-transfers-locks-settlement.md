@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus message transfers, locks, and settlement | Microsoft Docs
-description: Overview of Service Bus message transfers and settlement operations
+title: Azure Service Bus message transfers, locks, and settlement
+description: This article provides an overview of Azure Service Bus message transfers, locks, and settlement operations.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/24/2019
 ms.author: aschhab
 
 ---
@@ -95,9 +95,13 @@ With a low-level AMQP client, Service Bus also accepts "pre-settled" transfers. 
 
 For receive operations, the Service Bus API clients enable two different explicit modes: *Receive-and-Delete* and *Peek-Lock*.
 
+### ReceiveAndDelete
+
 The [Receive-and-Delete](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode tells the broker to consider all messages it sends to the receiving client as settled when sent. That means that the message is considered consumed as soon as the broker has put it onto the wire. If the message transfer fails, the message is lost.
 
 The upside of this mode is that the receiver does not need to take further action on the message and is also not slowed by waiting for the outcome of the settlement. If the data contained in the individual messages have low value and/or are only meaningful for a very short time, this mode is a reasonable choice.
+
+### PeekLock
 
 The [Peek-Lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode tells the broker that the receiving client wants to settle received messages explicitly. The message is made available for the receiver to process, while held under an exclusive lock in the service so that other, competing receivers cannot see it. The duration of the lock is initially defined at the queue or subscription level and can be extended by the client owning the lock, via the [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) operation.
 
@@ -118,6 +122,14 @@ The **Complete** or **Deadletter** operations as well as the **RenewLock** opera
 If **Complete** fails, which occurs typically at the very end of message handling and in some cases after minutes of processing work, the receiving application can decide whether it preserves the state of the work and ignores the same message when it is delivered a second time, or whether it tosses out the work result and retries as the message is redelivered.
 
 The typical mechanism for identifying duplicate message deliveries is by checking the message-id, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the message-id to the identifier of the job it is trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
+
+> [!IMPORTANT]
+> It is important to note that the lock that PeekLock acquires on the message is volatile and may be lost in the following conditions
+>   * Service Update
+>   * OS update
+>   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
+>
+> When the lock is lost, Azure Service Bus will generate a LockLostException which will be surfaced on the client application code. In this case, the client's default retry logic should automatically kick in and retry the operation.
 
 ## Next steps
 

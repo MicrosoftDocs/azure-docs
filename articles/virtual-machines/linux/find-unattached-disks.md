@@ -1,15 +1,15 @@
 ---
-title: Find and delete unattached Azure managed and unmanaged disks | Microsoft Docs
+title: Find and delete unattached Azure managed and unmanaged disks
 description: How to find and delete unattached Azure managed and unmanaged (VHDs/page blobs) disks by using Azure CLI.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Find and delete unattached Azure managed and unmanaged disks
+# Find and delete unattached Azure managed and unmanaged disks using the Azure CLI
 When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you will continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs. 
 
 

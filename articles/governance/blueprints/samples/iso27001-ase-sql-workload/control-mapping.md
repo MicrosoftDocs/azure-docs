@@ -1,12 +1,8 @@
 ---
-title: Sample - ISO 27001 ASE/SQL workload blueprint - Control mapping
+title: ISO 27001 ASE/SQL workload blueprint sample controls
 description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and RBAC.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
 
@@ -18,6 +14,18 @@ jump directly to a specific control mapping. Many of the mapped controls are imp
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
 **Definitions** page. Then, find and select the **\[Preview\] Audit ISO 27001:2013 controls and deploy
 specific VM Extensions to support audit requirements** built-in policy initiative.
+
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
 
 ## A.6.1.2 Segregation of duties
 
@@ -172,13 +180,13 @@ unencrypted Service Fabric communication.
 - \[Preview\]: Deploy VM extension to audit Windows VM should not store passwords using reversible
   encryption
 - \[Preview\]: Audit Windows VM should not store passwords using reversible encryption
-- \[Preview\]: Monitor unencrypted SQL database in Azure Security Center
 - \[Preview\]: Monitor unencrypted VM Disks in Azure Security Center
 - Audit enablement of encryption of Automation account variables
 - Audit enabling of only secure connections to your Redis Cache
 - Audit secure transfer to storage accounts
 - Audit the setting of ClusterProtectionLevel property to EncryptAndSign in Service Fabric
 - Audit transparent data encryption status
+- Transparent Data Encryption on SQL databases should be enabled
 
 ## A.12.4.1 Event logging
 
@@ -190,9 +198,9 @@ Diagnostic logs provide insight into operations that were performed within Azure
 - \[Preview\]: Audit Dependency Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Auditing should be enabled on advanced data security settings on SQL Server
 
 ## A.12.4.3 Administrator and operator logs
 
@@ -204,9 +212,9 @@ operations that were performed within Azure resources.
 - \[Preview\]: Audit Dependency Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Auditing should be enabled on advanced data security settings on SQL Server
 
 ## A.12.4.4 Clock synchronization
 
@@ -218,9 +226,9 @@ internal clocks to create a time-correlated record of events across resources.
 - \[Preview\]: Audit Dependency Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Auditing should be enabled on advanced data security settings on SQL Server
 
 ## A.12.5.1 Installation of software on operational systems
 
@@ -288,9 +296,9 @@ deploy this sample:
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Overview](./index.md)
 > [ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

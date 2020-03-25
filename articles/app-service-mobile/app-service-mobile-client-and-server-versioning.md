@@ -1,23 +1,15 @@
 ---
-title: Client and server SDK versioning in Mobile Apps and Mobile Services | Microsoft Docs
-description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: ''
-author: conceptdev
-manager: crdun
-editor: ''
+title: Client and server SDK versioning
+description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps.
 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-
 ---
 # Client and server versioning in Mobile Apps and Mobile Services
+
 The latest version of Azure Mobile Services is the **Mobile Apps** feature of Azure App Service.
 
 The Mobile Apps client and server SDKs are originally based on those in Mobile Services, but they are *not* compatible with each other.
@@ -25,8 +17,6 @@ That is, you must use a *Mobile Apps* client SDK with a *Mobile Apps* server SDK
 enforced through a special header value used by the client and server SDKs, `ZUMO-API-VERSION`.
 
 Note: whenever this document refers to a *Mobile Services* backend, it does not necessarily need to be hosted on Mobile Services. It is now possible to migrate a mobile service to run on App Service without any code changes, but the service would still be using *Mobile Services*  SDK versions.
-
-To learn more about migrating to App Service without any code changes, see the article [Migrate a Mobile Service to Azure App Service].
 
 ## Header specification
 The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the query string. The value is a version string in the form **x.y.z**.

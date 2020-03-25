@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 08/13/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
@@ -63,17 +63,27 @@ The Active Directory configuration varies, depending on whether your Application
 
 #### Connector and application server in different domains
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
-2. Use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server. The application server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`. For Windows 2012 R2, use this code as an example:
+2. Use the `principalsallowedtodelegateto` property of the service account (computer or dedicated domain user account) of the web application to enable Kerberos authentication delegation from the Application Proxy (connector). The application server is running in the context of `webserviceaccount` and the delegating server is `connectorcomputeraccount`. Run the commands below on a Domain Controller (running Windows Server 2012 R2 or later) in the domain of `webserviceaccount`. Use flat names (non UPN) for both accounts.
 
-```powershell
-$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+   If the `webserviceaccount` is a computer account, use these commands:
 
-Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
 
-Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-```
+   Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-`sharepointserviceaccount` can be the SPS machine account or a service account under which the SPS app pool is running.
+   Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
+
+   If the `webserviceaccount` is a user account, use these commands:
+
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+
+   Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+
+   Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
 
 ## Configure single sign-on 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
@@ -109,7 +119,7 @@ For more information about Kerberos, see [All you want to know about Kerberos Co
 Non-Windows apps typically user usernames or SAM account names instead of domain email addresses. If that situation applies to your applications, you need to configure the delegated login identity field to connect your cloud identities to your application identities. 
 
 ## Working with different on-premises and cloud identities
-Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. If that's not the case, you can still use KCD for single sign-on. Configure a **Delegated login identity** for each application to specify which identity should be used when performing single sign-on.  
+Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. But in some environments, due to corporate policies or application dependencies, organizations might have to use alternate IDs for sign-in. In such cases, you can still use KCD for single sign-on. Configure a **Delegated login identity** for each application to specify which identity should be used when performing single sign-on.  
 
 This capability allows many organizations that have different on-premises and cloud identities to have SSO from the cloud to on-premises apps without requiring the users to enter different usernames and passwords. This includes organizations that:
 
@@ -146,4 +156,3 @@ But, in some cases, the request is successfully sent to the backend application 
 
 
 For the latest news and updates, check out the [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)
-

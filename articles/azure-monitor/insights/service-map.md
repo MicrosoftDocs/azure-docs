@@ -1,21 +1,16 @@
 ---
 title: Using Service Map solution in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: 
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 07/24/2019
-ms.author: magoedte
+
 ---
 
 # Using Service Map solution in Azure
+
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
 This article describes the details of onboarding and using Service Map. For information about configuring the prerequisites for this solution, see [Enable the Azure Monitor for VMs overview](vminsights-enable-overview.md#prerequisites). To summarize, you need the following:
@@ -27,7 +22,7 @@ This article describes the details of onboarding and using Service Map. For info
 * The Dependency agent installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms).
 
 ## Sign in to Azure
 
@@ -56,7 +51,7 @@ By using Service Map, you can effectively plan, accelerate, and validate Azure m
 
 ### Business continuity
 
-If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers’ back-end dependencies, you can identify which systems to recover before your focus systems are restored.
+If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical servers' back-end dependencies, you can identify which systems to recover before your focus systems are restored.
 
 ### Patch management
 
@@ -64,7 +59,7 @@ Service Map enhances your use of the System Update Assessment by showing you whi
 
 ## Mapping overview
 
-Service Map agents gather information about all TCP-connected processes on the server where they’re installed and details about the inbound and outbound connections for each process.
+Service Map agents gather information about all TCP-connected processes on the server where they're installed and details about the inbound and outbound connections for each process.
 
 From the list in the left pane, you can select machines or groups that have Service Map agents to visualize their dependencies over a specified time range. Machine dependency maps focus on a specific machine, and they show all the machines that are direct TCP clients or servers of that machine.  Machine Group maps show sets of servers and their dependencies.
 
@@ -109,7 +104,7 @@ There, you can choose **Create new** and give the group a name.
 
 ### Viewing a Group
 
-Once you’ve created some groups, you can view them by choosing the Groups tab.
+Once you've created some groups, you can view them by choosing the Groups tab.
 
 ![Groups tab](media/service-map/machine-groups-tab.png)
 
@@ -221,7 +216,7 @@ You can gather process details from operating-system metadata about running proc
 
 ![Process Properties pane](media/service-map/process-properties.png)
 
-The **Process Summary** pane provides additional information about the process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections.
+The **Process Summary** pane provides additional information about the process's connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
 ![Process Summary pane](media/service-map/process-summary.png)
 
@@ -322,7 +317,7 @@ Because multiple records can exist for a specified process and computer in a spe
 
 ### Connections
 
-Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from "*accept*-ing on a listening socket are inbound, while those created by *connect*-ing to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
+Connection metrics are written to a new table in Log Analytics - VMConnection. This table provides information about the connections for a machine (inbound and outbound). Connection Metrics are also exposed with APIs that provide the means to obtain a specific metric during a time window.  TCP connections resulting from accepting on a listening socket are inbound, while those created by connecting to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
 
 Records in these tables are generated from data reported by the Dependency agent. Every record represents an observation over a one minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported.
 
@@ -550,16 +545,57 @@ Microsoft automatically collects usage and performance data through your use of 
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-
 ## Next steps
 
 Learn more about [log searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to retrieve data that's collected by Service Map.
 
-
 ## Troubleshooting
 
-See the [Troubleshooting section of the Configuring Service Map document]( service-map-configure.md#troubleshooting).
+If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
+### Dependency agent installation problems
+
+#### Installer prompts for a reboot
+The Dependency agent *generally* does not require a reboot upon installation or removal. However, in certain rare cases, Windows Server requires a reboot to continue with an installation. This happens when a dependency, usually the Microsoft Visual C++ Redistributable library requires a reboot because of a locked file.
+
+#### Message "Unable to install Dependency agent: Visual Studio Runtime libraries failed to install (code = [code_number])" appears
+
+The Microsoft Dependency agent is built on the Microsoft Visual Studio runtime libraries. You'll get a message if there's a problem during installation of the libraries. 
+
+The runtime library installers create logs in the %LOCALAPPDATA%\temp folder. The file is `dd_vcredist_arch_yyyymmddhhmmss.log`, where *arch* is `x86` or `amd64` and *yyyymmddhhmmss* is the date and time (24-hour clock) when the log was created. The log provides details about the problem that's blocking installation.
+
+It might be useful to install the [latest runtime libraries](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) first.
+
+The following table lists code numbers and suggested resolutions.
+
+| Code | Description | Resolution |
+|:--|:--|:--|
+| 0x17 | The library installer requires a Windows update that hasn't been installed. | Look in the most recent library installer log.<br><br>If a reference to `Windows8.1-KB2999226-x64.msu` is followed by a line `Error 0x80240017: Failed to execute MSU package,` you don't have the prerequisites to install KB2999226. Follow the instructions in the prerequisites section in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226) article. You might need to run Windows Update and reboot multiple times in order to install the prerequisites.<br><br>Run the Microsoft Dependency agent installer again. |
+
+### Post-installation issues
+
+#### Server doesn't appear in Service Map
+
+If your Dependency agent installation succeeded, but you don't see your machine in the Service Map solution:
+* Is the Dependency agent installed successfully? You can validate this by checking to see if the service is installed and running.<br><br>
+**Windows**: Look for the service named **Microsoft Dependency agent**.
+**Linux**: Look for the running process **microsoft-dependency-agent**.
+
+* Are you on the [Log Analytics free tier](https://azure.microsoft.com/pricing/details/monitor/)? The Free plan allows for up to five unique Service Map machines. Any subsequent machines won't appear in Service Map, even if the prior five are no longer sending data.
+
+* Is your server sending log and perf data to Azure Monitor Logs? Go to Azure Monitor\Logs and run the following query for your computer: 
+
+    ```kusto
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics agent is operating correctly and communicating with the workspace. If not, check the agent on your machine: [Log Analytics agent for Windows troubleshooting](../platform/agent-windows-troubleshoot.md) or [Log Analytics agent for Linux troubleshooting](../platform/agent-linux-troubleshoot.md).
+
+#### Server appears in Service Map but has no processes
+
+If you see your machine in Service Map, but it has no process or connection data, that indicates that the Dependency agent is installed and running, but the kernel driver didn't load. 
+
+Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) or `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
 ## Feedback
 

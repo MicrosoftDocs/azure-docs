@@ -1,13 +1,12 @@
 ---
-title: How to provision devices for multitenancy in the Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: How to provision devices for multitenancy with your device provisioning service instance
+title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
+description: How to provision devices for multitenancy with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ---
 
 
@@ -188,20 +187,21 @@ To make clean-up easier, these VMs will be added to the same resource group that
 
 In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains a sample that will simulate a tenant's device provisioning from each region.
 
-
-1. For each VM, install **Cmake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the following commands:
+1. For each VM, install **CMake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the following commands:
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
-1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) on both VMs.
+1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) on both VMs.  Use the tag you found in the previous step as the value for the `-b` parameter:
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     You should expect this operation to take several minutes to complete.

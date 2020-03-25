@@ -3,10 +3,8 @@ title: Investigate Incidents and Alerts in Azure Security Center | Microsoft Doc
 description: This document helps you use the investigation feature in Azure Security Center to investigate security incidents and alerts.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Investigate Incidents and Alerts in Azure Security Center (Retired)
@@ -115,6 +113,3 @@ In this document, you learned how to use the investigation feature in Security C
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center.
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

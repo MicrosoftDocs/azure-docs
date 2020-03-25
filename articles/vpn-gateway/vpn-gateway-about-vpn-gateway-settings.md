@@ -1,12 +1,12 @@
 ---
-title: VPN gateway settings for cross-premises Azure connections | Microsoft Docs
+title: 'Azure VPN Gateway: configuration settings'
 description: Learn about VPN Gateway settings for Azure virtual network gateways.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---
@@ -24,7 +24,7 @@ The values in this article apply VPN gateways (virtual network gateways that use
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="gwtype"></a>Gateway types
 
@@ -75,9 +75,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. A gateway can take up to 45 minutes to build. In comparison, when you resize a gateway SKU, there is not much downtime because you do not have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you will want to do that. However, there are rules regarding resizing:
 
-1. You can resize between VpnGw1, VpnGw2, and VpnGw3 SKUs.
+1. With the exception of the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
 2. When working with the old gateway SKUs, you can resize between Basic, Standard, and HighPerformance SKUs.
-3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to the new VpnGw1/VpnGw2/VpnGw3 SKUs. You must instead, [change](#change) to the new SKUs.
+3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
 
 #### <a name="resizegwsku"></a>To resize a gateway
 
@@ -135,7 +135,9 @@ Before you create a VPN gateway, you must create a gateway subnet. The gateway s
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 >
 
-When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. Look at the instructions for the configuration that you want to create and verify that the gateway subnet you want to create meets those requirements. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). That way, if you add functionality in the future, you won't have to tear your gateway, then delete and recreate the gateway subnet to allow for more IP addresses.
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
+
+When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. This will accommodate most configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 

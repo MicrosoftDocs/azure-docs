@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to perform an online migration of Oracle to Azure Database for PostgreSQL | Microsoft Docs"
+title: "Tutorial: Migrate Oracle online to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from Oracle on-premises or on virtual machines to Azure Database for PostgreSQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 05/24/2019
+ms.date: 01/24/2020
 ---
 
 # Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS (Preview)
@@ -43,24 +44,25 @@ To complete this tutorial, you need to:
 
 * Download and install [Oracle 11g Release 2 (Standard Edition, Standard Edition One, or Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
 * Download the sample **HR** database from [here](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
-* Download and install ora2pg on either [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) or [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf).
+* Download and [install ora2pg on either Windows or Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
 * [Create an instance in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connect to the instance and create a database using the instruction in this [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
-* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
   > [!NOTE]
-  > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+  > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+  >
   > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
   > * Storage endpoint
   > * Service bus endpoint
   >
   > This configuration is necessary because Azure Database Migration Service lacks internet connectivity.
 
-* Ensure that your VNet Network Security Group (NSG) rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Ensure that your virtual network Network Security Group (NSG) rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Open your Windows firewall to allow Azure Database Migration Service to access the source Oracle server, which by default is TCP port 1521.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure Database for PostgreSQL to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the VNet used for Azure Database Migration Service.
+* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure Database for PostgreSQL to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the virtual network used for Azure Database Migration Service.
 * Enable access to the source Oracle databases.
 
   > [!NOTE]
@@ -161,34 +163,13 @@ To complete this tutorial, you need to:
 
     You should receive a response `'YES'`.
 
-> [!IMPORTANT]
-> For the public preview release of this scenario, Azure Database Migration Service supports Oracle version 10g or 11g. Customers running Oracle version 12c or later should note that the minimum authentication protocol allowed for ODBC driver to connect to Oracle must be 8. For an Oracle source that is version 12c or later, you must configure the authentication protocol as follows:
->
-> * Update SQLNET.ORA:
->
->    ```
->    SQLNET.ALLOWED_LOGON_VERSION_CLIENT = 8
->    SQLNET.ALLOWED_LOGON_VERSION_SERVER = 8
->    ```
->
-> * Restart your computer for the new settings to take effect.
-> * Change the password for existing users:
->
->    ```
->    ALTER USER system IDENTIFIED BY {pswd}
->    ```
->
->   For more information, see the page [here](http://www.dba-oracle.com/t_allowed_login_version_server.htm).
->
-> Finally, remember that changing the authentication protocol may impact client authentication.
-
 ## Assess the effort for an Oracle to Azure Database for PostgreSQL migration
 
 We recommend using ora2pg to assess the effort required to migrate from Oracle to Azure Database for PostgreSQL. Use the `ora2pg -t SHOW_REPORT` directive to create a report listing all the Oracle objects, the estimated migration cost (in developer days), and certain database objects that may require special attention as part of the conversion.
 
 Most customers will spend a considerable amount time reviewing the assessment report and considering the automatic and manual conversion effort.
 
-To configure and run ora2pg to create an assessment report, see the **Premigration: Assessment** section of the [Oracle to Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). A sample ora2pg assessment report is available for reference [here](http://ora2pg.darold.net/report.html).
+To configure and run ora2pg to create an assessment report, see the **Premigration: Assessment** section of the [Oracle to Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). A sample ora2pg assessment report is available for reference [here](https://ora2pg.darold.net/report.html).
 
 ## Export the Oracle schema
 
@@ -210,67 +191,60 @@ To configure and run ora2pg for schema conversion, see the **Migration: Schema a
 
 ## Set up the schema in Azure Database for PostgreSQL
 
-By default, Oracle keeps the schema.table.column in all upper cases, while PostgreSQL keeps schema.table.column in lower case. For Azure Database Migration Service to start data movement from Oracle to Azure Database for PostgreSQL, the schema.table.column must be the same case format as the Oracle source.
+You can choose to convert Oracle table schemas, stored procedures, packages, and other database objects to make them Postgres compatible by using ora2pg before starting a migration pipeline in Azure Database Migration Service. See the links below for how to work with ora2pg:
 
-For example, if the Oracle source has as schema of “HR”.”EMPLOYEES”.”EMPLOYEE_ID”, then the PostgreSQL schema must use the same format.
+* [Install ora2pg on Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
+* [Oracle to Azure PostgreSQL Migration Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
-To ensure that the case format of the schema.table.column is the same for both Oracle and Azure Database for PostgreSQL, we recommend that you use the following steps.
+Azure Database Migration Service can also create the PostgreSQL table schema. The service accesses the table schema in the connected Oracle source and creates a compatible table schema in Azure Database for PostgreSQL. Be sure to validate and check the schema format in Azure Database for PostgreSQL after Azure Database Migration Service finishes creating the schema and moving the data.
+
+> [!IMPORTANT]
+> Azure Database Migration Service only creates the table schema; other database objects such as stored procedures, packages, indexes, etc., are not created.
+
+Also be sure to drop the foreign key in the target database for the full load to run. Refer to the **Migrate the sample schema** section of the article [here](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) for a script that you can use to drop the foreign key. Use Azure Database Migration Service to run for full load and sync.
+
+### When the PostgreSQL table schema already exists
+
+If you create a PostgreSQL schema using tools such as ora2pg before starting the data movement with Azure Database Migration Service, map the source tables to the target tables in Azure Database Migration Service.
+
+1. When you create a new Oracle to Azure Database for PostgreSQL migration project, you're prompted to select target database and target schema in Select schemas step. Fill in the target database and target schema.
+
+   ![Show portal subscriptions](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+
+2. The **Migration settings** screen presents a list of tables in the Oracle source. Azure Database Migration Service tries to match tables in the source and the target tables based on table name. If multiple matching target tables with different casing exist, you can select which target table to map to.
+
+    ![Show portal subscriptions](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
-> You can use a different approach to derive the upper-case schema. We are working to improve and automate this step.
+> If you need to map source table names to tables with different names, email [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) and we can provide a script to automate the process.
 
-1. Export schemas using ora2pg with lower cases. In the table creation sql script, create a schema with upper case “SCHEMA” manually.
-2. Import the rest of the Oracle objects, such as triggers, sequences, procedures, types, and functions, into Azure Database for PostgreSQL.
-3. To make TABLE and COLUMN UPPER case, run the following script:
+### When the PostgreSQL table schema doesn’t exist
 
-   ```
-   -- INPUT: schema name
-   set schema.var = “HR”;
+If the target PostgreSQL database doesn’t contain any table schema information, Azure Database Migration Service converts the source schema and recreates it in the target database. Remember, Azure Database Migration Service creates only the table schema, not other database objects such as stored procedures, packages, and indexes.
+To have Azure Database Migration Service create the schema for you, ensure that your target environment includes a schema with no existing tables. If Azure Database Migration Service discovers any table, the service assumes that the schema was created by an external tool such as ora2pg.
 
-   -- Generate statements to rename tables and columns
-   SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-   UNION ALL 
-   SELECT 2, 'alter table "'||c.relname||'" rename '||a.attname||' to "'||upper(a.attname)||'";'
-   FROM pg_class c
-   JOIN pg_attribute a ON a.attrelid = c.oid
-   JOIN pg_type t ON a.atttypid = t.oid
-   LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
-    AND r.conname = a.attname
-   WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-   UNION ALL
-   SELECT 3, 'alter table '||c.relname||' rename to "'||upper(c.relname)||'";'
-   FROM pg_catalog.pg_class c
-    LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-   WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-   ORDER BY 1;
-   ```
+> [!IMPORTANT]
+> Azure Database Migration Service requires that all tables be created the same way, by using either Azure Database Migration Service or a tool such as ora2pg, but not both.
 
-* Drop the foreign key in the target database for the full load to run. Refer to the **Migrate the sample schema** section of the article [here](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) for a script that you can use to drop the foreign key.
-* Use Azure Database Migration Service to run for full load and sync.
-* When the data in the target Azure Database for PostgreSQL instance is caught up with the source, perform database cutover in Azure Database Migration Service.
-* To make SCHEMA, TABLE, and COLUMN lower case (if the schema for Azure Database for PostgreSQL should be this way for application query), run the following script:
+To get started:
 
-  ```
-  -- INPUT: schema name
-  set schema.var = hr;
-  
-  -- Generate statements to rename tables and columns
-  SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-  UNION ALL
-  SELECT 2, 'alter table "'||c.relname||'" rename "'||a.attname||'" to '||lower(a.attname)||';'
-  FROM pg_class c
-  JOIN pg_attribute a ON a.attrelid = c.oid
-  JOIN pg_type t ON a.atttypid = t.oid
-  LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
-     AND r.conname = a.attname
-  WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-  UNION ALL
-  SELECT 3, 'alter table "'||c.relname||'" rename to '||lower(c.relname)||';'
-  FROM pg_catalog.pg_class c
-     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-  WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-  ORDER BY 1;
-  ```
+1. Create a schema in the target database based on your application requirements. By default, PostgreSQL table schema and columns names are lower cased. Oracle table schema and columns, on the other hand, are by default in all capital case.
+2. In Select schemas step, specify the target database and the target schema.
+3. Based on the schema you create in Azure Database for PostgreSQL, Azure Database Migration Service uses the following transformation rules:
+
+    If the schema name in the Oracle source and matches that in Azure Database for PostgreSQL, then Azure Database Migration Service *creates the table schema using the same case as in the target*.
+
+    For example:
+
+    | Source Oracle schema | Target PostgreSQL Database.Schema | DMS created schema.table.column |
+    | ------------- | ------------- | ------------- |
+    | HR | targetHR.public | public.countries.country_id |
+    | HR | targetHR.trgthr | trgthr.countries.country_id |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.Hr | *Unable to map mixed cases |
+
+    *To create mixed case schema and table names in target PostgreSQL, contact [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). We can provide a script to set up mixed case table schema in the target PostgreSQL database.
 
 ## Register the Microsoft.DataMigration resource provider
 
@@ -298,11 +272,11 @@ To ensure that the case format of the schema.table.column is the same for both O
   
 3. On the **Create Migration Service** screen, specify a name for the service, the subscription, and a new or existing resource group.
 
-4. Select an existing VNet or create a new one.
+4. Select an existing virtual network or create a new one.
 
-    The VNet provides Azure Database Migration Service with access to the source Oracle and the target Azure  Database for PostgreSQL instance.
+    The virtual network provides Azure Database Migration Service with access to the source Oracle and the target Azure  Database for PostgreSQL instance.
 
-    For more information about how to create a VNet in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+    For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
 5. Select a pricing tier.
 

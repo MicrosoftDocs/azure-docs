@@ -221,12 +221,12 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims `http://contoso.com/ws/2016/02/identity/claims/objectguid` and `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
 
 This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You'll have to change this to the appropriate claim type for the immutable ID in your environment.
 
@@ -234,7 +234,7 @@ This is an implicit **Exist** check. If the value for the claim exists, then iss
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c2.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 
 In this rule, you're simply checking the temporary flag **idflag**. You decide whether to issue the claim based on its value.
 

@@ -1,6 +1,6 @@
 ---
 title: Monitor Media Services diagnostic logs via Azure Monitor | Microsoft Docs
-description: This article shows how to route and view diagnostic logs via Azure Monitor.
+description: This article demonstrates how to route and view diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -171,11 +171,15 @@ You may need to wait up to five minutes before the event appears in the storage 
 }
 ```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## See also
 
 * [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md)
-* [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
-* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md)
+* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## Next steps
 

@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 08/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
-# Tutorial: Stream video files - Node.js
+# Tutorial: Encode a remote file based on URL and stream the video - Node.js
 
 This tutorial shows you how easy it is to encode and start streaming videos on a wide variety of browsers and devices using Azure Media Services. An input content can be specified using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage.
 

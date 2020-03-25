@@ -1,21 +1,21 @@
 ---
 title: Configure containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Configure various settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
 
-# Configure Recognize Text Docker containers
+# Configure Computer Vision Docker containers
 
-The **Recognize Text** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -58,9 +58,9 @@ Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the fo
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## Http proxy credentials settings
+## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
@@ -79,35 +79,35 @@ The exact syntax of the host mount location varies depending on the host operati
 |Not allowed| `Input` | String | Computer Vision containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## Example docker run commands 
+## Example docker run commands
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](computer-vision-how-to-install-containers.md#stop-the-container) it.
 
 * **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
 
-Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the following table. 
-
 Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | The billing endpoint value including region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | The endpoint key of the `Computer Vision` resource on the Azure `Computer Vision` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Computer Vision` Overview page.| See [gathering required parameters](computer-vision-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page. 
+> The ApiKey value is the **Key** from the Azure `Cognitive Services` Resource keys page.
 
-## Recognize text container Docker examples
+## Container Docker examples
 
-The following Docker examples are for the recognize text container. 
+The following Docker examples are for the Read container.
 
-### Basic example 
+### Basic example
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  ```docker
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -115,9 +115,9 @@ The following Docker examples are for the recognize text container.
 
 ### Logging example 
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+  ```docker
+  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+  containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} \
@@ -126,4 +126,4 @@ The following Docker examples are for the recognize text container.
 
 ## Next steps
 
-* Review [How to install and run containers](computer-vision-how-to-install-containers.md)
+* Review [How to install and run containers](computer-vision-how-to-install-containers.md).

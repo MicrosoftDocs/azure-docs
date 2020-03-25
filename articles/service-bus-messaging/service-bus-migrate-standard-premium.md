@@ -1,10 +1,9 @@
 ---
-title: Migrate existing Azure Service Bus standard namespaces to the premium tier| Microsoft Docs
+title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: darosa
 editor: spelluru
 
 ms.service: service-bus-messaging
@@ -29,7 +28,7 @@ Some of the points to note:
 - The **premium** namespace should have **no entities** in it for the migration to succeed. 
 - All **entities** in the standard namespace are **copied** to the premium namespace during the migration process. 
 - Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace. 
-- You can't directly migrate from **basic tier** to **premier tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
+- You can't directly migrate from **basic tier** to **premium tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
 
 ## Migration steps
 Some conditions are associated with the migration process. Familiarize yourself with the following steps to reduce the possibility of errors. These steps outline the migration process, and the step-by-step details are listed in the sections that follow.
@@ -111,7 +110,7 @@ Migration by using the Azure portal has the same logical flow as migrating by us
    1. After the sync is complete, select **Next** at the bottom of the page.
 
 1. Review changes on the summary page. Select **Complete Migration** to switch namespaces and to complete the migration.
-    ![Switch namespace - switch menu][]
+    ![Switch namespace - switch menu][]  
     The confirmation page appears when the migration is complete.
     ![Switch namespace - success][]
 

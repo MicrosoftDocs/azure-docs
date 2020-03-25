@@ -19,7 +19,7 @@ ms.author: dumartin
 ---
 # Isolation guidelines for Impact Level 5 Workloads
 
-Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://iase.disa.mil/cloud_security/Lists/Cloud%20SRG/AllItems.aspx). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard.  When supporting these workloads on Azure Government, their isolation requirements can be met in different ways. The guidance below will address configurations and settings for the isolation required to support IL5 data.  This document will be updated as new implementations are enabled and as new services are accredited for IL5 data by DISA.
+Azure Government supports applications in all regions that require Impact Level 5 (IL5) data, as defined in the [US Department of Defense Cloud Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). IL5 workloads have a higher degree of impact to the US Department of Defense and must be secured to a higher standard.  When supporting these workloads on Azure Government, their isolation requirements can be met in different ways. The guidance below will address configurations and settings for the isolation required to support IL5 data.  This document will be updated as new implementations are enabled and as new services are accredited for IL5 data by DISA.
 
 ## Background
 
@@ -167,7 +167,7 @@ Current VM SKUs that offer necessary compute isolation include specific offering
 The storage supporting these Virtual Machines can be encrypted in one of two ways to support necessary encryption standards.
 
 - Leverage Azure Disk Encryption to encrypt the drives using DM-Crypt (Linux) or BitLocker (Windows):
-  - [Enable Azure Disk Encryption for Linux](../security/azure-security-disk-encryption-linux.md)
+  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
   - [Enable Azure Disk Encryption for Windows](../security/azure-security-disk-encryption-windows.md)
 - Leverage Azure Storage Service Encryption for Storage Accounts with your own key to encrypt the storage account that holds the disks:
   - [Storage Service Encryption with Customer Managed Keys](../storage/common/storage-service-encryption-customer-managed-keys.md)
@@ -189,6 +189,16 @@ Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloa
 | **Azure Web Apps** | X | X | X | X | X | X |
 
 ## Integration services
+
+<a name="logic-apps"></a>
+
+### [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
+
+Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Logic Apps** | X | | X | X | | |
 
 ### [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)
 
@@ -227,13 +237,9 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
 
-### [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)
+### Azure Scheduler
 
-Azure Scheduler can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Scheduler** | X | X | X | X | X | X |
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
 ## Media services
 

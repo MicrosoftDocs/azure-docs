@@ -316,6 +316,8 @@
       href: tshoot-connect-attribute-not-syncing.md
     - name: Installation issues
       href: tshoot-connect-install-issues.md
+    - name: UPN changes
+      href: howto-troubleshoot-upn-changes.md
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols
@@ -324,6 +326,8 @@
     href:  reference-connect-version-history.md
   - name: Azure AD Connect Health version history
     href: reference-connect-health-version-history.md
+  - name: Azure AD Pass-through Authentication agent version history
+    href: reference-connect-pta-version-history.md
   - name: Connector version history
     href: reference-connect-sync-connector-version-history.md
   - name: Accounts and permissions
@@ -354,3 +358,7 @@
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools Reference
     href: reference-connect-adconnectivitytools.md
+  - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
+    href: reference-connect-msexchuserholdpolicies.md
+  - name: Understanding Azure AD Connect 1.4.xx.x device disappearance
+    href: reference-connect-device-disappearance.md

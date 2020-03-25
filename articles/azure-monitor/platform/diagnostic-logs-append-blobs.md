@@ -1,18 +1,18 @@
 ---
-title: Prepare for format change to Azure Monitor diagnostic logs
-description: Azure Diagnostic Logs will be moved to use append blobs on November 1, 2018.
+title: Prepare for format change to Azure Monitor resource logs
+description: Describes the impact and how to update your tooling to handle the new Azure resource logs that was changed to use append blobs on November 1, 2018.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ---
-# Prepare for format change to Azure Monitor diagnostic logs archived to a storage account
+# Prepare for format change to Azure Monitor resource logs archived to a storage account
 
 > [!WARNING]
-> If you are sending [Azure resource diagnostic logs or metrics to a storage account using resource diagnostic settings](./../../azure-monitor/platform/archive-diagnostic-logs.md) or [activity logs to a storage account using log profiles](./../../azure-monitor/platform/archive-activity-log.md), the format of the data in the storage account will change to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format. 
+> If you are sending [Azure resource resource logs or metrics to a storage account using resource diagnostic settings](./../../azure-monitor/platform/archive-diagnostic-logs.md) or [activity logs to a storage account using log profiles](./../../azure-monitor/platform/archive-activity-log.md), the format of the data in the storage account will change to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format. 
 >
 > 
 
@@ -23,15 +23,15 @@ Azure Monitor offers a capability that enables you to send resource diagnostic d
 * On Thursday, November 1, 2018 at 12:00 midnight UTC, the blob format will change to be [JSON Lines](http://jsonlines.org/). This means each record will be delimited by a newline, with no outer records array and no commas between JSON records.
 * The blob format changes for all diagnostic settings across all subscriptions at once. The first PT1H.json file emitted for November 1 will use this new format. The blob and container names remain the same.
 * Setting a diagnostic setting between now and November 1 continues to emit data in the current format until November 1.
-* This change will occur at once across all public cloud regions. The change will not occur in Azure China, Azure Germany, or Azure Government clouds yet.
+* This change will occur at once across all public cloud regions. The change will not occur in Microsoft Azure Operated by 21Vianet, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
-  * [Azure resource diagnostic logs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([see list of resources here](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [Azure resource metrics being exported by diagnostic settings](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [Azure Activity log data being exported by log profiles](./../../azure-monitor/platform/archive-activity-log.md)
+  * [Azure resource resource logs](archive-diagnostic-logs.md) ([see list of resources here](diagnostic-logs-schema.md))
+  * [Azure resource metrics being exported by diagnostic settings](diagnostic-settings.md)
+  * [Azure Activity log data being exported by log profiles](archive-activity-log.md)
 * This change does not impact:
   * Network flow logs
-  * Azure service logs not made available through Azure Monitor yet (for example, Azure App Service diagnostic logs, storage analytics logs)
-  * Routing of Azure diagnostic logs and activity logs to other destinations (Event Hubs, Log Analytics)
+  * Azure service logs not made available through Azure Monitor yet (for example, Azure App Service resource logs, storage analytics logs)
+  * Routing of Azure resource logs and activity logs to other destinations (Event Hubs, Log Analytics)
 
 ### How to see if you are impacted
 
@@ -129,6 +129,6 @@ Custom tools should be updated to handle both the current format and the JSON Li
 
 ## Next steps
 
-* Learn about [archiving resource diagnostic logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Learn about [archiving resource resource logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Learn about [archiving activity log data to a storage account](./../../azure-monitor/platform/archive-activity-log.md)
 

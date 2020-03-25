@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: e16dda6b-fdf9-43cc-9bbb-a523f085a8af
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -237,7 +238,7 @@ To enable Azure AD users to log into IdeaScale, they must be provisioned in to I
     > The Azure Active Directory account holder gets an email with a link to confirm the account before it becomes active.
 
 > [!NOTE]
-> You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision AAD user accounts.
+> You can use any other IdeaScale user account creation tools or APIs provided by IdeaScale to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -2,13 +2,9 @@
 title: Create a standalone Azure Automation account
 description: This article walks you through the steps of creating, testing, and using an example security principal authentication in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 01/15/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Create a standalone Azure Automation account
 
@@ -22,7 +18,6 @@ When you create an Automation account in the Azure portal, these accounts are au
   * Creates a service principal in Azure Active Directory (Azure AD).
   * Creates a certificate.
   * Assigns the Contributor Role-Based Access Control (RBAC), which manages Azure Resource Manager resources by using runbooks.
-* **Classic Run As account**. This account uploads a management certificate. The certificate manages classic resources by using runbooks.
 
 With these accounts created for you, you can quickly start building and deploying runbooks to support your automation needs.
 
@@ -91,14 +86,13 @@ When the Automation account is successfully created, several resources are autom
 | AzureRunAsCertificate |A certificate asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. The certificate authenticates with Azure so you can manage Azure Resource Manager resources from runbooks. This certificate has a one-year lifespan. |
 | AzureRunAsConnection |A connection asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. |
 
-The following table summarizes resources for the Classic Run As account.
+## Classic Run-As Accounts
 
-| Resource | Description |
-| --- | --- |
-| AzureClassicAutomationTutorial Runbook |An example graphical runbook. The runbook gets all classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
-| AzureClassicAutomationTutorial Script Runbook |An example PowerShell runbook. The runbook gets all classic VMs in a subscription by using the Classic Run As Account (certificate). Then, it displays the VM names and status. |
-| AzureClassicRunAsCertificate |A certificate asset that's automatically created. The certificate authenticates with Azure so you can manage Azure classic resources from runbooks. This certificate has a one-year lifespan. |
-| AzureClassicRunAsConnection |A connection asset that's automatically created. The asset authenticates with Azure so you can manage Azure classic resources from runbooks. |
+Classic Run-As accounts are no longer created, by default, when you create an Azure Automation account. If you still require a Classic Run-As account, please perform the following steps.
+
+1. From your **Automation Account** page, select **Run As Accounts** under **Account Settings**.
+2. Select **Azure Classic Run As Account**.
+3. Click **Create** to proceed with Classic Run As account creation.
 
 ## Next steps
 

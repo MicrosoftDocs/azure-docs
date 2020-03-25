@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory authentication and authorization error codes | Microsoft Docs
+title: Azure AD authentication & authorization error codes
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
 documentationcenter: ''
@@ -13,21 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, justhu
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Authentication and authorization error codes
+# Azure AD Authentication and authorization error codes
 
 Looking for info about the AADSTS error codes that are returned from the Azure Active Directory (Azure AD) security token service (STS)? Read this document to find AADSTS error descriptions, fixes, and some suggested workarounds.
 
 > [!NOTE]
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
 >
-> This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.  
+> This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.
+
+## Lookup current error code information
+Error codes and messages are subject to change.  For the most current info, take a look at the `https://login.microsoftonline.com/error` page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
+
+Search on the numeric part of the returned error code.  For example, if you received the error code "AADSTS16000" then do a search in `https://login.microsoftonline.com/error` for "16000".  You can also link directly to a specific error by adding the error code number to the URL: `https://login.microsoftonline.com/error?code=16000`.
 
 ## AADSTS error codes
 
@@ -124,6 +128,8 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - Session control is not supported for passthrough users. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - Integrated Windows authentication is needed. Enable the tenant for Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided - The service failed to perform device authentication. |
+| AADSTS50196 | LoopDetected - A client loop has been detected. Check the app’s logic to ensure that token caching is implemented, and that error conditions are handled correctly.  The app has made too many of the same request in too short a period, indicating that it is in a faulty state or is abusively requesting tokens. |
+| AADSTS50199 | CmsiInterrupt - For security reasons, user confirmation is required for this request.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into.|
 | AADSTS51000 | RequiredFeatureNotEnabled - The feature is disabled. |
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
@@ -142,7 +148,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token is not valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. |
-| AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
+| AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v2-oauth2-auth-code-flow.md#request-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
 | AADSTS70005 | UnsupportedResponseType - The app returned an unsupported response type due to the following reasons:<ul><li>response type 'token' is not enabled for the app</li><li>response type 'id_token' requires the 'OpenID' scope -contains an unsupported OAuth parameter value in the encoded wctx</li></ul> |
@@ -190,6 +196,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90019 | MissingTenantRealm - Azure AD was unable to determine the tenant identifier from the request. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - The principal name format is not valid, or does not meet the expected `name[/host][@realm]` format. The principal name is required, host and realm are optional and may be set to null. |
 | AADSTS90023 | InvalidRequest - The authentication service request is not valid. |
+| AADSTS9002313 | InvalidRequest - Request is malformed or invalid. - The issue here is because there was something wrong with the request to a certain endpoint. The suggestion to this issue is to get a fiddler trace of the error occurring and looking to see if the request is actually properly formatted or not. |
 | AADSTS90024 | RequestBudgetExceededError - A transient error has occurred. Try again. |
 | AADSTS90033 | MsodsServiceUnavailable - The Microsoft Online Directory Service (MSODS) is not available. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - An unexpected, non-retryable error from the WCF service hosted by MSODS has occurred. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |
@@ -210,6 +217,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90092 | GraphNonRetryableError |
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
+| AADSTS900382 | Confidential Client is not supported in Cross Cloud request. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
 | AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |
@@ -261,6 +269,8 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
+| AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
+| AADSTS7500529 | The value ‘SAMLId-Guid’ is not a valid SAML ID - Azure AD uses this attribute to populate the InResponseTo attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, id6c1c178c166d486687be4aaf5e482730 is a valid ID. |
 
 ## Next steps
 

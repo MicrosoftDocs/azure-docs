@@ -3,25 +3,21 @@ title: Composing DSC Configurations in Azure Automation State Configuration (DSC
 description: Learn how to compose configurations using composite resources in Azure Automation State Configuration (DSC)
 keywords: powershell dsc, desired state configuration, powershell dsc azure, composite resources
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Composing DSC Configurations in Azure Automation State Configuration (DSC) using Composite Resources
 
 When a resource needs to be managed with more than a single desired state configuration (DSC)
 configuration, the best path is to use [composite
-resources](/powershell/dsc/authoringresourcecomposite). A composite resource is a nested and
+resources](/powershell/scripting/dsc/resources/authoringresourcecomposite). A composite resource is a nested and
 parameterized configuration being used as a DSC resource within another configuration. This allows
 the creation of complex configurations while allowing the underlying composite resources
 (parameterized configurations) to be individually managed and built.
 
 Azure Automation enables the [import and compilation of composite
-resources](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+resources](automation-dsc-compile.md).
 Once composite resources have been
 imported into your Automation account, you are able to use the **Compose configuration** experience
 in the **State Configuration (DSC)** page.

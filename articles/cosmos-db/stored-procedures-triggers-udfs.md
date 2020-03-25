@@ -1,5 +1,5 @@
 ---
-title: Working with stored procedures, triggers, and user-defined functions in Azure Cosmos DB 
+title: Work with stored procedures, triggers, and UDFs in Azure Cosmos DB 
 description: This article introduces the concepts such as stored procedures, triggers, and user-defined functions in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -51,7 +51,7 @@ In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hen
 
 ### Scope of a transaction
 
-If a stored procedure is associated with an Azure Cosmos container, then the stored procedure is executed in the transaction scope of a logical partition key. Each stored procedure execution must include a logical partition key value that corresponds to the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](partition-data.md) article.
+Stored procedures are associated with an Azure Cosmos container and stored procedure execution is scoped to a logical partition key. Stored procedures must include a logical partition key value during execution that defines the logical partition for the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](partition-data.md) article.
 
 ### Commit and rollback
 
@@ -75,11 +75,11 @@ Azure Cosmos DB supports two types of triggers:
 
 ### Pre-triggers
 
-Azure Cosmos DB provides triggers that can be invoked by performing an operation on an Azure Cosmos DB item. For example, you can specify a pre-trigger when you are creating an item. In this case, the pre-trigger will run before the item is created. Pre-triggers cannot have any input parameters. If necessary, the request object can be used to update the document body from original request. When triggers are registered, users can specify the operations that it can run with. If a trigger was created with `TriggerOperation.Create`, this means using the trigger in a replace operation will not be permitted. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+Azure Cosmos DB provides triggers that can be invoked by performing an operation on an Azure Cosmos item. For example, you can specify a pre-trigger when you are creating an item. In this case, the pre-trigger will run before the item is created. Pre-triggers cannot have any input parameters. If necessary, the request object can be used to update the document body from original request. When triggers are registered, users can specify the operations that it can run with. If a trigger was created with `TriggerOperation.Create`, this means using the trigger in a replace operation will not be permitted. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
 
 ### Post-triggers
 
-Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos DB item and they don’t require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos item and they don’t require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
 
 > [!NOTE]
 > Registered triggers don't run automatically when their corresponding operations (create / delete / replace / update) happen. They have to be explicitly called when executing these operations. To learn more, see [how to run triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.

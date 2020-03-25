@@ -1,20 +1,10 @@
 ---
-title: Authenticate and authorize users end-to-end - Azure App Service | Microsoft Docs 
+title: 'Tutorial: AuthN/AuthO end-to-end' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/07/2018
-ms.author: cephalin
+ms.date: 08/14/2019
 ms.custom: seodec18
 
 ---
@@ -191,7 +181,7 @@ return new NoContentResult();
 
 The first line makes a `DELETE /api/Todo/{id}` call to the back-end API app.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
@@ -215,33 +205,35 @@ You use Azure Active Directory as the identity provider. For more information, s
 
 ### Enable authentication and authorization for back-end app
 
-In the [Azure portal](https://portal.azure.com), open your back-end app's management page by clicking from the left menu: **Resource groups** > **myAuthResourceGroup** > _\<back-end-app-name>_.
+1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
 
-In your back-end app's left menu, click **Authentication / Authorization**, then enable App Service Authentication by clicking **On**.
+   ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-In **Action to take when request is not authenticated**, select **Log in with Azure Active Directory**.
+1. In your back-end app's left menu, select **Authentication / Authorization**, then enable App Service Authentication by selecting **On**.
 
-Under **Authentication Providers**, click **Azure Active Directory** 
+1. In **Action to take when request is not authenticated**, select **Log in with Azure Active Directory**.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
+1. Under **Authentication Providers**, select **Azure Active Directory** 
 
-Click **Express**, then accept the default settings to create a new AD app and click **OK**.
+   ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-In the **Authentication / Authorization** page, click **Save**. 
+1. Select **Express**, then accept the default settings to create a new AD app and select **OK**.
 
-Once you see the notification with the message `Successfully saved the Auth Settings for <back-end-app-name> App`, refresh the page.
+1. In the **Authentication / Authorization** page, select **Save**.
 
-Click **Azure Active Directory** again, and then click **Manage Application**.
+   Once you see the notification with the message `Successfully saved the Auth Settings for <back-end-app-name> App`, refresh the page.
 
-From the management page of the AD application, copy the **Application ID** to a notepad. You need this value later.
+1. Select **Azure Active Directory** again, and then select the **Azure AD App**.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+1. Copy the **Client ID** of the Azure AD application to a notepad. You need this value later.
+
+   ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### Enable authentication and authorization for front-end app
 
-Follow the same steps for the front-end app, but skip the last step. You don't need the **Application ID** for the front-end app. Keep the **Azure Active Directory Settings** page open.
+Follow the same steps for the back-end app, but skip the last step. You don't need the client ID for the front-end app.
 
 If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
 
@@ -256,21 +248,21 @@ If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It sho
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
-At this point, you should be in the **Azure Active Directory Settings** page for the front-end app. If not, go back to that page. 
+1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
 
-Click **Manage Permissions** > **Add** > **Select an API**.
+1. Select **App registrations** > **Owned applications**. Select your front-end app name, then select **API permissions**.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
+   ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-In the **Select an API** page, type the AD application name of your back-end app, which is the same as your back-end app name by default. Select it in the list and click **Select**.
+1. Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
 
-Select the checkbox next to **Access _\<AD-application-name>_**. Click **Select** > **Done**.
+1. In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
-![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
+   ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### Configure App Service to return a usable access token
 
-The front-end app now has the required permissions. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's Application ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
+The front-end app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
 Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of the page, click **Read/Write** to enable editing of your Azure resources.
 
@@ -278,10 +270,10 @@ Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of
 
 In the left browser, click **subscriptions** > **_\<your-subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** > **_\<front-end-app-name>_** > **config** > **authsettings**.
 
-In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the following JSON string, using the Application ID you copied. 
+In the **authsettings** view, click **Edit**. Set `additionalLoginParams` to the following JSON string, using the client ID you copied. 
 
 ```json
-"additionalLoginParams": ["response_type=code id_token","resource=<back_end_application_id>"],
+"additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
 ```
 
 ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-auth-aad/additional-login-params-front-end.png)
@@ -290,13 +282,13 @@ Save your settings by clicking **PUT**.
 
 Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
-For information on how to configure this for other providers, see [Refresh identity provider tokens](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
+For information on how to configure the access token for other providers, see [Refresh identity provider tokens](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
 ## Call API securely from server code
 
 In this step, you enable your previously modified server code to make authenticated calls to the back-end API.
 
-Your front-end app now has the required permission and also adds the back end's Application ID to the login parameters. Therefore, it can obtain an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request (see [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)).
+Your front-end app now has the required permission and also adds the back end's client ID to the login parameters. Therefore, it can obtain an access token for authentication with the back-end app. App Service supplies this token to your server code by injecting a `X-MS-TOKEN-AAD-ACCESS-TOKEN` header to each authenticated request (see [Retrieve tokens in app code](app-service-authentication-how-to.md#retrieve-tokens-in-app-code)).
 
 > [!NOTE]
 > These headers are injected for all supported languages. You access them using the standard pattern for each respective language.
@@ -314,9 +306,9 @@ public override void OnActionExecuting(ActionExecutingContext context)
 }
 ```
 
-This code adds the standard HTTP header `Authorization: Bearer <access_token>` to all remote API calls. In the ASP.NET Core MVC request execution pipeline, `OnActionExecuting` executes just before the respective action method (such as `GetAll()`) does, so each of your outgoing API call now presents the access token.
+This code adds the standard HTTP header `Authorization: Bearer <access-token>` to all remote API calls. In the ASP.NET Core MVC request execution pipeline, `OnActionExecuting` executes just before the respective action method (such as `GetAll()`) does, so each of your outgoing API call now presents the access token.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
@@ -396,11 +388,11 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-The new change adds the `revolve` mapping that calls `/.auth/me` and sets the access token. It makes sure you have the access token before instantiating the `todoListCtrl` controller. That way all API calls by the controller includes the token.
+The new change adds the `resolve` mapping that calls `/.auth/me` and sets the access token. It makes sure you have the access token before instantiating the `todoListCtrl` controller. That way all API calls by the controller includes the token.
 
 ### Deploy updates and test
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .

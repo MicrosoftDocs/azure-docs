@@ -1,5 +1,5 @@
 ---
-title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
+title: Wildcard applications in the Azure AD Application Proxy
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
@@ -59,7 +59,7 @@ To get started, make sure you've met these requirements.
 While [custom domains](application-proxy-configure-custom-domain.md) are optional for all other applications, they are a prerequisite for wildcard applications. Creating custom domains requires you to:
 
 1. Create a verified domain within Azure.
-1. Upload an SSL certificate in the PFX format to your application proxy.
+1. Upload a TLS/SSL certificate in the PFX format to your application proxy.
 
 You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications. In this case, only the applications listed in the certificate will be accessible through this wildcard application.
 

@@ -1,13 +1,13 @@
 ---
 title: Azure Event Grid event schema
-description: Describes the properties that are provided for events with Azure Event Grid
+description: Describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object.
 services: event-grid
 author: banisadr
 manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/20/2019
+ms.date: 01/21/2020
 ms.author: babanisa
 ---
 
@@ -79,16 +79,16 @@ For example, the schema published for an Azure Blob storage event is:
 
 All events have the same following top-level data:
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| subject | string | Publisher-defined path to the event subject. |
-| eventType | string | One of the registered event types for this event source. |
-| eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
-| data | object | Event data specific to the resource provider. |
-| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
-| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| topic | string | No, but if included, must match the Event Grid topic Azure Resource Manager ID exactly. If not included, Event Grid will stamp onto the event. | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| subject | string | Yes | Publisher-defined path to the event subject. |
+| eventType | string | Yes | One of the registered event types for this event source. |
+| eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
+| id | string | Yes | Unique identifier for the event. |
+| data | object | No | Event data specific to the resource provider. |
+| dataVersion | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid will stamp onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 To learn about the properties in the data object, see the event source:
 
@@ -101,6 +101,7 @@ To learn about the properties in the data object, see the event source:
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should have the same fields as standard resource-defined events.
 

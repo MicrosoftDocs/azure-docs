@@ -1,16 +1,17 @@
 ﻿---
-title: Database migration scenario status | Microsoft Docs
+title: Database migration scenario status
+titleSuffix: Azure Database Migration Service
 description: Learn about the status of the migration scenarios supported by Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 07/13/2019
+ms.date: 09/05/2019
 ---
 
 # Status of migration scenarios supported by Azure Database Migration Service
@@ -74,7 +75,7 @@ The following table shows Azure Database Migration Service support for online mi
 |   | RDS MySQL | ✔ | GA |
 | **Azure DB for PostgreSQL** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Private preview |
+|   | Oracle | ✔ | Public preview |
 
 ## Next steps
 

@@ -1,37 +1,34 @@
 ---
-title: Export flows from Microsoft Flow to Azure Logic Apps
-description: Migrate flows from Microsoft Flow to Azure Logic Apps by exporting as Azure Resource Manager templates
+title: Export flows from Power Automate to Azure Logic Apps
+description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
 ---
 
-# Export flows from Microsoft Flow and deploy to Azure Logic Apps
+# Export flows from Power Automate and deploy to Azure Logic Apps
 
-To extend and expand your flow's capabilities, you can migrate that flow from [Microsoft Flow](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
+To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 
 > [!NOTE]
-> Not all Microsoft Flow connectors are available in Azure Logic Apps. 
+> Not all Power Automate connectors are available in Azure Logic Apps. 
 > You can import flows that have [equivalent connectors](../connectors/apis-list.md) 
 > in Azure Logic Apps. For example, the Button trigger, the Approval connector, 
-> and Notification connector are specific to Microsoft Flow.
+> and Notification connector are specific to Power Automate.
 >
-> OpenAPI-based flows exported from Microsoft Flow are currently not supported for deployment as logic app templates. 
+> OpenAPI-based flows exported from Power Automate are currently not supported for deployment as logic app templates. 
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The flow that you want to export from Microsoft Flow
+* The flow that you want to export from Power Automate
 
 ## Export a flow
 
-1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button. Select **Export** > **Logic Apps template (.json)**.
+1. Sign in to [Power Automate](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button. Select **Export** > **Logic Apps template (.json)**.
 
    ![Export flow](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -51,7 +48,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    ![Select "Build your own template in the editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. From the **Edit template** toolbar, select **Load file**. Find and select the JSON template that you exported from Microsoft Flow, and select **Open**.
+1. From the **Edit template** toolbar, select **Load file**. Find and select the JSON template that you exported from Power Automate, and select **Open**.
 
    ![Select "Load file"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
@@ -74,7 +71,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
   
    ![Specify input parameters for template](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   Azure deploys your template as a logic app to your specified resource group. All logic apps that you migrate from Microsoft Flow are deployed in a disabled state.
+   Azure deploys your template as a logic app to your specified resource group. All logic apps that you migrate from Power Automate are deployed in a disabled state.
 
 1. Before you activate your logic app, authorize any new connections by following these steps:
 
@@ -100,7 +97,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
 If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) for creating logic apps, you can deploy your exported template from Visual Studio to Azure Logic Apps.
 
-1. In Visual Studio, open the template file that you exported from Microsoft Flow.
+1. In Visual Studio, open the template file that you exported from Power Automate.
 
 1. In Visual Studio, create an Azure Resource Group project and select the **Logic App** template by following the steps in [Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), for example:
 
@@ -134,7 +131,7 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
 1. In Solution Explorer, open the project shortcut menu, and select **Deploy** > **New**. If prompted, sign in with your Azure account.
 
-1. When prompted, confirm the Azure subscription, Azure resource group, and any other settings that you want to use for deployment, such as a [parameters file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) to use for passing template parameter values, and then select **Deploy**.
+1. When prompted, confirm the Azure subscription, Azure resource group, and any other settings that you want to use for deployment, such as a [parameters file](../azure-resource-manager/templates/parameter-files.md) to use for passing template parameter values, and then select **Deploy**.
 
    ![Confirm deployment settings](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 
