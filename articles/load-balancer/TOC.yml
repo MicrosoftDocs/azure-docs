@@ -66,6 +66,8 @@
   items:
   - name: Virtual machine scale sets
     items:
+    - name: VMSS with an existing Azure Load Balancer - portal
+      href: use-existing-lb-vmss-portal.md
     - name: VMSS with an existing Azure Load Balancer - CLI
       href: use-existing-lb-vmss-cli.md
   - name: Upgrade a Basic Load Balancer to Standard Load Balancer
