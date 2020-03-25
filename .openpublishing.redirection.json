@@ -43766,6 +43766,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Acoustics/index.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-export-data.md",
       "redirect_url": "/azure/iot-central/core/howto-export-data-event-hubs-service-bus",
       "redirect_document_id": false
