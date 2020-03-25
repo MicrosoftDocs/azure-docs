@@ -1,31 +1,23 @@
 ---
 title: "Quickstart: Create a new app in the LUIS portal"
-titleSuffix: Azure Cognitive Services
 description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/24/2020
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances.
 ---
 
 # Quickstart: Create a new app in the LUIS portal
 
-In this quickstart, you build a new app in the LUIS portal. First you create the basic parts of an app, **intents**, and **entities**. Then you test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
-
-Building an app is free and doesn't require an Azure subscription. When you're ready to deploy your app, see the [quickstart to deploy an app](get-started-portal-deploy-app.md). It shows you how to create an Azure Cognitive Service Resource and assign it to the app.
+In this quickstart, you build a new app in the LUIS portal. First, create the basic parts of an app, **intents**, and **entities**. Then test the app by providing a sample user utterance in the interactive test panel to get the predicted intent.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## Create an app
 
-1. Select **+ Create** from the context toolbar.
+1. Select **+ New app for conversation** from the context toolbar, then select **New app for conversation**.
 
-   [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. In the pop-up window, configure the app with the following settings and then select **Done**.
 
@@ -66,7 +58,8 @@ You add example utterances after you create intents. Example utterances are text
 
 For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
 
-[![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Add the following 15 example utterances to the `FindForm` intent.
 
@@ -143,7 +136,8 @@ The **None** intent's example utterances should be outside of your client applic
 
    The entity is marked where it appears in the example utterances. If you want to see the original text instead of the entity name, toggle **Entities View** from the toolbar.
 
-   [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![All example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## Test your new app with the interactive test pane
 
@@ -155,7 +149,10 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
 
    ```Is there a form named hrf-234098```
 
-   ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
+    Select **Inspect** to see entity predictions.
+
+   > [!div class="mx-imgBorder"]
+   > ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
    The top predicted intent is correctly **FindForm** with over 90% confidence (0.977). The **Human Resources Form Number** entity is extracted with a value of hrf-234098.
 

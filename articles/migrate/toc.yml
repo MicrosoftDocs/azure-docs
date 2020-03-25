@@ -8,13 +8,13 @@
     href: whats-new.md
   - name: Common questions
     items:
-    - name: Questions about Azure Migrate
+    - name: General
       href: resources-faq.md
-    - name: Questions about Azure Migrate appliance
+    - name: Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Questions about discovery/assessment/dependency analysis
+    - name: Server Assessment tool/dependency analysis
       href: common-questions-discovery-assessment.md
-    - name: Questions about Server Migration
+    - name: Server Migration tool
       href: common-questions-server-migration.md
 - name: Tutorials
   items:
