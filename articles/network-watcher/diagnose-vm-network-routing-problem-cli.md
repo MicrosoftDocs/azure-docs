@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). After you verify the CLI version, run `az login`  to create a connection with Azure. The CLI commands in this article are formatted to run in a Bash shell.
+If you choose to install and use the Azure CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). After you verify the Azure CLI version, run `az login`  to create a connection with Azure. The Azure CLI commands in this article are formatted to run in a Bash shell.
 
 ## Create a VM
 
@@ -47,7 +47,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the CLI returns output.
+The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the Azure CLI returns output.
 
 ## Test network communication
 

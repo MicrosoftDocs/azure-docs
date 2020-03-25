@@ -48,9 +48,9 @@ This article shows you how to route data to the storage account and then view th
 
 Monitoring data from your resource is now flowing into the storage account.
 
-## Route data to the storage account using the CLI
+## Route data to the storage account using the Azure CLI
 
-To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command:
+To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` Azure CLI command:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \

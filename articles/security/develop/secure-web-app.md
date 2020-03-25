@@ -162,7 +162,7 @@ Run the deployment scripts to set up the environment and subscription:
    cd tutorial-project/scripts
    ```
 
-3. There are files in the scripts folder that are specific to the platform you're using (Windows or Linux). As the Azure CLI has already been installed, sign in to the Azure account at the command prompt by running this CLI command:
+3. There are files in the scripts folder that are specific to the platform you're using (Windows or Linux). As the Azure CLI has already been installed, sign in to the Azure account at the command prompt by running this Azure CLI command:
 
    ```azurecli-interactive
    az login

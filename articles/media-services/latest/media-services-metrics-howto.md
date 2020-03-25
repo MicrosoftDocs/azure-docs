@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-
 ---
 
 # Monitor Media Services metrics
 
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using CLI. This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
+Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using Azure CLI. This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 
 ## Prerequisites
 
@@ -53,7 +52,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 ## View metrics with Azure CLI
 
-To get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:
+To get "Egress" metrics with Azure CLI, you would run the following `az monitor metrics` command:
 
 ```azurecli-interactive
 az monitor metrics list --resource \

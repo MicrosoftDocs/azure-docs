@@ -17,7 +17,7 @@ ms.date: 05/01/2019
 ms.author: juliako
 ---
 
-# CLI example: Upload a local file to a container
+# Azure CLI example: Upload a local file to a container
 
 The Azure CLI script in this article shows how to upload a local file to a storage container.
 

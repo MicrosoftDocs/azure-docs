@@ -1,6 +1,6 @@
 ---
-title: Encode custom transform using Media Services v3 CLI - Azure | Microsoft Docs
-description: This topic shows how to use Azure Media Services v3 to encode a custom transform using CLI.
+title: Encode custom transform using Media Services v3 Azure CLI | Microsoft Docs
+description: This topic shows how to use Azure Media Services v3 to encode a custom transform using Azure CLI.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,7 +15,7 @@ ms.author: juliako
 
 ---
 
-# How to encode with a custom transform - CLI
+# How to encode with a custom transform - Azure CLI
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) quickstart. You can also build a custom preset to target your specific scenario or device requirements.
 
@@ -128,13 +128,13 @@ In this example, we create a **Transform** that is based on the custom preset we
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-The following CLI command creates the Transform based on the custom preset (defined earlier).
+The following Azure CLI command creates the Transform based on the custom preset (defined earlier).
 
 ```azurecli-interactive
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-For Media Services to apply the Transform to the specified video or audio, you need to submit a Job under that Transform. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md).
+For Media Services to apply the Transform to the specified video or audio, you need to submit a Job under that Transform. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - Azure CLI](stream-files-cli-quickstart.md).
 
 ## See also
 
