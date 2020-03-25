@@ -68,7 +68,7 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: Azure Notification Hubs Samples
+          - text: Azure Notification Hubs samples
             url: samples.md
           - text: PowerShell samples
             url: samples-powershell.md
