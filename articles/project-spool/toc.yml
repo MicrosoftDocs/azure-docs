@@ -33,6 +33,10 @@
     href: tutorials/add-network-traversal-to-your-app.md
   - name: Add Video To Your UWP App
     href: tutorials/add-video-to-your-uwp-app.md
+  - name: Provision and Release Phone Numbers
+    href: tutorials/provision-and-release-phone-numbers.md
+  - name: Configure Call Routing and Number Assignment
+    href: tutorials/configure-call-routing.md
 - name: Samples
   items:
   - name: TODO
@@ -59,6 +63,14 @@
     href: concepts/Rooms.md
   - name: IVR Trees
     href: concepts/IVR-Trees.md
+  - name: Call Detail Records
+    href: concepts/call-detail-records.md
+  - name: Call Analytics
+    href: concepts/call-analytics.md
+  - name: Fraud Detection
+    href: concepts/fraud-detection.md
+  - name: Spam and Robocall Protection
+    href: concepts/spam-and-robocall-protection.md
   - name: Authentication and Authorization
     href: concepts/authentication.md
   - name: Logging and Diagnostics

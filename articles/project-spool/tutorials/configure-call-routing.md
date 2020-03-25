@@ -1,5 +1,5 @@
 ---
-title: Add Persistent Chat To Your App
+title: Configure Call Routing and Number Assignment
 description: TODO
 author: mikben    
 manager: jken
@@ -15,7 +15,7 @@ ms.service: azure-project-spool
 #### Temporary:
 
 -  Customer intent statements: 
-   - I'm building an app that allows users to chat. I want to leverage Spool's signaling, storage, and UI components to make this easy.
+   - How do configure my phone numbers such that calls can only be made to certain geographies?
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -24,12 +24,12 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - {shawn} Disambiguation needed RE RTC / chat apis
+  - TODO
 
 - TODOs:
   - Draft initial content
 
 
-# Add Persistent Chat to Your App
+# Configure Call Routing and Number Assignment
 
 TODO
