@@ -16,7 +16,6 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * Direct communication between container groups in the same subnet
 * Send [task-based](container-instances-restart-policy.md) workload output from container instances to a database in the virtual network
 * Retrieve content for container instances from a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) in the virtual network
-* Container communication with virtual machines in the virtual network
 * Container communication with on-premises resources through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)
 * Integrate with [Azure Firewall](../firewall/overview.md) to identify outbound traffic originating from the container group
 
