@@ -129,7 +129,7 @@ Select the **Main Camera** node.
 
       This option is needed if you want to connect the Unity remote debugger to your device.
 
-1. In **Supported Device Families**, enable **Holographic**
+1. In **Supported Device Families**, enable **Holographic** and **Desktop**
 
 1. If you want to use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), for more information on recommended settings and capabilities.
 

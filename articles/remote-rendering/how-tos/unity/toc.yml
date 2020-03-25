@@ -4,3 +4,5 @@
   href: unity-setup.md
 - name: Interact with Unity game objects and components
   href: objects-components.md
+- name: Use Holographic Remoting and Remote Rendering in Unity
+  href: holographic-remoting.md

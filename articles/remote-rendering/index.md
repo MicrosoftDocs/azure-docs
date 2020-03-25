@@ -30,6 +30,7 @@ Use our demo project to see Azure Remote Rendering in action:
 
 * [Quickstart: Render a model with Unity](quickstarts/render-model.md)
 * [Quickstart: Deploy Unity sample to HoloLens](quickstarts/deploy-to-hololens.md)
+* [Quickstart: Deploy Unity sample to Desktop](quickstarts/deploy-to-desktop.md)
 * [Quickstart: Convert a model for rendering](quickstarts/convert-model.md)
 
 ## Step-by-Step tutorials

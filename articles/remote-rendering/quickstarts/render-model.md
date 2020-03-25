@@ -104,3 +104,8 @@ In the next quickstart, we will deploy the sample to a HoloLens to view the remo
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy Unity sample to HoloLens](deploy-to-hololens.md)
+
+Alternatively, the sample can also be deployed to a desktop PC.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Deploy Unity sample to Desktop](deploy-to-desktop.md)

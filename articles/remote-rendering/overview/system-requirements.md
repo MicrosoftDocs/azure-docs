@@ -36,7 +36,7 @@ Even though the correct H265 codec might be installed, security properties on th
 
 ## Devices
 
-Azure Remote Rendering currently only supports **HoloLens 2** as a target device.
+Azure Remote Rendering currently only supports **HoloLens 2** and Windows desktop UWP as a target device.
 
 It's important to use the latest HEVC codec, as newer versions have significant improvements in latency. To check which version is installed on your device:
 
