@@ -114,7 +114,9 @@ Visualize this information as a pie chart and email it to the team.
     * In the *Body* field, insert the required body so that the visualized result of the query is included in the body of the email.
     * To add an attachment to the email, add Attachment Name and Attachment Content.
     
-    ![Email multiple attachments](./media/flow-usage/flow-emailmultipleattachments.png)
+    ![Email multiple attachments](./media/flow-usage/flow-email-multiple-attachments.png)
+
+    For full instructions about creating an email action, see [Email Kusto query results](flow.md#email-kusto-query-results). 
 
 Results:
 
