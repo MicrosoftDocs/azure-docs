@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Catchpoint | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Catchpoint'
 description: Learn how to configure single sign-on between Azure Active Directory and Catchpoint.
 services: active-directory
 documentationCenter: na
@@ -19,12 +19,12 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Catchpoint
+# Tutorial: Azure Active Directory single sign-on integration with Catchpoint
 
-In this tutorial, you'll learn how to integrate Catchpoint with Azure Active Directory (Azure AD). When you integrate Catchpoint with Azure AD, you can:
+In this tutorial, you learn how to integrate Catchpoint with Azure Active Directory (Azure AD). When you integrate Catchpoint with Azure AD, you can:
 
-* Control in Azure AD who has access to Catchpoint.
-* Enable your users to be automatically signed-in to Catchpoint with their Azure AD accounts.
+* Control user access to Catchpoint from Azure AD.
+* Enable automatic Catchpoint sign-in for users with Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -34,15 +34,15 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Catchpoint single sign-on (SSO) enabled subscription.
+* A Catchpoint single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Catchpoint supports **SP and IDP** initiated SSO
-* Catchpoint supports **Just In Time** user provisioning
-* Once you configure Catchpoint you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Catchpoint supports SP- and IDP- initiated SSO.
+* Catchpoint supports just-in-time (JIT) user provisioning.
+* After you configure Catchpoint, you can enforce session control. This procedure protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Catchpoint from the gallery
 
@@ -93,24 +93,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Catchpoint application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
 1. In addition to above, Catchpoint application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
-	| Name | Source Attribute|
-	| ------------ | --------- |
-	| namespace | user.assignedrole |
+    | Name | Source Attribute|
+    | ------------ | --------- |
+    | namespace | user.assignedrole |
 
     > [!NOTE]
     > namespace claim needs to be mapped with the account name. This account name should be setup as the roles in Azure AD which will be passed back in SAML response. Please refer this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to learn how to setup the roles
 
 1. On the **Setup single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Catchpoint** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -154,17 +154,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Catchpoint configuration](./media/catchpoint-tutorial/configuration2.png)
 
-	1. In the **Namespace** textbox, enter a valid namespace value.
+    1. In the **Namespace** textbox, enter a valid namespace value.
 
-	1. In the **Identity Provider Issuer** textbox, enter the **Azure AD Identifier** value, which you have copied from the Azure portal.
+    1. In the **Identity Provider Issuer** textbox, enter the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-	1. In the **Single Sign On Url** textbox, enter the **Login URL** value, which you have copied from the Azure portal.
+    1. In the **Single Sign On Url** textbox, enter the **Login URL** value, which you have copied from the Azure portal.
 
-	1. Open the downloaded **Certificate (Base64)** file into Notepad, copy the content of certificate file and paste it into **Certificate** textbox.
+    1. Open the downloaded **Certificate (Base64)** file into Notepad, copy the content of certificate file and paste it into **Certificate** textbox.
 
     1. You can also upload the **Federation Metadata XML** by clicking on the **Upload Metadata** option.
 
-	1. Click **Save**.
+    1. Click **Save**.
 
 ### Create Catchpoint test user
 
