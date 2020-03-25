@@ -21,7 +21,7 @@ Due to the increased risk associated with legacy authentication protocols, Micro
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-report-only.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policy applies as they intend they can switch to **On** or stage the deployment by adding specific groups and excluding others.
+The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-report-only.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -29,9 +29,9 @@ The following steps will help create a Conditional Access policy to block legacy
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. You must exclude at least one account to prevent yourself from being locked out. If you do not exclude any account, you will not be able to create this policy.
+   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. Exclude at least one account to prevent yourself from being locked out. If you do not exclude any account, you will not be able to create this policy.
    1. Select **Done**.
-1. Under **Cloud apps or actions** select **All cloud apps**.
+1. Under **Cloud apps or actions**, select **All cloud apps**.
    1. Select **Done**.
 1. Under **Conditions** > **Client apps (preview)**, set **Configure** to **Yes**.
    1. Check only the boxes **Mobile apps and desktop clients** > **Other clients**.
