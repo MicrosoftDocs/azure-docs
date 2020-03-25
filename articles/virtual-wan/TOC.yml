@@ -30,8 +30,6 @@
       href: virtual-wan-configure-automation-providers.md
   - name: IPsec policies
     href: virtual-wan-ipsec.md
-  - name: Point-to-Site VPN overview
-    href: ../vpn-gateway/point-to-site-about.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
   items:
   - name: Connect virtual network gateway to Virtual WAN
