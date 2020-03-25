@@ -368,17 +368,21 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     # [Portal](#tab/portal)
 
-    1. Sign in to the Azure portal, then locate your function app by entering your function app name in the **Search** box at the top of the page. In the results, select the **App Service** resource.
+    1. Sign in to the Azure portal, then search for and select **Function App**.
 
-    1. In the left navigation panel, under **Functions (Read Only)**, select the name of your function.
+    1. Select the name of your function.
 
-    1. In the details panel, select **</> Get function URL**:
+    1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
+
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
-
+    1. Select **Get function URL**:
+    
     1. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
 
-        ![Copying the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in the local image, push the image to the registry again, and then redeploy to Azure. You can set up continuous deployment in a later section.

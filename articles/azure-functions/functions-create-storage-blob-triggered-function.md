@@ -30,7 +30,7 @@ Next, you create a function in the new function app.
 
 ## Create an Azure Blob storage triggered function
 
-1. Select **Functions**, and then select **+Add** to add a new function.
+1. Select **Functions**, and then select **+ Add** to add a new function.
 
    ![Choose a Function template in the Azure portal.](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-template.png)
 
