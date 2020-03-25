@@ -1,13 +1,12 @@
 ---
 title: Azure and Dynamics 365 consulting service offer prerequisites | Azure Marketplace
 description: Prerequisites for an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Consulting service prerequisites
