@@ -116,11 +116,17 @@ When your logic app is triggered and starts running, the app's state is stored i
 
 ### Reduce abandoned in-progress instances
 
-To minimize the number of abandoned in-progress workflow instances, you have various patterns that you can implement. For example, the [fixed routing slip pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html) is an enterprise message pattern that splits a business process into smaller stages. You can the set up a logic app to handle the workload for each stage. To communicate with each other, these logic apps use an asynchronous messaging protocol, such as Azure Service Bus queues or topics. So, by dividing a process into smaller stages, you can reduce the number of stages that might get stuck in a failed workflow instance.
+To minimize the number of abandoned in-progress workflow instances, you can choose from various patterns that you can implement, such as the process broker, message peek-lock, and the [fixed routing slip](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html) pattern.
 
-If you have these logic apps in both primary and secondary locations, you can implement the competing consumer pattern by setting up [active-active roles](#roles) for the instances in the primary and secondary locations.
+  This enterprise message pattern that splits a business process into smaller stages. You can the set up a logic app to handle the workload for each stage. To communicate with each other, your logic apps use an asynchronous messaging protocol, such as Azure Service Bus queues or topics. By dividing a process into smaller stages, you can reduce the number of stages that might get stuck in a failed workflow instance.
+  
+  If your logic app instances follows this pattern in both the primary and secondary locations, you can implement the competing consumer pattern by setting up [active-active roles](#roles) for the instances in the primary and secondary locations.
 
-![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
+  ![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
+
+* [Process broker]
+
+* [Message peek lock]
 
 <a name="access-trigger-runs-history"></a>
 
