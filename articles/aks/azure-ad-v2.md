@@ -1,6 +1,6 @@
 ---
-title: Use Azure AD v2.0 in Azure Kubernetes Service
-description: Learn how to use Azure AD v2.0 in Azure Kubernetes Service (AKS) 
+title: Use Azure AD in Azure Kubernetes Service
+description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 manager: gwallace
 ms.topic: article
@@ -16,7 +16,7 @@ Azure AD integration with AKS v2 is designed to simplify the Azure AD integratio
 
 ## Limitations
 
-* You can't currently upgrade an existing Azure AD enabled AKS v1.0 cluster to v2.0.
+* You can't currently upgrade an existing Azure AD enabled AKS v1 cluster to the v2 experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
