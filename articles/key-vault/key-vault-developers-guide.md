@@ -14,7 +14,7 @@ ms.author: mbaldwin
 Key Vault allows you to securely access sensitive information from within your applications:
 
 - Keys and secrets are protected without having to write the code yourself and you are easily able to use them from your applications.
-- You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
+- You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
 - Manage Key Vault certificates. For more information, see [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md).
 
@@ -57,7 +57,7 @@ All of your Key Vault resources are accessible through the REST interface; vault
 
 #### .NET
 
-[.NET API reference for Key Vault](/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet ).
+[.NET API reference for Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
