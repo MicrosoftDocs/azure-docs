@@ -23,8 +23,6 @@ landingContent:
          url: quickstart-send-telemetry-cli.md
        - text: Control a device with your hub
          url: quickstart-control-device-node.md
-       - text: Device management
-         url: iot-hub-device-management-overview.md
  - title: Scale your solution
    linkLists:
      - linkListType: concept
@@ -33,29 +31,8 @@ landingContent:
            url: iot-hub-scaling.md
          - text: Best practices for configuring devices
            url: iot-hub-configuration-best-practices.md
- - title: Security
-   linkLists:
-     - linkListType: concept
-       links:
-         - text: Recommendations
-           url: ../iot-fundamentals/security-recommendations.md
-         - text: Security From the ground up
-           url: ../iot-fundamentals/iot-security-ground-up.md
-         - text: Security Best practices
-           url: ../iot-fundamentals/iot-security-best-practices.md
-         - text: Security Architecture
-           url: ../iot-fundamentals/iot-security-architecture.md
-         - text: Secure your IoT deployment
-           url: ../iot-fundamentals/iot-security-deployment.md            
- - title: Security certificates
-   linkLists:
-     - linkListType: concept
-       links:
-         - text: Device Authentication using X.509 CA Certs
-           url: iot-hub-x509ca-overview.md
-       links:
-         - text: X.509 CA cert security concepts
-           url: iot-hub-x509ca-concept.md
+         - text: Understand quotas and throttling
+           url: iot-hub-devguide-quotas-throttling.md
  -   title: Select Protocol
      linkLists:
      -  linkListType: concept
@@ -90,6 +67,32 @@ landingContent:
         links:
         - text: Azure IoT Samples for C# (.NET)
           url: /samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net.md
+ - title: Security
+   linkLists:
+     - linkListType: concept
+       links:
+         - text: Understand Azure IoT Hub security
+           url: iot-hub-devguide-security.md
+         - text: Recommendations
+           url: ../iot-fundamentals/security-recommendations.md
+         - text: Security From the ground up
+           url: ../iot-fundamentals/iot-security-ground-up.md
+         - text: Security Best practices
+           url: ../iot-fundamentals/iot-security-best-practices.md
+         - text: Security Architecture
+           url: ../iot-fundamentals/iot-security-architecture.md
+         - text: Secure your IoT deployment
+           url: ../iot-fundamentals/iot-security-deployment.md            
+ - title: Security certificates
+   linkLists:
+     - linkListType: concept
+       links:
+         - text: Device Authentication using X.509 CA Certs
+           url: iot-hub-x509ca-overview.md
+         - text: X.509 security with IoT Hub
+           url: iot-hub-securyt-x509-get-started
+         - text: X.509 CA cert security concepts
+           url: iot-hub-x509ca-concept.md
  -   title: Tools
      linkLists:
      -  linkListType: how-to-guide
