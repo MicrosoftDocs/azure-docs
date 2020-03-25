@@ -36,7 +36,7 @@
     href: how-to-manage-twin.md
   - name: Manage a twin graph
     href: how-to-manage-graph.md
-  - name: Set up an endpoint
+  - name: Set up endpoints and routes
     href: how-to-create-endpoints-routes.md
   - name: Understand event data
     href: how-to-interpret-event-data.md
