@@ -94,7 +94,7 @@ Defining external tables involves specifying the data source, the format of the 
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
-For an example of creating external objects, see the [Create external tables](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) step in the loading tutorial.
+For an example of creating external objects, see the [Create external tables](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-external-tables-for-the-sample-data) step in the loading tutorial.
 
 ### Format text files
 
