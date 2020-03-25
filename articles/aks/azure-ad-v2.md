@@ -146,7 +146,7 @@ The user above gets an error because the user is not a part of a group that has 
 
 ## Next steps
 
-Learn about [Azure AD Role Based Access Control][azure-rd-rbac].
+Learn about [Azure AD Role Based Access Control][azure-ad-rbac].
 
 
 <!-- LINKS - Internal -->
