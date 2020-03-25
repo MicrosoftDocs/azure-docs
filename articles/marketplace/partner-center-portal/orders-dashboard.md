@@ -1,9 +1,8 @@
 ---
 title: Partner Center Orders dashboard in Commercial Marketplace analytics
 description: Learn how to access analytic reports about your marketplace offer orders in a graphical and downloadable format.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
