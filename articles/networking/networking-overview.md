@@ -1,6 +1,7 @@
 ---
 title: Azure networking services overview
-description: Learn about networking services in Azure and their capabilities.
+description: Learn about networking services in Azure and their capabilities - connectivity services, application protection services, application delivery services, and network monitoring.
+services: networking
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
