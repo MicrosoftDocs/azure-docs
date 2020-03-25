@@ -116,7 +116,7 @@ A successful creation of an Azure AD v2 cluster has the following section in the
 
 The cluster is created within a few minutes.
 
-## Accessing an Azure AD enabled cluster
+## Access an Azure AD enabled cluster
 To get the admin credentials to access the cluster:
 
 ```azurecli-interactive
