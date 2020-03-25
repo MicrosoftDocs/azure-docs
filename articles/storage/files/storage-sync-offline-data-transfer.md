@@ -42,7 +42,7 @@ You should not enable sync on the server you are migrating before you complete y
 ## Process for offline data transfer
 Here's how to set up Azure File Sync in a way that's compatible with bulk migration tools such as Azure Data Box:
 
-![Diagram showing how to set up Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
+![Diagram showing how to set up Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600-fix.png)
 
 | Step | Detail |
 |---|---------------------------------------------------------------------------------------|
