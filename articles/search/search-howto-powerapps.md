@@ -1,7 +1,7 @@
 ---
 title: How to query Azure Cognitive Search from Power Apps
 titleSuffix: Azure Cognitive Search
-description: Step-by-step guidance on how to create custom connector to Cognitive Search and how to visualize it from a PowerApp
+description: Step-by-step guidance on how to create custom connector to Cognitive Search and how to visualize it from a Power App
 author: luiscabrer
 manager: eladz
 ms.author: luisca
@@ -13,7 +13,7 @@ ms.date: 03/25/2020
 
 # How to query a Cognitive Search index from Power Apps
 
-This tutorial shows you how to integrate results from Azure Cognitive Search into a Power App. 
+This document shows how to create a Power Apps custom connector so that you can retrieve search results from a search index. It also shows how to issue a search query and visualize the results from a Power App. 
 
 ## Prerequisites:
 1.    Power Apps account access with the ability to create custom connectors.
@@ -109,7 +109,7 @@ This step may take you to the out of the wizard and into the Connections page. Y
 
 
 
-## Visualize Results from the Customer Connector we just created
+## Visualize Results from the Custom Connector we just created
 The goal of this tutorial is not to show you how to create fancy user experiences with power apps, so the UI layout will be minimalistic. Let's create a PowerApp with a search box, a search button and display the results in a gallery control.  The PowerApp will connect to our recently created custom connector to get the data from Azure Search.
 
 1. Create new Power App
@@ -132,9 +132,9 @@ Now *AzureSearchQuery* is a data source that is available to be used from your a
 
 5.  Insert the following elements:
 -   A Text Label with the value "Query:"
--   A Text Input element (call it txtQuery, default value: "*")
+-   A Text Input element (call it *txtQuery*, default value: "*")
 -   A button with the text "Search" 
--   A Vertical Gallery called (call it galleryResults)
+-   A Vertical Gallery called (call it *galleryResults*)
 
     Your form should look something like this:
 
@@ -159,7 +159,7 @@ Now *AzureSearchQuery* is a data source that is available to be used from your a
     
     -  **Edit Fields**, and select the fields you would like to visualize.
 
-    Since we provided a sample result when we defined the connector, PowerApps is aware of the fields available in your index.
+    Since we provided a sample result when we defined the connector, Power Apps is aware of the fields available in your index.
     
     ![Gallery Fields](./media/search-howto-powerapps/2-7-gallery-select-fields.png "Gallery Fields")
  
