@@ -1,13 +1,12 @@
 ---
 title: Standard Contract | Azure
 description: Standard Contract for Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Standard Contract for the Microsoft commercial marketplace

@@ -1,13 +1,12 @@
 ---
 title: Azure and Dynamics 365 consulting service offer publishing | Azure Marketplace
 description: Publish an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal for Azure Marketplace or AppSource.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish a consulting service offer

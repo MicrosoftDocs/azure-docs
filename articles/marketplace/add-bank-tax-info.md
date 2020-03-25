@@ -1,21 +1,12 @@
 ---
 title: Add bank and tax information | Azure Marketplace
 description: Add bank and tax information to your Dev Center account.  
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
-manager: evansma
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: blevens
-
+ms.author: dsindona
 ---
 
 # Add bank and tax information  
