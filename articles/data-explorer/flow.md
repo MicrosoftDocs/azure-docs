@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 03/25/2020
 ---
 
 # Microsoft Flow connector (Preview)
@@ -144,17 +144,21 @@ You can include a step in any flow to send reports by email to any email address
 
 1. Select **+ New Step** to add a new step to your flow.
 1. In the search field, enter Office 365 and select **Office 365 Outlook**.
-1. Select **Send an email**.
+1. Select **Send an email (V2)**.
 1. Enter the email address to where you want the email report sent.
 1. Enter the subject of the email.
-1. In the *Body* field, from the Dynamic content field, select **Body**.
+1. Select **Code view**.
+1. Place your cursor in the *Body* field, and select from the Dynamic content field, select **Add dynamic content**. 
+1. Select **BodyHtml**.
+    ![Send email](./media/flow/flow-send-email.png)
 1. Select **Show advanced options**.
 1. In the *Attachments Name -1* field, select **Attachment Name**.
 1. In the *Attachments Content* field, select **Attachment Content**.
+1. If necessary, add more attachments. 
 1. If necessary, set the importance level.
 1. Select **Save**.
 
-![Send email](./media/flow/flow-sendemail.png)
+![Send email](./media/flow/flow-add-attachments.png)
 
 ## Check if your flow succeeded
 
