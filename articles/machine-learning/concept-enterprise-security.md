@@ -127,9 +127,6 @@ Azure Machine Learning stores metrics and metadata in an Azure Cosmos DB instanc
 
 To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, you can create a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. 
 
-> [!NOTE]
-> This feature is currently available only in US East, US West 2, US South Central.
-
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
 * Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
@@ -193,9 +190,9 @@ Azure Databricks can be used in Azure Machine Learning pipelines. By default, th
 
 ### Encryption in transit
 
-You can use SSL to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
+You can use TLS to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
 
-For more information, see [Use SSL to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 
@@ -333,7 +330,7 @@ Here are the details:
 
 ## Next steps
 
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-use-parallel-run-step.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
