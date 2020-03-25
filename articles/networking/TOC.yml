@@ -22,7 +22,7 @@
       href: disaster-recovery-dns-traffic-manager.md
   - name: Plan and design
     items:
-    - name: Support for working remotely - COVID-19 update
+    - name: Support for working remotely
       href: working-remotely-support.md  
     - name: Virtual networks
       href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
