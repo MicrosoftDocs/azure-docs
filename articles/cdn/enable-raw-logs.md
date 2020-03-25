@@ -81,7 +81,7 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 > [!IMPORTANT]
 > The HTTP Raw logs feature is available automatically for any profiles created or updated after **25th February 2020**. For CDN profiles created earlier, one should update the CDN endpoint after setting up logging. For example, one can navigate to geo filtering under CDN endpoints and block any country not relevant to their workload and hit save. 
 
-> [!Viewing logs under Azure Log Analytics]
+> [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like              AzureDiagnostics
 | where OperationName == "Microsoft.Cdn/Profiles/AccessLog/Write"
 | where Category == "AzureCdnAccessLog"

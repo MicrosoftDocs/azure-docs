@@ -1,6 +1,6 @@
 ---
-title: Azure networking | Microsoft Docs
-description: Learn about networking services in Azure and their capabilities.
+title: Azure networking services overview
+description: Learn about networking services in Azure and their capabilities - connectivity services, application protection services, application delivery services, and network monitoring.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -13,7 +13,7 @@ ms.author: kumud
 
 ---
 
-# Azure networking
+# Azure networking services overview
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
 - [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, and Azure Bastion.
