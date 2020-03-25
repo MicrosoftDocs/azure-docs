@@ -255,12 +255,11 @@ Because Azure Digital Twins uses role-based access control to manage access (see
 
 [!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
-Use the resource ID along with the Azure function ID in the command below: 
+Use the resource ID along with the Azure function ID in the command below:
+
 ```bash
 az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <Azure-function-ID> --scope <resource-ID>
 ```
-
-This assigns an Owner role to the Azure function.
 
 ## Next steps
 

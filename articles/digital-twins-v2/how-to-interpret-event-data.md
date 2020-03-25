@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Route event data
+title: Understand event data
 titleSuffix: Azure Digital Twins
-description: See how to route Azure Digital Twins telemetry and event data to external Azure services.
+description: See details of different event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,44 +15,15 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Route telemetry and event data to outside services
+# Understand event data
 
-Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Route Azure Digital Twins events to external services](concepts-route-events.md).
-
-[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
-
-## Define event routes
-
-Event routes are defined using data plane APIs. A route definition can contain these elements:
-* The route ID you want to use
-* The ID of the endpoint you want to use
-* A filter that defines which events are sent to the endpoint 
-
-If there is no route ID, no messages are routed outside of Azure Digital Twins. 
-If there is a route ID and the filter is `null`, all messages are routed to the endpoint. 
-If there is a route ID and a filter is added, messages will be filtered based on the filter.
-
-> [!NOTE]
-> During this preview, filters are not supported. Please use Event Grid as an endpoint with an Event Grid subscription filter to use selective messaging.
-
-One route should allow multiple notifications and event types to be selected. 
-
-Here is the call to the SDK that is used to add an event route:
-
-```csharp
-await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointID"));
-```
-
-> [!TIP]
-> All SDK functions come in synchronous and asynchronous versions.
-
-## Overview of message formats
-
-Notifications allow the solution backend to be notified when different actions are happening. Recall that there are several types of notifications that can be generated, and used for event routing:
+Different events in Azure Digital Twins produce notifications, which allow the solution backend to be notified when different actions are happening. Recall that there are several types of notifications that can be generated, and used for event routing:
 
 [!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
-Notification messages are made up of two parts: the header and the body. 
+Notification messages may look different depending on which type of event generated them. This article gives detail about different types of messages, and what they might look like.
+
+In general, notifications are made up of two parts: the header and the body. 
 
 ### Notification headers
 
@@ -357,5 +328,8 @@ The corresponding notification (if synchronously executed by the service, such a
 
 ## Next steps
 
-Learn more about the Azure Digital Twins APIs:
+See how to create endpoints and routes to deliver events:
+* [Set up endpoints and routes](how-to-create-endpoints-routes.md)
+
+Or, learn more about the Azure Digital Twins APIs:
 * [Use the Azure Digital Twins APIs](how-to-use-apis.md)
