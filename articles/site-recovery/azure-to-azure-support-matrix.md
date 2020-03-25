@@ -153,7 +153,7 @@ SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | All [stock SUSE 15 and 15 ke
 
 ## Replicated machines - Linux file system/guest storage
 
-* File systems: ext3, ext4, ReiserFS (Suse Linux Enterprise Server only), XFS, BTRFS
+* File systems: ext3, ext4, XFS, BTRFS
 * Volume manager: LVM2
 * Multipath software: Device Mapper
 

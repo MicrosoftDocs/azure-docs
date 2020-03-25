@@ -93,7 +93,7 @@ Following are some of the most common issues.
 
 #### Known issue in SQL Server 2016 and 2017
 
-**How to fix**: Refer to the article [Error occurs when you back up a virtual machine with non-component based backup in SQL Server 2016 and 2017](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component).
+**How to fix**: Refer to the article [Error occurs when you back up a virtual machine with non-component based backup in SQL Server 2016 and 2017](https://support.microsoft.com/en-us/help/4508218/cumulative-update-16-for-sql-server-2017).
 
 #### You're using Azure Storage Spaces Direct Configuration
 
