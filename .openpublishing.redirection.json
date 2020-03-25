@@ -50356,7 +50356,8 @@
     },
 	{
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
-      "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn"
+      "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
+	  "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
