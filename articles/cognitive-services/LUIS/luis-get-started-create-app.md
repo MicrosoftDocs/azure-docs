@@ -86,14 +86,14 @@ Once you've trained your app, you can test it.
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-1. In the browser address bar, for the query string, make sure the following name and value bars are in the URL. If they are not in the query string, add them:
+2. In the browser address bar, for the query string, make sure the following name and value bars are in the URL. If they are not in the query string, add them:
 
     |Name/value pair|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. In the browser address bar, go to the end of the URL and enter `turn off the living room light` for the _query_ value, then press Enter.
+3. In the browser address bar, go to the end of the URL and enter `turn off the living room light` for the _query_ value, then press Enter.
 
     ```json
     {
