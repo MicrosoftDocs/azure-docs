@@ -30,7 +30,7 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 | Java SE         | the command to start your JAR app (for example, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
 | Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | the PM2 configuration file or your script file                                |
-| .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| .NET Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
 | Ruby            | the Ruby script that you want to initialize your app with                     |
 
 These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
@@ -51,7 +51,7 @@ Yes, you can do that through the source control management (SCM) site.
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
-You should set the **reserved** field of the app service to *true*.
+Set the **reserved** field of the app service to *true*.
 
 ## Continuous integration and deployment
 
