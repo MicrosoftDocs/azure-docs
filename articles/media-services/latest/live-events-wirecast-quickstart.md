@@ -6,7 +6,7 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/06/2020
+ms.date: 03/25/2020
 ---
 
 # Create a Azure Media Services Live stream with the portal and Wirecast
@@ -77,9 +77,9 @@ To keep things simple, we will use an encoding preset for Azure Media Services i
 ![Start icon](media/live-events-wirecast-quickstart/start.png)
 2. Click on the **Secure/Not secure** toggle to set it to **Not secure**.  This will set the protocol to RTMP instead of RTMPS.
 3. Copy the **Input URL** to your clipboard.
-![Input URL](media/live-events-wirecast-quickstart/input-URL.png)
+![Input URL](media/live-events-wirecast-quickstart/input-url.png)
 4. Switch to the Wirecast application and paste the **Input URL** into the **Address** field in the Output settings.<br/>
-![Wirecast input URL](media/live-events-wirecast-quickstart/input-URL-wirecast.png)
+![Wirecast input URL](media/live-events-wirecast-quickstart/input-url-wirecast.png)
 5. Click **Okay**.
 
 ## Setting up outputs
