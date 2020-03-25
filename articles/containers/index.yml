@@ -205,12 +205,12 @@ conceptualContent:
         - url: /azure/azure-functions/functions-overview
           itemType: overview
           text: Introduction to Azure Functions
-        - url: /azure/azure-functions/functions-create-your-first-function-visual-studio
+        - url: /azure/azure-functions/functions-create-first-function-vs-code
           itemType: quickstart
-          text: Create your first function in C#
-        - url: /azure/azure-functions/functions-deployment-technologies
-          itemType: deploy
-          text: Deployment options for Azure Functions
+          text: Create your first function
+        - url: /azure/azure-functions/functions-triggers-bindings
+          itemType: overview
+          text: Integrate with other Azure services
       # footerLink (optional)
       footerLink:
         url: /azure/azure-functions/ 
