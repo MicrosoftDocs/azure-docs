@@ -49,7 +49,7 @@ An Event Hubs namespace is required to send or receive from any Event Hubs servi
 
 ## Clone the example project
 
-Now that you have tne Event Hubs connection string, clone the Azure Event Hubs for Kafka repository and navigate to the `flink` subfolder:
+Now that you have the Event Hubs connection string, clone the Azure Event Hubs for Kafka repository and navigate to the `flink` subfolder:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
