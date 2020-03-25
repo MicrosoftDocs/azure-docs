@@ -182,7 +182,7 @@ To deploy a template with multi-line strings or comments, you must use the `--ha
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az deployment group validate](/cli/azure/group/deployment#az-deployment-group-validate).
+To test your template and parameter values without actually deploying any resources, use [az deployment group validate](/cli/azure/group/deployment).
 
 ```azurecli-interactive
 az deployment group validate \
