@@ -27,9 +27,11 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Windows agent
 
+To update the agent on a Windows machine to the latest version, the agent is available from Microsoft Update and can be deployed using your existing software update management process. It can also be run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`. 
+
 > [!NOTE]
-> * To install or uninstall the agent, you must have *Administrator* permissions.
-> * You must first download and copy the Installer package to a folder on the target server, or from a shared network folder. 
+> * To upgrade the agent, you must have *Administrator* permissions.
+> * To upgrade manually, you must first download and copy the Installer package to a folder on the target server, or from a shared network folder. 
 
 #### To upgrade using the Setup Wizard
 
@@ -48,8 +50,6 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
     ```dos
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentupgradesetup.log"
     ```
-
-#### Upgrade from Windows Update
 
 ### Linux agent
 
