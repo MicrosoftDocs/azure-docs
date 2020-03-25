@@ -12,7 +12,7 @@ manager: gwallace
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
-We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -102,7 +102,7 @@ az role assignment create \
 
 
 ## Modify helloImage example
-You can review the example we are about to use by opening the .json file here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+You can review the example we are about to use by opening the .json file here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
 Download the .json example and configure it with your variables. 
