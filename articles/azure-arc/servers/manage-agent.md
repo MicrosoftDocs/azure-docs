@@ -23,7 +23,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 | Windows | Manually<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| Red Hat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
 
 ### Windows agent
 
@@ -53,7 +53,50 @@ To update the agent on a Windows machine to the latest version, the agent is ava
 
 ### Linux agent
 
+To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package. 
 
+#### Upgrade Ubuntu
+
+1. To update the local package index with the latest changes made in the repositories, run the following command:
+
+    ```bash
+    apt update
+    ```
+
+2. To upgrade your system, run the following command:
+
+    ```bash
+    apt upgrade
+    ```
+
+
+#### Upgrade Red Hat/CentOS/Amazon Linux
+
+1. To update the local package index with the latest changes made in the repositories, run the following command:
+
+    ```bash
+    yum check-update
+    ```
+
+2. To upgrade your system, run the following command:
+
+    ```bash
+    yum update
+    ```
+
+#### Upgrade SUSE Linux Enterprise
+
+1. To update the local package index with the latest changes made in the repositories, run the following command:
+
+    ```bash
+    zypper refresh
+    ```
+
+2. To upgrade your system, run the following command:
+
+    ```bash
+    zypper update
+    ```
 
 ## Remove the agent
 
