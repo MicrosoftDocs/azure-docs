@@ -30,7 +30,7 @@ Sign into Azure.
 az login
 ```
 
-## Deploy a virtual machine scale set with existing load balancer
+## Deploy a VM scale set with existing load balancer
 
 Replace the values in brackets with the names of the resources in your configuration.
 
@@ -76,7 +76,7 @@ az vmss create \
 > [!NOTE]
 > After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
-## Next Steps
+## Next steps
 
 In this article, you deployed a virtual machine scale set with an existing Azure Load Balancer.  To learn more about virtual machine scale sets and load balancer, see:
 
