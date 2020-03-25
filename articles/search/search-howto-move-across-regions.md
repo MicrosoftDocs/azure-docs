@@ -19,13 +19,13 @@ Occasionally, customers ask about moving a search service to another region. Cur
 > [!NOTE]
 > In the Azure portal, all services have an **Export template** command. In the case of Azure Cognitive Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
 
-## Steps for moving a service
+## Guidance for moving a service
 
 1. Identify dependencies and related services to understand the full impact of relocating a service, in case you need to move more than just Azure Cognitive Search.
 
-   Azure Storage is used for logging, creating a knowledge store, and is a commonly used external data source for AI enrichment and indexing. Cognitive Services is a dependency in AI enrichment. Both Cognitive Services and Azure Cognitive Search are required to be in the same region if you are using AI enrichment.
+   Azure Storage is used for logging, creating a knowledge store, and is a commonly used external data source for AI enrichment and indexing. Cognitive Services is a dependency in AI enrichment. Both Cognitive Services and your search service are required to be in the same region if you are using AI enrichment.
 
-1. Create an inventory of all objects on the service: indexes, synonym maps, indexers, data sources, skillsets. If you enabled logging, create and archive any reports you might need for a historical record.
+1. Create an inventory of all objects on the service so that you know what to move: indexes, synonym maps, indexers, data sources, skillsets. If you enabled logging, create and archive any reports you might need for a historical record.
 
 1. Check pricing and availability in the new region to ensure availability of Azure Cognitive Search plus any related services in the new region. The majority of features are available in all regions, but some preview features have restricted availability.
 

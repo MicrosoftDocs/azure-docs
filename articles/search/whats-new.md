@@ -24,7 +24,7 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ### March 2020
 
-+ [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document in a search index.
++ [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing.
 
 + New stable [Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) is now available. 
 
