@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall remote work support
-description: This article show how Azure Firewall can support your remote work force requirements.
+description: This article shows how Azure Firewall can support your remote work force requirements.
 services: firewall
 author: vhorne
 ms.service: firewall
