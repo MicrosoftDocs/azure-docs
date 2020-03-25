@@ -57,6 +57,15 @@ Before you enable AD authentication for Azure file shares, make sure you have co
     To verify that your device and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 ## Regional availability
+Azure Files AD authentication (preview) is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/).
+
+Azure Files AD authentication is not available in:
+- West US
+- West US 2
+- East US
+- East US 2
+- West Europe
+- North Europe
 
 Azure Files AD authentication (preview) is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/) expect in West US, West US 2, East US, East US 2, West Europe, and North Europe.
 
