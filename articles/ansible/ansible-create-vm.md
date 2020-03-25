@@ -216,7 +216,7 @@ This section walks you through running the sample Ansible playbook presented in 
 
 1. Create a file (to contain your playbook) named `azure_create_complete_vm.yml`, and open it in the VI editor, as follows:
 
-   ```azurecli-interactive
+   ```bash
    vi azure_create_complete_vm.yml
    ```
 
