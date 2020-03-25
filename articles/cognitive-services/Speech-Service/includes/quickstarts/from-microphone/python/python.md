@@ -18,8 +18,7 @@ Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Make sure that you have access to a microphone for audio capture
 
 ## Support and updates

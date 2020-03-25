@@ -61,7 +61,7 @@ Workload groups provide a mechanism to define the min and max amount of resource
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT is an optional parameter that defaults to the same value that is specified for REQUEST_MIN_RESOURCE_GRANT_PERCENT.
 
-Like choosing a resource class, configuring REQUEST_MIN_RESOURCE_GRANT_PERCENT sets the value for the resources utilized by a request.  The amount of resources indicated by the set value is guaranteed for allocation to the request before it begins execution.  For customers migrating from resource classes to workload groups, consider following the [How To](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) article to map from resources classes to workload groups as a starting point.
+Like choosing a resource class, configuring REQUEST_MIN_RESOURCE_GRANT_PERCENT sets the value for the resources utilized by a request.  The amount of resources indicated by the set value is guaranteed for allocation to the request before it begins execution.  For customers migrating from resource classes to workload groups, consider following the [How To](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) article to map from resources classes to workload groups as a starting point.
 
 Configuring REQUEST_MAX_RESOURCE_GRANT_PERCENT to a value greater than REQUEST_MIN_RESOURCE_GRANT_PERCENT allows the system to allocate more resources per request.  While scheduling a request, system determines actual resource allocation  to the request, which is between REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT, based on resource availability in shared pool and current load on the system.  The resources must exist in the [shared pool](#shared-pool-resources) of resources when the query is scheduled.  
 
@@ -82,7 +82,7 @@ Access to resources in the shared pool is allocated on an [importance](sql-data-
 
 ## Next steps
 
-- [Quickstart: configure workload isolation](quickstart-configure-workload-isolation-tsql.md)
+- [Quickstart: configure workload isolation](../synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql.md)
 - [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
-- [Convert resource classes to workload groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
+- [Convert resource classes to workload groups](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
 - [Workload Management Portal Monitoring](sql-data-warehouse-workload-management-portal-monitor.md).  

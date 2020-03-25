@@ -1,7 +1,7 @@
 ---
 title: Add a popup to a point on a map |Microsoft Azure Maps
 description: In this article, you will learn how to add a popup to a point using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
 ms.topic: conceptual
@@ -131,7 +131,7 @@ var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 1 - String template',
     value1: 1.2345678,
     value2: {
-    	subValue: 'Pizza'
+        subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6]
 });

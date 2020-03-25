@@ -153,7 +153,7 @@ Windows 7| 1,700 GB
 
 **Type** | **Support**
 --- | ---
-Encrypted| Supported.
+Encrypted<sup>*</sup>| Supported.
 Compressed | Supported.
 Sparse | Supported.
 Compressed and sparse |Supported.
@@ -164,6 +164,8 @@ Compressed stream| Not supported. Skipped.
 Sparse stream| Not supported. Skipped.
 OneDrive (synced files are sparse streams)| Not supported.
 Folders with DFS Replication enabled | Not supported.
+
+\* Ensure that the MARS agent has access to the required certificates to access the encrypted files. Inaccessible files will be skipped.
 
 ## Supported drives or volumes for backup
 
