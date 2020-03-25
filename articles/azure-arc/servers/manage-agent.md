@@ -16,15 +16,14 @@ After initial deployment of the Azure Arc for servers (preview) Connected Machin
 
 ## Upgrading agent
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For Windows, the agent update can be automatically accomplished using Windows Update and for Ubuntu, using the apt command-line tool.
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. The following table describes the methods supported to perform the agent upgrade.
 
 | Operating system | Upgrade method |
 |------------------|----------------|
 | Windows | Manually<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) command-line tool |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
-| Red Hat Enterprise Linux | [rpm](https://access.redhat.com/documentation/red_hat_enterprise_linux/5/html/deployment_guide/ch-rpm) |
+| Red Hat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
 
 ### Windows agent
 
