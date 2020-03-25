@@ -4,8 +4,6 @@ description: "Learn about the requirements and common data architecture patterns
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
-ms.devlang: 
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
@@ -17,7 +15,7 @@ ms.custom: seoapril2019
 
 This article describes the various tenancy models available for a multi-tenant SaaS application.
 
-When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
+When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant's data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
 
 ## A. SaaS concepts and terminology
 
@@ -41,7 +39,7 @@ In general, the tenancy model does not impact the function of an application, bu
     - Storage in aggregate.
     - Workload.
 
-- **Tenant isolation:**&nbsp; Data isolation and performance (whether one tenant’s workload impacts others).
+- **Tenant isolation:**&nbsp; Data isolation and performance (whether one tenant's workload impacts others).
 
 - **Per-tenant cost:**&nbsp; Database costs.
 

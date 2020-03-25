@@ -3,11 +3,11 @@ title: Enable Peering Service on a Direct peering using the portal
 titleSuffix: Azure
 description: Enable Peering Service on a Direct peering using the portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
+ms.date: 3/18/2020
+ms.author: derekol
 ---
 
 # Enable Peering Service on a Direct peering using the portal

@@ -1,6 +1,6 @@
 ---
-title: Logins and users
-description: Learn about how Azure SQL Database and Azure Synapse Analytics authenticate users for access using logins and user accounts and uses roles and explicit permissions to authorize logins and users to perform actions within databases as well as at the server level.
+title: Authorize server and database access using logins and user accounts
+description: Learn about how Azure SQL Database and Azure Synapse Analytics authenticate users for access using logins and user accounts. Also learn how to database roles and explicit permissions to authorize logins and users to perform actions and query data.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 ms.service: sql-database
@@ -11,50 +11,60 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/12/2020
+ms.date: 03/23/2020
 ---
-# Granting database access and authorization to SQL Database and Azure Synapse Analytics using logins and user accounts
+# Authorizing database access to authenticated users to SQL Database and Azure Synapse Analytics using logins and user accounts
 
-Authenticated access to databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) is managed using logins and user accounts. [**Authentication**](sql-database-security-overview.md#authentication) is the process of proving the user is who they claim to be.
+In this article, you learn about:
 
-- A login is an individual account in the master database
-- A user account is an individual account in any database, and does not have to be associated with a login
-
-> [!IMPORTANT]
-> Databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) are referred to collectively in the remainder of this article as Azure SQL Database (for simplicity).
-
-A database user connects to an Azure SQL database using a user account and is authenticated using one of the following two methods:
-
-- [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication), which consists of a login name or user account name and associated password stored in the Azure SQL Database.
-- [Azure Active Directory Authentication](sql-database-aad-authentication.md), which uses login credentials stored in Azure Active Directory
-
-Authorization to access data and perform various actions within Azure SQL database are managed using database roles and explicit permissions. [**Authorization**](sql-database-security-overview.md#authorization) refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Authorization is controlled by your user account's database [role memberships](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) and [object-level permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). As a best practice, you should grant users the least privileges necessary.
-
-In this article, you will learn:
-
+- Options for configuring Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to the access the data stored in these databases.
 - The access and authorization configuration after initially creating a new Azure SQL Database
 - How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions
 - How to add user accounts in user databases, either associated with logins or as contained user accounts
 - Configure user accounts with permissions in user databases by using database roles and explicit permissions
 
+> [!IMPORTANT]
+> Databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) are referred to collectively in the remainder of this article as either databases or as Azure SQL (for simplicity).
+
+## Authentication and authorization
+
+[**Authentication**](sql-database-security-overview.md#authentication) is the process of proving the user is who they claim to be. A user connects to a database using a user account.
+When a user attempts to connect to a database, they provide a user account and authentication information. The user is authenticated using one of the following two authentication methods:
+
+- [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
+
+  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user account for user accounts not linked to a login.
+- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
+
+  With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory.
+
+**Logins and users**: In Azure SQL, a user account in a database can be associated with a login that is stored in the master database or can be a user name that is stored in an individual database.
+
+- A **login** is an individual account in the master database, to which a user account in one or more databases can be linked. With a login, the credential information for the user account is stored with the login.
+- A **user account** is an individual account in any database that may be but does not have to be linked to a login. With a user account that is not linked to a login, the credential information is stored with the user account.
+
+[**Authorization**](sql-database-security-overview.md#authorization) to access data and perform various actions are managed using database roles and explicit permissions. Authorization refers to the permissions assigned to a user, and determines what that user is allowed to do. Authorization is controlled by your user account's database [role memberships](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) and [object-level permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). As a best practice, you should grant users the least privileges necessary.
+
 ## Existing logins and user accounts after creating a new database
 
-When you create your first Azure SQL Database deployment, you specify an admin login and an associated password for that login. This administrative account is called **Server admin**. The following configuration of logins and users in the master and user databases occurs during deployment:
+When you create your first Azure SQL deployment, you specify an admin login and an associated password for that login. This administrative account is called **Server admin**. The following configuration of logins and users in the master and user databases occurs during deployment:
 
 - A SQL login with administrative privileges is created using the login name you specified. A [login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) is an individual user accounts for logging on to SQL Database.
 - This login is granted full administrative permissions on all databases as a [server-level principal](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). This login has all available permissions within SQL Database and cannot be limited. In a managed instance, this login is added to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (this role does not exist with single or pooled databases).
 - A [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) called `dbo` is created for this login in each user database. The [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) user has all database permissions in the database and is mapped to the `db_owner` fixed database role. Additional fixed database roles are discussed later in this article.
 
-To identify the administrator accounts for your SQL server, open the Azure portal, and navigate to the **Properties** tab of your SQL server or SQL Database.
+To identify the administrator accounts for a database, open the Azure portal, and navigate to the **Properties** tab of your server or managed instance.
 
 ![SQL Server Admins](media/sql-database-manage-logins/sql-admins.png)
+
+![SQL Server Admins](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
 > The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for a managed instance server, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
 
 ## Create additional logins and users having administrative permissions
 
-At this point, your SQL Database is only configured for access using a single SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
+At this point, your Azure SQL instance is only configured for access using a single SQL login and user account. To create additional logins with full or partial administrative permissions, you have the following options (depending on your deployment mode):
 
 - **Create an Azure Active Directory administrator account having full administrative permissions**
 
@@ -105,7 +115,7 @@ You can create accounts for non-administrative users using one of two methods:
 For examples showing how to create logins and users, see:
 
 - [Create login for single or pooled databases](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Create login for managed instance database](https://docs.microsoft.com/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Create login for managed instance database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
 - [Create login for Azure Synapse Analytics database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)

@@ -9,5 +9,5 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Creating an incremental snapshot for managed disks
+# Create an incremental snapshot for managed disks - CLI
 [!INCLUDE [virtual-machines-disks-incremental-snapshot-cli](../../../includes/virtual-machines-disks-incremental-snapshot-cli.md)]

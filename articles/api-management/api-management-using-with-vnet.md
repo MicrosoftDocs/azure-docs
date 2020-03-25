@@ -3,7 +3,7 @@ title: How to use Azure API Management with virtual networks
 description: Learn how to setup a connection to a virtual network in Azure API Management and access web services through it.
 services: api-management
 documentationcenter: ''
-author: vlvinogr
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -108,14 +108,14 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Purpose (*)                                                 | Virtual Network type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and Powershell         | External & Internal  |
-| * / 80, 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
-| * / 80, 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (where applicable)                   | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) (where applicable)                   | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
-| * / 1886                     | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Needed to publish Health status to Resource Health          | External & Internal  |
+| * / 1886                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Needed to publish Health status to Resource Health          | External & Internal  |
 | * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md)                       | External & Internal  |
 | * / 25                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
 | * / 587                      | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
