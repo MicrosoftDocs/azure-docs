@@ -20,7 +20,7 @@
     href: quick-backup-vm-template.md
 - name: Tutorials
   items:
-  - name: Back up Azure VMs at scale
+  - name: Back up multiple Azure VMs
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md

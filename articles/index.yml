@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
+      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
 
 productDirectory:
   title: Browse Azure products
@@ -350,7 +350,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
       azureCategories:
         - analytics
-      url: sql-data-warehouse/index.yml
+      url: synapse-analytics/sql-data-warehouse/index.yml
     # Card
     - title: Data Catalog
       summary: Get more value from your enterprise data assets

@@ -7,9 +7,9 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Create multiple resource instances with Resource Manager templates
+# Tutorial: Create multiple resource instances with ARM templates
 
-Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
+Learn how to iterate in your Azure Resource Manager (ARM) template to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
 
 ![Azure Resource Manager creates multiple instances diagram](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -26,11 +26,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
 
 ## Open a Quickstart template
 
-[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
+[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -103,7 +103,7 @@ The completed template looks like:
 }
 ```
 
-For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in Azure Resource Manager Templates](./copy-resources.md)
+For more information about creating multiple instances, see [Deploy multiple instances of a resource or property in ARM templates](./copy-resources.md)
 
 ## Deploy the template
 

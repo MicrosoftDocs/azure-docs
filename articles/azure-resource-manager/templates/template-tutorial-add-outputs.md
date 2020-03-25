@@ -7,9 +7,9 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Add outputs to your Resource Manager template
+# Tutorial: Add outputs to your ARM template
 
-In this tutorial, you learn how to return a value from your template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager (ARM) template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
