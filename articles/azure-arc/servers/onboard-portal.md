@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ---
 
@@ -60,16 +60,21 @@ You can install the Connected Machine agent manually by running the Windows Inst
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described later in the article. This sets the proxy server system environment variable `https_proxy`.
 
-The following table highlights the parameters that are supported by setup for the agent from the command line.
+If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-| Parameter | Description |
-|:--|:--|
-| /? | Returns a list of the command-line options. |
-| /S | Performs a silent installation with no user interaction. |
+For example, run the installation program with the `/?` parameter to review the help and quick reference option. 
 
-For example, to run the installation program with the `/?` parameter, enter `msiexec.exe /i AzureConnectedMachineAgent.msi /?`.
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /?
+```
 
-Files for the Connected Machine agent are installed in *C:\Program Files\AzureConnectedMachineAgent* by default. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+To install the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command.
+
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+```
+
+Files for the Connected Machine agent are installed by default in *C:\Program Files\AzureConnectedMachineAgent*. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Install with the scripted method
 
