@@ -128,12 +128,6 @@ additionalContent:
             - text: Azure PowerShell
               url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
               note: (Guest Configuration)
-            - text: Azure SDK for .NET
-              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
-              note: (Assignments)
-            - text: Azure SDK for .NET
-              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-              note: (Policy Definitions)
             - text: REST
               url: /rest/api/policy-insights/
               note: (Policy Insights)
@@ -151,6 +145,22 @@ additionalContent:
               note: (Guest Configuration)
             - text: Resource Manager templates
               url: /azure/templates/microsoft.authorization/allversions
+        - title: Azure Policy (more)
+          links:
+            - text: Azure SDK for .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+              note: (Assignments)
+            - text: Azure SDK for .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+              note: (Policy Definitions)
+            - text: Azure SDK for Node
+              url: /javascript/api/@azure/arm-policy
+              note: (Policy)
+            - text: Azure SDK for Node
+              url: /javascript/api/@azure/arm-policyinsights
+              note: (Policy Insights)
+            - text: Azure SDK for Python
+              url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
         - title: Azure Blueprints
           links:
             - text: Blueprint functions
