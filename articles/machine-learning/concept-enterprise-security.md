@@ -190,9 +190,9 @@ Azure Databricks can be used in Azure Machine Learning pipelines. By default, th
 
 ### Encryption in transit
 
-You can use SSL to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
+You can use TLS to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
 
-For more information, see [Use SSL to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 
@@ -330,7 +330,7 @@ Here are the details:
 
 ## Next steps
 
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-use-parallel-run-step.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
