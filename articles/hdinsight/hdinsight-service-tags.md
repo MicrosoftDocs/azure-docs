@@ -1,6 +1,6 @@
 ---
 title: Network security group (NSG) service tags for Azure HDInsight
-description: Use HDInsight service tags to allow inbound traffic to your cluster from HDInsight health and management services nodes, without adding IP addresses to your NSGs.
+description: Use HDInsight service tags to allow inbound traffic to your cluster from health and management services nodes, without adding IP addresses to your NSGs.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -11,17 +11,17 @@ ms.date: 03/10/2020
 
 # NSG service tags for Azure HDInsight
 
-Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) provide an alternative method for allowing inbound traffic from specific IP addresses without explicitly entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
+Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
 
-These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes that match to the service tag, and automatically updates the service tag as addresses change.
+The HDInsight service manages these service tags. You can't create your own service tag or modify an existing tag. Microsoft manages the address prefixes that match to the service tag and automatically updates the service tag as addresses change.
 
 ## Get started with service tags
 
-You have two options for using service tags in your NSGs:
+You have two options for using service tags in your network security groups:
 
-- **Use a single global HDInsight service tag:** This option opens your virtual network to all IP addresses that the HDInsight service uses to monitor clusters across all regions. This option is the simplest method, but may not be appropriate if you have restrictive security requirements.
+- **Use a single global HDInsight service tag**: This option opens your virtual network to all IP addresses that the HDInsight service uses to monitor clusters across all regions. This option is the simplest method, but might not be appropriate if you have restrictive security requirements.
 
-- **Use multiple regional service tags:** This option opens your virtual network to only the IP addresses that HDInsight uses in that specific region. However, if you're using multiple regions, you'll need to add multiple service tags to your virtual network.
+- **Use multiple regional service tags**: This option opens your virtual network to only the IP addresses that HDInsight uses in that specific region. However, if you're using multiple regions, you'll need to add multiple service tags to your virtual network.
 
 ## Use a single global HDInsight service tag
 
@@ -37,13 +37,13 @@ The easiest way to begin using service tags with your HDInsight cluster is to ad
 
     ![Add a service tag from the Azure portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
-This tag contains the IP addresses of health and management services for all regions where HDInsight is available, and will ensure that your cluster can communicate with the necessary health and management services no matter where it's created.
+This tag contains the IP addresses of health and management services for all regions where HDInsight is available. The tag will ensure that your cluster can communicate with the necessary health and management services no matter where it's created.
 
 ## Use regional HDInsight service tags
 
-If the single global service-tag option won't work because you need more restrictive permissions, you can allow only the service tags that are applicable for your region. There may be one, two, or three applicable service tags, depending on the region where your cluster is created.
+If the global tag option won't work because you need more restrictive permissions, you can allow only the service tags that are applicable for your region. There may be one, two, or three applicable service tags, depending on the region where your cluster is created.
 
-To find out which service tags to add for your region, read the following sections of the document.
+To find out which service tags to add for your region, read the following sections of the article.
 
 ### Use a single regional service tag
 
@@ -106,17 +106,17 @@ For example, if your cluster is created in the `East US 2` region, you'll need t
 
 #### Group 2
 
-Clusters in the regions of **China North** and **China East** need to allow two service tags: `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
+Clusters in the regions of China North and China East need to allow two service tags: `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
 
 #### Group 3
 
-Clusters in the regions of **US Gov Iowa** and **US Gov Virginia** need to allow two service tags: `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
+Clusters in the regions of US Gov Iowa and US Gov Virginia need to allow two service tags: `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
 
 #### Group 4
 
-Clusters in the regions of **Germany Central** and **Germany Northeast** need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNortheast`.
+Clusters in the regions of Germany Central and Germany Northeast need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNortheast`.
 
 ## Next steps
 
-- [Network security groups - service tags](../virtual-network/security-overview.md#security-rules)
+- [Network security groups: service tags](../virtual-network/security-overview.md#security-rules)
 - [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md)
