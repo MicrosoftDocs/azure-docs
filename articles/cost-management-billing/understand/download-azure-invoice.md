@@ -92,7 +92,7 @@ You must have an account admin role on the support plan subscription to download
 
 The instructions below are for a subscription that belongs to a billing account for a Microsoft Online Services Program (MOSP). [Check your access to a Microsoft Online Services Program (MOSP) account](view-all-accounts.md#check-the-type-of-your-account). If you have a billing account for a Microsoft Customer Agreement, see [Give others access to your Microsoft Customer Agreement invoices](#give-others-access-to-your-microsoft-customer-agreement-invoices).
 
-The PDF version of the invoice contains personal information about the account admin, so the account administrator for this subscription must grant other users permission to download the invoice. Once the permission is given, users, groups, service principals with an owner, a contributor, a reader, a user access administrator, a billing reader, a co-Administrator or a service Administrator role will be able to download invoices for the subscription.
+The PDF version of the invoice contains personal information about the account admin, so the account administrator for this subscription must grant other users permission to download the invoice. Once the permission is given, users, groups, service principals with an owner, a contributor, a reader, a user access administrator, a billing reader, a co-Administrator, or a service Administrator role will be able to download invoices for the subscription.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) as an account admin for the subscription.
 
@@ -108,7 +108,7 @@ The PDF version of the invoice contains personal information about the account a
 
 4.  Select **On** and then **Save** from the top of the page.
 
-    ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoices.png)
+    ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoice.png)
 
 ## Get your subscription's and support plan's invoices in email
 
@@ -231,7 +231,7 @@ There could be several reasons that you don't see an invoice:
 
 - You don't have permission to view invoices. If you have an MCA or MPA billing account, you must have an Owner, Contributor, Reader, or Invoice manager role on a billing profile or an Owner, Contributor, or Reader role on the billing account to view invoices. For other subscriptions, you might not see the invoices if you aren't the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
 
-- If you have a billing account for Microsoft Online Services Program (MOSP) and you signed up for an Azure Free Account or a subscription with a monthly credit amount, you only get an invoice when you exceed the monthly credit amount. If you have a billing account for a Microsoft Customer Agreement (MCA) or a Microsoft Partner Agreement (MPA) , you always receive an invoice.
+- If you have a billing account for Microsoft Online Services Program (MOSP) and you signed up for an Azure Free Account or a subscription with a monthly credit amount, you only get an invoice when you exceed the monthly credit amount. If you have a billing account for a Microsoft Customer Agreement (MCA) or a Microsoft Partner Agreement (MPA), you always receive an invoice.
 
 ## Need help? Contact us.
 
