@@ -14,7 +14,7 @@ ms.date: 03/23/2020
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
-To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. Note that competencies.....
+To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency)] to publish a Managed Service offer.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
@@ -41,7 +41,7 @@ The **Offer setup** page asks for the following information. Be sure to select *
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Note that per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. A record will be created in your CRM system each time a customer deploys your offer.
+Note that per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
 
 For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
 
