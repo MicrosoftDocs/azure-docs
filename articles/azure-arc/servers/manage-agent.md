@@ -53,6 +53,8 @@ To update the agent on a Windows machine to the latest version, the agent is ava
 
 ### Linux agent
 
+Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard.
+
 ## Remove the agent
 
 To disconnect a machine from Azure Arc for servers (preview), do the following:
@@ -63,6 +65,8 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
 
 ### Windows agent
 
+#### Uninstall from Control Panel
+
 1. To uninstall the Windows agent from the machine, do the following:
 
     a. Sign in to the computer with an account that has administrator permissions.  
@@ -72,14 +76,24 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
     >[!NOTE]
     > You can also run the agent setup wizard by double-clicking the **AzureConnectedMachineAgent.msi** installer package.
 
-    If you want to script removal of the agent, you can use the following example, which retrieves the product code and uninstalls the agent by using the Msiexec.exe command line - `msiexec /x {Product Code}`. To do so:  
+#### Uninstall from the command line
+
+To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating sytem. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.   
     
-    a. Open the Registry Editor.  
-    b. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.  
-    c. You can then uninstall the agent by using Msiexec.
+1. Open the Registry Editor.
 
-    The following example demonstrates how to uninstall the agent:
+2. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.
 
+3. You can then uninstall the agent by using Msiexec using the following examples:
+
+   a. From the command-line type: 
+
+    ```dos
+    msiexec.exe /x {product code GUID} /qn
+    ```
+
+   b. You can perform the same steps using PowerShell:
+   
     ```powershell
     Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
     Get-ItemProperty | `
