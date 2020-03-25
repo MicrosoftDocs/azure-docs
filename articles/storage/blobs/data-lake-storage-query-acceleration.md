@@ -64,7 +64,7 @@ Despite the change to the billing model, Query acceleration's pricing model is d
 
 - [Query acceleration enrollment form](https://aka.ms/adls/qa-preview-signup)    
 - [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md)
-- Query acceleration SQL language reference
+- [Query acceleration SQL language reference (preview)](query-acceleration-sql-reference.md)
 - Query acceleration REST API reference
 
 

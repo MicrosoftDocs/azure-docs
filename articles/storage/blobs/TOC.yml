@@ -846,6 +846,8 @@
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2
+    - name: Query acceleration
+      href: query-acceleration-sql-reference.md
     - name: AzCopy v10
       items:
       - name: azcopy
