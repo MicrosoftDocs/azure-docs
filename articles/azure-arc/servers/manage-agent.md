@@ -78,7 +78,7 @@ To disconnect a machine from Azure Arc for servers (preview), do the following:
 
 #### Uninstall from the command line
 
-To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating sytem. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.   
+To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating system. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.
     
 1. Open the Registry Editor.
 
@@ -93,7 +93,7 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
     ```
 
    b. You can perform the same steps using PowerShell:
-   
+
     ```powershell
     Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
     Get-ItemProperty | `
