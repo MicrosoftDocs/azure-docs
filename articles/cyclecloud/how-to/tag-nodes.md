@@ -1,10 +1,11 @@
 ---
 title: Tagging Nodes
 description: Using node tags in Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 03/20/2020
 ms.author: adjohnso
 ---
+
 # Tag Nodes
 
 Azure CycleCloud will automatically create and add three tags to each node: a name, the cluster name, and the owner. These tags are meant to make it easier to audit ownership of the nodes when using non-CycleCloud tools.
@@ -30,7 +31,7 @@ Within a resource that supports [Resource Manager Operations](https://docs.micro
   [[node master]]
     tags.Application = my application
     tags.CustomValue = 57
-    tags.Custom Text = Hello world
+    tags.CustomText = Hello world
 ```
 
 Creating a node with this definition will result in three additional tags being set on the node:
@@ -40,13 +41,18 @@ Name => "Demo: master"
 ClusterName => "Demo"
 Application => "my application"
 CustomValue => "57"
-Custom Text => "Hello world"
+CustomText => "Hello world"
 ```
 
-### Restrictions
+## Restrictions
 
-There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) documentation for full details.
+There are limits on the number and format of tags applied to each Virtual Machine. Please review the [Tagging Azure Resources documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) for full details.
 
-Do not include quote marks or periods in your tag names.
+Do not include quotation marks or periods in your tag names.
 
-Please note that resources created with the Azure classic portal cannot use tags.
+> [!NOTE]
+> Resources created with the Azure classic portal cannot use tags.
+
+## Further Reading
+
+* [Tagging Reference docs](../cluster-references/node-nodearray-reference#tags)
