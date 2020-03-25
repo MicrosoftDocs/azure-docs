@@ -1,7 +1,7 @@
 ---
 title: How to query Azure Cognitive Search from Power Apps
 titleSuffix: Azure Cognitive Search
-description: Step by step guidance on how to create custom connector to Cognitive Search and how to visualize it from a PowerApp
+description: Step-by-step guidance on how to create custom connector to Cognitive Search and how to visualize it from a PowerApp
 author: luiscabrer
 manager: eladz
 ms.author: luisca
@@ -13,10 +13,10 @@ ms.date: 03/25/2020
 
 # How to query a Cognitive Search index from Power Apps
 
-This tutorial shows you how to integrate results from Azure Cognitive Search into a PowerApp. 
+This tutorial shows you how to integrate results from Azure Cognitive Search into a Power App. 
 
 ## Prerequisites:
-1.    PowerApp account access with the ability to create custom connectors.
+1.    Power Apps account access with the ability to create custom connectors.
 2.    We assume you have already created an Azure Search Index.
 
 There are two main steps to having a PowerApp that shows Azure Cognitive Search results. First creating a connector that can query the search index, and then updating your power app application to visualize the results returned by the connector.
@@ -32,26 +32,26 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
 
     ![Create from blank menu](./media/search-howto-powerapps/1-3-create-blank.png "Create from blank menu")
 
-4. Give your custom connector a name. (i.e. *AzureSearchQuery*), and then click **Continue**. This will bring up a wizard to create your new connector.
+4. Give your custom connector a name. (that is, *AzureSearchQuery*), and then click **Continue**. This will bring up a wizard to create your new connector.
 
 5. Enter information in the General Page.
 
-    - Icon background color (i.e. #007ee5)
-    - Description (i.e. "A connector to Azure Cognitive Search")
-    - In the Host, you will need to enter your search service URL (i.e. <<yourservicename>>.search.windows.net)
+    - Icon background color (for instance, #007ee5)
+    - Description (for instance, "A connector to Azure Cognitive Search")
+    - In the Host, you will need to enter your search service URL (for instance, `<yourservicename>.search.windows.net`)
     - For Base URL, simply enter "/"
     
     ![General information dialogue](./media/search-howto-powerapps/1-5-general-info.png "General information dialogue")
 
-6. In the Security Page, set *API Key* as the **Authentication Type**, set the parameter label, and parameter name fields as *api-key". For Parameter location select *Header* as shown below.
+6. In the Security Page, set *API Key* as the **Authentication Type**, set the parameter label, and parameter name fields as *api-key*. For **Parameter location**, select *Header* as shown below.
  
     ![Authentication type options](./media/search-howto-powerapps/1-6-authentication-type.png "Authentication type options")
 
-7. In the Definitions Page, select **+ New Action** to create an action that will query the index. Enter the value "Query" for the summary and the name of the operation Id. Enter a description like *"Queries the search index"*.
+7. In the Definitions Page, select **+ New Action** to create an action that will query the index. Enter the value "Query" for the summary and the name of the operation ID. Enter a description like *"Queries the search index"*.
  
     ![New action options](./media/search-howto-powerapps/1-7-new-action.png "New action options")
 
-8. In order to define the parameters and headers, press the + Import from sample button. This will allow you to define the query request.  
+8. Press the **+ Import from sample** button to define the parameters and headers. Next, you will define the query request.  
 
     * Select the verb `GET`
     * For the URL enter a sample query for your search index, for instance:
@@ -59,11 +59,11 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
     >https://yoursearchservicename.search.windows.net/indexes/yourindexname/docs?search=*&api-version=2019-05-06-Preview
     
 
-    PowerApps will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
+    **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
 
     ![Import from sample](./media/search-howto-powerapps/1-8-1-import-from-sample.png "Import from sample")
     
-9.  Click **Import**. This will automatically pre-fill the Request dialog.
+9.  Click **Import** to automatically pre-fill the Request dialog.
 
     ![Import from sample](./media/search-howto-powerapps/1-8-2-import-from-sample.png "Import from sample")
 
@@ -81,7 +81,7 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
 
     - Similarly, for *api-key*, set it as **required**, with *internal* **visibility**. Enter your search service API key as the **default value**.
     
-    After you make these changes, you should be able to toggle the **Swagger Editor** view, and in the parameters section you should be able to see the following:    
+    After you make these changes, toggle to the **Swagger Editor** view. In the parameters section you should see the following configuration:    
 
     ```
           parameters:
@@ -92,7 +92,7 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
             x-ms-visibility: internal}
     ```
 
-11. On the Response section, click **"Add default response"**. This is critical because it will help PowerApps understand the schema of the response. Paste a sample response.
+11. On the Response section, click **"Add default response"**. This is critical because it will help **Power Apps** understand the schema of the response. Paste a sample response.
 
     > [!TIP] 
     > There is a character limit to the JSON response you can enter, so you may want to simplify the JSON so that it before pasting it. The important aspect schema/format of the response. The actual values in the sample response are less important and can be simplified to reduce the character count.
@@ -104,27 +104,27 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
 
 This step may take you to the out of the wizard and into the Connections page. You may want to go back to the Custom Connections editor to actually test the connection. Go to **Custom Connector** > Select the newly created Connector > … > **View Properties** > **Edit** > **4. Test** to get back to the test page.
 
-14.    Now click **Test operation** to make sure that you are getting results from your index. If you were successful you should see a 200 status an in the body of the response you should see JSON that describes your search results.
+14.    Now click **Test operation** to make sure that you are getting results from your index. If you were successful you should see a 200 status, and in the body of the response you should see JSON that describes your search results.
 
 
 
 
 ## Visualize Results from the Customer Connector we just created
-The goal of this tutorial is not to show you how to create fancy user experiences with power apps, so the UI we will create is really minimalistic. We will create a PowerApp with a search box, a search button and we will display the results in a gallery control.  The PowerApp will connect to our recently created custom connector to get the data from Azure Search.
+The goal of this tutorial is not to show you how to create fancy user experiences with power apps, so the UI layout will be minimalistic. Let's create a PowerApp with a search box, a search button and display the results in a gallery control.  The PowerApp will connect to our recently created custom connector to get the data from Azure Search.
 
 1. Create new Power App
-Go to the **Apps** section, click on **+ New app**, and selecte **Canvas**
+Go to the **Apps** section, click on **+ New app**, and select **Canvas**
 
      ![Create canvas app](./media/search-howto-powerapps/2-1-create-canvas.png "Create canvas app")
 
-2. Select the type of application you would like. For this tutorial, we will create a **Blank App** with the **Phone Layout**. You may want a different layout. This will open the PowerApps Studio.
+2. Select the type of application you would like. For this tutorial create a **Blank App** with the **Phone Layout**. The **Power Apps Studio** will appear.
 
-3. Once in the PowerApps Studio , select the Data Sources  tab, and click on the new Connector you have just created. In our case, it is called AzureSearchQuery. Click Add a connection.
+3. Once in the studio, select the **Data Sources**  tab, and click on the new Connector you have just created. In our case, it is called *AzureSearchQuery*. Click **Add a connection**.
 
   
     ![Connect connector](./media/search-howto-powerapps/2-3-connect-connector.png "connect connector")
 
-Now AzureSearchQuery is a data source that is available to be used from your application.
+Now *AzureSearchQuery* is a data source that is available to be used from your application.
 
 4. Navigate to the **Insert tab**, so that we can add a few controls to our form.
 
@@ -149,7 +149,7 @@ Now AzureSearchQuery is a data source that is available to be used from your app
  
     ![Button OnSelect](./media/search-howto-powerapps/2-6-search-button-event.png "Button OnSelect")
  
-    This will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as an input.
+    This action will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as the query term.
     
 7.  As a next step, we will link the vertical gallery we created to the *azResult* collection. Select the gallery control, and perform the following actions in the properties pane.
 
