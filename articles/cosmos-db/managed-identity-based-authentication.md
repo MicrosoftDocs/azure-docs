@@ -1,11 +1,11 @@
 ---
 title: How to use system assigned managed identities (MSI) to access to Azure Cosmos DB data.
 description: Learn how to configure an Azure AD system-assigned managed identity to access keys from Azure Cosmos DB.
-author: j-patrick'
+author: j-patrick
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.author: justipat'
+ms.author: justipat
 ms.reviewer: sngun
 
 ---
@@ -32,7 +32,7 @@ In this step, you'll assign a system-assigned managed identity to your Azure Fun
 1. On the **Identity tab** switch **System Identity** to the "On" position. Be sure to click **Save**, and confirm you want to turn on System Identity. In the end the **System Identity** pane should look like this:  
 ![System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
-## Grant the System-Assigned Managed Identity Access to your'Azure Cosmos DB 
+## Grant the System-Assigned Managed Identity Access to your Azure Cosmos DB 
 
 In this step, you'll assign a role to the Azure Function's System-Assigned Managed Identity. Azure Cosmos DB has multiple built-in roles you can assign the System Identity too. For this exercise we'll just focus on two:
 
@@ -192,4 +192,3 @@ You are now ready to [deploy your Azure Function.](../azure-functions/functions-
 * [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
 
 * [Security baseline for Azure Cosmos DB](security-baseline.md)
-'
