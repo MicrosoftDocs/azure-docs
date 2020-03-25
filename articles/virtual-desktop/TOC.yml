@@ -6,44 +6,66 @@
     href: overview.md
 - name: Tutorials
   items:
-  - name: 1. Create a tenant in Windows Virtual Desktop
+  - name: 1. Create a tenant (Fall 2019)
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
-  - name: 2. Create service principals and role assignments by using PowerShell
+  - name: 2. Create service principals and role assignments with PowerShell (Fall 2019)
     href: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
-  - name: 3. Create a host pool by using the Azure Marketplace
+  - name: 3. Create a host pool with the Azure Marketplace (Spring 2020)
     href: create-host-pools-azure-marketplace.md
-  - name: 4. Manage app groups
+  - name: 3. Create a host pool with the Azure Marketplace (Fall 2019)
+    href: create-host-pools-azure-marketplace-2019.md
+  - name: 4. Manage app groups (Spring 2020)
     href: manage-app-groups.md
-  - name: 5. Create a host pool to validate service updates
+  - name: 4. Manage app groups (Fall 2019)
+    href: manage-app-groups-2019.md
+  - name: 5. Create a host pool to validate service updates (Spring 2020)
     href: create-validation-host-pool.md
-  - name: 6. Set up service alerts
+  - name: 5. Create a host pool to validate service updates (Fall 2019)
+    href: create-validation-host-pool-2019.md
+  - name: 6. Set up service alerts (Spring 2020)
     href: set-up-service-alerts.md
+  - name: 6. Set up service alerts (Fall 2019)
+    href: set-up-service-alerts-2019.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
         href: connect-windows-7-and-10.md
-      - name: Connect with the web client
+      - name: Connect with the web client (Spring 2020)
         href: connect-web.md
-      - name: Connect with the Android client
+      - name: Connect with the web client (Fall 2019)
+        href: connect-web-2019.md
+      - name: Connect with the Android client (Spring 2020)
         href: connect-android.md
-      - name: Connect with the macOS client
+      - name: Connect with the Android client (Fall 2019)
+        href: connect-android-2019.md
+      - name: Connect with the macOS client (Spring 2020)
         href: connect-macos.md
-      - name: Connect with the iOS client
+      - name: Connect with the macOS client (Fall 2019)
+        href: connect-macos-2019.md
+      - name: Connect with the iOS client (Spring 2020)
         href: connect-ios.md
+      - name: Connect with the iOS client (Fall 2019)
+        href: connect-ios-2019.md
   - name: Create a host pool and session hosts
     items:
-      - name: Azure Resource Manager template
+      - name: Azure Resource Manager template (Fall 2019)
         href: ./virtual-desktop-fall-2019/create-host-pools-arm-template.md
-      - name: PowerShell
+      - name: PowerShell (Spring 2020)
         href: create-host-pools-powershell.md
-      - name: Deploy a Windows 7 virtual machine
+      - name: PowerShell (Fall 2019)
+        href: create-host-pools-powershell-2019.md
+      - name: Deploy a Windows 7 virtual machine (Fall 2019)
         href: ./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md
-      - name: Deploy a GPU-based session host
+      - name: Deploy a GPU-based session host (Spring 2020)
         href: configure-vm-gpu.md
-      - name: Expand an existing host pool
+      - name: Deploy a GPU-based session host (Fall 2019)
+        href: configure-vm-gpu-2019.md
+      - name: Expand an existing host pool (Spring 2020)
         href: expand-existing-host-pool.md
+      - name: Expand an existing host pool (Fall 2019)
+        href: expand-existing-host-pool-2019.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
@@ -52,12 +74,16 @@
         href: create-fslogix-profile-container.md
   - name: Configure host pool settings
     items:
-      - name: RDP properties
+      - name: RDP properties (Spring 2020)
         href: customize-rdp-properties.md
+      - name: RDP properties (Fall 2019)
+        href: customize-rdp-properties-2019.md
       - name: Load-balancing for pooled host pools
         href: configure-host-pool-load-balancing.md
-      - name: Personal desktop assignment type
+      - name: Personal desktop assignment type (Spring 2020)
         href: configure-host-pool-personal-desktop-assignment-type.md
+      - name: Personal desktop assignment type (Fall 2019)
+        href: configure-host-pool-personal-desktop-assignment-type-2019.md
   - name: Use Windows Virtual Desktop license
     href: apply-windows-license.md
   - name: Customize session host image
@@ -66,38 +92,50 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts automatically
+  - name: Scale session hosts automatically (Fall 2019)
     href: ./virtual-desktop-fall-2019/set-up-scaling-script.md
-  - name: Customize feed
+  - name: Customize feed (Spring 2020)
     href: customize-feed-for-virtual-desktop-users.md
+  - name: Customize feed (Fall-2019)
+    href: customize-feed-for-virtual-desktop-users-2019.md
   - name: Deploy the management tool
     items:
-      - name: Azure Resource Manager template
+      - name: Azure Resource Manager template (Fall 2019)
         href: ./virtual-desktop-fall-2019/manage-resources-using-ui.md
-      - name: PowerShell
+      - name: PowerShell (Fall 2019)
         href: ./virtual-desktop-fall-2019/manage-resources-using-ui-powershell.md
   - name: Use service diagnostics
     items:
-        - name: Deploy the diagnostics tool
+        - name: Deploy the diagnostics tool (Fall 2019)
           href: ./virtual-desktop-fall-2019/deploy-diagnostics.md
-        - name: Use diagnostics with Log Analytics
+        - name: Use diagnostics with Log Analytics (Spring 2020)
           href: diagnostics-log-analytics.md
-  - name: Publish built-in apps
+        - name: Use diagnostics with Log Analytics (Fall 2019)
+          href: diagnostics-log-analytics-2019.md
+  - name: Publish built-in apps (Spring 2020)
     href: publish-apps.md
+  - name: Publish built-in apps (Fall 2019)
+    href: publish-apps-2019.md
   - name: Set up MSIX app attach
     href: app-attach.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
 - name: Concepts
   items:
-  - name: Windows Virtual Desktop environment
+  - name: Windows Virtual Desktop environment (Spring 2020)
     href: environment-setup.md
+  - name: Windows Virtual Desktop environment (Fall 2019)
+    href: environment-setup-2019.md
   - name: Determine user connection latency
     href: connection-latency.md
-  - name: Delegated access in Windows Virtual Desktop
+  - name: Delegated access in Windows Virtual Desktop (Spring 2020)
     href: delegated-access-virtual-desktop.md
-  - name: Host pool load-balancing methods
+  - name: Delegated access in Windows Virtual Desktop (Fall 2019)
+    href: delegated-access-virtual-desktop-2019.md
+  - name: Host pool load-balancing methods (Spring 2020)
     href: host-pool-load-balancing.md
+  - name: Host pool load-balancing methods (Fall 2019)
+    href: host-pool-load-balancing-2019.md
   - name: FSLogix profile containers and Azure files
     href: fslogix-containers-azure-files.md
   - name: Storage options for FSLogix profile containers
@@ -106,28 +144,42 @@
     href: partners.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
-  - name: Data locations
+  - name: Data locations (Spring 2020)
     href: data-locations.md
+  - name: Data locations (Fall 2019)
+    href: data-locations-2019.md
 - name: Troubleshoot
   items:
-  - name: Troubleshooting overview, feedback, and support
+  - name: Troubleshooting overview, feedback, and support (Spring 2020)
     href: troubleshoot-set-up-overview.md
-  - name: Identify and diagnose issues
+  - name: Troubleshooting overview, feedback, and support (Fall 2019)
+    href: troubleshoot-set-up-overview-2019.md
+  - name: Identify and diagnose issues (Spring 2020)
     href: diagnostics-role-service.md
-  - name: Tenant and host pool creation
+  - name: Identify and diagnose issues (Fall 2019)
+    href: diagnostics-role-service-2019.md
+  - name: Tenant and host pool creation (Spring 2020)
     href: troubleshoot-set-up-issues.md
-  - name: Session host virtual machine configuration
+  - name: Tenant and host pool creation (Fall 2019)
+    href: troubleshoot-set-up-issues-2019.md
+  - name: Session host virtual machine configuration (Spring 2020)
     href: troubleshoot-vm-configuration.md
-  - name: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
+  - name: Session host virtual machine configuration (Fall 2019)
+    href: troubleshoot-vm-configuration-2019.md
+  - name: Troubleshoot Windows 7 virtual machines (Fall 2019)
     href: ./virtual-desktop-fall-2019/troubleshoot-windows-7-vm.md
-  - name: Troubleshoot the Windows Virtual Desktop management tool
+  - name: Troubleshoot the management tool (Fall 2019)
     href: ./virtual-desktop-fall-2019/troubleshoot-management-tool.md
-  - name: Remote Desktop service connections
+  - name: Remote Desktop service connections (Spring 2020)
     href: troubleshoot-service-connection.md
+  - name: Remote Desktop service connections (Fall 2019)
+    href: troubleshoot-service-connection-2019.md
   - name: Remote Desktop client issues
     href: troubleshoot-client.md
-  - name: Windows Virtual Desktop PowerShell
+  - name: Windows Virtual Desktop PowerShell (Spring 2020)
     href: troubleshoot-powershell.md
+  - name: Windows Virtual Desktop PowerShell (Fall 2019)
+    href: troubleshoot-powershell-2019.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
 - name: Reference
