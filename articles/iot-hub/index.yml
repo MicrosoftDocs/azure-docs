@@ -49,11 +49,11 @@ landingContent:
           url: iot-hub-amqp-support.md
         - text: Custom gateway
           url: iot-hub-protocol-gateway.md
- -   title: Route device data
+ -   title: Route device data to another service
      linkLists:
      -  linkListType: concept
         links:
-        - text: Understand message tutorial-routing-config-message-routing-cli.md
+        - text: Understand Azure IoT Hub message routing
           url: iot-hub-devguide-messages-d2c.md
      -  linkListType: tutorial
         links:
@@ -66,7 +66,7 @@ landingContent:
      -  linkListType: sample
         links:
         - text: Azure IoT Samples for C# (.NET)
-          url: /samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net.md
+          url: /samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net
  - title: Security
    linkLists:
      - linkListType: concept
