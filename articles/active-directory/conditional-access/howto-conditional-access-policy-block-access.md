@@ -22,6 +22,8 @@ For organizations with a conservative cloud migration approach, the block all po
 > [!CAUTION]
 > Misconfiguration of a block policy can lead to organizations being locked out of the Azure portal.
 
+Policies like these can have unintended side effects. Proper testing and validation are vital before enabling. Administrators should utilize tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
+
 ## User exclusions
 
 Conditional Access policies are powerful tools, we recommend excluding the following accounts from your policy:
@@ -33,9 +35,9 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview). These policies are put in to [Report-only mode](howto-conditional-access-report-only.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend they can switch them to **On**.
+The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-report-only.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
 
-The first policy blocks access to all apps except for Office 365 applications.
+The first policy blocks access to all apps except for Office 365 applications if not on a trusted location.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -48,7 +50,13 @@ The first policy blocks access to all apps except for Office 365 applications.
 1. Under **Cloud apps or actions**, select the following options:
    1. Under **Include**, select **All cloud apps**.
    1. Under **Exclude**, select **Office 365 (preview)**, select **Select**, then select **Done**.
-1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
+1. Under **Conditions**:
+   1. Under **Conditions** > **Location**.
+      1. Set **Configure** to **Yes**
+      1. Under **Include**, select **Any location**.
+      1. Under **Exclude**, select **All trusted locations**.
+      1. Select **Done**.
+   1. Under **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**, then **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
