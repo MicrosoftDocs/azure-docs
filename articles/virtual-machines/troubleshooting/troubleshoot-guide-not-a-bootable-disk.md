@@ -53,7 +53,7 @@ This error message means the OS boot process couldn't locate an active system pa
 
 ### Set Partition Status to Active
 
-Generation 1 VMs should first verify that the OS partition, which holds the BCD store is marked as *active*. If you have a Generation 2 VM, skip ahead to [Fix the Disk Partition](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands), as the *Status* flag was deprecated in the later generation.
+Generation 1 VMs should first verify that the OS partition, which holds the BCD store is marked as *active*. If you have a Generation 2 VM, skip ahead to [Fix the Disk Partition](#fix-the-disk-partition), as the *Status* flag was deprecated in the later generation.
 
 1. Open an elevated command prompt *(cmd.exe)*.
 2. Enter *diskpart* to launch the DISKPART tool.
