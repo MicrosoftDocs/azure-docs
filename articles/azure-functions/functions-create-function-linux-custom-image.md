@@ -382,7 +382,7 @@ With the image deployed to the function app on Azure, you can now invoke the fun
         ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
-    1. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
+    1. In the pop-up window, select **default (function key)** and then copy the URL to the clipboard. The key is the string of characters following `?code=`.
 
         ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
@@ -420,11 +420,11 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     ---
 
-1. Paste the function URL into your browser's address bar, adding the parameter `&name=Azure` to the end of this URL. Text like "Hello Azure" should appear in the browser.
+1. Paste the function URL into your browser's address bar, adding the parameter `&name=Azure` to the end of this URL. Text like "Hello, Azure" should appear in the browser.
 
     ![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. To test authorization, remove the code= parameter from the URL and verify that you get no response from the function.
+1. To test authorization, remove the `code=` parameter from the URL and verify that you get no response from the function.
 
 
 ## Enable continuous deployment to Azure
