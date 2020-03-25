@@ -288,6 +288,7 @@ The following are examples for the above csv blob:
 > The split_size must be at least 10 MB (10485760).
 
 ## See also
-[Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
-[Filter data by using Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration-how-to.md)
+
+- [Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
+- [Filter data by using Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration-how-to.md)
 
