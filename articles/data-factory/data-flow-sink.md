@@ -40,7 +40,7 @@ Once you have added a sink, configure via the **Sink** tab. Here you can pick or
 
 **Schema drift:** [Schema Drift](concepts-data-flow-schema-drift.md) is data factory's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes. Enable **Allow schema drift** to write additional columns on top of what is defined in the sink data schema.
 
-**Validate schema:** If validate schema is selected, the data flow will fail if any column in the defined schema of the dataset is not found.
+**Validate schema:** If validate schema is selected, the data flow will fail if any column of the incoming source schema is not found in the source projection, or if the data types do not match. Use this setting to enforce that the source data meets the contract of your defined projection. It is very useful in database source scenarios to signal that column names or types have changed.
 
 ## Field mapping
 

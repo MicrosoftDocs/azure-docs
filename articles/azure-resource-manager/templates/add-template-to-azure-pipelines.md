@@ -4,9 +4,9 @@ description: Describes how to set up continuous integration in Azure Pipelines b
 ms.topic: conceptual
 ms.date: 10/17/2019
 ---
-# Integrate Resource Manager templates with Azure Pipelines
+# Integrate ARM templates with Azure Pipelines
 
-Visual Studio provides the Azure Resource Group project for creating templates and deploying them to your Azure subscription. You can integrate this project with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
+Visual Studio provides the Azure Resource Group project for creating Azure Resource Manager (ARM) templates and deploying them to your Azure subscription. You can integrate this project with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
 
 There are two ways to deploy templates with Azure Pipelines:
 
@@ -255,4 +255,4 @@ You can select the currently running pipeline to see details about the tasks. Wh
 
 ## Next steps
 
-For step-by-step process on using Azure Pipelines with Resource Manager templates, see [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+For step-by-step process on using Azure Pipelines with ARM templates, see [Tutorial: Continuous integration of ARM templates with Azure Pipelines](template-tutorial-use-azure-pipelines.md).

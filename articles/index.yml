@@ -34,7 +34,7 @@ highlightedContent:
     # Card
     - title: Build your skills with Microsoft Learn
       itemType: learn
-      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning%20path
+      url: https://docs.microsoft.com/learn/browse/?products=azure&resource_type=learning+path
 
 productDirectory:
   title: Browse Azure products
@@ -350,7 +350,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/synapse.svg
       azureCategories:
         - analytics
-      url: sql-data-warehouse/index.yml
+      url: synapse-analytics/sql-data-warehouse/index.yml
     # Card
     - title: Data Catalog
       summary: Get more value from your enterprise data assets
@@ -400,7 +400,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/power-bi.svg
       azureCategories:
         - analytics
-      url: power-bi-embedded/index.md
+      url: https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded
     # Card
     - title: R Server for HDInsight
       summary: Predictive analytics, machine learning, and statistical modeling for big data
@@ -529,7 +529,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cloud-services.svg
       azureCategories:
         - compute
-      url: cloud-services/index.md
+      url: cloud-services/index.yml
     # Card
     - title: Container Instances
       summary: Easily run containers on Azure without managing servers
@@ -753,21 +753,6 @@ productDirectory:
         - devops
       url: https://docs.microsoft.com/azure/devops/pipelines/
     # Card
-    - title: Developer tool integrations
-      summary: Use the development tools you know—including Eclipse, IntelliJ, and Maven—with Azure
-      imageSrc: https://docs.microsoft.com/media/common/i_extensions.svg
-      azureCategories:
-        - developer-tools
-        - devops
-      url: integrations/index.yml
-    # Card
-    - title: SDKs
-      summary: Get the SDKs and command-line tools you need
-      imageSrc: https://docs.microsoft.com/media/common/i_tools.svg
-      azureCategories:
-        - developer-tools
-      url: sdks/index.yml
-    # Card
     - title: Visual Studio
       summary: The powerful and flexible environment for developing applications in the cloud
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
@@ -934,7 +919,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/service-bus.svg
       azureCategories:
         - integration
-      url: service-bus/index.md
+      url: service-bus-messaging/index.yml
     # Card
     - title: Azure Digital Twins (Preview)
       summary: Build next-generation IoT spatial intelligence solutions
@@ -1421,7 +1406,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/storsimple-device-managers.svg
       azureCategories:
         - storage
-      url: storsimple/index.md
+      url: storsimple/index.yml
     # Card
     - title: Azure SignalR Service
       summary: Add real-time web functionalities easily

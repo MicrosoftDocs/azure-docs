@@ -11,14 +11,14 @@
   - name: Assign a policy - Portal
     displayName: assign, compliance
     href: assign-policy-portal.md
-  - name: Assign a policy - PowerShell
+  - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: assign-policy-powershell.md
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
-  - name: Assign a policy - template
-    displayName: assign, compliance, resource manager, ARM
+  - name: Assign a policy - ARM template
+    displayName: assign, compliance, resource manager
     href: assign-policy-template.md
 - name: Tutorials
   items:
@@ -81,7 +81,7 @@
   - name: Azure Policy for Kubernetes
     items:
     - name: Policy for AKS
-      displayName: aks, rego, k8s, opa, open policy agent, gatekeeper, v2
+      displayName: aks, rego, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints
       href: ./concepts/rego-for-aks.md
     - name: Policy for AKS Engine
       displayName: aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints
@@ -100,9 +100,12 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
-  - name: Create a Guest Configuration policy
-    displayName: powershell, dsc, chef, linux, windows
+  - name: Create a Guest Configuration policy on Windows
+    displayName: powershell, dsc, chef, windows
     href: ./how-to/guest-configuration-create.md
+  - name: Create a Guest Configuration policy on Linux
+    displayName: powershell, dsc, chef, linux
+    href: ./how-to/guest-configuration-create-linux.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
@@ -148,6 +151,12 @@
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - name: Policy Definitions
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Node
+    items:
+    - name: Policy
+      href: /javascript/api/@azure/arm-policy
+    - name: Policy Insights
+      href: /javascript/api/@azure/arm-policyinsights
   - name: Azure SDK for Python
     items:
     - name: Policy
@@ -186,6 +195,8 @@
   items:
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
+  - name: GitHub - Community Policy repo
+    href: https://github.com/Azure/Community-Policy
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
   - name: Governance YouTube Channel
