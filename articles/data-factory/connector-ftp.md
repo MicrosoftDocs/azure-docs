@@ -58,7 +58,7 @@ The following properties are supported for FTP linked service:
 | host | Specify the name or IP address of the FTP server. | Yes |
 | port | Specify the port on which the FTP server is listening.<br/>Allowed values are: integer, default value is **21**. | No |
 | enableSsl | Specify whether to use FTP over an SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation when you are using FTP over SSL/TLS channel.<br/>Allowed values are: **true** (default), **false**. | No |
 | authenticationType | Specify the authentication type.<br/>Allowed values are: **Basic**, **Anonymous** | Yes |
 | userName | Specify the user who has access to the FTP server. | No |
 | password | Specify the password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
