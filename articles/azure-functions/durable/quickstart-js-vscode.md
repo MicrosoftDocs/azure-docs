@@ -59,7 +59,7 @@ A package.json file is also created in the root folder.
 
 ### Enable Azure Functions V2 compatibility mode
 
-Currently, JavaScript Durable Functions require Azure Functions V2 compatability mode to be enabled.
+Currently, JavaScript Durable Functions require Azure Functions V2 compatibility mode to be enabled.
 
 1. Open *local.settings.json* to edit the settings used when running the app locally.
 
@@ -202,7 +202,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ### Enable Azure Functions V2 compatibility mode
 
-The same Azure Functions V2 compatability that you enabled locally needs to be enabled in the app in Azure.
+The same Azure Functions V2 compatibility that you enabled locally needs to be enabled in the app in Azure.
 
 1. Using the command palette, search for and select `Azure Functions: Edit Setting...`.
 
