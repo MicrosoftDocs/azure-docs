@@ -209,7 +209,7 @@ Authorizations define the entities in your managing tenant who can access resour
 You can create up to twenty authorizations for each plan.
 
 > [!TIP]
-> In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../../lighthouse/concepts/tenants-users-roles.md).
+> In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. When assigning roles to Azure AD groups, [be sure that the the **Group type** is **Security** and not **Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../../lighthouse/concepts/tenants-users-roles.md).
 
 For each **Authorization**, you'll need to provide the following. You can then select **+ Add authorization** as many times as needed to add more users and role definitions.
 
