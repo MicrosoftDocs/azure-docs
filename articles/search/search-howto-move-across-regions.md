@@ -43,7 +43,7 @@ Occasionally, customers ask about moving a search service to another region. Cur
 
 The following links can help you locate more information when completing the steps outlined above.
 
-+ [Azure Cognitive Seach pricing and regions](https://azure.microsoft.com/pricing/details/search/)
++ [Azure Cognitive Search pricing and regions](https://azure.microsoft.com/pricing/details/search/)
 + [Choose a tier](search-sku-tier.md)
 + [Create a search service](search-create-service-portal.md)
 + [Load search documents](search-what-is-data-import.md)
