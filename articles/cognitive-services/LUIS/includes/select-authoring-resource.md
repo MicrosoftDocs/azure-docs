@@ -8,4 +8,5 @@ ms.date: 03/25/2020
 
 In the LUIS portal, to see a list of apps or to create an app, select the subscription and authoring resource. Apps are accessed by the LUIS authoring resource.
 
-![Select authoring subscription and authoring resource](../media/select-authoring-resource/select-authoring-resource.png)
+> [!div class="mx-imgBorder"]
+> ![Select authoring subscription and authoring resource](../media/select-authoring-resource/select-authoring-resource.png)
