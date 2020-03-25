@@ -1,5 +1,5 @@
 ---
-title: Security practices for manufacturers - Azure IoT Hub Device Provisioning Service
+title: Security practices for manufacturers - Azure IoT Device Provisioning Service
 description: Overviews common security practices for OEMs and device manufactures who prepare devices to enroll in Azure IoT Device Provisioning Service (DPS). 
 author: timlt
 ms.author: timlt
@@ -12,7 +12,7 @@ ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
 # Security practices for Azure IoT device manufacturers
-As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices. This article overviews recommended security practices to consider when you manufacture devices for use with DPS.  
+As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices. This article overview recommended security practices to consider when you manufacture devices for use with DPS.  
 
 > [!div class="checklist"]
 > * Integrating a Trusted Platform Module (TPM) into the manufacturing process
@@ -118,74 +118,65 @@ If you need help installing certificates in your IoT devices, please contact the
 ## Selecting device authentication options
 The ultimate aim of any IoT device security measure is to create a secure IoT solution. But issues such as hardware limitations, cost, and level of security expertise, all impact which options you choose. Further, your approach to security impacts how your IoT devices connect to the cloud. While there are [several elements of IoT security](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) to consider, a key element that every customer encounters is what authentication type to use. 
 
-Three authentication types commonly used with IoT solutions are X.509 certificate, Trusted Platform Module (TPM), and symmetric key. While other authentication types exist, most customers building solutions on Azure IoT Hub and DPS use one of these three types. The rest of this article surveys the pros and cons of using each authentication type with IoT devices.
+Three widely used authentication types are X.509 certificates, Trusted Platform Modules (TPM), and symmetric keys. While other authentication types exist, most customers who build solutions on Azure IoT use one of these three types. The rest of this article surveys pros and cons of using each authentication type.
 
 ### X.509 certificate
 X.509 certificates are a type of digital identity you can use for authentication. The X.509 certificate standard is documented in [IETF RFC 5280](https://tools.ietf.org/html/rfc5280). In Azure IoT, there are two ways to authenticate certificates:
-- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifer or thumbprint for the certificate. 
+- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifer for the certificate. 
 - CA authentication based on a full chain. A certificate chain is a hierarchical list of all certificates needed to authenticate an end-entity (EE) certificate. To authenticate an EE certificate, it's necessary to authenticate each certificate in the chain including a trusted root CA. 
 
 Pros for X.509:
-- The most secure key type supported in Azure IoT
-- Allows a high level of control for purposes of certificate management
-- Many vendors are available to provide X.509 based authentication solutions
+- X.509 is the most secure key type supported in Azure IoT.
+- X.509 allows a high level of control for purposes of certificate management.
+- Many vendors are available to provide X.509 based authentication solutions.
 
 Cons for X.509:
-- Many customers must rely on external vendors for their certificates
-- Certificate management can be costly and adds to total solution cost
-- Certificate life cycle management can be difficult due to the logistical complexity
+- Many customers must rely on external vendors for their certificates.
+- Certificate management can be costly and adds to total solution cost.
+- Certificate life cycle management can be difficult due to the logistical complexity.
 
 ### Trusted Platform Module (TPM)
-TPM can refer to a standard for securely storing keys used to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based modules, or software-based modules. Some of the key differences between TPMs and symmetric keys (discussed below) are that:
+TPM, also known as [ISO/IEC 11889](https://www.iso.org/standard/66510.html), is a standard for securely generating and storing cryptographic keys. TPM also refers to a virtual or physical I/O device that interacts with modules that implement the standard. A TPM device can exist as discrete hardware, integrated hardware, a firmware-based module, or a software-based module. 
 
-    TPM chips can also store X.509 certificates.
-    TPM attestation in the Device Provisioning Service uses the TPM endorsement key (EK) which is a form of asymmetric authentication, whereas symmetric keys are symmetric authentication.
+There are two key differences between TPMs and symmetric keys: 
+- TPM chips can also store X.509 certificates.
+- TPM attestation in DPS uses the TPM endorsement key (EK), a form of asymmetric authentication. With asymmetric authentication, a public key is used for encryption, and a separate private key is used for decryption. In contrast, symmetric keys use symmetric authentication, where the private key is used for both encryption and decryption. 
 
-Pros
+Pros for TPM:
+- TPMs are included as standard hardware on many Windows devices, with built-in support for the operating system. 
+- TPM attestation is more secure than shared access signature (SAS) token-based symmetric key attestation.
+- You can easily expire and renew, or roll, device credentials. DPS automatically rolls the IoT Hub credentials whenever a TPM device is due for re-provisioning.
 
-    TPMs come standard on many Windows devices, with built-in support in Windows if you're using Windows as your OS.
-    TPM attestation is more secure than SAS token-based symmetric key attestation.
-    You can also blow away credentials pretty easily, and the Device Provisioning Service auto-rolls the IoT Hub credentials whenever a TPM device comes to re-provision.
-
-Cons
-
-    TPMs are difficult to use in general if you're not familiar with them.
-    Difficult to develop for without either a physical TPM or a quality emulator.
-    May require board re-design to include in hardware.
-    You can't roll the EK without essentially destroying the identity of the chip and giving it a new one. It's like if you had a clone, your clone would have the same physical characteristics as you but they are ultimately a different person. Although the physical chip stays the same, it has a new identity in your IoT solution.
+Cons for TPM: 
+- TPMs are complex and can be difficult to use. 
+- Application development with TPMs is difficult unless you have a physical TPM or a quality emulator.
+- You may have to redesign the board of your device to include a TPM in the hardware. 
+- If you roll the EK on a TPM, it destroys the identity of the TPM and creates a new one. Although the physical chip stays the same, it has a new identity in your IoT solution.
 
 ### Symmetric key
-A symmetric key is known to both the device and the service, and the key is used to both encrypt and decrypt messages sent between parties. Azure IoT supports SAS token-based symmetric key connections. The best way to protect symmetric keys is via a hardware security module.
-Pros
+With symmetric keys, the same key is used to encrypt and decrypt messages. As a result, the same key is known to both the device and the service that authenticates it. Azure IoT supports SAS token-based symmetric key connections. However, symmetric authentication is less secure than the other methods surveyed in this article. If you use symmetric keys, it's recommended that you protect the keys by using a hardware security module (HSM).
 
-    Easiest to get started.
-    Nothing extra required to generate.
+Pros for symmetric key:
+- Using symmetric keys is the simplest, lowest cost way to get started with authentication.
+- Using symmetric keys streamlines your process because there's nothing extra to generate. 
 
-Cons
+Cons for symmetric key: 
+- Symmetric keys are less secure than X.509 certificates or TPM. The same key is shared between device and cloud, which means the key must be protected in two places. In contrast, the challenge with TPM and X.509 certificates is proving possession of the public key without revealing the private key.
+- Symmetric keys make it easy to follow poor security practices. A common tendency with symmetric keys is to hard code the un-encrypted keys in the clear on devices. While this practice is convenient, it leaves the keys vulnerable. You can mitigate some risk by securely storing the symmetric key on the device. However, if your priority is ultimately security rather than convenience, use X.509 certificates or TPM for authentication. 
 
-    Less secure than X.509 certificates or TPM because the same key is shared between device and cloud, which means the key needs protecting in two places. For certificates, TPM, and PKI in general the challenge is all about proving possession of the key without ever revealing the private portion of the key.
-    Easy to have bad security practices. Folks using symmetric keys tend to hardcode the keys in the clear (unencrypted) on devices, leaving the keys vulnerable. It's possible to mitigate some risk by securely storing the symmetric key on the device, but in general, folks using symmetric keys aren't necessarily following best practices around key storage. It's not impossible, just uncommon.
+### Shared symmetric key
+There's a variation of symmetric key authentication known as shared symmetric key. This involves using the same symmetric key in all devices. It is strongly recommended that you avoid using shared symmetric keys on your devices. 
 
-Shared symmetric key
+Pros for shared symmetric key:
+- Simple to implement and inexpensive to produce at scale. 
 
-Using the same symmetric key in all your devices. Don't do this ever!
-Pros
+Cons for shared symmetric key: 
+- Highly vulnerable to attack. The benefit of easy implementation is far outweighed by the risk. 
+- Anyone can impersonate your devices if they obtain the shared key.
+- You will likely lose control of devices if you rely on shared symmetric key. 
 
-    Easy to produce at scale.
-
-Cons
-
-    Really, don't use the same symmetric key in all devices. The risks far outweigh the benefit of easy implementation. It would be security malpractice to suggest that shared symmetric key is a serious solution for IoT authentication.
-    Very vulnerable to attack.
-    Anyone can impersonate your devices if they get a hold of your key.
-    You will likely lose control of devices if you rely on shared symmetric key. Just don't do it, you can read more on botnets if you're not convinced that shared symmetric key is a bad idea.
-
-Making the right choice for your devices
-
-You have to evaluate your specific risks and benefits to make your IoT authentication decision. This blog post is too short to cover everything, but Azure IoT offers the Security Program for Azure IoT if you need help making this decision. You can also read our whitepaper about evaluating your IoT security to learn more about your options.
+### Making the right choice for your devices
+To choose an authentication method, make sure you consider the benefits and costs of each approach for your unique manufacturing process.  For device authentication, usually there's an inverse relationship between between how secure a given approach is, and how convenient it is. This article surveyed the main decisions and recommended best practices.  In addition, Azure IoT provides additional resources to help with selecting secure hardware, and creating secure IoT deployments. 
 
 > [!NOTE]
-> Azure IoT provides additional resources to help create secure deployments.  The team published a set of [security recommendations](../iot-fundamentals/security-recommendations.md) to guide the deployment process. The [Azure Security Center](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. For help evaluating your hardware environment, see the whitepaper [Evaluating your IoT Security](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). For help with selecting secure hardware, see [The Right Secure Hardware for your IoT Deployment](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf).
-
-## Next steps
-To learn how several manufacturers have implemented security practices into their process for Azure IoT devices, see the case studies at [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
+> Azure IoT has published a set of [security recommendations](../iot-fundamentals/security-recommendations.md) to guide the deployment process. The [Azure Security Center](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. For help evaluating your hardware environment, see the whitepaper [Evaluating your IoT Security](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). For help with selecting secure hardware, see [The Right Secure Hardware for your IoT Deployment](https://download.microsoft.com/download/C/0/5/C05276D6-E602-4BB1-98A4-C29C88E57566/The_right_secure_hardware_for_your_IoT_deployment_EN_US.pdf). 
