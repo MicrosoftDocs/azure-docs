@@ -4,7 +4,7 @@ description: Azure Security Baseline for Data Explorer
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -764,7 +764,7 @@ Manage access to Azure management with Conditional Access: https://docs.microsof
 
 **Guidance**: Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
 
-Also, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+Also, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
@@ -819,7 +819,7 @@ Get compliance data of Azure resources: https://docs.microsoft.com/azure/governa
 
 ### 7.5: Securely Store Configuration of Azure Resources
 
-**Guidance**: Use Azure DevOps/Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
 How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 

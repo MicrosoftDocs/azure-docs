@@ -4,7 +4,7 @@ description: Azure Security Baseline for Event Hubs
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -818,7 +818,7 @@ For more information about the Azure Policy Effects:  https://docs.microsoft.com
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure Policy definitions for your Event Hubs or related resources, use Azure DevOps/Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions for your Event Hubs or related resources, use Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
