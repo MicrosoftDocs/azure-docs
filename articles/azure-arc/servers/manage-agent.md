@@ -53,7 +53,7 @@ To update the agent on a Windows machine to the latest version, the agent is ava
 
 ### Linux agent
 
-Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard.
+
 
 ## Remove the agent
 
