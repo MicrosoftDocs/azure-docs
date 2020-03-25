@@ -16,9 +16,10 @@ Collecting the Activity Log in a Log Analytics workspace provides the following 
 
 - No data ingestion or data retention charge for Activity log data stored in a Log Analytics workspace.
 - Correlate Activity log data with other monitoring data collected by Azure Monitor.
-- Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
+- Use log queries to perform complex analysis and gain deep insights on Activity Log entries.
+- Use log alerts with Activity entries allowing for more complex alerting logic.
 - Store Activity log entries for longer than 90 days.
-- Consolidate log entries from multiple Azure subscriptions into one location for analysis together.
+- Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
 
 
 
@@ -31,7 +32,7 @@ To create a diagnostic setting for the Activity log, select **Diagnostic setting
 
 
 > [!NOTE]
-> Currently, you can only create a subscription level diagnostic setting using the Azure portal. To use other methods such as PowerShell or CLI, you can create a Resource Manager template.
+> Currently, you can only create a subscription level diagnostic setting using the Azure portal and a Resource Manager template. 
 
 
 ## Legacy settings 
@@ -42,6 +43,7 @@ While diagnostic settings are the preferred method to send the Activity log to d
 - Filter collection to only collect logs for particular categories.
 - Collect all Activity log categories. Some categories are not collected using legacy method.
 - Faster latency for log ingestion. The previous method has about 15 minutes latency while diagnostic settings adds only about 1 minute.
+
 
 
 ### Log profiles
@@ -89,32 +91,18 @@ The columns in the following table have been deprecated in the updated schema. T
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 
+> [!IMPORTANT]
+> In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
+
 The following column have been added to *AzureActivity* in the updated schema:
 
 - Authorization_d
 - Claims_d
 - Properties_d
 
-> [!IMPORTANT]
-> In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
-
-
-### Query samples
-Following are sample queries retrieving Activity log data using log queries.
-
-### List all records for starting virtual machines
-
-```Kusto
-AzureActivity
-| where TimeGenerated > ago(7d) 
-| where ResourceProviderValue == "MICROSOFT.COMPUTE"
-| where OperationNameValue == "MICROSOFT.COMPUTE/VIRTUALMACHINES/START/ACTION"
-```
-
-
 
 ## Activity Logs Analytics monitoring solution
-The Azure Log Analytics monitoring solution is currently being deprecated and will soon be replaced by a workbook using the updated schema in the Log Analytics workspace. You can still use the solution if you already have it enabled, but it can only be used if you're collecting the Activity log using legacy settings. 
+The Azure Log Analytics monitoring solution will be deprecated soon and replaced by a workbook using the updated schema in the Log Analytics workspace. You can still use the solution if you already have it enabled, but it can only be used if you're collecting the Activity log using legacy settings. 
 
 
 
@@ -130,7 +118,7 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 
 ### Enable the solution for new subscriptions
-You can no longer add a new subscription to the Activity Logs Analytics solution using the Azure portal, but you can add a new subscription using a resource manager template. 
+You soon no longer be able to add a new subscription to the Activity Logs Analytics solution using the Azure portal, but you can add a new subscription using a resource manager template. 
 
 1. Copy the following json into a file called *ActivityLogTemplate*.json.
 
