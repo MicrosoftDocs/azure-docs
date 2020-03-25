@@ -107,11 +107,11 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ## Remove the agent
 
-To disconnect a machine from Azure Arc for servers (preview), do the following:
+Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard. Before uninstalling the agent, you should disconnect the machine from Azure Arc for servers (preview) by performing the following: 
 
 1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
 
-1. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
+2. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
 
 ### Windows agent
 
@@ -172,11 +172,3 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
     ```bash
     sudo zypper remove azcmagent
     ```
-
-## Update proxy settings
-
-To configure the agent to communicate to the service through a proxy server after deployment, use one of the following methods to complete this task.
-
-### Windows agent
-
-### Linux agent
