@@ -12,8 +12,24 @@ ms.author: cynthn
 ---
 
 # Migrate from a managed image to an image version using the Azure CLI
+If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image and then delete the managed image. Once you have tested your new image version, you can delete the source managed image.
 
-Create versions of the image as needed using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. 
+An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+
+
+## Before you begin
+
+To complete this article, you must have an existing [Shared Image Gallery and an image definition](./linux/shared-images.md#). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
+
+To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Capture a managed image](./linux/capture-image.md). If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
+
+When working through this article, replace the resource group and VM names where needed.
+
+[!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
+
+## Create the image version
+
+Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -36,3 +52,7 @@ az sig image-version create \
 >
 > You can also store all of your image version replicas in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
 >
+
+## Next steps
+
+Create a VM from a [generalized image version](vm-generalized-image-version.md).

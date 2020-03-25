@@ -70,3 +70,7 @@ az sig image-version create \
 >
 > You can also store all of your image version replicas in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type standard_zrs` when you create the image version.
 >
+
+## Next steps
+
+Create a VM from the [specialized image version](vm-specialized-image-version-cli.md).

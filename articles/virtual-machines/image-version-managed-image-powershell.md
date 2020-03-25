@@ -10,7 +10,7 @@ ms.author: cynthn
 
 ---
 
-# Create an image version from a managed image
+# MIgrate from a managed image to an image verison in a Shared Image Gallery
 
 If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create an image version from the managed image and then delete the managed image. Once you have tested your new image version, you can delete the source managed image.
 
@@ -19,7 +19,7 @@ An **image version** is what you use to create a VM when using a Shared Image Ga
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery and an [image definition](./windows/shared-images.md#). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
+To complete this article, you must have an existing [Shared Image Gallery and an image definition](./windows/shared-images.md#). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
 
 To complete the example in this article, you must have an existing managed image. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
