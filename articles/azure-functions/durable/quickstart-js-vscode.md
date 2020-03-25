@@ -40,7 +40,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
-    ![Create function](media/quickstart-js-vscode/functions-vscode-create-project.png)
+    ![Create function](media/quickstart-js-vscode/functions-create-project.png)
 
 1. Choose an empty folder location for your project and choose **Select**.
 
@@ -151,7 +151,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Create storage account](media/quickstart-js-vscode/functions-vscode-select-storage.png)
+    ![Create storage account](media/quickstart-js-vscode/functions-select-storage.png)
 
 1. Following the prompts, provide the following information to create a new storage account in Azure.
 
@@ -165,7 +165,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](media/quickstart-js-vscode/functions-vscode-f5.png)
+    ![Azure local output](media/quickstart-js-vscode/functions-f5.png)
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
