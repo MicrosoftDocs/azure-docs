@@ -115,6 +115,9 @@ A new Front Door creation or any updates to an existing Front Door takes about 3
 
 Note - Custom SSL certificate updates take about 30 minutes to be deployed globally.
 
+Any updates to routes or backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage, unless switching from 'AFD Managed' to 'Use your own cert' or vice versa.
+
+
 ## Configuration
 
 ### Can Azure Front Door load balance or route traffic within a virtual network?
