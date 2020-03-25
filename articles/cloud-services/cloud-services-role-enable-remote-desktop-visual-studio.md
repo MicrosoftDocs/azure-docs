@@ -60,7 +60,7 @@ If you're working as part of a team, you should instead enable remote desktop on
 
 This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that is more secure and more flexible. This change also aligns with the fact that the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
 
-When Visual Studio communicates with the RDP extension, it transmit a plain text password over SSL. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
+When Visual Studio communicates with the RDP extension, it transmit a plain text password over TLS. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
 
 If you deploy the cloud service project from the same development computer each time, then that local certificate is available. In this case, you can still use the **Enable Remote Desktop for all roles** option in the publish wizard.
 

@@ -4,7 +4,7 @@ description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
