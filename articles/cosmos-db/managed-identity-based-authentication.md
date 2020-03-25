@@ -1,11 +1,11 @@
 ---
 title: How to use system assigned managed identities (MSI) to access to Azure Cosmos DB data.
 description: Learn how to configure an Azure AD system-assigned managed identity to access keys from Azure Cosmos DB.
-author: j-patrick
+author: j-patrick'
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.author: justipat
+ms.author: justipat'
 ms.reviewer: sngun
 
 ---
@@ -32,7 +32,7 @@ In this step, you'll assign a system-assigned managed identity to your Azure Fun
 1. On the **Identity tab** switch **System Identity** to the "On" position. Be sure to click **Save**, and confirm you want to turn on System Identity. In the end the **System Identity** pane should look like this:  
 ![System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
-## Grant the System-Assigned Managed Identity Access to your Azure Cosmos DB 
+## Grant the System-Assigned Managed Identity Access to your'Azure Cosmos DB 
 
 In this step, you'll assign a role to the Azure Function's System-Assigned Managed Identity. Azure Cosmos DB has multiple built-in roles you can assign the System Identity too. For this exercise we'll just focus on two:
 
@@ -55,13 +55,14 @@ For our scenario, we'll read the sale receipt documents, summarize them, and the
 1. Select the **+ Add** button, then **add role assignment**:
 ![Add Role Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-select-add.png)
 
-1. The **Role Assignment** panel opens to the right:
-![Add Role Assignment Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+1. The **Add Role Assignment** panel opens to the right:
+     <img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" width="50%">
 
      * **Role** - Select **DocumentDB Account Contributor**
      * **Assign access to** - Under the Select **System-assigned managed identity** subsection, select  **Function App**.
     * **Select** - The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In our case I select the **SummaryService** function app: 
-![Selection of Function App](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+
+        <img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" width="50%">
 
 1. Select the function app and click **Save**.
 
@@ -71,6 +72,8 @@ Now we have a function app that has a system-assigned managed identity. That ide
 
 We'll be using to get the Azure Cosmos DB Keys is the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys).
 
+> [!IMPORTANT] 
+> If you want to [assign the **Cosmos DB Account Reader**](#grant-the-system-assigned-managed-identity-access-to-your-azure-cosmos-db) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will only populate the read only keys.
 
 The api returns DatabaseAccountListKeysResult. This type isn't defined in the C# libraries. The code below is an implementation for this class. Add it to the solution: 
 ```csharp 
@@ -183,12 +186,10 @@ namespace SummarizationService
 ```
 You are now ready to [deploy your Azure Function.](../azure-functions/functions-create-first-function-vs-code.md) 
 
-> [!IMPORTANT] 
-> If you want to [assign the **Cosmos DB Account Reader**](#grant-the-system-assigned-managed-identity-access-to-your-azure-cosmos-db) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This would only populate the read only keys on the DatabaseAccountListKeysResult class.
-
 ## Next steps
 
 * [Certificate-based authentication with Azure Cosmos DB and Active Directory](certificate-based-authentication.md)
 * [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
 
 * [Security baseline for Azure Cosmos DB](security-baseline.md)
+'
