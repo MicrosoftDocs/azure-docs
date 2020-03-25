@@ -1,7 +1,7 @@
 ---
 title: Managed service offers in Azure Marketplace
 description: Managed service offers allow service providers to sell resource management offers to customers in Azure Marketplace.
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
 ---
 

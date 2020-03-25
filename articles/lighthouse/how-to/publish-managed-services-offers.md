@@ -1,7 +1,7 @@
 ---
 title: Publish a managed service offer to Azure Marketplace
 description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
 ---
 

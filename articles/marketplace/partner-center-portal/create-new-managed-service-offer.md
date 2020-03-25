@@ -7,14 +7,14 @@ manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ---
 
 # Create a new Managed Service offer
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
-To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency)] to publish a Managed Service offer.
+To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.commembership/azure-expert-msp) to publish a Managed Service offer.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
@@ -172,11 +172,9 @@ Select **Create** once you have entered these values to continue working on your
 
 ### Plan listing
 
-First, enter a **Name** for the plan. This name will be shown to customers in the marketplace.
+First, provide a **Search results summary** for the plan. This is a short description of your plan (up to 100 characters), which may be used in marketplace search results.
 
-Next, provide a **Search results summary** for the plan. This is a short description of your plan (up to 100 characters), which may be used in marketplace search results.
-
-Finally, enter a **Description** that provides a more detailed explanation of the plan.
+Next, enter a **Description** that provides a more detailed explanation of the plan.
 
 ### Pricing and availability
 
@@ -201,6 +199,8 @@ This section of yoru plan creates a manifest with authorization information for 
 First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
 
 Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory (Azure AD) tenant ID of your organization; that is, the managing tenant from which you will access your customers' resources. If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
+
+If you publish a new version of your offer and need to create an updated manifest, select **+ New manifest**. Be sure to increase the version number from the previous manifest version.
 
 #### Authorization
 
