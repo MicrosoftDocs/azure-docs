@@ -159,11 +159,11 @@ Because SUSE Linux uses symbolic links (or *symlinks*) to maintain a certificate
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
-For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. Please note that while we continue to support outbound access via URLs, whitelisting of IP ranges is no longer supported.
+For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. Please note that while we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
-  - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
+  - Connection cannot be established to Site Recovery endpoints due to DNS resolution failure.
   - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
 
 - **Resolution**
@@ -186,7 +186,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs is
   - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
-  - If you are using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, please ensure you use service tags. We no longer support whitelisting of IP addresses via NSGs for ASR.
+  - If you are using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, please ensure you use service tags. We no longer support using an allow list of IP addresses via NSGs for Azure Site Recovery (ASR).
 
 
 ### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
@@ -207,7 +207,8 @@ For Site Recovery replication to work, outbound connectivity to specific URLs is
 
 
 ### Fix the problem
-To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+
+To add [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) to an allow list, follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
 
 
 ### More information
