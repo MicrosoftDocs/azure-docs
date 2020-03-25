@@ -145,7 +145,7 @@ Use the Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cl
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
 ```
 
-.You may instead import a private key using the Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command:
+You may instead import a private key using the Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command:
 
 In either case, you will supply the name of your KEK to the Azure CLI [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) --key-encryption-key parameter. 
 

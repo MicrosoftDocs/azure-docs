@@ -8,7 +8,8 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
+
 ms.author: jingwang
 
 ---
@@ -80,7 +81,11 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 
 ## Data type support
 
-Avro [complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
+### Copy activity
+Avro [complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed) in Copy Activity.
+
+### Data flows
+When working with Avro files in data flows, you can read and write complex data types, but be sure to clear the physical schema from the dataset first. In data flows, you can set your logical projection and derive columns that are complex structures, then auto-map those fields to an Avro file.
 
 ## Next steps
 

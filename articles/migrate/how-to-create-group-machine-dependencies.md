@@ -1,21 +1,23 @@
 ---
-title: Set up dependency visualization in Azure Migrate
-description: Describes set up dependency visualization in Azure Migrate Server Assessment.
-ms.topic: article
+title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
+description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
+ms.topic: how-to
 ms.date: 2/24/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
-- [Review](concepts-dependency-visualization.md) the requirements and costs associated with dependency visualization.
+- [Learn about](concepts-dependency-visualization.md#agent-based-analysis) agent-based dependency analysis.
+- Review the prerequisites and support requirements for setting up agent-based dependency visualization for [VMware VMs](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
 - Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
+- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md). The appliance discovers on-premises machines, and sends metadata, performance data to Azure Migrate:Server Assessment.
 - To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
+    - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
     - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
@@ -23,12 +25,10 @@ This article describes how to set up dependency visualization in Azure Migrate:S
     - You attach the workspace the first time that you set up dependency visualization for a machine. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
 
-- You can attach a workspace only after discovering machines in the Azure Migrate project. You can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
-
 ## Associate a workspace
 
-1. After you've discovered machines for assessment, in **Servers** > **Azure Migrate:Server Assessment**, click **Overview**.  
-2. In **Azure Migrate:Server Assessment**, click **Essentials**.
+1. After you've discovered machines for assessment, in **Servers** > **Azure Migrate: Server Assessment**, click **Overview**.  
+2. In **Azure Migrate: Server Assessment**, click **Essentials**.
 3. In **OMS Workspace**, click **Requires configuration**.
 
      ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
@@ -46,7 +46,7 @@ This article describes how to set up dependency visualization in Azure Migrate:S
 On each machine you want to analyze, install the agents.
 
 > [!NOTE]
-    > For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow this](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) integration guidance.
+> For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) integration guidance.
 
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. For each machine you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
@@ -71,7 +71,7 @@ To install the agent on a Windows machine:
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196).
-- [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) about using these methods to install the MMA agent.
 - The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
 - [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) about the Windows operating systems supported by MMA.
 

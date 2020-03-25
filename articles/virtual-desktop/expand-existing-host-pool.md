@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
+manager: lizross
 ---
 # Expand an existing host pool with new session hosts
 
@@ -65,19 +66,19 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
 
 ## Run the Azure Marketplace offering
 
-Follow the instructions in [Create a host pool by using the Azure Marketplace](./create-host-pools-azure-marketplace.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each blade:
+Follow the instructions in [Create a host pool by using the Azure Marketplace](./create-host-pools-azure-marketplace.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
 
 ### Basics
 
 All values in this section should match what you provided when you first created the host pool and session host VMs, except for *Default desktop users*:
 
-1.	For *Subscription*, select the subscription where you first created the host pool.
-2.	For *Resource group*, select the same resource group where the existing host pool session host VMs are located.
-3.	For *Region*, select the same region where the existing host pool session host VMs are located.
-4.	For *Hostpool name*, enter the name of the existing host pool.
-5.	For *Desktop type*, select the desktop type that matches the existing host pool.
-6.	For *Default desktop users*, enter a comma-separated list of any additional users who you want to sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering finishes. For example, if you want to assign user3@contoso.com and user4@contoso.com access, enter user3@contoso.com,user4@contoso.com.
-7.	Select **Next : Configure virtual machine**.
+1.    For *Subscription*, select the subscription where you first created the host pool.
+2.    For *Resource group*, select the same resource group where the existing host pool session host VMs are located.
+3.    For *Region*, select the same region where the existing host pool session host VMs are located.
+4.    For *Hostpool name*, enter the name of the existing host pool.
+5.    For *Desktop type*, select the desktop type that matches the existing host pool.
+6.    For *Default desktop users*, enter a comma-separated list of any additional users who you want to sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering finishes. For example, if you want to assign user3@contoso.com and user4@contoso.com access, enter user3@contoso.com,user4@contoso.com.
+7.    Select **Next : Configure virtual machine**.
 
 >[!NOTE]
 >Except for *Default desktop users*, all fields must match exactly what has been configure in the existing host pool. If there is a mismatch that will result in a new host pool.

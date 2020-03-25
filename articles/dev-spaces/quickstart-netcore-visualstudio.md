@@ -88,7 +88,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-In the above example, the public URL is http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navigate to your service's public URL and interact with the service running in your dev space.
+In the above example, the public URL is http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+
+Select **Debug** then **Start Debugging**. After a few seconds, your service will start and Visual Studio will open a browser with the public URL of the service. If a browser does not automatically open, navigate to your service's public URL in a browser and interact with the service running in your dev space.
 
 This process may have disabled public access to your service. To enable public access, you can update the [ingress value in the *values.yaml*][ingress-update].
 
@@ -100,7 +102,7 @@ If Visual Studio is still connected to your dev space, click the stop button. Ch
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Save your changes and start your service using **Azure Dev Spaces** from the launch settings dropdown. Open the public URL of your service in a browser and click *About*. Observe that your updated message appears.
+Save your changes and select **Debug** then **Start Debugging**. After a few seconds, your service will start and Visual Studio will open a browser with the public URL of the service. If a browser does not automatically open, navigate the public URL of your service in a browser and click *About*. Observe that your updated message appears.
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, Azure Dev Spaces incrementally recompiles code within the existing container to provide a faster edit/debug loop.
 
@@ -118,7 +120,7 @@ Remove the breakpoint by putting your cursor on line 20 in `Controllers/HomeCont
 
 Navigate to your resource group in the Azure portal and click *Delete resource group*. Alternatively, you can use the [az aks delete](/cli/azure/aks#az-aks-delete) command:
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
@@ -127,5 +129,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
-[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

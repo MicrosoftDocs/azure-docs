@@ -1,7 +1,6 @@
 ---
 title: Log Analytics agent overview
 description: This topic helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environment with Log Analytics.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -11,7 +10,7 @@ ms.date: 02/04/2020
 ---
 
 # Log Analytics agent overview
-The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](), [Azure Security Center](), and [Azure Automation]().
+The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), and [Azure Automation](../../automation/automation-intro.md).
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
@@ -98,7 +97,7 @@ This section provides details about the supported Linux distributions.
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
 * Only the server versions are supported, not client.  
-* New versions of [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md) are always supported.  
+* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
 * Versions that have passed their manufacturer's end-of-support date are not supported.  
 * New versions of AMI are not supported.  
@@ -125,8 +124,8 @@ The following table highlights the packages required for supported Linux distros
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
-|Glibc |	GNU C Library | 2.5-12 
-|Openssl	| OpenSSL Libraries | 1.0.x or 1.1.x |
+|Glibc |    GNU C Library | 2.5-12 
+|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
@@ -137,6 +136,19 @@ The following table highlights the packages required for supported Linux distros
 ## TLS 1.2 protocol
 
 To ensure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
+
+
+## SHA-2 Code Signing Support Requirement for Windows
+The Windows agent will begin to exclusively use SHA-2 signing on May 18, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before May 18, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+
+1. Install the latest Service Pack for your OS. The required service pack versions are:
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
+
+2. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 Code Signing Support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)
+3. Update to the latest version of the Windows agent (version 10.20.18029).
+4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
 
 ## Network requirements
@@ -179,7 +191,7 @@ For example:
 `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
+> If you use special characters such as "\@" in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
 
 

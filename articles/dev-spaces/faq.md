@@ -15,6 +15,10 @@ This addresses frequently asked questions about Azure Dev Spaces.
 
 See [supported regions][supported-regions] for a complete list of available regions.
 
+## Can I migrate my AKS cluster with Azure Dev Spaces to another region?
+
+Yes, if you want to move your AKS cluster with Azure Dev Spaces to another [supported region][supported-regions], we recommend that you create a new cluster in the other region then install and configure Azure Dev Spaces and deploy your resources and applications to your new cluster. For more information on migrating AKS, see [Migrate to Azure Kubernetes Service (AKS)][aks-migration].
+
 ## Can I use Azure Dev Spaces with existing Dockerfiles or Helm charts?
 
 Yes, if your project already has a Dockerfile or a Helm chart, you can use those files with Azure Dev Spaces. When you run `azds prep`, use the `--chart` parameter and specify the location of the chart. Azure Dev Spaces will still generate an *azds.yaml* and *Dockerfile.develop* file, but it will not replace or modify an existing Dockerfile or a Helm chart. You may need to modify the *azds.yaml* and *Dockerfile.develop* files in order for everything to work correctly with your existing application when running `azds up`.
@@ -60,13 +64,28 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP
 
 Yes, you can use Azure Dev Spaces on AKS clusters with [restricted egress traffic for cluster nodes][aks-restrict-egress-traffic] enabled once the correct FQDNs have been allowed. More information on using an AKS clusters with restricted egress traffic for cluster nodes enabled with Azure Dev Spaces is available [here](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
+## Can I use Azure Dev Spaces on RBAC-enabled AKS clusters?
+
+Yes, you can use Azure Dev Spaces on AKS clusters with or without RBAC enabled.
+
+## What happens when I enable ingress for project in Visual Studio?
+
+When using Visual Studio to prepare your project, you have the option of enabling ingress for your service. Enabling ingress creates a public endpoint to access your service when running on your AKS cluster, which is optional. If you do not enable ingress, your service is only accessible from within your AKS cluster.
+
+## Can I use pod managed identities with Azure Dev Spaces?
+
+Currently, Azure Dev Spaces does not support using [pod managed identities][aks-pod-managed-id] on AKS clusters with Azure Dev Spaces enabled. If you have pod managed identities installed and would like to uninstall it, you can find more details in the [uninstall notes][aks-pod-managed-id-uninstall].
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
+[aks-migration]: ../aks/aks-migration.md
+[aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
+[aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
-[dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
-[dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
+[dev-spaces-prep]: how-dev-spaces-works-prep.md
+[dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https

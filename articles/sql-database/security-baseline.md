@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -122,11 +122,9 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: Enabled Advanced Threat Protection (ATP) for Azure SQL Database.  Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection also integrates alerts with Azure Security Center.
-
+**Guidance**: Enable Advanced Threat Protection (ATP) for Azure SQL Database.  Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection also integrates alerts with Azure Security Center.
 
 Understand and using Advanced Threat Protection for Azure SQL Database:
-
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Azure Security Center monitoring**: Yes
@@ -164,11 +162,14 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement network security configurations for your Azure SQL Database server instances with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint"
+**Guidance**: Define and implement network security configurations for your Azure SQL Database server instances with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions, or use any of the built-in policy definitions designed for Azure SQL Database server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
+ 
 
 Use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, Role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
+
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -238,20 +239,19 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analytics, a cloud solution that monitors the performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
-
 How to setup auditing for your Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-How to collect platform logs and metrics with Azure Monitor:
+How to collect metrics and resource logs with Azure Monitor:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 
 How to stream diagnostics into Azure SQL Analytics:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#configure-the-streaming-export-of-diagnostic-telemetry
 
 **Azure Security Center monitoring**: Yes
 
@@ -457,13 +457,27 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
+
+
 Use  Advanced Threat Protection for Azure SQL Database to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-How to identify Azure AD users flagged for risky activity: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-How to monitor users identity and access activity in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Review Advanced Threat Protection and potential alerts: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+How to identify Azure AD users flagged for risky activity:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+How to monitor users identity and access activity in Azure Security Center:
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Review Advanced Threat Protection and potential alerts:
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Azure Security Center monitoring**: Yes
@@ -473,6 +487,7 @@ Review Advanced Threat Protection and potential alerts: https://docs.microsoft.c
 ### 3.8: Manage Azure resources from only approved locations
 
 **Guidance**: Use Conditional Access Named Locations to allow Portal and Azure Resource Management access from only specific logical groupings of IP address ranges or countries/regions.
+
 
 How to configure Named Locations in Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -714,7 +729,7 @@ How to create alerts for Azure Activity Log events:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -772,9 +787,9 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 How to export a vulnerability assessment report in Azure Security Center:
 
-https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
+https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implement-vulnerability-assessment
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -797,11 +812,15 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure SQL Server instances) within your subscription(s).  Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Although classic Azure resources may be discovered via Azure Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
+
+
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -813,7 +832,11 @@ Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+
+How to create and use Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -823,11 +846,23 @@ How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-How to create Management Groups: https://docs.microsoft.com/azure/governance/management-groups/create
 
-How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+How to create additional Azure subscriptions:
+
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+How to create Management Groups:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+How to create and use Tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -852,7 +887,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -895,6 +930,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -912,9 +948,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 
-How to configure Conditional Access to block access to Azure Resource Manager:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+How to configure Conditional Access to block access to Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1154,7 +1188,7 @@ Understand backups and business continuity with Azure SQL Server:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Shared
 
@@ -1206,7 +1240,7 @@ How to enable soft delete in Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -1240,7 +1274,7 @@ Security alerts in Azure Security Center:https://docs.microsoft.com/azure/securi
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 
 
@@ -1294,7 +1328,7 @@ How to configure Workflow Automation and Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -1310,10 +1344,14 @@ https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
 
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: 
+You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
+## Next steps
+
+- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

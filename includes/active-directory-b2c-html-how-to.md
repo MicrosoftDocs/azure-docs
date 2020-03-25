@@ -1,10 +1,10 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
-ms.author: marsma
+ms.date: 03/19/2020
+ms.author: mimart
 ---
 ## Use custom page content
 
@@ -43,7 +43,7 @@ The following table lists the default page content provided by Azure AD B2C. Dow
 | Default page | Description | Content definition ID<br/>(custom policy only) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Error page**. This page is displayed when an exception or an error is encountered. | *api.error* |
-| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Self-Asserted page**. Use this file as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, and more. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | *api.localaccountsignin*, *api.localaccountsignup* , *api.localaccountpasswordreset*, *api.selfasserted* |
+| [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Self-Asserted page**. Use this file as a custom page content for a social account sign-up page, a local account sign-up page, a local account sign-in page, password reset, and more. The form can contain various input controls, such as: a text input box, a password entry box, a radio button, single-select drop-down boxes, and multi-select check boxes. | *api.localaccountsignin*, *api.localaccountsignup*, *api.localaccountpasswordreset*, *api.selfasserted* |
 | [multifactor-1.0.0.html](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multi-factor authentication page**. On this page, users can verify their phone numbers (by using text or voice) during sign-up or sign-in. | *api.phonefactor* |
 | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profile update page**. This page contains a form that users can access to update their profile. This page is similar to the social account sign-up page, except for the password entry fields. | *api.selfasserted.profileupdate* |
 | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Unified sign-up or sign-in page**. This page handles the user sign-up and sign-in process. Users can use enterprise identity providers, social identity providers such as Facebook or Google+, or local accounts. | *api.signuporsignin* |
@@ -55,7 +55,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 ## Guidelines for using custom page content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
-- Add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
+- Using [page layout version](../articles/active-directory-b2c/page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload=true`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
@@ -66,6 +66,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
   - Limited support for Internet Explorer 9 and 8
   - Google Chrome 42.0 and above
   - Mozilla Firefox 38.0 and above
+  - Safari for iOS and macOS, version 12 and above
 - Due to security restrictions, Azure AD B2C doesn't support `frame`, `iframe`, or `form` HTML elements.
 
 ## Custom page content walkthrough
@@ -127,7 +128,7 @@ To create a public container in Blob storage, perform the following steps:
 
 1. Under **Blob service** in the left-hand menu, select **Blobs**.
 1. Select **+Container**.
-1. For **Name**, enter *root*. This can be a name of your choosing, for example *wingtiptoys*, but we use *root* in this example for simplicity.
+1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
 1. For **Public access level**, select **Blob**, then **OK**.
 1. Select **root** to open the new container.
 
@@ -158,6 +159,9 @@ Configure Blob storage for Cross-Origin Resource Sharing by performing the follo
 
 Validate that you're ready by performing the following steps:
 
-1. Navigate to [www.test-cors.org](https://www.test-cors.org/) and paste the URL in the **Remote URL** box.
+1. Repeat the configure CORS step. For **Allowed origins**, enter `https://www.test-cors.org`
+1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
+1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
+    The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.

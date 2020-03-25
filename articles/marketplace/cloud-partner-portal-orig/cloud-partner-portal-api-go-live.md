@@ -1,13 +1,12 @@
 ---
 title: Go Live | Azure Marketplace
 description: The Go Live API initiates the offer live listing process.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Go Live

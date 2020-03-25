@@ -46,6 +46,8 @@
     href: select-columns-transform.md
   - name: Select Columns in Dataset
     href: select-columns-in-dataset.md
+  - name: Split Data
+    href: split-data.md
 - name: Feature selection
   items:
   - name: Filter Based Feature Selection
@@ -134,6 +136,8 @@
     href: feature-hashing.md
   - name: Preprocess Text
     href: preprocess-text.md
+  - name: Latent Dirichlet Allocation
+    href: latent-dirichlet-allocation.md
 - name: Recommendation
   items: 
   - name: Evaluate Recommender
@@ -142,6 +146,12 @@
     href: score-svd-recommender.md
   - name: Train SVD Recommender
     href: train-svd-recommender.md
+- name: Anomaly Detection
+  items: 
+  - name: PCA-Based Anomaly Detection
+    href: pca-based-anomaly-detection.md
+  - name: Train Anomaly Detection Model
+    href: train-anomaly-detection-model.md
 - name: Module errors & troubleshooting
   href: designer-error-codes.md
   

@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
+manager: lizross
 ---
 # Publish built-in apps in Windows Virtual Desktop
 

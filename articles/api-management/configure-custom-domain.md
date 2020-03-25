@@ -49,7 +49,8 @@ To perform the steps described in this article, you must have:
     - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
     - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
+    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
+    - **NewPortal** (default is: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Only the **Gateway** endpoint is available for configuration in the Consumption tier.
@@ -89,7 +90,7 @@ When configuring DNS for your custom domain name, you have two options:
 -   Configure an A-record that points to your API Management gateway IP address.
 
 > [!NOTE]
-> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [the IP documentation article](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## Next steps
 

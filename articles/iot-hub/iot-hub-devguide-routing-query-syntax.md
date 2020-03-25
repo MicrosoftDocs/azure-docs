@@ -209,6 +209,8 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
+Routing query on body or device twin with a period in the payload or property name is not supported.
+
 ## Next steps
 
 * Learn about [message routing](iot-hub-devguide-messages-d2c.md).

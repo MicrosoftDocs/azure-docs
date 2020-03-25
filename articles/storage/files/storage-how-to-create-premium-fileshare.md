@@ -142,7 +142,7 @@ To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.c
 
 If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
 
-```cli
+```azurecli
 az login
 ```
 
@@ -173,7 +173,7 @@ az storage account create `
 
 Storage account keys control access to resources in a storage account, in this article, we use the key in order to create a premium file share. The keys are automatically created when you create a storage account. You can get the storage account keys for your storage account by using the [az storage account keys list](/cli/azure/storage/account/keys) command:
 
-```azurecli-interactive 
+```azurecli-interactive
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
