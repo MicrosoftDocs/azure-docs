@@ -176,7 +176,7 @@ It takes from five to seven minutes for Azure Firewall to scale out. Contact Sup
 The following points should be taken into account when you test the firewall autoscale:
 
 - Single TCP flow performance is limited to 1.4 Gbps. So, a performance test needs to establish multiple TCP flows.
-- Performance tools must continuously establish new connections for them to connect with the scaled-up backend Firewall instances. If the test establishes connections once at the start, then those will only connect with the initial backend instances. Even though the firewall scales up, you won't see any increased performance because the connections will be associated with the initial instances.
+- Performance tools must continuously establish new connections for them to connect with the scaled-up backend Firewall instances. If the test establishes connections once at the start, then those will only connect with the initial backend instances. Even though the firewall scales up, you won't see any increased performance because the connections are associated with the initial instances.
 
 
 ## Does Azure Firewall allow access to Active Directory by default?
