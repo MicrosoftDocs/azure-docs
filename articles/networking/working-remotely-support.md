@@ -6,17 +6,17 @@ author: rambk
 
 ms.service: virtual-network
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 03/25/2020
 ms.author: kumud
 
 ---
 
 # Working remotely using Azure networking services
 
-This article describes how you can leverage Azure networking services to enable working remotely. The Covid-19 has forced people across a wide range of industries to work from home. As a result, network architects are faced with the following challenges:
+This article describes how you can leverage Azure networking services to enable working remotely. Covid-19 is creating a need for organizations to support more remote workers. As a result, network architects are faced with the following challenges:
 
-- address the steep increase in network utilization
-- provide reliable-secure connectivity to all the employees of their company and customers,
+- address an increased in network utilization
+- provide reliable-secure connectivity to more employees of their company and customers,
 - provide connectivity to remote locations across the globe. 
 
 Not all networks (for example, the Internet backbone, private WAN, and corporate core networks) are experiencing congestion because of Covid-19. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
@@ -27,13 +27,15 @@ Network planners can help ease the bottlenecks and alleviate the network congest
 >Towards the end of this article, links for Covid-19 preparation articles leveraging different Azure networking features and ecosystems are listed.
 >
 
-## Azure is designed for elasticity and high-availability
+## Sharing our best practices - Azure network is designed for elasticity and high-availability
 
 Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operates one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
 
 Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
 
-Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+>[!NOTE] 
+>Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+>
 
 ## Enable employees to work remotely
 
@@ -45,6 +47,8 @@ To access your resources deployed in Azure, remote employees could use Azure Bas
 
 For aggregating large-scale VPN connection, to support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. For more information, see [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769).
 
+Another way to support a remote workforce is to deploy a Virtual Desktop Infrastructure (VDI) hosted in your Azure virtual network, secured with an Azure Firewall. For example, Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs in Azure. With Windows Virtual Desktop, you can set up a scalable and flexible environment in your Azure subscription without the need to run any additional gateway servers. You are only responsible for the WVD virtual machines in your virtual network. For more information, see [Azure Firewall remote work support](../firewall/remote-work-support.md). 
+
 Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) Considerations during COVID-19](https://go.microsoft.com/fwlink/?linkid=2123771).
 
 ## Enable employees to access globally distributed on-premises resources
@@ -53,7 +57,7 @@ Use ExpressRoute Global Reach, Azure VPN gateway, or Azure Virtual WAN services 
 
 ## Scale customer connectivity to frontend resources
 
-Lockdown is forcing people to go online. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see[Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
+Covid-19 is also creating a need for people to go online more. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see[Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
 
 ## Microsoft support for multi-cloud traffic
 
@@ -73,3 +77,4 @@ Following are the Covid-19 preparation articles leveraging different Azure netwo
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
 | [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
 | [COVID update - ExpressRoute](https://go.microsoft.com/fwlink/?linkid=2123768) | March 23, 2020 |
+|[Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|

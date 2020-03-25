@@ -1,17 +1,21 @@
 ---
-title: Use Java and Maven/Gradle to publish a function to Azure
-description: Create and publish an HTTP-triggered function to Azure with Java and Maven or Gradle.
+title: Use Java and Gradle to publish a function to Azure
+description: Create and publish an HTTP-triggered function to Azure with Java and Gradle.
 author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-zone_pivot_groups: java-build-tools-set
 ---
 
-# Quickstart: Use Java and Maven/Gradle to create and publish a function to Azure
+# Quickstart: Use Java and Gradle to create and publish a function to Azure
 
-This article shows you how to build and publish a Java function to Azure Functions with the Maven/Gradle command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](functions-scale.md#consumption-plan) and is triggered by an HTTP request.
+This article shows you how to build and publish a Java function project to Azure Functions with the Gradle command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](functions-scale.md#consumption-plan) and is triggered by an HTTP request. 
+
+You can also build and publish a Java function project from the command line by using Maven or Kotlin archetypes:
+
++ 
+
++ Kotlin
 
 <!--
 > [!NOTE] 

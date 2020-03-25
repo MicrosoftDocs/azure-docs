@@ -322,22 +322,20 @@ The following examples apply filter rules to ApplicationInsightsLoggerProvider.
 
 ### Create filter rules in configuration with appsettings.json
 
-For ApplicationInsightsLoggerProvider, the provider alias is `ApplicationInsights`. The following section of *appsettings.json* configures logs for *Warning* and above from all categories and *Error* and above from categories that start with "Microsoft" to be sent to `ApplicationInsightsLoggerProvider`.
+For ApplicationInsightsLoggerProvider, the provider alias is `ApplicationInsights`. The following section of *appsettings.json* instructs logging providers generally to log at level *Warning* and above. It then overrides the `ApplicationInsightsLoggerProvider` to log categories that start with "Microsoft" at level *Error* and above.
 
 ```json
 {
   "Logging": {
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "Warning",
-        "Microsoft": "Error"
-      }
-    },
     "LogLevel": {
       "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Microsoft": "Error"
+      }
     }
-  },
-  "AllowedHosts": "*"
+  }
 }
 ```
 

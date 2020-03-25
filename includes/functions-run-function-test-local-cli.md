@@ -10,7 +10,7 @@ ms.author: glenga
 
 Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
-::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python,programming-language-java"
 ```
 func start
 ```
