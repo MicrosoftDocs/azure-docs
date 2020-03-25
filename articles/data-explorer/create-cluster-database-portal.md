@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Create an Azure Data Explorer cluster with a defined set of compute and storage resources in an Azure resource group.
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
+1. Select the **+ Create a resource** button in the upper-left corner of the portal.
 
 1. Search for *Azure Data Explorer*.
 
@@ -53,7 +53,7 @@ Create an Azure Data Explorer cluster with a defined set of compute and storage 
     | Resource group | Your resource group | Use an existing resource group or create a new resource group. |
     | Cluster name | A unique cluster name | Choose a unique name that identifies your cluster. The domain name *[region].kusto.windows.net* is appended to the cluster name you provide. The name can contain only lowercase letters and numbers. It must contain from 4 to 22 characters.
     | Region | *West US* or *West US 2* | Select *West US* or *West US 2* (if using availability zones) for this quickstart. For a production system, select the region that best meets your needs.
-    | Availability zones | *1*, *2*, and/or *3* | Place the cluster instances in various availability zones in the same region (optional). [Azure Availability Zones](/azure/availability-zones/az-overview) are unique physical locations within the same Azure region. They protect an Azure Data Explorer cluster and data from partial region failure. The cluster nodes are created, by default, in the same data center. By selecting several availability zones you can eliminate a single point of failure and ensure high availability. Deployment to availability zones is possible only during cluster creation and can’t be modified at a later date.
+    | Availability zones | *1*, *2*, and/or *3* | Place the cluster instances in various availability zones in the same region (optional). [Azure Availability Zones](/azure/availability-zones/az-overview) are unique physical locations within the same Azure region. They protect an Azure Data Explorer cluster and data from partial region failure. The cluster nodes are created, by default, in the same data center. By selecting several availability zones you can eliminate a single point of failure and ensure high availability. Deployment to availability zones is possible only during cluster creation and can't be modified at a later date.
     | Compute specifications | *D13_v2* | Select the lowest price specification for this quickstart. For a production system, select the specification that best meets your needs.
     | | | |
 
