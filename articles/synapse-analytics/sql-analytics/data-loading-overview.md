@@ -18,7 +18,6 @@ Traditional SMP data warehouses use an Extract, Transform and Load (ETL) process
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-
 ## What is ELT?
 
 Extract, Load, and Transform (ELT) is a process by which data is extracted from a source system, loaded into a data warehouse and then transformed. 
@@ -116,7 +115,7 @@ To load data with PolyBase, you can use any of these loading options:
 
 - [PolyBase with T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
-- [PolyBase with Azure Data Factory (ADF)](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs. 
+- [PolyBase with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs. 
 - [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
 
 ### Non-PolyBase loading options
