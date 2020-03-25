@@ -7050,6 +7050,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-covid-guidelines.md",
+      "redirect_url": "/azure/application-gateway/high-traffic-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-backend-ssl.md",
       "redirect_url": "/azure/application-gateway/ssl-overview",
       "redirect_document_id": false
@@ -43757,6 +43762,11 @@
     },
     {
       "source_path": "articles/cognitive-services/Acoustics/sample-walkthrough.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/index.md",
       "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
       "redirect_document_id": false
     },
