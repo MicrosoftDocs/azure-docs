@@ -81,32 +81,33 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1.    In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
+1. In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
 
-2.    In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
+2. In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
 
-    >[!NOTE]
-    >Make sure you're working with the event hub, not the event hub namespace.
+    > [!NOTE]
+    > Make sure you're working with the event hub, not the event hub namespace.
 
-3.    Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
+3. Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.    Click **Create**.
+4. Click **Create**.
 
-5.    After the policy has been deployed, click it in the list of shared access policies.
+5. After the policy has been deployed, click it in the list of shared access policies.
 
-6.    Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
+6. Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
-7.    Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
+7. Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
     The connection string looks like this:
 
-        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
+    `Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo`
 
     Notice that the connection string contains multiple key-value pairs, separated with semicolons: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, and `EntityPath`.  
+
 
 ## Configure and start the event generator application
 
@@ -125,24 +126,25 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 
    The `<appSettings>` section will look like the following example:
 
-   ```xml
-   <appSettings>
-    <!-- Service Bus specific app setings for messaging connections -->
-    <add key="EventHubName" value="asa-eh-ns-demo"/>
-    <add key="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://asa-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=GEcnTKf2//1MRn6SN1A2u0O76MP9pj3v0Ccyf1su4Zo="/>
-  </appSettings>
-   ```
+    ```xml
+    <appSettings>
+     <!-- Service Bus specific app setings for messaging connections -->
+     <add key="EventHubName" value="asa-eh-ns-demo"/>
+     <add key="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://asa-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=GEcnTKf2//1MRn6SN1A2u0O76MP9pj3v0Ccyf1su4Zo="/>
+   </appSettings>
+    ```
  
 4. Save the file. 
 
 ### Start the app
-1.    Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 
-2.    Enter the following command:
+1. Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 
-   ```cmd
-   telcodatagen.exe 1000 0.2 2
-   ```
+2. Enter the following command:
+
+    ```cmd
+    telcodatagen.exe 1000 0.2 2
+    ```
 
    The parameters are: 
 
