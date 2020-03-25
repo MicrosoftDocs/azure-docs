@@ -63,6 +63,8 @@
       href: concepts-data-access-security-private-link.md
     - name: Advanced Threat Protection
       href: concepts-data-access-and-security-threat-protection.md      
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
     - name: Business continuity intro
