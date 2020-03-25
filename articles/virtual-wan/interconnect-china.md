@@ -2,12 +2,12 @@
 title: 'Interconnect with China using Azure Virtual WAN and secure Hub'
 description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
 services: virtual-wan
-author: cherylmc
+author: skishen525
 
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.author: cherylmc
+ms.author: sukishen
 
 ---
 
