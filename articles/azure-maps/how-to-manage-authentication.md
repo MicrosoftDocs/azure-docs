@@ -1,8 +1,8 @@
 ---
 title: Manage authentication | Microsoft Azure Maps 
 description: Use the Azure portal to manage authentication in Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps

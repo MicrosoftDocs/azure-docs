@@ -1,8 +1,8 @@
 ---
 title: Overview | Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
@@ -16,13 +16,13 @@ ms.custom: mvc
 
 Azure Maps is a collection of geospatial services that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
-* REST APIs to render maps in multiple styles and in satellite imagery.
+* REST APIs to render maps in multiple styles and in satellite imagery.''
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing.
-* Traffic flow view and incidents view, for applications that require traffic information.
-* Mobility service to request public transit logistics, plan routes in real time, and  request information for alternative modes of transportation.
+* T    affic flow view and incidents view, for applications that require traffic information.
+* M    bility service to request public transit logistics, plan routes in real time, and  request information for alternative modes of transportation.
 * Time zone and geolocation services and converting a location to time zones.
-* Geofencing service and mapping data storage, with location information hosted in Azure. 
+* G    ofencing service and mapping data storage, with location information hosted in Azure. 
 * Location intelligence through geospatial analytics. 
 
 Additionally, Azure Maps services are available through the Web SDK or the Android SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions. 
@@ -83,7 +83,7 @@ The Route service offers a preview of advanced features, such as:
 
 * Batch processing of multiple route requests.
 * Matrices of travel time and distance between a set of origins and destinations.
-* Finding routes or distances that users can travel based on time or fuel requirements. 
+* Finding routes or distances t    at users can travel based on time or fuel requirements. 
 
 For details on the routing capabilities, read the [Route API documentation](https://docs.microsoft.com/rest/api/maps/route).
 
