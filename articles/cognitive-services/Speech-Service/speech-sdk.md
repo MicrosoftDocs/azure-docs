@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/25/2020
 ms.author: dapine
 ---
 
 # About the Speech SDK
 
-The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework’s Direct Line Speech channel**.
+The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework's Direct Line Speech channel**.
 
 You can easily capture audio from a microphone, read from a stream, or access audio files from storage with the Speech SDK. The Speech SDK supports WAV/PCM 16-bit, 16 kHz/8 kHz, single-channel audio for speech recognition. Additional audio formats are supported using the [speech-to-text REST endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) or the [batch transcription service](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -105,13 +105,13 @@ sudo yum install alsa-lib openssl
 
 * C++: Download the SDK as a [.tar package](https://aka.ms/csspeech/linuxbinary) and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
 
-  |Path|Description|
-  |-|-|
-  |`license.md`|License|
-  |`ThirdPartyNotices.md`|Third-party notices|
-  |`include`|Header files for C and C++|
-  |`lib/x64`|Native x64 library for linking with your application|
-  |`lib/x86`|Native x86 library for linking with your application|
+  | Path                   | Description                                          |
+  |------------------------|------------------------------------------------------|
+  | `license.md`           | License                                              |
+  | `ThirdPartyNotices.md` | Third-party notices                                  |
+  | `include`              | Header files for C++                                 |
+  | `lib/x64`              | Native x64 library for linking with your application |
+  | `lib/x86`              | Native x86 library for linking with your application |
 
   To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
 
