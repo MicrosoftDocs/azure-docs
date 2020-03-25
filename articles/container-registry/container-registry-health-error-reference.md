@@ -94,7 +94,7 @@ This error means that the CLI was unable to find the login server of the given r
 
 ## NOTARY_VERSION_ERROR
 
-This error means that the CLI is not compatible with the currently installed version of docker/notary. Try downgrading your notary.exe version to <=0.6.0 by replacing your docker installation's notary client manually to resolve this issue.
+This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue.
 
 ## Next steps
 
