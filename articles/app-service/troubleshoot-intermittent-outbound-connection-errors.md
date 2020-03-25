@@ -120,9 +120,9 @@ For other environments, review provider or driver specific documents for impleme
 
 Avoiding the outbound TCP limits is easier to solve, as the limits are set by the size of your worker. You can see the limits in [Sandbox Cross VM Numerical Limits - TCP Connnections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|
-|---|---|---|---|---|
-|Connections|Number of connections across entire VM|1920|3968|8064|
+|Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|Isolated tier (ASE)|
+|---|---|---|---|---|---|
+|Connections|Number of connections across entire VM|1920|3968|8064|16,000|
 
 To avoid outbound TCP limits, you can either increase the size of your workers, or scale out horizontally.
 
@@ -152,9 +152,9 @@ TCP connections and SNAT ports are not directly related. A TCP connections usage
 3. The TCP connections limit happens at the worker instance level. The Azure Network outbound load balancing doesn't use the TCP Connections metric for SNAT port limiting.
 4. The TCP connections limits are described in [Sandbox Cross VM Numerical Limits - TCP Connnections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|
-|---|---|---|---|---|
-|Connections|Number of connections across entire VM|1920|3968|8064|
+|Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|Isolated tier (ASE)|
+|---|---|---|---|---|---|
+|Connections|Number of connections across entire VM|1920|3968|8064|16,000|
 
 ### WebJobs and Database connections
  
