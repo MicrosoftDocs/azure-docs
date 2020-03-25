@@ -29,13 +29,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-<<<<<<< HEAD
 * All node pools must reside in the same virtual network.
 * When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
-=======
-* All node pools must reside in the same virtual network and subnet.
-* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This version can be updated after the cluster has been provisioned by using per node pool operations.
->>>>>>> 7a6bc3c9f5e6ce1e781a499dbf9a636198036efa
 
 ## Create an AKS cluster
 
@@ -122,16 +117,18 @@ The following example output shows that *mynodepool* has been successfully creat
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
-### Add a node pool with a dedicated subnet
+### Add a node pool with a unique subnet
 
 > [!NOTE]
-> Assignment of a node pool in a unique subnet is limited to Azure CNI, with support for Kubenet coming in the future.
+> Assignment of a unique subnet to a node pool is currently limited to Azure CNI.
 
-Scenarios may require splitting up your cluster's nodes into separate pools for logical isolation and separate subnets dedicated to each node pool. This is common if your virtual network address space is not contiguous across all nodes. To address this a dedicated virtual network subnet can be passed to a given node pool.
+A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
 
-It is required that all nodes in a given cluster reside in the same virtual network and all subnets assigned to nodepools reside in the same virtual network. Critical system-pod components running your cluster must be able to communicate with all nodes hosting applications in order to provide core functionality such as DNS resolution via coreDNS.
+> [!WARNING] Consider the following requirements before dividing subnets across node pools in a cluster.
+> * All nodes in a given cluster must reside in the same virtual network. As a result, all subnets assigned to nodepools must reside in the same virtual network. 
+> * Critical system pods must be able to communicate with all nodes hosting applications in order to service functionality such as DNS resolution via coreDNS.
 
-This is defined with an additional parameter added to the node pool add command shown previously.
+To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
 
 ```azurecli-interactive
 az aks nodepool add \
