@@ -1,129 +1,162 @@
 ---
-title: Learn how to manage AzureML web services using API Management | Microsoft Docs
-description: A guide showing how to manage AzureML web services using API Management.
-keywords: machine learning,api management
+title: Manage web services using API Management
+titleSuffix: ML Studio (classic) - Azure
+description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 services: machine-learning
-documentationcenter: ''
-author: roalexan
-manager: jhubbard
-editor: ''
-
-ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2017
-ms.author: roalexan
+ms.subservice: studio
+ms.topic: conceptual
 
+author: likebupt
+ms.author: keli19
+ms.custom: seodec18
+ms.date: 11/03/2017
 ---
-# Learn how to manage AzureML web services using API Management
+# Manage Azure Machine Learning Studio (classic) web services using API Management
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## Overview
-This guide shows you how to quickly get started using API Management to manage your AzureML web services.
+This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
 
 ## What is Azure API Management?
-Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](../../api-management/api-management-get-started.md) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
-
-## What is AzureML?
-AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions. Click [here](https://azure.microsoft.com/services/machine-learning/) for details on AzureML.
+Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. See the [Azure API management site](https://azure.microsoft.com/services/api-management/) for more details. To get started with Azure API Management, see [the import and publish guide](/azure/api-management/import-and-publish). This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
 
 ## Prerequisites
 To complete this guide, you need:
 
-* An Azure account. If you don’t have an Azure account, click [here](https://azure.microsoft.com/pricing/free-trial/) for details on how to create a free trial account.
-* An AzureML account. If you don’t have an AzureML account, click [here](https://studio.azureml.net/) for details on how to create a free trial account.
-* The workspace, service, and api_key for an AzureML experiment deployed as a web service. Click [here](create-experiment.md) for details on how to create an AzureML experiment. Click [here](publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
+* An Azure account.
+* An AzureML account.
+* The workspace, service, and api_key for an AzureML experiment deployed as a web service. For details on how to create an AzureML experiment, see the [Studio quickstart](create-experiment.md). For information on how to deploy a Studio (classic) experiment as a web service, see the [Studio deployment how-to](deploy-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
 ## Create an API Management instance
-Below are the steps for using API Management to manage your AzureML web service. First create a service instance. Log in to the [Classic Portal](https://manage.windowsazure.com/) and click **New** > **App Services** > **API Management** > **Create**.
 
-![create-instance](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+You can manage your Azure Machine Learning web service with an API Management instance.
 
-Specify a unique **URL**. This guide uses **demoazureml** – you will need to choose something different. Choose the desired **Subscription** and **Region** for your service instance. After making your selections, click the next button.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **+ Create a resource**.
+3. In the search box, type "API management", then select the "API management" resource.
+4. Click **Create**.
+5. The **Name** value will be used to create a unique URL (this example uses "demoazureml").
+6. Select a **Subscription**, **Resource group**, and **Location** for your service instance.
+7. Specify a value for **Organization name** (this example uses "demoazureml").
+8. Enter your **Administrator email** - this email will be used for notifications from the API Management system.
+9. Click **Create**.
 
-![create-service-1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+It may take up to 30 minutes for a new service to be created.
 
-Specify a value for the **Organization Name**. This guide uses **demoazureml** – you will need to choose something different. Enter your email address in the **administrator e-mail** field. This email address is used for notifications from the API Management system.
+![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![create-service-2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-Click the check box to create your service instance. *It takes up to thirty minutes for a new service to be created*.
 
 ## Create the API
 Once the service instance is created, the next step is to create the API. An API consists of a set of operations that can be invoked from a client application. API operations are proxied to existing web services. This guide creates APIs that proxy to the existing AzureML RRS and BES web services.
 
-APIs are created and configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, select your service instance.
+To create the API:
 
-![select-service-instance](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. In the Azure portal, open the service instance you created.
+2. In the left navigation pane, select **APIs**.
 
-Click **Manage** in the Azure Classic Portal for your API Management service.
+   ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![manage-service](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. Click **Add API**.
+2. Enter a **Web API name** (this example uses "AzureML Demo API").
+3. For **Web service URL**, enter "`https://ussouthcentral.services.azureml.net`".
+4. Enter a **Web API URL suffix". This will become the last part of the URL that customers will use for sending requests to the service instance (this example uses "azureml-demo").
+5. For **Web API URL scheme**, select **HTTPS**.
+6. For **Products**, select **Starter**.
+7. Click **Save**.
 
-Click **APIs** from the **API Management** menu on the left, and then click **Add API**.
-
-![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-Type **AzureML Demo API** as the **Web API name**. Type **https://ussouthcentral.services.azureml.net** as the **Web service URL**. Type **azureml-demo** as the **Web API URL suffix**. Check **HTTPS** as the **Web API URL** scheme. Select **Starter** as **Products**. When finished, click **Save** to create the API.
-
-![add-new-api](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## Add the operations
-Click **Add operation** to add operations to this API.
 
-![add-operation](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Publisher portal** in the Azure portal for your API Management service, select **APIs**, **Operations**, then click **Add operation**.
+
+![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 The **New operation** window will be displayed and the **Signature** tab will be selected by default.
 
 ## Add RRS Operation
-First create an operation for the AzureML RRS service. Select **POST** as the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}** as the **URL template**. Type **RRS Execute** as the **Display name**.
+First create an operation for the AzureML RRS service:
 
-![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. For the **HTTP verb**, select **POST**.
+2. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
+3. Enter a **Display name** (this example uses "RRS Execute").
 
-Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
+   ![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. Click **Responses** > **ADD** on the left and select **200 OK**.
+5. Click **Save** to save this operation.
+
+   ![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## Add BES Operations
-Screenshots are not included for the BES operations as they are very similar to those for adding the RRS operation.
+
+> [!NOTE]
+> Screenshots are not included here for the BES operations as they are very similar to those for adding the RRS operation.
 
 ### Submit (but not start) a Batch Execution job
-Click **add operation** to add the AzureML BES operation to the API. Select **POST** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}** for the **URL template**. Type **BES Submit** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
+
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **POST**.
+3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Submit").
+5. Click **Responses** > **ADD** on the left and select **200 OK**.
+6. Click **Save**.
 
 ### Start a Batch Execution job
-Click **add operation** to add the AzureML BES operation to the API. Select **POST** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}** for the **URL template**. Type **BES Start** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
+
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **POST**.
+3. For the **HTTP verb**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Start").
+6. Click **Responses** > **ADD** on the left and select **200 OK**.
+7. Click **Save**.
 
 ### Get the status or result of a Batch Execution job
-Click **add operation** to add the AzureML BES operation to the API. Select **GET** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}** for the **URL template**. Type **BES Status** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
+
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **GET**.
+3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Status").
+6. Click **Responses** > **ADD** on the left and select **200 OK**.
+7. Click **Save**.
 
 ### Delete a Batch Execution job
-Click **add operation** to add the AzureML BES operation to the API. Select **DELETE** for the **HTTP verb**. Type **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}** for the **URL template**. Type **BES Delete** for the **Display name**. Click **Responses** > **ADD** on the left and select **200 OK**. Click **Save** to save this operation.
 
-## Call an operation from the Developer Portal
-Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this guide step you will call the **RRS Execute** method that was added to the **AzureML Demo API**. Click **Developer portal** from the menu at the top right of the Classic Portal.
+1. Click **add operation** to add a BES operation to the API.
+2. For the **HTTP verb**, select **DELETE**.
+3. For the **URL template**, type "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Enter a **Display name** (this example uses "BES Delete").
+5. Click **Responses** > **ADD** on the left and select **200 OK**.
+6. Click **Save**.
 
-![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+## Call an operation from the Developer portal
 
-Click **APIs** from the top menu, and then click **AzureML Demo API** to see the operations available.
+Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step, you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
 
-![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+1. Click **Developer portal**.
 
-Select **RRS Execute** for the operation. Click **Try It**.
+   ![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+2. Click **APIs** from the top menu, and then click **AzureML Demo API** to see the operations available.
 
-For Request parameters, type your **workspace**,  **service**, **2.0** for the **apiversion**, and  **true** for the **details**. You can find your **workspace** and **service** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-For Request headers, click **Add header** and type **Content-Type** and **application/json**, then click **Add header** and type **Authorization** and **Bearer <YOUR AZUREML SERVICE API-KEY>**. You can find your **api key** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
+3. Select **RRS Execute** for the operation. Click **Try It**.
 
-Type **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}** for the request body.
+   ![try-it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+4. For **Request parameters**, type your **workspace** and  **service**, type "2.0 for the **apiversion**, and  "true" for the **details**. You can find your **workspace** and **service** in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
-Click **Send**.
+   For **Request headers**, click **Add header** and type "Content-Type" and "application/json". Click **Add header** again and type "Authorization" and "Bearer *\<your service API-KEY\>*". You can find your API-KEY in the AzureML web service dashboard (see **Test the web service** in Appendix A).
 
-![send](./media/manage-web-service-endpoints-using-api-management/send.png)
+   For **Request body**, type `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. Click **Send**.
+
+   ![send](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 After an operation is invoked, the developer portal displays the **Requested URL** from the back-end service, the **Response status**, the **Response headers**, and any **Response content**.
 
@@ -147,11 +180,11 @@ Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and d
 
 Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connect the book reviews dataset module to a Project Columns module](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Click **Select Columns in Dataset** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Select columns using column names](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 
@@ -179,7 +212,7 @@ Click **Yes** to publish the experiment.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### Test the web service
-An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](../../python-how-to-install.md)).
+An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](/azure/python/python-sdk-azure-install)).
 
 You will also need the **workspace**, **service**, and **api_key** of your experiment for the sample source below. You can find the workspace and service by clicking either **Request/Response** or **Batch Execution** for your experiment in the web service dashboard.
 
@@ -210,9 +243,9 @@ This guide shows a working Python example. You will need to modify it with the *
 
     import urllib2
     import json
-    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
+    workspace = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE SERVICE ID>"
+    api_key = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE API KEY>"
     data = {
     "Inputs": {
         "input1": {
@@ -266,7 +299,7 @@ This guide shows a working Python example. You need to modify it with the **work
     except urllib2.HTTPError, error:
         printHttpError(error)
         return
-    with open(output_file, "w+") as f:
+    with open(output_file, "wb+") as f:
         f.write(response.read())
     print(resultsLabel + " have been written to the file " + output_file)
     return
@@ -333,7 +366,7 @@ This guide shows a working Python example. You need to modify it with the **work
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

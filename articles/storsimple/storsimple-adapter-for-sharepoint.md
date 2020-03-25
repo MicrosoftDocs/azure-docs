@@ -3,7 +3,7 @@ title: Install StorSimple Adapter for SharePoint | Microsoft Docs
 description: Describes how to install and configure or remove the StorSimple Adapter for SharePoint in a SharePoint server farm.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Install and configure the StorSimple Adapter for SharePoint
@@ -222,7 +222,7 @@ Before you uninstall the StorSimple Adapter for SharePoint software, you must mi
 4. On the **Configure StorSimple Adapter** page, click the **Disable** button below each of the content databases that you want to remove from external BLOB storage. 
 5. Delete the objects from SharePoint, and then upload them again.
 
-Alternatively, you can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Alternatively, you can use the Microsoft `RBS Migrate()` PowerShell cmdlet included with SharePoint. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
 After you move the BLOBs back to the content database, go to the next step: [Uninstall the adapter](#uninstall-the-adapter).
 
@@ -258,4 +258,4 @@ After you move the BLOBs back to the SQL Server content databases, use one of th
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+[8]: https://technet.microsoft.com/library/ff943565.aspx

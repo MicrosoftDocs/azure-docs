@@ -1,21 +1,9 @@
 ---
-title: Specifying Service Fabric service endpoints | Microsoft Docs
+title: Specifying Service Fabric service endpoints 
 description: How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
 
-ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
-ms.author: subramar
-
+ms.topic: conceptual
+ms.date: 2/23/2018
 ---
 # Specify resources in a service manifest
 ## Overview
@@ -24,12 +12,29 @@ The service manifest allows resources that are used by the service to be declare
 ## Endpoints
 When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph. Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port. The service replicas can then use these ports as needed for replication and listening for client requests.
 
+> [!WARNING] 
+> By design static ports should not overlap with application port range specified in the ClusterManifest. If you specify a static port, assign it outside of application port range, otherwise it will result in port conflicts. With release 6.5CU2 we will issue a **Health Warning** when we detect such a conflict but let the deployment continue in sync with the shipped 6.5 behaviour. However, we may prevent the application deployment from the next major releases.
+>
+> With release 7.0 we will issue a **Health Warning** when we detect application port range usage goes beyond HostingConfig::ApplicationPortExhaustThresholdPercentage(default 80%).
+>
+
 ```xml
 <Resources>
   <Endpoints>
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+If there are multiple code packages in a single service package, then the code package also needs to be referenced in the **Endpoints** section.  For example, if **ServiceEndpoint2a** and **ServiceEndpoint2b** are endpoints from the same service package referencing different code packages, the code package corresponding to each endpoint is clarified as follows:
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -46,8 +51,8 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
 <ServiceManifest Name="Stateful1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          This name must match the string used in the RegisterServiceType call in Program.cs. -->
@@ -63,7 +68,7 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -91,7 +96,11 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 > [!NOTE]
 > A service’s protocol cannot be changed during application upgrade. If it is changed during upgrade, it is a breaking change.
 > 
-> 
+
+> [!WARNING] 
+> When using HTTPS, do not use the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
+](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
 
@@ -100,8 +109,8 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
@@ -140,11 +149,11 @@ For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**
 
 ## Overriding Endpoints in ServiceManifest.xml
 
-In the ApplicationManifest add a ResourceOverrides section which will be a sibling to ConfigOverrides section. In this section you can specify the override for the Endpoints section in the resources section specified in the Service manifest.
+In the ApplicationManifest add a ResourceOverrides section, which will be a sibling to ConfigOverrides section. In this section, you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
 
 In order to override EndPoint in ServiceManifest using ApplicationParameters change the ApplicationManifest as following:
 
-In the ServiceManifestImport section add a new section "ResourceOverrides"
+In the ServiceManifestImport section, add a new section "ResourceOverrides".
 
 ```xml
 <ServiceManifestImport>
@@ -174,13 +183,13 @@ In the Parameters add below:
   </Parameters>
 ```
 
-While deploying the application now you can pass in these values as ApplicationParameters for example:
+While deploying the application you can pass in these values as ApplicationParameters.  For example:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Note: If the values provide for the ApplicationParameters is empty we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
+Note: If the values provide for the ApplicationParameters is empty, we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.
 
 For example:
 

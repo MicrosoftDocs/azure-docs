@@ -1,29 +1,23 @@
 ---
-title: 'Get started with U-SQL language | Microsoft Docs'
-description: Learn the basics of the U-SQL language.
+title: Get started with U-SQL language in Azure Data Lake Analytics
+description: Learn the basics of the U-SQL language in Azure Data Lake Analytics. Write your first query using variables to extra data from files, transform the rowset, and aggregate data.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
-
-ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/23/2017
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
+ms.service: data-lake-analytics
+ms.topic: conceptual
+ms.date: 06/23/2017
 ---
-# Get started with U-SQL
+# Get started with U-SQL in Azure Data Lake Analytics
 U-SQL is a language that combines declarative SQL with imperative C# to let you process data at any scale. Through the scalable, distributed-query capability of U-SQL, you can efficiently analyze data across relational stores such as Azure SQL Database. With U-SQL, you can process unstructured data by applying schema on read and inserting custom logic and UDFs. Additionally, U-SQL includes extensibility that gives you fine-grained control over how to execute at scale. 
 
 ## Learning resources
 
-* The [U-SQL Tutorial](http://aka.ms/usqltutorial) provides a guided walkthrough of most of the U-SQL language. This document is recommended reading for all developers wanting to learn U-SQL.
-* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
+* The [U-SQL Tutorial](https://aka.ms/usqltutorial) provides a guided walkthrough of most of the U-SQL language. This document is recommended reading for all developers wanting to learn U-SQL.
+* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](https://docs.microsoft.com/u-sql/).
 * To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## Prerequisites
@@ -118,7 +112,7 @@ Use **SELECT** to transform rowsets:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-The WHERE clause uses a [C# Boolean expression](https://msdn.microsoft.com/library/6a71f45d.aspx). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
+The WHERE clause uses a [C# Boolean expression](/dotnet/csharp/language-reference/operators/index). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
 
 The following script uses the DateTime.Parse() method and a conjunction.
 
@@ -223,8 +217,8 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-For advanced aggregation scenarios, see the The U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](/u-sql/built-in-functions)
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

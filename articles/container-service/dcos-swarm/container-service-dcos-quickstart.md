@@ -1,36 +1,27 @@
 ---
-title: Azure Container Service Quickstart - Deploy DC/OS Cluster | Microsoft Docs
+title: (DEPRECATED) Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
-services: container-service
-documentationcenter: ''
-author: neilpeterson
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-
-ms.assetid: 
+author: iainfoulds
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/04/2017
-ms.author: nepeters
+ms.date: 02/26/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Deploy a DC/OS cluster
+# (DEPRECATED) Deploy a DC/OS cluster
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quickstart details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Log in to Azure 
 
-Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+Log in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -38,7 +29,7 @@ az login
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -48,7 +39,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create DC/OS cluster
 
-Create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
+Create a DC/OS cluster with the [az acs create](/cli/azure/acs#az-acs-create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -56,7 +47,7 @@ The following example creates a DC/OS cluster named *myDCOSCluster* and creates 
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
 After several minutes, the command completes, and returns information about the deployment.
 
@@ -82,7 +73,7 @@ If the SSH tunnel was successfully created, the DC/OS portal is returned.
 
 ## Install DC/OS CLI
 
-The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
+The DC/OS command line interface is used to manage a DC/OS cluster from the command-line. Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. 
 
 If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
@@ -132,19 +123,19 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **WAITING** column value switches from *True* to *False*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -161,7 +152,7 @@ Browsing to this address returns the default NGINX site.
 
 ## Delete DC/OS cluster
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, DC/OS cluster, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -169,7 +160,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## Next steps
 
-In this quick start, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
+In this quickstart, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
 
 > [!div class="nextstepaction"]
 > [Manage an ACS DC/OS Cluster](container-service-dcos-manage-tutorial.md)

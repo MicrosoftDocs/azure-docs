@@ -1,49 +1,46 @@
 ---
-title: Check connectivity with Azure Network Watcher - Azure portal | Microsoft Docs
-description: This page explains how to use connectivity check with Network Watcher using the Azure portal
+title: Troubleshoot connections - Azure portal
+titleSuffix: Azure Network Watcher
+description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure portal.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
-
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 08/03/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
-# Check connectivity with Azure Network Watcher using the Azure portal
+# Troubleshoot connections with Azure Network Watcher using the Azure portal
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
 ## Before you begin
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to check connectivity.
-
-* Virtual machines to check connectivity with.
+* An instance of Network Watcher in the region you want to troubleshoot a connection.
+* Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Check connectivity to a virtual machine
 
 This example checks connectivity to a destination virtual machine over port 80.
 
-Navigate to your Network Watcher and click **Connectivity check (Preview)**. Select the virtual machine to check connectivity from. In the **Destination** section choose **Select a virtual machine** and choose the correct virtual machine and port to test.
+Navigate to your Network Watcher and click **Connection troubleshoot**. Select the virtual machine to check connectivity from. In the **Destination** section choose **Select a virtual machine** and choose the correct virtual machine and port to test.
 
-Once you click **Check**, the connectivity between the virtual machines on the port specified are checked. In the example, the destination VM is unreachable, a listing of hops are shown.
+Once you click **Check**, connectivity between the virtual machines on the port specified is checked. In the example, the destination VM is unreachable, a listing of hops are shown.
 
 ![Check connectivity results for a virtual machine][1]
 
@@ -57,7 +54,7 @@ To check the connectivity and latency to a remote endpoint, choose the **Specify
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png
 [2]: ./media/network-watcher-connectivity-portal/figure2.png

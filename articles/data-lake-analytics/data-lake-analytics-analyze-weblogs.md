@@ -1,28 +1,21 @@
 ---
-title: Analyze Website logs using Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to analyze website logs using Data Lake Analytics. '
+title: Analyze Website logs using Azure Data Lake Analytics
+description: Learn how to analyze website logs using Azure Data Lake Analytics to run U-SQL functions and queries.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
-
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
-ms.author: saveenr
-
 ---
 # Analyze Website logs using Azure Data Lake Analytics
 Learn how to analyze website logs using Data Lake Analytics, especially on finding out which referrers ran into errors when they tried to visit the website.
 
 ## Prerequisites
 * **Visual Studio 2015 or Visual Studio 2013**.
-* **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)**.
 
     Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** item in the **Tools** menu in Visual Studio:
 
@@ -166,7 +159,7 @@ You can add addition user-defined operators to the application.  For more inform
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
 2. Double-click **Samples** to open the folder, and then double-click **Outputs**.
-3. Double-click **UnsuccessfulResponsees.log**.
+3. Double-click **UnsuccessfulResponses.log**.
 4. You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
 
 ## See also

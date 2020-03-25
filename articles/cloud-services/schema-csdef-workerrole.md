@@ -1,8 +1,9 @@
 ---
 title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
+description: The Azure worker role is used for generalized development and may perform background processing for a web role. Learn about the Azure worker role schema.
+services: cloud-services
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,9 +11,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: "thraka"
-ms.author: "adegeo"
-manager: "timlt"
+author: tgore03
+ms.author: tagore
+
 ---
 
 # Azure Cloud Services Definition WorkerRole Schema
@@ -36,11 +37,11 @@ The basic format of the service definition file containing a worker role is as f
       <InputEndpoint name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<local-port-number>" port="<port-number>" certificate="<certificate-name>" loadBalancerProbe="<load-balancer-probe-name>" />
       <InternalEndpoint name="<internal-endpoint-name" protocol="[http|tcp|udp|any]" port="<port-number>">
          <FixedPort port="<port-number>"/>
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
       </InternalEndpoint>
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">
          <AllocatePublicPortFrom>
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
          </AllocatePublicPortFrom>
       </InstanceInputEndpoint>
     </Endpoints>
@@ -59,10 +60,10 @@ The basic format of the service definition file containing a worker role is as f
       </Environment>
       <EntryPoint>
          <NetFxEntryPoint assemblyName="<name-of-assembly-containing-entrypoint>" targetFrameworkVersion="<.net-framework-version>"/>
-         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]" "/>
+         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]"/>
       </EntryPoint>
     </Runtime>
-    <Startup priority="<for-internal-use-only>”>
+    <Startup priority="<for-internal-use-only>">
       <Task commandLine="" executionContext="[limited|elevated]" taskType="[simple|foreground|background]">
         <Environment>
          <Variable name="<variable-name>" value="<variable-value>">
@@ -413,3 +414,6 @@ The following table describes the attributes of the `SourceDirectory` element.
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
+

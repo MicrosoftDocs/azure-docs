@@ -1,21 +1,11 @@
 ---
-title: Add custom Service Fabric health reports | Microsoft Docs
+title: Add custom Service Fabric health reports 
 description: Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: timlt
-editor: ''
 
-ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/19/2017
+ms.topic: conceptual
+ms.date: 2/28/2018
 ms.author: oanapl
-
 ---
 # Add custom Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) designed to flag unhealthy cluster and application conditions on specific entities. The health model uses **health reporters** (system components and watchdogs). The goal is easy and fast diagnosis and repair. Service writers need to think upfront about health. Any condition that can impact health should be reported on, especially if it can help flag problems close to the root. The health information can save time and effort on debugging and investigation. The usefulness is especially clear once the service is up and running at scale in the cloud (private or Azure).
@@ -51,18 +41,18 @@ Once the health reporting design is clear, health reports can be sent easily. Yo
 > 
 
 ## Health client
-The health reports are sent to the health store through a health client, which lives inside the fabric client. The health client can be configured with the following settings:
+The health reports are sent to the health manager through a health client, which lives inside the fabric client. The health manager saves reports in the health store. The health client can be configured with the following settings:
 
-* **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. Used to batch reports into a single message, rather than sending one message for each report. The batching improves performance. Default: 30 seconds.
-* **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health store. Default: 30 seconds.
-* **HealthOperationTimeout**: The timeout period for a report message sent to the health store. If a message times out, the health client retries it until the health store confirms that the report has been processed. Default: two minutes.
+* **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health manager. Used to batch reports into a single message, rather than sending one message for each report. The batching improves performance. Default: 30 seconds.
+* **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health manager. Default: 30 seconds, minimum: 1 second.
+* **HealthOperationTimeout**: The timeout period for a report message sent to the health manager. If a message times out, the health client retries it until the health manager confirms that the report has been processed. Default: two minutes.
 
 > [!NOTE]
-> When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
+> When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health manager cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
 > 
 > 
 
-The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the health store is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
+The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the health manager is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
 Specify configuration parameters when `FabricClient` is created by passing [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) with the desired values for health-related entries.
 
 The following example creates a fabric client and specifies that the reports should be sent when they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
@@ -152,7 +142,7 @@ Once the watchdog details have been finalized, you should decide on a source ID 
 > 
 > 
 
-The next decision point is which entity to report on. Most of the time, the condition clearly idetifies the entity. Choose the entity with best possible granularity. If a condition impacts all replicas in a partition, report on the partition, not on the service. There are corner cases where more thought is needed, though. If the condition impacts an entity, such as a replica, but the desire is to have the condition flagged for more than the duration of replica life, then it should be reported on the partition. Otherwise, when the replica is deleted, the health store cleans up all its reports. Watchdog writers must think about the lifetimes of the entity and the report. It must be clear when a report should be cleaned up from a store (for example, when an error reported on an entity no longer applies).
+The next decision point is which entity to report on. Most of the time, the condition clearly identifies the entity. Choose the entity with best possible granularity. If a condition impacts all replicas in a partition, report on the partition, not on the service. There are corner cases where more thought is needed, though. If the condition impacts an entity, such as a replica, but the desire is to have the condition flagged for more than the duration of replica life, then it should be reported on the partition. Otherwise, when the replica is deleted, the health store cleans up all its reports. Watchdog writers must think about the lifetimes of the entity and the report. It must be clear when a report should be cleaned up from a store (for example, when an error reported on an entity no longer applies).
 
 Let's look at an example that puts together the points I described. Consider a Service Fabric application composed of a master stateful persistent service and secondary stateless services deployed on all nodes (one secondary service type for each type of task). The master has a processing queue that contains commands to be executed by secondaries. The secondaries execute the incoming requests and send back acknowledgement signals. One condition that could be monitored is the length of the master processing queue. If the master queue length reaches a threshold, a warning is reported. The warning indicates that the secondaries can't handle the load. If the queue reaches the maximum length and commands are dropped, an error is reported, as the service can't recover. The reports can be on the property **QueueStatus**. The watchdog lives inside the service, and it's sent periodically on the master primary replica. The time to live is two minutes, and it's sent periodically every 30 seconds. If the primary goes down, the report is cleaned up automatically from store. If the service replica is up, but it is deadlocked or having other issues, the report expires in the health store. In this case, the entity is evaluated at error.
 

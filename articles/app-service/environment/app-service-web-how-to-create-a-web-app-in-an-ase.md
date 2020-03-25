@@ -1,20 +1,13 @@
 ---
-title: Create a web app in an App Service Environment v1
-description: Learn how to create web apps and app service plans in an App Service Environment v1
-services: app-service
-documentationcenter: ''
+title: Create a web app in ASE v1
+description: Learn how to create web apps in an App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Create a web app in an App Service Environment v1
@@ -35,7 +28,7 @@ This tutorial shows how to create web apps and App Service plans in an [App Serv
 This tutorial assumes you have created an App Service Environment. If you haven't done that yet, see [Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## Create a web app
-1. In the [Azure Portal](https://portal.azure.com/), click **New > Web + Mobile > Web App**. 
+1. In the [Azure Portal](https://portal.azure.com/), click **Create a resource > Web + Mobile > Web App**. 
    
     ![][1]
 2. Select your subscription.  
@@ -46,7 +39,7 @@ This tutorial assumes you have created an App Service Environment. If you haven'
     *Resource groups* enable you to manage related Azure resources as a unit and are useful when establishing *role-based access control* (RBAC) rules for your apps. For more information, see [Azure Resource Manager overview][ResourceGroups]. 
 4. Select or create an App Service plan.
    
-    *App Service plans* are managed sets of web apps.  Normally when you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. In an ASE you pay for the compute instances allocated to the ASE rather than what you have listed with your ASP.  To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *App Service plans* are managed sets of web apps.  Normally when you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. In an ASE you pay for the compute instances allocated to the ASE rather than what you have listed with your ASP.  To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../overview-hosting-plans.md)
    
     You can identify the App Service plans in your ASE by looking at the location that is noted under the plan name.  
    
@@ -107,9 +100,9 @@ After creating your web app and App Service plan it is a good idea to scale it u
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
-[ResourceGroups]: ../../azure-resource-manager/resource-group-overview.md
-[AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[ResourceGroups]: ../../azure-resource-manager/management/overview.md
+[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

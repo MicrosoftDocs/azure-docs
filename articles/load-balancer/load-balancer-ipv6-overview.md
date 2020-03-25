@@ -1,29 +1,30 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer | Microsoft Docs
-description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+title: Overview of IPv6 - Azure Load Balancer
+description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: timlt
-editor: ''
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-
-ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: kumud
+ms.date: 08/24/2018
+ms.author: allensu
 ---
 
 # Overview of IPv6 for Azure Load Balancer
 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>This content has been superseded by [IPv6 for Azure VNet Overview](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
 
-Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
+>[!NOTE]
+>Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
+
+Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
 
 * Native end-to-end IPv6 connectivity between public Internet clients and Azure Virtual Machines (VMs) through the load balancer.
 * Native end-to-end IPv6 outbound connectivity between VMs and public Internet IPv6-enabled clients.
@@ -74,6 +75,7 @@ Limitations
 * Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
+* NAT64 (translation of IPv6 to IPv4) is not supported.
 
 ## Next steps
 

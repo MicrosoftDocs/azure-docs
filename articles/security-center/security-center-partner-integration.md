@@ -1,118 +1,150 @@
 ---
-title: Partner and solutions integration in Azure Security Center | Microsoft Docs
+title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: mbaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
+ms.date: 03/20/2019
+ms.author: memildin
 
 ---
-# Partner and solutions integration in Azure Security Center
+# Integrate security solutions in Azure Security Center
+This document helps you to manage security solutions already connected to Azure Security Center and add new ones.
 
-In this article, we describe how Azure Security Center integrates with partners to help you enhance overall security. Security Center offers an integrated experience in Azure and takes advantage of the Azure Marketplace for partner certification and billing.
+> [!NOTE]
+> A subset of security solutions has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
-## Deploy partner solutions from Security Center
+## Integrated Azure security solutions
+Security Center makes it easy to enable integrated security solutions in Azure. Benefits include:
 
-There are four main reasons to use partner integration in Security Center:
+- **Simplified deployment**: Security Center offers streamlined provisioning of integrated partner solutions. For solutions like antimalware and vulnerability assessment, Security Center can provision the agent on your virtual machines. For firewall appliances, Security Center can take care of much of the network configuration required.
+- **Integrated detections**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are fused with detections from other sources to provide advanced threat-detection capabilities.
+- **Unified health monitoring and management**: Customers can use integrated health events to monitor all partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
 
-- **Ease of deployment**. Deploying a partner solution by following the Security Center recommendation is much easier. The deployment process can be fully automated by using a default setup and network topology. Alternatively, customers can choose a semi-automated option for more flexibility and customization.
-- **Integrated detections**. Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are fused with detections from other sources to provide advanced threat-detection capabilities.
-- **Unified health monitoring and management**. Customers can use integrated health events to monitor all partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
-- **Export to SIEM**. Customers can export all Security Center and partner alerts in Common Event Format (CEF) to on-premises Security Information and Event Management (SIEM) systems by using Azure log integration (preview).
+Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
 
+> [!NOTE]
+> Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
+>
+>
 
-## Partners that integrate with Security Center
-
-Currently, the native integration of partners' solutions that are available in the Azure Marketplace with Security Center are:
-
-- **Endpoint protection**. [Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, and [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-antimalware).
-- **Web application firewall**. [Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets), and [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/). 
-- **Next-generation firewall**. [Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), and [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html). 
-- **Vulnerability assessment**. [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/). 
-
-Over time, Security Center will expand the number of partners within these categories and add new categories. 
-
-## Deploy a partner solution
-
-Based on the setup of your Azure environment and the security policy you defined, Security Center might recommend that you deploy a partner solution. The Security Center recommendation guides you through the process of selecting and installing a partner solution. The overall deployment experience might vary, depending on the type of solution and partner you use. For more information, see the following articles:
-
-- [Install endpoint protection](security-center-install-endpoint-protection.md)
-- [Add a web application firewall](security-center-add-web-application-firewall.md)
-- [Add a next-generation firewall](security-center-add-next-generation-firewall.md)
-- [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
-
-## Manage partner solutions
-
-After deployment, to view information about the health of the solution and perform basic management tasks, on the **Security Center** dashboard, select **Partner solutions**.
+## How security solutions are integrated
+Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
 ![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
-The content that you see when you open Security Solutions might vary according to your infrastructure. Using the previous image as an example, this page has three sections:
+## Manage integrated Azure security solutions and other data sources
 
-- **Connected solutions**. Displays solutions connected to Security Center.
-- **Discovered solutions**. Displays solutions that aren't connected to Security Center. You can connect these solutions, and then they display under **Connected solutions**. If Security Center doesn't detect any unconnected solutions, this section is hidden.
-- **Add data sources**. Displays Azure and non-Azure data sources that you can add to Security Center.
+1. Sign in to the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
+
+2. On the **Microsoft Azure menu**, select **Security Center**. **Security Center - Overview** opens.
+
+3. Under the Security Center menu, select **Security solutions**.
+
+   ![Security Center Overview](./media/security-center-partner-integration/overview.png)
+
+In **Security solutions**, you can see the health of integrated Azure security solutions and run basic management tasks.
 
 ### Connected solutions
 
-The **Connected solutions** section shows all security solutions that are currently connected with Security Center. 
+The **Connected solutions** section includes security solutions that are currently connected to Security Center. It also shows the health status of each solution.  
 
 ![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
-The information that you see might vary according to the solution. Some information available on each tile might include:
+The status of a partner solution can be:
 
-- **Company icon for the partner**. If Security Center doesn't have the company icon, the first characters of the partner name are displayed.
-- **Solution type**. The type of solution is displayed.
-- **Computer name**. The computer name is displayed.
-- **Health status**. If a health indicator isn't sent, Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. If Security Center doesn't receive the health indicator from a particular solution, the solution's tile doesn't appear in this section.
+* Healthy (green) - no health issues.
+* Unhealthy (red) - there's a health issue that requires immediate attention.
+* Health issues (orange) - the solution has stopped reporting its health.
+* Not reported (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status may be unreported if it was connected recently and is still deploying.
 
 > [!NOTE]
-> Security Center shows the date and time of the last received event to indicate whether the appliance is reporting or not. Solutions that aren't sending health indicators are displayed as connected if they're alert or if events were sent in the last 14 days.
->  
+> If health status data is not available, Security Center shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts were received within the last 14 days, Security Center indicates that the solution is unhealthy or not reporting.
+>
+>
 
-Some of these solutions might be fully integrated in Azure; others might be on-premises. Because Security Center supports [CEF](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef), it can connect with solutions that use CEF, such as a firewall that supports CEF. After this solution is added to Security Center, the firewall sends logs in CEF format to Security Center, which handles it to [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview). The firewall is a non-Azure resource that sends events but not health indicators. The only information that Security Center has about health is the last time this appliance sent an event. For all non-Azure resources, in the health area of the tile, Security Center displays the date and time that the last event was received. This information indicates that the non-Azure resource is still reporting.
+1. Select **VIEW** for additional information and options such as:
+
+   - **Solution console**. Opens the management experience for this solution.
+   - **Link VM**. Opens the Link Applications page. Here you can connect resources to the partner solution.
+   - **Delete solution**.
+   - **Configure**.
+
+   ![Partner solution detail](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
 ### Discovered solutions
 
-The **Discovered solutions** section shows all the solutions that were added via Azure. It also shows all the solutions that Security Center suggests should connect to it.
+Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), and partner solutions.
 
-![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+> [!NOTE]
+> The Standard tier of Security Center is required at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
+>
+>
 
-Security Center can integrate with built-in Azure solutions, such as [Azure Active Directory (Azure AD) Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection). If you have a license for Azure AD Identity Protection but it's not connected to Security Center, Azure AD Identity Protection is listed under **Discovered solutions**. To integrate this solution with Security Center, on the **Azure AD Identity Protection** tile, select **CONNECT**, and the following page appears:
-
-![Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
-
-To finish connecting Azure AD Identity Protection, select a workspace where the data is saved. All data from Azure AD Identity Protection flows from the workspace region that was selected in this step. Use the workspace selector to select the workspace, and data starts to flow there.
-
-To connect to Security Center, you must be a global admin or a security admin. If you don't have permissions, the **Connect** button is disabled. A message appears explaining why the button is disabled.
-
-Azure AD Identity Protection alerts go through the Security Center detection pipe. This way you get alerts from both Security Center and Azure AD Identity Protection. Security Center merges all alerts that seem relevant to create a [security incident](https://docs.microsoft.com/azure/security-center/security-center-incident). The security incident description gives you more intelligence about suspicious activity.
+Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
 ### Add data sources
 
-You can add Azure and non-Azure computers to integrate with Security Center. Adding non-Azure computers means that you can add on-premises computers or an appliance that supports CEF. 
+The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
 
 ![Data sources](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
+## Exporting data to a SIEM
 
-## See also
+> [!NOTE]
+> For details of a simpler method (currently in preview) for exporting data to a SIEM, see [Export security alerts and recommendations (Preview)](continuous-export.md). The new method does not use Activity Log as an intermediator and allows direct export from Security Center to Event Hubs (and then on to your SIEM), it also supports the export of Security Recommendations.
 
-In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following articles:
 
-* [Security Center planning and operations guide](security-center-planning-and-operations-guide.md)
-* [Manage and respond to security alerts in Security Center](security-center-managing-and-responding-alerts.md)
-* [Security alerts by type in Security Center](security-center-alerts-type.md)
+You can configure your SIEMs or other monitoring tools to receive Azure Security Center events.
+
+All events from Azure Security Center are published to Azure Monitor's Azure [Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Azure Monitor uses [a consolidated pipeline](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) to  stream the data to an Event Hub where it can then be pulled into your monitoring tool.
+
+The next sections describe how you can configure data to be streamed to an event hub. The steps assume that you already have Azure Security Center configured in your Azure subscription.
+
+### High-level overview
+
+![High-Level overview](media/security-center-export-data-to-siem/overview.png)
+
+### What is the Azure security data exposed to SIEM?
+
+In this version, we expose the [security alerts.](../security-center/security-center-managing-and-responding-alerts.md) In upcoming releases, we will enrich the data set with security recommendations.
+
+### How to set up the pipeline
+
+#### Create an Event Hub
+
+Before you begin, [create an Event Hubs namespace](../event-hubs/event-hubs-create.md) - the destination for all your monitoring data.
+
+#### Stream the Azure Activity Log to Event Hubs
+
+See the following article [stream activity log to Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
+
+#### Install a partner SIEM connector 
+
+Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
+
+See the following article for the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+
+### Example for Querying data 
+
+Here are some Splunk queries you can use to pull alert data:
+
+| **Description of Query** | **Query** |
+|----|----|
+| All Alerts| index=main Microsoft.Security/locations/alerts|
+| Summarize count of operations by their name| index=main sourcetype="amal:security" \| table operationName \| stats count by operationName|
+| Get Alerts info: Time, Name, State, ID, and Subscription | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
+
+
+## Next steps
+
+In this article, you learned how to integrate partner solutions in Security Center. To learn more about Security Center, see the following article:
+
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Monitor partner solutions with Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

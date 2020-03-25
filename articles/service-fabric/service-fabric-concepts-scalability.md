@@ -1,24 +1,16 @@
 ---
-title: Scalability of Service Fabric services | Microsoft Docs
-description: Describes how to scale Service Fabric services
-services: service-fabric
-documentationcenter: .net
+title: Scalability of Service Fabric services 
+description: Learn about scaling in Azure Service Fabric and the various techniques used to scale applications.
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
+ms.topic: conceptual
+ms.date: 08/26/2019
 ms.author: masnider
-
 ---
 # Scaling in Service Fabric
-Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. 
+Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on the nodes of a cluster. Running many workloads on the same hardware enables maximum resource utilization, but also provides flexibility in terms of how you choose to scale your workloads. This Channel 9 video describes how you can build scalable microservices applications:
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T116/player]
 
 Scaling in Service Fabric is accomplished several different ways:
 
@@ -66,7 +58,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Scaling by creating or removing new named services
 A named service instance is a specific instance of a service type (see [Service Fabric application life cycle](service-fabric-application-lifecycle.md)) within some named application instance in the cluster. 
 
-New named service instances can be created (or removed) as services become more or less busy. This allows requests to be spread across more service instances, usually allowing load on existing services to decrease. When creating services, the Service Fabric Cluster Resource Manager places the services in the cluster in a distributed fashion. The exact decisions are governed by the [metrics](service-fabric-cluster-resource-manager-metrics.md) in the cluster and other placement rules. Services can be created several different ways, but the most common are either through administrative actions like someone calling [`New-ServiceFabricService`](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), or by code calling [`CreateServiceAsync`](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` can even be called from within other services running in the cluster.
+New named service instances can be created (or removed) as services become more or less busy. This allows requests to be spread across more service instances, usually allowing load on existing services to decrease. When creating services, the Service Fabric Cluster Resource Manager places the services in the cluster in a distributed fashion. The exact decisions are governed by the [metrics](service-fabric-cluster-resource-manager-metrics.md) in the cluster and other placement rules. Services can be created several different ways, but the most common are either through administrative actions like someone calling [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps), or by code calling [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet). `CreateServiceAsync` can even be called from within other services running in the cluster.
 
 Creating services dynamically can be used in all sorts of scenarios, and is a common pattern. For example, consider a stateful service that represents a particular workflow. Calls representing work are going to show up to this service, and this service is going to execute the steps to that workflow and record progress. 
 
@@ -96,12 +88,14 @@ Service Fabric supports partitioning. Partitioning splits a service into several
 Consider a service that uses a ranged partitioning scheme with a low key of 0, a high key of 99, and a partition count of 4. In a three-node cluster, the service might be laid out with four replicas that share the resources on each node as shown here:
 
 <center>
+
 ![Partition layout with three nodes](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 If you increase the number of nodes, Service Fabric will move some of the existing replicas there. For example, let's say the number of nodes increases to four and the replicas get redistributed. Now the service now has three replicas running on each node, each belonging to different partitions. This allows better resource utilization since the new node isn't cold. Typically, it also improves performance as each service has more resources available to it.
 
 <center>
+
 ![Partition layout with four nodes](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 
@@ -112,12 +106,11 @@ If you increase the number of nodes, Service Fabric will move some of the existi
 ## Scaling by adding and removing nodes from the cluster 
 Another option for scaling with Service Fabric is to change the size of the cluster. Changing the size of the cluster means adding or removing nodes for one or more of the node types in the cluster. For example, consider a case where all of the nodes in the cluster are hot. This means that the cluster's resources are almost all consumed. In this case, adding more nodes to the cluster is the best way to scale. Once the new nodes join the cluster the Service Fabric Cluster Resource Manager moves services to them, resulting in less total load on the existing nodes. For stateless services with instance count = -1, more service instances are automatically created. This allows some calls to move from the existing nodes to the new nodes. 
 
-Adding and removing nodes to the cluster can be accomplished via the Service Fabric Azure Resource Manager PowerShell module.
+For more information, see [cluster scaling](service-fabric-cluster-scaling.md).
 
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+## Choosing a platform
+
+Due to implementation differences between operating systems, choosing to use Service Fabric with Windows or Linux can be a vital part of scaling your application. One potential barrier is how staged logging is performed. Service Fabric on Windows uses a kernel driver for a one-per-machine log, shared between stateful service replicas. This log weighs in at about 8 GB. Linux, on the other hand, uses a 256 MB staging log for each replica, making it less ideal for applications that want to maximize the number of lightweight service replicas running on a given node. These differences in temporary storage requirements could potentially inform the desired platform for Service Fabric cluster deployment.
 
 ## Putting it all together
 Let's take all the ideas that we've discussed here and talk through an example. Consider the following service: you are trying to build a service that acts as an address book, holding on to names and contact information. 

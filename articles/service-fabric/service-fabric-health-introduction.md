@@ -1,31 +1,16 @@
 ---
-title: Health monitoring in Service Fabric | Microsoft Docs
+title: Health monitoring in Service Fabric 
 description: An introduction to the Azure Service Fabric health monitoring model, which provides monitoring of the cluster and its applications and services.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: timlt
-editor: ''
 
-ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/19/2017
+ms.topic: conceptual
+ms.date: 2/28/2018
 ms.author: oanapl
-
 ---
 # Introduction to Service Fabric health monitoring
 Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.
 
 Service Fabric components use this rich health model to report their current state. You can use the same mechanism to report health from your applications. If you invest in high-quality health reporting that captures your custom conditions, you can detect and fix issues for your running application much more easily.
-
-The following Microsoft Virtual Academy video also describes the Service Fabric health model and how it's used:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > We started the health subsystem to address a need for monitored upgrades. Service Fabric provides monitored application and cluster upgrades that ensure full availability, no downtime and minimal to no user intervention. To achieve these goals, the upgrade checks health based on configured upgrade policies. An upgrade can proceed only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues. To learn more about application upgrades, see [this article](service-fabric-application-upgrade.md).
@@ -65,7 +50,7 @@ The health hierarchy is composed of parent-child relationships. A cluster is com
 The health hierarchy represents the latest state of the system based on the latest health reports, which is almost real-time information.
 Internal and external watchdogs can report on the same entities based on application-specific logic or custom monitored conditions. User reports coexist with the system reports.
 
-Plan to invest in how to report and respond to health during the design of a large cloud service. This up-front investement makes the service easier to debug, monitor, and operate.
+Plan to invest in how to report and respond to health during the design of a large cloud service. This up-front investment makes the service easier to debug, monitor, and operate.
 
 ## Health states
 Service Fabric uses three health states to describe whether an entity is healthy or not: OK, warning, and error. Any report sent to the health store must specify one of these states. The health evaluation result is one of these states.
@@ -114,7 +99,7 @@ The following example is an excerpt from a cluster manifest. To define entries i
 The [application health policy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) describes how the evaluation of events and child-states aggregation is done for applications and their children. It can be defined in the application manifest, **ApplicationManifest.xml**, in the application package. If no policies are specified, Service Fabric assumes that the entity is unhealthy if it has a health report or a child at the warning or error health state.
 The configurable policies are:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Specifies whether to treat warning health reports as errors during health evaluation. Default: false.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Specifies the maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in error. This percentage is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications are currently deployed on in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage: zero.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Specifies the default service type health policy, which replaces the default health policy for all service types in the application.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Provides a map of service health policies per service type. These policies replace the default service type health policies for each specified service type. For example, if an application has a stateless gateway service type and a stateful engine service type, you can configure the health policies for their evaluation differently. When you specify policy per service type, you can gain more granular control of the health of the service.
@@ -183,8 +168,8 @@ After the health store has evaluated all the children, it aggregates their healt
 
 * If all children have OK states, the child aggregated health state is OK.
 * If children have both OK and warning states, the child aggregated health state is warning.
-* If there are children with error states that do not respect the maximum allowed percentage of unhealthy children, the aggregated health state is an error.
-* If the children with error states respect the maximum allowed percentage of unhealthy children, the aggregated health state is warning.
+* If there are children with error states that do not respect the maximum allowed percentage of unhealthy children, the aggregated parent health state is an error.
+* If the children with error states respect the maximum allowed percentage of unhealthy children, the aggregated parent health state is warning.
 
 ## Health reporting
 System components, System Fabric applications, and internal/external watchdogs can report against Service Fabric entities. The reporters make *local* determinations of the health of the monitored entities, based on the conditions they are monitoring. They don't need to look at any global state or aggregate data. The desired behavior is to have simple reporters, and not complex organisms that need to look at many things to infer what information to send.
@@ -209,7 +194,7 @@ The [health reports](https://docs.microsoft.com/dotnet/api/system.fabric.health.
 * **Description**. A string that allows a reporter to provide detailed information about the health event. **SourceId**, **Property**, and **HealthState** should fully describe the report. The description adds human-readable information about the report. The text makes it easier for administrators and users to understand the health report.
 * **HealthState**. An [enumeration](service-fabric-health-introduction.md#health-states) that describes the health state of the report. The accepted values are OK, Warning, and Error.
 * **TimeToLive**. A timespan that indicates how long the health report is valid. Coupled with **RemoveWhenExpired**, it lets the health store know how to evaluate expired events. By default, the value is infinite, and the report is valid forever.
-* **RemoveWhenExpired**. A Boolean. If set to true, the expired health report is automatically removed from the health store, and the report doesn't impact entity health evaluation. Used when the report is valid for a specified period of time only, and the reporter doesn't need to explicitly clear it out. It's also used to delete reports from the health store (for example, a watchdog is changed and stops sending reports with previous source and property). It can send a report with a brief TimeToLive along with RemoveWhenExpired to clear up any previous state from the health store. If the value is set to false, the expired report is treated as an error on the health evaluation. The false value signals to the health store that the source should report periodically on this property. If it doesn't, then there must be something wrong with the watchdog. The watchdog's health is captured by considering the event as an error.
+* **RemoveWhenExpired**. A boolean. If set to true, the expired health report is automatically removed from the health store, and the report doesn't impact entity health evaluation. Used when the report is valid for a specified period of time only, and the reporter doesn't need to explicitly clear it out. It's also used to delete reports from the health store (for example, a watchdog is changed and stops sending reports with previous source and property). It can send a report with a brief TimeToLive along with RemoveWhenExpired to clear up any previous state from the health store. If the value is set to false, the expired report is treated as an error on the health evaluation. The false value signals to the health store that the source should report periodically on this property. If it doesn't, then there must be something wrong with the watchdog. The watchdog's health is captured by considering the event as an error.
 * **SequenceNumber**. A positive integer that needs to be ever-increasing, it represents the order of the reports. It is used by the health store to detect stale reports that are received late because of network delays or other issues. A report is rejected if the sequence number is less than or equal to the most recently applied number for the same entity, source, and property. If it is not specified, the sequence number is generated automatically. It is necessary to put in the sequence number only when reporting on state transitions. In this situation, the source needs to remember which reports it sent and keep the information for recovery on failover.
 
 These four pieces of information--SourceId, entity identifier, Property, and HealthState--are required for every health report. The SourceId string is not allowed to start with the prefix "**System.**", which is reserved for system reports. For the same entity, there is only one report for the same source and property. Multiple reports for the same source and property override each other, either on the health client side (if they are batched) or on the health store side. The replacement is based on sequence numbers; newer reports (with higher sequence numbers) replace older reports.

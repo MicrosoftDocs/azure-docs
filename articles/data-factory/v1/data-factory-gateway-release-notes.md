@@ -1,22 +1,25 @@
 ---
-title: Release notes for Data Management Gateway | Microsoft Docs
+title: Release notes for Data Management Gateway 
 description: Data Management Gateway tory release notes
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: anandsub
+
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/19/2017
+
+
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
 ---
 # Release notes for Data Management Gateway
+> [!NOTE]
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in V2](../create-self-hosted-integration-runtime.md).
+
 One of the challenges for modern data integration is to move data to and from on-premises to cloud. Data Factory makes this integration with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
 See the following articles for detailed information about Data Management Gateway and how to use it:
@@ -25,16 +28,19 @@ See the following articles for detailed information about Data Management Gatewa
 *  [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## CURRENT VERSION (2.10.6347.7)
+## CURRENT VERSION 
+We no more maintain the Release notes here. Get latest release notes [here](https://go.microsoft.com/fwlink/?linkid=853077)
 
-### Enhancements-
-- You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
-- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
-- Fixed: Issue with gateway offline during update (due to clock skew)
 
 
 
 ## Earlier versions
+## 2.10.6347.7
+### Enhancements-
+- You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
+- HDFS connector now supports self-signed public certificate by letting you skip TLS validation.
+- Fixed: Issue with gateway offline during update (due to clock skew)
+
 
 ## 2.9.6313.2
 ### Enhancements-
@@ -117,12 +123,12 @@ See the following articles for detailed information about Data Management Gatewa
 
     *  Reorganized and simplified controls.
 
-	*  You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
+	*  You can copy data from a storage using the [code-free copy tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general.
 *  You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
 
 *  Performance improvements
 
-    * Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
+    * Improve performance on viewing Schema/Preview against SQL Server in code-free copy tool.
 
 ## 1.12.5953.1
 

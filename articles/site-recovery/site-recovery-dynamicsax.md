@@ -1,25 +1,15 @@
 ---
-title: Replicate a multitier Dynamics AX deployment by using Azure Site Recovery | Microsoft Docs
-description: This article describes how to replicate and protect Dynamics AX by using Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
-author: asgang
+title: Disaster recovery of Dynamics AX with Azure Site Recovery 
+description: Learn how to set up disaster recovery for Dynamics AX with Azure Site Recovery
+author: sideeksh
 manager: rochakm
-editor: ''
-
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
-ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 8/24/2017
-ms.author: asgang
+ms.topic: how-to
+ms.date: 11/27/2018
 
 ---
-# Replicate a multitier Dynamics AX application by using Azure Site Recovery
+# Set up disaster recovery for a multitier Dynamics AX application   
 
-## Overview
+
 
 
  Dynamics AX is one of the most popular ERP solutions used by enterprises to standardize processes across locations, manage resources, and simplify compliance. Because the application is critical to an organization, in the event of a disaster, the application should be up and running in minimum time.
@@ -28,7 +18,6 @@ Today, Dynamics AX doesn't provide any out-of-the-box disaster recovery capabili
 
 This article explains how you can create a disaster recovery solution for your Dynamics AX application by using [Azure Site Recovery](site-recovery-overview.md). It also covers planned/unplanned test failovers by using a one-click recovery plan, supported configurations, and prerequisites.
 
-A Site Recovery-based disaster recovery solution is fully tested, certified, and recommended by Dynamics AX.
 
 
 ## Prerequisites
@@ -43,7 +32,7 @@ Implementing disaster recovery for Dynamics AX application by using Site Recover
 
 ## Site Recovery support
 
-For the purpose of creating this article, we used VMware virtual machines with Dynamics AX 2012 R3 on Windows Server 2012 R2 Enterprise. Because site recovery replication is application agnostic, we expect the recommendations provided here to hold for the following scenarios.
+For the purpose of creating this article, we used VMware virtual machines with Dynamics AX 2012 R3 on Windows Server 2012 R2 Enterprise. Because Site Recovery replication is application agnostic, we expect the recommendations provided here to hold for the following scenarios.
 
 ### Source and target
 
@@ -55,7 +44,7 @@ For the purpose of creating this article, we used VMware virtual machines with D
 
 ## Enable disaster recovery of the Dynamics AX application by using Site Recovery
 ### Protect your Dynamics AX application
-To enable the complete application replication and recovery, each component of Dynamics AX must be protected. 
+To enable the complete application replication and recovery, each component of Dynamics AX must be protected.
 
 ### 1. Set up Active Directory and DNS replication
 
@@ -96,7 +85,7 @@ You can select the VM in the replicated items to configure the network settings,
 
 * If you're using a static IP, specify the IP that you want the VM to take in the **Target IP** text box.
 
-    ![Network settings ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Network settings](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### 5. Create a recovery plan
@@ -136,7 +125,7 @@ Add a script (via Azure Automation) after the Application Object Server VM group
 
 ### Perform a test failover
 
-For more information specific to Active Directory during test failover, see the "Active Directory disaster recovery solution" companion guide. 
+For more information specific to Active Directory during test failover, see the "Active Directory disaster recovery solution" companion guide.
 
 For more information specific to SQL server during test failover, see [Replicate applications with SQL Server and Azure Site Recovery](site-recovery-sql.md).
 

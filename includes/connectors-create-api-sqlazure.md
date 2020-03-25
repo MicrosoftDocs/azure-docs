@@ -1,42 +1,68 @@
-### Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) with its connection information, including the server name, database name, and username/password. This information is included in the SQL Database connection string:
-  
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  
-    Read more about [Azure SQL Databases](https://azure.microsoft.com/services/sql-database).
+---
+ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+ms.topic: include
+ms.date: 11/08/2019
+---
 
-> [!NOTE]
-> When you create an Azure SQL Database, you can also create the sample databases included with SQL. 
-> 
-> 
+* If you're using Azure SQL Database, follow the steps under [Connect to Azure SQL Database](#connect-azure-sql-db).
 
-Before using your Azure SQL Database in a logic app, connect to your SQL Database. You can do this easily within your logic app on the Azure portal.  
+* If you're using SQL Server, follow the steps under [Connect to SQL Server](#connect-sql-server).
 
-Connect to your Azure SQL Database using the following steps:  
+<a name="connect-azure-sql-db"></a>
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "sql" in the search box. Select one of the actions:  
-   
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. If you haven't previously created any connections to SQL Database, you are prompted for the connection details:  
-   
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Enter the SQL Database details. Properties with an asterisk are required.
-   
-   | Property | Details |
-   | --- | --- |
-   | Connect via Gateway |Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-   | Connection Name * |Enter any name for your connection. |
-   | SQL Server Name * |Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. |
-   | SQL Database Name * |Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. |
-   | Username * |Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. |
-   | Password * |Enter the password you created when the SQL Database was created. |
-   
-    These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
-   
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Select **Create**. 
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
-   
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/table.png)
+### Connect to Azure SQL Database
 
+When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions.
+
+1. For **Connection Name**, create a name for your connection.
+
+1. Under **SQL Server Name**, select your Azure SQL server. When the **SQL Database Name** list appears, select your database. Provide the user name and password for your Azure SQL server.
+
+   You can also find this information either in the Azure portal under your SQL database properties or in your connection string:
+
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
+
+   ![Create connection to Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+
+1. When you're done, select **Create**.
+
+1. After you create your connection, continue with [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### Connect to SQL Server
+
+When the SQL trigger or action prompts you for connection information, follow these steps, which work for both triggers and actions. For scenarios that require that you install the [on-premises data gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) on a local computer and [create the Azure data gateway resource](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), make sure that you complete these requirements first. Otherwise, your gateway resource won't appear in the gateways list when you create your connection.
+
+Also, to use Windows authentication with the SQL Server connector in an [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), use the connector's non-ISE version and the on-premises data gateway. The ISE-labeled version doesn't support Windows authentication.
+
+1. For **Connection Name**, create a name for your connection.
+
+1. In the trigger or action, select **Connect via on-premises data gateway** so that the SQL server options appear.
+
+1. For **SQL server Name** and **SQL database name**, provide the address for your SQL server and name for your database. For **Username** and **Password**, provide the user name and password for your server.
+
+   You can also find this information in your connection string:
+
+   * `Server=<your-server-address>`
+   * `Database=<your-database-name>`
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
+
+   ![Create connection to SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+
+1. If your SQL server uses Windows or Basic authentication, select the **Authentication Type**.
+
+1. Under **Gateways**, select the Azure subscription that's associated with your previously created on-premises data gateway, and select the name for your on-premises data gateway.
+
+   If your gateway doesn't appear in the list, check that you correctly [set up your gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   ![Create SQL Server connection completed](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+
+1. When you're done, select **Create**.
+
+1. After you create your connection, continue with 
+[Add SQL trigger](#add-sql-trigger) or [Add SQL action](#add-sql-action).

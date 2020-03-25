@@ -1,27 +1,21 @@
 ---
-title: Real User Measurements to Azure Traffic Manager with Visual Studio Mobile Center | Microsoft Docs
+title: Real User Measurements with Visual Studio Mobile Center - Azure Traffic Manager
 description: Set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+author: rohinkoul
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/29/2017
-ms.author: kumud
+ms.date: 03/16/2018
+ms.author: rohink
 ms.custom: 
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center
-
->[!NOTE]
->The Real User Measurements feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
 
 You can set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager by following the steps:
 
@@ -35,22 +29,22 @@ To configure Real User Measurements, you need to obtain a key and instrument you
 The measurements you take and sent to Traffic Manager from your client application are identified by the service using a unique string, called the Real User Measurements (RUM) Key. You can get a RUM key using the Azure portal, a REST API or by using the PowerShell / CLI interfaces.
 
 To obtain the RUM Key using Azure portal using the following procedure:
-   1. From a browser, sign in to the Azure portal. If you don’t already have an account, you can sign up for a free one-month trial.
-   2. In the portal’s search bar, search for the Traffic Manager profile name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
-   3. In the Traffic Manager profile page, click **Real User Measurements** under **Settings**.
-   4. Click **Generate Key** to create a new RUM Key.
+1. From a browser, sign in to the Azure portal. If you don’t already have an account, you can sign up for a free one-month trial.
+2. In the portal’s search bar, search for the Traffic Manager profile name that you want to modify, and then click the Traffic Manager profile in the results that the displayed.
+3. In the Traffic Manager profile page, click **Real User Measurements** under **Settings**.
+4. Click **Generate Key** to create a new RUM Key.
         
    ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figure 1: Real User Measurements key generation**
 
-   5.	The page displays the RUM Key that is generated and a JavaScript code snippet that needs to be embedded into your HTML page.
+5. The page displays the RUM Key that is generated and a JavaScript code snippet that needs to be embedded into your HTML page.
  
    ![Javascript code for Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
-   6. Click the **Copy** button to copy the RUM Key. 
+6. Click the **Copy** button to copy the RUM Key. 
 
 ## Step 2: Instrument your app with the RUM package of Mobile Center SDK
 
@@ -75,7 +69,7 @@ To use Real User Measurements, complete the following procedure:
     In your **app/build.gradle** file add the following lines:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

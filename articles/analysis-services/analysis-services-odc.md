@@ -1,21 +1,12 @@
 ---
-title: Create an .odc file to connect to an Azure Analysis Services server | Microsoft Docs
+title: Connect to Azure Analysis Services with an .odc file | Microsoft Docs
 description: Learn how to create an Office Data Connection file to connect to and get data from an Analysis Services server in Azure.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 08/23/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 10/30/2019
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Create an Office Data Connection file
@@ -42,7 +33,7 @@ Information in this article describes how you can create an Office Data Connecti
 **Sample connection file**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns="http://www.w3.org/TR/REC-html40">
+xmlns="https://www.w3.org/TR/REC-html40">
 
 <head>
 <meta http-equiv=Content-Type content="text/x-ms-odc; charset=utf-8">
@@ -53,12 +44,12 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <title>AzureAnalysisServicesConnection</title>
 <xml id=docprops><o:DocumentProperties
   xmlns:o="urn:schemas-microsoft-com:office:office"
-  xmlns="http://www.w3.org/TR/REC-html40">
+  xmlns="https://www.w3.org/TR/REC-html40">
   <o:Name>SampleAzureAnalysisServices</o:Name>
  </o:DocumentProperties>
 </xml><xml id=msodc><odc:OfficeDataConnection
   xmlns:odc="urn:schemas-microsoft-com:office:odc"
-  xmlns="http://www.w3.org/TR/REC-html40">
+  xmlns="https://www.w3.org/TR/REC-html40">
   <odc:Connection odc:Type="OLEDB">
    <odc:ConnectionString>Provider=MSOLAP.7;Data Source=asazure://<region>.asazure.windows.net/<servername>;Initial Catalog=<database>;</odc:ConnectionString>
    <odc:CommandType>Cube</odc:CommandType>

@@ -1,240 +1,154 @@
 ---
-ms.assetid: 
-title: Azure Key Vault Storage Account Keys
-description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
-ms.topic: article
+title: Manage storage account keys with Azure Key Vault and the Azure CLI
+description: Storage account keys provide seamless integration between Azure Key Vault and key-based access to an Azure storage account.
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
-manager: mbaldwin
-ms.date: 09/14/2017
+ms.subservice: secrets
+author: msmbaldwin
+ms.author: mbaldwin
+manager: rkarlin
+ms.date: 09/18/2019
+# Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
 ---
-# Azure Key Vault Storage Account Keys
 
-Before Azure Key Vault Storage Account Keys, developers had to manage their own Azure Storage Account (ASA) keys and rotate them manually or through an external automation. Now, Key Vault Storage Account Keys are implemented as [Key Vault secrets](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) for authenticating with an Azure Storage Account. 
+# Manage storage account keys with Key Vault and the Azure CLI
 
-The Azure Storage Account (ASA) key feature manages secret rotation for you. It also removes the need for your direct contact with an ASA key by offering Shared Access Signatures (SAS) as a method. 
+An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by storing them as [Key Vault secrets](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
-For more general information on Azure Storage Accounts, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+You can use the Key Vault managed storage account key feature to list (sync) keys with an Azure storage account, and regenerate (rotate) the keys periodically. You can manage keys for both storage accounts and Classic storage accounts.
 
-## Supporting interfaces
+When you use the managed storage account key feature, consider the following points:
 
-The Azure Storage Account keys feature is initially available through the REST, .NET/C# and PowerShell interfaces. For more information, see [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
+- Key values are never returned in response to a caller.
+- Only Key Vault should manage your storage account keys. Don't manage the keys yourself and avoid interfering with Key Vault processes.
+- Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
+- You can request Key Vault to manage your storage account with a user principal, but not with a service principal.
+- Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
+We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../storage/common/storage-auth-aad.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault).
 
-## What Key Vault manages
+Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application.
 
-Key Vault performs several internal management functions on your behalf when you use Managed Storage Account Keys.
+Azure AD uses role-based access control (RBAC) to manage authorization, which is also supported by Key Vault.
 
-- Azure Key Vault manages keys of an Azure Storage Account (ASA).
-    - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.  
-    - Azure Key Vault regenerates (rotates) the keys periodically. 
-    - Key values are never returned in response to caller. 
-    - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts. 
-- Azure Key Vault allows you, the vault/object owner, to create SAS (account or service SAS) definitions.
-    - The SAS value, created using SAS definition, is returned as a secret via the REST URI path. For more information, see [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+## Service principal application ID
 
-## Naming guidance
+An Azure AD tenant provides each registered application with a [service principal](/azure/active-directory/develop/developer-glossary#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via RBAC.
 
-- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.  
-- A SAS definition name must be 1-102 characters in length containing only 0-9, a-z, A-Z.
+Key Vault is a Microsoft application that's pre-registered in all Azure AD tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 
-## Developer experience
+| Tenants | Cloud | Application ID |
+| --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Other  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-### Before Azure Key Vault Storage Keys 
+## Prerequisites
 
-Developers used to need to do the following practices with a storage account key to get access to Azure storage. 
- 
-```powershell
-//create an Azure Storage Account using a connection string containing an account name and a storage key 
+To complete this guide, you must first do the following:
 
-var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
-var blobClient = storageAccount.CreateCloudBlobClient();
+- [Install the Azure CLI](/cli/azure/install-azure-cli).
+- [Create a key vault](quick-create-cli.md)
+- [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-cli). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
+      
+## Manage storage account keys
+
+### Connect to your Azure account
+
+Authenticate your Azure CLI session using the [az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) commands.
+
+```azurecli-interactive
+az login
+``` 
+
+### Give Key Vault access to your storage account
+
+Use the Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) command to give Key Vault access your storage account. Provide the command the following parameter values:
+
+- `--role`: Pass the "Storage Account Key Operator Service Role" RBAC role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
+- `--assignee-object-id`: Pass the value "93c27d83-f79b-4cb2-8dd4-4aa716542e74", which is the Object ID for Key Vault in the Azure public cloud. (To get the Object ID for Key Vault in the Azure Government cloud, see [Service principal application ID](#service-principal-application-id).)
+- `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription ID, use the Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) command; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.
+
+```azurecli-interactive
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
- 
-### After Azure Key Vault Storage Keys 
 
-```powershell
-//Make sure to set storage permissions appropriately on your key vault
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+### Create a Key Vault Managed storage account
 
-//Get secret URI 
+ Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) command. Set a regeneration period of 90 days. After 90 days, Key Vault regenerates `key1` and swaps the active key from `key2` to `key1`. `key1` is then marked as the active key. Provide the command the following parameter values:
 
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
+- `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) command.
+- `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.
+- `--resource-id`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription ID, use the Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) command; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.
+   
+ ```azurecli-interactive
+az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+ ```
 
--AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
+## Shared access signature tokens
 
-//Get a SAS token from Key Vault
+You can also ask Key Vault to generate shared access signature tokens. A shared access signature provides delegated access to resources in your storage account. You can grant clients access to resources in your storage account without sharing your account keys. A shared access signature provides you with a secure way to share your storage resources without compromising your account keys.
 
-var secret = await kv.GetSecretAsync("SecretUri");
+The commands in this section complete the following actions:
 
-// Create new storage credentials using the SAS token. 
+- Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account `<YourStorageAccountName>` in your key vault `<YourKeyVaultName>`.
+- Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
+- Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
+- Verify that the shared access signature was saved in your key vault as a secret.
 
-var accountSasCredential = new StorageCredentials(secret.Value); 
+### Create a shared access signature token
 
-// Use the storage credentials and the Blob storage endpoint to create a new Blob service client. 
+Create a shared access signature definition using the Azure CLI [az storage account generate-sas](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) command. This operation requires the `storage` and `setsas` permissions.
 
-var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
 
-var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
- 
-// If your SAS token is about to expire, Get sasToken again from Key Vault and update it.
+```azurecli-interactive
+az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name <YourStorageAccountName> --account-key 00000000
+```
+After the operation runs successfully, copy the output.
 
-accountSasCredential.UpdateSASToken(sasToken);
+```console
+"se=2020-01-01&sp=***"
 ```
 
- ### Developer guidance
+This output will be the passed to the `--template-id` parameter in the next step.
 
-- Only allow Key Vault to manage your ASA keys. Do not attempt to manage them yourself, you will interfere with Key Vault's processes. 
-- Do not allow ASA keys to be managed by more than one Key Vault object. 
-- If you need to manually regenerate your ASA keys, we recommend that you regenerate them via Key Vault. 
+### Generate a shared access signature definition
 
-## Getting started
+Use the the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) command, passing the output from the previous step to the `--template-id` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
-### Setup for role-based access control (RBAC) permissions
-
-Key Vault needs permissions to *list* and *regenerate* keys for a storage account. Set up these permissions using the following steps:
-
-- Get ObjectId of Key Vault: 
-
-    `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     or
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
-
-- Assign Storage Key Operator role to Azure Key Vault Identity: 
-
-    `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
-
-    >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
-
-## Working example
-
-The following example demonstrates creating a Key Vault managed Azure Storage Account and the associated Shared Access Signature (SAS) definitions.
-
-### Assumptions
-
-The following statements are givens for this working example.
-
-- Your storage resource is located at: */subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1*
-
-- The name of your key vault is: *yourtest1*
-
-### Get a service principal
-
-```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+```azurecli-interactive
+az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
 ```
 
-The output of the preceding command will include your  ServicePrincipal, which we'll call *yourServicePrincipalId*. 
+### Verify the shared access signature definition
 
-### Set permissions
+You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) and [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) commands.
 
-Make sure you have your storage permissions set to *all*. You can get yourUserPrincipalId and set permissions on the vault using the following commands.
+First, find the shared access signature definition in your key vault using the [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) command.
 
-```powershell
-Get-AzureRmADUser -SearchString "your name"
-```
-Now search for your name and get the related ObjectId, which you will use in setting permissions on the vault.
-
-```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
+```azurecli-interactive
+az keyvault secret list --vault-name <YourKeyVaultName>
 ```
 
-### Allow access
+The secret corresponding to your SAS definition will have these properties:
 
-You need to give the Key Vault service access to the storage accounts, before you can create a managed storage account and SAS definitions.
-
-```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+```console
+    "contentType": "application/vnd.ms-sastoken-storage",
+    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
 ```
 
-### Create storage account
+You can now use the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command and the `id` property to view the content of that secret.
 
-Now create a Managed Storage Account and two SAS definitions. The account SAS provides access to the blob service with different permissions.
-
-```powershell
-Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -DisableAutoRegenerateKey
+```azurecli-interactive
+az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 ```
 
-### Regeneration
+The output of this command will show your SAS definition string as`value`.
 
-Setting the regeneration period using the following commands.
 
-```powershell
-$regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName yourtest1 -Name msak01 -AccountResourceId /subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1 -ActiveKeyName key2 -RegenerationPeriod $regenPeriod
-```
+## Next steps
 
-### Set SAS definitions
-
-Set the SAS definitions in Key Vault for your managed storage account.
-
-```powershell
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourtest1  -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
-Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service,Object -VaultName yourtest1  -AccountName msak01 -Name blobsas2 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List,Write
-```
-
-### Get token
-
-Get the corresponding SAS tokens and make calls to storage.
-
-```powershell
-$sasToken1 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas1).SecretValueText
-$sasToken2 = (Get-AzureKeyVaultSecret -VaultName yourtest1 -SecretName msak01-blobsas2).SecretValueText
-```
-
-### Create storage
-
-Notice that trying to access with *$sastoken1* fails, but that we are able to access with *$sastoken2*. 
-
-```powershell
-$context1 = New-AzureStorageContext -SasToken $sasToken1 -StorageAccountName yourtest1
-$context2 = New-AzureStorageContext -SasToken $sasToken2 -StorageAccountName yourtest1
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt"  -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
-```
-
-### Example summary
-
-You are able access the storage blob content with the SAS token that has write access.
-
-### Relevant Powershell cmdlets
-
-- [Get-AzureKeyVaultManagedStorageAccount
-](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount?view=azurermps-4.3.1)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey?view=azurermps-4.3.1)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-
-## Storage account onboarding 
-
-Example: As a Key Vault object owner you add a storage account object to your Azure Key Vault to onboard a storage account.
-
-During onboarding, Key Vault needs to verify that the identity of the onboarding account has permissions to *list* and to *regenerate* storage keys. In order to verify these permissions, Key Vault gets an OBO (On Behalf Of) token from the authentication service, audience set to Azure Resource Manager, and makes a *list* key call to the Azure Storage service. If the *list* call fails, the Key Vault object creation fails with an HTTP status code of *Forbidden*. The keys listed in this fashion are cached with your key vault entity storage. 
-
-Key Vault must verify that the identity has *regenerate* permissions before it can take ownership of regenerating your keys. To verify that the identity, via OBO token, as well as the Key Vault first party identity has these permissions:
-
-- Key Vault lists RBAC permissions on the storage account resource.
-- Key Vault validates the response via regular expression matching of actions and non-actions. 
-
-Find some supporting examples at [Key Vault - Managed Storage Account Keys Samples](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
-
-If the identity does not have *regenerate* permissions or if Key Vault's first party identity doesn’t have *list* or *regenerate* permission, then the onboarding request fails returning an appropriate error code and message. 
-
-The OBO token will only work when you use first-party, native client applications of either PowerShell or CLI.
-
-## Other applications
-
-- SAS tokens, constructed using Key Vault storage account keys, provide even more controlled access to an Azure storage account. For more information, see [Using shared access signatures](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
-
-## See also
-
-- [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/)
-- [Key Vault Team Blog](https://blogs.technet.microsoft.com/kv/)
+- Learn more about [keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/).
+- Review articles on the [Azure Key Vault team blog](https://blogs.technet.microsoft.com/kv/).
+- See the [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) reference documentation.

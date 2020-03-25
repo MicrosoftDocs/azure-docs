@@ -1,31 +1,28 @@
 ---
-title: Introduction to connectivity check in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher connectivity capability
+title: Introduction to Azure Network Watcher Connection Troubleshoot | Microsoft Docs
+description: This page provides an overview of the Network Watcher connection troubleshooting capability
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
-
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
-# Introduction to connectivity check in Azure Network Watcher
+# Introduction to connection troubleshoot in Azure Network Watcher
 
-The connectivity feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using Network Security Groups, firewalls, User-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
+The connection troubleshoot feature of Network Watcher provides the capability to check a direct TCP connection from a virtual machine to a virtual machine (VM), fully qualified domain name (FQDN), URI, or IPv4 address. Network scenarios are complex, they are implemented using network security groups, firewalls, user-defined routes, and resources provided by Azure. Complex configurations make troubleshooting connectivity issues challenging. Network Watcher helps reduce the amount of time to find and detect connectivity issues. The results returned can provide insights into whether a connectivity issue is due to a platform or a user configuration issue. Connectivity can be checked with [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), and [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Response
 
-The following table shows the properties returned when a connectivity check has finished running.
+The following table shows the properties returned when connection troubleshoot has finished running.
 
 |Property  |Description  |
 |---------|---------|
@@ -68,7 +65,7 @@ The following is an example of an issue found on a hop.
 ```
 ## Fault types
 
-The connectivity check returns fault types about the connection. The following table provides a list of the current fault types returned.
+Connection troubleshoot returns fault types about the connection. The following table provides a list of the current fault types returned.
 
 |Type  |Description  |
 |---------|---------|
@@ -81,8 +78,4 @@ The connectivity check returns fault types about the connection. The following t
 
 ### Next steps
 
-Learn how to verify connectivity to a resource by visiting: [Check connectivity with Azure Network Watcher](network-watcher-connectivity-powershell.md).
-
-<!--Image references-->
-[1]: ./media/network-watcher-next-hop-overview/figure1.png
-
+Learn how to troubleshoot connections using the [Azure portal](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), the [Azure CLI](network-watcher-connectivity-cli.md), or [REST API](network-watcher-connectivity-rest.md).

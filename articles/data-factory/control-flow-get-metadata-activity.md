@@ -1,42 +1,97 @@
 ---
-title: Get metadata activity in Azure Data Factory | Microsoft Docs
-description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline.
+title: Get Metadata activity in Azure Data Factory 
+description: Learn how to use the Get Metadata activity in a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: jhubbard
-editor: spelluru
+author: linda33wj
+manager: shwang
+ms.reviewer: 
 
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/31/2017
-ms.author: shlo
+
+
+ms.topic: conceptual
+ms.date: 03/02/2020
+ms.author: jingwang
 
 ---
-# Get metadata activity in Azure Data Factory
-GetMetadata activity can be used to retrieve metadata of any data in Azure Data Factory. This activity is supported only for data factories of version 2. It can be used in the following scenarios:
+# Get Metadata activity in Azure Data Factory
 
-- Validate the metadata information of any data
-- Trigger a pipeline when data is ready/ available
+You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory. You can use this activity in the following scenarios:
+
+- Validate the metadata of any data.
+- Trigger a pipeline when data is ready/available.
 
 The following functionality is available in the control flow:
-- The output from GetMetadata Activity can be used in conditional expressions to perform validation.
-- A pipeline can be triggered when condition is satisfied via Do-Until looping
 
-The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as output. Currently, only Azure blob dataset is supported. The supported metadata fields are size, structure, and lastModified time.  
+- You can use the output from the Get Metadata activity in conditional expressions to perform validation.
+- You can trigger a pipeline when a condition is satisfied via Do Until looping.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory V1 documentation](v1/data-factory-introduction.md).
+## Capabilities
 
+The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 2 MB.
+
+>[!NOTE]
+>If you run the Get Metadata activity on a self-hosted integration runtime, the latest capabilities are supported on version 3.6 or later.
+
+### Supported connectors
+
+**File storage**
+
+| Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
+
+- For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder.
+- For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
+- `lastModified` filter currently applies to filter child items but not the specified folder/file itself.
+- Wildcard filter on folders/files is not supported for Get Metadata activity.
+
+**Relational database**
+
+| Connector/Metadata | structure | columnCount | exists |
+|:--- |:--- |:--- |:--- |
+| [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
+| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [SQL Server](connector-sql-server.md) | √ | √ | √ |
+
+### Metadata options
+
+You can specify the following metadata types in the Get Metadata activity field list to retrieve the corresponding information:
+
+| Metadata type | Description |
+|:--- |:--- |
+| itemName | Name of the file or folder. |
+| itemType | Type of the file or folder. Returned value is `File` or `Folder`. |
+| size | Size of the file, in bytes. Applicable only to files. |
+| created | Created datetime of the file or folder. |
+| lastModified | Last modified datetime of the file or folder. |
+| childItems | List of subfolders and files in the given folder. Applicable only to folders. Returned value is a list of the name and type of each child item. |
+| contentMD5 | MD5 of the file. Applicable only to files. |
+| structure | Data structure of the file or relational database table. Returned value is a list of column names and column types. |
+| columnCount | Number of columns in the file or relational table. |
+| exists| Whether a file, folder, or table exists. Note that if `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
+
+>[!TIP]
+>When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
+
+>[!NOTE]
+>When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in output will include only files in the given path that have a last modified time within the specified range. In won’t include items in subfolders.
 
 ## Syntax
 
-### Get Metadata Activity definition:
-In the following example, the GetMetadata activity returns metadata about the data represented by the MyDataset. 
+**Get Metadata activity**
 
 ```json
 {
@@ -51,7 +106,8 @@ In the following example, the GetMetadata activity returns metadata about the da
 	}
 }
 ```
-### Dataset definition:
+
+**Dataset**
 
 ```json
 {
@@ -64,42 +120,81 @@ In the following example, the GetMetadata activity returns metadata about the da
 		},
 		"typeProperties": {
 			"folderPath":"container/folder",
-			"Filename": "file.json",
+			"filename": "file.json",
 			"format":{
 				"type":"JsonFormat"
-				"nestedSeperator": ","
 			}
 		}
 	}
 }
 ```
 
-### Output
+## Type properties
+
+Currently, the Get Metadata activity can return the following types of metadata information:
+
+Property | Description | Required
+-------- | ----------- | --------
+fieldList | The types of metadata information required. For details on supported metadata, see the [Metadata options](#metadata-options) section of this article. | Yes 
+dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
+formatSettings | Apply when using format type dataset. | No
+storeSettings | Apply when using format type dataset. | No
+
+## Sample output
+
+The Get Metadata results are shown in the activity output. Following are two samples showing extensive metadata options. To use the results in a subsequent activity, use this pattern: `@{activity('MyGetMetadataActivity').output.itemName}`.
+
+### Get a file's metadata
+
 ```json
 {
-    "size": 1024,
-    "structure": [
-        {
-            "name": "id",
-            "type": "Int64"
-        }, 
-    ],
-    "lastModified": "2016-07-12T00:00:00Z"
+  "exists": true,
+  "itemName": "test.csv",
+  "itemType": "File",
+  "size": 104857600,
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "contentMD5": "cMauY+Kz5zDm3eWa9VpoyQ==",
+  "structure": [
+    {
+        "name": "id",
+        "type": "Int64"
+    },
+    {
+        "name": "name",
+        "type": "String"
+    }
+  ],
+  "columnCount": 2
 }
 ```
 
-## Type properties
-Currently GetMetadata activity can fetch the following types of metadata information from an Azure storage dataset.
+### Get a folder's metadata
 
-Property | Description | Allowed Values | Required
--------- | ----------- | -------------- | --------
-fieldList | Lists the types of metadata information required.  | <ul><li>size</li><li>structure</li><li>lastModified</li></ul> |	No<br/>If empty, activity returns all 3 supported metadata information. 
-dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. <br/><br/>Currently supported dataset type is Azure Blob. Two sub properties are: <ul><li><b>referenceName</b>: reference to an existing Azure Blob Dataset</li><li><b>type</b>: since the dataset is being referenced, it is of the type "DatasetReference"</li></ul> |	<ul><li>String</li><li>DatasetReference</li></ul> |	Yes
+```json
+{
+  "exists": true,
+  "itemName": "testFolder",
+  "itemType": "Folder",
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "childItems": [
+    {
+      "name": "test.avro",
+      "type": "File"
+    },
+    {
+      "name": "folder hello",
+      "type": "Folder"
+    }
+  ]
+}
+```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+Learn about other control flow activities supported by Data Factory:
 
-- [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
-- [For Each Activity](control-flow-for-each-activity.md)
-- [Lookup Activity](control-flow-lookup-activity.md)
-- [Web Activity](control-flow-web-activity.md)
+- [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
+- [ForEach activity](control-flow-for-each-activity.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [Web activity](control-flow-web-activity.md)

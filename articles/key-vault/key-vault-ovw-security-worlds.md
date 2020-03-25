@@ -1,10 +1,12 @@
 ---
-ms.assetid: 
 title: Azure Key Vault security worlds | Microsoft Docs
+description: Azure Key Vault is a multi-tenant service. It uses a pool of HSMs in each Azure location. All locations in a geographic region share a cryptographic boundary.
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
-manager: mbaldwin
+ms.subservice: general
+ms.topic: conceptual
+author: msmbaldwin
+ms.author: mbaldwin
+manager: rkarlin
 ms.date: 07/03/2017
 ---
 # Azure Key Vault security worlds and geographic boundaries

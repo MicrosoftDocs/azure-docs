@@ -1,21 +1,11 @@
 ---
-title: Service Fabric Cluster Resource Manager - Placement Policies | Microsoft Docs
+title: Service Fabric Cluster Resource Manager - Placement Policies 
 description: Overview of additional placement policies and rules for Service Fabric Services
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Placement policies for service fabric services
 Placement policies are additional rules that can be used to govern service placement in some specific, less-common scenarios. Some examples of those scenarios are:
@@ -40,6 +30,7 @@ Most of the following controls could be configured via node properties and place
 The **InvalidDomain** placement policy allows you to specify that a particular Fault Domain is invalid for a specific service. This policy ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains may be specified via separate policies.
 
 <center>
+
 ![Invalid Domain Example][Image1]
 </center>
 
@@ -51,7 +42,7 @@ invalidDomain.DomainName = "fd:/DCEast"; //regulations prohibit this workload he
 serviceDescription.PlacementPolicies.Add(invalidDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
@@ -60,6 +51,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 The required domain placement policy requires that the service is present only in the specified domain. Multiple required domains can be specified via separate policies.
 
 <center>
+
 ![Required Domain Example][Image2]
 </center>
 
@@ -71,7 +63,7 @@ requiredDomain.DomainName = "fd:/DC01/RK03/BL2";
 serviceDescription.PlacementPolicies.Add(requiredDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
@@ -81,16 +73,17 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 The Preferred Primary Domain specifies the fault domain to place the Primary in. The Primary ends up in this domain when everything is healthy. If the domain or the Primary replica fails or shuts down, the Primary moves to some other location, ideally in the same domain. If this new location isn't in the preferred domain, the Cluster Resource Manager moves it back to the preferred domain as soon as possible. Naturally this setting only makes sense for stateful services. This policy is most useful in clusters that are spanned across Azure regions or multiple datacenters but have services that prefer placement in a certain location. Keeping Primaries close to their users or other services helps provide lower latency, especially for reads, which are handled by Primaries by default.
 
 <center>
+
 ![Preferred Primary Domains and Failover][Image3]
 </center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
 primaryDomain.DomainName = "fd:/EastUS/";
-serviceDescription.PlacementPolicies.Add(invalidDomain);
+serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
@@ -116,7 +109,7 @@ ServicePlacementRequireDomainDistributionPolicyDescription distributeDomain = ne
 serviceDescription.PlacementPolicies.Add(distributeDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")

@@ -21,6 +21,8 @@ ms.author: alkohli
 
 ## Overview
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 The hardware components of your Microsoft Azure StorSimple device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power and Cooling Modules (PCMs), disk drives, storage capacity, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling.
 
 ## Power and Cooling Module specifications
@@ -37,9 +39,9 @@ The EBOD enclosure uses a 580 W PCM, and primary enclosure uses a 764 W PCM. The
 | Maximum inrush current |20 A |20 A |
 | Power factor correction |>95% nominal input voltage |>95% nominal input voltage |
 | Harmonics |Meets EN61000-3-2 |Meets EN61000-3-2 |
-| Output |5V Standby voltage @ 2.0 A |5V Standby voltage @ 2.7 A |
-| +5V @ 42 A |+5V @ 40 A | |
-| +12V @ 38 A |+12V @ 38 A | |
+| Output |5V Standby voltage \@ 2.0 A |5V Standby voltage \@ 2.7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
 | Hot pluggable |Yes |Yes |
 | Switches and LEDs |AC ON/OFF switch and four status indicator LEDs |AC ON/OFF switch and six status indicator LEDs |
 | Enclosure cooling |Axial cooling fans with variable fan speed control |Axial cooling fans with variable fan speed control |
@@ -77,7 +79,7 @@ The StorSimple devices have a mix of hard disk drives and solid-state drives for
 | Total usable capacity* |~ 15 TB |~ 38 TB |
 | Maximum solution capacity (including cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *The total usable capacity includes the capacity available for data, metadata, and buffers.*
+<sup>* </sup>- *The total usable capacity includes the capacity available for data, metadata, and buffers. You can provision locally pinned volumes up to 8.5 TB on the 8100 device or up to 22.5 TB on the larger 8600 device. For more information, go to [StorSimple locally pinned volumes](storsimple-8000-local-volume-faq.md).*
 
 ## Enclosure dimensions and weight specifications
 
@@ -169,7 +171,7 @@ The device complies with EN55024.
 
 ## AC power cord compliance
 
-The plug and the complete power cord assembly must meet the standards appropriate for the country in which the device is being used, and they must have safety approvals that are acceptable in that country. The following tables list standards for the USA and Europe.
+The plug and the complete power cord assembly must meet the standards appropriate for the country/region in which the device is being used, and they must have safety approvals that are acceptable in that country/region. The following tables list standards for the USA and Europe.
 
 ### AC power cords - USA (must be NRTL listed)
 

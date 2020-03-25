@@ -1,46 +1,49 @@
 ---
-title: Copy data from ODBC sources using Azure Data Factory | Microsoft Docs
+title: Copy data from ODBC sources using Azure Data Factory 
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: shwang
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+
+
+ms.topic: conceptual
+ms.date: 01/09/2020
 ms.author: jingwang
 
 ---
 # Copy data from and to ODBC data stores using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-odbc-connector.md)
-> * [Version 2 - Preview](connector-odbc.md)
+> * [Version 1](v1/data-factory-odbc-connector.md)
+> * [Current version](connector-odbc.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an ODBC data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [ODBC connector in V1](v1/data-factory-odata-connector.md).
+## Supported capabilities
 
-## Supported scenarios
+This ODBC connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from ODBC source to any supported sink data store, or copy from any supported source data store to ODBC sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication.
+Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication. A **64-bit ODBC driver** is required.
 
 ## Prerequisites
 
 To use this ODBC connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the ODBC driver for the data store on the Integration Runtime machine.
+- Install the 64-bit ODBC driver for the data store on the Integration Runtime machine.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to ODBC connector.
 
@@ -51,10 +54,10 @@ The following properties are supported for ODBC linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Odbc** | Yes |
-| connectionString | The connection string excluding the credential portion. See examples in the next section. | Yes |
+| connectionString | The connection string excluding the credential portion. You can specify the connection string with pattern like `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, or use the system DSN (Data Source Name) you set up on the Integration Runtime machine with `"DSN=<name of the DSN on IR machine>;"` (you need still specify the credential portion in linked service accordingly).<br>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
 | authenticationType | Type of authentication used to connect to the ODBC data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
 | userName | Specify user name if you are using Basic authentication. | No |
-| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString. | No |
+| password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | The access credential portion of the connection string specified in driver-specific property-value format. Example: `"RefreshToken=<secret refresh token>;"`. Mark this field as a SecureString. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
@@ -63,16 +66,11 @@ The following properties are supported for ODBC linked service:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
+            "connectionString": "<connection string>",
             "authenticationType": "Basic",
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<connection string>"
-            },
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -92,16 +90,11 @@ The following properties are supported for ODBC linked service:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
+            "connectionString": "<connection string>",
             "authenticationType": "Anonymous",
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<connection string>"
-            },
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -117,13 +110,13 @@ The following properties are supported for ODBC linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by ODBC dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by ODBC dataset.
 
-To copy data from/to ODBC-compatible data store, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from/to ODBC-compatible data store, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
+| type | The type property of the dataset must be set to: **OdbcTable** | Yes |
 | tableName | Name of the table in the ODBC data store. | No for source (if "query" in activity source is specified);<br/>Yes for sink |
 
 **Example**
@@ -131,20 +124,21 @@ To copy data from/to ODBC-compatible data store, set the type property of the da
 ```json
 {
     "name": "ODBCDataset",
-    "properties":
-    {
-        "type": "RelationalTable",
+    "properties": {
+        "type": "OdbcTable",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties":
-        {
+        "typeProperties": {
             "tableName": "<table name>"
         }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -152,11 +146,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### ODBC as source
 
-To copy data from ODBC-compatible data store, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from ODBC-compatible data store, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **OdbcSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
@@ -180,7 +174,7 @@ To copy data from ODBC-compatible data store, set the source type in the copy ac
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "OdbcSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -191,13 +185,15 @@ To copy data from ODBC-compatible data store, set the source type in the copy ac
 ]
 ```
 
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+
 ### ODBC as sink
 
 To copy data to ODBC-compatible data store, set the sink type in the copy activity to **OdbcSink**. The following properties are supported in the copy activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **OdbcSink** | Yes |
+| type | The type property of the copy activity sink must be set to: **OdbcSink** | Yes |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 0 - auto detected) |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into data store in each run. You can use this property to clean up the pre-loaded data. |No |
@@ -237,64 +233,28 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 ]
 ```
 
-## GE Historian source
-
-You create an ODBC linked service to link a [GE Proficy Historian (now GE Historian)](http://www.geautomation.com/products/proficy-historian) data store to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "Odbc",
-        "typeProperties":
-        {
-            "authenticationType": "Basic",
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<GE Historian store connection string or DSN>"
-            },
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for GE Historian to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
-
-Before you use the GE Historian store in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
-
 ## SAP HANA sink
 
 >[!NOTE]
 >To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana.md). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 >
 
-You create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
+You can copy data to SAP HANA database using the generic ODBC connector.
+
+Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
+
+Before you use the SAP HANA sink in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
+
+Create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
 
 ```json
 {
     "name": "SAPHANAViaODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
             "authenticationType": "Basic",
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
-            },
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -309,11 +269,12 @@ You create an ODBC linked service to link a SAP HANA data store to an Azure data
 }
 ```
 
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
-
-Before you use the SAP HANA sink in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in the next section.
-
 Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Troubleshoot connectivity issues
 
@@ -326,4 +287,4 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 5. Click **Test connection** to test the connection to the data store.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

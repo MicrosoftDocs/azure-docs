@@ -1,26 +1,18 @@
 ---
-title: Monitor an Azure DC/OS cluster - ELK stack | Microsoft Docs
+title: (DEPRECATED) Monitor an Azure DC/OS cluster - ELK stack
 description: Monitor a DC/OS cluster in Azure Container Service cluster with ELK (Elasticsearch, Logstash, and Kibana).
-services: container-service
-documentationcenter: ''
 author: sauryadas
-manager: madhana
-editor: ''
-tags: acs, azure-container-service
-keywords: Containers, DC/OS, Azure, monitoring, elk
-
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-
 ---
-# Monitor an Azure Container Service cluster with ELK
+
+# (DEPRECATED) Monitor an Azure Container Service cluster with ELK
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 In this article, we demonstrate how to deploy the ELK (Elasticsearch, Logstash, Kibana) stack on a DC/OS cluster in Azure Container Service. 
 
 ## Prerequisites

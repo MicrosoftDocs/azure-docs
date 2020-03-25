@@ -1,19 +1,11 @@
 ---
-title: StorSimple 8000 Series Update 5 release notes | Microsoft Docs
+title: StorSimple 8000 Series Update 5 release notes
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 5.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 11/13/2017
 ms.author: alkohli
 
 ---
@@ -28,6 +20,7 @@ Update 5 can be applied to any StorSimple device running Update 0.1 through Upda
 Review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 > [!IMPORTANT]
+> * Update 5 is a mandatory update and must be installed immediately. For more information, see how to [Apply Update 5](storsimple-8000-install-update-5.md).
 > * Update 5 has device software, disk firmware, OS security, and other OS updates. It takes approximately 4 hours to install this update. Disk firmware update is a disruptive update and results in a downtime for your device. We recommend that you apply Update 5 to keep your device up-to-date.
 > * For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these updates will become available soon.
 

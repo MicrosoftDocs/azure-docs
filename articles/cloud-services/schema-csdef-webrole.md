@@ -1,8 +1,9 @@
 ---
 title: "Azure Cloud Services Def. WebRole Schema | Microsoft Docs"
+description: Azure web role is customized for web application programming supporting ASP.NET, PHP, WCF, and FastCGI. Learn about service definition elements of a web role.
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,9 +11,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: "thraka"
-ms.author: "adegeo"
-manager: "timlt"
+author: tgore03
+ms.author: tagore
+
 ---
 
 # Azure Cloud Services Definition WebRole Schema
@@ -39,11 +40,11 @@ The basic format of a service definition file containing a web role is as follow
       <InputEndpoint certificate="<certificate-name>" ignoreRoleInstanceStatus="[true|false]" name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<port-number>" port="<port-number>" loadBalancerProbe="<load-balancer-probe-name>" />  
       <InternalEndpoint name="<internal-endpoint-name>" protocol="[http|tcp|udp|any]" port="<port-number>">  
          <FixedPort port="<port-number>"/>  
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
       </InternalEndpoint>  
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">  
          <AllocatePublicPortFrom>  
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
          </AllocatePublicPortFrom>  
       </InstanceInputEndpoint>  
     </Endpoints>  
@@ -293,7 +294,7 @@ The following table describes the attributes of the `Certificate` element.
 |permissionLevel|string|Optional. Specifies the access permissions given to the role processes. If you want only elevated processes to be able to access the private key, then specify `elevated` permission. `limitedOrElevated` permission allows all role processes to access the private key. Possible values are `limitedOrElevated` or `elevated`. The default value is `limitedOrElevated`.|  
 
 ##  <a name="Imports"></a> Imports  
-The `Imports` element describes a collection of import modules for a web role that add components to the guest operating system. This element is the parent of the `Import` element. This element is optional and a role can have only one runtime block.
+The `Imports` element describes a collection of import modules for a web role that add components to the guest operating system. This element is the parent of the `Import` element. This element is optional and a role can have only one imports block. 
 
 The `Imports` element is only available using the Azure SDK version 1.3 or higher.
 
@@ -471,3 +472,7 @@ The following table describes the attributes of the `SourceDirectory` element.
   
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
+
+

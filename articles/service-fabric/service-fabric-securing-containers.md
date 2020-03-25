@@ -1,29 +1,14 @@
 ---
-title: Azure Service Fabric container security| Microsoft Docs
-description: Learn now to secure container services.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: ''
+title: Import certificates into a container
+description: Learn now to import certificate files into a Service Fabric container service.
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 8/9/2017
-ms.author: subramar
+ms.topic: conceptual
+ms.date: 2/23/2018
 ---
 
-# Container security
+# Import a certificate file into a container running on Service Fabric
 
-Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). In addition, Service Fabric also supports gMSA (group Managed Service Accounts) for Windows containers. 
-
-## Certificate management for containers
-
-You can secure your container services by specifying a certificate. The certificate must be installed in LocalMachine on all nodes of the cluster. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
+You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in a certificate store under LocalMachine on all nodes of the cluster. The private key corresponding to the certificate must be available, accessible and - on Windows - exportable. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,51 +16,39 @@ You can secure your container services by specifying a certificate. The certific
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-For windows clusters, when starting the application, the runtime reads the certificates and generates a PFX file and password for each certificate. This PFX file and password are accessible inside the container using the following environment variables: 
+For Windows clusters, when starting the application, the runtime exports each referenced certificate and its corresponding private key into a PFX file, secured with a randomly-generated password. The PFX and password files, respectively, are accessible inside the container using the following environment variables: 
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
+* Certificates_ServicePackageName_CodePackageName_CertName_PFX
+* Certificates_ServicePackageName_CodePackageName_CertName_Password
 
-For Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on linux are:
+For Linux clusters, the certificates (PEM) are copied over from the store specified by X509StoreName onto the container. The corresponding environment variables on Linux are:
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* Certificates_ServicePackageName_CodePackageName_CertName_PEM
+* Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
 
-Alternatively, if you already have the certificates in the required form and would simply want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
+Alternatively, if you already have the certificates in the required form and want to access it inside the container, you can create a data package inside your app package and specify the following inside your application manifest:
 
 ```xml
-  <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
-   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
+<ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
+  <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
  ```
 
-The container service or process is responsible for importing the certificate files into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or execute custom code within the container process. Sample code in C# for importing the PFX file follows:
+The container service or process is responsible for importing the certificate files into the container. To import the certificate, you can use `setupentrypoint.sh` scripts or execute custom code within the container process. Here is sample code in C# for importing the PFX file:
 
-```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
-    X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-    string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
-    password = password.Replace("\0", string.Empty);
-    X509Certificate2 cert = new X509Certificate2(certificateFilePath, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet);
-    store.Open(OpenFlags.ReadWrite);
-    store.Add(cert);
-    store.Close();
+```csharp
+string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
+password = password.Replace("\0", string.Empty);
+X509Certificate2 cert = new X509Certificate2(certificateFilePath, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet);
+store.Open(OpenFlags.ReadWrite);
+store.Add(cert);
+store.Close();
 ```
 This PFX certificate can be used for authenticating the application or service or secure communication with other services. By default, the files are ACLed only to SYSTEM. You can ACL it to other accounts as required by the service.
 
-
-## Set up gMSA for Windows containers
-
-To set up gMSA (group Managed Service Accounts), a credential specification file (`credspec`) is placed on all nodes in the cluster. The file can be copied on all nodes using a VM extension.  The `credspec` file must contain the gMSA account information. For more information on the `credspec` file, see [Service Accounts](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). The credential specification and the `Hostname` tag are specified in the application manifest. The `Hostname` tag must match the gMSA account name that the container runs under.  The `Hostname` tag allows the container to authenticate itself to other services in the domain using Kerberos authentication.  A sample for specifying the `Hostname` and the `credspec` in the application manifest is shown in the following snippet:
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" Hostname="gMSAAccountName">
-    <SecurityOption Value="credentialspec=file://WebApplication1.json"/>
-  </ContainerHostPolicies>
-</Policies>
-```
-## Next steps
+As a next step, read the following articles:
 
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

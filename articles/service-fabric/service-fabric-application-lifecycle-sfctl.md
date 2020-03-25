@@ -1,16 +1,13 @@
 ---
-title: Manage Azure Service Fabric applications using Azure Service Fabric CLI
+title: Manage Azure Service Fabric applications using sfctl
 description: Learn how to deploy and remove applications from an Azure Service Fabric cluster by using Azure Service Fabric CLI
-services: service-fabric
-author: samedder
-manager: timlt
+author: Christina-Kang
 
-ms.service: service-fabric
-ms.topic: article
-ms.date: 08/22/2017
-ms.author: edwardsa
+ms.topic: conceptual
+ms.date: 07/31/2018
+ms.author: bikang
 ---
-# Manage an Azure Service Fabric application by using Azure Service Fabric CLI
+# Manage an Azure Service Fabric application by using Azure Service Fabric CLI (sfctl)
 
 Learn how to create and delete applications that are running in an Azure Service Fabric cluster.
 
@@ -26,14 +23,14 @@ To deploy a new application, complete these steps:
 
 1. Upload an application package to the Service Fabric image store.
 2. Provision an application type.
-3. Specify and create an application.
-4. Specify and create services.
+3. Delete the image store content.
+4. Specify and create an application.
+5. Specify and create services.
 
 To remove an existing application, complete these steps:
 
 1. Delete the application.
 2. Unprovision the associated application type.
-3. Delete the image store content.
 
 ## Deploy a new application
 
@@ -46,7 +43,7 @@ Before you create an application, upload the application package to the Service 
 For example, if your application package is in the `app_package_dir` directory, use the following commands to upload
 the directory:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir
 ```
 
@@ -56,17 +53,29 @@ For large application packages, you can specify the `--show-progress` option to 
 
 When the upload is finished, provision the application. To provision the application, use the following command:
 
-```azurecli
+```shell
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
 The value for `application-type-build-path` is the name of the directory where you uploaded your application package.
 
+### Delete the application package
+
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues. 
+
+To delete the application package from the image store, use the following command:
+
+```shell
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` must be the name of the directory that you uploaded when you created the application.
+
 ### Create an application from an application type
 
 After you provision the application, use the following command to name and create your application:
 
-```azurecli
+```shell
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
@@ -81,7 +90,7 @@ After you have created an application, create services from the application. In 
 stateless service from our application. The services that you can create from an application are defined in a service
 manifest in the previously provisioned application package.
 
-```azurecli
+```shell
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
@@ -90,7 +99,7 @@ sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-t
 
 To verify everything is healthy, use the following health commands:
 
-```azurecli
+```shell
 sfctl application list
 sfctl service list --application-id TestApp
 ```
@@ -98,7 +107,7 @@ sfctl service list --application-id TestApp
 To verify that the service is healthy, use similar commands to retrieve the health of both the service and the
 application:
 
-```azurecli
+```shell
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
@@ -113,7 +122,7 @@ To remove an application, complete the following tasks:
 
 To delete the application, use the following command:
 
-```azurecli
+```shell
 sfctl application delete --application-id TestEdApp
 ```
 
@@ -122,24 +131,11 @@ sfctl application delete --application-id TestEdApp
 After you delete the application, you can unprovision the application type if you no longer need it. To unprovision
 the application type, use the following command:
 
-```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+```shell
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 The type name and type version must match the name and version in the previously provisioned application manifest.
-
-### Delete the application package
-
-After you have unprovisioned the application type, you can delete the application package from the image store if you
-no longer need it. Deleting application packages helps reclaim disk space. 
-
-To delete the application package from the image store, use the following command:
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` must be the name of the directory that you uploaded when you created the application.
 
 ## Upgrade application
 
@@ -150,14 +146,15 @@ of the application. For more information, see the documentation on
 
 To perform an upgrade, first provision the next version of the application using the same commands as before:
 
-```azurecli
+```shell
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 It is recommended then to perform a monitored automatic upgrade, launch the upgrade by running the following command:
 
-```azurecli
+```shell
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 

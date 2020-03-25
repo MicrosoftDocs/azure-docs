@@ -1,89 +1,81 @@
 ---
-title: 'SSMS: Connect and query data in Azure SQL Database | Microsoft Docs'
-description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run Transact-SQL (T-SQL) statements to query and edit data.
-metacanonical: ''
+title: "SSMS: Connect and query data"
+description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,sql server management studio
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: service
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: carlrab
-
+author: stevestein
+ms.author: sstein
+ms.reviewer:
+ms.date: 03/10/2020
 ---
-# Azure SQL Database: Use SQL Server Management Studio to connect and query data
+# Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) is an integrated environment for managing any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows. This quick start demonstrates how to use SSMS to connect to an Azure SQL database, and then use Transact-SQL statements to query, insert, update, and delete data in the database. 
+In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to an Azure SQL database and run some queries.
 
 ## Prerequisites
 
-This quick start uses as its starting point the resources created in one of these quick starts:
+Completing this quickstart requires the following items:
 
-- [Create DB - Portal](sql-database-get-started-portal.md)
-- [Create DB - CLI](sql-database-get-started-cli.md)
-- [Create DB - PowerShell](sql-database-get-started-powershell.md)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
+- The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](sql-database-single-database-get-started.md) quickstart.
+    - The scripts in this article are written to use the AdventureWorksLT database. If you are using a managed instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-Before you start, make sure you have installed the newest version of [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
+If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](sql-database-connect-query-portal.md).
 
-## SQL server connection information
+## Get SQL server connection information
 
-Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
+Get the connection information you need to connect to your database. You'll need the fully qualified server name or host name, database name, and login information to complete this quickstart.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the image below. You can hover over the server name to bring up the **Click to copy** option.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-   ![connection information](./media/sql-database-connect-query-dotnet/server-name.png) 
+2. Navigate to the **SQL database** or **SQL managed instance** you want to query.
 
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
+3. On the **Overview** page, copy the fully qualified server name. It's next to **Server name** for a single database, or the fully qualified server name next to **Host** for a managed instance. The fully qualified name looks like: *servername.database.windows.net*, except it has your actual server name.
 
 ## Connect to your database
 
-Use SQL Server Management Studio to establish a connection to your Azure SQL Database server. 
+In SSMS, connect to your Azure SQL Database server.
 
 > [!IMPORTANT]
-> An Azure SQL Database logical server listens on port 1433. If you are attempting to connect to an Azure SQL Database logical server from within a corporate firewall, this port must be open in the corporate firewall for you to successfully connect.
->
+> An Azure SQL Database server listens on port 1433. To connect to a SQL Database server from behind a corporate firewall, the firewall must have this port open.
 
-1. Open SQL Server Management Studio.
+1. Open SSMS.
 
-2. In the **Connect to Server** dialog box, enter the following information:
+2. The **Connect to Server** dialog box appears. Enter the following information:
 
-   | Setting       | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Server type** | Database engine | This value is required. |
-   | **Server name** | The fully qualified server name | The name should be something like this: **mynewserver20170313.database.windows.net**. |
-   | **Authentication** | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
-   | **Login** | The server admin account | This is the account that you specified when you created the server. |
-   | **Password** | The password for your server admin account | This is the password that you specified when you created the server. |
+   | Setting      | Suggested value    | Description |
+   | ------------ | ------------------ | ----------- |
+   | **Server type** | Database engine | Required value. |
+   | **Server name** | The fully qualified server name | Something like: **servername.database.windows.net**. |
+   | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
+   | **Login** | Server admin account user ID | The user ID from the server admin account used to create the server. |
+   | **Password** | Server admin account password | The password from the server admin account used to create the server. |
+   ||||
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Click **Options** in the **Connect to server** dialog box. In the **Connect to database** section, enter **mySampleDatabase** to connect to this database.
+3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**. Completing the quickstart in the [Prerequisites section](#prerequisites) creates an AdventureWorksLT database named mySampleDatabase. If your working copy of the AdventureWorks database has a different name than mySampleDatabase, then select it instead.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Click **Connect**. The Object Explorer window opens in SSMS. 
+4. Select **Connect**. The Object Explorer window opens.
 
-   ![connected to server](./media/sql-database-connect-query-ssms/connected.png)  
+5. To view the database's objects, expand **Databases** and then expand your database node.
 
-5. In Object Explorer, expand **Databases** and then expand **mySampleDatabase** to view the objects in the sample database.
+   ![mySampleDatabase objects](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## Query data
 
-Use the following code to query for the top 20 products by category using the [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL statement.
+Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL code to query for the top 20 products by category.
 
-1. In Object Explorer, right-click **mySampleDatabase** and click **New Query**. A blank query window opens that is connected to your database.
-2. In the query window, enter the following query:
+1. In Object Explorer, right-click **mySampleDatabase** and select **New Query**. A new query window connected to your database opens.
+
+2. In the query window, paste the following SQL query:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -92,15 +84,15 @@ Use the following code to query for the top 20 products by category using the [S
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. On the toolbar, click **Execute** to retrieve data from the Product and ProductCategory tables.
+3. On the toolbar, select **Execute** to run the query and retrieve data from the `Product` and `ProductCategory` tables.
 
-    ![query](./media/sql-database-connect-query-ssms/query.png)
+    ![query to retrieve data from table Product and ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
-## Insert data
+### Insert data
 
-Use the following code to insert a new product into the SalesLT.Product table using the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL statement.
+Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL code to create a new product in the `SalesLT.Product` table.
 
-1. In the query window, replace the previous query with the following query:
+1. Replace the previous query with this one.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -108,29 +100,39 @@ Use the following code to insert a new product into the SalesLT.Product table us
            , [ProductNumber]
            , [Color]
            , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate] )
      VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'
            ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+           ,100
+           ,100
+           ,GETDATE() );
    ```
 
-2. On the toolbar, click **Execute**  to insert a new row in the Product table.
+2. Select **Execute**  to insert a new row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
-    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+#### View the result
 
-## Update data
+1. Replace the previous query with this one.
 
-Use the following code to update the new product that you previously added using the [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL statement.
+   ```sql
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
+   ```
 
-1. In the query window, replace the previous query with the following query:
+2. Select **Execute**. The following result appears.
+
+   ![result of Product table query](./media/sql-database-connect-query-ssms/result.png)
+
+### Update data
+
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
+
+1. Replace the previous query with this one that returns the new record created previously:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -138,29 +140,25 @@ Use the following code to update the new product that you previously added using
    WHERE Name = 'myNewProduct';
    ```
 
-2. On the toolbar, click **Execute** to update the specified row in the Product table.
+2. Select **Execute** to update the specified row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
-    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+### Delete data
 
-## Delete data
+Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL code to remove your new product.
 
-Use the following code to delete the new product that you previously added using the [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL statement.
-
-1. In the query window, replace the previous query with the following query:
+1. Replace the previous query with this one.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. On the toolbar, click **Execute** to delete the specified row in the Product table.
-
-    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
+2. Select **Execute** to delete the specified row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
 ## Next steps
 
-- To learn about creating and managing servers and databases with Transact-SQL, see [Learn about Azure SQL Database servers and databases](sql-database-servers-databases.md).
-- For information about SSMS, see [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- For information about SSMS, see [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](sql-database-connect-query-portal.md).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](sql-database-connect-query-dotnet.md).
 - To connect and query using PHP, see [Connect and query with PHP](sql-database-connect-query-php.md).

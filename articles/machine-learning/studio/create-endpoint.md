@@ -1,71 +1,51 @@
 ---
-title: Creating Web service endpoints in Machine Learning | Microsoft Docs
-description: Creating Web service endpoints in Azure Machine Learning
+title: Create web service endpoints
+titleSuffix: ML Studio (classic) - Azure
+description: Create web service endpoints in Azure Machine Learning Studio (classic). Each endpoint in the web service is independently addressed, throttled, and managed.
 services: machine-learning
-documentationcenter: ''
-author: hiteshmadan
-manager: padou
-editor: cgronlun
-
-ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 10/04/2016
-ms.author: himad
+ms.subservice: studio
+ms.topic: conceptual
 
+author: likebupt
+ms.author: keli19
+ms.custom: seodec18
+ms.date: 02/15/2019
 ---
-# Creating Endpoints
-> [!NOTE]
->  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
-> 
-> 
+# Create endpoints for deployed Azure Machine Learning Studio (classic) web services
 
-When you create Web services that you sell forward to your customers, you need to provide trained models to each customer that are still linked to the experiment from which the Web service was created. In addition, any updates to the experiment should be applied selectively to an endpoint without overwriting the customizations.
-
-To accomplish this, Azure Machine Learning allows you to create multiple endpoints for a deployed Web service. Each endpoint in the Web service is independently addressed, throttled, and managed. Each endpoint is a unique URL and authorization key that you can distribute to your customers.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-## Adding endpoints to a Web service
-There are three ways to add an endpoint to a Web service.
-
-* Programmatically
-* Through the Azure Machine Learning Web Services portal
-* Though the Azure classic portal
-
-Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets. In addition to adding endpoints through this UI, you can also use the Endpoint Management APIs to programmatically add endpoints.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 > [!NOTE]
-> If you have added additional endpoints to the Web service, you cannot delete the default endpoint.
-> 
-> 
+> This topic describes techniques applicable to a **Classic** Machine Learning web service.
 
-## Adding an endpoint programmatically
-You can add an endpoint to your Web service programmatically using the [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) sample code.
+After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Web Services portal.
+Each endpoint in the web service is independently addressed, throttled, and managed. Each endpoint is a unique URL with an authorization key that you can distribute to your customers.
 
-## Adding an endpoint using the Azure Machine Learning Web Services portal
-1. In Machine Learning Studio, on the left navigation column, click Web Services.
-2. At the bottom of the Web service dashboard, click **Manage endpoints**. The Azure Machine Learning Web Services portal opens to the endpoints page for the Web service.
+## Add endpoints to a web service
+
+You can add an endpoint to a web service using the Azure Machine Learning Web Services portal. Once the endpoint is created, you can consume it through synchronous APIs, batch APIs, and excel worksheets.
+
+> [!NOTE]
+> If you have added additional endpoints to the web service, you cannot delete the default endpoint.
+
+1. In Machine Learning Studio (classic), on the left navigation column, click Web Services.
+2. At the bottom of the web service dashboard, click **Manage endpoints**. The Azure Machine Learning Web Services portal opens to the endpoints page for the web service.
 3. Click **New**.
-4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning Web services](web-services-logging.md).
+4. Type a name and description for the new endpoint. Endpoint names must be 24 character or less in length, and must be made up of lower-case alphabets or numbers. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](web-services-logging.md).
 
-## Adding an endpoint using the Azure classic portal
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com), click **Machine Learning** in the left column. Click the workspace which contains the Web service in which you are interested.
-   
-    ![Navigate to workspace](./media/create-endpoint/figure-1.png)
-2. Click **Web Services**.
-   
-    ![Navigate to Web services](./media/create-endpoint/figure-2.png)
-3. Click the Web service you're interested in to see the list of available endpoints.
-   
-    ![Navigate to endpoint](./media/create-endpoint/figure-3.png)
-4. At the bottom of the page, click **Add Endpoint**. Type a name and description, ensure there are no other endpoints with the same name in this Web service. Leave the throttle level with its default value unless you have special requirements. To learn more about throttling, see [Scaling API Endpoints](scaling-webservice.md).
-   
-    ![Create endpoint](./media/create-endpoint/figure-4.png)
+## <a id="scaling"></a> Scale a web service by adding additional endpoints
 
-## Next Steps
-[How to consume an Azure Machine Learning Web service](consume-web-services.md).
+By default, each published web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. Azure Machine Learning Studio (classic) automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored.
 
+If you plan to call the API with a higher load than a Max Concurrent Calls value of 200 will support, you should create multiple endpoints on the same web service. You can then randomly distribute your load across all of them.
+
+The scaling of a web service is a common task. Some reasons to scale are to support more than 200 concurrent requests, increase availability through multiple endpoints, or provide separate endpoints for the web service. You can increase the scale by adding additional endpoints for the same web service through the [Azure Machine Learning Web Service](https://services.azureml.net/) portal.
+
+Keep in mind that using a high concurrency count can be detrimental if you're not calling the API with a correspondingly high rate. You might see sporadic timeouts and/or spikes in the latency if you put a relatively low load on an API configured for high load.
+
+The synchronous APIs are typically used in situations where a low latency is desired. Latency here implies the time it takes for the API to complete one request, and doesn't account for any network delays. Let's say you have an API with a 50-ms latency. To fully consume the available capacity with throttle level High and Max Concurrent Calls = 20, you need to call this API 20 * 1000 / 50 = 400 times per second. Extending this further, a Max Concurrent Calls of 200 allows you to call the API 4000 times per second, assuming a 50-ms latency.
+
+## Next steps
+
+[How to consume an Azure Machine Learning web service](consume-web-services.md).

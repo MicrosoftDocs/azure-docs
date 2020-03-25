@@ -1,26 +1,21 @@
 ---
-title: Azure Container Service tutorial - Prepare App | Microsoft Docs
+title: (DEPRECATED) Azure Container Service tutorial - Prepare App
 description: Azure Container Service tutorial - Prepare App 
-services: container-service
-documentationcenter: ''
-author: neilpeterson
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
+author: iainfoulds
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/14/2017
-ms.author: nepeters
+ms.date: 02/26/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Create container images to be used with Azure Container Service
+# (DEPRECATED) Create container images to be used with Azure Container Service
+
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Prepare an application for Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 
@@ -102,7 +97,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-Browse to http://localhost:8080 to see the running application.
+Browse to `http://localhost:8080` to see the running application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 

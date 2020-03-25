@@ -1,33 +1,24 @@
 ---
-title: Azure CLI commands in Resource Manager mode | Microsoft Docs
-description: Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model
-services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: ''
-author: dlepow
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
-ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: command-line-interface
-ms.devlang: na
+title: Azure classic CLI commands
+description: Azure command line interface (CLI) commands to manage resources.
+author: cynthn
+manager: gwallace
+ms.service: virtual-machines
+ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: danlep
-
+ms.author: cynthn
+#pmcontact: 
 ---
-# Azure CLI commands in Resource Manager mode
-This article provides syntax and options for Azure command-line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).  
+# Azure classic CLI commands 
 
-> [!NOTE]
-> This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure CLI 1.0. 
->To work in the Resource Manager model, you can also try the [Azure CLI 2.0](/cli/azure/install-az-cli2), our next generation multi-platform CLI.
-> Find out more about the [old and new Azure CLIs](/cli/azure/old-and-new-clis).
->
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
-To get started, first [install the Azure CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
+This topic describes how to install the Azure classic CLI. The classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/).
+
+This article provides syntax and options for Azure classic command-line interface (CLI) commands you'd commonly use to create and manage Azure resources. This is not a complete reference, and your CLI version may show slightly different commands or parameters. 
+
+To get started, first [install the Azure classic CLI](../cli-install-nodejs.md) and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli).
 
 For current command syntax and options at the command line in Resource Manager mode, type `azure help` or, to display help for a specific command, `azure help [command]`. Also find CLI examples in the documentation for creating and managing specific Azure services.
 
@@ -42,10 +33,10 @@ Use the following command to enable Azure CLI Resource Manager mode commands.
 
 > [!NOTE]
 > The CLI's Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
-> 
-> 
+>
 
-## azure account: Manage your account information
+
+## Account information
 Your Azure subscription information is used by the tool to connect to your account.
 
 **List the imported subscriptions**
@@ -72,7 +63,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## azure ad: Commands to display Active Directory objects
+## Active Directory objects
 **Commands to display active directory applications**
 
     ad app create [options]
@@ -99,7 +90,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     ad user list [options]
     ad user show [options]
 
-## azure availset: commands to manage your availability sets
+## Availability sets
 **Creates an availability set within a resource group**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -116,7 +107,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 
     availset delete [options] <resource-group> <name>
 
-## azure config: commands to manage your local settings
+## Local settings
 **List Azure CLI configuration settings**
 
     config list [options]
@@ -134,7 +125,7 @@ Your Azure subscription information is used by the tool to connect to your accou
     config mode [options] <modename>
 
 
-## azure feature: commands to manage account features
+## Account features
 **List all features available for your subscription**
 
     feature list [options]
@@ -147,7 +138,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 
     feature register [options] <providerName> <featureName>
 
-## azure group: Commands to manage your resource groups
+## Resource groups
 **Creates a resource group**
 
     group create [options] <name> <location>
@@ -186,12 +177,13 @@ Your Azure subscription information is used by the tool to connect to your accou
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## azure hdinsight: Commands to manage your HDInsight clusters
+## HDInsight clusters
 **Commands to create or add to a cluster configuration file**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
+
 
 Example: Create a configuration file that contains a script action to run when creating a cluster.
 
@@ -304,17 +296,17 @@ Parameter options:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## azure insights: Commands related to monitoring Insights (events, alert rules, autoscale settings, metrics)
+## Insights (events, alert rules, autoscale settings, metrics)
 **Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider**
 
     insights logs list [options]
 
-## azure location: Commands to get the available locations for all resource types
+## Locations 
 **List the available locations**
 
     location list [options]
 
-## azure network: Commands to manage network resources
+## Network resources
 **Commands to manage virtual networks**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -966,6 +958,7 @@ Parameter options:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Removes the backend IP pool range resource from load balancer.
@@ -1330,6 +1323,7 @@ Parameter options:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
+
     network public-ip list [options] <resource-group>
 Lists all public IP resources within a resource group.
 
@@ -1351,7 +1345,9 @@ Parameter options:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
+
     network public-ip show [options] <resource-group> <name>
 
 Displays public ip properties for a public ip resource within a resource group.
@@ -1451,7 +1447,7 @@ Parameter options:
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
     --subnet-name <subnet-name>                                  the subnet name
     -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
+    -t, --tags <tags>                                                the comma separated list of tags.
     Can be multiple. In the format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2
@@ -1502,7 +1498,7 @@ Parameter options:
 
     network gateway list [options] <resource-group>
 
-## azure provider: Commands to manage resource provider registrations
+## Resource provider registrations
 **List currently registered providers in Resource Manager**
 
     provider list [options]
@@ -1519,7 +1515,7 @@ Parameter options:
 
     provider unregister [options] <namespace>
 
-## azure resource: Commands to manage your resources
+## Resources
 **Creates a resource in a resource group**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1540,7 +1536,7 @@ Parameter options:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## azure role: Commands to manage your Azure roles
+## Azure roles
 **Get all available role definitions**
 
     role list [options]
@@ -1555,7 +1551,7 @@ Parameter options:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## azure storage: Commands to manage your Storage objects
+## Storage objects
 **Commands to manage your Storage accounts**
 
     storage account list [options]
@@ -1678,7 +1674,7 @@ Parameter options:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## azure tag: Commands to manage your resource manager tag
+## Tags
 **Add a tag**
 
     tag create [options] <name> <value>
@@ -1695,7 +1691,7 @@ Parameter options:
 
     tag show [options] [name]
 
-## azure vm: Commands to manage your Azure Virtual Machines
+## Virtual Machines
 **Create a VM**
 
     vm create [options] <resource-group> <name> <location> <os-type>

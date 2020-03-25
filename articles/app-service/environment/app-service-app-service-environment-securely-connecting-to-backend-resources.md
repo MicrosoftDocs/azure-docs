@@ -1,24 +1,16 @@
 ---
-title: Securely Connecting to BackEnd Resources from an App Service Environment
-description: Learn about how to securely connect to backend resources from an App Service Environment.
-services: app-service
-documentationcenter: ''
+title: Connect to back end v1
+description: Learn about how to securely connect to backend resources from an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
-manager: erikre
-editor: ''
 
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
-# Securely Connecting to Backend Resources from an App Service Environment
-## Overview
+# Connect securely to back end resources from an App Service environment
 Since an App Service Environment is always created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork], outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.  With a recent change made in June 2016, ASEs can also be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses).  
 
 For example, there may be a SQL Server running on a cluster of virtual machines with port 1433 locked down.  The endpoint may be ACLd to only allow access from other resources on the same virtual network.  
@@ -90,8 +82,8 @@ For details around controlling inbound traffic to your App Service Environment, 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

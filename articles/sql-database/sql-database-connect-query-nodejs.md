@@ -1,145 +1,153 @@
 ---
-title: Use Node.js to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use Node.js to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
+title: Use Node.js to query a database
+description: How to use Node.js to create a program that connects to an Azure SQL database and query it using T-SQL statements.
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: mvc,develop apps
-ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.subservice: development
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/05/2017
-ms.author: carlrab
-
+author: stevestein
+ms.author: sstein
+ms.reviewer: v-masebo
+ms.date: 03/25/2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
-# Use Node.js to query an Azure SQL database
+# Quickstart: Use Node.js to query an Azure SQL database
 
-This quick start tutorial demonstrates how to use [Node.js](https://nodejs.org/en/) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
+In this quickstart, you use Node.js to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this quick start tutorial, make sure you have the following:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An [Azure SQL database](sql-database-single-database-get-started.md)
+- [Node.js](https://nodejs.org)-related software
 
-- An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
+  # [macOS](#tab/macos)
 
-   - [Create DB - Portal](sql-database-get-started-portal.md)
-   - [Create DB - CLI](sql-database-get-started-cli.md)
-   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
+  Install Homebrew and Node.js, then install the ODBC driver and SQLCMD using steps **1.2** and **1.3** in [Create Node.js apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
-- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
-- You have installed Node.js and related software for your operating system.
-    - **MacOS**: Install Homebrew and Node.js, and then install the ODBC driver and SQLCMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
-    - **Ubuntu**: Install Node.js, and then install the ODBC driver and SQLCMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/) .
-    - **Windows**: Install Chocolatey and Node.js, and then install the ODBC driver and SQL CMD. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+  # [Ubuntu](#tab/ubuntu)
 
-## SQL server connection information
+  Install Node.js, then install the ODBC driver and SQLCMD using steps **1.2** and **1.3** in [Create Node.js apps using SQL Server on Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
-Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
+  # [Windows](#tab/windows)
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option. 
+  Install Chocolatey and Node.js, then install the ODBC driver and SQLCMD using steps **1.2** and **1.3** in [Create Node.js apps using SQL Server on Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.
+  ---
 
 > [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> The scripts in this article are written to use the **Adventure Works** database.
 
-## Create a Node.js project
+> [!NOTE]
+> You can optionally choose to use an Azure SQL managed instance.
+>
+> To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
+>
+> To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
 
-Open a command prompt and create a folder named *sqltest*. Navigate to the folder you created and run the following command:
+## Get SQL server connection information
 
-    
-    npm init -y
-    npm install tedious
-    npm install async
-    
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
-## Insert code to query SQL database
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In your development environment or favorite text editor, create a new file, **sqltest.js**.
+2. Go to the **SQL databases**  or **SQL managed instances** page.
 
-2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
-   ```js
-   var Connection = require('tedious').Connection;
-   var Request = require('tedious').Request;
+## Create the project
 
-   // Create connection to database
-   var config = 
-      {
-        userName: 'someuser', // update me
-        password: 'somepassword', // update me
-        server: 'edmacasqlserver.database.windows.net', // update me
-        options: 
-           {
-              database: 'somedb' //update me
-              , encrypt: true
-           }
+Open a command prompt and create a folder named *sqltest*. Open the folder you created and run the following command:
+
+  ```bash
+  npm init -y
+  npm install tedious
+  ```
+
+## Add code to query database
+
+1. In your favorite text editor, create a new file, *sqltest.js*.
+
+1. Replace its contents with the following code. Then add the appropriate values for your server, database, user, and password.
+
+    ```js
+    const { Connection, Request } = require("tedious");
+
+    // Create connection to database
+    const config = {
+      authentication: {
+        options: {
+          userName: "username", // update me
+          password: "password" // update me
+        },
+        type: "default"
+      },
+      server: "your_server.database.windows.net", // update me
+      options: {
+        database: "your_database", //update me
+        encrypt: true
       }
-   var connection = new Connection(config);
+    };
 
-   // Attempt to connect and execute queries if connection goes through
-   connection.on('connect', function(err) 
-      {
-        if (err) 
-          {
-             console.log(err)
+    const connection = new Connection(config);
+
+    // Attempt to connect and execute queries if connection goes through
+    connection.on("connect", err => {
+      if (err) {
+        console.error(err.message);
+      } else {
+        queryDatabase();
+      }
+    });
+
+    function queryDatabase() {
+      console.log("Reading rows from the Table...");
+
+      // Read all rows from table
+      const request = new Request(
+        `SELECT TOP 20 pc.Name as CategoryName,
+                       p.name as ProductName
+         FROM [SalesLT].[ProductCategory] pc
+         JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid`,
+        (err, rowCount) => {
+          if (err) {
+            console.error(err.message);
+          } else {
+            console.log(`${rowCount} row(s) returned`);
           }
-       else
-          {
-              queryDatabase()
-          }
-      }
-    );
+        }
+      );
 
-   function queryDatabase()
-      { console.log('Reading rows from the Table...');
+      request.on("row", columns => {
+        columns.forEach(column => {
+          console.log("%s\t%s", column.metadata.colName, column.value);
+        });
+      });
+      
+      connection.execSql(request);
+    }
+    ```
 
-          // Read all rows from table
-        request = new Request(
-             "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
-                function(err, rowCount, rows) 
-                   {
-                       console.log(rowCount + ' row(s) returned');
-                       process.exit();
-                   }
-               );
-    
-        request.on('row', function(columns) {
-           columns.forEach(function(column) {
-               console.log("%s\t%s", column.metadata.colName, column.value);
-            });
-                });
-        connection.execSql(request);
-      }
-```
+> [!NOTE]
+> The code example uses the **AdventureWorksLT** sample database for Azure SQL.
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At the command prompt, run the program.
 
-   ```js
-   node sqltest.js
-   ```
+    ```bash
+    node sqltest.js
+    ```
 
-2. Verify that the top 20 rows are returned and then close the application window.
+1. Verify the top 20 rows are returned and close the application window.
 
 ## Next steps
 
-- Learn about the [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- Learn how to [connect and query an Azure SQL database using .NET core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
-- Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
-- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
-- Learn how to [Connect and query with SSMS](sql-database-connect-query-ssms.md)
-- Learn how to [Connect and query with Visual Studio Code](sql-database-connect-query-vscode.md).
+- [Microsoft Node.js Driver for SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server)
 
+- Connect and query on Windows/Linux/macOS with [.NET core](sql-database-connect-query-dotnet-core.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or [SSMS](sql-database-connect-query-ssms.md) (Windows only)
 
+- [Get started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli)
+
+- Design your first Azure SQL database using [.NET](sql-database-design-first-database-csharp.md) or [SSMS](sql-database-design-first-database.md)

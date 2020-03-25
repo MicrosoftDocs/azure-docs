@@ -1,26 +1,25 @@
 ﻿---
-title: Azure PowerShell Script Sample - Upgrade a Service Fabric application | Microsoft Docs
-description: Azure PowerShell Script Sample - Upgrade a Service Fabric application.
+title: Upgrade a Service Fabric application in Powershell
+description: Azure PowerShell Script Sample - Upgrade and monitor an Azure Service Fabric application using Powershell.
 services: service-fabric
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: azure-service-management
 
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
-ms.date: 09/29/2017
-ms.author: ryanwi
+ms.date: 01/18/2018
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
 # Upgrade a Service Fabric application
 
-This sample script upgrades a running Service Fabric application instance to version 1.3.0. The script copies the new application package to the cluster image store, registers the application type, starts a monitored upgrade, and continuously checks the upgrade status until the upgrade completes or rolls back. Customize the parameters as needed. 
+This sample script upgrades a running Service Fabric application instance to version 1.3.0. The script copies the new application package to the cluster image store, registers the application type, and removes the unnecessary application package.  The script starts a monitored upgrade and continuously checks the upgrade status until the upgrade completes or rolls back. Customize the parameters as needed. 
 
 If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
 
@@ -41,6 +40,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copies a Service Fabric application package to the image store.  |
 | [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Registers a Service Fabric application type. |
 | [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Upgrades a Service Fabric application to the specified application type version. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Removes a Service Fabric application package from the image store.|
 
 
 ## Next steps

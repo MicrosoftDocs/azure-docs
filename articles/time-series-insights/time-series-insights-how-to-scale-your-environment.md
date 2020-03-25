@@ -1,51 +1,52 @@
 ---
-title: How to scale your Azure Time Series Insights environment | Microsoft Docs
-description: This tutorial covers how to scale your Azure Time Series Insights environment
-keywords: 
+title: 'How to scale your environment - Azure Time Series Insights| Microsoft Docs'
+description: Learn how to scale your Azure Time Series Insights environment using the Azure portal.
+ms.service: time-series-insights
 services: time-series-insights
-documentationcenter: 
-author: sandshadow
-manager: almineev
-editor: cgronlun
-
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 04/19/2017
-ms.author: edett
+ms.topic: conceptual
+ms.date: 01/21/2020
+ms.custom: seodec18
 ---
+
 # How to scale your Time Series Insights environment
 
-This tutorial covers how to scale your Time Series Insights environment.
+This article describes how to change the capacity of your Time Series Insights environment using the [Azure portal](https://portal.azure.com). Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with your selected SKU.
 
-> [!NOTE]
-> Scale up across sku types is not allowed. An environment with a S1 Sku cannot be converted into an S2 environment.
+You can use the Azure portal to increase or decrease capacity within a given pricing SKU.
 
-## S1 SKU ingress rates and capacities
+However, changing the pricing tier SKU is not allowed. For example, an environment with an S1 pricing SKU cannot be converted into an S2, or vice versa.
 
-| S1 SKU Capacity | Ingress Rate | Maximum Storage Capacity
-| --- | --- | --- |
-| 1 | 1 GB (1 million events) | 30 GB (30 million events) per month |
-| 10 | 10 GB (10 million events) | 300 GB (300 million events) per month |
+## GA limits
 
-## S2 SKU ingress rates and capacities
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
-| S2 SKU Capacity | Ingress Rate | Maximum Storage Capacity
-| --- | --- | --- |
-| 1 | 10 GB (10 million events) | 300 GB (300 million events) per month |
-| 10 | 100 GB (100 million events) | 3 TB (3 billion events) per month |
+## Change the capacity of your environment
 
-Capacities scale linearly, so a S1 sku with capacity 2 supports 2 GB (2 million) events per day ingress rate and 60 GB (60 million events) per month.
+1. In the Azure portal, locate and select your Time Series Insights environment.
 
-## Changing the capacity of your environment
+1. In the menu for your Time Series Insights environment, select **Storage Configuration**.
 
-1. In the Azure portal, select the environment whose capacity you want to change.
-1. Under Settings, click Configure.
-1. Use the Capacity slider to select the capacity that meets the requirements for your ingress rates and storage capacity.
+   [![Configure your Time Series Insights capacity](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+
+1. Adjust the **Capacity** slider to select the capacity that meets the requirements for your ingress rates and storage capacity. Notice the **Ingress rate**, **Storage capacity**, and **Estimated cost** update dynamically to show the impact of the change.
+
+   [![Configure your environment using the capacity slider](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
+
+   Alternatively, you can type the number of the capacity multiplier into the text box to the right of the slider.
+
+1. Select **Save** to scale the environment. The progress indicator is displayed until the change is committed, momentarily.
+
+1. Verify that the new capacity is [sufficient to prevent throttling](time-series-insights-diagnose-and-solve-problems.md).
 
 ## Next steps
 
-* Verify that the new capacity is sufficient to prevent throttling. For more details, see the *Your environment might be getting throttled* section [here](time-series-insights-diagnose-and-solve-problems.md).
+- For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+- Learn about [planning out your environment](time-series-insights-environment-planning.md).

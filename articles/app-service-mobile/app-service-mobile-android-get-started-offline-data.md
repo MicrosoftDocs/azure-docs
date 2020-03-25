@@ -1,20 +1,12 @@
 ---
-title: Enable offline sync for your Azure Mobile App (Android)
-description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application
-documentationcenter: android
-author: ggailey777
-manager: syntaxc4
-services: app-service\mobile
+title: Enable offline sync (Android)
+description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application.
 
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: glenga
-
+ms.date: 06/25/2019
 ---
 # Enable offline sync for your Android mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -97,6 +89,6 @@ When you press that button, a new background task starts. It first pushes all ch
 
 [Create an Android App]: app-service-mobile-android-get-started.md
 
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

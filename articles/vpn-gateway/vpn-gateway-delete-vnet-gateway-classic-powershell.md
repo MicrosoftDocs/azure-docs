@@ -1,46 +1,45 @@
 ---
-title: 'Delete a virtual network gateway: PowerShell: Azure classic | Microsoft Docs'
-description: Delete a virtual network gateway using PowerShell in the classic deployment model. 
+title: 'Delete a virtual network gateway: Azure classic'
+description: Delete a virtual network gateway using PowerShell in the classic deployment model.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: 
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.topic: conceptual
+ms.date: 01/09/2020
 ms.author: cherylmc
-
 ---
 # Delete a virtual network gateway using PowerShell (classic)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 This article helps you delete a VPN gateway in the classic deployment model by using PowerShell. After the virtual network gateway has been deleted, modify the network configuration file to remove elements that you are no longer using.
 
-##<a name="connect"></a>Step 1: Connect to Azure
+## <a name="connect"></a>Step 1: Connect to Azure
 
 ### 1. Install the latest PowerShell cmdlets.
 
-Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### 2. Connect to your Azure account. 
+### 2. Connect to your Azure account.
 
 Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-```powershell
-Add-AzureAccount
-```
+1. Open your PowerShell console with elevated rights. To switch to service management, use this command:
+
+   ```powershell
+   azure config mode asm
+   ```
+2. Connect to your account. Use the following example to help you connect:
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="export"></a>Step 2: Export and view the network configuration file
 
@@ -97,7 +96,7 @@ Example:
  </Gateway>
 ```
 
-###<a name="lns"></a>Local Network Sites
+### <a name="lns"></a>Local Network Sites
 
 Remove any local sites that you are no longer using. Depending on the configuration you created, it is possible that you don't have a **LocalNetworkSite** listed.
 
@@ -191,3 +190,4 @@ If successful, the return shows something similar to this example:
 OperationDescription        OperationId                      OperationStatus                                                
 --------------------        -----------                      ---------------                                           
 Set-AzureVNetConfig         e0ee6e66-9167-cfa7-a746-7casb9   Succeeded
+```

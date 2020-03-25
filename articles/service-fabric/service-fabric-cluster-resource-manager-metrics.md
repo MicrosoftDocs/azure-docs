@@ -1,21 +1,11 @@
 ---
-title: Manage Azure microservice load using metrics | Microsoft Docs
+title: Manage Azure Service Fabric app load using metrics 
 description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Managing resource consumption and load in Service Fabric with metrics
 *Metrics* are the resources that your services care about and which are provided by the nodes in the cluster. A metric is anything that you want to manage in order to improve or monitor the performance of your services. For example, you might watch memory consumption to know if your service is overloaded. Another use is to figure out whether the service could move elsewhere where memory is less constrained in order to get better performance.
@@ -29,17 +19,19 @@ Let’s say that you want to get started writing and deploying your service. At 
   - ReplicaCount - count of total stateful replicas on the node
   - Count - count of all service objects (stateless and stateful) on the node
 
-| Metric | Stateless Instance Load | Stateful Secondary Load | Stateful Primary Load |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| Count |1 |1 |1 |
+| Metric | Stateless Instance Load | Stateful Secondary Load | Stateful Primary Load | Weight |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |High |
+| ReplicaCount |0 |1 |1 |Medium |
+| Count |1 |1 |1 |Low |
+
 
 For basic workloads, the default metrics provide a decent distribution of work in the cluster. In the following example, let’s see what happens when we create two services and rely on the default metrics for balancing. The first service is a stateful service with three partitions and a target replica set size of three. The second service is a stateless service with one partition and an instance count of three.
 
 Here's what you get:
 
 <center>
+
 ![Cluster Layout with Default Metrics][Image1]
 </center>
 
@@ -210,6 +202,7 @@ As a reminder, this syntax is ("MetricName, MetricWeight, PrimaryDefaultLoad, Se
 Let's see what one possible cluster layout could look like:
 
 <center>
+
 ![Cluster Balanced with both Default and Custom metrics][Image2]
 </center>
 
@@ -234,6 +227,7 @@ The real impact of different metric weights in the cluster is that the Cluster R
 Let’s look at an example of some load reports and how different metric weights results in different allocations in the cluster. In this example, we see that switching the relative weight of the metrics causes the Cluster Resource Manager to create different arrangements of services.
 
 <center>
+
 ![Metric Weight Example and Its Impact on Balancing Solutions][Image3]
 </center>
 
@@ -251,6 +245,7 @@ There are multiple weights that are tracked for every metric. The first weight i
 What would happen if the Cluster Resource Manager didn’t care about both global and local balance? Well, it’s easy to construct solutions that are globally balanced, but which result in poor resource balance for individual services. In the following example, let’s look at a service configured with just the default metrics, and see what happens when only global balance is considered:
 
 <center>
+
 ![The Impact of a Global Only Solution][Image4]
 </center>
 

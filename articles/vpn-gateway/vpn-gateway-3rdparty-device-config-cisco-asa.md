@@ -1,20 +1,12 @@
 ---
-title: Sample configuration for connecting Cisco ASA devices to Azure VPN gateways | Microsoft Docs
+title: 'Sample configuration for connecting Cisco ASA devices to Azure VPN gateways'
 description: This article provides a sample configuration for connecting Cisco ASA devices to Azure VPN gateways.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
 
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 10/19/2018
 ms.author: yushwang
 
 ---
@@ -48,7 +40,7 @@ Azure VPN gateways use the standard IPsec/IKE protocol suites to establish Site-
 > You can optionally specify an exact combination of cryptographic algorithms and key strengths for a specific connection, as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md). If you specify an exact combination of algorithms and key strengths, be sure to use the corresponding specifications on your VPN devices.
 
 ## Single VPN tunnel
-This configuration consists of a single S2S VPN tunnel between an Azure VPN gateway and an on-premises VPN device. You can optionally configure the [BGP across the VPN tunnel](#bgp).
+This configuration consists of a single S2S VPN tunnel between an Azure VPN gateway and an on-premises VPN device. You can optionally configure the BGP across the VPN tunnel.
 
 ![Single S2S VPN tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
@@ -95,10 +87,7 @@ The following table lists the IPsec/IKE algorithms and parameters that are used 
 
 * Support for DH Group and PFS Group beyond Group 5 requires ASA version 9.x.
 
-* Support for IPsec Encryption with AES-GCM and IPsec Integrity with SHA-256, SHA-384, or SHA-512, requires ASA version 9.x. This support requirement applies to newer ASA devices.
-
-    > [!NOTE]
-    > ASA device models 5505, 5510, 5520, 5540, 5550, and 5580 are not supported. Consult your VPN device specifications to verify the algorithms that are supported for your VPN device models and firmware versions.
+* Support for IPsec Encryption with AES-GCM and IPsec Integrity with SHA-256, SHA-384, or SHA-512, requires ASA version 9.x. This support requirement applies to newer ASA devices. At the time of publication, ASA models 5505, 5510, 5520, 5540, 5550, and 5580 do not support these algorithms. Consult your VPN device specifications to verify the algorithms that are supported for your VPN device models and firmware versions.
 
 
 ### Sample device configuration
@@ -255,7 +244,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use

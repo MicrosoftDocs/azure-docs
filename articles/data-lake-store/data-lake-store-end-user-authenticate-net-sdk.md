@@ -1,22 +1,20 @@
 ---
-title: 'End-user authentication: .NET SDK with Data Lake Store using Azure Active Directory | Microsoft Docs'
-description: Learn how to achieve end-user authentication with Data Lake Store using Azure Active Directory with .NET SDK
+title: 'End-user authentication: .NET SDK with Azure Data Lake Storage Gen1 using Azure Active Directory | Microsoft Docs'
+description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with .NET SDK
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: twooley
 manager: cgronlun
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/29/2017
-ms.author: nitinme
+ms.topic: conceptual
+ms.date: 05/29/2018
+ms.author: twooley
 
 ---
-# End-user authentication with Data Lake Store using .NET SDK
+# End-user authentication with Azure Data Lake Storage Gen1 using .NET SDK
 > [!div class="op_single_selector"]
 > * [Using Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -25,29 +23,21 @@ ms.author: nitinme
 > 
 >  
 
-In this article, you learn about how to use the .NET SDK to do end-user authentication with Azure Data Lake Store. For service-to-service authentication with Data Lake Store using .NET SDK, see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
+In this article, you learn about how to use the .NET SDK to do end-user authentication with Azure Data Lake Storage Gen1. For service-to-service authentication with Data Lake Storage Gen1 using .NET SDK, see [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## Prerequisites
-* **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2017.
+* **Visual Studio 2013 or above**. The instructions below use Visual Studio 2019.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## Create a .NET application
-1. Open Visual Studio and create a console application.
-2. From the **File** menu, click **New**, and then click **Project**.
-3. From **New Project**, type or select the following values:
+1. In Visual Studio, select the **File** menu, **New**, and then **Project**.
+2. Choose **Console App (.NET Framework)**, and then select **Next**.
+3. In **Project name**, enter `CreateADLApplication`, and then select **Create**.
 
-   | Property | Value |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |Console Application |
-   | Name |CreateADLApplication |
-
-4. Click **OK** to create the project.
-
-5. Add the NuGet packages to your project.
+4. Add the NuGet packages to your project.
 
    1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
    2. In the **NuGet Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
@@ -59,43 +49,57 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
         ![Add a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
    4. Close the **NuGet Package Manager**.
 
-6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
+5. Open **Program.cs**
+6. Replace the using statements with the following lines:
 
-        using System;
-        using System.IO;
-		using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
-        using System.Threading;
-
-        using Microsoft.Azure.Management.DataLake.Store;
-		using Microsoft.Azure.Management.DataLake.Store.Models;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Rest.Azure.Authentication;
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```		
 
 ## End-user authentication
-Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Store, which means you are prompted to enter your Azure credentials.
+Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD native application (listed as prerequisite). This snippet lets you authenticate your application **interactively** with Data Lake Storage Gen1, which means you are prompted to enter your Azure credentials.
 
-For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+For ease of use, the following snippet uses default values for client ID and redirect URI that are valid for any Azure subscription. In the following snippet, you only need to provide the value for your tenant ID. You can retrieve the Tenant ID using the instructions provided at [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
+- Replace the Main() function with the following code:
+
+    ```csharp
     private static void Main(string[] args)
     {
-        // User login via interactive popup
-        // Use the client ID of an existing AAD native application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-        var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
-        var nativeClientApp_applicationId = "1950a258-227b-4e31-a9cf-717495945fc2";
-        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_applicationId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-        var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
+        //User login via interactive popup
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        string MY_DOCUMENTS = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        string TOKEN_CACHE_PATH = System.IO.Path.Combine(MY_DOCUMENTS, "my.tokencache");
+        var tokenCache = GetTokenCache(TOKEN_CACHE_PATH);
+        var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
+        var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 A couple of things to know about the preceding snippet:
 
-* To help you complete the tutorial faster, the snippet uses an Azure AD domain and client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
-* However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD tenant ID, client ID, and redirect URI for the application you created. See [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
+* The preceding snippet uses a helper functions `GetTokenCache` and `GetCreds_User_Popup`. The code for these helper functions is available [here on GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* To help you complete the tutorial faster, the snippet uses a native application client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
+* However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD tenant ID, client ID, and redirect URI for the application you created. See [Create an Active Directory Application for end-user authentication with Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
 
   
 ## Next steps
-In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Store using .NET SDK. You can now look at the following articles that talk about how to use the .NET SDK to work with Azure Data Lake Store.
+In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using .NET SDK. You can now look at the following articles that talk about how to use the .NET SDK to work with Azure Data Lake Storage Gen1.
 
-* [Account management operations on Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Data operations on Data Lake Store using .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Data operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md)
 

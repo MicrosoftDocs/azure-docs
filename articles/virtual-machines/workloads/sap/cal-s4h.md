@@ -4,14 +4,14 @@ description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -23,10 +23,10 @@ ms.author: hermannd
 This article describes how to deploy S/4HANA on Azure by using the SAP Cloud Appliance Library (SAP CAL) 3.0. To deploy other SAP HANA-based solutions, such as BW/4HANA, follow the same steps.
 
 > [!NOTE]
-For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
+> As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
 
 ## Step-by-step process to deploy the solution
 
@@ -45,10 +45,10 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
 
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
-    > [!NOTE]
-    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
+   > [!NOTE]
+   >  The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
-2. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
+1. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
     a. **Microsoft Azure (classic)** is the classic deployment model and is no longer preferred.
 
@@ -60,27 +60,27 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
 
     ![SAP CAL Account Details](./media/cal-s4h/s4h-pic-2a.png)
 
-3. Enter the Azure **Subscription ID** that can be found on the Azure portal.
+1. Enter the Azure **Subscription ID** that can be found on the Azure portal.
 
    ![SAP CAL Accounts](./media/cal-s4h/s4h-pic3c.png)
 
-4. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
+1. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
 
    ![Internet Explorer cloud services sign-in](./media/cal-s4h/s4h-pic4c.png)
 
-5. If more than one user is listed, choose the Microsoft account that is linked to be the coadministrator of the Azure subscription you selected. The following page appears in the browser tab:
+1. If more than one user is listed, choose the Microsoft account that is linked to be the coadministrator of the Azure subscription you selected. The following page appears in the browser tab:
 
    ![Internet Explorer cloud services confirmation](./media/cal-s4h/s4h-pic5a.png)
 
-6. Click **Accept**. If the authorization is successful, the SAP CAL account definition displays again. After a short time, a message confirms that the authorization process was successful.
+1. Click **Accept**. If the authorization is successful, the SAP CAL account definition displays again. After a short time, a message confirms that the authorization process was successful.
 
-7. To assign the newly created SAP CAL account to your user, enter your **User ID** in the text box on the right and click **Add**.
+1. To assign the newly created SAP CAL account to your user, enter your **User ID** in the text box on the right and click **Add**.
 
    ![Account to user association](./media/cal-s4h/s4h-pic8a.png)
 
-8. To associate your account with the user that you use to sign in to the SAP CAL, click **Review**. 
+1. To associate your account with the user that you use to sign in to the SAP CAL, click **Review**. 
  
-9. To create the association between your user and the newly created SAP CAL account, click **Create**.
+1. To create the association between your user and the newly created SAP CAL account, click **Create**.
 
    ![User to SAP CAL account association](./media/cal-s4h/s4h-pic9b.png)
 
@@ -92,10 +92,10 @@ You successfully created an SAP CAL account that is able to:
 Now you can start to deploy S/4HANA into your user subscription in Azure.
 
 > [!NOTE]
-Before you continue, determine whether you have Azure core quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series core quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series cores.
-
+> Before you continue, determine whether you have Azure vCPU quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series vCPU quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series vCPUs.
+> 
 > [!NOTE]
-When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
+> When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
 
 ### Deploy a solution
 
@@ -118,29 +118,29 @@ We demonstrate the basic path to deployment here.
 
    ![SAP CAL Basic Mode: Create Instance](./media/cal-s4h/s4h-pic10a.png)
 
-2. Click **Create**, and in the message box that appears, click **OK**.
+1. Click **Create**, and in the message box that appears, click **OK**.
 
    ![SAP CAL Supported VM Sizes](./media/cal-s4h/s4h-pic10b.png)
 
-3. In the **Private Key** dialog box, click **Store** to store the private key in the SAP CAL. To use password protection for the private key, click **Download**. 
+1. In the **Private Key** dialog box, click **Store** to store the private key in the SAP CAL. To use password protection for the private key, click **Download**. 
 
    ![SAP CAL Private Key](./media/cal-s4h/s4h-pic10c.png)
 
-4. Read the SAP CAL **Warning** message, and click **OK**.
+1. Read the SAP CAL **Warning** message, and click **OK**.
 
    ![SAP CAL Warning](./media/cal-s4h/s4h-pic10d.png)
 
     Now the deployment takes place. After some time, depending on the size and complexity of the solution (the SAP CAL provides an estimate), the status is shown as active and ready for use.
 
-5. To find the virtual machines collected with the other associated resources in one resource group, go to the Azure portal: 
+1. To find the virtual machines collected with the other associated resources in one resource group, go to the Azure portal: 
 
    ![SAP CAL objects deployed in the new portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-6. On the SAP CAL portal, the status appears as **Active**. To connect to the solution, click **Connect**. Different options to connect to the different components are deployed within this solution.
+1. On the SAP CAL portal, the status appears as **Active**. To connect to the solution, click **Connect**. Different options to connect to the different components are deployed within this solution.
 
    ![SAP CAL Instances](./media/cal-s4h/active_solution.png)
 
-7. Before you can use one of the options to connect to the deployed systems, click **Getting Started Guide**. 
+1. Before you can use one of the options to connect to the deployed systems, click **Getting Started Guide**. 
 
    ![Connect to the Instance](./media/cal-s4h/connect_to_solution.png)
 

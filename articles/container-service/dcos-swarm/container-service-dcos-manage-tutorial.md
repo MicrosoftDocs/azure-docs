@@ -1,28 +1,19 @@
 ---
-title: Azure Container Service tutorial - Manage DC/OS | Microsoft Docs
+title: (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
 description: Azure Container Service tutorial - Manage DC/OS
-services: container-service
-documentationcenter: ''
-author: neilpeterson
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-
-ms.assetid: 
+author: iainfoulds
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
-ms.author: nepeters
+ms.date: 02/26/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Azure Container Service tutorial - Manage DC/OS
+# (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quickstart details basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 > [!div class="checklist"]
 > * Create an ACS DC/OS cluster
@@ -34,11 +25,11 @@ DC/OS provides a distributed platform for running modern and containerized appli
 > * Basic DC/OS management
 > * Delete the DC/OS cluster
 
-This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Create DC/OS cluster
 
-First, create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+First, create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *westeurope* location.
 
@@ -46,7 +37,7 @@ The following example creates a resource group named *myResourceGroup* in the *w
 az group create --name myResourceGroup --location westeurope
 ```
 
-Next, create a DC/OS cluster with the [az acs create](/cli/azure/acs#create) command.
+Next, create a DC/OS cluster with the [az acs create](/cli/azure/acs#az-acs-create) command.
 
 The following example creates a DC/OS cluster named *myDCOSCluster* and creates SSH keys if they do not already exist. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -70,13 +61,13 @@ ip=$(az network public-ip list --resource-group myResourceGroup --query "[?conta
 
 To create the SSH tunnel, run the following command and follow the on-screen instructions. If port 80 is already in use, the command fails. Update the tunneled port to one not in use, such as `85:localhost:80`. 
 
-```azurecli
+```console
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
 ## Install DC/OS CLI
 
-Install the DC/OS cli using the [az acs dcos install-cli](/azure/acs/dcos#install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
+Install the DC/OS cli using the [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) command. If you are using Azure CloudShell, the DC/OS CLI is already installed. If you are running the Azure CLI on macOS or Linux, you might need to run the command with sudo.
 
 ```azurecli
 az acs dcos install-cli
@@ -84,7 +75,7 @@ az acs dcos install-cli
 
 Before the CLI can be used with the cluster, it must be configured to use the SSH tunnel. To do so, run the following command, adjusting the port if needed.
 
-```azurecli
+```console
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -120,19 +111,19 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **TASKS** column value switches from *0/1* to *1/1*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
@@ -169,19 +160,19 @@ In the previous example, a single instance application was created. To update th
 
 Update the application using the `dcos marathon app update` command.
 
-```azurecli
+```console
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **TASKS** column value switches from *1/3* to *3/1*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
@@ -226,13 +217,13 @@ Create a file named **nginx-public.json** and copy the following contents into i
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli 
+```console
 dcos marathon app add nginx-public.json
 ```
 
 Get the public IP address of the DC/OS public cluster agents.
 
-```azurecli 
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -242,15 +233,15 @@ Browsing to this address returns the default NGINX site.
 
 ## Scale DC/OS cluster
 
-In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale]() command. 
+In the previous examples, an application was scaled to multiple instance. The DC/OS infrastructure can also be scaled to provide more or less compute capacity. This is done with the [az acs scale](/cli/azure/acs#az-acs-scale) command. 
 
-To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#show) command.
+To see the current count of DC/OS agents, use the [az acs show](/cli/azure/acs#az-acs-show) command.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-To increase the count to 5, use the [az acs scale](/cli/azure/acs#scale) command. 
+To increase the count to 5, use the [az acs scale](/cli/azure/acs#az-acs-scale) command. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -258,9 +249,9 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## Delete DC/OS cluster
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, DC/OS cluster, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 

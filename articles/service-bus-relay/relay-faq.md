@@ -1,9 +1,9 @@
 ---
 title: Azure Relay FAQs | Microsoft Docs
-description: Get answers to some frequently asked questions about Azure Relay.
+description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,13 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
-ms.author: sethm
+ms.date: 01/21/2020
+ms.author: spelluru
 
 ---
 # Azure Relay FAQs
 
-This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083).
+This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## General questions
 ### What is Azure Relay?
@@ -29,10 +32,10 @@ The [Azure Relay service](relay-what-is-it.md) facilitates your hybrid applicati
 A [namespace](relay-create-namespace-portal.md) is a scoping container that you can use to address Relay resources within your application. You must create a namespace to use Relay. This is one of the first steps in getting started.
 
 ### What happened to Service Bus Relay service?
-The previously named Service Bus Relay service is now called WCF Relay. You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
+The previously named Service Bus Relay service is now called [WCF Relay](service-bus-relay-tutorial.md). You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
 
 ## Pricing
-This section answers some frequently asked questions about the Relay pricing structure. You also can see [Azure Support FAQs](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details][Pricing overview].
+This section answers some frequently asked questions about the Relay pricing structure. You also can see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details][Pricing overview].
 
 ### How do you charge for Hybrid Connections and WCF Relay?
 For complete information about Relay pricing, see the [Hybrid Connections and WCF Relays][Pricing overview] table on the Service Bus pricing details page. In addition to the prices noted on that page, you are charged for associated data transfers for egress outside of the datacenter in which your application is provisioned.
@@ -73,14 +76,13 @@ Sending a message to a Service Bus relay is treated as a "full through" send to 
 Relays that are opened by using the **netTCPRelay** WCF binding treat messages not as individual messages, but as a stream of data flowing through the system. When you use this binding, only the sender and listener have visibility into the framing of the individual messages sent and received. For relays that use the **netTCPRelay** binding, all data is treated as a stream for calculating billable messages. In this case, Service Bus calculates the total amount of data sent or received via each individual relay on a 5-minute basis. Then, it divides that total amount of data by 64 KB to determine the number of billable messages for that relay during that time period.
 
 ## Quotas
-| Quota name | Scope | Type | Behavior when exceeded | Value |
-| --- | --- | --- | --- | --- |
-| Concurrent listeners on a relay |Entity |Static |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
-| Concurrent relay listeners |Systemwide |Static |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |2,000 |
-| Concurrent relay connections per all relay endpoints in a service namespace |Systemwide |Static |- |5,000 |
-| Relay endpoints per service namespace |Systemwide |Static |- |10,000 |
-| Message size for [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) relays |Systemwide |Static |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |64 KB |
-| Message size for [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) and [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) relays |Systemwide |Static |- |Unlimited |
+| Quota name | Scope |  Notes | Value |
+| --- | --- | --- | --- |
+| Concurrent listeners on a relay |Entity |Subsequent requests for additional connections are rejected and an exception is received by the calling code. |25 |
+| Concurrent relay connections per all relay endpoints in a service namespace |Namespace |- |5,000 |
+| Relay endpoints per service namespace |Namespace |- |10,000 |
+| Message size for [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) relays |Namespace |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |64 KB |
+| Message size for [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) and [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) relays |Namespace |No limit on message size. |Unlimited |
 
 ### Does Relay have any usage quotas?
 By default, for any cloud service, Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. We understand that at times your needs might exceed these limits. You can contact customer service at any time, so we can understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quotas are as follows:
@@ -100,21 +102,21 @@ To move a namespace from one Azure subscription to another subscription, you can
 
 #### Azure portal
 
-To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### PowerShell
 
 To use PowerShell to move a namespace from one Azure subscription to another subscription, use the following sequence of commands. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an Administrator user on both the source and target subscriptions.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## Troubleshooting
@@ -122,7 +124,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 For a description of common exceptions and suggested actions you can take, see [Relay exceptions][Relay exceptions].
 
 ### What is a shared access signature, and which languages can I use to generate a signature?
-Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
+Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Python, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
 
 ### Is it possible to whitelist relay endpoints?
 Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.
@@ -134,4 +136,4 @@ Yes. The relay client makes connections to the Azure Relay service by using full
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

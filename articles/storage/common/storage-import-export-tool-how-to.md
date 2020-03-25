@@ -1,24 +1,16 @@
 ---
 title: Using the Azure Import/Export Tool | Microsoft Docs
 description: Learn how to use the Import/Export Tool to prepare hard drives for an import job, repair an import job, or repair an export job.
-author: muralikk
-manager: syadav
-editor: tysonn
+author: twooley
 services: storage
-documentationcenter: ''
-
-ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
-ms.workload: storage 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
-
+ms.author: twooley
+ms.subservice: common
 ---
 
-# Using the Azure Import/Export Tool 
+# Using the Azure Import/Export Tool
 
 The Azure Import/Export Tool (WAImportExport.exe) is used to create and manage jobs for the Azure Import/Export service, enabling you to transfer large amounts of data into or out of Azure Blob Storage.
 
@@ -28,10 +20,10 @@ The following articles show you how to:
 
 - Install and set up the Azure Import/Export Tool.
 - Prepare your hard drives for a job where you import data from your drives to Azure Blob Storage.
-- Review the status of a job with Copy Log Files. 
-- Repair an import job. 
-- Repair an export job. 
-- Troubleshoot the Azure Import/Export Tool. 
+- Review the status of a job with Copy Log Files.
+- Repair an import job.
+- Repair an export job.
+- Troubleshoot the Azure Import/Export Tool.
 
 ## Next steps
 

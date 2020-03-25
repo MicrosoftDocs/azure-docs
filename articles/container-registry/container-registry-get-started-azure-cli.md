@@ -1,64 +1,49 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure with the Azure CLI
+title: Quickstart - Create registry - Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
-services: container-registry
-documentationcenter: ''
-author: neilpeterson
-manager: timlt
-editor: tysonn
-tags: ''
-keywords: ''
-
-ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
-ms.service: container-registry
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/20/2017
-ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.topic: quickstart
+ms.date: 01/22/2019
+ms.custom: "seodec18, H1Hack27Feb2017, mvc"
 ---
+# Quickstart: Create a private container registry using the Azure CLI
 
-# Create a container registry using the Azure CLI
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
+This quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-This quickstart requires that you are running the Azure CLI version 2.0.12 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
+Because the Azure Cloud Shell doesn't include all required Docker components (the `dockerd` daemon), you can't use the Cloud Shell for this quickstart.
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create][az-group-create] command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## Create a container registry
 
-Azure Container Registry is available in several SKUs: `Basic`, `Managed_Basic`, `Managed_Standard`, and `Managed_Premium`. Although the `Managed_*` SKUs provide advanced capabilities like managed storage and Webhooks, they're currently in preview, and are unavailable in some Azure regions. We select the `Basic` SKU in this quickstart due to its availability in all regions.
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
 
-Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
-
-The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
+Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
-  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "adminUserEnabled": false,
+  "creationDate": "2019-01-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
-  "loginServer": "myContainerRegistry007.azurecr.io",
+  "loginServer": "mycontainerregistry007.azurecr.io",
   "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
@@ -66,92 +51,89 @@ When the registry is created, the output is similar to the following:
     "name": "Basic",
     "tier": "Basic"
   },
-  "storageAccount": {
-    "name": "mycontainerregistr223140"
-  },
+  "status": null,
+  "storageAccount": null,
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
 ```
 
-Throughout the rest of this quickstart, we use `<acrname>` as a placeholder for the container registry name.
+Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<acrName>` is a placeholder for the container registry name.
 
-## Log in to ACR
+## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
+Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
 
-```azurecli-interactive
-az acr login --name <acrname>
+```azurecli
+az acr login --name <acrName>
 ```
 
-The command returns a 'Login Succeeded' message once completed.
+The command returns a `Login Succeeded` message once completed.
 
-## Push image to ACR
-
-To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull a pre-created image from Docker Hub.
-
-```bash
-docker pull microsoft/aci-helloworld
-```
-
-The image needs to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
-
-```bash
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *<acrLoginServer>* with the login server name of your ACR instance.
-
-```
-docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
-```
-
-Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *<acrLoginServer>* with the login server name of your ACR instance.
-
-```
-docker push <acrLoginServer>/aci-helloworld:v1
-```
+[!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
 ## List container images
 
-The following example lists the repositories in a registry:
+The following example lists the repositories in your registry:
 
 ```azurecli
-az acr repository list -n <acrname> -o table
+az acr repository list --name <acrName> --output table
 ```
 
 Output:
 
-```json
+```
 Result
 ----------------
-aci-helloworld
+hello-world
 ```
 
-The following example lists the tags on the **aci-helloworld** repository.
+The following example lists the tags on the **hello-world** repository.
 
 ```azurecli
-az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 Output:
 
-```Result
+```
+Result
 --------
 v1
 ```
 
+[!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
+
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, ACR instance, and all container images.
+When no longer needed, you can use the [az group delete][az-group-delete] command to remove the resource group, the container registry, and the container images stored there.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI. If you would like to use Azure Container Registry with Azure Container Instances, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-pull]: https://docs.docker.com/engine/reference/commandline/pull/
+[docker-rmi]: https://docs.docker.com/engine/reference/commandline/rmi/
+[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
+[azure-cli]: /cli/azure/install-azure-cli
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-skus]: container-registry-skus.md

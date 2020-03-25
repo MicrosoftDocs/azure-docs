@@ -1,43 +1,34 @@
 ---
-title: Quickstart - Azure Docker CE cluster for Linux | Microsoft Docs
+title: (DEPRECATED) Quickstart - Azure Docker CE cluster for Linux
 description: Quickly learn to create a Docker CE cluster for Linux containers in Azure Container Service with the Azure CLI.
-services: container-service
-documentationcenter: ''
-author: neilpeterson
-manager: timlt
-editor: ''
-tags: acs, azure-container-service, Docker, Swarm
-keywords: ''
-
-ms.assetid:
+author: iainfoulds
 ms.service: container-service
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/25/2017
-ms.author: nepeters
+ms.topic: conceptual
+ms.date: 07/16/2018
+ms.author: iainfou
 ms.custom:
 ---
 
-# Deploy Docker CE cluster
+# (DEPRECATED) Deploy Docker CE cluster
 
-In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+In this quickstart, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 Docker CE on Azure Container Service is in preview and **should not be used for production workloads**.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *ukwest* location.
+The following example creates a resource group named *myResourceGroup* in the *westus2* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
 Output:
@@ -45,7 +36,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -57,7 +48,7 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#create) command. 
+Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. For information on region availability of Docker CE, see [ACS regions for Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
@@ -65,22 +56,21 @@ The following example creates a cluster named *mySwarmCluster* with one Linux ma
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#az-acs-create) command. 
 
-After several minutes, the command completes and returns json formatted information about the cluster.
+After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
 ## Connect to the cluster
 
-Throughout this quick start, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
+Throughout this quickstart, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
 
-
-```bash
+```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Output:
 
-```bash
+```output
 Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
@@ -108,14 +98,13 @@ Create a file named `azure-vote.yaml` and copy the following content into it.
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:
         - "6379:6379"
 
   azure-vote-front:
-    image: microsoft/azure-vote-front:redis-v1
+    image: microsoft/azure-vote-front:v1
     environment:
       REDIS: azure-vote-back
     ports:
@@ -130,7 +119,7 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 
 Output:
 
-```bash
+```output
 Creating network azure-vote_default
 Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
@@ -144,9 +133,9 @@ docker stack ps azure-vote
 
 Once the `CURRENT STATE` of each service is `Running`, the application is ready.
 
-```bash
+```output
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
-tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:redis-v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
+tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
 ```
 
@@ -157,7 +146,7 @@ Browse to the FQDN of the Swarm agent pool to test out the Azure Vote applicatio
 ![Image of browsing to Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## Delete cluster
-When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, container service, and all related resources.
+When the cluster is no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -165,15 +154,15 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Get the code
 
-In this quick start, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
+In this quickstart, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## Next steps
 
-In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
+In this quickstart, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
-To learn about integrating Docker warm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
+To learn about integrating Docker swarm with Azure DevOps, continue to the CI/CD with Docker Swarm and Azure DevOps.
 
 > [!div class="nextstepaction"]
-> [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-setup-ci-cd.md)
+> [CI/CD with Docker Swarm and Azure DevOps](./container-service-docker-swarm-setup-ci-cd.md)

@@ -1,105 +1,86 @@
 ---
-title: Create a static HTML web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
-services: app-service\web
-documentationcenter: ''
-author: rick-anderson
-manager: wpickett
-editor: ''
+title: 'QuickStart: Create a static HTML web app'
+description: Deploy your first HTML Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
+author: msangapu-msft
 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
-ms.author: riande
-ms.custom: mvc
+ms.date: 08/23/2019
+ms.author: msangapu
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create a static HTML web app in Azure
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy a basic HTML+CSS site to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy sample HTML content to the web app.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Home page of sample app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
-
-## Prerequisites
-
-To complete this quickstart:
-
-- [Install Git](https://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the sample app repository to your local machine.
+In the Cloud Shell, create a quickstart directory and then change to it.
+
+```bash
+mkdir quickstart
+
+cd $HOME/quickstart
+```
+
+Next, run the following command to clone the sample app repository to your quickstart directory.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-You use this terminal window to run all the commands in this quickstart.
+## Create a web app
 
-## View the HTML
+Change to the directory that contains the sample code and run the `az webapp up` command.
 
-Navigate to the directory that contains the sample HTML. Open the *index.html* file in your browser.
-
-![Sample app home page](media/app-service-web-get-started-html/hello-world-in-browser.png)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
-
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
-
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
-
-![Empty web app page](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
-
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+In the following example, replace <app_name> with a unique app name.
 
 ```bash
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
-Total 13 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cc39b1e4cb'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-remote: Deleting file: 'hostingstart.html'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+cd html-docs-hello-world
 ```
+
+```azurecli
+az webapp up --location westeurope --name <app_name> --html
+```
+
+The `az webapp up` command does the following actions:
+
+- Create a default resource group.
+
+- Create a default app service plan.
+
+- Create an app with the specified name.
+
+- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the web app.
+
+This command may take a few minutes to run. While running, it displays information similar to the following example:
+
+```json
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "westeurope",
+  "name": "<app_name>",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_westeurope",
+  "serverfarm": "appsvc_asp_Windows_westeurope",
+  "sku": "FREE",
+  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
+  < JSON data removed for brevity. >
+}
+```
+
+Make a note of the `resourceGroup` value. You need it for the [clean up resources](#clean-up-resources) section.
 
 ## Browse to the app
 
-In a browser, go to the Azure web app URL:
-
-```
-http://<app_name>.azurewebsites.net
-```
+In a browser, go to the app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 
@@ -109,34 +90,47 @@ The page is running as an Azure App Service web app.
 
 ## Update and redeploy the app
 
-Open the *index.html* file in a text editor, and make a change to the markup. For example, change the H1 heading from "Azure App Service - Sample Static HTML Site" to just "Azure App Service`.
+In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
 
-Commit your changes in Git, and then push the code changes to Azure.
+![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
 
-```bash
-git commit -am "updated HTML"
-git push azure master
+Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
+
+You'll now redeploy the app with the same `az webapp up` command.
+
+```azurecli
+az webapp up --location westeurope --name <app_name> --html
 ```
 
-Once deployment has completed, refresh your browser to see the changes.
+Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app home page](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## Manage your new Azure web app
+## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+![Select App Services in the Azure portal](./media/app-service-web-get-started-html/portal0.png)
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-html/portal1.png)
+On the **App Services** page, select the name of your Azure app.
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+![Portal navigation to Azure app](./media/app-service-web-get-started-html/portal1.png)
+
+You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service blade in Azure portal](./media/app-service-web-get-started-html/portal2.png)
 
-The left menu provides different pages for configuring your app. 
+The left menu provides different pages for configuring your app.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
+
+```azurecli
+az group delete --name appsvc_rg_Windows_westeurope
+```
+
+This command may take a minute to run.
 
 ## Next steps
 

@@ -1,58 +1,119 @@
 ---
-title: Try Job Operations in Azure Content Moderator | Microsoft Docs
-description: Try Review API's Job operations
+title: Use moderation jobs with the REST API console - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Use the Review API's job operations to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 services: cognitive-services
-author: sanjeev3
-manager: mikemcca
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 08/03/2017
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 10/24/2019
+ms.author: pafarley
+#The Jobs how-to for REST/console
 ---
 
-# Job operations
+# Define and use moderation jobs (REST)
 
-Use the Review API's [Job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end scan-and-review moderation jobs with image or text content. The moderation job scans your content by using the image or text moderation APIs. It then uses the default and custom workflows (defined within the Review Tool) to generate reviews within the Review Tool. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
+A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. This guide shows you how to use the job REST APIs to initiate and check content moderation jobs. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
-## Use the API console
-Before you can test-drive the API from the online console, you will need a few values.
+## Prerequisites
 
-- teamName: The team name you created when you set up your review tool account. 
-- ContentId: A string, this is passed to the API and returned through the callback, and is useful for associating internal identifiers or metadata with the results of a moderation job.
-- Workflowname: The name of the workflow you have created. For a quick test, you can use “Default”.
-- Ocp-Apim-Subscription-Key: This is found under the Settings tab, as shown in the [Overview](overview.md) article.
+- Sign in or create an account on the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com/) site.
+- (Optional) [Define a custom workflow](./Review-Tool-User-Guide/Workflows.md) to use with your job; you can also use the default workflow.
 
+## Create a job
 
-The simplest way to access a testing console is from the Credentials window.
-1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)**.
+To create a moderation job, go to the [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API reference page and select the button for your subscription region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
 
-2.	The **Job – Create** API opens. Click the button that most closely describes your location, under Open API testing console.
+![Job - Create page region selection](images/test-drive-job-1.png)
 
-  ![Test Drive Job Step 2](images/test-drive-job-1.png)
-  
-3.	Fill in the required values, and edit the Request Body to specify the location of the 
-information being scanned.
+### Enter REST call parameters
 
-  ![Test Drive Job Step 3](images/test-drive-job-2.png)
-  
-4.	Click **Send**. A JobID is created. Copy this to use in the next steps.
+Enter the following values to construct the REST call:
 
-  ![Test Drive Job Step 4](images/test-drive-job-3.png)
-  
-5.	Click **Get**, then open the API by clicking the button matching your region.
+- **teamName**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account (found in the **Id** field on your Review tool's Credentials screen).
+- **ContentType**: This can be "Image", "Text", or "Video".
+- **ContentId**: A custom identifier string. This string is passed to the API and returned through the callback. It is useful for associating internal identifiers or metadata with the results of a moderation job.
+- **Workflowname**: The name of the workflow you previously created (or "default" for the default workflow).
+- **CallbackEndpoint**: (Optional) The URL to receive callback information when the review is completed.
+- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
 
-  ![Test Drive Job Step 5](images/test-drive-job-4.png)
-  
-6.	Fill in **teamName** and the **JobID** you just created. Enter your subscription key and click Send. The results of the scan are returned.
+### Fill in the request body
 
-  ![Test Drive Job Step 6](images/test-drive-job-5.png)
-  
-7.	Go to the Content Moderator Dashboard, and click **Review > Image**. The image you just scanned displays, ready for human review.
+The body of your REST call contains one field, **ContentValue**. Paste in the raw text content if you are moderating text, or enter an image or video URL if you're moderating image/video. You can use the following sample image URL: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
-  ![Test Drive Job Step 7](images/test-drive-job-6.png)
+![Job - Create console query parameters, headers, and Request body box](images/job-api-console-inputs.PNG)
+
+### Submit your request
+
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays an ID for the job. Copy this ID to use in the following steps.
+
+![Review - Create console Response content box displays the review ID](images/test-drive-job-3.PNG)
+
+## Get job status
+
+To get the status and details of a running or completed job, go to the [Job - Get](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c3) API reference page and select the button for your region (the region in which your key is administered).
+
+![Job - Get region selection](images/test-drive-region.png)
+
+Enter the REST call parameters as in the above section. For this step, **JobId** is the unique ID string you received when you created the job. Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the job in JSON format, like the following:
+
+```json
+{  
+  "Id":"2018014caceddebfe9446fab29056fd8d31ffe",
+  "TeamName":"some team name",
+  "Status":"Complete",
+  "WorkflowId":"OCR",
+  "Type":"Image",
+  "CallBackEndpoint":"",
+  "ReviewId":"201801i28fc0f7cbf424447846e509af853ea54",
+  "ResultMetaData":[  
+    {  
+      "Key":"hasText",
+      "Value":"True"
+    },
+    {  
+      "Key":"ocrText",
+      "Value":"IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
+    }
+  ],
+  "JobExecutionReport":[  
+    {  
+      "Ts":"2018-01-07T00:38:29.3238715",
+      "Msg":"Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:29.2928416",
+      "Msg":"Job marked completed and job content has been removed"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:29.0856472",
+      "Msg":"Execution Complete"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:26.7714671",
+      "Msg":"Successfully got hasText response from Moderator"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:26.4181346",
+      "Msg":"Getting hasText from Moderator"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:25.5122828",
+      "Msg":"Starting Execution - Try 1"
+    }
+  ]
+}
+```
+
+![Job - Get REST call response](images/test-drive-job-5.png)
+
+### Examine the new review(s)
+
+If your content job resulted in the creation of a review, you can view it in the [Review tool](https://contentmoderator.cognitive.microsoft.com). Select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content should appear, ready for human review. After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the jobs API submits all of this information to the designated callback endpoint endpoint.
 
 ## Next steps
 
-To learn how to create reviews with no scanning, see the [Review operation](try-review-api-review.md) article.
+In this guide, you learned how to create and query content moderation jobs using the REST API. Next, integrate jobs into an end-to-end moderation scenario, such as the [E-commerce moderation](./ecommerce-retail-catalog-moderation.md) tutorial.

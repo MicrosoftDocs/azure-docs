@@ -1,11 +1,11 @@
 ---
-title: Service Bus with .NET and AMQP 1.0 | Microsoft Docs
-description: Using Azure Service Bus from .NET with AMQP
+title: Azure Service Bus with .NET and AMQP 1.0 | Microsoft Docs
+description: This article describes how to use Azure Service Bus from a .NET application using AMQP (Advanced Messaging Queuing Protocol).
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
-ms.author: sethm
+ms.date: 01/24/2020
+ms.author: aschhab
 
 ---
-# Using Service Bus from .NET with AMQP 1.0
+# Use Service Bus from .NET with AMQP 1.0
 
-## Downloading the Service Bus SDK
+AMQP 1.0 support is available in the Service Bus package version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
 
-AMQP 1.0 support is available in the Service Bus SDK version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
-
-## Configuring .NET applications to use AMQP 1.0
+## Configure .NET applications to use AMQP 1.0
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string, as described in the next section. Other than this change, application code remains unchanged when using AMQP 1.0.
 
-In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section [Unsupported features, restrictions, and behavioral differences](#unsupported-features-restrictions-and-behavioral-differences). Some of the advanced configuration settings also have a different meaning when using AMQP.
+In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed in the section [Behavioral differences](#behavioral-differences). Some of the advanced configuration settings also have a different meaning when using AMQP.
 
 ### Configuration using App.config
 
-It is good practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the Service Bus connection string. An example App.config file is as follows:
+It is a good practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the Service Bus connection string. An example App.config file is as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -91,22 +89,17 @@ To facilitate interoperability with non-.NET clients, use only .NET types that c
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>` |TimeSpan.Ticks |
 
-## Unsupported features, restrictions, and behavioral differences
+## Behavioral differences
 
-The following features of the Service Bus .NET API are not currently supported when using AMQP:
-
-* Transactions
-* Send via transfer destination
-
-There are also some small differences in the behavior of the Service Bus .NET API when using AMQP, compared to the default protocol:
+There are some small differences in the behavior of the Service Bus .NET API when using AMQP, compared to the default protocol:
 
 * The [OperationTimeout][OperationTimeout] property is ignored.
 * `MessageReceiver.Receive(TimeSpan.Zero)` is implemented as `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Completing messages by lock tokens can only be done by the message receivers that initially received the messages.
 
-## Controlling AMQP protocol settings
+## Control AMQP protocol settings
 
 The [.NET APIs](/dotnet/api/) expose several settings to control the behavior of the AMQP protocol:
 
@@ -121,15 +114,14 @@ Ready to learn more? Visit the following links:
 
 * [Service Bus AMQP overview]
 * [AMQP 1.0 protocol guide]
-* [AMQP in Service Bus for Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
+[NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 protocol guide]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+

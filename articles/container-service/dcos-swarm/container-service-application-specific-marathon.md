@@ -1,26 +1,17 @@
 ---
-title: Application or user-specific Marathon service | Microsoft Docs
+title: (DEPRECATED) Application or user-specific Marathon service
 description: Create an application or user-specific Marathon service
-services: container-service
-documentationcenter: ''
 author: rgardler
-manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Containers, Marathon, Micro-services, DC/OS, Azure
-
-
 ms.service: container-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-
 ---
-# Create an application or user-specific Marathon service
+# (DEPRECATED) Create an application or user-specific Marathon service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 Azure Container Service provides a set of master servers on which we preconfigure Apache Mesos and Marathon. These can be used to orchestrate your applications on the cluster, but it's best not to use the master servers for this purpose. For example, tweaking the configuration of Marathon requires logging into the master servers themselves and making changes--this encourages unique master servers that are a little different from the standard and need to be cared for and managed independently. Additionally, the configuration required by one team might not be the optimal configuration for another team.
 
 In this article, we'll explain how to add an application or user-specific Marathon service.

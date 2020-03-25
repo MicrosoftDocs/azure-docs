@@ -1,60 +1,139 @@
 ---
-title: Try Workflows in Azure Content Moderator | Microsoft Docs
-description: Try Review API's Workflow operations
+title: Define moderation workflows with the REST API console - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: You can use the Azure Content Moderator Review APIs to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
-author: sanjeev3
-manager: mikemcca
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 08/05/2017
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 03/14/2019
+ms.author: pafarley
+#Customer intent: use workflows from the REST API
 ---
 
-# Workflow operations
+# Define and use moderation workflows (REST)
 
-Use the Review API's [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) to create or update or get workflow details by using the Review API. You can define simple or complex and even nested expressions for your workflows by using this API. These workflows appear within the review tool for your team and are used by the Review API's Job operations.
+Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the workflow REST APIs, through the API console, to create and use workflows. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
-## Use the API console
-Before you can test-drive the API from the online console, you will need a few values.
+## Prerequisites
 
-- **team**: The team name you created when you set up your review tool account. 
-- **workflowname**: The name for your workflow
-- **Ocp-Apim-Subscription-Key**: This is found under the **Settings** tab, as shown in the [Overview](overview.md) article.
+- Sign in or create an account on the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com/) site.
 
+## Create a workflow
 
-The simplest way to access a testing console is from the Credentials window.
-1.	From the Credentials window, click **[API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)**.
+To create or update a workflow, go to the **[Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API reference page and select the button for your key region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
 
-2.	Navigate to the **Review – Create** operation. Click the button that most closely describes your location, under Open API testing console.
+![Workflow - Create Or Update page region selection](images/test-drive-region.png)
 
-  ![Test Drive Workflow Step 2](images/test-drive-region.png)
+### Enter REST call parameters
 
-3.  Enter the **team**, **workflowname**, and **Ocp-Apim-Subscription-Key**.
+Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key**:
 
-  ![Test Drive Workflow Step 3](images/test-drive-workflow-1.PNG)
+- **team**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account (found in the **Id** field on your Review tool's Credentials screen).
+- **workflowname**: The name of a new workflow to add (or an existing name, if you want to update an existing workflow).
+- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
+
+![Workflow - Create Or Update console query parameters and headers](images/workflow-console-parameters.PNG)
+
+### Enter a workflow definition
+
+1. Edit the **Request body** box to enter the JSON request with details for **Description** and **Type** (either `Image` or `Text`).
+2. For **Expression**, copy the default workflow JSON expression. Your final JSON string should look like this:
+
+```json
+{
+  "Description":"<A description for the Workflow>",
+  "Type":"Text",
+  "Expression":{
+    "Type":"Logic",
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isAdult",
+      "Operator":"eq",
+      "Value":"true",
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
+        {
+          "Name":"createreview",
+          "CallbackEndpoint":null,
+          "Tags":[
+
+          ]
+        }
+      ],
+      "Type":"Actions"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> You can define simple, complex, and even nested expressions for your workflows using this API. The [Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) documentation has examples of more complex logic.
+
+### Submit your request
   
-3.	Edit the Request Body to complete the **description**, **type** (image or text workflow) and the **expression** details.
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays `true`.
 
-  ![Test Drive Workflow Step 4](images/test-drive-workflow-2.PNG)
-  
-4.	Click **Send**. if the operation succeeds, your will see **True** on your screen.
+### Examine the new workflow
 
-  ![Test Drive Review Step 4](images/test-drive-workflow-3.PNG)
-  
-5.	Log in to the review tool and navigate to the Settings section. You should see your new workflow listed and ready for use.
+In the [Review tool](https://contentmoderator.cognitive.microsoft.com/), select **Settings** > **Workflows**. Your new workflow should appear in the list.
 
-  ![Test Drive Review Step 5](images/test-drive-workflow-4.PNG)
-  
-6.	Select the edit option for your workflow to see the designer view of the workflow.
+![Review tool list of workflows](images/workflow-console-new-workflow.PNG)
 
-  ![Test Drive Review Step 6](images/test-drive-workflow-5.PNG)
-  
-7.	Select the JSON TAB to see the JSON view of the workflow.
+Select the **Edit** option for your workflow and go to the **Designer** tab. Here, you can see an intuitive representation of the JSON logic.
 
-  ![Test Drive Review Step 7](images/test-drive-workflow-6.PNG)
+![Designer tab for a selected workflow](images/workflow-console-new-workflow-designer.PNG)
+
+## Get workflow details
+
+To retrieve details about an existing workflow, go to the **[Workflow - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)** API reference page and select the button for your region (the region in which your key is administered).
+
+![Workflow - Get region selection](images/test-drive-region.png)
+
+Enter the REST call parameters as in the above section. Make sure that this time, **workflowname** is the name of an existing workflow.
+
+![Get query parameters and headers](images/workflow-get-default.PNG)
+
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the workflow in JSON format, like the following:
+
+```json
+{
+  "Name":"default",
+  "Description":"Default",
+  "Type":"Image",
+  "Expression":{
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isadult",
+      "Operator":"eq",
+      "Value":"true",
+      "AlternateInput":null,
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
+        {
+          "Name":"createreview",
+          "Subteam":null,
+          "CallbackEndpoint":null,
+          "Tags":[
+
+          ]
+        }
+      ],
+      "Type":"Actions"
+    },
+    "Else":null,
+    "Type":"Logic"
+  }
+}
+```
 
 ## Next steps
 
-To learn how to use workflows with **Jobs**, see the [Try Moderation Jobs](try-review-api-job.md) article.
+- Learn how to use workflows with [content moderation jobs](try-review-api-job.md).

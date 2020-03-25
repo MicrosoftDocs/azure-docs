@@ -1,8 +1,14 @@
-<!--author=SharS last changed: 9/17/15-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To install the StorSimple Adapter for SharePoint
 1. Copy the installer to the web front end (WFE) server that is also configured to run the SharePoint Central Administration web application. 
-2. Use an account with administrator privileges to log on to the WFE server.
+2. Use an account with administrator privileges to sign in to the WFE server.
 3. Double-click the installer. The StorSimple Adapter for SharePoint Setup Wizard starts. Click **Next** to begin the installation.
    
     ![StorSimple adapter setup start page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)

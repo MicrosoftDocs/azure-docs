@@ -1,37 +1,37 @@
 ---
-title: Move data to/from Azure Cosmos DB | Microsoft Docs
+title: Move data to/from Azure Cosmos DB 
 description: Learn how move data to/from Azure Cosmos DB collection using Azure Data Factory
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: shwang
+
 
 ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2017
+
+
+ms.topic: conceptual
+ms.date: 01/22/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data to and from Azure Cosmos DB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-documentdb-connector.md)
-> * [Version 2 - Preview](../connector-azure-cosmos-db.md)
+> * [Version 1](data-factory-azure-documentdb-connector.md)
+> * [Version 2 (current version)](../connector-azure-cosmos-db.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure Cosmos DB connector in V2](../connector-azure-cosmos-db.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Cosmos DB connector in V2](../connector-azure-cosmos-db.md).
 
-This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Cosmos DB (DocumentDB API). It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
+This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Cosmos DB (SQL API). It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from any supported source data store to Azure Cosmos DB or from Azure Cosmos DB to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. 
+You can copy data from any supported source data store to Azure Cosmos DB or from Azure Cosmos DB to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table.
 
 > [!IMPORTANT]
-> Azure Cosmos DB connector only support DocumentDB API.
+> Azure Cosmos DB connector only supports the SQL API.
 
 To copy data as-is to/from JSON files or another Cosmos DB collection, see [Import/Export JSON documents](#importexport-json-documents).
 
@@ -40,17 +40,17 @@ You can create a pipeline with a copy activity that moves data to/from Azure Cos
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
-Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store: 
+Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from Cosmos DB, see [JSON examples](#json-examples) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For samples with JSON definitions for Data Factory entities that are used to copy data to/from Cosmos DB, see [JSON examples](#json-examples) section of this article.
 
-The following sections provide details about JSON properties that are used to define Data Factory entities specific to Cosmos DB: 
+The following sections provide details about JSON properties that are used to define Data Factory entities specific to Cosmos DB:
 
 ## Linked service properties
 The following table provides description for JSON elements specific to Azure Cosmos DB linked service.
@@ -103,7 +103,7 @@ Example:
 }
 ```
 ### Schema by Data Factory
-For schema-free data stores such as Azure Cosmos DB, the Data Factory service infers the schema in one of the following ways:  
+For schema-free data stores such as Azure Cosmos DB, the Data Factory service infers the schema in one of the following ways:
 
 1. If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
 2. If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
@@ -138,15 +138,15 @@ the following properties are available in **typeProperties** section:
 Using this Cosmos DB connector, you can easily
 
 * Import JSON documents from various sources into Cosmos DB, including Azure Blob, Azure Data Lake, on-premises File System or other file-based stores supported by Azure Data Factory.
-* Export JSON documents from Cosmos DB collecton into various file-based stores.
+* Export JSON documents from Cosmos DB collection into various file-based stores.
 * Migrate data between two Cosmos DB collections as-is.
 
-To achieve such schema-agnostic copy, 
+To achieve such schema-agnostic copy,
 * When using copy wizard, check the **"Export as-is to JSON files or Cosmos DB collection"** option.
 * When using JSON editing, do not specify the "structure" section in Cosmos DB dataset(s) nor "nestingSeparator" property on Cosmos DB source/sink in copy activity. To import from/export to JSON files, in the file store dataset specify format type as "JsonFormat", config "filePattern" and skip the rest format settings, see [JSON format](data-factory-supported-file-and-compression-formats.md#json-format) section on details.
 
 ## JSON examples
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Cosmos DB and Azure Blob Storage. However, data can be copied **directly** from any of the sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Cosmos DB and Azure Blob Storage. However, data can be copied **directly** from any of the sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 ## Example: Copy data from Azure Cosmos DB to Azure Blob
 The sample below shows:
@@ -248,13 +248,13 @@ Sample JSON document in the Person collection in a Cosmos DB database:
 ```
 Cosmos DB supports querying documents using a SQL like syntax over hierarchical JSON documents.
 
-Example: 
+Example:
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-The following pipeline copies data from the Person collection in the Azure Cosmos DB database to an Azure blob. As part of the copy activity the input and output datasets have been specified.  
+The following pipeline copies data from the Person collection in the Azure Cosmos DB database to an Azure blob. As part of the copy activity the input and output datasets have been specified.
 
 ```JSON
 {
@@ -297,14 +297,14 @@ The following pipeline copies data from the Person collection in the Azure Cosmo
   }
 }
 ```
-## Example: Copy data from Azure Blob to Azure Cosmos DB 
+## Example: Copy data from Azure Blob to Azure Cosmos DB
 The sample below shows:
 
-1. A linked service of type [DocumentDb](#azure-documentdb-linked-service-properties).
+1. A linked service of type DocumentDb.
 2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. An output [dataset](data-factory-create-datasets.md) of type [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+4. An output [dataset](data-factory-create-datasets.md) of type DocumentDbCollection.
+5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and DocumentDbCollectionSink.
 
 The sample copies data from Azure blob to Azure Cosmos DB. The JSON properties used in these samples are described in sections following the samples.
 
@@ -433,7 +433,7 @@ The following pipeline copies data from Azure Blob to the Person collection in t
             "nestingSeparator": ".",
             "writeBatchSize": 2,
             "writeBatchTimeout": "00:00:00"
-          }
+          },
           "translator": {
               "type": "TabularTranslator",
               "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
@@ -490,9 +490,9 @@ Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are
     How does a retry of a copy to Azure Cosmos DB deal with already copied records?
 
     **Answer:**
-    If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
+    If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.
 3. **Question:**
-    Does Data Factory support [range or hash-based data partitioning](../../cosmos-db/documentdb-partition-data.md)?
+    Does Data Factory support [range or hash-based data partitioning](../../cosmos-db/sql-api-partition-data.md)?
 
     **Answer:**
     No.

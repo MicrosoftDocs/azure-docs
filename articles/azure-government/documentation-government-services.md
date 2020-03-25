@@ -1,11 +1,11 @@
 ---
 title: Azure Government available services | Microsoft Docs
-description: Provides an overview of the available services in Azure Government
+description: This article provides an overview of the available services in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti
-manager: zakramer
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/15/2017
-ms.author: stemi
+ms.date: 03/06/2019
+ms.author: gsacavdm
 
 ---
 # Available services in Azure Government
@@ -24,139 +24,121 @@ Azure Government is continually expanding its services. These services are deplo
 
 For the most current list of services, see the [Products available by region](https://azure.microsoft.com/regions/services/) page. 
 
-In the following tables, services that are specified as Azure Resource Manager enabled have resource providers and can be managed through PowerShell. For detailed information on Resource Manager providers, API versions, and schemas, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md). 
+The **services available in Azure Government** are listed by category, as well as whether they are generally available or available through preview. 
 
 > [!NOTE]
-> Services that are specified as available in the "Portal" column can be managed in the [Azure Government portal](https://portal.azure.us/). 
+> ** = Service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).
 >
 >
 
 ## Compute
-
-[Azure Government Compute Documentation](documentation-government-compute.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [Virtual Machines](documentation-government-compute.md#virtual-machines) | Yes | Yes |
-| Batch | Yes | Yes |
-| Cloud Services | Yes | Yes |
-| Service Fabric | Yes | Yes |
-| Virtual Machine Scale Sets | Yes | Yes |
-| [Functions](documentation-government-compute.md#azure-functions) | Yes | No |
+| Generally Available | Preview |
+| --- | --- |
+| [Virtual Machines](documentation-government-compute.md#virtual-machines) |  |
+| [Batch](documentation-government-compute.md#batch) | |
+| [Cloud Services](documentation-government-compute.md#cloud-services) | |
+| [Virtual Machine Scale Sets](documentation-government-compute.md#virtual-machine-scale-sets) | |
+| [Functions](documentation-government-compute.md#azure-functions) | |
+| [Service Fabric](documentation-government-compute.md#service-fabric) | |
 
 ## Networking
-
-[Azure Government Networking Documentation](documentation-government-networking.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | Yes | Yes |
-| Virtual Network | Yes | Yes |
-| [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | Yes | Yes |
-| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manger) | Yes | Yes |
-| [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | Yes | Yes |
-| Application Gateway | Yes | Yes |
+| Generally Available | Preview |
+| --- | --- |
+| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | | 
+| [Virtual Network](documentation-government-networking.md#support-for-virtual-network) | |
+| [Load Balancer](documentation-government-networking.md#support-for-load-balancer) | |
+| [DNS](documentation-government-networking.md#support-for-dns) | |
+| [Traffic Manager](documentation-government-networking.md#support-for-traffic-manager) | |
+| [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway) | |
+| [Application Gateway](documentation-government-networking.md#support-for-application-gateway) | |
+| [Network Watcher](documentation-government-networking.md#support-for-network-watcher) | |
 
 ## Storage
-
-[Azure Government Storage Documentation](documentation-government-services-storage.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [Blob storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [Table storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [Queue storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [File storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes 
-| [Disk storage](documentation-government-services-storage.md#azure-storage) | Yes | Yes |
-| [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
-| [Import/Export](documentation-government-services-storage.md#azure-importexport) | Yes | Yes |
+| Generally Available | Preview |
+| --- | --- |
+| [Blob storage](documentation-government-services-storage.md#azure-storage) | |
+| [Table storage](documentation-government-services-storage.md#azure-storage) | |
+| [Queue storage](documentation-government-services-storage.md#azure-storage) | |
+| [File storage](documentation-government-services-storage.md#azure-storage) | |
+| [Disk storage](documentation-government-services-storage.md#azure-storage) | |
+| [StorSimple](documentation-government-services-storage.md) | |
+| [Import/Export](documentation-government-services-storage.md#azure-importexport) | |
 
 ## Web + Mobile
-
-[Azure Government Web and Mobile Documentation](documentation-government-services-webandmobile.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
-| [App Service: API Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
-| [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | Yes | Yes |
-| [Media Services](documentation-government-services-media.md) | Yes | Yes |
-| API Management | Yes | Yes |
+| Generally Available | Preview |
+| --- | --- |
+| [App Service: Web Apps](documentation-government-services-webandmobile.md#app-services) | |
+| [App Service: Mobile Apps](documentation-government-services-webandmobile.md#app-services) | |
+| [API Management](documentation-government-services-webandmobile.md#api-management) ||
+| [Media Services](documentation-government-services-media.md) | |
 
 ## Databases
-
-[Azure Government Databases Documentation](documentation-government-services-database.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [SQL Database](documentation-government-services-database.md#sql-database) | Yes | Yes |
-| SQL Data Warehouse | Yes | Yes |
-| SQL Server Stretch Database | Yes | Yes |
-| [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | Yes | Yes |
-| [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | Yes | Yes |
+| Generally Available | Preview |
+| --- | --- |
+| [SQL Database](documentation-government-services-database.md#sql-database) | |
+| [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse) | |
+| [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
+| [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | |
+| [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis) | |
+| [Azure Database for PostgreSQL](documentation-government-services-database.md#azure-database-for-postgresql) ||
+| [Azure Database for MariaDB](documentation-government-services-database.md#azure-database-for-mariadb) ||
+| [Azure Database for MySQL](documentation-government-services-database.md#azure-database-for-mysql) ||
 
 ## Data + Analytics
-
-[Azure Government Data and Analytics Documentation](documentation-government-services-dataandanalytics.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [HDInsight](documentation-government-services-intelligenceandanalytics.md) | Yes | Yes |
-| [Power BI Pro](documentation-government-services-intelligenceandanalytics.md) | No | No (Office 365 admin portal) |
+| Generally Available | Preview |
+| --- | --- |
+| [HDInsight](documentation-government-services-dataandanalytics.md#hdinsight) | |
+| [Power BI Pro**](documentation-government-services-dataandanalytics.md#power-bi) | |
+| [Azure Analysis Services](documentation-government-services-dataandanalytics.md#azure-analysis-services) | |
 
 ## AI + Cognitive Services 
-
-[Azure Government AI and Cognitive Services Documentation](documentation-government-services-aiandcognitiveservices.md) 
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | Yes | No |
+| Generally Available | Preview |
+| --- | --- |
+| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | |
 
 ## Internet of Things
-
-[Azure Government IoT Documentation](documentation-government-services-iot-hub.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub) | Yes | Yes |
-| Event Hubs | Yes | Yes |
-| Notification Hubs | No | No (go to the [Azure classic portal](https://manage.windowsazure.us/)) |
+| Generally Available | Preview |
+| --- | --- |
+| [IoT Hub](documentation-government-services-iot-hub.md#azure-iot-hub)| |
+| [Azure Event Hubs](documentation-government-services-iot-hub.md#azure-event-hubs) | |
+| [Azure Notification Hubs**](documentation-government-services-iot-hub.md#azure-notification-hubs) | |
 
 ## Enterprise Integration
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| Service Bus | Yes | Yes |
-| [StorSimple](documentation-government-services-storage.md) | Yes | Yes |
-| SQL Server Stretch Database | Yes | Yes |
+| Generally Available | Preview |
+| --- | --- |
+| [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)| |
+| [Service Bus](documentation-government-networking.md#support-for-service-bus)| |
+| [StorSimple](documentation-government-services-storage.md) | |
+| [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
 
 ## Security + Identity
-
-[Azure Government Security and Identity Documentation](documentation-government-services-securityandidentity.md)
-
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| Azure Active Directory | Yes | Yes |
-| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium) | Yes | Yes |
-| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | Yes | Yes |
-| Multi-Factory Authentication | Yes | Yes |
+| Generally Available | Preview |
+| --- | --- |
+| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)||
+| [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
+| [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
+| [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
+| [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) | |
 
 ## Monitoring + Management
+| Generally Available | Preview |
+| --- | --- |
+| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor)| |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |
+| [Backup](documentation-government-services-backup.md) | |
+| [Policy](documentation-government-services-monitoringandmanagement.md#policy) | |
+| [Azure Monitor logs](documentation-government-services-monitoringandmanagement.md#azure-monitor-logs) | |
+| [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
+| [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |
+| [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | |
+| [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
+| [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) | |
 
-[Azure Government Monitoring and Management Documentation](documentation-government-services-monitoringandmanagement.md)
+## Developer Tools
+| Generally Available | Preview |
+| --- | --- |
+| [DevTest Labs](documentation-government-services-devtools.md#devtest-labs)| |
 
-| Service | Resource Manager enabled | Portal |
-| --- | --- | --- |
-| [Automation](documentation-government-services-monitoringandmanagement.md#automation) | Yes | Yes |
-| [Backup](documentation-government-services-backup.md) | Yes | Yes |
-| [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Yes | Yes |
-| [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | Yes | Yes |
-| Scheduler | Yes | Yes |
-| [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | Yes | Yes |
-| Azure Portal - Classic | Yes | Yes |
-| Azure Portal - Ibiza| Yes | Yes |
-| Azure Resource Manager | Yes | Yes |
 
 ## Next steps
 For supplemental information and updates, subscribe to the [Microsoft Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
-

@@ -1,83 +1,99 @@
 ---
-title: Use .NET Core to query Azure SQL Database | Microsoft Docs
-description: This topic shows you how to use .NET Core to create a program that connects to an Azure SQL Database and query it using Transact-SQL statements.
+title: Use .NET Core to query
+description: This topic shows you how to use .NET Core to create a program that connects to an Azure SQL Database and queries it using Transact-SQL statements.
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
 ms.service: sql-database
-ms.custom: mvc,develop apps
-ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.subservice: development
+ms.custom: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
-ms.author: carlrab
-
+author: stevestein
+ms.author: sstein
+ms.reviewer:
+ms.date: 07/29/2019
 ---
-# Use .NET Core (C#) to query an Azure SQL database
+# Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
-This quick start tutorial demonstrates how to use [.NET Core](https://www.microsoft.com/net/) on Windows/Linux/macOS to create a C# program to connect to an Azure SQL database and use Transact-SQL statements to query data.
+In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to an Azure SQL database. You'll then run a Transact-SQL statement to query data.
+
+> [!TIP]
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## Prerequisites
 
-To complete this quick start tutorial, make sure you have the following:
+For this tutorial, you need:
 
-- An Azure SQL database. This quick start uses the resources created in one of these quick starts: 
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-   - [Create DB - Portal](sql-database-get-started-portal.md)
-   - [Create DB - CLI](sql-database-get-started-cli.md)
-   - [Create DB - PowerShell](sql-database-get-started-powershell.md)
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-- A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quick start tutorial.
-- You have installed [.NET Core for your operating system](https://www.microsoft.com/net/core). 
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-## SQL server connection information
+- [.NET Core for your operating system](https://www.microsoft.com/net/core) installed.
 
-Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
+> [!NOTE]
+> This quickstart uses the *mySampleDatabase* database. If you want to use a different database, you will need
+> to change the database references and modify the `SELECT` query in the C# code.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option. 
+## Get SQL server connection information
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
-4. If you forget your Azure SQL Database server login information, navigate to the SQL Database server page to view the server admin name. You can reset the password if necessary.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-5. Click **Show database connection strings**.
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
 
-6. Review the complete **ADO.NET** connection string.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
 
-    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+## Get ADO.NET connection information (optional)
 
-> [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
->
+1. Navigate to the **mySampleDatabase** page and, under **Settings**, select **Connection strings**.
+
+2. Review the complete **ADO.NET** connection string.
+
+    ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
+
+3. Copy the **ADO.NET** connection string if you intend to use it.
   
-## Create a new .NET project
+## Create a new .NET Core project
 
-1. Open a command prompt and create a folder named *sqltest*. Navigate to the folder you created and run the following command:
+1. Open a command prompt and create a folder named **sqltest**. Navigate to this folder and run this command.
 
-    ```
+    ```cmd
     dotnet new console
     ```
+    This command creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**), and needed binaries.
 
-2. Open ***sqltest.csproj*** with your favorite text editor and add System.Data.SqlClient as a dependency using the following code:
+2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This XML adds `System.Data.SqlClient` as a dependency.
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
     </ItemGroup>
     ```
 
 ## Insert code to query SQL database
 
-1. In your development environment or favorite text editor open **Program.cs**
+1. In a text editor, open **Program.cs**.
 
-2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
+2. Replace the contents with the following code and add the appropriate values for your server, database, username, and password.
+
+> [!NOTE]
+> To use an ADO.NET connection string, replace the 4 lines in the code
+> setting the server, database, username, and password with the line below. In
+> the string, set your username and password.
+>
+>    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
 ```csharp
 using System;
@@ -93,11 +109,12 @@ namespace sqltest
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
 
+                builder.DataSource = "<your_server.database.windows.net>"; 
+                builder.UserID = "<your_username>";            
+                builder.Password = "<your_password>";     
+                builder.InitialCatalog = "<your_database>";
+         
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     Console.WriteLine("\nQuery data example:");
@@ -127,7 +144,8 @@ namespace sqltest
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("\nDone. Press enter.");
+            Console.ReadLine(); 
         }
     }
 }
@@ -135,19 +153,47 @@ namespace sqltest
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At the prompt, run the following commands.
 
-   ```csharp
+   ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. Verify that the top 20 rows are returned and then close the application window.
+2. Verify that the top 20 rows are returned.
 
+   ```text
+   Query data example:
+   =========================================
+
+   Road Frames HL Road Frame - Black, 58
+   Road Frames HL Road Frame - Red, 58
+   Helmets Sport-100 Helmet, Red
+   Helmets Sport-100 Helmet, Black
+   Socks Mountain Bike Socks, M
+   Socks Mountain Bike Socks, L
+   Helmets Sport-100 Helmet, Blue
+   Caps AWC Logo Cap
+   Jerseys Long-Sleeve Logo Jersey, S
+   Jerseys Long-Sleeve Logo Jersey, M
+   Jerseys Long-Sleeve Logo Jersey, L
+   Jerseys Long-Sleeve Logo Jersey, XL
+   Road Frames HL Road Frame - Red, 62
+   Road Frames HL Road Frame - Red, 44
+   Road Frames HL Road Frame - Red, 48
+   Road Frames HL Road Frame - Red, 52
+   Road Frames HL Road Frame - Red, 56
+   Road Frames LL Road Frame - Black, 58
+   Road Frames LL Road Frame - Black, 60
+   Road Frames LL Road Frame - Black, 62
+
+   Done. Press enter.
+   ```
+3. Choose **Enter** to close the application window.
 
 ## Next steps
 
 - [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
-- Learn how to [connect and query an Azure SQL database using the .NET framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
+- Learn how to [connect and query an Azure SQL database using the .NET Framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).

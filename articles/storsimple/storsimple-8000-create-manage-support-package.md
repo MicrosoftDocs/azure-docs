@@ -1,19 +1,10 @@
 ---
-title: Create a StorSimple 8000 series support package | Microsoft Docs
+title: Create a StorSimple 8000 series support package
 description: Learn how to create, decrypt, and edit a support package for your StorSimple 8000 series device.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/05/2017
+ms.topic: conceptual
+ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
@@ -55,14 +46,14 @@ You can share your manually generated support package with Microsoft Support ove
    
    * For network shares that are password protected, enter:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       You'll be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). A support package is then created in the specified folder.
+       You'll be prompted for a password and an encryption passphrase (because the support package is encrypted). A support package is then created in the default folder (Device name appended with current date and time).
    * For shares that are not password protected, you do not need the `-Credential` parameter. Enter the following:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       The support package is created for both controllers in the specified network shared folder. It's an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+       The support package is created for both controllers in the default folder. The package is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 ### The Export-HcsSupportPackage cmdlet parameters
 
@@ -89,7 +80,7 @@ To edit a support package before uploading it on the Microsoft Support site, fir
 #### To edit a support package in Windows PowerShell for StorSimple
 
 1. Generate a support package as described earlier, in [To create a support package in Windows PowerShell for StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Download the script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
+2. [Download the script](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) locally on your client.
 3. Import the Windows PowerShell module. Specify the path to the local folder in which you downloaded the script. To import the module, enter:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
@@ -144,6 +135,6 @@ The following example shows how to decrypt, edit, and re-encrypt a support packa
 ## Next steps
 
 * Learn about the [information collected in the Support package](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
 

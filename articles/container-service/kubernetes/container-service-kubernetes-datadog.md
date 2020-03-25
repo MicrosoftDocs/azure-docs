@@ -1,26 +1,18 @@
 ---
-title: Monitor Azure Kubernetes cluster with Datadog | Microsoft Docs
+title: (DEPRECATED) Monitor Azure Kubernetes cluster with Datadog
 description: Monitoring Kubernetes cluster in Azure Container Service using Datadog
-services: container-service
-documentationcenter: ''
 author: bburns
-manager: timlt
-editor: ''
-tags: acs, azure-container-service, kubernetes
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-
 ---
 
-# Monitor an Azure Container Service cluster with DataDog
+# (DEPRECATED) Monitor an Azure Container Service cluster with DataDog
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -29,8 +21,8 @@ It also assumes that you have the `az` Azure cli and `kubectl` tools installed.
 
 You can test if you have the `az` tool installed by running:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).
@@ -38,13 +30,13 @@ If you don't have the `az` tool installed, there are instructions [here](https:/
 You can test if you have the `kubectl` tool installed by running:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 If you don't have `kubectl` installed, you can run:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## DataDog
