@@ -11,8 +11,9 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mimart
-ms.subservice: B2C. 
+ms.subservice: B2C
 ---
+
 # Secure your RESTful services 
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
