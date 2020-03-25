@@ -450,7 +450,7 @@ All your data is accessible after the key rotation operation including data inge
 
 - CMK encryption applies to newly ingested data after the CMK
     configuration. Data that was ingested prior to the CMK
-    configuration, remaines encrypted with Microsoft key. You can query
+    configuration, remains encrypted with Microsoft key. You can query
     data before and after the CMK configuration seamlessly.
 
 - Once workspace is associated to a *Cluster* resource, it cannot be
