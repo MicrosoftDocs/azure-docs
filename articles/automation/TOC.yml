@@ -35,6 +35,7 @@
     items:  
     - name: Automation account troubleshooting
       href: troubleshoot/automation-account.md
+      displayName: troubleshoot
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
