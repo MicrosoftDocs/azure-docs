@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 03/25/2020
 ms.author: rohogue
 ---
 
@@ -86,7 +86,10 @@ Steps to add the RBAC roles:
 
 An NFS storage target has more fields than the Blob storage target. These fields specify how to reach the storage export and how to efficiently cache its data. Also, an NFS storage target lets you create multiple namespace paths if the NFS host has more than one export available.
 
-![Screenshot of add storage target page with NFS target defined](media/hpc-cache-add-nfs-target.png)
+![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
+
+> [!NOTE]
+> Before you create an NFS storage target, make sure your storage system is accessible from the Azure HPC Cache and meets permission requirements. Storage target creation will fail if the cache can't access the storage system. Read [NFS storage requirements](hpc-cache-prereqs.md#nfs-storage-requirements) and [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md) for details.
 
 Provide this information for an NFS-backed storage target:
 

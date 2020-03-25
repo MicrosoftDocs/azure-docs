@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/25/2020
 ms.author: rohogue
 ---
 
@@ -108,7 +108,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestricted traffic from the Azure HPC Cache's subnet.
 
-  * In addition to the ports returned by the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
+  * If you can't use the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
