@@ -801,6 +801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
+      "redirect_url": "/azure/machine-learning/samples-notebooks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
