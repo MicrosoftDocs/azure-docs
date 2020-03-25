@@ -95,7 +95,7 @@
         - name: .NET
           href: https://aka.ms/azsdk-net-textanalytics-ref-docs
         - name: Python 
-          href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html
+          href: https://aka.ms/azsdk-python-textanalytics-ref-docs
         - name: Java
           href: https://aka.ms/azsdk-java-textanalytics-ref-docs
         - name: Node.js 
