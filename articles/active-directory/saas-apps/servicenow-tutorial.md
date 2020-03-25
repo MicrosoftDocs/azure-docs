@@ -289,6 +289,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		     ![Screenshot of page, with Test Connection highlighted](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
 
+		     > [!NOTE]
+		     > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
+
+		     > ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
+		
 	      1. When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
 		     ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
@@ -344,7 +349,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 		  > [!NOTE]
 		  > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
 
-		  ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
+		  > ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
 
 		* When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
