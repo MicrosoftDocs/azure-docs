@@ -81,7 +81,7 @@
   - name: Azure Policy for Kubernetes
     items:
     - name: Policy for AKS
-      displayName: aks, rego, k8s, opa, open policy agent, gatekeeper, v2
+      displayName: aks, rego, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints
       href: ./concepts/rego-for-aks.md
     - name: Policy for AKS Engine
       displayName: aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints
@@ -189,6 +189,8 @@
   items:
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
+  - name: GitHub - Community Policy repo
+    href: https://github.com/Azure/Community-Policy
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
   - name: Governance YouTube Channel
