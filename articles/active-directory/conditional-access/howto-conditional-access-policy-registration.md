@@ -38,6 +38,7 @@ The following policy applies to all selected users, who attempt to register usin
    1. Exclude **All trusted locations**.
    1. Select **Done** on the Locations blade.
    1. Select **Done** on the Conditions blade.
+1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
 1. Under **Access controls** > **Grant**.
    1. Select **Block access**.
    1. Then click **Select**.

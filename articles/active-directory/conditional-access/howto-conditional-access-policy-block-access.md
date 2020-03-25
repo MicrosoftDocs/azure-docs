@@ -48,6 +48,7 @@ The first policy blocks access to all apps except for Office 365 applications.
 1. Under **Cloud apps or actions**, select the following options:
    1. Under **Include**, select **All cloud apps**.
    1. Under **Exclude**, select **Office 365 (preview)**, select **Select**, then select **Done**.
+1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**, then select **Select**.
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
