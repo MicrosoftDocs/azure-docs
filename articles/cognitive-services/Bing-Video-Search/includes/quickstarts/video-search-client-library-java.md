@@ -37,7 +37,7 @@ Install the Bing Video Search client library dependencies by using Maven, Gradle
 
 Create a new Java project in your favorite IDE or editor, and import the following libraries.
 
-    ```java
+```java
     import com.microsoft.azure.cognitiveservices.videosearch.*;
     import com.microsoft.azure.cognitiveservices.videosearch.VideoObject;
     import com.microsoft.rest.credentials.ServiceClientCredentials;
@@ -48,7 +48,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
     import java.io.IOException;
     import java.util.ArrayList;
     import java.util.List; 
-    ```
+```
 
 ## Create a search client
 
