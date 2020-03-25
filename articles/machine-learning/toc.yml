@@ -112,6 +112,9 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
+  - name: Automated ML risks
+    displayName: automl, auto ml
+    href: concept-automated-ml-risks.md    
   - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
