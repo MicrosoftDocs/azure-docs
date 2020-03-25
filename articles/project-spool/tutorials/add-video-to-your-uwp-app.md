@@ -11,6 +11,24 @@ ms.topic: quickstart
 ms.service: azure-project-spool
 ---
 
+-  Customer intent statements: 
+   - I want to know how to add video to my UWP app
+
+- Resources: 
+  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
+
+- Gold Standard Docs:
+  - TODO
+
+- Discussion:
+  - TODO
+
+- TODOs:
+  - Find related gold standard docs
+  - Draft initial content
+
+~
+
 *Note: This was pulled from `External/quickstarts/quickstart-included-samples-cs.md`.*
 
 ~ 

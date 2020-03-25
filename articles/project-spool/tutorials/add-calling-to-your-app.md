@@ -20,6 +20,12 @@ ms.service: azure-project-spool
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
 
+- Gold Standard Docs:
+  - TODO
+
+- Discussion:
+  - TODO
+
 - TODOs:
   - Draft initial content
 
