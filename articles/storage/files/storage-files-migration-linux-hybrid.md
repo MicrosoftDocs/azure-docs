@@ -45,9 +45,9 @@ If you are not running Samba on your Linux server and rather want to migrate fol
     The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server, if you use Azure File Syncs [cloud tiering](storage-sync-cloud-tiering.md) feature.
     However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you will need to work in batches:
 
-    1. Move a set of files that fits onto the disk
-    2. let file sync and cloud tiering engage
-    3. when more free space is created on the volume, proceed with the next batch of files. 
+    1. Move a set of files that fits onto the disk.
+    2. Let file sync and cloud tiering engage.
+    3. When more free space is created on the volume, proceed with the next batch of files. 
     
     You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the Linux Samba server. Consider enabling deduplication on Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before adjusting the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
@@ -96,9 +96,9 @@ The basic migration approach is a RoboCopy from your Linux Samba server to your 
 
 Run the first local copy to your Windows Server target folder:
 
-* Identify the first location on your Linux Samba server.
-* Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
-* Start the copy using RoboCopy
+1. Identify the first location on your Linux Samba server.
+1. Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
+1. Start the copy using RoboCopy.
 
 The following RoboCopy command will copy files from your Linux Samba servers storage to your Windows Server target folder. The Windows Server will sync it to the Azure file share(s). 
 
@@ -182,10 +182,10 @@ When you run the RoboCopy command for the first time, your users and application
 
 The first run is about moving the bulk of the data to your Windows Server and into the cloud via Azure File Sync. This first copy can take a long time, depending on:
 
-* your download bandwidth
-* the upload bandwidth
-* the local network speed and number of how optimally the number of RoboCopy threads matches it
-* the number of items (files and folders), that need to be processed by RoboCopy and Azure File Sync
+* Your download bandwidth.
+* The upload bandwidth.
+* The local network speed, and the number of how optimally the number of RoboCopy threads matches it.
+* The number of items (files and folders) that need to be processed by RoboCopy and Azure File Sync.
 
 Once the initial run is complete, run the command again.
 
