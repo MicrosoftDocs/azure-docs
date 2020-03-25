@@ -178,7 +178,7 @@ Cons for shared symmetric key:
 ### Making the right choice for your devices
 To choose an authentication method, make sure you consider the benefits and costs of each approach for your unique manufacturing process.  For device authentication, usually there's an inverse relationship between how secure a given approach is, and how convenient it is.  
 
-In addition to the practices in this article, Azure IoT provides additional resources to help with selecting secure hardware, and creating secure IoT deployments: 
+In addition to the practices in this article, Azure IoT provides resources to help with selecting secure hardware, and creating secure IoT deployments: 
 - Azure IoT [security recommendations](../iot-fundamentals/security-recommendations.md) to guide the deployment process. 
 - The [Azure Security Center](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. 
 - For help evaluating your hardware environment, see the whitepaper [Evaluating your IoT Security](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). 
