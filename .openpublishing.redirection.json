@@ -17219,11 +17219,6 @@
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
     },
-	{
-      "source_path": "articles/security/fundamentals/choose-ad-authn.md",
-      "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
-      "redirect_document_id": false
-    },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore",
@@ -31858,11 +31853,6 @@
     {
       "source_path": "articles/security/abstract-serverless-platform-security.md",
       "redirect_url": "/azure/security/fundamentals/abstract-serverless-platform-security",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/security/azure-ad-choose-authn.md",
-      "redirect_url": "/azure/security/fundamentals/choose-ad-authn",
       "redirect_document_id": true
     },
     {
