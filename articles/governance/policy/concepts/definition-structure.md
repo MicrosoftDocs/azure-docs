@@ -80,7 +80,7 @@ are:
 - `indexed`: only evaluate resource types that support tags and location
 
 For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
-both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged isn't evaluated
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated
 in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
@@ -855,7 +855,7 @@ tagging policy definitions into a single initiative. Rather than assigning each 
 you apply the initiative.
 
 > [!NOTE]
-> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> Once an initiative is assigned, initiative level parameters can't be altered. Due to this, the
 > recommendation is to set a **defaultValue** when defining the parameter.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
