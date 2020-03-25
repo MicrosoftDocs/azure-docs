@@ -1,13 +1,12 @@
 ---
 title: Get shared access signature URI for your Microsoft Azure-based VM image | Azure Marketplace
 description: Explains how to get the shared access signature (SAS) URI for your VM image.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Get shared access signature URI for your VM image
