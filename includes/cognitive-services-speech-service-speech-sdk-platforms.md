@@ -15,9 +15,9 @@ ms.author: dapine
 | Objective-C / Swift  | iOS, macOS                                                                         | [Objective-C SDK][obj-sdk] |
 | Python               | Windows, Linux, macOS                                                              | [Python SDK][pyt-sdk]      |
 
-<sup><b>1</b> The .NET SDK is based on .NET Standard 2.0, thus it supports many platforms. For more information, see <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">.NET implementation support <span class="docon docon-navigate-external x-hidden-focus"></span></a>.</sup>
+<sup><b>1</b> The .NET Speech SDK is based on .NET Standard 2.0, thus it supports many platforms. For more information, see <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">.NET implementation support <span class="docon docon-navigate-external x-hidden-focus"></span></a>.</sup>
 
-<sup><b>2</b> The Java SDK is also available as part of the [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md).</sup>
+<sup><b>2</b> The Java Speech SDK is also available as part of the [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md).</sup>
 
 [net-sdk]: https://aka.ms/csspeech/csharpref
 [cpp-sdk]: https://aka.ms/csspeech/cppref

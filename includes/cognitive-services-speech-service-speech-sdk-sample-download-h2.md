@@ -6,7 +6,7 @@ ms.date: 03/25/2020
 ms.author: dapine
 ---
 
-## Get the samples
+## Sample source code
 
 :::row:::
     :::column span="3":::
