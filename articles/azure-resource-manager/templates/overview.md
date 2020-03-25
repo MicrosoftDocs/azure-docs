@@ -2,9 +2,9 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates for deployment of resources.
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 03/25/2020
 ---
-# Azure Resource Manager templates overview
+# What are ARM templates?
 
 With the move to the cloud, many teams have adopted agile development methods. These teams iterate quickly. They need to repeatedly deploy their solutions to the cloud, and know their infrastructure is in a reliable state. As infrastructure has become part of the iterative process, the division between operations and development has disappeared. Teams need to manage infrastructure and application code through a unified process.
 
