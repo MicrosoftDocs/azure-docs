@@ -61,7 +61,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 4. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
-5. Select a subscription and create or choose a resource group, then click **Create**.<br/><br/>
+5. Select a subscription and create or choose a resource group, then click **Create**.
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
