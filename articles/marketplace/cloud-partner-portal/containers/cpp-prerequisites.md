@@ -1,7 +1,7 @@
 ---
 title: Azure Containers offer prerequisites | Azure Marketplace
 description: Prerequisites for publishing an Azure container.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

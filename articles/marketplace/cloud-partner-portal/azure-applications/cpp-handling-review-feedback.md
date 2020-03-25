@@ -1,7 +1,7 @@
 ---
 title: Handling Azure application review feedback | Azure Marketplace 
 description: Explains how to use Azure DevOps to handle review feedback for Azure application offers for the Azure Marketplace.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

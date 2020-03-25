@@ -1,7 +1,7 @@
 ---
 title: Approvals page for Azure Marketplace 
 description: Overview of the Approvals page in Cloud Partner Portal for Azure Marketplace.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

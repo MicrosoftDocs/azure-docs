@@ -1,7 +1,7 @@
 ---
 title: Create a user VM image for the Azure Marketplace 
 description: Lists the steps and references required to create a user VM image.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Cloud Partner Portal navigation for Azure Marketplace 
 description: Explanation of the navigation within the Cloud Partner Portal for Azure Marketplace.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

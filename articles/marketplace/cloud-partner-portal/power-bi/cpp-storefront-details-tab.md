@@ -1,7 +1,7 @@
 ---
 title: Storefront Details for a Power BI App offer | Azure Marketplace 
 description: Configure Storefront Details fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

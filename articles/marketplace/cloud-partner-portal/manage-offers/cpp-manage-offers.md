@@ -1,7 +1,7 @@
 ---
 title: Manage Azure and AppSource Marketplace offers | Azure Marketplace
 description: Managing offers on the Azure and AppSource Marketplaces
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

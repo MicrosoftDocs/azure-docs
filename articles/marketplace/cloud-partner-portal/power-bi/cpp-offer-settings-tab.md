@@ -1,7 +1,7 @@
 ---
 title: Offer settings for a Power BI App offer | Azure Marketplace 
 description: Configure offer settings for a Power BI App offer for the Microsoft AppSource marketplace. 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

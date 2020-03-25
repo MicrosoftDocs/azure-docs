@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Edge module prerequisites | Azure Marketplace
 description: Prerequisites for publishing an IoT Edge module.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

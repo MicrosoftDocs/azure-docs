@@ -1,7 +1,7 @@
 ---
 title: Power BI App offer prerequisites | Azure Marketplace 
 description: Provides the prerequisites for publishing a Power BI app to AppSource.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

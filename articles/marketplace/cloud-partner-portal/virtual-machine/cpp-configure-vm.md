@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Azure-hosted VM for the Azure Marketplace 
 description: Explains how to size, update, and generalize a VM hosted on Azure.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

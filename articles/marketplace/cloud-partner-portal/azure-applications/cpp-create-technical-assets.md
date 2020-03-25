@@ -1,7 +1,7 @@
 ---
 title: Create Azure application technical assets  | Azure Marketplace
 description: Create the technical assets for an Azure application offer.
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
