@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/25/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
