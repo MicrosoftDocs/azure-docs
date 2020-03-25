@@ -1,7 +1,6 @@
 ---
 title: Azure networking services overview
 description: Learn about networking services in Azure and their capabilities.
-services: networking
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
