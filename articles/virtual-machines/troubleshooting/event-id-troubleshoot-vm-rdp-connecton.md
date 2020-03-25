@@ -188,7 +188,7 @@ Try to access the VM by using RDP again.
 
 #### Update TLS/SSL certificate
 
-If you set up the VM to use an TLS/SSL certificate, run the following command to get the thumbprint. Then check whether it's the same as the certificate's thumbprint:
+If you set up the VM to use a TLS/SSL certificate, run the following command to get the thumbprint. Then check whether it's the same as the certificate's thumbprint:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
