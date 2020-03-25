@@ -29,7 +29,7 @@ In this section, you use Ansible to deallocate (stop) an Azure virtual machine.
 
 1. Create a file named `azure-vm-stop.yml`, and open it in the editor:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-stop.yml
     ```
 
@@ -82,7 +82,7 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
 
 1. Create a file named `azure-vm-start.yml`, and open it in the editor:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-start.yml
     ```
 

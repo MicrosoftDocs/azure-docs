@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/10/2019
+ms.date: 03/24/2020
 ---
 
 # Data flow script (DFS)
@@ -131,6 +131,40 @@ And a sink with no schema would simply be:
 ```
 derive1 sink(allowSchemaDrift: true,
 	validateSchema: false) ~> sink1
+```
+
+## Script snippets
+
+### Aggregated summary stats
+Add an Aggregate transformation to your data flow called "SummaryStats" and then paste in this code below for the aggregate function in your script, replacing the existing SummaryStats. This will provide a generic pattern for data profile summary statistics.
+
+```
+aggregate(each(match(true()), $$+'_NotNull' = countIf(!isNull($$)), $$ + '_Null' = countIf(isNull($$))),
+		each(match(type=='double'||type=='integer'||type=='short'||type=='decimal'), $$+'_stddev' = round(stddev($$),2), $$ + '_min' = min ($$), $$ + '_max' = max($$), $$ + '_average' = round(avg($$),2), $$ + '_variance' = round(variance($$),2)),
+		each(match(type=='string'), $$+'_maxLength' = max(length($$)))) ~> SummaryStats
+```
+You can also use the below sample to count the number of unique and the number of distinct rows in your data. The example below can be pasted into a data flow with Aggregate transformation called ValueDistAgg. This example uses a column called "title". Be sure to replace "title" with the string column in your data that you wish to use to get value counts.
+
+```
+aggregate(groupBy(title),
+	countunique = count()) ~> ValueDistAgg
+ValueDistAgg aggregate(numofunique = countIf(countunique==1),
+		numofdistinct = countDistinct(title)) ~> UniqDist
+```
+
+### Include all columns in an aggregate
+This is a generic aggregate pattern that demonstrates how you can keep the remaining columns in your output metadata when you are building aggregates. In this case, we use the ```first()``` function to choose the first value in every column whose name is not "movie". To use this, create an Aggregate transformation called DistinctRows and then paste this in your script over top of the existing DistinctRows aggregate script.
+
+```
+aggregate(groupBy(movie),
+	each(match(name!='movie'), $$ = first($$))) ~> DistinctRows
+```
+
+### Create row hash fingerprint 
+Use this code in your data flow script to create a new derived column called ```DWhash``` that produces a ```sha1``` hash of three columns.
+
+```
+derive(DWhash = sha1(Name,ProductNumber,Color))
 ```
 
 ## Next steps
