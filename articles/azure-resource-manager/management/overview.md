@@ -2,9 +2,9 @@
 title: Overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 08/29/2019
+ms.date: 03/25/2020
 ---
-# Azure Resource Manager overview
+# What is Azure Resource Manager?
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
@@ -14,7 +14,7 @@ To learn about Azure Resource Manager templates, see [Template deployment overvi
 
 When a user sends a request from any of the Azure tools, APIs, or SDKs, Resource Manager receives the request. It authenticates and authorizes the request. Resource Manager sends the request to the Azure service, which takes the requested action. Because all requests are handled through the same API, you see consistent results and capabilities in all the different tools.
 
-The following image shows the role Azure Resource Manager plays in handling Azure requests. 
+The following image shows the role Azure Resource Manager plays in handling Azure requests.
 
 ![Resource Manager request model](./media/overview/consistent-management-layer.png)
 
@@ -96,12 +96,8 @@ This resiliency applies to services that receive requests through Resource Manag
 
 ## Next steps
 
-* For all the operations offered by resource providers, see the [Azure REST APIs](/rest/api/azure/).
-
 * To learn about moving resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 * To learn about tagging resources, see [Use tags to organize your Azure resources](tag-resources.md).
 
 * To learn about locking resources, see [Lock resources to prevent unexpected changes](lock-resources.md).
-
-* For information about creating templates for deployments, see [Template deployment overview](../templates/overview.md).
