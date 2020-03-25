@@ -33,13 +33,15 @@ To update the agent on a Windows machine to the latest version, the agent is ava
 > * To upgrade the agent, you must have *Administrator* permissions.
 > * To upgrade manually, you must first download and copy the Installer package to a folder on the target server, or from a shared network folder. 
 
+If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+
 #### To upgrade using the Setup Wizard
 
 1. Sign on to the computer with an account that has administrative rights.
 
 2. Execute **AzureConnectedMachineAgent.msi** to start the Setup Wizard.
 
-3. The Setup Wizard discovers if a previous version exists, and then it automatically performs an upgrade of the agent. When the upgrade completes, the Setup Wizard automatically closes.
+The Setup Wizard discovers if a previous version exists, and then it automatically performs an upgrade of the agent. When the upgrade completes, the Setup Wizard automatically closes.
 
 #### To upgrade from the command line
 
