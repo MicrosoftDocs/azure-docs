@@ -56,6 +56,9 @@ Some may choose to use device state instead of location in step 6 above:
    1. Select **Done** on the Locations blade.
    1. Select **Done** on the Conditions blade.
 
+> [!WARNING]
+> If you use device state as a condition in your policy this may impact guest users in the directory. [Report-only mode](concept-conditional-access-report-only.md) can help determine the impact of policy decisions.
+
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
