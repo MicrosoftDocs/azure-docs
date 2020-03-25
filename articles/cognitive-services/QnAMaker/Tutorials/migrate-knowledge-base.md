@@ -6,7 +6,13 @@ ms.date: 03/25/2020
 ---
 # Migrate a knowledge base using export-import
 
-Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
+Migration is the process of creating a new knowledge base from an existing knowledge base. You may do this for several reasons:
+
+* backup and restore process
+* CI/CD pipeline
+* move regions
+
+Migrating a knowledge base requires exporting from an existing knowledge base, then importing into another.
 
 ## Prerequisites
 
