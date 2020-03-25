@@ -28,8 +28,18 @@ landingContent:
         links:
           - text: Kubernetes core concepts for AKS
             url: concepts-clusters-workloads.md
-          - text: Best practices on AKS
-            url: best-practices.md
+          - text: Clusters and workloads
+            url: concepts-clusters-workloads.md
+          - text: Access and identity
+            url: concepts-identity.md
+          - text: Security
+            url: concepts-security.md
+          - text: Networking
+            url: concepts-network.md
+          - text: Storage
+            url: concepts-storage.md
+          - text: Scale
+            url: concepts-scale.md
 
   # Card (optional)
   - title: Deploy an AKS cluster in 5 minutes
