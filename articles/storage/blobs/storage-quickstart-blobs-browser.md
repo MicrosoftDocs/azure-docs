@@ -149,7 +149,7 @@ Add this code inside the `main` function:
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
-:::code language="javascript" source="~/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript/basic.js" range="14-21":::
+:::code language="javascript" source="~/azure-sdk-for-js/sdk/storage/storage-blob/samples/javascript/basic.js" range="14-21":::
 
 ### Create a container
 
