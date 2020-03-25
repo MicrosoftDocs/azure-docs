@@ -173,13 +173,17 @@ The **Location** - The location the connection was initiated from:
 **Correlation ID** - The correlation ID of the activity.
 
 
+
+
 **Conditional access** - The status of the applied conditional access rules
 
-- Not applied 
+- **Not applied**: No policy applied to the user and application during sign-in.
 
-- Success
+- **Success**: One or more conditional access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
 
-- Failure
+- **Failure**: One or more conditional access policies applied and was not satisfied during sign-in.
+
+
 
 
 
