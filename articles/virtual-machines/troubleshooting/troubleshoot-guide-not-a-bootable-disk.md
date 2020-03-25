@@ -55,25 +55,25 @@ If you encounter this error message, it means that the OS boot process could not
 
 ### Set Partition Status to Active
 
-Generation 1 VMs should first verify that the OS partition which holds the BCD store is marked as *active*. If you have a Generation 2 VM, skip ahead to [Fix the Disk Partition](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands), as the *Status* flag was deprecated in the later generation.
+Generation 1 VMs should first verify that the OS partition, which holds the BCD store is marked as *active*. If you have a Generation 2 VM, skip ahead to [Fix the Disk Partition](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands), as the *Status* flag was deprecated in the later generation.
 
 1. Open an elevated command prompt *(cmd.exe)*.
 2. Enter *diskpart* to launch the DISKPART tool.
 3. Enter *list disk* to list the disks on the system and identify the attached OS VHD.
-4. Once the attached OS VHD is located, enter *sel disk #* to select the disk.  See Figure 2 for example where Disk 1 is the attached OS VHD.
+4. Once the attached OS VHD is located, enter *sel disk #* to select the disk.  See Figure 2, where Disk 1 is the attached OS VHD.
 
    Figure 2
 
    ![Figure 2 shows the *diskpart* window showing the output of list disk command, Disk 0 and Disk 1 displayed in the table.  Also shows output of the sel disk 1 command, Disk 1 is the selected disk](media/troubleshoot-guide-not-a-bootable-disk/2.jpg)
 
 5. Once the disk is selected, enter *list partition* to list the partitions of the selected disk
-6. Once the boot partition is identified, enter *sel partition #* to select the partition.  Usually the boot partition will be around 350 MB in size.  See Figure 3 for example where Partition 1 is the boot partition.
+6. Once the boot partition is identified, enter *sel partition #* to select the partition.  Usually the boot partition will be around 350 MB in size.  See Figure 3, where Partition 1 is the boot partition.
 
    Figure 3
 
    ![Figure 3 shows the diskpart window with the output of the *list partition* command. Partition 1 and Partition 2 are displayed in the table. It also shows the output of the *sel partition 1* command, when Partition 1 is the selected disk.](media/troubleshoot-guide-not-a-bootable-disk/3.jpg)
 
-7. Enter 'detail partition' to check the status of the partition. See Figure 4 for example where the partition is *Active: No* or Figure 5 for example where the partition is 'Active: Yes'.
+7. Enter 'detail partition' to check the status of the partition. See Figure 4, where the partition is *Active: No*, or Figure 5, where the partition is 'Active: Yes'.
 
    Figure 4
 
@@ -117,7 +117,7 @@ To enable memory dump collection and Serial Console, run the following script:
 
 3. Verify that the free space on the OS disk is as much as the memory size (RAM) on the VM.
 
-   If there's not enough space on the OS disk, you should change the location where the memory dump file will be created and refer that to any data disk attached to the VM that has enough free space. To change the location, replace "%SystemRoot%" with the drive letter (e.g. "F:") of the data disk in the below commands.
+   If there's not enough space on the OS disk, you should change the location where the memory dump file will be created and refer that to any data disk attached to the VM that has enough free space. To change the location, replace "%SystemRoot%" with the drive letter (for example, "F:") of the data disk in the below commands.
 
 #### Suggested configuration to enable OS Dump
 
