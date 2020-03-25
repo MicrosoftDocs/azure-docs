@@ -1,7 +1,5 @@
 ---
-title: Boot Error – This 
-
-a Bootable Disk | Microsoft Docs
+title: Boot Error – This is not a Bootable Disk | Microsoft Docs
 description: This article provides steps to resolve issues where the disk isn't bootable in an Azure Virtual Machine
 services: virtual-machines-windows
 documentationcenter: ''
@@ -9,12 +7,10 @@ author: v-miegge
 manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid: 5d6db4e3-c2f5-40c7-afea-54edf745f5eb
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
