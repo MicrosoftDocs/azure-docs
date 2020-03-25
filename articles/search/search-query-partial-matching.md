@@ -147,7 +147,7 @@ The following example illustrates a custom analyzer that provides the keyword to
   "sortable": false,
   "facetable": false
   }
-]
+],
 
 "analyzers": [
   {
@@ -187,7 +187,7 @@ The following example adds an [EdgeNGramTokenFilter](https://lucene.apache.org/c
   "sortable": false,
   "facetable": false
   }
-]
+],
 
 "analyzers": [
   {
