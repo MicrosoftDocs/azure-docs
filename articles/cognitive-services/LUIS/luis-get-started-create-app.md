@@ -1,16 +1,8 @@
 ---
 title: "Quickstart: create app - LUIS"
-titleSuffix: Azure Cognitive Services
 description:  This quickstart shows how to create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/24/2020
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
@@ -25,11 +17,11 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 ## Create a new app
 You can create and manage your applications on **My Apps**.
 
-1. In the LUIS portal, on the My apps list, select **+ Create**.
+1. On the My apps list, select **+ New app for conversation**.
 
-    ![In the LUIS portal, on the My apps list, select '+ Create.](./media/create-app-in-portal.png)
+1. In the dialog box, name your application `Home Automation`. Select **English** as the culture. The description is optional and isn't used for authoring or prediction. The prediction resource is also optional when creating a LUIS app. Select **Done**.
 
-1. In the dialog box, name your application `Home Automation` then select **Done**. LUIS creates the app. The description is optional and isn't used for authoring or prediction. The prediction resource is also optional when creating a LUIS app. When you publish your app to production, you should assign a prediction resource so your app can handle many requests.
+    LUIS creates the app. When you publish your app to production, you should assign a prediction resource so your app can handle many requests.
 
     ![In the dialog box, name your application `Home Automation`](./media/create-new-app-details.png)
 
@@ -62,23 +54,24 @@ Select the **HomeAutomation.TurnOff** intent. You can see that the intent contai
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Test your app
-Once you've trained your app, you can test it. Select **Test**. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter.
+Once you've trained your app, you can test it.
+1. Select **Test** from the top-right navigation. 1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter.
 
-```
-Turn off the lights
-```
+    ```
+    Turn off the lights
+    ```
 
-Check that the top scoring intent corresponds to the intent you expected for each test utterance.
+    Check that the top scoring intent corresponds to the intent you expected for each test utterance.
 
-In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
+    In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
 
-![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    ![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-Select **Inspect** to review more information about the prediction.
+1. Select **Inspect** to review more information about the prediction.
 
-![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
+    ![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
 
-Select **Test** again to collapse the test pane.
+1. Close the test pane.
 
 <a name="publish-your-app"></a>
 
