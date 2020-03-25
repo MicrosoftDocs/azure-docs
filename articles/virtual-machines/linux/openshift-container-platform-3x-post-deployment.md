@@ -36,9 +36,9 @@ To use Azure Active Directory for authentication, first you need to create an Az
 These steps use the Azure CLI to create the app registration, and the GUI (portal) to set the permissions. To create the app registration, you need the following five pieces of information:
 
 - Display name: App registration name (for example, OCPAzureAD)
-- Home page: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Identifier URI: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Home page: OpenShift console URL (for example, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- Identifier URI: OpenShift console URL (for example, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- Reply URL: Master public URL and the app registration name (for example, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
 - Password: Secure password (use a strong password)
 
 The following example creates an app registration by using the preceding information:

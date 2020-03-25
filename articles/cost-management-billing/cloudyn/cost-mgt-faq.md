@@ -92,7 +92,7 @@ We recommend that you create at least two Cloudyn administrator accounts in case
 
 If you can't sign in to the Cloudyn portal, ensure that you're using the correct URL to sign in to Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Avoid using the Cloudyn direct URL https://app.cloudyn.com.
+Avoid using the Cloudyn direct URL `https://app.cloudyn.com`.
 
 ## How do I activate unactivated accounts with Azure credentials?
 

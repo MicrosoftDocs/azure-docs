@@ -21,6 +21,15 @@ To discover, manage, and enable Azure Monitor for VMs for all of your Azure virt
 
 If you're interested in accomplishing these tasks with Azure PowerShell or an Azure Resource Manager template, see [Enable Azure Monitor for VMs using Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md).
 
+## Prerequisites
+Prior to using Policy to onboard your Azure VMs and virtual machine scale sets to Azure Monitoring for VMs, you must enable the VMInsights solution on the workspace you will use to store your monitoring data. This task can be completed from the **Get Started** page in Azure Monitor on the **Other onboarding options** tab.  Select **Configure a workspace**, which will prompt you to select the workspace to be configured.
+
+![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)
+
+You can also configure your workspace by choosing **Enable using policy** and then select the **Configure workspace** toolbar button.  This will install the VMInsights solution on the selected workspace which will enable the workspace to store the monitoring data sent by the VMs and virtual machine scale sets you enable using Policy. 
+
+![Enable using policy](media/vminsights-enable-at-scale-policy/enable-using-policy.png)
+
 ## Manage Policy Coverage feature overview
 
 Azure Monitor for VMs Policy Coverage simplifies discovering, managing, and enabling at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. To access this feature,  select **Other onboarding options** from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
