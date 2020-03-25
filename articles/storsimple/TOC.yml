@@ -87,9 +87,7 @@
       href: storsimple-ova-web-ui-admin.md
   - name: Release notes
     items:
-    - name: Update 1.3 - current
-      href: storsimple-virtual-array-update-13-release-notes.md
-    - name: Update 1.2 
+    - name: Update 1.2 - current
       href: storsimple-virtual-array-update-12-release-notes.md
     - name: Update 1.1 
       href: storsimple-virtual-array-update-11-release-notes.md
