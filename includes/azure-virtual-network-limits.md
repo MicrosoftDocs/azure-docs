@@ -10,7 +10,7 @@
  ms.custom: include file
 
 ---
-<a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager
+### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager
 The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
@@ -83,7 +83,7 @@ The following limits apply only for networking resources managed through Azure R
 | Backend pool size                       | 300 IP configurations, single availability set |
 | Availability sets per Load Balancer     | 150                          |
 
-#### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |

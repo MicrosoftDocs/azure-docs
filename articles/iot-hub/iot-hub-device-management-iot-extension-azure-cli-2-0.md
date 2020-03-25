@@ -66,13 +66,13 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 Sign in to your Azure account by running the following command:
 
-```bash
+```azurecli
 az login
 ```
 
 ## Direct methods
 
-```bash
+```azurecli
 az iot hub invoke-device-method --device-id <your device id> \
   --hub-name <your hub name> \
   --method-name <the method name> \
@@ -83,7 +83,7 @@ az iot hub invoke-device-method --device-id <your device id> \
 
 Set a desired property interval = 3000 by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin update -n <your hub name> \
   -d <your device id> --set properties.desired.interval = 3000
 ```
@@ -94,7 +94,7 @@ This property can be read from your device.
 
 Get the reported properties of the device by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
@@ -104,13 +104,13 @@ One of the twin reported properties is $metadata.$lastUpdated, which shows the l
 
 Display the tags and properties of the device by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin show --hub-name <your hub name> --device-id <your device id>
 ```
 
 Add a field role = temperature&humidity to the device by running the following command:
 
-```bash
+```azurecli
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
@@ -121,14 +121,14 @@ az iot hub device-twin update \
 
 Query devices with a tag of role = 'temperature&humidity' by running the following command:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Query all devices except those with a tag of role = 'temperature&humidity' by running the following command:
 
-```bash
+```azurecli
 az iot hub query --hub-name <your hub name> \
   --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
