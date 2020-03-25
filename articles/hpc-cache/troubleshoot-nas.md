@@ -130,7 +130,7 @@ There isn't a simple way to tell whether or not your system has this problem unl
 
 To fix the problem, you might need to configure MSS clamping on the VPN to make the remote system properly detect the maximum frame size. Read the [VPN Gateway IPsec/IKE parameters documentation](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) to learn more.
 
-In some cases, changing the MTU setting for the Azure HPC Cache to 1400 can help. However, if your back-end storage system sends packets larger than 1400 bytes, the cache will reject these packets. Read [Configure additional Azure HPC Cache settings](configuration.md#adjust-mtu-value) for details.
+In some cases, changing the MTU setting for the Azure HPC Cache to 1400 can help. However, if you restrict the MTU on the cache you must also restrict the MTU settings for clients and back-end storage systems that interact with the cache. Read [Configure additional Azure HPC Cache settings](configuration.md#adjust-mtu-value) for details.
 
 ## Check for ACL security style
 

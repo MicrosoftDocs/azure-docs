@@ -53,19 +53,20 @@ Key properties:
 
 Key vault access permissions:
 
-* The user that creates the Azure HPC Cache must have permissions equivalent to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor).
+* The user that creates the Azure HPC Cache must have permissions equivalent to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor). The same permissions are needed to set up and manage Azure Key Vault.
+
+  Read [Secure access to a key vault](../key-vault/key-vault-secure-your-key-vault.md) for more information.
 
 ## 1. Set up Azure Key Vault
 
-You can set up a key vault and key before you create the cache, or do it as part of cache creation.
+You can set up a key vault and key before you create the cache, or do it as part of cache creation. Make sure these resources meet the requirements outlined [above](#understand-key-vault-and-key-requirements).
 
-Before you create the Azure HPC Cache, set up an Azure Key Vault system and import or create the key you want to use for the cache's encryption. An Azure Key Vault administrator must set up these resources.
+At cache creation time you must specify a vault, key, and key version to use for the cache's encryption.
 
 Read the [Azure Key Vault documentation](../key-vault/key-vault-overview.md) for details.
 
 > [!NOTE]
-> The Azure Key Vault must share the same subscription and be in the same region as the Azure HPC Cache. Use one of the supported regions listed at the beginning of this article.
-
+> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Use one of the supported regions listed at the beginning of this article.
 
 ## 2. Create the cache with customer-managed keys enabled
 

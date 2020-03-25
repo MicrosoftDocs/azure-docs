@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 03/20/2020
 ms.author: rohogue
 ---
 
@@ -26,11 +26,13 @@ You can select the maximum transmission unit size for the cache by using the dro
 The default value is 1500 bytes, but you can change it to 1400.
 
 > [!NOTE]
-> If your back-end storage system sends packets larger than the cache's MTU setting, those packets might be blocked.
+> If you lower the cache's MTU size, make sure that the clients and storage systems that communicate with the cache have the same MTU setting or a lower value.
 
-Lowering the cache MTU value can help you work around packet size restrictions in the rest of the cache's network. For example, some VPNs can't handle full-size 1500 byte packets. If you can set both the back-end system's MTU and the cache's MTU to send smaller packets, that can eliminate the VPN size issue.
+Lowering the cache MTU value can help you work around packet size restrictions in the rest of the cache's network. For example, some VPNs can't transmit full-size 1500 byte packets successfully. Reducing the size of packets sent over the VPN might eliminate that issue. However, note that a lower cache MTU setting means that any other component that communicates with the cache - including clients and storage systems - must also have a lower setting to avoid communication problems with the cache.
 
-On the other hand, if you can't control the size of the storage system's packets, you should research another solution. Using MSS clamping on the VPN might help. Read [Adjust VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) in the NAS troubleshooting article to learn more about diagnosing and addressing this problem.
+If you don't want to change the MTU settings on other system components, you should not lower the cache's MTU setting. There are other solutions to work around VPN packet size restrictions. Read [Adjust VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) in the NAS troubleshooting article to learn more about diagnosing and addressing this problem.
+
+Learn more about MTU settings in Azure virtual networks by reading [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
 ## Configure root squash
 <!-- linked from troubleshoot -->
