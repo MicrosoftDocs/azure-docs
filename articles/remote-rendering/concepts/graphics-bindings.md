@@ -38,7 +38,7 @@ managerInit.right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
 
-The call above is necessary to initialize Azure Remote Rendering into the holographic APIs. This function be called before any holographic API is called and before any other Remote Rendering APIs are accessed. Similarly, the corresponding de-init function `RemoteManagerStatic.ShutdownRemoteRendering();` should be called after no holographic APIs are being called anymore.
+The call above is necessary to initialize Azure Remote Rendering into the holographic APIs. This function must be called before any holographic API is called and before any other Remote Rendering APIs are accessed. Similarly, the corresponding de-init function `RemoteManagerStatic.ShutdownRemoteRendering();` should be called after no holographic APIs are being called anymore.
 
 ## <span id="access">Accessing graphics binding
 
