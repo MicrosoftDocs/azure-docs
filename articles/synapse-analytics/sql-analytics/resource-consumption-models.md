@@ -89,7 +89,7 @@ SQL Data Warehouse is a scale-out system that can provision vast amounts of comp
 
 > [!NOTE]
 >
-> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](../../sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md).
+> Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](../sql-data-warehouse/cheat-sheet.md).
 
 ### Permissions
 
@@ -210,4 +210,4 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 ## Next steps
 
-To learn more about managing performance, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md) and [Memory and concurrency limits](../sql-data-warehouse/memory-concurrency-limits.md).
+To learn more about managing performance, see [Resource classes for workload management](../sql-data-warehouse/resource-classes-for-workload-management.md) and [Memory and concurrency limits](../sql-data-warehouse/memory-concurrency-limits.md).

@@ -27,13 +27,13 @@
     href: databricks-stream-from-eventhubs.md
   - name: Sentiment analysis using Cognitive Services
     href: databricks-sentiment-analysis-cognitive-services.md
+- name: Concepts
+  items:
+  - name: Azure Databricks concepts
+    href: /azure/databricks/getting-started/concepts
+    maintainContext: true
 - name: How-to guides
   items:
-  - name: Concepts
-    items:
-    - name: Azure Databricks concepts
-      href: /azure/databricks/getting-started/concepts
-      maintainContext: true
   - name: Language guides
     items:
     - name: Python
@@ -1767,6 +1767,18 @@
           items:
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
+            maintainContext: true
+          - name: Databricks Runtime 7.0 (Beta)
+            href: /azure/databricks/release-notes/runtime/7.0
+            maintainContext: true
+          - name: Databricks Runtime 6.5 (Beta)
+            href: /azure/databricks/release-notes/runtime/6.5
+            maintainContext: true
+          - name: Databricks Runtime 6.5 ML (Beta)
+            href: /azure/databricks/release-notes/runtime/6.5ml
+            maintainContext: true
+          - name: Databricks Runtime 6.5 Genomics (Beta)
+            href: /azure/databricks/release-notes/runtime/6.5genomics
             maintainContext: true
           - name: Databricks Runtime 6.4
             href: /azure/databricks/release-notes/runtime/6.4
