@@ -1,9 +1,8 @@
 ---
 title: Co-sell partner engagement | Azure Marketplace
 description: Microsoft's co-sell program for partners can help you reach a vast customer base and generate new sales.
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
