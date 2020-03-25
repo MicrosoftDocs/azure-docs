@@ -59,6 +59,26 @@ To update the agent on a Windows machine to the latest version, the agent is ava
 
 ### Linux agent
 
+To uninstall the Linux agent, the command to use depends on the Linux operating system.
+
+- For Ubuntu, run the following command:
+
+    ```bash
+    sudo apt purge azcmagent
+    ```
+
+- For RHEL, CentOS, and Amazon Linux, run the following command:
+
+    ```bash
+    sudo yum remove azcmagent
+    ```
+
+- For SLES, run the following command:
+
+    ```bash
+    sudo zypper remove azcmagent
+    ```
+
 ## Update proxy settings
 
 To configure the agent to communicate to the service through a proxy server after deployment, use one of the following methods to complete this task.
