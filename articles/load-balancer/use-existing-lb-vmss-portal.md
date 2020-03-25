@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 09/17/2019
 ---
 
-# Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI
+# Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal
 
 In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer. 
 
@@ -18,63 +18,71 @@ In this article, you'll learn how to configure a virtual machine scale set with 
 - An existing Azure Load Balancer in the subscription where the virtual machine scale set will be deployed.
 - An Azure Virtual Network for the virtual machine scale set.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+## Sign in to the Azure portal
 
-If you choose to use the CLI locally, this article requires that you have a version of the Azure CLI version 2.0.28 or later installed. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Sign in to Azure CLI
 
-Sign into Azure.
-
-```azurecli-interactive
-az login
-```
 
 ## Deploy a virtual machine scale set with existing load balancer
 
-Replace the values in brackets with the names of the resources in your configuration.
+In this section you will create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
 
-```azurecli-interactive
-az vmss create \
-    --resource-group <resource-group> \
-    --name <vmss-name>\
-    --image <your-image> \
-    --admin-username <admin-username> \
-    --generate-ssh-keys  \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name <virtual-network-name> \
-    --subnet <subnet-name> \
-    --lb <load-balancer-name> \
-    --backend-pool-name <backend-pool-name>
-```
-
-The below example deploys a virtual machine scale set with:
-
-- Virtual machine scale set named **myVMSS**
-- Azure Load Balancer named **myLoadBalancer**
-- Load balancer backend pool named **myBackendPool**
-- Azure Virtual Network named **myVnet**
-- Subnet named **mySubnet**
-- Resource group named **myResourceGroup**
-- Ubuntu Server image for the virtual machine scale set
-
-```azurecli-interactive
-az vmss create \
-    --resource-group myResourceGroup \
-    --name myVMSS \
-    --image Canonical:UbuntuServer:18.04-LTS:latest \
-    --admin-username adminuser \
-    --generate-ssh-keys \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name myVnet\
-    --subnet mySubnet \
-    --lb myLoadBalancer \
-    --backend-pool-name myBackendPool
-```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> The following steps assume a virtual network named **myVNet** and a Azure load balancer named **myLoadBalancer** has been previously deployed.
+
+1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Virtual machine scale set** or search for **Virtual machine scale set** in the marketplace search.
+
+2. Select **Create**.
+
+3. In **Create a virtual machine scale set**, enter or select this information in the **Basics** tab:
+
+    | Setting                        | Value                                                                                                 |
+    |--------------------------------|-------------------------------------------------------------------------------------------------------|
+    | **Project details**            |                                                                                                       |
+    | Subscription                   | Select your Azure subscription                                                                        |
+    | Resource Group                 | Select  Create new, enter **myResourceGroup**, then select OK, or select an existing  resource group. |
+    | **Scale set details**          |                                                                                                       |
+    | Virtual machine scale set name | Enter **myVMSS**                                                                                      |
+    | Region                         | Select **East US 2**                                                                                    |
+    | Availability zone              | Select **None**                                                                                       |
+    | **Instance details**           |                                                                                                       |
+    | Image                          | Select **Ubuntu Server 18.04 LTS**                                                                    |
+    | Azure Spot instance            | Select **No**                                                                                         |
+    | Size                           | Leave at default                                                                                      |
+    | **Administrator account**      |                                                                                                       |
+    | Authentication type            | Select **Password**                                                                                   |
+    | Username                       | Enter your admin username        |
+    | Password                       | Enter your admin password    |
+    | Confirm password               | Re-enter your admin password |
+
+
+    :::image type="content" source="./media/load-balancer-vmss/lb-vmss-01.png" alt-text="Create virtual machine scale set." border="true":::
+
+4. Select the **Networking** tab.
+
+5. Enter or select this information in the **Networking** tab:
+
+     Setting                           | Value                                                    |
+    |-----------------------------------|----------------------------------------------------------|
+    | **Virtual Network Configuration** |                                                          |
+    | Virtual network                   | Select **myVNet** or your existing virtual network.      |
+    | **Load balancing**                |                                                          |
+    | Use a load balancer               | Select **Yes**                                           |
+    | **Load balancing settings**       |                                                          |
+    | Load balancing options            | Select **Azure load balancer**                           |
+    | Select a load balancer            | Select **myLoadBalancer** or your existing load balancer |
+    | Select a backend pool             | Select **myBackendPool** or your existing backend pool.  |
+
+    :::image type="content" source="./media/load-balancer-vmss/lb-vmss-02.png" alt-text="Create virtual machine scale set." border="true":::
+
+6. Select the **Management** tab.
+
+7. In the **Management** tab, set **Boot diagnostics** to **Off**.
+
+8. Select the blue **Review + create** button.
+
+9. Review the settings and select the **Create** button.
 
 ## Next Steps
 
