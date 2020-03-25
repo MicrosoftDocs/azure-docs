@@ -24,7 +24,7 @@ Supported endpoint types include:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-See [Choose between Azure messaging services](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services) for more information on the different endpoints.
+See [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services) for more information on the different endpoints.
 
 ## Link an endpoint to Azure Digital Twins
 
