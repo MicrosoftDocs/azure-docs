@@ -55,7 +55,7 @@ If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Cod
 
 Another tip for formatting createOptions is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON formatting. For example:
 
-![Results of docker inspect edgeHub](./media/how-to-use-createoptions/docker-inspect-edgehub.png)
+![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub.png)
 
 ## Common scenarios
 
