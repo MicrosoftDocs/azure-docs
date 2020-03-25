@@ -69,6 +69,7 @@ To update the agent on a Linux machine to the latest version, it involves two co
     apt upgrade
     ```
 
+Actions of the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command, such as installation and removal of packages, are logged in the `/var/log/dpkg.log` log file.
 
 #### Upgrade Red Hat/CentOS/Amazon Linux
 
@@ -84,6 +85,8 @@ To update the agent on a Linux machine to the latest version, it involves two co
     yum update
     ```
 
+Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command, such as installation and removal of packages, are logged in the `/var/log/yum.log` log file. 
+
 #### Upgrade SUSE Linux Enterprise
 
 1. To update the local package index with the latest changes made in the repositories, run the following command:
@@ -97,6 +100,8 @@ To update the agent on a Linux machine to the latest version, it involves two co
     ```bash
     zypper update
     ```
+
+Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file. 
 
 ## Remove the agent
 
