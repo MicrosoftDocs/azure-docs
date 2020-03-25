@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 03/25/2020
 ---
 
 # Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal
@@ -24,7 +24,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 
 
-## Deploy a virtual machine scale set with existing load balancer
+## Deploy VM scale set with existing load balancer
 
 In this section, you'll create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
 
@@ -57,7 +57,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
     | Confirm password               | Reenter your admin password |
 
 
-    :::image type="content" source="./media/load-balancer-vmss/lb-vmss-01.png" alt-text="Create virtual machine scale set." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Create virtual machine scale set." border="true":::
 
 4. Select the **Networking** tab.
 
@@ -74,7 +74,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
     | Select a load balancer            | Select **myLoadBalancer** or your existing load balancer |
     | Select a backend pool             | Select **myBackendPool** or your existing backend pool.  |
 
-    :::image type="content" source="./media/load-balancer-vmss/lb-vmss-02.png" alt-text="Create virtual machine scale set." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Create virtual machine scale set." border="true":::
 
 6. Select the **Management** tab.
 
@@ -84,7 +84,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
 
 9. Review the settings and select the **Create** button.
 
-## Next Steps
+## Next steps
 
 In this article, you deployed a virtual machine scale set with an existing Azure Load Balancer.  To learn more about virtual machine scale sets and load balancer, see:
 
