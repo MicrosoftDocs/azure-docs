@@ -97,12 +97,21 @@ conceptualContent:
         - url: /azure/app-service/overview
           itemType: overview
           text: What is App Service?
-        - url: /azure/app-service/app-service-web-get-started-dotnet
-          itemType: get-started
-          text: Prepare an application for AKS
         - url: /azure/app-service/app-service-web-tutorial-custom-domain
-          itemType: tutorial
+          itemType: get-started
           text: Map a custom domain to your app
+        - url: /azure/app-service/configure-ssl-bindings
+          itemType: tutorial
+          text: Secure a custom domain with an SSL binding
+        - url: /azure/app-service/app-service-web-get-started-windows-container
+          itemType: get-started
+          text: Run a custom Windows container
+        - url: /azure/app-service/quickstart-docker
+          itemType: quickstart 
+          text: Run a custom Linux container
+        - url: /azure/app-service/quickstart-multi-container
+          itemType: quickstart 
+          text: Create a Linux multi-container app
       # footerLink (optional)
       footerLink:
         url: /azure/app-service/ 
