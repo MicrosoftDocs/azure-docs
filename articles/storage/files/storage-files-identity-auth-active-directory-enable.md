@@ -67,8 +67,6 @@ Azure Files AD authentication is not available in:
 - West Europe
 - North Europe
 
-Azure Files AD authentication (preview) is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/) expect in West US, West US 2, East US, East US 2, West Europe, and North Europe.
-
 ## Workflow overview
 
 Before you enable AD Authentication over SMB for Azure file shares, we recommend that you walk through the [prerequisites](#prerequisites) and make sure you've completed all the steps. The prerequisites validate that your AD, Azure AD, and Azure Storage environments are properly configured. 
