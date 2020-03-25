@@ -52,8 +52,8 @@ To maximize throughput when using Gzip text files, break up files into 60 or mor
 - [Load data](data-loading-overview.md) 
 - [Guide for using PolyBase](data-loading-best-practices.md)
 - [Azure SQL pool loading patterns and strategies](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/) 
-- [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md) 
-- [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md) 
+- [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
+- [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
 - [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx) 
 - [Create table as select (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 

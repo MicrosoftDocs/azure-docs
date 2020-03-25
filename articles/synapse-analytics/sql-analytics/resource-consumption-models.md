@@ -73,7 +73,7 @@ As you increase data warehouse units, you are linearly increasing computing reso
 
 #### Capacity limits
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-what-is-a-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#workload-management?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#workload-management?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### How many data warehouse units do I need
 
