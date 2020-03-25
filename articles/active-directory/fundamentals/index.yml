@@ -74,5 +74,5 @@ landingContent:
             url: add-users-azure-active-directory.md
           - text: Assign roles to users
             url: active-directory-users-assign-role-azure-portal.md
-            text: Assign licenses to users
+          - text: Assign licenses to users
             url: license-users-groups.md

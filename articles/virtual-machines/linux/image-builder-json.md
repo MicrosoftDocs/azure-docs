@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danis
 ms.author: danis
-ms.date: 01/23/2020
+ms.date: 03/24/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -30,9 +30,14 @@ This is the basic template format:
         "buildTimeoutInMinutes": <minutes>, 
         "vmProfile": 
             {
-            "vmSize": "<vmSize>"
+            "vmSize": "<vmSize>",
+            "osDiskSizeGB": <sizeInGB>,
+            "vnetConfig": {
+                "name": "<vnetName>",
+                "subnetName": "<subnetName>",
+                "resourceGroupName": "<vnetRgName>"
             },
-        "build": {}, 
+        "source": {}, 
         "customize": {}, 
         "distribute": {} 
       } 
@@ -59,6 +64,8 @@ The location is the region where the custom image will be created. For the Image
 - West Central US
 - West US
 - West US 2
+- North Europe
+- West Europe
 
 
 ```json
@@ -75,7 +82,7 @@ By default Image Builder will use a "Standard_D1_v2" build VM, you can override 
 
 ## osDiskSizeGB
 
-By default, Image Builder will not change the size of the image, it will use the size from the source image. You can adjust the size of the OS Disk (Win and Linux), note, do not go too small than the minimum required space required for the OS. This is optional, and a value of 0 means leave the same size as the source image. This is optional.
+By default, Image Builder will not change the size of the image, it will use the size from the source image. You can increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. 
 
 ```json
  {
@@ -83,6 +90,16 @@ By default, Image Builder will not change the size of the image, it will use the
  },
 ```
 
+## vnetConfig
+If you do not specify any VNET properties, then Image Builder will create its own VNET, Public IP, and NSG. The Public IP is used for the service to communicate with the build VM, however if you do not want a Public IP or want Image Builder to have access to your existing VNET resources, such as configuration servers (DSC, Chef, Puppet, Ansible), file shares etc., then you can specify a VNET. For more information, review the [networking documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder), this is optional.
+
+```json
+    "vnetConfig": {
+        "name": "<vnetName>",
+        "subnetName": "<subnetName>",
+        "resourceGroupName": "<vnetRgName>"
+    }
+```
 ## Tags
 
 These are key/value pairs you can specify for the image that's generated.
@@ -127,33 +144,15 @@ For more information on deploying this feature, see [Configure managed identitie
 The `source` section contains information about the source image that will be used by Image Builder.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
-- ISO  - use this when the source is a RHEL ISO.
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
 ### ISO source
+We are deprecating this functionality from image builder, as there are now [RHEL Bring Your Own Subscription images](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos), please review the timelines below:
+    * 31 March 2020 - Image Templates with RHEL ISO sources will now longer be accepted by the resource provider.
+    * 30 April 2020- Image Templates that contain RHEL ISO sources will not be processed anymore.
 
-Azure Image Builder only supports using published Red Hat Enterprise Linux 7.x Binary DVD ISOs, for preview. Image Builder supports:
-- RHEL 7.3 
-- RHEL 7.4 
-- RHEL 7.5 
- 
-```json
-"source": {
-       "type": "ISO",
-       "sourceURI": "<sourceURI from the download center>",
-       "sha256Checksum": "<checksum associated with ISO>"
-}
-```
-
-To get the `sourceURI` and `sha256Checksum` values, go to `https://access.redhat.com/downloads` then select the product **Red Hat Enterprise Linux**, and a supported version. 
-
-In the list of **Installers and Images for Red Hat Enterprise Linux Server**, you need to copy the link for Red Hat Enterprise Linux 7.x Binary DVD, and the checksum.
-
-> [!NOTE]
-> The access tokens of the links are refreshed at frequent intervals, so every time you want to submit a template, you must check if the RH link address has changed.
- 
 ### PlatformImage source 
 Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) for the full list. 
 
@@ -163,7 +162,7 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
                 "publisher": "Canonical",
                 "offer": "UbuntuServer",
                 "sku": "18.04-LTS",
-                "version": "18.04.201903060"
+                "version": "latest"
         },
 ```
 
@@ -174,8 +173,7 @@ The properties here are the same that are used to create VM's, using AZ CLI, run
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
-> [!NOTE]
-> Version cannot be ‘latest’, you must use the command above to get a version number. 
+You can use 'latest' in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Shared Image Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
 
 ### ManagedImage source
 
@@ -212,7 +210,7 @@ By default, the Image Builder will run for 240 minutes. After that, it will time
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-If you do not specify a buildTimeoutInMinutes value, or set it to 0, is will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), to see if the customization step is waiting on something like user input. 
+If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will use the default value. You can increase or decrease the value, up to the maximum of 960mins (16hrs). For Windows, we do not recommend setting this below 60 minutes. If you find you are hitting the timeout, review the [logs](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs), to see if the customization step is waiting on something like user input. 
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
@@ -334,7 +332,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "type": "PowerShell", 
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
-             "valid_exit_codes": "<exit code>",
+             "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
  	], 
@@ -347,7 +345,7 @@ Customize properties:
 - **type** – PowerShell.
 - **scriptUri** - URI to the location of the PowerShell script file. 
 - **inline** – Inline commands to be run, separated by commas.
-- **valid_exit_codes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
+- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
     * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
@@ -388,12 +386,36 @@ If there is an error trying to download the file, or put it in a specified direc
 
 Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
+### Windows Update Customizer
+This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
+ 
+     "customize": [
+            {
+                "type": "WindowsUpdate",
+                "searchCriteria": "IsInstalled=0",
+                "filters": [
+                    "exclude:$_.Title -like '*Preview*'",
+                    "include:$true"
+                            ],
+                "updateLimit": 20
+            }
+               ], 
+OS support: Windows
+
+Customize properties:
+- **type**  – WindowsUpdate.
+- **searchCriteria** - Optional, defines which type of updates are installed (Recommended, Important etc.), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
+- **filters** – Optional, allows you to specify a filter to include or exclude updates.
+- **updateLimit** – Optional, defines how many updates can be installed, default 1000.
+ 
+ 
+
 ### Generalize 
 By default, Azure Image Builder will also run ‘deprovision’ code at the end of each image customization phase, to ‘generalize’ the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs ‘waagent -deprovision’. 
 
 The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder will allow you to customize this command, if needed. 
 
-If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can using the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
+If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
 If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or does not complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
