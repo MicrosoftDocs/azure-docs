@@ -1,12 +1,12 @@
 ---
 title: All about DevOps with Visual Studio App Center and Azure services 
 description: Learn all about DevOps in mobile application development.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2323-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # What is DevOps?
