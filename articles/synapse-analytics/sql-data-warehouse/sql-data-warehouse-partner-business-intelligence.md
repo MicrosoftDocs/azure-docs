@@ -1,10 +1,10 @@
 ---
 title: Business Intelligence partners 
 description: Lists of third-party business intelligence partners with solutions that support Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mabasile-MSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
