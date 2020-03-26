@@ -94,13 +94,13 @@ Instructors can publish an image version from the shared image gallery when they
 
 Shared image gallery is an optional resource that you may not need immediately when starting with only a few classroom labs. However, using shared image gallery has many benefits that are helpful as you scale to having more classroom labs:
 
-- **Enables you to save and manage versions of a template VM image**.
+- **Enables you to save and manage versions of a template VM image**
 
     It's useful to create a custom image or make changes (software, configuration, and so on) to an image from the public Marketplace gallery.  For example, it's common for educators to require different software\tooling be installed. Rather than requiring students to manually install these pre-requisites on their own, different versions of the template VM image can be exported to a shared image gallery. These image versions can then be used when creating new classroom labs.
-- **Enables sharing\reuse of template VM images across classroom labs**.
+- **Enables sharing\reuse of template VM images across classroom labs**
 
     You can save and reuse an image so that you don't have to configure the image from scratch each time that you create a new classroom lab. For example, if multiple classes are being offered that need the same image, this image only needs to be created once and exported to the shared image gallery so that it can be shared across classroom labs.
-- **Ensures image availability through replication**.
+- **Ensures image availability through replication**
 
     When you save to the shared image gallery from a classroom lab, your image is automatically replicated to other [regions within the same geography](https://azure.microsoft.com/global-infrastructure/regions/). In the case that there's an outage for a region, publishing the image to your classroom lab isn't affected since an image replica from another region can be used.  Publishing VMs from multiple replicas can also help with performance.
 
