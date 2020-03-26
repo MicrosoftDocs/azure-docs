@@ -36,7 +36,7 @@ The following sections describe how to configure a virtual network service endpo
 
 1. To grant access to an existing virtual network's subnet, under **Virtual networks**, select **Add existing Azure virtual network**.
 
-1. Select the **Subscription** from which you want to add an Azure virtual network. Select the Azure **Virtual networks** and **Subnets** that you want to provide access to your Azure Cosmos DB account. Next, select **Enable** to enable selected networks with service endpoints for "Microsoft.AzureCosmosDB". When it’s complete, select **Add**.
+1. Select the **Subscription** from which you want to add an Azure virtual network. Select the Azure **Virtual networks** and **Subnets** that you want to provide access to your Azure Cosmos DB account. Next, select **Enable** to enable selected networks with service endpoints for "Microsoft.AzureCosmosDB". When it's complete, select **Add**.
 
    ![Select virtual network and subnet](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
@@ -91,93 +91,60 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
 
 1. Enable the service endpoint for an existing subnet of a virtual network.  
 
-   ```powershell
-   $rgname = "<Resource group name>"
-   $vnName = "<Virtual network name>"
-   $sname = "<Subnet name>"
-   $subnetPrefix = "<Subnet address range>"
+```powershell
+$resourceGroupName = "<Resource group name>"
+$vnetName = "<Virtual network name>"
+$subnetName = "<Subnet name>"
+$subnetPrefix = "<Subnet address range>"
+$serviceEndpoint = "Microsoft.AzureCosmosDB"
 
-   Get-AzVirtualNetwork `
-    -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
-    -Name $sname  `
+Get-AzVirtualNetwork `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vnetName | Set-AzVirtualNetworkSubnetConfig `
+    -Name $subnetName `
     -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
-   ```
+    -ServiceEndpoint $serviceEndpoint | Set-AzVirtualNetwork
+```
 
 1. Get virtual network information.
 
-   ```powershell
-   $vnProp = Get-AzVirtualNetwork `
-     -Name $vnName `
-     -ResourceGroupName $rgName
-   ```
+```powershell
+$vnet = Get-AzVirtualNetwork `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vnetName
 
-1. Get properties of the Azure Cosmos DB account by running the following cmdlet:  
+$subnetId = $vnet.Id + "/subnets/" + $subnetName
+```
 
-   ```powershell
-   $apiVersion = "2015-04-08"
-   $acctName = "<Azure Cosmos DB account name>"
+1. Prepare a Cosmos DB Virtual Network Rule
 
-   $cosmosDBConfiguration = Get-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName
-   ```
+```powershell
+$vnetRule = New-AzCosmosDBVirtualNetworkRule `
+    -Id $subnetId
+```
 
-1. Initialize the variables for use later. Set up all the variables from the existing account definition.
+1. Update Azure Cosmos DB account properties with the new Virtual Network endpoint configuration: 
 
-   ```powershell
-   $locations = @()
+```powershell
+$accountName = "<Cosmos DB account name>"
 
-   foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
-      $locations += , @{
-         locationName     = $readLocation.locationName;
-         failoverPriority = $readLocation.failoverPriority;
-      }
-   }
-
-   $virtualNetworkRules = @(@{
-      id = "$($vnProp.Id)/subnets/$sname";
-   })
-
-   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
-      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
-   }
-   ```
-
-1. Update Azure Cosmos DB account properties with the new configuration by running the following cmdlets: 
-
-   ```powershell
-   $cosmosDBProperties = @{
-      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
-      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
-      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
-      locations                     = $locations;
-      virtualNetworkRules           = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $True;
-   }
-
-   Set-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName `
-     -Properties $CosmosDBProperties
-   ```
+Update-AzCosmosDBAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $accountName `
+    -EnableVirtualNetwork $true `
+    -VirtualNetworkRuleObject @($vnetRule)
+```
 
 1. Run the following command to verify that your Azure Cosmos DB account is updated with the virtual network service endpoint that you configured in the previous step:
 
-   ```powershell
-   $UpdatedcosmosDBConfiguration = Get-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName
+```powershell
+$account = Get-AzCosmosDBAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $accountName
 
-   $UpdatedcosmosDBConfiguration.Properties
-   ```
+$account.IsVirtualNetworkFilterEnabled
+$account.VirtualNetworkRules
+```
 
 ## <a id="configure-using-cli"></a>Configure a service endpoint by using the Azure CLI
 
