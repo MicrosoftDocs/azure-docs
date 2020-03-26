@@ -1,13 +1,12 @@
 ---
 title: Create an Azure-compatible VHD for the Azure Marketplace 
 description: Explains how to create a VHD for a virtual machine offer in the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create an Azure-compatible VHD
