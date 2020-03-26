@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting connectivity
 description: Troubleshooting connectivity  in SQL Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: anumjs
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: supportability
+ms.subservice: 
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
