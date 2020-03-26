@@ -1885,5 +1885,7 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+      - name: Zoho One China
+        href: zoho-one-china-tutorial.md
       - name: Zoom
         href: zoom-provisioning-tutorial.md
