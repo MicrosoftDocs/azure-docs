@@ -10,11 +10,11 @@ ms.date: 03/26/2020
 ms.author: aahi
 ---
 
-Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Node.js client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
+Use this quickstart to begin getting image insights from the Bing Visual Search service, using the JavaScript client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
 ## Prerequisites
 * [Node.js](https://www.nodejs.org/)
-* The Bing Visual Search client library for Node.js
+* The Bing Visual Search client library for JavaScript
     * To set up a console application using the Bing Visual Search client library, run the following commands:
         1. `npm install ms-rest-azure`
         2. `npm install azure-cognitiveservices-visualsearch`.
