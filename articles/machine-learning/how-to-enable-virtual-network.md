@@ -507,4 +507,4 @@ When using a virtual network with Azure Machine Learning, __do not__ put the Azu
 
 * [Set up training environments](how-to-set-up-training-targets.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
-* [Securely deploy models with SSL](how-to-secure-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

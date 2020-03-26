@@ -303,10 +303,6 @@
       - name: Telemetry correlation
         href: app/correlation.md
         displayname: correlation headers, w3c, distributed tracing, tracing
-      - name: Local forwarder
-        href: app/opencensus-local-forwarder.md
-      - name: Go
-        href: app/opencensus-go.md
     - name: Live Metric stream
       displayname: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
@@ -658,10 +654,12 @@
         href: insights/vminsights-maps.md
       - name: Monitor performance
         href: insights/vminsights-performance.md
-      - name: Using workbooks
-        href: insights/vminsights-workbooks.md
       - name: Analyze data with log queries
         href: insights/vminsights-log-search.md
+      - name: Visualize data with workbooks
+        href: insights/vminsights-workbooks.md
+      - name: Create alert rules
+        href: insights/vminsights-alerts.md
       - name: Upgrade Dependency agent
         href: insights/vminsights-dependency-agent-maintenance.md
       - name: Disable monitoring
