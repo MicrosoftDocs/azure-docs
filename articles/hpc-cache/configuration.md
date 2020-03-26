@@ -10,7 +10,7 @@ ms.author: rohogue
 
 # Configure additional Azure HPC Cache settings
 
-The **Configuration** page in the Azure Portal has options for customizing several settings. Most users do not need to change these from the default values.
+The **Configuration** page in the Azure portal has options for customizing several settings. Most users do not need to change these from the default values.
 
 This article also describes how to use the snapshot feature for Azure Blob storage targets. The snapshot feature has no configurable settings.
 
