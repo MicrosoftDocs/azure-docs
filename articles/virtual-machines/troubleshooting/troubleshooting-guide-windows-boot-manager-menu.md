@@ -45,7 +45,7 @@ Process Overview:
 4. **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection.
 5. Rebuild the VM.
 
-## Configure for Faster Boot Time using Serial Console
+### Configure for Faster Boot Time using Serial Console
 
 If you have access to serial console, there are two ways you can achieve faster boot times. Either decrease the *displaybootmenu* wait time, or remove the flag altogether.
 
@@ -71,12 +71,12 @@ If you have access to serial console, there are two ways you can achieve faster 
       > [!NOTE]
       > If you were unable to use serial console to configure a faster boot time in the steps above, you can instead continue with the following steps. You'll now be troubleshooting in offline mode to resolve this issue.
 
-## Create and Access a Repair VM
+### Create and Access a Repair VM
 
 1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
-2 Use Remote Desktop Connection connect to the Repair VM.
+2. Use Remote Desktop Connection connect to the Repair VM.
 
-## Configure for Faster Boot Time on a Repair VM
+### Configure for Faster Boot Time on a Repair VM
 
 1. Open an elevated command prompt.
 2. Enter the following to enable DisplayBootMenu:
@@ -89,6 +89,8 @@ If you have access to serial console, there are two ways you can achieve faster 
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} displaybootmenu yes`
 
+   Replace any greater than or less than symbols as well as the text within them, e.g. "< text here >".
+
 3. Change the timeout value to 5 seconds:
 
    Use this command for **Generation 1 VMs**:
@@ -98,6 +100,8 @@ If you have access to serial console, there are two ways you can achieve faster 
    Use this command for **Generation 2 VMs**:
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} timeout 5`
+
+   Replace any greater than or less than symbols as well as the text within them, e.g. "< text here >".
 
 ### Recommended: Before you rebuild the VM, enable serial console and memory dump collection
 
@@ -111,6 +115,8 @@ To enable memory dump collection and Serial Console, run the following script:
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+
+   Replace any greater than or less than symbols as well as the text within them, e.g. "< text here >".
 
 3. Verify that the free space on the OS disk is as much as the memory size (RAM) on the VM.
 

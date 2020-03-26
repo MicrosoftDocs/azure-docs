@@ -37,7 +37,7 @@ Usually, this is due to a critical system process failing during boot. You can r
 
 1. Create and Access a Repair VM.
 2. Fix any OS Corruption.
-3. Recommended: Before you rebuild the VM, enable serial console and memory dump collection.
+3. **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection.
 4. Rebuild the VM.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Usually, this is due to a critical system process failing during boot. You can r
 
 ### Create and Access a Repair VM
 
-1. Use steps 1-3 of the VM Repair Commands to prepare a Repair VM.
+1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 2. Using Remote Desktop Connection connect to the Repair VM.
 
 ### Fix any OS Corruption
@@ -55,9 +55,9 @@ Usually, this is due to a critical system process failing during boot. You can r
 
    `sfc /scannow /offbootdir=<BOOT DISK DRIVE>:\ /offwindir=<BROKEN DISK DRIVE>:\windows`
 
-   * Where *<BOOT DISK DRIVE>* is the boot volume of the Repair VM typically C: and <BROKEN DISK DRIVE> will be the drive letter for the attached disk from the broken VM.
+   * Where < BOOT DISK DRIVE > is the boot volume of the Repair VM (typically "C:") and < BROKEN DISK DRIVE > will be the drive letter for the attached disk from the broken VM. Replace the greater than / less than symbols as well as the text contained within them, e.g. "< text here >", with the appropriate letter.
 
-3. Next, use step 5 of the VM Repair Commands to reassemble the VM and see if it boots.
+3. Next, use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM and see if it boots.
 4. If the VM is still not booting, then continue to collect the memory dump file.
 
 ### Collect the Memory Dump File
@@ -66,13 +66,13 @@ If the issue persists after running SFC, analysis of a memory dump file will be 
 
 ### Attach the OS disk to a new Repair VM
 
-1. Use steps 1-3 of the VM Repair Commands to prepare a new Repair VM.
+1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a new Repair VM.
 2. Using Remote Desktop Connection connect to the Repair VM.
 
 ### Locate the dump file and submit a support ticket
 
 3. On the repair VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is *F*, you need to go to *F:\Windows*.
-4. Locate the *memory.dmp* file, and then submit a support ticket with the memory dump file.
+4. Locate the *memory.dmp* file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
 
    > [!NOTE]
    > If you cannot find the dump file, complete the below steps to enable memory dump collection and Serial Console, then return to this section and repeat the steps in the task above to collect the memory dump file.
@@ -89,6 +89,8 @@ To enable memory dump collection and Serial Console, run the following script:
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON`
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+
+   Replace any greater than or less than symbols as well as the text within them, e.g. "< text here >".
 
 3. Verify that the free space on the OS disk is as much as the memory size (RAM) on the VM.
 
