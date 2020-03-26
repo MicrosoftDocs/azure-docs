@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ---
 
-# Configure customer-managed-keys using the Azure portal
+# Configure customer-managed keys using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](customer-managed-keys-portal.md)
@@ -25,15 +25,15 @@ This article shows you how to enable customer-managed keys encryption using the 
 1. In the [Azure portal](https://portal.azure.com/), go to your [Azure Data Explorer cluster](create-cluster-database-portal.md#create-a-cluster) resource. 
 1. Select **Settings** > **Encryption** in left pane of portal.
 1. In the **Encryption** pane, select **On** for the **Customer-managed key** setting.
-1. Click **Select Key**
+1. Click **Select Key**.
 
     ![Configure customer-managed keys](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
 1. In the **Select key from Azure Key Vault** window, select an existing **Key vault** from the dropdown list. If you select **Create new** to [create a new Key Vault](/azure/key-vault/quick-create-portal#create-a-vault), you'll be routed to the **Create Key Vault** screen.
 
-1. Select **Key** 
-1. Select **Version**
-1. Click **Select**
+1. Select **Key**.
+1. Select **Version**.
+1. Click **Select**.
 
     ![Select key from Azure Key Vault](media/customer-managed-keys-portal/cmk-key-vault.png)
 
