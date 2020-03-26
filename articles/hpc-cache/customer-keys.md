@@ -96,7 +96,7 @@ Continue with the rest of the specifications and create the cache as described i
 ## 3. Authorize Azure Key Vault encryption from the cache
 <!-- header is linked from create article, update if changed -->
 
-After a few minutes, the new Azure HPC Cache appears in your Azure Portal. Go to the **Overview** page to authorize it to access your Azure Key Vault and enable customer-managed key encryption.
+After a few minutes, the new Azure HPC Cache appears in your Azure portal. Go to the **Overview** page to authorize it to access your Azure Key Vault and enable customer-managed key encryption.
 
 This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete.
 
