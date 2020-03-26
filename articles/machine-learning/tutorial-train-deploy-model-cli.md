@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/26/2020
 ---
 
 # Tutorial: Train and deploy a model from the CLI
