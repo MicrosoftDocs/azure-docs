@@ -56,9 +56,9 @@ To view the metrics for your Standard Load Balancer resources:
   >[!NOTE] 
   >Time aggregation is important when interpreting certain metrics as data is sampled once per minute. If time aggregation is set to five minutes and metric aggregation type Sum is used for metrics such as SNAT Allocation, your graph will display five times the total  allocated SNAT ports. 
 
-    ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-    *Figure: Data Path Availability metric for Standard Load Balancer*
+*Figure: Data Path Availability metric for Standard Load Balancer*
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
@@ -126,7 +126,7 @@ To get SNAT connection statistics:
 
 #### How do I check my SNAT port usage and allocation?
 
-The SNAT Usage metric indicates how many unique flows are established between an internet source and a backend VM or VMSS that is behind a load balancer and does not have a pubic IP address. By comparing this with the SNAT Allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+The SNAT Usage metric indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and does not have a public IP address. By comparing this with the SNAT Allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
 
 If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
 
