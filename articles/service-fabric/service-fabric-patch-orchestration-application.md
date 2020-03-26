@@ -433,9 +433,9 @@ It might also be possible that node patching is blocked because it's stuck in *D
 
 A: POA disables the node with a *Restart* intent, which stops or reallocates all the Service Fabric services that are running on the node. POA does this to ensure that applications don't end up using a mix of new and old DLLs, so we recommend not patching a node without disabling it.
 
-**Q: What is the maximum number of nodes that can be updated using Patch Orchestration Application?**
+**Q: What is the maximum number of nodes that can be updated by using POA?**
 
-A: Patch Orchestration Application uses Service Fabric Repair Manager to create repair Tasks for nodes for Updates. However no more than 250 Repair Tasks can be present at the same time . Currently Patch Orchestration Agent creates repair Tasks for each node at the same time. So , POA can update no more than 250 nodes in a Cluster. 
+A: POA uses Service Fabric Repair Manager to create repair tasks for nodes for updates. However, no more than 250 repair tasks can be present at the same time. Currently, POA creates repair tasks for each node at the same time, so POA can update no more than 250 nodes in a cluster. 
 
 ## Disclaimers
 
