@@ -139,7 +139,7 @@ To remove Application Insights, you will need to remove the NuGet packages and r
 
 ### .NET Core: What is created when you add Application Insights
 
-When you add Application Insights Telemetry to a Visual Studio ASP.NET Core template project it adds the following:
+When you add Application Insights Telemetry to a Visual Studio ASP.NET Core template project, it adds the following code:
 
 - [Your project's name].csproj
 
