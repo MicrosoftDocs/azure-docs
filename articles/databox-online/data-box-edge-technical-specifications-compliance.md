@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Box Edge technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Data Box Edge
+title: Microsoft Azure Stack Edge technical specifications and compliance| Microsoft Docs
+description: Learn about the technical specifications and compliance for your Azure Stack Edge
 services: databox
 author: alkohli
 
@@ -10,14 +10,13 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ---
+# Azure Stack Edge technical specifications
 
-# Azure Data Box Edge technical specifications
-
-The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
+The hardware components of your Microsoft Azure Stack Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
 
 ## Compute, memory specifications
 
-The Data Box Edge device has the following specifications for compute and memory:
+The Azure Stack Edge device has the following specifications for compute and memory:
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
@@ -27,16 +26,16 @@ The Data Box Edge device has the following specifications for compute and memory
 
 ## FPGA specifications
 
-A Field Programmable Gate Array (FPGA) is included on every Data Box Edge device that enables Machine Learning (ML) scenarios. 
+A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge device that enables Machine Learning (ML) scenarios. 
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
 
 ## Power supply unit specifications
 
-The Data Box Edge device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
@@ -47,11 +46,11 @@ The Data Box Edge device has two 100-240 V Power supply units (PSUs) with high-p
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
 
 ## Network interface specifications
 
-You Data Box Edge device has 6 network interfaces, PORT1- PORT6.
+Your Azure Stack Edge device has 6 network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
@@ -59,7 +58,7 @@ You Data Box Edge device has 6 network interfaces, PORT1- PORT6.
 
 ## Storage specifications
 
-The Data Box Edge devices have 9 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 1 is an operating system disk, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
+The Azure Stack Edge devices have 9 X 2.5" NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 1 is an operating system disk, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
@@ -141,4 +140,4 @@ This section lists the specifications related to the enclosure environment such 
 
 ## Next steps
 
-- [Deploy your Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Deploy your Azure Stack Edge](data-box-edge-deploy-prep.md)

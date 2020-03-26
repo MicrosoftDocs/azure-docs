@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Edge manage users | Microsoft Docs 
-description: Describes how to use the Azure portal to manage users on your Azure Data Box Edge.
+title: Azure Stack Edge manage users | Microsoft Docs 
+description: Describes how to use the Azure portal to manage users on your Azure Stack Edge.
 services: databox
 author: alkohli
 
@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ---
-# Use the Azure portal to manage users on your Azure Data Box Edge
+# Use the Azure portal to manage users on your Azure Azure Stack Edge
 
-This article describes how to manage users on your Azure Data Box Edge. You can manage the Azure Data Box Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
+This article describes how to manage users on your Azure Stack Edge. You can manage the Azure Stack Edge via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
 
 In this article, you learn how to:
 
@@ -34,7 +34,7 @@ The user permissions are first defined when the user is created during share cre
 
 Do the following steps in the Azure portal to add a user.
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Overview > Users**. Select **+ Add user** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview > Users**. Select **+ Add user** on the command bar.
 
     ![Select add user](media/data-box-edge-manage-users/add-user-1.png)
 
@@ -60,7 +60,7 @@ You can change the password associated with a user once the user is created. Sel
 Do the following steps in the Azure portal to delete a user.
 
 
-1. In the Azure portal, go to your Data Box Edge resource and then go to **Overview > Users**.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview > Users**.
 
     ![Select user to delete](media/data-box-edge-manage-users/delete-user-1.png)
 

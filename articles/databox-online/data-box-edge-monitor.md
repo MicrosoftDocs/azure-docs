@@ -1,6 +1,6 @@
 ---
-title: Monitor your Azure Data Box Edge device | Microsoft Docs 
-description: Describes how to use the Azure portal and local web UI to monitor your Azure Data Box Edge.
+title: Monitor your Azure Stack Edge device | Microsoft Docs 
+description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge.
 services: databox
 author: alkohli
 
@@ -10,9 +10,9 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ---
-# Monitor your Azure Data Box Edge
+# Monitor your Azure Stack Edge
 
-This article describes how to monitor your Azure Data Box Edge. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics. Use the local web UI on your physical device to view the hardware status of the various device components.
+This article describes how to monitor your Azure Stack Edge. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics. Use the local web UI on your physical device to view the hardware status of the various device components.
 
 In this article, you learn how to:
 
@@ -31,7 +31,7 @@ In this article, you learn how to:
 Take the following steps in the local web UI to view the hardware status of your device components.
 
 1. Connect to the local web UI of your device.
-2. Go to **Maintenance > Hardware status**. You can view the health of the various device components.
+2. Go to **Maintenance > Hardware status**. You can view the health of the various device components. 
 
     ![View hardware status](media/data-box-edge-monitor/view-hardware-status.png)
 
