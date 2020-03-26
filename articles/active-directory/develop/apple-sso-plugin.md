@@ -52,8 +52,28 @@ Device that wish to use Microsoft Enterprise SSO Plug-In for Apple Devices must 
 
 ## How to try it out
 
-We are currently using this new plug-in around specific scenarios and features where we can innovate fast and use the latest in Azure Active Directory features. However, we will be expanding the use of the plug-in in the future. 
+ ## Using An MDM to Enable the SSO Extension
 
-If you are interested in experimenting with our Microsoft Enterprise SSO Plug-In for Apple Devices for your applications, please drop a message to [Brandon Werner](mailto:brandon.werner@microsoft.com) and we can help partner to provide the SSO Plug-In capability to your applications as well.
+ * All devices need to be sent a singal through an MDM service to enable Microsoft Enterprise SSO Plug-In for Apple Devices. Since Microsoft provides our Enterprise SSO Plug-In through the [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview), you will need to use your MDM to both deploy the Microsoft Authenticator app and configure it to turn on the Microsoft Enterprise SSO Plug-In that it contains. 
+ 
+ Microsoft provides Intune for MDM service to our customers so we show that configuration below. You may also wish to browse [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings) as you will be using this portal below to push the correct configuration to your Shared Devices. Refer to your own MDM documentatio on how to deploy and configure applications. 
+
+ In the Intune Configuration Portal, set the following configuration:  
+* Tell the device to enable the Microsoft Enterprise SSO Plug-In for Apple Devices using the following configuration:
+  * **Type**: Redirect
+  * **Extension ID**: com.microsoft.azureauthenticator.ssoextension
+  * **Team ID**: SGGM6D27TK
+  * **URLs**: https://login.microsoftonline.com (this list will be expanded for the Public Preview to include other Microsoft clouds)
+
+* Next, configure your MDM to push Microsoft Authenticator app to your device through an MDM profile. You will need to set the following configuration options to tell the Authenticator to use the [Microsoft Enterprise SSO Plug-In for Apple Devices](apple-sso-plugin.md) whenever possible.
+    - Key: useSSOExtensionOnly
+    - Type: Boolean
+    - Value: True
+
+   ## Using the SSO Extension in your application 
+
+Our Microsoft Authentication Libraries (MSAL) for Apple Devices already supports using the Microsoft Enterprise SSO Plug-In for Apple Devices. It requires you use MSAL version 1.1.0 or higher. Using our MSAL library along with the MDM setting above to `useSSOExtensionOnly` is all you need to experiment with the Enterprise SSO Plug-In. 
+
+If you are interested in experimenting with our Enterprise SSO Plug-In fwithout using MSAL, please drop a message to [Brandon Werner](mailto:brandon.werner@microsoft.com) and we can help partner to provide the SSO Plug-In capability to your applications as well.
 
 
