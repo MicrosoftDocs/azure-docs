@@ -53,7 +53,7 @@ For your scenario, you will read the sale receipt documents, summarize them, and
 ![IAM Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
 
 1. Select the **+ Add** button, then **add role assignment**:
-![Add Role Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-select-add.png)
+<img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-select-add.png" width="50%">
 
 1. The **Add Role Assignment** panel opens to the right:
      <img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" width="50%">
@@ -73,7 +73,7 @@ Now we have a function app that has a system-assigned managed identity. That ide
 This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos account keys.
 
 > [!IMPORTANT] 
-> If you want to [assign the **Cosmos DB Account Reader**](#grant-the-system-assigned-managed-identity-access-to-your-azure-cosmos-db) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will only populate the read only keys.
+> If you want to [assign the **Cosmos DB Account Reader**](#grant-the-managed-identity-access-to-your-azure-cosmos-account) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will only populate the read only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 ```csharp 
