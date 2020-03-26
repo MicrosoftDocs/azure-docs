@@ -151,7 +151,35 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk.md)]
+# [Windows](#tab/windows)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-windows.md)]
+
+# [Linux](#tab/linux)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-linux.md)]
+
+# [iOS](#tab/ios)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-ios.md)]
+
+# [macOS](#tab/macos)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-macos.md)]
+
+# [Android](#tab/android)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-android.md)]
+
+# [Node.js](#tab/nodejs)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-nodejs.md)]
+
+# [Browser](#tab/browser)
+
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-browser.md)]
+
+---
 
 [!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
