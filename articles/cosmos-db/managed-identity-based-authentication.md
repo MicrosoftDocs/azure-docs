@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # How to use system-assigned Managed Service Identities (MSI) to access Azure Cosmos DB data
 
-In this article we'll setup a **robust, key rotation agnostic,** solution for Azure Cosmos DB key management by leveraging [Managed Service Identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Though we're using an Azure Function for this example, this solution can be used with any service that [supports managed service identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). 
+In this article you will set up a **robust, key rotation agnostic,** solution to manage Azure Cosmos DB keys by leveraging [Managed Service Identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses an Azure Function. However, you can achieve this solution by using any service that supports managed service identities. 
 
 You'll learn how to:
 
