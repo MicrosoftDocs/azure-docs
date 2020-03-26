@@ -97,9 +97,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     > [!NOTE]
     > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
+1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-	![Copy Thumbprint value](common/copy-certificatethumbprint.png)
+	![Edit SAML Signing Certificate](common/edit-certificate.png)
+
+1. In the **SAML Signing Certificate** section, copy the **Thumbprint Value** and save it on your computer.
+
+    ![Copy Thumbprint value](common/copy-thumbprint.png)
 
 1. On the **Set up Zendesk** section, copy the appropriate URL(s) based on your requirement.
 
