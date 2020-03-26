@@ -74,7 +74,7 @@ More information about the inbound security rules.
 
 * **Azure**. This port is used by Service Fabric Explorer to browse and manage your cluster, and it is also used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
 
-* **Client**. The client connection endpoint for APIs like REST/PowerShell/CLI. The Azure portal gather information about the cluster, nodes, and applications. 
+* **Client**. The client connection endpoint for APIs like REST/PowerShell/CLI. 
 
 * **Cluster**. For inter node communication, should never been blocked.
 
@@ -103,7 +103,7 @@ More information about the outbound security rules.
 
 * **Network**. Communication channel for subnets and to another virtual networks.
 
-* **Resource Provider**. Connection to execute all ARM deployments by the Service Fabric resource provider.
+* **Resource Provider**. Connection by the UpgradeService to execute all ARM deployments by the Service Fabric resource provider.
 
 * **Upgrade**. The upgrade service using the Akaimai network to download the bits, this is needed for setup, re-image and runtime upgrades. Akaimai are using dynamic IP addresses, we are working to make this Azure internal. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optional this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
 
