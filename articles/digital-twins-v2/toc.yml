@@ -17,7 +17,7 @@
   - name: Query the twin graph
     href: concepts-query-graph.md
   - name: Integration with other services
-    href: concepts-deployment.md
+    href: concepts-integration.md
   - name: Secure Azure Digital Twins solutions
     href: concepts-security.md
 - name: How-to guides
