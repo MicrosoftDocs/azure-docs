@@ -1,17 +1,14 @@
 ---
-title: "Quickstart: Bing Visual Search client library for Java | Microsoft Docs"
-description: Upload an image using the Bing Visual Search SDK and get insights about it.
+title: Bing Visual Search Java client library quickstart 
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 12/17/2019
+ms.topic: include
+ms.date: 03/26/2020
 ms.author: aahi
 ---
-
-# Quickstart: Bing Visual Search client library for Java
 
 Get started with the Bing Visual Search client library for Java. Follow these steps to install the package and try out the example code for basic tasks. 
 
@@ -28,7 +25,7 @@ Use the Bing Visual Search client library for Java to:
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
