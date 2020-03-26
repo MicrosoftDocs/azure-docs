@@ -82,3 +82,4 @@ In this article, you deployed a virtual machine scale set with an existing Azure
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
 - [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
+                                
