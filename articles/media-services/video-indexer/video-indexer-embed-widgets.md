@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 03/26/2020
 ms.author: juliako
 ---
 
@@ -26,7 +26,13 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 
 |Name|Definition|Description|
 |---|---|---|
-|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>The `widgets` URL parameter isn't supported in version 2.<br/>|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.
+Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animatedCharacters ,keywords, labels, sentiments, emotions, topics , keyframes, transcript, ocr, speakers, scenes and namedEntities.|
+|`controls`|Strings separated by comma|Allows you to control the controls that you want to render.
+Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renders only search option and download button.<br/>Available options: search, download, presets, language.|
+|`language`|A short language code (language name)|Controls insights language.
+Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` OR
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/> Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 
