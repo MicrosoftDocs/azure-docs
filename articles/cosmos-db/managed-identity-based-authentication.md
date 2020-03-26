@@ -55,11 +55,13 @@ For your scenario, you will read the sale receipt documents, summarize them, and
 1. Select the **+ Add** button, then **add role assignment**.
 
 1. The **Add Role Assignment** panel opens to the right:
+
      ![Add Role](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
      * **Role** - Select **DocumentDB Account Contributor**
      * **Assign access to** - Under the Select **System-assigned managed identity** subsection, select  **Function App**.
     * **Select** - The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In our case I select the **SummaryService** function app: 
+    
         ![Select Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
 1. Select the function app and click **Save**.
