@@ -154,7 +154,6 @@ The following features and services are not supported for account failover:
 - ADLS Gen2 storage accounts (accounts that have hierarchical namespace enabled) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
-- After the failover is complete, the following features may stop working if originally enabled: [Event subscriptions](../blobs/storage-blob-event-overview.md), [Change Feed](../blobs/storage-blob-change-feed.md), [Lifecycle policies](../blobs/storage-lifecycle-management-concepts.md), and [Storage Analytics Logging](storage-analytics-logging.md).
 
 ## Copying data as an alternative to failover
 
