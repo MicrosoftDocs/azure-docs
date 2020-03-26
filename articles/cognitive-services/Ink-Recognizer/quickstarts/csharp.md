@@ -22,7 +22,7 @@ Typically you would call the API from a digital inking app. This quickstart send
 
 ![an image of handwritten text](../media/handwriting-sample.jpg)
 
-The source code for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+The source code for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Vision/InkRecognition/quickstart).
 
 ## Prerequisites
 
