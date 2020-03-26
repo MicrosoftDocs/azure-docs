@@ -6,8 +6,8 @@ author: rambk
 
 ms.service: virtual-network
 ms.topic: article
-ms.date: 03/25/2020
-ms.author: kumud
+ms.date: 03/26/2020
+ms.author: rambala
 
 ---
 
@@ -21,7 +21,7 @@ This article describes how you can leverage Azure networking services to enable 
 
 Not all networks (for example, the Internet backbone, private WAN, and corporate core networks) are experiencing congestion because of Covid-19. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
 
-Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
+Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas, replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
 >[!NOTE] 
 >Towards the end of this article, links for Covid-19 preparation articles leveraging different Azure networking features and ecosystems are listed.
@@ -41,9 +41,9 @@ Microsoft network is designed to meet the requirements and provide optimal perfo
 
 Azure scalable VPN gateway support both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. For more information, see [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770). 
 
-If you are using SSTP, the number of concurrent connections would be limited to 128. To overcome this limitation we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
+If you are using SSTP, the number of concurrent connections would be limited to 128. To overcome the 128 connections limitation, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
 
-To access your resources deployed in Azure, remote employees could use Azure Bastion solution, instead of VPN connection. For more information, see [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939) for further details.
+To access your resources deployed in Azure, remote employees could use Azure Bastion solution, instead of VPN connection. For more information, see [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939).
 
 For aggregating large-scale VPN connection, to support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. For more information, see [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769).
 
@@ -51,18 +51,25 @@ Another way to support a remote workforce is to deploy a Virtual Desktop Infrast
 
 Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) Considerations during COVID-19](https://go.microsoft.com/fwlink/?linkid=2123771).
 
-## Enable employees to access globally distributed on-premises resources
+## Extend employees' connection to access globally distributed resources
 
-Use ExpressRoute Global Reach, Azure VPN gateway, or Azure Virtual WAN services to establish connectivity between your different on-premises network across globe.
+The following Azure services can be leveraged to enable employees connected to Azure to access your globally distributed resources. Your resources could be in any of the Azure regions, on-premises networks across the globe, or even in other public or private clouds. Microsoft support for multi-cloud traffic is discussed later in this article.
+
+Azure VNet-peering: If you deploy your resources in more than one Azure regions and/or if you aggregate the connectivity of remotely working employees using multiple virtual networks (VNet), you can establish cross connectivity between the multiple Azure Vnets using virtual network peering. For more information, see [Virtual network peering][VNet-peer].
+
+Azure VPN-based solution: For your remote employees connected to Azure via P2S or S2S VPN, you can enable access to on-premises networks by configuring S2S VPN between your on-premises networks and Azure VPN gateway. For more information, see [Create a Site-to-Site connection][S2S].
+
+ExpressRoute: Using ExpressRoute private peering you can enable private connectivity between your Azure deployments and infrastructure that's on your premises or in a colocation facility. ExpressRoute, via Microsoft peering, also permits accessing public endpoints in Microsoft from your on-premises network. ExpressRoute connections do not go over the public Internet. They offer secure connectivity, reliability, higher throughput, with lower and consistent latencies than typical connections over the Internet. For more information, see [ExpressRoute overview][ExR]. Leveraging your existing network provider that is already part of our [ExpressRoute partner ecosystem][ExR-eco] can help reduce the time to get large bandwidth connections to Microsoft.  Using [ExpressRoute Direct][ExR-D] you can directly connect your on-premises network to Microsoft backbone. ExpressRoute Direct offers two different line-rate options of dual 10 Gbps or 100 Gbps. 
+
+Azure Virtual WAN: Azure Virtual WAN allows seemless interoperability between your VPN connections and ExpressRoute circuits. As mentioned earlier, Azure Virtual WAN also support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks
 
 ## Scale customer connectivity to frontend resources
 
-Covid-19 is also creating a need for people to go online more. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see[Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
+Covid-19 is also creating a need for people to go online more. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see [Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
 
 ## Microsoft support for multi-cloud traffic
 
-Even for your deployments in other public clouds, Microsoft can provide global connectivity. Azure Virtual WAN or ExpressRoute Global Reach can help in this regard. Also Azure Application Gateway can help scale and distribute load to websites that are hosted in on-prem networks and in other public clouds.
-
+Even for your deployments in other public clouds, Microsoft can provide global connectivity. Azure Virtual WAN, VPN or ExpressRoute can help in this regard. To extend connectivity from Azure to other clouds, you can configure S2S VPN between the two clouds. You can also establish connectivity from Azure to other public clouds using ExpressRoute. Oracle cloud is part of ExpressRoute partner ecosystem. So you can [set up a direct interconnection between Azure and Oracle Cloud Infrastructure][Az-OCI]. Most service providers, who are part of ExpressRoute partner ecosystem, also offer private connectivity to other public clouds like Amazon's AWS and Google's GCP. Leveraging these service providers, you can establish private connectivity between your deployments in Azure and AWS/GCP via ExpressRoute.
 
 ## Next steps
 
@@ -77,4 +84,12 @@ Following are the Covid-19 preparation articles leveraging different Azure netwo
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
 | [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
 | [COVID update - ExpressRoute](https://go.microsoft.com/fwlink/?linkid=2123768) | March 23, 2020 |
-|[Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|
+| [Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|
+
+<!--Link References-->
+[VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
+[S2S]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
+[ExR-eco]: https://docs.microsoft.com/azure/expressroute/expressroute-locations
+[ExR-D]: https://docs.microsoft.com/azure/expressroute/expressroute-erdirect-about
+[Az-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
