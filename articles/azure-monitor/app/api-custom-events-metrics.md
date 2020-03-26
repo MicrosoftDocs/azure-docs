@@ -57,7 +57,8 @@ For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatic
 *C#*
 
 ```csharp
-private TelemetryClient telemetry = new TelemetryClient();
+TelemetryConfiguration telemetry = TelemetryConfiguration.CreateDefault();
+var TelemetryClient = new TelemetryClient(telemetry);
 ```
 
 *Visual Basic*
