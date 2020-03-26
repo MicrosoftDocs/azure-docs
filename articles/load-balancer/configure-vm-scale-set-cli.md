@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 03/25/2020
 ---
 
 # Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI
@@ -76,9 +76,10 @@ az vmss create \
 > [!NOTE]
 > After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
-## Next Steps
+## Next steps
 
 In this article, you deployed a virtual machine scale set with an existing Azure Load Balancer.  To learn more about virtual machine scale sets and load balancer, see:
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
 - [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
+                                

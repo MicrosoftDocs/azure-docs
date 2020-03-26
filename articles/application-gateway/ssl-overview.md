@@ -17,7 +17,7 @@ Secure Sockets Layer (SSL) is the standard security technology for establishing 
 
 Application Gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. There are a number of advantages of doing SSL termination at the application gateway:
 
-- **Improved performance** – The biggest performance hit when doing SSL decryption is the initial handshake. To improve performance, the server doing the decryption caches SSL session IDs and manages TLS session tickets. If this is done at the application gateway, all requests from the same client can use the cached values. If it’s done on the backend servers, then each time the client’s requests go to a different server the client has to re‑authenticate. The use of TLS tickets can help mitigate this issue, but they are not supported by all clients and can be difficult to configure and manage.
+- **Improved performance** – The biggest performance hit when doing SSL decryption is the initial handshake. To improve performance, the server doing the decryption caches SSL session IDs and manages TLS session tickets. If this is done at the application gateway, all requests from the same client can use the cached values. If it’s done on the backend servers, then each time the client’s requests go to a different server the client must re‑authenticate. The use of TLS tickets can help mitigate this issue, but they are not supported by all clients and can be difficult to configure and manage.
 - **Better utilization of the backend servers** – SSL/TLS processing is very CPU intensive, and is becoming more intensive as key sizes increase. Removing this work from the backend servers allows them to focus on what they are most efficient at, delivering content.
 - **Intelligent routing** – By decrypting the traffic, the application gateway has access to the request content, such as headers, URI, and so on, and can use this data to route requests.
 - **Certificate management** – Certificates only need to be purchased and installed on the application gateway and not all backend servers. This saves both time and money.
@@ -38,7 +38,7 @@ For the SSL connection to work, you need to ensure that the SSL certificate meet
 Application gateway supports the following types of certificates:
 
 - CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA)
-- EV (Extended Validation) certificate: An EV certificate is an industry standard certificate guidelines. This will turn the browser locator bar green and publish company name as well.
+- EV (Extended Validation) certificate: An EV certificate is a certificate that conforms to industry standard certificate guidelines. This will turn the browser locator bar green and publish the company name as well.
 - Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate will not cover that.
 - Self-Signed certificates: Client browsers do not trust these certificates and will warn the user that the virtual service’s certificate is not part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
 
@@ -90,7 +90,7 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
    
 > [!NOTE] 
 >
-> In order for an SSL certificate to be trusted, that certificate of the backend server must have been issued by a CA that is included in the trusted store of the Application Gateway.If the certificate was not issued by a trusted CA, the Application Gateway will then check to see if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found (at which point a trusted, secure connection will be established) or no trusted CA can be found (at which point the Application Gateway will mark the backend unhealthy). Therefore, it is recommended the backend server certificate contain both the root and intermidiate CAs.
+> In order for an SSL certificate to be trusted, that certificate of the backend server must have been issued by a CA that is included in the trusted store of the Application Gateway.If the certificate was not issued by a trusted CA, the Application Gateway will then check to see if the certificate of the issuing CA was issued by a trusted CA, and so on until either a trusted CA is found (at which point a trusted, secure connection will be established) or no trusted CA can be found (at which point the Application Gateway will mark the backend unhealthy). Therefore, it is recommended the backend server certificate contain both the root and intermediate CAs.
 
 - If the certificate is self-signed, or signed by unknown intermediaries, then to enable end to end SSL in v2 SKU a trusted root certificate must be defined. Application Gateway will only communicate with backends whose Server certificate’s root certificate matches one of the list of trusted root certificates in the backend http setting associated with the pool.
 
