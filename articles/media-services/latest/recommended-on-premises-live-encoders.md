@@ -108,7 +108,7 @@ To play back content, both an audio and video stream must be present. Playback o
 - Use strict CBR encoding recommended for optimum adaptive bitrate performance
 
 > [!IMPORTANT]
-> Watch the physical condition of the machine (CPU / Memory / etc) as uploading fragments to cloud involves CPU and IO operations
+> Watch the physical condition of the machine (CPU / Memory / etc) as uploading fragments to cloud involves CPU and IO operations.<br/>
 > If you change any settings in the encoder, be certain reset the channels / live event for the change to take effect.
 
 ## See also
