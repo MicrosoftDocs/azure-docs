@@ -97,6 +97,9 @@
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
+  - name: Distributed training
+    displayName: paralellism, deep learning, deep neural network, dnn
+    href: concept-distributed-training.md
   - name: Model management (MLOps)
     displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
