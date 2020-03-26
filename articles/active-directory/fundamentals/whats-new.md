@@ -34,6 +34,7 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items that are older than six months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
+
 ## March 2020
 
 ### Users with the default access role will be in scope for provisioning
@@ -66,13 +67,13 @@ The [emails](https://docs.microsoft.com/azure/active-directory/b2b/invitation-em
 
 ---
 
-### Custom role creation for Azure RBAC, now in the Azure portal
+### HomeRealmDiscovery policy changes will appear in the audit logs
 
-**Type:** New feature  
-**Service category:** RBAC  
-**Product capability:** Access Control
+**Type:** Fixed  
+**Service category:** Audit  
+**Product capability:** Monitoring & Reporting
  
-We are happy to announce that you can now create, edit, or delete a custom role without ever leaving the Azure portal! In the past, this capability was only available through command line tools or the Azure Resource Manager API. For more information, see the [new portal-based documentation](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-portal).
+We fixed a bug where changes to the [HomeRealmDiscovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) were not included in the audit logs. You will now be able to see when and how the policy was changed, and by whom. 
 
 ---
 
@@ -151,7 +152,6 @@ Starting now, customers who have free tenants can access the [Azure AD sign-in l
 > [!NOTE]
 > Customers still need a premium license (Azure Active Directory Premium P1 or P2) to access the sign-in logs through Microsoft Graph API and Azure Monitor.
 
-
 ---
 
 ### Deprecation of Directory-wide groups option from Groups General Settings on Azure portal
@@ -198,7 +198,7 @@ The following improvement actions will be added:
 - Require MFA for administrative roles
 
 These new improvement actions will require registering your users or admins for MFA across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. This can take the form of setting security defaults that let Microsoft decide when to challenge users for MFA, or having multiple policies that apply scoped decisions. As part of these improvement action updates, Baseline protection policies will no longer be included in scoring calculations. [Read more about what's coming in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score-whats-coming?view=o365-worldwide).
- 
+
 ---
 
 ### Azure AD Domain Services SKU selection
@@ -210,7 +210,6 @@ These new improvement actions will require registering your users or admins for 
 We've heard feedback that Azure AD Domain Services customers want more flexibility in selecting performance levels for their instances. Starting on February 1, 2020, we switched from a dynamic model (where Azure AD determines the performance and pricing tier based on object count) to a self-selection model. Now customers can choose a performance tier that matches their environment. This change also allows us to enable new scenarios like Resource Forests, and Premium features like daily backups. The object count is now unlimited for all SKUs, but we'll continue to offer object count suggestions for each tier.
 
 **No immediate customer action is required.** For existing customers, the dynamic tier that was in use on February 1, 2020, determines the new default tier. There is no pricing or performance impact as the result of this change. Going forward, Azure AD DS customers will need to evaluate performance requirements as their directory size and workload characteristics change. Switching between service tiers will continue to be a no-downtime operation, and we will no longer automatically move customers to new tiers based on the growth of their directory. Furthermore, there will be no price increases, and new pricing will align with our current billing model. For more information, see the [Azure AD DS SKUs documentation](https://docs.microsoft.com/azure/active-directory-domain-services/administration-concepts#azure-ad-ds-skus) and the [Azure AD Domain Services pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
-
 
 ---
  
