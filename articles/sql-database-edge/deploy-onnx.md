@@ -6,9 +6,8 @@ services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph 
+author: dphansen
+ms.author: davidph
 ms.date: 03/26/2020
 ---
 
