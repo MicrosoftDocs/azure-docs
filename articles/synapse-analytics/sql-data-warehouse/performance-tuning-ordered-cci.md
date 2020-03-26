@@ -1,12 +1,12 @@
 ---
 title: Performance tuning with ordered clustered columnstore index 
 description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance. 
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
