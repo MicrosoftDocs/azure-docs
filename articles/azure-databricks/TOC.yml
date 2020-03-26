@@ -455,8 +455,8 @@
       - name: Cosmos DB
         href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
         maintainContext: true 
-      - name: Azure SQL Data Warehouse
-        href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+      - name: Azure Synapse Analytics
+        href: /azure/databricks/data/data-sources/azure/synapse-analytics
         maintainContext: true
       - name: Binary file
         href: /azure/databricks/data/data-sources/binary-file
@@ -1769,16 +1769,16 @@
             href: /azure/databricks/release-notes/runtime/supported
             maintainContext: true
           - name: Databricks Runtime 7.0 (Beta)
-            href: /azure/databricks/release-notes/runtime/7.0.md
+            href: /azure/databricks/release-notes/runtime/7.0
             maintainContext: true
           - name: Databricks Runtime 6.5 (Beta)
-            href: /azure/databricks/release-notes/runtime/6.5.md
+            href: /azure/databricks/release-notes/runtime/6.5
             maintainContext: true
           - name: Databricks Runtime 6.5 ML (Beta)
-            href: /azure/databricks/release-notes/runtime/6.5ml.md
+            href: /azure/databricks/release-notes/runtime/6.5ml
             maintainContext: true
           - name: Databricks Runtime 6.5 Genomics (Beta)
-            href: /azure/databricks/release-notes/runtime/6.5genomics.md
+            href: /azure/databricks/release-notes/runtime/6.5genomics
             maintainContext: true
           - name: Databricks Runtime 6.4
             href: /azure/databricks/release-notes/runtime/6.4

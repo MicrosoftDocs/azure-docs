@@ -594,7 +594,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 Any audio included in the SSML document must meet these requirements:
 
-* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate.
+* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted TLS/SSL certificate.
 * The MP3 must be a valid MP3 file (MPEG v2).
 * The bit rate must be 48 kbps.
 * The sample rate must be 16,000 Hz.
