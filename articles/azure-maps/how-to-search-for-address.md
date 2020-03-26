@@ -222,5 +222,5 @@ If you have a set of coordinate locations to reverse geocode, you can use [Post 
 
 ## Next steps
 
-- Explore the [Azure Maps search service](https://docs.microsoft.com/rest/api/maps/search) API documentation.
-- Learn about [Best practices](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).
+- Explore the [Azure Maps Search Service REST API documentation](https://docs.microsoft.com/rest/api/maps/search).
+- Learn about [Azure Maps Search Service best practices](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) and how to optimize your queries.
