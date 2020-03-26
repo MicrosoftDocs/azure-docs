@@ -501,7 +501,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for
 
 **Other processes** is intended to help you clearly understand the root cause of the high CPU usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes. 
 
-What are these Other Processes? 
+What are these **Other Processes**? 
 
 These are non-containerized processes that run on your node.  
 
@@ -509,7 +509,7 @@ How do we calculate this?
 
 Other Processes = Total usage from CAdvisor - Usage from containerized process
 
-*The other processes can include*: 
+The **Other processes** can include: 
 
 - Self-managed or managed Kubernetes non-containerized processes 
 
