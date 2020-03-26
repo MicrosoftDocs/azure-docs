@@ -24,7 +24,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 
 
-## Deploy VM scale set with existing load balancer
+## Deploy virtual machine scale set with existing load balancer
 
 In this section, you'll create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
 
