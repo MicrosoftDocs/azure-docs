@@ -90,7 +90,7 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 ## JSON representations of graph elements
 
-Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](concepts-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of digital twins and relationships you have created.
+Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](how-to-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of digital twins and relationships you have created.
 
 ### Digital twin JSON format
 
@@ -189,4 +189,5 @@ See how to manage graph elements with Azure Digital Twin APIs:
 * [Manage a twin graph](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
-* [Query the twin graph](concepts-query-graph.md)
+* [Azure Digital Twins query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

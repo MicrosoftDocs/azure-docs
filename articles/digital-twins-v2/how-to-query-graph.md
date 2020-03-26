@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how to query the Azure Digital Twins twin graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,24 +17,7 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins twin graph
 
-Recall that the center of Azure Digital Twins is the **twin graph**, constructed from [digital twins](concepts-twins-graph.md) and relationships. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
-
-To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
-
-## Query language features
-
-Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
-
-Here are the operations available in Azure Digital Twins Query Store language:
-* Get twins by digital twins' properties
-* Get twins by digital twins' interfaces
-* Get twins by relationship properties
-* Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview)
-* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on DTDL twin interfaces or types. It supports inheritance.
-* Use any combination (`AND`, `OR`, `NOT` operator) of the above
-* Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
-* Use query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
-* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time, by repeating calls to the `nextAsTwin` method.
+This article goes in-depth on using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the twin graph for information.
 
 ## Query syntax
 
@@ -60,9 +43,9 @@ AND T.roomSize > 50
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
-### Run queries with an API call
+## Run queries with an API call
 
-Once you have decided on a query string, you execute it by making a call to the Query API.
+Once you have decided on a query string, you execute it by making a call to the **Query API**.
 The following code snippet illustrates this call from the client app:
 
 ```csharp
@@ -165,4 +148,4 @@ These are the current limitations on using `JOIN` in the Azure Digital Twins Que
 
 ## Next steps
 
-Learn about the [Azure Digital Twins Query API](how-to-use-apis.md), which is used to run queries on the twin graph.
+Learn more about the [Azure Digital Twins APIs](how-to-use-apis.md), including the Query API which is used to run the queries from this article.
