@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 03/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -72,6 +72,8 @@ The following options are considered legacy authentication protocols
 - POP3 - Used by POP email clients.
 - Reporting Web Services - Used to retrieve report data in Exchange Online.
 - Other clients - Other protocols identified as utilizing legacy authentication.
+
+For more information about these authentication protocols and services, see [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
 
 ### Identify legacy authentication use
 
