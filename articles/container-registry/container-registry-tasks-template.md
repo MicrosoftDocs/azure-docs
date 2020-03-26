@@ -1,43 +1,42 @@
 ---
-title: Run task from template
+title: Run task using template
 description: Run an ACR task using an Azure Resource Manager template
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 03/25/2020
 ---
 
 # Run ACR Tasks using Resource Manager templates
 
-Task template reference at https://docs.microsoft.com/en-us/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks
+[ACR Tasks](container-registry-tasks-overview.md) is a suite of features within Azure Container Registry to help you manage and modify container images across the container lifecycle. 
 
-Task run template reference at: https://docs.microsoft.com/en-us/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns 
+This article shows how to use an Azure Resource Manager template to queue a [quick task](container-registry-tasks-overview.md#quick-task), similar to one you can create manually using the [az acr build][az-acr-build] command.
 
-Use a template to run an ACR task in scenarios such as:
+A Resource Manager template to queue a task is useful in automation scenarios. For example:
 
-* Deploy a container registry and immediately queue an ACR task to build or push a container image
-* Automate creation of additional resources used in a task, such as a managed identity for Azure resources or an Azure key vault
+* Use a template to create a container registry and immediately queue an ACR task to build or push a container image
+* Automate creation of additional resources you can use in a quick task, such as a managed identity for Azure resources. The template-based creation of a quick task allows you to use a managed identity, which currently isn't supported with `az acr build`.
 
 ## Limitations
 
-* You must specify a remote context such as a GitHub repo as the source location for your task. You can't use a local source location.
-* For task runs using a managed identity, only a user-assigned managed identity is permitted.
-* [TODO: Run multi-step tasks? Only build from Dockerfile?]
+* You must specify a remote context such as a GitHub repo as the [source location](container-registry-tasks-overview.md#context-locations) for your task. You can't use a local source context.
+* For task runs using a managed identity, only a *user-assigned* managed identity is permitted.
 
 ## Prerequisites
 
 * **GitHub account** - Create an account on https://github.com if you don't already have one. This tutorial series uses a GitHub repository to demonstrate automated image builds in ACR Tasks.
-* **Fork sample repository** - Use the GitHub UI to fork the following sample repository into your GitHub account: https://github.com/Azure-Samples/acr-build-helloworld-node
+* **Fork sample repository** - Use the GitHub UI to fork the following sample repository into your GitHub account: https://github.com/Azure-Samples/acr-build-helloworld-node. This repo contains sample Dockerfiles and source code to build small container images.
 
 ## Example: Create registry and queue a build task
 
 This example uses a [sample template](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuild) that creates a container registry and queues a task to build and push an image. To use the template:
 
 * First create a resource group, or use an existing group
-* Make sure to specify a unique registry name
-* Point to a remote GitHub repo for the build context, such as https://github.com/<your-GitHub-ID>/acr-build-helloworld-node
+* Specify a unique registry name
+* Point to a remote GitHub repo for the build context, such as https://github.com/<your-GitHub-ID>/acr-build-helloworld-node. The Dockerfile in the root of this repo builds a container image for  small Node.js web app. 
 
-Deploy the template with the [az deployment group create[az-deployment-group-create] command. This example builds and pushes the *helloworld-node:testtask* image to a registry named *mycontainerregistry*:
+### Deploy the template
 
-[Note that repository isn't a parameter but rather hard coded]
+Deploy the template with the [az deployment group create][az-deployment-group-create] command. This example builds and pushes the *helloworld-node:testtask* image to a registry named *mycontainerregistry*:
 
 ```azurecli
 az deployment group create \
@@ -48,9 +47,10 @@ az deployment group create \
     registryName=mycontainerregistry \
     taskRunName=testtask \
     repository=helloworld-node \
-    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
-    dockerFilePath=Dockerfile-test
+    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git 
  ```
+
+ ### Verify deployment
 
 Verify the image is built by running [az acr repository show-tags][az-acr-repository-show-tags]:
 
@@ -68,7 +68,9 @@ Result
 testtask
 ```
 
-To view details about the task run, you can view the run log.
+### View run log
+
+To view details about the task run, view the run log.
 
 First get the run ID with [az acr task list-runs][az-acr-task-list-runs]
 ```azurecli
@@ -136,7 +138,11 @@ Run ID: ca1 was successful after 47s
 
 ## Example: Task with managed identity
 
+This [deployment example](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuildwithidentity) queues a task that uses a user-assigned managed identity. During the task run, the identity authenticates to pull an image from another Azure container registry. This scenario is similar to the one in [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md). For example, an organization might maintain a *base registry* with base images accessed by multiple development teams.
+
 ### Prepare a base registry
+
+For demonstration purposes, create a separate container registry as your base registry, and push a Node.js base image pulled from Docker Hub.
 
 1. Create a second container registry, for example *mybaseregistry*, to store base images.
 1. Pull the `node:9-alpine` image from Docker Hub, tag it for your base registry, and push it to the base registry:
@@ -150,6 +156,8 @@ Run ID: ca1 was successful after 47s
 
 ### Create a new Dockerfile
 
+Create a Dockerfile that pulls the base image from your base registry.
+
 1. In the GitHub UI, select **Create new file**.
 1. Name your file *Dockerfile-test* and paste the following contents. Substitute your registry name for *mybaseregistry*.
   ```
@@ -161,16 +169,13 @@ Run ID: ca1 was successful after 47s
   ```
  1. Select **Commit new file**.
 
-### Create a user assigned-identity
-
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
-
 
 ### Give identity pull permissions to the base registry
 
 Give the managed identity permissions to pull from the base registry, *mybaseregistry*.
 
-Use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
+First use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
 
 ```azurecli
 baseregID=$(az acr show \
@@ -178,7 +183,7 @@ baseregID=$(az acr show \
   --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the Acrpull role to the base registry. This role has permissions only to pull images from the registry.
 
 ```azurecli
 az role assignment create \
@@ -187,30 +192,47 @@ az role assignment create \
   --role acrpull
 ```
 
-### Modify the template
-
-Update the following snip in the template with the name of your base registry 
-
 ### Deploy the template
 
 ```azurecli
 az deployment group create \
   --resource-group myResourceGroup \
-  --template-uri taskmi2.json \
+  --template-uri https://raw.githubusercontent.com/Azure/acr/master/docs/tasks/run-as-deployment/quickdockerbuildwithidentity/azuredeploy.json \
   --parameters azuredeploy.parameters.json \
   --parameters \
     registryName=mycontainerregistry \
     taskRunName=basetask \
     repository=helloworld-node \
     userAssignedIdentity=$resourceID \
+    identityCredential=$clientID \
     sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
     dockerFilePath=Dockerfile-test \
     baseRegistry=mybaseregistry.azurecr.io
 ```
 
+Verify the image is built by running [az acr repository show-tags][az-acr-repository-show-tags]:
+
+```azurecli
+az acr repository show-tags \
+  --name mycontainerregistry \
+  --repository helloworld-node --output table
+```
+
+Output:
+
+```console
+Result
+--------
+basetask
+```
+
+To view the run log, see steps in the [preceding section](#view-run-logs).
+
 ## Next steps
 
  * See more template examples in the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment).
+ * For details about template properties, see the template reference for [Tasks](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks) and [Task runs](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns).
+
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
