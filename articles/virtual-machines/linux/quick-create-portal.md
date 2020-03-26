@@ -85,7 +85,7 @@ Create an SSH connection with the VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to https://shell.azure.com/bash), paste the SSH connection command into the shell to create an SSH session.
+3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to `https://shell.azure.com/bash`), paste the SSH connection command into the shell to create an SSH session.
 
 ## Install web server
 
