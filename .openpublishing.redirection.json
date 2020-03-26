@@ -50402,6 +50402,10 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
+    },
+    {
+      "source_path": "articles/load-balancer/use-existing-lb-vmss-cli.md",
+      "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
     }
   ]
 }
