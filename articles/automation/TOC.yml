@@ -30,10 +30,12 @@
       href: how-to/region-mappings.md
     - name: Manage Azure Automation data
       href: automation-managing-data.md
-      displayName: backup      
-  - name: Automation account troubleshooting
-    href: troubleshoot/automation-account.md
-    displayName: troubleshoot
+      displayName: backup
+    - name: Troubleshoot
+      items:  
+        - name: Automation account troubleshooting
+          href: troubleshoot/automation-account.md
+          displayName: troubleshoot
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
