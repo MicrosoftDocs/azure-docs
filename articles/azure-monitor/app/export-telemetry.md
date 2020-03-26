@@ -2,7 +2,7 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 03/25/2020
 
 ---
 
@@ -48,6 +48,9 @@ Continuous Export **does not support** the following Azure storage features/conf
 Once you've created your export, it starts going. You only get data that arrives after you create the export.
 
 There can be a delay of about an hour before data appears in the storage.
+
+  > [!NOTE]
+  > Traces will appear under Messages in Azure Blob Storage. For more details consult the [full data model reference.](export-data-model.md)
 
 ### To edit continuous export
 
