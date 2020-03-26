@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -17,11 +17,11 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.  At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with [RESTful services](custom-policy-rest-api-intro.md).
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey. At the end of this walkthrough, you'll be able to create an Azure AD B2C user journey that interacts with [RESTful services](custom-policy-rest-api-intro.md).
 
-In this scenario, we enrich the user's token data, by integrating with a corporate line-of-business workflow. During the sign-up or sign-in, with local or federated account, Azure AD B2C invokes a REST API to get a users extended profile data from a remote data source. In this sample Azure AD B2C sends the users unique identifier, the objectId. The REST API then returns the user's account balance (a random number). Use this sample as a starting point to integrate with your own CRM system, marketing database, or any line-of-business workflow.
+In this scenario, we enrich the user's token data by integrating with a corporate line-of-business workflow. During sign-up or sign-in with local or federated account, Azure AD B2C invokes a REST API to get the user's extended profile data from a remote data source. In this sample, Azure AD B2C sends the user's unique identifier, the objectId. The REST API then returns the user's account balance (a random number). Use this sample as a starting point to integrate with your own CRM system, marketing database, or any line-of-business workflow.
 
-You can also design the interaction as an validation technical profile. This is suitable when the REST API will be validating data on screen, and return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey to validate user input](custom-policy-rest-api-claims-validation.md).
+You can also design the interaction as a validation technical profile. This is suitable when the REST API will be validating data on screen and returning claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey to validate user input](custom-policy-rest-api-claims-validation.md).
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ You can also design the interaction as an validation technical profile. This is 
 
 ## Prepare a REST API endpoint
 
-For this walkthrough, you should have a REST API that validates whether a users Azure AD B2C objectId is registered in your back-end system. 
+For this walkthrough, you should have a REST API that validates whether a user's Azure AD B2C objectId is registered in your back-end system. 
 If registered, the REST API returns the user account balance. Otherwise, the REST API registers the new account in the directory and returns the starting balance `50.00`.
 
 The following JSON code illustrates the data Azure AD B2C will send to your REST API endpoint. 
@@ -74,7 +74,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ## Configure the RESTful API technical profile 
 
-A [Restful technical profile](restful-technical-profile.md) provides support for interfacing to your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
+A [Restful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
 
 ```xml
 <ClaimsProvider>
@@ -199,7 +199,7 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
   "iat": 1584957916,
   "auth_time": 1584957916,
   "name": "Emily Smith",
-  "email": "emitly@outlook.com",
+  "email": "emily@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
   "balance": "202.75"

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.  At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with  [RESTful services](custom-policy-rest-api-intro.md) to validate user input.
+The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.  At the end of this walkthrough, you'll be able to create an Azure AD B2C user journey that interacts with [RESTful services](custom-policy-rest-api-intro.md) to validate user input.
 
 In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. We'll validate whether this combination of email and loyalty number is mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
 
@@ -241,7 +241,7 @@ To return the promo code claim back to the relying party application, add an out
   "iat": 1584292103,
   "auth_time": 1584292103,
   "name": "Emily Smith",
-  "email": "emitly@outlook.com",
+  "email": "emily@outlook.com",
   "given_name": "Emily",
   "family_name": "Smith",
   "promoCode": "84362"
