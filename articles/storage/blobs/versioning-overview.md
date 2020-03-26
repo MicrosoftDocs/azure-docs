@@ -14,9 +14,9 @@ ms.subservice: blobs
 
 # Blob versions (preview)
 
-Applications may create, update, and delete data in Azure Blob storage continuously. A common requirement is the ability to access and manage both current and previous versions of the data. Blob storage versioning (preview) automatically maintains previous versions of an object.
+Applications may create, update, and delete data in Azure Blob storage continuously. A common requirement is the ability to access and manage both current and previous versions of the data. Blob storage versioning (preview) automatically maintains previous versions of an object and identifies them with timestamps.
 
-You can list and access both the current blob and previous versions using version ID timestamps. You can restore previous versions to recover your data when it is erroneously modified or deleted by an application or other users.
+You can list and access both the current blob and previous versions using version ID timestamps. You can also restore previous versions to recover your data when it is erroneously modified or deleted by an application or other users.
 
 > [!IMPORTANT]
 > Blob versioning cannot prevent accidental deletion of the storage account or of a container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
@@ -33,28 +33,28 @@ The base blob represents the current version of the blob. A historical version p
 
 Each blob version is identified by a version ID. The value of the version ID is the timestamp at which the blob was written or updated. The version ID is assigned at the time that the version is created.
 
-You can specify the version ID on read or delete operations to perform the operation on a given version. An operation on a blob that omits the version ID acts on the base blob.
+You can provide the version ID on read or delete operations to perform the operation on a specific version. Any operation on a blob that omits the version ID acts on the base blob.
 
 When you call a write operation to create or modify a blob, Azure Storage returns the *x-ms-version-id* header in the response. This header contains the version ID for the current version after the write operation. The current version is the updated base blob.
 
 ### Versioning on write operations
 
-When blob versioning is turned on, each write operation creates a new version. Write operations include **Put Blob**, **Put Block List**, **Copy Blob**, or **Set Blob Metadata**.
+When blob versioning is turned on, each write operation creates a new version. Write operations include [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob), and [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-If the write operation creates a new blob, then that blob, the base blob, is the current version. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the base blob, and a historical version is created that represents the blob's previous state.
+If the write operation creates a new blob, then that blob, the base blob, becomes the current version of the blob. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which becomes the base blob and current version, and a historical version is created that represents the blob's previous state.
 
 For simplicity, the diagrams shown in this article display the version ID as a simple integer value. In reality, the version ID is a timestamp. The current blob version (that is, the base blob) is shown in blue, and historical versions are shown in gray.
 
 The following diagram shows how write operations affect blob versions. When a blob is created, the base blob is the current version. When the same blob is modified, a historical version is created, and the updated base blob is the current version.
 
-![](media/versioning-overview/c697ba78ac1b42552ea96ce12d5a637b.png)
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram showing how write operations affect versioned blobs":::
 
 > [!NOTE]
 > A blob that was created prior to blob versioning being enabled does not have a version ID. When that blob is modified, the modified blob becomes the current version, and a historical version is created to represent the blob's state before the update. The historical version is assigned a version ID that is that version's creation time.
 
 ### List blobs and blob versions
 
-You can get a list of blobs and versions under a specific container by including the *versions* parameter on the listing operation. To determine whether a given version is the current version (that is, the base blob), check the value of the *IsCurrentVersion* field.
+You can get a list of blobs and versions under a specific container by including the *versions* parameter on the listing operation. To determine whether a given version is the current version (that is, the base blob), check the value of the **IsCurrentVersion** field.
 
 The following XML is a sample response body from a [List Blobs](/rest/api/storageservices/list-blobs) operation that includes the *versions* parameter.
 
@@ -87,23 +87,23 @@ The following XML is a sample response body from a [List Blobs](/rest/api/storag
 
 ### Versioning on delete operations
 
-A **Delete Blob** operation acts on the base blob (that is, the current version). When you delete a blob that is versioned, the base blob no longer exists. A historical version is created that represents the state of the base blob prior to deletion. All historical versions of the blob are preserved when the base blob is deleted.
+A [Delete Blob](/rest/api/storageservices/delete-blob) operation acts on the base blob (that is, the current version). When you delete a blob that is versioned, the base blob no longer exists. A historical version is created that represents the state of the base blob prior to deletion. All historical versions of the blob are preserved when the base blob is deleted.
 
 You can also delete a specific historical version of the blob by specifying its version ID. However, you cannot delete the base blob using its version ID.
 
-The following diagram shows the effect of a Delete Blob operation on a versioned base blob. The base blob is deleted, but the versions persist.
+The following diagram shows the effect of a delete operation on a versioned base blob. The base blob is deleted, but the versions persist.
 
-![](media/versioning-overview/f41c04ca67328884c4e9bd7ad40b1977.png)
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned base blob":::
 
 Writing new data to the base blob re-creates the base blob. The existing versions are unaffected, as shown in the following diagram.
 
-![](media/versioning-overview/706e93eca804a7a3b2c952e15d131b00.png)
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram showing re-creation of deleted base blob":::
 
 ### Blob types
 
-When blob versioning is enabled for a storage account, all write and delete operations on block blobs trigger the creation of a historical version.
+When blob versioning is enabled for a storage account, all write and delete operations on block blobs trigger the creation of a new historical version.
 
-For page blobs and append blobs, only a subset of write and delete operations trigger the creation of a historical version. These operations include the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), and [Copy Blob](/rest/api/storageservices/copy-blob) operations. A historical version is not created by a [Put Page](/rest/api/storageservices/put-page) operation on a page blob or by an [Append Block](/rest/api/storageservices/append-block) operation on an append blob. To capture changes from those operations, take a manual snapshot.
+For page blobs and append blobs, only a subset of write and delete operations trigger the creation of a historical version. These operations include the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), and [Copy Blob](/rest/api/storageservices/copy-blob) operations. A new historical version is not created by a [Put Page](/rest/api/storageservices/put-page) operation on a page blob or by an [Append Block](/rest/api/storageservices/append-block) operation on an append blob. To capture changes from those operations, take a manual snapshot.
 
 All versions of a blob must be of the same blob type. For more information on blob types, see [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
@@ -125,7 +125,7 @@ You can read or delete versions using the version ID after versioning is disable
 
 The following diagram shows how modifying the base blob after versioning is disabled creates a blob that is not versioned. Any existing versions associated with the blob persist.
 
-![](media/versioning-overview/d6b2520cd36f91a2791eef5c60cb92d6.png)
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing base blob modified after versioning disabled":::
 
 ## Blob versioning and soft delete
 
@@ -135,9 +135,9 @@ When you enable soft delete, you specify the retention period for soft-deleted d
 
 When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a new historical version instead of a soft-deleted snapshot. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
 
-To remove this historical version, you must explicitly delete it using the version ID. When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired.
+To remove this historical version, you must explicitly delete it using the version ID. When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired. The following image shows how a historical version is deleted when soft delete is enabled.
 
-![](media/versioning-overview/0fcfdf4accb302e356d9ec09b5869077.png)
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram showing deletion of a historical version with soft delete enabled":::
 
 You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation during the soft delete retention period. Once the retention period has elapsed, the blob version is permanently deleted.
 
@@ -155,7 +155,7 @@ When you take a snapshot of a versioned blob, a new historical version is create
 
 The following diagram shows what happens when you take a snapshot of a versioned blob. In the diagram, blob versions and snapshots with version ID 1 and 3 contain identical data.
 
-![](media/versioning-overview/ba50a55ba1d79f47cf87caf2945837c3.png)
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram showing snapshots of a versioned blob ":::
 
 ## Authorize operations on blob versions
 
