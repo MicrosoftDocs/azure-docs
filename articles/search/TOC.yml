@@ -235,7 +235,7 @@
       href: search-explorer.md
     - name: Special characters and partial terms
       href: search-query-partial-matching.md
-    - name: Query from PowerApp   
+    - name: Query from Power Apps   
       href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
