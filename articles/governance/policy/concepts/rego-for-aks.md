@@ -244,7 +244,7 @@ assign an AKS policy. Search for a Kubernetes policy definition instead of the s
 
 > [!IMPORTANT]
 > Built-in policies in category **Kubernetes** are only for use with AKS. For a list of built-in
-> policies, see [../samples/built-in-policies.md#kubernetes]
+> policies, see [../../samples/built-in-policies.md#kubernetes]
 
 ## Logging
 
