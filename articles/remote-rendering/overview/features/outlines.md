@@ -41,7 +41,7 @@ void SetOutlineParameters(AzureSession session)
 
 ## Performance
 
-Outline rendering may have a significant impact on rendering performance. This impact varies based on screen-space spatial relation between selected and non-selected objects for a given frame. Specifically, selected geometry that is occluded by non-selected parts cannot be culled, albeit it does not contribute to visible pixels.
+Outline rendering may have a significant impact on rendering performance. This impact varies based on screen-space spatial relation between selected and non-selected objects for a given frame.
 
 ## Next steps
 
