@@ -18,6 +18,9 @@ This document is a step-by-step process about how to perform LVM on crypt and Ra
 ### Environment
 
 - Linux Distributions
+    - RHEL 7.6+
+    - Ubuntu 18.04+
+    - SUSE 12+
 - ADE Single Pass
 - ADE Dual Pass
 

@@ -296,4 +296,4 @@ Browse the [GitHub Marketplace](https://github.com/marketplace?type=actions) for
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-delete]: /cli/azure/container#az-container-delete
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[az-container-app-up]: /cliazure/container/app
+[az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up

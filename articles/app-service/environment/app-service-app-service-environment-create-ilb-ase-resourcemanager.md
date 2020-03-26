@@ -25,7 +25,7 @@ There are three steps involved in automating creation of an ILB ASE:
 
 1. First the base ASE is created in a virtual network using an internal load balancer address instead of a public VIP.  As part of this step, a root domain name is assigned to the ILB ASE.
 2. Once the ILB ASE is created, an SSL certificate is uploaded.  
-3. The uploaded SSL certificate is explicitly assigned to the ILB ASE as its "default" SSL certificate.  This SSL certificate will be used for SSL traffic to apps on the ILB ASE when the apps are addressed using the common root domain assigned to the ASE (e.g. https://someapp.mycustomrootcomain.com)
+3. The uploaded SSL certificate is explicitly assigned to the ILB ASE as its "default" SSL certificate.  This SSL certificate will be used for SSL traffic to apps on the ILB ASE when the apps are addressed using the common root domain assigned to the ASE (e.g. `https://someapp.mycustomrootcomain.com`)
 
 ## Creating the Base ILB ASE
 An example Azure Resource Manager template, and its associated parameters file, are available on GitHub [here][quickstartilbasecreate].
