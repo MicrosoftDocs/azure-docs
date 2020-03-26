@@ -52,16 +52,15 @@ For your scenario, you will read the sale receipt documents, summarize them, and
 1. Sign in to the Azure portal and navigate to your Azure Cosmos account. Open the **Access Management (IAM) Pane**, and then the **Role Assignments** tab:
 ![IAM Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
 
-1. Select the **+ Add** button, then **add role assignment**:
-<br/><img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-select-add.png" width="50%">
+1. Select the **+ Add** button, then **add role assignment**.
 
 1. The **Add Role Assignment** panel opens to the right:
-     <br/><img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" width="50%">
+     ![Add Role](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
      * **Role** - Select **DocumentDB Account Contributor**
      * **Assign access to** - Under the Select **System-assigned managed identity** subsection, select  **Function App**.
     * **Select** - The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In our case I select the **SummaryService** function app: 
-        <br/><img src="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" width="50%">
+        ![Select Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
 1. Select the function app and click **Save**.
 
