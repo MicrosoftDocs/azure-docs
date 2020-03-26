@@ -27,7 +27,7 @@ ms.author: jegeib
 | **Dynamics CRM** | <ul><li>[Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Ensure that all traffic to Identity Server is over HTTPS connection](#identity-https)</li></ul> |
-| **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure TLS certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
+| **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure TLS/SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Ensure SQL server connection encryption and certificate validation](#sqlserver-validation)</li><li>[Force Encrypted communication to SQL server](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure that communication to Azure Storage is over HTTPS](#comm-storage)</li><li>[Validate MD5 hash after downloading blob if HTTPS cannot be enabled](#md5-https)</li><li>[Use SMB 3.0 compatible client to ensure in-transit data encryption to Azure File Shares](#smb-shares)</li></ul> |
 | **Mobile Client** | <ul><li>[Implement Certificate Pinning](#cert-pinning)</li></ul> |
@@ -92,7 +92,7 @@ ms.author: jegeib
 | **References**              | N/A  |
 | **Steps** | <p>Applications that use SSL, TLS, or DTLS must fully verify the X.509 certificates of the entities they connect to. This includes verification of the certificates for:</p><ul><li>Domain name</li><li>Validity dates (both beginning and expiration dates)</li><li>Revocation status</li><li>Usage (for example, Server Authentication for servers, Client Authentication for clients)</li><li>Trust chain. Certificates must chain to a root certification authority (CA) that is trusted by the platform or explicitly configured by the administrator</li><li>Key length of certificate's public key must be >2048 bits</li><li>Hashing algorithm must be SHA256 and above |
 
-## <a id="ssl-appservice"></a>Configure TLS certificate for custom domain in Azure App Service
+## <a id="ssl-appservice"></a>Configure TLS/SSL certificate for custom domain in Azure App Service
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
