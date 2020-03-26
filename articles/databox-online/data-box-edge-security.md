@@ -18,8 +18,8 @@ This article describes the Azure Stack Edge security features that help protect 
 
 Azure Stack Edge consists of four main components that interact with each other:
 
-- **Azure Stack service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
-- **Azure Stack device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
+- **Azure Stack Edge service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
+- **Azure Stack Edge device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
 - **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Azure Stack Edge resource that you create.
 
@@ -29,9 +29,9 @@ The Azure Stack Edge service is a management service that's hosted in Azure. The
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## Azure Stack device protection
+## Azure Stack Edge device protection
 
-The Azure Stack device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
+The Azure Stack Edge device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Azure Stack Edge service.
 - Is protected at all times by a device password.
@@ -41,7 +41,7 @@ The Azure Stack device is an on-premises device that helps transform your data b
 
 ### Protect the device via activation key
 
-Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack service.
+Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -54,7 +54,7 @@ Passwords ensure that only authorized users can access your data. Azure Stack Ed
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](data-box-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
