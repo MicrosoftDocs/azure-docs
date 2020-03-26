@@ -6,7 +6,7 @@ ms.date: 03/26/2020
 ms.author: dapine
 ---
 
-The Android Speech SDK is available natively, or with the Xamarin.Android and the .NET Standard SDK.
+When developing for Android, there are two Speech SDKs available. The Java Speech SDK is available natively as an Android package, or the .NET Speech SDK could be used with Xamarin.Android.
 
 # [Android Studio](#tab/android-studio)
 
@@ -34,10 +34,14 @@ The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).
 
 # [Xamarin.Android](#tab/xamarin)
 
+For more information, see <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
 <div class="icon is-large">
-    <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">
+    <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">
+    &nbsp; ❤️ &nbsp;
+    <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_android.svg">
 </div>
 
-Xamarin.Android
+[!INCLUDE [get-speech-sdk-dotnet](get-speech-sdk-dotnet.md)]
 
 ---
