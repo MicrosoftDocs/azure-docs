@@ -83,11 +83,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL:
     `https://watch.spectrum.net/domainsearch/`
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [SpectrumU Client support team](https://enterprise.spectrum.com/support.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. SpectrumU application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
