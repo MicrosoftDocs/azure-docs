@@ -144,7 +144,8 @@ The first step of migration is to set up the replication appliance. You  downloa
     ![Download provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
-11. Run the replication appliance setup file, as described in the next procedure.
+11. Run the replication appliance setup file, as described in the next procedure. After installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard to add account details to use for push installation of the Mobility service. In this tutorial we'll be manually installing the Mobility Service on machines to be replicated, so create a dummy account in this step and proceed.
+
 12. After the appliance has restarted after setup, in **Discover machines**, select the new appliance in **Select Configuration Server**, and click **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -310,6 +311,7 @@ After you've verified that the test migration works as expected, you can migrate
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     - If you don't want to shut down the VM, select **No**
+
     Note: For Physical Server Migration, the recommendation is to bring the application down as part of the migration window (don't let the applications accept any connections) and then initiate the migration (The server needs to be kept running, so remaining changes can be synchronized) before the migration is completed.
 
 4. A migration job starts for the VM. Track the job in Azure notifications.
