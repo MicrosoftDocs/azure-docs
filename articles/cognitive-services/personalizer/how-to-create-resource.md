@@ -41,7 +41,7 @@ Create a Personalizer resource for each feedback loop.
 1. Create a resource group, a logical grouping to manage all Azure resources you intend to use with the Personalizer resource.
 
 
-    ``azurecli-interactive
+    ```azurecli-interactive
     az group create \
         --name your-personalizer-resource-group \
         --location westus2
