@@ -1,12 +1,12 @@
 ---
 title: Improve columnstore index performance
 description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: load-data
+ms.subservice: 
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan

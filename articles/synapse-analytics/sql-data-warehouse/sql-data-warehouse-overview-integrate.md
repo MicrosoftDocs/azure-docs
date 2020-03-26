@@ -1,12 +1,12 @@
 ---
 title: Build integrated solutions
 description: Solution tools and partners that integrate with a data warehouse provisioned using SQL Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: integration
+ms.subservice: 
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
