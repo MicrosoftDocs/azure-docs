@@ -11,7 +11,7 @@ ms.date: 03/10/2020
 AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy. This documentation describes how Azure Kubernetes Service (AKS) monitors worker nodes, and repairs unhealthy worker nodes.  The documentation is to inform AKS operators on the behavior of node repair functionality. It is also important to note that Azure platform [performs maintenance on Virtual Machines][vm-updates] that experience issues. AKS and Azure work together to minimize service disruptions for your clusters.
 
 > [!Important]
-> Noe auto-repair functionality isn't currently supported for Windows Server node pools.
+> Node auto-repair functionality isn't currently supported for Windows Server node pools.
 
 ## How AKS checks for unhealthy nodes
 

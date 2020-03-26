@@ -336,7 +336,7 @@ For a custom domain whose existing custom DNS name is mapped to the app service,
 
 This capability replaces the *host* header in the incoming request on the application gateway with the host name that you specify.
 
-For example, if *www.contoso.com* is specified in the **Host name** setting, the original request *https://appgw.eastus.cloudapp.azure.com/path1 is changed to *https://www.contoso.com/path1 when the request is forwarded to the back-end server.
+For example, if *www.contoso.com* is specified in the **Host name** setting, the original request *`https://appgw.eastus.cloudapp.azure.com/path1` is changed to *`https://www.contoso.com/path1` when the request is forwarded to the back-end server.
 
 ## Back-end pool
 
