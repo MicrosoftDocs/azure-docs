@@ -120,6 +120,8 @@ For SQL Database elastic pools, the following tables show the resources availabl
 
 <sup>1</sup> See [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md) for additional considerations.
 
+<sup>2</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
+
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 
