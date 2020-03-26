@@ -43,7 +43,7 @@ Run the following commands:
 ```cmd
 mkdir ARR
 cd ARR
-git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient
+git clone https://github.com/Azure/azure-remote-rendering
 ```
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
@@ -52,7 +52,7 @@ The quickstart sample app for Unity is found in the subdirectory *Unity/Quicksta
 
 ## Rendering a model with the Unity sample project
 
-Open the Unity Hub and add the sample project, which is the *ARR\arrClient\Unity\Quickstart* folder.
+Open the Unity Hub and add the sample project, which is the *ARR\azure-remote-rendering\Unity\Quickstart* folder.
 Open the project. If necessary, allow Unity to upgrade the project to your installed version.
 
 The default model we render is a [built-in sample model](../samples/sample-model.md). We will show how to convert a custom model using the ARR conversion service in the [next quickstart](convert-model.md).

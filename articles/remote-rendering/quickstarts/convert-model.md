@@ -160,7 +160,7 @@ Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned i
 Connect-AzAccount -Subscription "<your Azure subscription id>"
 ```
 
-Change to the `arrClient\Scripts` directory and run the conversion script:
+Change to the `azure-remote-rendering\Scripts` directory and run the conversion script:
 
 ```PowerShell
 .\Conversion.ps1 -UseContainerSas

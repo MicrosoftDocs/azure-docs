@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 * This tutorial builds on top of [Tutorial: Setting up a Unity project from scratch](project-setup.md).
 
 > [!TIP]
-> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials, that you can use as reference.
+> The [samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials in the *Unity* folder, that you can use as reference.
 
 ## Pick objects
 
