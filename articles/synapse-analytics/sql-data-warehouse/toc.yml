@@ -1,7 +1,7 @@
 - name: Azure Synapse Analytics (SQL DW) Documentation
   href: index.yml
 - name: Switch to Azure Synapse (workspace preview) documentation
-  href: overview-cheat-sheet.md
+  href: ../sql-analytics/overview-cheat-sheet.md
 - name: Overview
   items:
   - name: What is Azure Synapse Analytics?
