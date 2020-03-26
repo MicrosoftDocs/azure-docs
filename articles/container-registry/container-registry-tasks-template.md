@@ -228,7 +228,7 @@ Result
 basetask
 ```
 
-To view the run log, see steps in the [preceding section](#view-run-logs).
+To view the run log, see steps in the [preceding section](#view-run-log).
 
 ## Next steps
 
