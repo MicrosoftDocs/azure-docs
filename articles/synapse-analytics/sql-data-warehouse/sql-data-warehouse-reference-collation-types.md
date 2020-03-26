@@ -1,10 +1,10 @@
 ---
 title: Data warehouse collation types
 description: Collation types supported in Azure Synapse Analytics SQL pool.
-services: sql-data-warehouse
+services: synapse-analytics
 author: antvgski 
 manager: igorstan
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang

@@ -1,12 +1,12 @@
 ---
 title: User-defined restore points 
 description: How to create a restore point for SQL pool.
-services: sql-data-warehouse
+services: synapse-analytics
 author: anumjs
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
