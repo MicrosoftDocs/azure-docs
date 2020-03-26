@@ -125,7 +125,7 @@ These actions will not change the notebook state or the values of any variables 
 |Stop the kernel     |  Stops any running cell. Running a cell will automatically restart the kernel. |
 |Navigate to another workspace section     |     Running cells are stopped. | 
 
-These actions will reset the notebook state as well as all variables:
+These actions will reset the notebook state as well as all variables in the notebook:
 
 |Action  |Result  |
 |---------|---------| --------|
