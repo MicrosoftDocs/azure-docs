@@ -1,12 +1,12 @@
 ---
 title: SQL Analytics recommendations
 description: Learn about SQL Analytics recommendations and how they are generated
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan

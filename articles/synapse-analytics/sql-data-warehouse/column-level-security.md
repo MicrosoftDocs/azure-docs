@@ -1,12 +1,12 @@
 ---
 title: What is column-level security for Azure Synapse? 
 description: Column-Level Security allows customers to control access to database table columns based on the user's execution context or group membership, simplifying the design and coding of security in your application, and allowing you to implement restrictions on column access.
-services: sql-data-warehouse
+services: synapse-analytics
 author: julieMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: security
+ms.subservice: 
 ms.date: 02/05/2020
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab

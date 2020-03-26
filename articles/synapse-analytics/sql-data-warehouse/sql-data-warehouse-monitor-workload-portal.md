@@ -1,12 +1,12 @@
 ---
 title: Monitor workload - Azure portal 
 description: Monitor SQL Analytics using the Azure portal
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
