@@ -13,7 +13,7 @@ In this article, you'll learn how to publish a public or private managed service
 
 You need to have a valid [account in Partner Center](../../marketplace/partner-center-portal/create-account.md) to create and publish offers. If you don't have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the Commercial Marketplace program.
 
-Per the [Managed Service offer certification requirements](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements), you must have a [Silver or Gold Cloud Platform competency level](https://docs.microsoft.com/partner-center/learn-about-competencies) in order to publish a Managed Service offer.
+Per the [Managed Service offer certification requirements](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements), you must have a [Silver or Gold Cloud Platform competency level](https://docs.microsoft.com/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer.
 
 Your Microsoft Partner Network (MPN) ID will be [automatically associated](../../billing/billing-partner-admin-link-started.md) with the offers you publish to track your impact across customer engagements.
 

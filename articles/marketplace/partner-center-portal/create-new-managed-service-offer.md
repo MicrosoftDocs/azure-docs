@@ -14,7 +14,7 @@ ms.date: 03/30/2020
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
-To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.commembership/azure-expert-msp) to publish a Managed Service offer.
+To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) to publish a Managed Service offer.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
@@ -91,7 +91,6 @@ Some tips for writing your description:
 - Keep in mind that the first few sentences might be displayed in search engine results.  
 - Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
 - Use industry-specific vocabulary or benefit-based wording as much as possible.
-- Consider using HTML tags to format your description and make it more engaging.
 
 To make your offer description more engaging, use the rich text editor to format your description.
 
@@ -189,7 +188,9 @@ To make this plan available only to specific customers, select **Yes**. When you
 
 ### Technical configuration
 
-This section of yoru plan creates a manifest with authorization information for managing customer resources. This information is required in order to enable [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+This section of your plan creates a manifest with authorization information for managing customer resources. This information is required in order to enable [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+
+Be sure to review [Tenants, roles, and users in Azure Lighthouse scenarios](../../lighthouse/concepts/tenants-users-roles.md#best-practices-for-defining-users-and-roles) to understand which roles are supported and the best practices for defining your authorizations.
 
 > [!NOTE]
 > As noted above, the users and roles in your **Authorization** entries will apply to every customer who purchases the plan. If you want to limit access to a specific customer, you'll need to publish a private plan for their exclusive use.
@@ -240,6 +241,13 @@ If it's your first time publishing this offer, you can:
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 
+### Customer experience and offer management
+
+When a customer deploys your offer, they will be able to delegate subscriptions or resource groups for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). For more about this process, see [The customer onboarding process](../../lighthouse/how-to/publish-managed-services-offers.md#the-customer-onboarding-process).
+
+You can [publish an updated version of your offer](update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](../../lighthouse-/how-to/view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to review the changes and decide whether they want to update to the new version.
+
 ## Next steps
 
 - [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
+- [Learn about Azure Lighthouse](../../lighthouse/overview.md)
