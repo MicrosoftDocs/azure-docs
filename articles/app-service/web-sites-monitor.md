@@ -14,7 +14,7 @@ ms.custom: seodec18
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
 built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
-In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* that are based metrics.
+In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
 
 ## Understand quotas
 
@@ -60,13 +60,17 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 > **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
 > 
 
+> [!IMPORTANT]
+> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
+
 Metrics provide information about the app or the App Service plan's behavior.
 
 For an app, the available metrics are:
 
 | Metric | Description |
 | --- | --- |
-| **Average Response Time** | The average time taken for the app to serve requests, in seconds. |
+| **Response Time** | The time taken for the app to serve requests, in seconds. |
+| **Average Response Time (deprecated)** | The average time taken for the app to serve requests, in seconds. |
 | **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). |
 | **Connections** | The number of bound sockets existing in the sandbox (w3wp.exe and its child processes).  A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket(). |
 | **CPU Time** | The amount of CPU consumed by the app, in seconds. For more information about this metric, see [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage). |

@@ -30,7 +30,7 @@ Azure Security Center provides the following capabilities to help you secure you
 
     ![container tab](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Real time container threat detection**<br> Security Center provides real-time threat detection for your containers on Linux machines with AuditD component. The alerts identify several suspicious Docker activities, such as the creation of a privileged container on host, an indication of Secure Shell (SSH) server running inside a Docker container, or the use of crypto miners. You can use this information to quickly remediate security issues and improve the security of your containers.
+- **Real time container threat protection**<br> Security Center provides real-time threat protection for your containers on Linux machines with AuditD component. The alerts identify several suspicious Docker activities, such as the creation of a privileged container on host, an indication of Secure Shell (SSH) server running inside a Docker container, or the use of crypto miners. You can use this information to quickly remediate security issues and improve the security of your containers.
 
     ![container tab](./media/security-center-container-recommendations/docker-threat-detection.png)
 

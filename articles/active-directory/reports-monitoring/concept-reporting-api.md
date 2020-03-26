@@ -47,13 +47,10 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/beta/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/beta/auditLogs/signIns`. For more information, see the [audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) and [sign-in API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
 In addition, you can use the [Identity Protection risk detections API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
-
-> [!NOTE]
->  The **https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/** endpoint is deprecated. Use the new API endpoints described above to programmatically access the activity and security reports.
   
-## APIs with Graph Explorer
+## APIs with Microsoft Graph Explorer
 
-You can use the [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+You can use the [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 

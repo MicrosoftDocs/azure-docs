@@ -48,7 +48,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 The command output gives you the information you need to open an SSH session.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -56,20 +56,20 @@ Start your favorite client and connect to port 21382
 
 Open an SSH session with your container with the client of your choice, using the local port. The following example uses the default [ssh](https://ss64.com/bash/ssh.html) command:
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 When being prompted, type `yes` to continue connecting. You are then prompted for the password. Use `Docker!`, which was shown to you earlier.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 Once you're authenticated, you should see the session welcome screen.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -85,7 +85,7 @@ You are now connected to your connector.
 
 Try running the [top](https://ss64.com/bash/top.html) command. You should be able to see your app's process in the process list. In the example output below, it's the one with `PID 263`.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738
@@ -109,7 +109,7 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## Next steps
 
-You can post questions and concerns on the [Azure forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+You can post questions and concerns on the [Azure forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 For more information on Web App for Containers, see:
 

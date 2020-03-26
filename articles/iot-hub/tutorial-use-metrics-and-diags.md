@@ -68,7 +68,7 @@ The variables that must be globally unique have `$RANDOM` concatenated to them. 
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -119,7 +119,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >Here is the command to update the extension. Run this in your Cloud Shell instance.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## Enable the diagnostic logs 

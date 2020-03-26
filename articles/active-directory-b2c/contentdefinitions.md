@@ -3,14 +3,14 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Specify the ContentDefinitions element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
-ms.author: marsma
+ms.date: 02/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -66,7 +66,7 @@ The **ContentDefinition** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | A string that contains the URL of the HTML5 page for the content definition. |
-| RecoveryUri | 1:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. |
+| RecoveryUri | 1:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. Not currently used, the value must be `~/common/default_page_error.html`. |
 | DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |
 | Metadata | 0:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. |
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
@@ -139,7 +139,7 @@ The **Item** element of the **Metadata** element contains the following attribut
 
 #### Metadata keys
 
-Content definition supports following metadata items: 
+Content definition supports following metadata items:
 
 | Key | Required | Description |
 | --------- | -------- | ----------- |

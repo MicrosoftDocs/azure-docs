@@ -19,6 +19,11 @@ Azure Active Directory Domain Services (AD DS) supports a one-time move for cust
 
 This article outlines the benefits and considerations for migration, then the required steps to successfully migrate an existing Azure AD DS instance.
 
+> [!NOTE]
+> In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
+>
+> For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+
 ## Overview of the migration process
 
 The migration process takes an existing Azure AD DS instance that runs in a Classic virtual network and moves it to an existing Resource Manager virtual network. The migration is performed using PowerShell, and has two main stages of execution - *preparation* and *migration*.

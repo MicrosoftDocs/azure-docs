@@ -11,7 +11,7 @@ ms.author: v-umha
 
 This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
 
-Using this component, partners can integrate with FarmBeats using FarmBeats Data hub APIs and send customer device data and telemetry to FarmBeats Data hub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
+Using this component, partners can integrate with FarmBeats using FarmBeats Datahub APIs and send customer device data and telemetry to FarmBeats Datahub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
 
 ## Before you start
 
@@ -45,7 +45,7 @@ FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Serv
 
 For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats Data hub uses bearer authentication, which needs the following credentials:
+FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
    - Client secret
    - Tenant ID
@@ -80,14 +80,14 @@ access_token = token_response.get('accessToken') 
 
 **HTTP request headers**
 
-Here are the most common request headers that need to be specified when you make an API call to FarmBeats Data hub.
+Here are the most common request headers that need to be specified when you make an API call to FarmBeats Datahub.
 
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Data hub APIs, the format is JSON. Content-Type: application/json
+Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
-Accept | The response format. For FarmBeats Data hub APIs, the format is JSON. Accept: application/json
+Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
@@ -114,7 +114,7 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-FarmBeats Data hub has the following APIs that enable device partners to create and manage device or sensor metadata.
+FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata.
 
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
 - /**Device**: Device corresponds to a physical device present on the farm.
@@ -225,11 +225,11 @@ The canonical message format is as follows:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -299,7 +299,7 @@ After customers have purchased and deployed devices or sensors, they can access 
 
 ## Unlink FarmBeats
 
-Device partners can enable customers to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in FarmBeats Data hub. Unlinking does the following:
+Device partners can enable customers to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in FarmBeats Datahub. Unlinking does the following:
 
    - Stops telemetry flow.
    - Deletes and erases the integration credentials on the device partner.

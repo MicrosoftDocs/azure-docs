@@ -25,7 +25,7 @@ In this article, you create an IoT Hub data connection for Azure Data Explorer b
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [A cluster and database](/create-cluster-database-python.md).
+* [A cluster and database](create-cluster-database-python.md).
 
 * [Table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 

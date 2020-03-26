@@ -1,8 +1,8 @@
 ---
-title: Collect Azure Activity log with diagnostic settings (preview) - Azure Monitor | Microsoft Docs
+title: Collect Azure Activity log with diagnostic settings - Azure Monitor | Microsoft Docs
 description: Use diagnostic settings to forward Azure Activity logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
-ms.service: azure-monitor
+
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren

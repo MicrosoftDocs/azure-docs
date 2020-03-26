@@ -59,6 +59,8 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Deploy with GitHub Actions (preview)
+      href: container-instances-github-action.md
     - name: Encrypt deployment data
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts
@@ -82,7 +84,9 @@
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
     - name: Enable SSL endpoint in sidecar
-      href: container-instances-container-group-ssl.md     
+      href: container-instances-container-group-ssl.md
+    - name: Expose static IP address
+      href: container-instances-application-gateway.md  
   - name: Mount data volumes
     items:
     - name: Azure file share

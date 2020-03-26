@@ -31,8 +31,12 @@ Automatic configurations run for the first time shortly after the configuration 
 ## CLI prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
-* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
+
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Implement twins
 
@@ -113,7 +117,7 @@ You configure target devices by creating a configuration that consists of the ta
 
 Use the following command to create a configuration:
 
-```cli
+```azurecli
    az iot hub configuration create --config-id [configuration id] \
      --labels [labels] --content [file path] --hub-name [hub name] \
      --target-condition [target query] --priority [int] \
@@ -138,7 +142,7 @@ Use the following command to create a configuration:
 
 Use the following command to display the contents of a configuration:
 
-```cli
+```azurecli
 az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
@@ -157,7 +161,7 @@ Inspect the configuration in the command window. The **metrics** property lists
 
 You can show a list of device IDs, module IDs, or objects for each of the metrics by using the following command:
 
-```cli
+```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
@@ -184,7 +188,7 @@ If you update the target condition, the following updates occur:
 
 Use the following command to update a configuration:
 
-```cli
+```azurecli
 az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
@@ -207,10 +211,11 @@ When you delete a configuration, any device twins or module twins take on their 
 
 Use the following command to delete a configuration:
 
-```cli
+```azurecli
 az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
+
 * --**config-id** - The name of the configuration that exists in the IoT hub.
 
 * --**hub-name** - Name of the IoT hub in which the configuration exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`.

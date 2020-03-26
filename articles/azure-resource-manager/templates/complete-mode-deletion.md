@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -136,7 +136,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ Jump to a resource provider namespace:
 > | automationAccounts | Yes |
 > | automationAccounts / configurations | Yes |
 > | automationAccounts / jobs | No |
+> | automationAccounts / privateEndpointConnectionProxies | No |
+> | automationAccounts / privateEndpointConnections | No |
+> | automationAccounts / privateLinkResources | No |
 > | automationAccounts / runbooks | Yes |
 > | automationAccounts / softwareUpdateConfigurations | No |
 > | automationAccounts / webhooks | No |
@@ -711,6 +713,7 @@ Jump to a resource provider namespace:
 > | registries / importImage | No |
 > | registries / privateEndpointConnectionProxies | No |
 > | registries / privateEndpointConnectionProxies / validate | No |
+> | registries / privateEndpointConnections | No |
 > | registries / privateLinkResources | No |
 > | registries / queueBuild | No |
 > | registries / regenerateCredential | No |
@@ -1052,6 +1055,7 @@ Jump to a resource provider namespace:
 > | partnerNamespaces / eventChannels | No |
 > | partnerRegistrations | Yes |
 > | partnerTopics | Yes |
+> | partnerTopics / eventSubscriptions | No |
 > | systemTopics | Yes |
 > | systemTopics / eventSubscriptions | No |
 > | topics | Yes |
@@ -1288,6 +1292,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | getEntities | No |
 > | managementGroups | No |
+> | managementGroups / settings | No |
 > | resources | No |
 > | startTenantBackfill | No |
 > | tenantBackfillStatus | No |
@@ -1549,6 +1554,7 @@ Jump to a resource provider namespace:
 > | legacyPeerings | No |
 > | peerAsns | No |
 > | peerings | Yes |
+> | peeringServiceCountries | No |
 > | peeringServiceProviders | No |
 > | peeringServices | Yes |
 
@@ -1673,13 +1679,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | applications | Yes |
 > | saasresources | No |
-
-## Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | jobcollections | Yes |
 
 ## Microsoft.Search
 
@@ -2010,6 +2009,7 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | devices | Yes |
+> | registeredSubscriptions | No |
 > | vendors | No |
 > | vendors / skus | No |
 > | vendors / vnfs | No |

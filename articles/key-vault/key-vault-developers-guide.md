@@ -3,10 +3,10 @@ title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
 ---
 # Azure Key Vault Developer's Guide
@@ -14,9 +14,9 @@ ms.author: mbaldwin
 Key Vault allows you to securely access sensitive information from within your applications:
 
 - Keys and secrets are protected without having to write the code yourself and you are easily able to use them from your applications.
-- You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers’ tenant keys and secrets.
+- You are able to have your customers own and manage their own keys so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys and secrets.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
-- As of the September 2016 release of Key Vault, your applications can now manage Key Vault certificates. For more information, see [About keys, secrets, and certificates](/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Manage Key Vault certificates. For more information, see [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md).
 
 For more general information on Azure Key Vault, see [What is Key Vault](key-vault-overview.md).
 
@@ -32,9 +32,14 @@ For more information on managed identities for Azure resources, see [the managed
 
 Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
-- [Create and manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
-- [Create and manage Key Vaults with PowerShell](key-vault-overview.md)
-- [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [Create and manage Key Vaults with CLI](quick-create-cli.md)
+- [Create and manage Key Vaults with PowerShell](quick-create-powershell.md)
+- [Create and manage Key Vaults with the Azure port](quick-create-portal.md)
+- [Create and manage Key Vaults with Python](quick-create-python.md)
+- [Create and manage Key Vaults with Java](quick-create-java.md)
+- [Create and manage Key Vaults with Node.js](quick-create-node.md)
+- [Create and manage Key Vaults with .NET (v4 SDK)](quick-create-net.md)
+- [Create a key vault and add a secret via an Azure Resource Manager template](quick-create-template.md)
 - [Create and manage Key Vaults with REST](/rest/api/keyvault/)
 
 
@@ -52,7 +57,7 @@ All of your Key Vault resources are accessible through the REST interface; vault
 
 #### .NET
 
-[.NET API reference for Key Vault](/dotnet/api/microsoft.azure.keyvault).
+[.NET API reference for Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
 
 For more information on the 2.x version of the .NET SDK, see the [Release notes](key-vault-dotnet2api-release-notes.md).
 
@@ -64,24 +69,19 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 In Node.js, the Key Vault management API and the Key Vault object API are separate. The following overview article gives you access to both. 
 
-[Azure Key Vault modules for Node.js](/nodejs/api/overview/azure/key-vault)
+[Azure Key Vault modules for Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
 
 #### Python
 
-[Azure Key Vault libraries for Python](/python/api/overview/azure/key-vault)
+[Azure Key Vault libraries for Python](/python/api/overview/azure/key-vault?view=azure-python)
 
-#### Azure CLI 2
+#### Azure CLI
 
-[Azure CLI for Key Vault](/cli/azure/keyvault)
+[Azure CLI for Key Vault](/cli/azure/keyvault?view=azure-cli-latest)
 
 #### Azure PowerShell 
 
-[Azure PowerShell for Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
-
-### Quickstart guides
-
-- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Getting started with Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
+[Azure PowerShell for Key Vault](/powershell/module/az.keyvault/?view=azps-3.6.1#key_vault)
 
 ### Code examples
 

@@ -170,14 +170,14 @@ The section in the configuration file for symmetric key provisioning looks like 
 provisioning:
    source: "dps"
    global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "{scope_id}"
+   scope_id: "<SCOPE_ID>"
    attestation:
       method: "symmetric_key"
-      registration_id: "{registration_id}"
-      symmetric_key: "{symmetric_key}"
+      registration_id: "<REGISTRATION_ID>"
+      symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Replace the placeholder values for `{scope_id}`, `{registration_id}`, and `{symmetric_key}` with the data you collected earlier. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
+Replace the placeholder values for `<SCOPE_ID>`, `<REGISTRATION_ID>`, and `<SYMMETRIC_KEY>` with the data you collected earlier. Make sure the **provisioning:** line has no preceding whitespace and that nested items are indented by two spaces.
 
 ### Windows device
 

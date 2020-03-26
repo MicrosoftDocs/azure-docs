@@ -71,7 +71,7 @@ To understand which method you should use, complete the steps in the following s
 2. On the **Additional tasks** page, select **View current configuration**, and then select **Next**.<br />
  
    ![Screenshot of the View current configuration option on the Additional tasks page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. On the **Review your solution** page, scroll to **Active Directory Federation Services (AD FS)**.<br />
+3. Under **Additional Tasks > Manage Federation**, scroll to **Active Directory Federation Services (AD FS)**.<br />
 
    * If the AD FS configuration appears in this section, you can safely assume that AD FS was originally configured by using Azure AD Connect. You can convert your domains from federated identity to managed identity by using the Azure AD Connect **Change user sign-in** option. For more information about the process, see the section **Option A: Configure pass-through authentication by using Azure AD Connect**.
    * If AD FS isn't listed in the current settings, you must manually convert your domains from federated identity to managed identity by using PowerShell. For more information about this process, see the section **Option B: Switch from federation to pass-through authentication by using Azure AD Connect and PowerShell**.

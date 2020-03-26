@@ -14,6 +14,8 @@ ms.date: 03/04/2019
 ---
 # Downloadable Infographic: Machine learning basics with algorithm examples
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Download this easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions. Algorithm examples help the machine learning beginner understand which algorithms to use and what they're used for.
 
 ## Popular algorithms in Machine Learning Studio (classic)
