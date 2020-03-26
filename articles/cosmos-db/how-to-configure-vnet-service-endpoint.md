@@ -256,88 +256,47 @@ az network vnet subnet update \
 
 ## <a id="migrate-from-firewall-to-vnet"></a>Migrating from an IP firewall rule to a virtual network ACL
 
-Use the following steps only for Azure Cosmos DB accounts with existing IP firewall rules that allow a subnet, when you want to use virtual network and subnet-based ACLs instead of an IP firewall rule.
+To migrate an Azure Cosmos DB account from using IP firewall rules to using virtual network service endpoints, use the following steps.
 
-After a service endpoint for an Azure Cosmos DB account is turned on for a subnet, the requests are sent with a source that contains virtual network and subnet information instead of a public IP. These requests don't match an IP filter. This source switch happens for all Azure Cosmos DB accounts accessed from the subnet with a service endpoint enabled. To prevent downtime, use the following steps:
+After an Azure Cosmos DB account is configured for a service endpoint for a subnet, requests from that subnet are sent to Azure Cosmos DB with virtual network and subnet source information instead of a source public IP address. These requests will no longer match an IP filter configured on the Azure Cosmos DB account, which is why the following steps are necessary to avoid downtime.
 
-1. Get properties of the Azure Cosmos DB account by running the following cmdlet:
+Before proceeding, enable the Azure Cosmos DB service endpoint on the virtual network and subnet using the step shown above in "Enable the service endpoint for an existing subnet of a virtual network".
 
-   ```powershell
-   $apiVersion = "2015-04-08"
-   $acctName = "<Azure Cosmos DB account name>"
+1. Get virtual network and subnet information:
 
-   $cosmosDBConfiguration = Get-AzResource `
-     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-     -ApiVersion $apiVersion `
-     -ResourceGroupName $rgName `
-     -Name $acctName
-   ```
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$vnetName = "myVnet"
+$subnetName = "mySubnet"
 
-1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the virtual network ACL to all Azure Cosmos DB accounts being accessed from the subnet with `ignoreMissingVNetServiceEndpoint` flag.
+$vnet = Get-AzVirtualNetwork `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vnetName
 
-   ```powershell
-   $locations = @()
+$subnetId = $vnet.Id + "/subnets/" + $subnetName
+```
 
-   foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
-      $locations += , @{
-         locationName     = $readLocation.locationName;
-         failoverPriority = $readLocation.failoverPriority;
-      }
-   }
+1. Prepare a new Virtual Network rule object for the Azure Cosmos DB account:
 
-   $subnetID = "Subnet ARM URL" e.g "/subscriptions/f7ddba26-ab7b-4a36-a2fa-7d01778da30b/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/subnet1"
+```powershell
+$vnetRule = New-AzCosmosDBVirtualNetworkRule `
+    -Id $subnetId
+```
 
-   $virtualNetworkRules = @(@{
-      id = $subnetID;
-      ignoreMissingVNetServiceEndpoint = "True";
-   })
+1. Update the Azure Cosmos DB account to enable service endpoint access from the subnet:
 
-   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
-      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
-   }
-   ```
+```powershell
+Update-AzCosmosDBAccount `
+   -ResourceGroupName $resourceGroupName `
+   -Name $accountName `
+   -EnableVirtualNetwork $true `
+   -VirtualNetworkRuleObject @($vnetRule)
+```
 
-1. Update Azure Cosmos DB account properties with the new configuration by running the following cmdlets:
+1. Repeat the previous steps for all Azure Cosmos DB accounts accessed from the subnet.
 
-   ```powershell
-   $cosmosDBProperties = @{
-      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
-      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
-      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
-      locations                     = $locations;
-      virtualNetworkRules           = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $True;
-   }
-
-   Set-AzResource `
-      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-      -ApiVersion $apiVersion `
-      -ResourceGroupName $rgName `
-      -Name $acctName `
-      -Properties $CosmosDBProperties
-   ```
-
-1. Repeat steps 1-3 for all Azure Cosmos DB accounts that you access from the subnet.
-
-1.	Wait 15 minutes, and then update the subnet to enable the service endpoint.
-
-1.	Enable the service endpoint for an existing subnet of a virtual network.
-
-    ```powershell
-    $rgname= "<Resource group name>"
-    $vnName = "<virtual network name>"
-    $sname = "<Subnet name>"
-    $subnetPrefix = "<Subnet address range>"
-
-    Get-AzVirtualNetwork `
-       -ResourceGroupName $rgname `
-       -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
-       -Name $sname `
-       -AddressPrefix $subnetPrefix `
-       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
-    ```
-
-1. Remove the IP firewall rule for the subnet.
+1. Remove the IP firewall rule for the subnet from the Azure Cosmos DB account's Firewall rules.
 
 ## Next steps
 
