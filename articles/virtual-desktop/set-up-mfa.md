@@ -19,7 +19,7 @@ When you first sign in, the client asks for your username, password, and Azure M
 
 ![A screenshot of the credentials window where you enter your password. A check box labeled "Remember me" is underneath the password field.](media/credentials-window.png)
 
-While this is great for some scenarios, in Enterprise scenarios or personal devices, this could make your deployment less secure. To protect your users, you'll need to make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials. This article will show you how to enable this feature by opting in to the Conditional Access policy for Windows Virtual Desktop.
+While remembering credentials is convenient, it can also make deployments on Enterprise scenarios or personal devices less secure. To protect your users, you'll need to make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials. This article will show you how to configure the Conditional Access policy for Windows Virtual Desktop to enable this setting.
 
 ## Prerequisites
 
@@ -60,20 +60,20 @@ Before you start, make sure you have these things:
 
 ![](media/4d310d3500156228aedeaab7c58d0862.png)
 
-## Change policy enforcement to allow trusted IP addresses
+## Create an allow list of trusted IP addresses
 
-Now that you've set up your Selective Access policy, you have the option to configure how Azure MFA enforces your policy based on your company's public IP address. You can configure your policy so that users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted IP, they'll get the MFA prompt again.
+Now that you've set up your Selective Access policy, you can configure how Azure MFA enforces your policy based on your company's public IP address. You can configure your policy so that users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted IP, they'll get the MFA prompt again.
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
 ![A screenshot of the named locations tab. Configure MFA trusted IPs is highlighted in red.](media/configure-mfa-trusted-ips.png)
 
-To set up your trusted IPs list:
+To set up an allow list for trusted IPs:
 
 1. In the **Named locations** tab, select **Configure MFA trusted IPs**.
    
-2. When the **Multi-factor authentication** page opens, go to the **Trusted IPs** section and enter the public IP addresses that you want to add to your trusted locations list.
+2. When the **Multi-factor authentication** page opens, go to the **Trusted IPs** section and enter the public IP addresses that you want to add to your allow list.
 
 ![A screenshot of the multi-factor authentication page.](media/mfa-page.png)
 
@@ -100,7 +100,7 @@ To set up your trusted IPs list:
 
 10. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
 
-    ![A screenshot of the Session page. The session menu shows the sign-in frequency drop down menus have been changed to "1" and "Hours."](media/sign-in-frequency.png)
+    ![A screenshot of the Session page. The session menu shows the sign-in frequency drop-down menus have been changed to "1" and "Hours."](media/sign-in-frequency.png)
    
     >[!NOTE]
     >Active sessions in your Windows Virtual Desktop environment will continue to work as you change the policy. However, if you disconnect or sign off, you'll need to provide your credentials again after 60 minutes. As you change the settings, you can extend the timeout period as much as you want (as long as it aligns with your organization's security policy).
@@ -113,4 +113,4 @@ To set up your trusted IPs list:
 
     ![A screenshot of the Create button.](media/create-button.png)
 
-13. You're all done! Feel free to test the policy to make sure your policy works as intended.
+13. You're all done! Feel free to test the policy to make sure your allow list works as intended.
