@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 03/26/2020
 ---
 
 # Use one-click ingestion to ingest data to a new table in Azure Data Explorer
@@ -34,17 +34,16 @@ For information about ingesting data into an existing table in Azure Data Explor
        ![One-click ingestion from storage](media/one-click-ingestion-new-table/from-storage-blob.png)
       * **from file** - select **Browse** to locate the file, or drag the file into the field.
       ![One-click ingestion from file](media/one-click-ingestion-new-table/from-file.png)
-      * **from container** - in the **Link to storage** field, add the URL of the container, and enter the sample size
+      * **from container** - in the **Link to storage** field, add the [SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) of the container, and enter the sample size
       ![One-click ingestion from container](media/one-click-ingestion-new-table/from-container.png)
       A sample of the data appears. If you want to, you can filter it to show only files that begin end with specific characters. When you adjust the filters, the preview automatically updates.
       For example, you can filter for all files that begin with the word *data* and end with a *.csv.gz* extension.
       ![One-click ingestion filter](media/one-click-ingestion-new-table/from-container-with-filter.png)
-1. Select **Edit schema** to view and edit your table column configuration.
+1. Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob.
 
 ## Edit the schema
 
 1. In the **Schema** tab:
-    1. Select **Compression type**, and then select either **Uncompressed** or **GZip**.
     1. Select a **Data format**:
         * JSON
         * CSV
@@ -89,6 +88,14 @@ Select **Start ingestion** to create a table and mapping and to begin data inges
 
     > [!TIP]
     > You might lose data when you use `.drop` commands. Use them carefully.
+
+**Continuous ingestion**
+
+Continuous ingestion is a feature that enables you to create an event grid that listens to the source container.  Any new blob that meets the criteria of the the pre-defined parameters (prefix, suffix, and so on) will be automatically ingested into the destination table.
+
+1. Select **Continuous ingestion** to open the Azure portal. The data connection page opens with the pre-defined parameters already selected (source container, tables, and mappings).
+
+1. Select **Create** to create an event grid that will listen for any changes to the source container.
 
 ## Next steps
 

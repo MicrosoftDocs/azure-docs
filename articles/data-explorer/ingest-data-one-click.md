@@ -11,9 +11,11 @@ ms.date: 03/22/2020
 
 # What is one-click ingestion? 
 
-One-click ingestion enables you to quickly ingest a new table in JSON, CSV, and other formats. Using the Azure Data Explorer Web UI, you can ingest data from storage, from a local file, or from a container. The data can be ingested into an existing or new table. The intuitive one-click wizard helps you ingest your data within a few minutes. You can then edit the table and run queries with the Azure Data Explorer Web UI.
+One-click ingestion enables you to quickly ingest data and automatically suggest tables and mapping structures, based on a data source in Azure Data Explorer. 
 
-One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you. 
+Using the Azure Data Explorer Web UI, you can ingest data from storage (blob file), a local file, or a container (up to 10,000 blobs). You can also define an event grid on a container for continuous ingestion. The data can be ingested into an existing or new table in JSON, CSV, and [other formats](#file-formats). One click ingestion can suggest a structure for a new table and table mapping, based on the data source, and provide an intuitive platform to adjust the table structure of an existing table and table mapping. One click ingestion will ingest the data into the table within only a few minutes.
+
+One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you.
 
 ## Prerequisites
 
@@ -34,7 +36,15 @@ One-click ingestion supports ingesting a new table from source data in any of th
 
 ## One-click ingestion wizard
 
-The one-click ingestion wizard guides you through the one-click ingestion process. To access the wizard, right-click the *database* or *table* row in left menu of the Azure Data Explorer web UI and select **Ingest new data (preview)**.
+The one-click ingestion wizard guides you through the one-click ingestion process. 
+
+> [!Note]
+> This section describes the wizard in general. The options you select depend on whether you are ingesting into a new or existing table. 
+> For more information, see:
+    > * Ingest into [a new table](one-click-ingestion-new-table.md)
+    > * Ingest into an [existing table](one-click-ingestion-existing-table.md) 
+    
+1. To access the wizard, right-click the *database* or *table* row in left menu of the Azure Data Explorer web UI and select **Ingest new data (preview)**.
 
     ![Select one-click ingestion in the Web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
 
@@ -54,12 +64,12 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
 1. Start the data ingestion process.
 
 > [!Note]
-> Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes or 500 MB of data, by default, so you may experience a latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options.
+> If your data source is a container, note that Azure Data Explorer's data ingestion aggregation (batching) policy is designed to optimize the ingestion process. By default, the policy is configured to 5 minutes or 500 MB of data, so you may experience latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options.
 
 ## Next steps
 
-Decide if you will use one-click ingestion to ingest data into an existing or new table:
-* Ingest into an [existing table from...](one-click-ingestion-existing-table.md) 
-* Ingest into [a new table from...](one-click-ingestion-new-table.md)
+* Decide if you will use one-click ingestion to ingest data into an existing or new table:
+    * Ingest into [a new table from...](one-click-ingestion-new-table.md)
+    * Ingest into an [existing table from...](one-click-ingestion-existing-table.md) 
 * [Query data in Azure Data Explorer Web UI](/azure/data-explorer/web-query-data)
 * [Write queries for Azure Data Explorer using Kusto Query Language](/azure/data-explorer/write-queries)
