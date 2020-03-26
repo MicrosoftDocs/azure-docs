@@ -14,9 +14,11 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 ## Managing limits
 
 > [!NOTE]
-> When a resource doesn't have an adjustable limit, the following tables use the header **Limit**. In those cases, the default and the maximum limits are the same.
+> Some services have adjustable limits.
 >
-> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limits can't be raised above the maximum limit.
+> When a service doesn't have adjustable limits, the following tables use the header **Limit**. In those cases, the default and the maximum limits are the same.
+>
+> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit.
 >
 > If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md).
 

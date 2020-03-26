@@ -14,7 +14,7 @@
 | --- | --- |
 | Subscriptions per Azure Active Directory tenant | Unlimited. |
 | [Coadministrators](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per subscription |Unlimited. |
-| [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |980 |
+| [Resource groups](../articles/azure-resource-manager/management/overview.md) per subscription |980 |
 | Azure Resource Manager API request size |4,194,304 bytes. |
 | Tags per subscription<sup>1</sup> |50 |
 | Unique tag calculations per subscription<sup>1</sup> | 10,000 |
