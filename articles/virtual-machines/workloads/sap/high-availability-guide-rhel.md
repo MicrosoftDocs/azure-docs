@@ -180,7 +180,7 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
       1. IP address 10.0.0.8 for the ASCS ERS
          * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-frontend**)
    1. Create the backend pool
-      1. Open the load balancer, select ackend pools, and click Add
+      1. Open the load balancer, select backend pools, and click Add
       1. Enter the name of the new backend pool (for example **nw1-backend**)
       1. Click Add a virtual machine.
       1. Select Virtual machine.
