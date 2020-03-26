@@ -114,9 +114,17 @@ The iOS Speech SDK is available natively, or with the Xamarin.iOS and the .NET S
 
 # [Native](#tab/ios/native)
 
+<div class="icon is-large">
+    <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg">
+</div>
+
 https://aka.ms/csspeech/iosbinary
 
 # [Xamarin.iOS](#tab/ios/xamarin)
+
+<div class="icon is-large">
+    <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">
+</div>
 
 Xamarin.iOS
 
@@ -128,9 +136,17 @@ The macOS Speech SDK is available natively, or with the Xamarin.Mac and the .NET
 
 # [Native](#tab/macos/native)
 
+<div class="icon is-large">
+    <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg">
+</div>
+
 https://aka.ms/csspeech/macosbinary
 
 # [Xamarin.Mac](#tab/macos/xamarin)
+
+<div class="icon is-large">
+    <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">
+</div>
 
 Xamarin.Mac
 
@@ -141,6 +157,10 @@ Xamarin.Mac
 The Android Speech SDK is available natively, or with the Xamarin.Android and the .NET Standard SDK.
 
 # [Native](#tab/android/native)
+
+<div class="icon is-large">
+    <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg">
+</div>
 
 The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
 
@@ -161,6 +181,10 @@ To consume the package from your Android Studio project, make the following chan
 The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).
 
 # [Xamarin.Android](#tab/android/xamarin)
+
+<div class="icon is-large">
+    <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">
+</div>
 
 Xamarin.Android
 
