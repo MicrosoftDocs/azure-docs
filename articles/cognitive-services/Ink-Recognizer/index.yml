@@ -55,9 +55,9 @@ landingContent:
     - linkListType: learn
       links:
         - text: C# and Universal Windows Platform (UWP)
-          url: https://go.microsoft.com/fwlink/?linkid=2089803
+          url: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Vision/InkRecognition/uwp-app
         - text: C# and Windows Presentation Foundation (WPF)
-          url: https://go.microsoft.com/fwlink/?linkid=2089804
+          url: https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Vision/InkRecognition/wpf-app
         - text: Javascript web-browser app
           url: https://go.microsoft.com/fwlink/?linkid=2089908
         - text: Java and Android mobile app
