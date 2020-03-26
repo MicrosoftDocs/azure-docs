@@ -88,10 +88,14 @@ For this process, there are pricing implications as it is at the storage level.
 >    - West US 2
 >    - South Central US
 >    - East US
+>    - East US 2
+>    - North Central US
 >    - Canada Central
 >    - Canada East
 >    - Australia East
 >    - Australia Southeast
+>    - Central India
+>    - South India
 >    - Japan East
 >    - Japan West
 >    - Southeast Asia
