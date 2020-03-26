@@ -185,4 +185,3 @@ To see detailed information about any errors from the deployment, select **Error
 ## Next steps
 
 To learn more about Update Management logs, output, and errors, see [Query update records for Update Management](automation-update-management-query-logs.md).
-
