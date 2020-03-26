@@ -60,7 +60,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
 1. Verify that the deployment has completed successfully.  A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    The **DNS Name** can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
+    The **DNS Name** can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure portal.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
@@ -70,7 +70,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
 ## Deploy from Azure CLI
 
-1. Ensure that you have installed the azure cli iot extension with:
+1. Ensure that you have installed the Azure CLI iot extension with:
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
@@ -150,7 +150,7 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
     }
     ```
 
-    The **DNS Name** can also be obtained from the **Overview** section of the newly deployed virtual machine within the Azure Portal.
+    The **DNS Name** can also be obtained from the **Overview** section of the newly deployed virtual machine within the Azure portal.
 
     > [!div class="mx-imgBorder"]
     > [![Screenshot showing the dns name of the iotedge vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
