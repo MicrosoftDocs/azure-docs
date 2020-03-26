@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. We're working on deploying a change so that all new provisioning configurations will allow users with the default access role to be provisioned. Gradually, we'll change the behavior for existing provisioning configurations to support provisioning users with this role. No customer action is required. We'll post an update to our [documentation](https://docs.microsoft.com/azure/active-directory/app-provisioning/) once this change is in place.
+Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. We're working on deploying a change so that all new provisioning configurations will allow users with the default access role to be provisioned. Gradually, we'll change the behavior for existing provisioning configurations to support provisioning users with this role. No customer action is required. We'll post an update to our [documentation](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned) once this change is in place.
 
 ---
 
@@ -102,7 +102,7 @@ Azure Monitor integration with Azure AD logs is now available in Gov Cloud. You 
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
-We’re excited to share that we have now rolled out the refreshed [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) experience in the [Microsoft Azure Government portal](https://portal.azure.us/).
+We’re excited to share that we have now rolled out the refreshed [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) experience in the [Microsoft Azure Government portal](https://portal.azure.us/). For more information, see our [announcement blog post](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
 
 ---
 
