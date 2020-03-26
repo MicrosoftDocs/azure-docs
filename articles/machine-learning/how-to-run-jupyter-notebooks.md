@@ -142,5 +142,5 @@ Find details about your compute instances on the **Compute** page in [studio](ht
 
 ## Next steps
 
-* [Run your first experiment](tutorial-1st-experiment-sdk-train)
-* [Backup your file storage with snapshots](../storage/files/storage-snapshots-files)
+* [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
+* [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
