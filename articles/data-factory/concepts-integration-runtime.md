@@ -122,8 +122,8 @@ If you choose to use the **auto-resolve Azure IR**, which is the default,
 
   For example, you have your factory created in East US, 
   
-  - When copy data to Azure Storage in West US, if ADF successfully detected that the Storage is in West US, copy activity is executed on IR in West US; if the region detection fails, copy activity is executed on IR in East US.
-  - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US. 
+  - When copy data to Azure Blob in West US, if ADF successfully detected that the Blob is in West US, copy activity is executed on IR in West US; if the region detection fails, copy activity is executed on IR in East US.
+  - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
 
 - For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), ADF will use the IR in the data factory region.
 
