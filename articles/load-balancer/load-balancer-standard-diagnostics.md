@@ -49,12 +49,16 @@ To view the metrics for your Standard Load Balancer resources:
 1. Go to the Metrics page and do either of the following:
    * On the load balancer resource page, select the metric type in the drop-down list.
    * On the Azure Monitor page, select the load balancer resource.
-2. Set the appropriate aggregation type.
+2. Set the appropriate metric aggregation type.
 3. Optionally, configure the required filtering and grouping.
+4. Optionally, configure the time range and aggregation. By default time is displayed in UTC.
 
-    ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+  >[!NOTE] 
+  >Time aggregation is important when interpreting certain metrics as data is sampled once per minute. If time aggregation is set to five minutes and metric aggregation type Sum is used for metrics such as SNAT Allocation, your graph will display five times the total  allocated SNAT ports. 
 
-    *Figure: Data Path Availability metric for Standard Load Balancer*
+![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+
+*Figure: Data Path Availability metric for Standard Load Balancer*
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
@@ -119,6 +123,30 @@ To get SNAT connection statistics:
 
 *Figure: Load Balancer SNAT connection count*
 
+
+#### How do I check my SNAT port usage and allocation?
+
+The SNAT Usage metric indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and does not have a public IP address. By comparing this with the SNAT Allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+
+If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
+
+To view SNAT port usage and allocation:
+1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
+1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
+    * By default this is the average number of SNAT ports allocated to or used by each backend VMs or VMSSes, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
+    * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
+1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
+1. To monitor health per backend or frontend instance, apply splitting. 
+    * Note splitting only allows for a single metric to be displayed at a time. 
+1. For example, to monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. 
+
+![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/snat-usage-and-allocation.png)
+
+*Figure: Average TCP SNAT port allocation and usage for a set of backend VMs*
+
+![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
+
+*Figure: TCP SNAT port usage per backend instance*
 
 #### How do I check inbound/outbound connection attempts for my service?
 

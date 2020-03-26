@@ -1,12 +1,12 @@
 ---
 title: Optimizing transactions 
 description: Learn how to optimize the performance of your transactional code in SQL Analytics while minimizing risk for long rollbacks.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
