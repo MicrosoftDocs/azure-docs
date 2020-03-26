@@ -126,18 +126,18 @@ To get SNAT connection statistics:
 
 #### How do I check my SNAT port usage and allocation?
 
-The SNAT usage metric demonstrates how many unique flows are establish between a source and backend VMs or VMSSes. By comparing this with the SNAT allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+The SNAT Usage metric indicates how many unique flows are established between an internet source and a backend VM or VMSS that is behind a load balancer and does not have a pubic IP address. By comparing this to the SNAT Allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
 
 If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
 
 To get SNAT usage and allocation:
 1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
 1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
-    * By default this will be the average number of SNAT ports allocated to or used by each backend VMs or VMSSes, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
+    * By default this is the average number of SNAT ports allocated to or used by each backend VMs or VMSSes, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
     * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
 1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
 1. To monitor health per backend or frontend instance, apply splitting. 
-    * Note this only allows for a single metric to be displayed at a time. 
+    * Note splitting only allows for a single metric to be displayed at a time. 
 1. For example, to monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. 
 
 ![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/snat-usage-and-allocation.png)
