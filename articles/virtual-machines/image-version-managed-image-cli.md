@@ -25,7 +25,7 @@ To complete the example in this article, you must have an existing managed image
 
 When working through this article, replace the resource group and VM names where needed.
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
+[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 ## Create the image version
 

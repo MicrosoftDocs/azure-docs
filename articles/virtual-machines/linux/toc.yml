@@ -507,7 +507,7 @@
           href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
-     - name: Image builder (preview)
+    - name: Image builder (preview)
       items:
       - name: Overview
         href: image-builder-overview.md

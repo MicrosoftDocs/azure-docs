@@ -14,7 +14,7 @@ ms.author: cynthn
 
 Create a VM from a generalized image version stored in a Shared Image Gallery. If want to create a VM using a specialized image version, see [Create a VM from a specialized image version](vm-specialized-image-version-cli.md).
 
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
+[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 
 ## Create the VM
@@ -36,4 +36,4 @@ You can also use a specific version by using the image version ID for the `--ima
 ## Next steps
 
 
-[Azure Image Builder (preview)](image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
