@@ -16,6 +16,11 @@ ms.workload: web
 Azure Private Endpoint is the fundamental building block for Private Link in Azure. It allows you to connect privately to your Web App.
 In this Quickstart, you will learn how to deploy a Web App with Private Endpoint and connect to this Web App from a Virtual Machine.
 
+For more information, see [Using Private Endpoints for Azure Web App][privatenedpointwebapp].
+
+> [!Note]
+>The preview is available in East US and West US 2 regions for all PremiumV2 Windows and Linux Web Apps. 
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -162,7 +167,7 @@ In this section, you will connect privately to the Web App using the Private End
 
 1. Copy the Private IP of your Private Endpoint and the FQDN of your Web App, in our case webappdemope.azurewebsites.net 10.10.2.4
 
-1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and copy the Web App name, you must have a 403 forbidden error page
+1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and paste the Web App name, you must have a 403 forbidden error page
 
    > [!div class="mx-imgBorder"]
    >![Forbidden][17]
@@ -224,4 +229,5 @@ In this Quickstart, you created a VM on a virtual network, a Web App, and a Priv
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
 
 <!--Links-->
+[privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
 [privateendpoint]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview

@@ -191,7 +191,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## Optimize columnstore compression
-By default, tables are defined as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md).
+By default, tables are defined as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.
 
@@ -204,7 +204,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## Optimize statistics
 It is best to create single-column statistics immediately after a load. There are some choices for statistics. For example, if you create single-column statistics on every column it might take a long time to rebuild all the statistics. If you know certain columns are not going to be in query predicates, you can skip creating statistics on those columns.
 
-If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics](../sql-analytics/development-tables-statistics.md) article.
+If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics](sql-data-warehouse-tables-statistics.md) article.
 
 The following example is a good starting point for creating statistics. It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables. You can always add single or multi-column statistics to other fact table columns later on.
 
@@ -225,4 +225,4 @@ You did these things:
 Loading data is the first step to developing a data warehouse solution using Azure Synapse Analytics. Check out our development resources.
 
 > [!div class="nextstepaction"]
-> [Learn how to develop tables in for data warehouseing](../sql-analytics/development-tables-overview.md)
+> [Learn how to develop tables for data warehousing](sql-data-warehouse-tables-overview.md)

@@ -106,33 +106,35 @@ By default, K2Bridges's Helm chart references a publicly available image located
         ```bash
         helm install kibana elastic/kibana -n k2bridge --set image=docker.elastic.co/kibana/kibana-oss --set imageTag=6.8.5 --set elasticsearchHosts=http://k2bridge:8080
         ```
+        
     1. Use port forwarding to access Kibana on localhost: 
 
         ```bash
         kubectl port-forward service/kibana-kibana 5601 --namespace k2bridge
         ```
+        
     1. Connect to Kibana by browsing to http://127.0.0.1:5601.
 
     1. Expose Kibana to the end users. There are multiple methods to do so. The method you use largely depends on your use case.
 
         For example:
 
-        Expose the service as a LoadBalancer service. To do so, add the following parameter to the K2Bridge Helm install command ([above](#install-k2bridge-chart)):
-
-        `--set service.type=LoadBalancer`
+        Expose the service as a LoadBalancer service. To do so, add the `--set service.type=LoadBalancer` parameter to the K2Bridge Helm install command ([above](#install-k2bridge-chart)).        
     
         Then run:
-
-           ```bash
-           kubectl get service -w -n k2bridge
-           ```   
+        
+        ```bash
+        kubectl get service -w -n k2bridge
+        ```
+        
         The output should look like: 
 
         ```bash
         NAME            TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
         kibana-kibana   LoadBalancer   xx.xx.xx.xx   <pending>      5601:30128/TCP   4m24s
         ```
-        You can then use the generated EXTERNAL-IP that appears, and use it to access Kibana by opening a browser to: `\<EXTERNAL-IP>:5601`.
+ 
+        You can then use the generated EXTERNAL-IP that appears, and use it to access Kibana by opening a browser to `<EXTERNAL-IP>:5601`.
 
 1. Configure index patterns to access your data:  
 In a new Kibana instance:

@@ -70,10 +70,12 @@
       href: How-To/business-continuity-plan.md
     - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
+    - name: Turn on active learning
+      href: How-To/use-active-learning.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
-      href: Quickstarts/create-publish-knowledge-base.md
+      href: How-To/manage-knowledge-bases.md
     - name: Language selection
       href: How-To/language-knowledge-base.md
     - name: Add chit-chat
@@ -85,7 +87,7 @@
       href: How-To/test-knowledge-base.md
   - name: Manage QnA sets
     items:
-    - name: Edit knowledge base
+    - name: Edit QnA set
       href: How-To/edit-knowledge-base.md
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
@@ -219,8 +221,6 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: qna-maker-encryption-of-data-at-rest.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits

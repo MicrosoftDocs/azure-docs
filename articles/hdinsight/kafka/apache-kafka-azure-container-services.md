@@ -119,7 +119,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
-    ```
+    ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
@@ -171,7 +171,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 5. Log in to your Azure Container Registry (ACR) and find the loginServer name:
 
-    ```bash
+    ```azurecli
     az acr login --name <acrName>
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
