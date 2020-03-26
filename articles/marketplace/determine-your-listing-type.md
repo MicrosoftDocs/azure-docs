@@ -1,6 +1,6 @@
 ---
-title: Determine Your Publishing Option in Azure Marketplace and Microsoft AppSource
-description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace and Microsoft AppSource.
+title: Determine Your Publishing Option in Microsoft AppSource and Azure Marketplace 
+description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to Microsoft AppSource and Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
@@ -8,30 +8,29 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: dsindona
-
 ---
+
 # Determine your publishing option
+
 The publishing option that you choose for your offer relates directly to both the eligibility requirements and commercial marketplace GTM benefits. More importantly, the selection of publishing option and offer type defines how users will interact with your commercial marketplace offer.
 
 To configure your offer, you'll need to understand the following key commercial marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the commercial marketplace storefronts.
 
-![](./media/marketplace-publishers-guide/storefronts_options_table.png)
+![Microsoft commercial marketplace storefronts and publishing options](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
+In this article, you will learn:
 
-In this article, you will learn…
-<ul><li>    How to determine the appropriate storefront for your solution </ul></li>
-<ul><li>    Which publishing options and calls-to-action are available in each storefront </ul></li>
-<ul><li>    Which offer types are available for each publishing option </ul></li>
-
+- How to determine the appropriate storefront for your solution
+- Which publishing options and calls-to-action are available in each storefront
+- Which offer types are available for each publishing option
 
 ## Selecting a storefront, publishing option, and offer type for your solution
 
 Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services:
 
-**Azure Marketplace** applications are technical "building-block" solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
-
 **Microsoft AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, Power BI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 
+**Azure Marketplace** applications are technical "building-block" solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
 
 ## Understand storefront selection
 
@@ -59,6 +58,3 @@ The publishing options available offer differentiated customer engagement while 
 - Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
 - Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 - Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
-
-
-
