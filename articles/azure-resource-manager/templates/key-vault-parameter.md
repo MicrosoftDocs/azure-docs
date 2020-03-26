@@ -229,7 +229,7 @@ Deploy the template and pass in the parameter file:
 
 ```azurecli-interactive
 az group create --name SqlGroup --location westus2
-az group deployment create \
+az deployment group create \
   --resource-group SqlGroup \
   --template-uri <template-file-URI> \
   --parameters <parameter-file>

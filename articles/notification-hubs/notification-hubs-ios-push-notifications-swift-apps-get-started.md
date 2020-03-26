@@ -1,5 +1,5 @@
 ﻿---
-title: Push notifications to Swift iOS apps that use Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to Swift iOS apps that use Azure Notification Hubs | Microsoft Docs
 description: Learn how to push notifications to Swift iOS apps that use Azure Notification Hubs. 
 services: notification-hubs
 documentationcenter: ios
@@ -19,7 +19,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ---
 
-# Tutorial: Push notifications to Swift iOS apps that use the Notification Hubs REST API
+# Tutorial: Send push notifications to Swift iOS apps using Notification Hubs REST API
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -307,7 +307,7 @@ To add and configure the bridging header:
     #endif /* BridgingHeader_h */
     ```
 
-1. Update the Target’s **Build Settings** to reference the bridging header:
+1. Update the Target's **Build Settings** to reference the bridging header:
 
    1. Open the **Building Settings** tab and scroll down to the **Swift Compiler** section.
 

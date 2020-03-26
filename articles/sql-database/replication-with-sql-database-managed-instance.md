@@ -36,7 +36,6 @@ Transactional replication is in public preview on [Azure SQL Database managed in
 
 Configuring a managed instance to function as a publisher and/or a distributor requires:
 
-- That the managed instance is not currently participating in a geo-replication relationship.
 - That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been established between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure Storage Account share for the replication working directory.

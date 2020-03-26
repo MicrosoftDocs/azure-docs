@@ -58,8 +58,10 @@ Examples of the types of access that can be assigned for Azure AD administration
 It is important to take the time to understand the full list of allowed actions a built-in role provides to ensure that undue access to isn't granted. The list of built-in roles and the access they provide is constantly evolving, the full list of the Roles and their definitions can be viewed by reviewing the documentation linked above or by using the Azure PowerShell cmdlet:
 
 ```PowerShell
-PS C:\> Get-AzRoleDefinition
+Get-AzRoleDefinition
+```
 
+```output
 Name             : AcrDelete
 Id               : <<RoleID>>
 IsCustom         : False
@@ -74,8 +76,11 @@ AssignableScopes : {/}
 
 or the Azure CLI command:
 
-```bash
-PS C:\> az role definition list
+```azurecli-interactive
+az role definition list
+```
+
+```output
 [
   {
     "assignableScopes": [

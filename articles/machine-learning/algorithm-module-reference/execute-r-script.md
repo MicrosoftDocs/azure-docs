@@ -93,14 +93,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-After the pipeline is submitted successfully, you can preview the image in the right panel of the module
-![Uploaded-image](media/module/upload-image-in-r-script.png)
+After the pipeline run is finished, you can preview the image in the right panel of the module
+
+> [!div class="mx-imgBorder"]
+> ![Uploaded-image](media/module/upload-image-in-r-script.png)
 
 ## How to configure Execute R Script
 
 The **Execute R Script** module contains sample code that you can use as a starting point. To configure the **Execute R Script** module, provide a set of inputs and code to execute.
 
-![R-module](media/module/upload-image-in-r-script.png)
+![R-module](media/module/execute-r-script.png)
 
 Datasets stored in the designer are automatically converted to an R data frame when loaded with this module.
 
@@ -120,25 +122,25 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
     To help you get started, the **R Script** text box is pre-populated with sample code, which you can edit or replace.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * The script must contain a function named `azureml_main`, which is the entry point for this module.
 
@@ -152,7 +154,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Results
 
@@ -171,9 +173,9 @@ There are many ways that you can extend your pipeline by using custom R script. 
 
 The **Execute R Script** module supports arbitrary R script files as inputs. To do so, they must be uploaded to your workspace as part of the ZIP file.
 
-1. To upload a ZIP file containing R code to your workspace, click **New**, click **Dataset**, and then select **From local file** and the **Zip file** option.  
+1. To upload a ZIP file containing R code to your workspace, go to the **Datasets** asset page, click **Create dataset**, and then select **From local file** and the **File** dataset type option.  
 
-1. Verify that the zipped file is available in the **Saved Datasets** list.
+1. Verify that the zipped file is available in the **My Datasets** list under **Datasets** category in the left module tree.
 
 1.  Connect the dataset to the **Script Bundle** input port.
 

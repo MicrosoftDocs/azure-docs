@@ -4,9 +4,6 @@ description: Export an Azure SQL database to a BACPAC file using the Azure porta
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
-ms.devlang: 
-ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab

@@ -80,20 +80,16 @@ landingContent:
             url: tutorial-create-store-locator.md
       - linkListType: how-to-guide
         links:
+          - text: Use the Azure Maps map control
+            url: how-to-use-map-control.md
+          - text: Use the drawing tools module
+            url: set-drawing-options.md
+          - text: Use the services module
+            url: how-to-use-services-module.md
           - text: Use the spatial IO module
             url: how-to-use-spatial-io-module.md
-          - text: Add a simple data layer
-            url: spatial-io-add-simple-data-layer.md
-          - text: Read and write spatial data
-            url: spatial-io-read-write-spatial-data.md
-          - text: Add an OGC map layer
-            url: spatial-io-add-ogc-map-layer.md
-          - text: Connect to a WFS service
-            url: spatial-io-connect-wfs-service.md
-          - text: Leverage core operations
-            url: spatial-io-core-operations.md
-          - text: Supported data format details
-            url: spatial-io-supported-data-format-details.md
+          - text: Web SDK supported browsers
+            url: supported-browsers.md
       - linkListType: reference
         links:
           - text: Map control
@@ -135,8 +131,10 @@ landingContent:
         links:
           - text: Search for an address (geocoding)
             url: how-to-search-for-address.md
-          - text: Best practices for search
+          - text: Best Practices using Search Service
             url: how-to-use-best-practices-for-search.md
+          - text: Best Practices using Route Service
+            url: how-to-use-best-practices-for-routing.md
           - text: Render custom data on static map
             url: how-to-render-custom-data.md
       - linkListType: reference

@@ -5,8 +5,8 @@ description: In this quickstart, you learn how to use the Azure CLI upload a blo
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram

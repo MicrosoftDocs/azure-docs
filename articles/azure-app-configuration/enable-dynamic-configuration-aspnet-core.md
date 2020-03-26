@@ -49,7 +49,7 @@ Before you continue, finish [Create an ASP.NET Core app with App Configuration](
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-    ```CLI
+    ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 

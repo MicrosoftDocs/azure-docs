@@ -67,7 +67,7 @@ All examples in this document use the following feature to demonstrate different
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-		"zoneColor": "red"
+        "zoneColor": "red"
 	}
 }
 ```
@@ -787,6 +787,44 @@ This layer will render the point feature as shown in the image below:
 <center>
 
 ![Number format expression example](media/how-to-expressions/number-format-expression.png) </center>
+
+### Image expression
+
+An image expression can be used with the `image` and `textField` options of a symbol layer, and the `fillPattern` option of the polygon layer. This expression checks that the requested image exists in the style and will return either the resolved image name or `null`, depending on whether or not the image is currently in the style. This validation process is synchronous and requires the image to have been added to the style before requesting it in the image argument.
+
+**Example**
+
+The following example uses an `image` expression to add an icon inline with text in a symbol layer. 
+
+```javascript
+ //Load the custom image icon into the map resources.
+map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
+
+	//Create a data source and add it to the map.
+	datasource = new atlas.source.DataSource();
+	map.sources.add(datasource);
+
+	//Create a point feature and add it to the data source.
+	datasource.add(new atlas.data.Point(map.getCamera().center));
+
+	//Add a layer for rendering point data as symbols.
+	map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+		iconOptions: {
+			image: 'none'
+		},
+		textOptions: {
+			//Create a formatted text string that has an icon in it.
+			textField: ["format", 'Ricky\'s ', ["image", "wifi-icon"], ' Palace']
+		}
+	}));
+});
+```
+
+This layer will render the text field in the symbol layer as shown in the image below:
+
+<center>
+
+![Image expression example](media/how-to-expressions/image-expression.png) </center>
 
 ## Zoom expression
 

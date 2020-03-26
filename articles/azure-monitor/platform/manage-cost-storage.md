@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -107,7 +107,7 @@ To set the default retention for your workspace,
 3. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.
 
     ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
-	
+    
 The retention can also be [set via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via Azure Resource Manager. 
 
 Two data types -- `Usage` and `AzureActivity` -- are retained for 90 days by default, and there is no charge for for this 90 day retention. These data types are also free from data ingestion charges. 
@@ -137,9 +137,9 @@ To set the retention of a particular data type (in this example SecurityEvent) t
 ```JSON
     PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
     {
-	    "properties": 
-		{
-		    "retentionInDays": 730
+        "properties": 
+        {
+            "retentionInDays": 730
         }
     }
 ```
@@ -169,7 +169,7 @@ When the daily limit is reached, the collection of billable data types stops for
 
 ### Identify what daily data limit to define
 
-Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
+Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won�t be able to monitor your resources after the limit is reached. 
 
 ### Set the Daily Cap
 
@@ -177,7 +177,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-3. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.
+3. Daily cap is **OFF** by default � click **ON** to enable it, and then set the data volume limit in GB/day.
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -217,10 +217,11 @@ Heartbeat
 | summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-The get a count of nodes sending data seen can be determined using: 
+The get a count of nodes sending data in the last 24 hours use the query: 
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodes = dcount(computerName)
@@ -230,6 +231,7 @@ To get a list of nodes sending any data (and the amount of data sent by each) th
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
@@ -242,35 +244,52 @@ union withsource = tt *
 
 On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. 
 
+### Data volume for specific events
+
+To look at the size of ingested data for a particular set of events, you can query the specific table (in this example `Event`) and then restrict the query to the events of interest (in this example event ID 5145 or 5156):
+
+```kusto
+Event
+| where TimeGenerated > startofday(ago(31d)) and TimeGenerated < startofday(now()) 
+| where EventID == 5145 or EventID == 5156
+| where _IsBillable == true
+| summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
+``` 
+
+Note that the clause `where IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. 
+
 ### Data volume by solution
 
-The query used to view the billable data volume by solution is
+The query used to view the billable data volume by solution over the last month (excluding the last partial day) is:
 
 ```kusto
 Usage 
-| where TimeGenerated > startofday(ago(31d))
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Note that the clause `where IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. 
+The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal will look back beyond the default 24 hours. When using the Usage data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. 
 
 ### Data volume by type
 
 You can drill in further to see data trends for by data type:
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where TimeGenerated > startofday(ago(31d))
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), DataType | render barchart
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
 Or to see a table by solution and type for the last month,
 
 ```kusto
 Usage 
-| where TimeGenerated > startofday(ago(31d))
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
 | summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
@@ -282,6 +301,7 @@ The `Usage` data type does not include information at the completer level. To se
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
@@ -293,6 +313,7 @@ To see the **count** of billable events ingested per computer, use
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  | sort by eventCount nulls last
@@ -304,6 +325,7 @@ For data from nodes hosted in Azure you can get the **size** of ingested data __
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
@@ -312,6 +334,7 @@ For data from nodes hosted in Azure you can get the **size** of ingested data __
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   

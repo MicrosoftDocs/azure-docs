@@ -80,7 +80,7 @@ In the first setup example all your APIs are managed only from within your Virtu
 In this guide we will also expose the **developer portal** to external audiences through the Application Gateway. It requires additional steps to create developer portal's listener, probe, settings and rules. All details are provided in respective steps.
 
 > [!WARNING]
-> If you use Azure AD or third party authentication, please enable [cookie-based session affinity](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) feature in Application Gateway.
+> If you use Azure AD or third party authentication, please enable [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 
 > [!WARNING]
 > To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.

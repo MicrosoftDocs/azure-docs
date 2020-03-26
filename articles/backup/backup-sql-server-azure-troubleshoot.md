@@ -9,7 +9,7 @@ ms.date: 06/18/2019
 
 This article provides troubleshooting information for SQL Server databases running on Azure virtual machines.
 
-For more information about the backup process and limitations, see [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
+For more information about the backup process and limitations, see [About SQL Server backup in Azure VMs](sql-support-matrix.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 

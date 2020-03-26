@@ -117,7 +117,7 @@ For more detailed instructions for Application Proxy, see [Tutorial: Add an on-p
 
 ## Certificates for custom domains
 
-A certificate creates the secure SSL connection for your custom domain. 
+A certificate creates the secure TLS connection for your custom domain. 
 
 ### Certificate formats
 

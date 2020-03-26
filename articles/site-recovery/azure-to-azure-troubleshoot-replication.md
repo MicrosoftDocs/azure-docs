@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot replication of Azure VMs with Azure Site Recovery 
+title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery
 author: sideeksh
 manager: rochakm
@@ -37,12 +37,12 @@ There are two limits to consider: data churn per disk and data churn per virtual
 
 **Replication storage target** | **Average I/O size for source disk** |**Average data churn for source disk** | **Total data churn per day for source data disk**
 ---|---|---|---
-Standard storage | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
-Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
+Standard storage | 8 KB    | 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 8 KB    | 2 MB/s | 168 GB per disk
+Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
 
 ### Solution
 
@@ -93,7 +93,7 @@ Following are some of the most common issues.
 
 #### Known issue in SQL Server 2016 and 2017
 
-**How to fix**: Refer to the article [Error occurs when you back up a virtual machine with non-component based backup in SQL Server 2016 and 2017](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component).
+**How to fix**: Refer to the article [Error occurs when you back up a virtual machine with non-component based backup in SQL Server 2016 and 2017](https://support.microsoft.com/en-us/help/4508218/cumulative-update-16-for-sql-server-2017).
 
 #### You're using Azure Storage Spaces Direct Configuration
 
@@ -103,11 +103,11 @@ Following are some of the most common issues.
 
 To troubleshoot further, check the files on the source machine to get the exact error code for failure:
 
-	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 To locate the errors in the file, search for the string "vacpError" by opening the vacp.log file in an editor.
 
-	Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 In the preceding example, **2147754994** is the error code that tells you about the failure following this sentence.
 

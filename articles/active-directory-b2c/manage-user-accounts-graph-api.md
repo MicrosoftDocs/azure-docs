@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -59,6 +59,28 @@ In the Microsoft Graph API, both local and federated identities are stored in th
 |signInType|string| Specifies the user sign-in types in your directory. For local account:  `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`,  `userName`, or any other type you like. Social account must be set to  `federated`.|
 |issuer|string|Specifies the issuer of the identity. For local accounts (where **signInType** is not `federated`), this property is the local B2C tenant default domain name, for example `contoso.onmicrosoft.com`. For social identity (where **signInType** is  `federated`) the value is the name of the issuer, for example `facebook.com`|
 |issuerAssignedId|string|Specifies the unique identifier assigned to the user by the issuer. The combination of **issuer** and **issuerAssignedId** must be unique within your tenant. For local account, when **signInType** is set to `emailAddress` or `userName`, it represents the sign-in name for the user.<br>When **signInType** is set to: <ul><li>`emailAddress` (or starts with `emailAddress` like `emailAddress1`) **issuerAssignedId** must be a valid email address</li><li>`userName` (or any other value), **issuerAssignedId** must be a valid [local part of an email address](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** represents the federated account unique identifier</li></ul>|
+
+The following **Identities** property, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity. 
+
+ ```JSON
+ "identities": [
+     {
+       "signInType": "userName",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "johnsmith"
+     },
+     {
+       "signInType": "emailAddress",
+       "issuer": "contoso.onmicrosoft.com",
+       "issuerAssignedId": "jsmith@yahoo.com"
+     },
+     {
+       "signInType": "federated",
+       "issuer": "facebook.com",
+       "issuerAssignedId": "5eecb0cd"
+     }
+   ]
+ ```
 
 For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
 
@@ -116,9 +138,9 @@ After you've obtained the code sample, configure it for your environment and the
     ```
 1. Run the application with the `dotnet` command:
 
-```console
-dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
-```
+    ```console
+    dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+    ```
 
 The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
 
