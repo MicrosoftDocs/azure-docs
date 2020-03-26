@@ -14,9 +14,7 @@ ms.reviewer: sngun
 
 In this article you will set up a **robust, key rotation agnostic,** solution to manage Azure Cosmos DB keys by leveraging [Managed Service Identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses an Azure Function. However, you can achieve this solution by using any service that supports managed service identities. 
 
-You'll learn how to:
-
-* Create an Azure Function that has robust access to data without copying any Azure Cosmos DB Key.
+You'll learn how to create an Azure Function that can access Azure Cosmos DB without copying a key.
 
 You will build an Azure Function that handles summarizing the last hour of sales information. The function runs every hour, it reads a set of sale receipts from Azure Cosmos DB. Then the function will create an hourly summary of sales and store it back in the Azure Cosmos container. To simplify the scenario, the processed receipts are deleted by a configured [Time To Live](./time-to-live.md) setting.
 
@@ -72,7 +70,7 @@ For your scenario, you will read the sale receipt documents, summarize them, and
 
 Now we have a function app that has a system-assigned managed identity. That identity is given the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, and run the business logic to summarize the sales receipt.
 
-We'll be using to get the Azure Cosmos DB Keys is the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys).
+This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos account keys.
 
 > [!IMPORTANT] 
 > If you want to [assign the **Cosmos DB Account Reader**](#grant-the-system-assigned-managed-identity-access-to-your-azure-cosmos-db) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will only populate the read only keys.
