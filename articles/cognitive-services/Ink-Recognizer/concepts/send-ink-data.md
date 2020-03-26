@@ -25,7 +25,7 @@ The Ink Recognizer API does not use Optical Character Recognition(OCR). OCR serv
 The Ink Recognizer API requires the X and Y coordinates that represent the ink strokes created by an input device, from the moment it touches the detection surface to when it's lifted. The points of each stroke must be a string of comma separated values, and be formatted in JSON like the example below. In addition, each ink stroke must have a unique ID in each request. If the ID is repeated within the same request, the API will return an error. For the most accurate recognition results, have at least eight digits after the decimal point. The origin (0,0) of the canvas is assumed to be the top left corner of the inking canvas.
 
 > [!NOTE]
-> The following example isn't valid JSON. You can find a full Ink Recognizer JSON request on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
+> The following example isn't valid JSON. You can find a full Ink Recognizer JSON request on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-ink-strokes.json).
  
 ```json
 {
