@@ -18,7 +18,7 @@ Azure Synapse Analytics uses Spark pools (preview) for data processing. Apache S
 * Machine Learning
 * Impromptu querying -->
 
-## What is .NET for Apache Spark
+# What is .NET for Apache Spark
 
 [.NET for Apache Spark](https://dot.net/spark) provides free, open-source, and cross-platform .NET support for Spark. .NET for Apache Spark provides .NET bindings for Spark that allow you to access Spark APIs through C# and F# and gives you the ability to write and execute user-defined functions for Spark using .NET.
 
@@ -38,7 +38,7 @@ When creating a new notebook, you choose a language kernel that you wish to expr
 
 To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **.NET Spark (C#)** as your kernel and attach the notebook to an existing Spark pool. 
 
-The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box (with the Spark session variable `spark` already predefined). For more details on the available notebook capabilities [see below](#SparkNET-C-kernel-features).
+The .NET Spark notebook is based on the .NET interactive experiences and provides interactive C# experiences with the ability to use .NET for Spark out of the box (with the Spark session variable `spark` already predefined). For more details on the available notebook capabilities [see below](#sparknet-c-kernel-features).
 
 ## .NET for Apache Spark scenarios
 
