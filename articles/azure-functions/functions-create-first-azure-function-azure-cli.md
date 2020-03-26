@@ -295,7 +295,9 @@ Functions in msdocs-azurefunctions-qs:
 ::: zone pivot="programming-language-java"  
 ## Deploy the function project to Azure
 
-A function app and related resources are created in Azure when you first deploy your function app. Settings for the Azure resources being created are defined in the **configuration** element of the plugin with a **groupId** of `com.microsoft.azure` in the generated pom.xml file. You can change these settings to control how resources are created in Azure. In this article, you'll accept the defaults.
+A function app and related resources are created in Azure when you first deploy your function app. Settings for the Azure resources being created are defined in the **configuration** element of the plugin with a **groupId** of `com.microsoft.azure` in the generated pom.xml file. You can change these settings to control how resources are created in Azure. For a complete list of settings supported by the Maven plug-in, see the [configuration details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).. 
+
+In this article, you'll accept the defaults.
 
 Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
 
