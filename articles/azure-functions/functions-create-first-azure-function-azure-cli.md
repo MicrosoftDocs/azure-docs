@@ -3,7 +3,7 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 01/28/2020
 ms.topic: quickstart
-
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Quickstart: Create a function in Azure that responds to HTTP requests
@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
++ [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions (x64).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)

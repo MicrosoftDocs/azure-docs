@@ -17,6 +17,8 @@ ms.author: pafarley
 
 # What is Azure Content Moderator?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Azure Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When this material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. See the [Moderation APIs](#moderation-apis) section to learn more about what the different content flags indicate.
 
 ## Where it's used

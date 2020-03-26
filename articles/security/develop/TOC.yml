@@ -70,6 +70,8 @@
         href: threat-modeling-tool-releases-71610151.md
       - name: Threat Modeling Tool update release 7.3.00206.1 - February 11 2020
         href: threat-modeling-tool-releases-73002061.md
+      - name: Threat Modeling Tool update release 7.3.00316.1 - March 22 2020
+        href: threat-modeling-tool-releases-73003161.md
     - name: Mitigations
       href: threat-modeling-tool-mitigations.md
       items:

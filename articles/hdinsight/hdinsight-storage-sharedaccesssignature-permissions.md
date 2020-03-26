@@ -87,7 +87,7 @@ Save the SAS token that is produced at the end of each method. The token will lo
 
 Replace `RESOURCEGROUP`, `STORAGEACCOUNT`, and `STORAGECONTAINER` with the appropriate values for your existing storage container. Change directory to `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` or revise the `-File` parameter to contain the absolute path for `Set-AzStorageblobcontent`. Enter the following PowerShell command:
 
-```PowerShell
+```powershell
 $resourceGroupName = "RESOURCEGROUP"
 $storageAccountName = "STORAGEACCOUNT"
 $containerName = "STORAGECONTAINER"
@@ -170,7 +170,7 @@ The use of variables in this section is based on a Windows environment. Slight v
 
 2. Set the retrieved primary key to a variable for later use. Replace `PRIMARYKEY` with the retrieved value in the prior step, and then enter the command below:
 
-    ```azurecli
+    ```console
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # How to use sys_schema for performance tuning and database maintenance in Azure Database for MySQL
@@ -24,7 +24,7 @@ There are 52 views in the sys_schema, and each view has one of the following pre
 - User: Resources consumed and grouped by users. Examples are file I/Os, connections, and memory.
 - Wait: Wait events grouped by host or user.
 
-Now let’s look at some common usage patterns of the sys_schema. To begin with, we’ll group the usage patterns into two categories: **Performance tuning** and **Database maintenance**.
+Now let's look at some common usage patterns of the sys_schema. To begin with, we'll group the usage patterns into two categories: **Performance tuning** and **Database maintenance**.
 
 ## Performance tuning
 
@@ -50,7 +50,7 @@ To troubleshoot database performance issues, it may be beneficial to identify th
 
 ![summary by statement](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That’s a long time and many IOs. You can reduce this activity by either disable your slow query log or decrease the frequency of slow query login Azure portal.
+In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That's a long time and many IOs. You can reduce this activity by either disable your slow query log or decrease the frequency of slow query login Azure portal.
 
 ## Database maintenance
 

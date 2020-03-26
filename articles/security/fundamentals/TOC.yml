@@ -54,8 +54,8 @@
     href: steps-secure-identity.md
   - name: Choose passwordless 
     href: ad-passwordless.md
-  - name: Choose Azure AD authentication
-    href: choose-ad-authn.md
+
+
 
 - name: Network security
   items:

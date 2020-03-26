@@ -15,6 +15,8 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It ingests text from forms and outputs structured data that includes the relationships in the original file. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Form Recognizer is comprised of custom models, the prebuilt receipt model, and the layout API. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application.
 
 Form Recognizer is made up of the following services:
@@ -46,7 +48,7 @@ Form Recognizer also includes a model for reading English sales receipts from th
 
 ## Layout API
 
-Form Recognizer can also extract text and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR). 
+Form Recognizer can also extract text and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR).
 
 ## Get started
 
@@ -56,9 +58,9 @@ Follow a quickstart to get started extracting data from your forms. We recommend
   * Train without labels
     * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
     * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
-  * Train with labels 
+  * Train with labels
     * [Train a Form Recognizer model with labels using the sample labeling tool](quickstarts/label-tool.md)
-    * [Train a Form Recognizer model with labels using REST API and Python](quickstarts/python-labeled-data.md) 
+    * [Train a Form Recognizer model with labels using REST API and Python](quickstarts/python-labeled-data.md)
 * Prebuilt receipts - extract data from USA sales receipts
   * [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
   * [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
@@ -89,7 +91,7 @@ The input requirements for the receipt model are slightly different.
 
 * Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
 * File size must be less than 20 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels. 
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
 * PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
 * For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
 

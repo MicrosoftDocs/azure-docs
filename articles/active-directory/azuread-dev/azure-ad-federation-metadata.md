@@ -4,16 +4,15 @@ description: This article describes the federation metadata document that Azure 
 services: active-directory
 author: rwike77
 manager: CelesteDG
-
-ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Federation metadata

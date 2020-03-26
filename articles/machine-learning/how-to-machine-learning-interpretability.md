@@ -3,7 +3,6 @@ title: Model interpretability in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
@@ -21,6 +20,7 @@ ms.date: 10/25/2019
 Interpretability is critical for data scientists, auditors, and business decision makers alike to ensure compliance with company policies, industry standards, and government regulations:
 
 + Data scientists need the ability to explain their models to executives and stakeholders, so they can understand the value and accuracy of their findings. The also require interpretability to debug their models and make informed decisions about how to improve them. 
+
 
 + Legal auditors require tools to validate models with respect to regulatory compliance and monitor how models' decisions are impacting humans. 
 
@@ -67,6 +67,7 @@ Learn about [Part 1] supported interpretability techniques, [Part 2] supported m
 
 
 ### [Part 1] Supported interpretability techniques
+
 
 This package uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
 
