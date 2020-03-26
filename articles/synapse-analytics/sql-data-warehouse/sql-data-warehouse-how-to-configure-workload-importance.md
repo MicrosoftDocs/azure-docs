@@ -45,8 +45,8 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 ```
 
 ## Next Steps
-- For more information about workload management, see [Workload Classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md)
-- For more information on Importance, see [Workload Importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md)
+- For more information about workload management, see [Workload Classification](sql-data-warehouse-workload-classification.md)
+- For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Go to Manage and monitor Workload Importance](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

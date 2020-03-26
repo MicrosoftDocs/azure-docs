@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/24/2020
 ms.author: radeltch
 
 ---
@@ -576,6 +576,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure colocation col-<b>NW2</b>_nfs_on_drbd inf: \
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
+
+   The `crossmnt` option in the `exportfs` cluster resources is present in our documentation for backward compatibility with older SLES versions.  
 
 1. **[1]** Disable maintenance mode
    

@@ -23,7 +23,7 @@ Use your organization's logo and custom color schemes to provide a consistent lo
 >Adding custom branding requires you to use Azure Active Directory Premium 1, Premium 2, or Basic editions, or to have an Office 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Customize your Azure AD sign-in page
-You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), or when passing a domain variable, such as [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/contoso.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
 
 Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears. After the user has signed in, the branding may take 15 minutes or longer to appear. 
 
@@ -126,9 +126,9 @@ Add your custom branding to pages by modifying the end of the URL with the text,
 **Examples:**
 
 **Original URL:** https://aka.ms/MFASetup<br>
-**Custom URL:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+**Custom URL:** `https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com`
 
 **Original URL:** https://aka.ms/SSPR<br>
-**Custom URL:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+**Custom URL:** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
 
  

@@ -221,7 +221,7 @@ $reboot = Set-CryptoSetting 1 Enabled 1 DWord $reboot
 $reboot = Set-CryptoSetting 2 DisabledByDefault 0 DWord $reboot
 $reboot = Set-CryptoSetting 2 Enabled 1 DWord $reboot
 
-# Ensure TLS 1.1 disabled for client/server
+# Ensure TLS 1.1 enabled for client/server
 $reboot = Set-CryptoSetting 4 DisabledByDefault 0 DWord $reboot
 $reboot = Set-CryptoSetting 4 Enabled 1 DWord $reboot
 $reboot = Set-CryptoSetting 5 DisabledByDefault 0 DWord $reboot
