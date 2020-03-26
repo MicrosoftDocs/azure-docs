@@ -39,14 +39,25 @@ Next, create a function in the new function app.
 
 1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
 
+<<<<<<< HEAD
+=======
+    ![HTTP trigger function settings](./media/functions-create-first-azure-function/function-app-http-trigger-settings.png)
+
+>>>>>>> cacc95fb659... Functions update for portal UX refresh - batch 1
     Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
 
 1. In your new HTTP trigger function, select **Code + Test** from the left menu, then select **Get function URL** from the top menu.
+<<<<<<< HEAD
 
     ![Select Get function URL](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
 
+=======
+
+    ![Select Get function URL](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+>>>>>>> cacc95fb659... Functions update for portal UX refresh - batch 1
 1. In the **Get function URL** dialog box, select **default** from the drop-down list, and then select the **Copy to clipboard** icon. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
@@ -59,7 +70,11 @@ Next, create a function in the new function app.
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
+<<<<<<< HEAD
 1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
+=======
+1. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to the **Code + Test** page in the portal and select the arrow at the bottom of the screen to expand the **Logs**. Select **Test** from the top menu.
+>>>>>>> cacc95fb659... Functions update for portal UX refresh - batch 1
 
    ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
