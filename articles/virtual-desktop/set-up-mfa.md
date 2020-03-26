@@ -11,15 +11,15 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Set up and enforce Azure multi-factor authentication
+# Set up Azure Multi-Factor authentication
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client.
 
-When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure AD Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
+When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure Active Directory (AD) Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
 
 ![A screenshot of the credentials window where you enter your password. A check box labeled "Remember me" is underneath the password field.](media/credentials-window.png)
 
-While this is great for some scenarios, in Enterprise scenarios or personal devices, this could make your deployment less secure. To protect your users, you'll need to make sure the client keeps asking for Azure multi-factor authentication credentials. This article will show you how to enable this feature by opting in to the Conditional Access policy for Windows Virtual Desktop.
+While this is great for some scenarios, in Enterprise scenarios or personal devices, this could make your deployment less secure. To protect your users, you'll need to make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials. This article will show you how to enable this feature by opting in to the Conditional Access policy for Windows Virtual Desktop.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ Before you start, make sure you have these things:
 
 ## Whitelist users with a filter for trusted locations
 
-Now that you've set up your Selective Access policy, you have the option to create a filter for policy enforcement based on your company's public IP address. With this filter, users working in trusted locations can access your Windows Virtual Desktop environment without multi-factor authentication. However, when they switch to a network outside of a trusted location, they'll get the multi-factor authentication prompt again.
+Now that you've set up your Selective Access policy, you have the option to create a filter for policy enforcement based on your company's public IP address. With this filter, users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted location, they'll get the MFA prompt again.
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
