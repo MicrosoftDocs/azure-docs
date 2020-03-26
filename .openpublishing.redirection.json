@@ -50389,6 +50389,16 @@
       "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
 	  "redirect_document_id": true
     },
+	{
+	  "source_path": "articles/azure-monitor/app/opencensus-go.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+	},
+	{
+	  "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+	},
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
