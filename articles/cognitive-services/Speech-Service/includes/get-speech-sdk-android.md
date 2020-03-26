@@ -8,7 +8,7 @@ ms.author: dapine
 
 The Android Speech SDK is available natively, or with the Xamarin.Android and the .NET Standard SDK.
 
-# [Native](#tab/android/native)
+# [Android Studio](#tab/android-studio)
 
 <div class="icon is-large">
     <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg">
@@ -32,7 +32,7 @@ To consume the package from your Android Studio project, make the following chan
 
 The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).
 
-# [Xamarin.Android](#tab/android/xamarin)
+# [Xamarin.Android](#tab/xamarin)
 
 <div class="icon is-large">
     <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">

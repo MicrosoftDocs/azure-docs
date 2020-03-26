@@ -173,11 +173,11 @@ sudo apt-get install libssl1.0.0 libasound2
 
 # [Node.js](#tab/nodejs)
 
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-nodejs.md)]
+[!INCLUDE [Get the Node.js Speech SDK](includes/get-speech-sdk-nodejs.md)]
 
 # [Browser](#tab/browser)
 
-[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-browser.md)]
+[!INCLUDE [Get the Browser Speech SDK](includes/get-speech-sdk-browser.md)]
 
 ---
 

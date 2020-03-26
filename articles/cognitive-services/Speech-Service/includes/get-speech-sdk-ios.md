@@ -1,6 +1,6 @@
 The iOS Speech SDK is available natively, or with the Xamarin.iOS and the .NET Standard SDK.
 
-# [Native](#tab/ios/native)
+# [Xcode](#tab/ios-xcode)
 
 <div class="icon is-large">
     <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg">
@@ -8,7 +8,7 @@ The iOS Speech SDK is available natively, or with the Xamarin.iOS and the .NET S
 
 https://aka.ms/csspeech/iosbinary
 
-# [Xamarin.iOS](#tab/ios/xamarin)
+# [Xamarin.iOS](#tab/xamarin)
 
 <div class="icon is-large">
     <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">
