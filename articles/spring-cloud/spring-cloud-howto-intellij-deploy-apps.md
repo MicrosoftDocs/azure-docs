@@ -24,7 +24,7 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
 
 1. In the plugin configuration dialog, select **Install Plugin from Disk**.  Find the preview bits zip file you downloaded in step 1.
 
-    >![Install plugin](media/spring-cloud-intellij-howto/install-plugin.png)
+    ![Install plugin](media/spring-cloud-intellij-howto/install-plugin.png)
 
 1. Click **Restart IDE** to restart IntellJ.
 
@@ -99,15 +99,15 @@ In the property view, you will see 'N/A' in the URL, because by default the publ
     >![Navigate in Browser 2](media/spring-cloud-intellij-howto/navigate-in-browser-2.png)
 
 ## Add Azure specific dependencies
-Read this [tutorial](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) for Azure specific dependencies. To simplify the steps and configure dependencies, this plugin provides the dependency management. 
+Read this [tutorial](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) for Azure specific dependencies. To simplify the steps and configure dependencies, this plugin provides the dependency management. 
 1. Open the pom.xml file in IntelliJ
 1. Right click on the editor, and select Add Azure Spring Cloud dependency menu. Wait a few minutes for the dependencies to resolve.  It will update your pom.xml file with the compatible latest version mentioned in the [tutorial](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment).
 
     >![Azure specific dependencies](media/spring-cloud-intellij-howto/azure-dependencies.png)
 
 ## Show streaming logs
-<TODO>
+TODO
 
 ## See also
 * [Create a Hello World web app for Azure App Service using IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) 
+* [Prepare a Java Spring application for deployment in Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) 
