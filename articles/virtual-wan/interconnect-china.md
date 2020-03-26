@@ -7,13 +7,13 @@ author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.author: flklaffe & sukishen
+ms.author: sukishen
 
 ---
 
 # Interconnect with China using Azure Virtual WAN and Secure Hub
 
-When looking at common automotiv, manufacturing, logistics industries or other institutes like embassies, there is often the question about how to improve interconnection with China. Those improvements are mostly relevant for using Cloud Services like Office 365, Azure Global Services, or interconnect branches inside of China with a customer backbone.
+When looking at common automotive, manufacturing, logistics industries or other institutes like embassies, there is often the question about how to improve interconnection with China. Those improvements are mostly relevant for using Cloud Services like Office 365, Azure Global Services, or interconnect branches inside of China with a customer backbone.
 
 In most of the cases, customers are struggling with high latencies, low bandwidth, unstable connection, and high costs connecting to outside of China (for example, Europe or the United States).
 
