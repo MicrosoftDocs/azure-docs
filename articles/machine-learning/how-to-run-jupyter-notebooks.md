@@ -103,7 +103,7 @@ You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Mach
 
 ## Run an experiment
 
-To run an experiment from a Notebook, you first connect to a running [compute instance](concept-compute-instance). If you don't have a compute instance, use these steps to create one: 
+To run an experiment from a Notebook, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
 
 1. Select **+** in the Notebook toolbar. 
 2. Name the Compute and choose a **Virtual Machine Size**. 
@@ -112,7 +112,7 @@ To run an experiment from a Notebook, you first connect to a running [compute in
 
 ### View logs and output
 
-Use [Notebook widgets](https://docs.microsoft.com/en-us/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [Notebook widgets](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
 
 ## Change the notebook environment
 
