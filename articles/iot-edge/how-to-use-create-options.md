@@ -13,7 +13,7 @@ services: iot-edge
 
 # How to configure container create options for IoT Edge modules
 
-The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like passing environment variables to the module, allowing or restricting the module's access to the host device's resources, or configuring networking.
+The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like allowing or restricting the module's access to the host device's resources, or configuring networking.
 
 IoT Edge modules are implemented as Docker-compatible containers on your IoT Edge device. Docker offers many options for creating containers, and those options apply to IoT Edge modules, too. For more information, see [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
@@ -53,7 +53,7 @@ If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Cod
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-Another tip for formatting createOptions is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON formatting. For example:
+One tip for writing create options is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON. For example:
 
 ![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub.png)
 
@@ -64,7 +64,6 @@ Container create options enable many scenarios, but here are some that come up m
 * [Give modules access to host storage](how-to-access-host-storage-from-module.md)
 * [Map host port to module port](#map-host-port-to-module-port)
 * [Restrict module memory and CPU usage](#restrict-module-memory-and-cpu-usage)
-* [Create environment variables in modules](#create-environment-variables-in-modules)
 
 ### Map host port to module port
 
@@ -122,49 +121,6 @@ Once stringified for the final deployment manifest, these values would look like
 ```json
 "createOptions":"{\"HostConfig\":{\"Memory\":268435456,\"MemorySwap\":536870912,\"CpuPeriod\":25000}}"
 ```
-
-### Create environment variables in modules
-
-If you need to pass variables to your modules at runtime, you can create environment variables inside the module using the create options. These variables can be called from the module using an operating system get environment command. You can declare environment variables using the **Env** setting in the [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
-
-In the template.json format, an environment variable is declared with the following example:
-
-```json
-"createOptions": {
-  "Env": [
-    "variable1=100",
-    "variable2=200"
-  ]
-}
-```
-
-Once stringified for the final deployment manifest, these values would look like the following example:
-
-```json
-"createOptions": "{\"Env\":[\"variable1=100\",\"variable2=200\"]}"
-```
-
->[!TIP]
->You can pass environment variables to a module in two locations in the deployment manifest. The first is in the create options, and the second is as part of the module definition. For example:
->
->```json
->"modules": {
->  "moduleA": {
->    "version": "1.0",
->    "type": "docker",
->    "status": "running",
->    "restartPolicy": "always",
->    "env": {
->      "variable1": {"value": "100"},
->      "variable2": {"value": "200"},
->    },
->    "settings": {
->      "image": "${MODULES.moduleA.arm32v7}",
->      "createOptions": { }
->    }
->  }
->}
->```
 
 ## Next steps
 
