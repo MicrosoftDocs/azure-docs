@@ -354,6 +354,8 @@ Finally, publish the policy definitions using the `Publish-GuestConfigurationPol
 cmdlet only has the **Path** parameter that points to the location of the JSON files created by
 `New-GuestConfigurationPolicy`.
 
+Publishing a new policy definition will require **Resource Policy Contributor** access in Azure.
+
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
   -Path '.\policyDefinitions'
@@ -381,6 +383,23 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
+Assigning an Azure Policy with _DeployIfNotExists_ type requires an additional level of access.
+To grant the least privilege, you can create a custom role definition
+that extends **Resource Policy Contributor**. The example below creates a role named
+**Resource Policy Contributor DINE** with the additional permission *Microsoft.Authoirzation/roleAssignments/write*.
+
+```azurepowershell-interactive
+$subscriptionid = '00000000-0000-0000-0000-000000000000'
+$role = Get-AzRoleDefinition "Resource Policy Contributor"
+$role.Id = $null
+$role.Name = "Resource Policy Contributor DINE"
+$role.Description = "Can assign Policies that require remediation."
+$role.Actions.Clear()
+$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
+$role.AssignableScopes.Clear()
+$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
+New-AzRoleDefinition -Role $role
+```
 
 ### Using parameters in custom Guest Configuration policies
 
