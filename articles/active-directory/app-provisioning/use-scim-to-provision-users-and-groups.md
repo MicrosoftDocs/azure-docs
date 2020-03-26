@@ -761,13 +761,13 @@ The open source .NET Core [reference code](https://aka.ms/SCIMReferenceCode) pub
    > [!Note]
    > The reference code is intended to help you get started building your SCIM endpoint and is provided "AS IS." Contributions from the community are welcome to help build and maintain the code.
 
-The solution is composed of two projects, Microsoft.SCIM and Microsoft.SCIM.WebHostSample.
+The solution is composed of two projects, _Microsoft.SCIM_ and _Microsoft.SCIM.WebHostSample_.
 
-The Microsoft.SCIM project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface Microsoft.SCIM.IProvider, requests are translated into calls to the provider’s methods, which would be programmed to operate on an identity store.
+The _Microsoft.SCIM_ project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface _Microsoft.SCIM.IProvider_, requests are translated into calls to the provider’s methods, which would be programmed to operate on an identity store.
 
 ![Breakdown: A request translated into calls to the provider's methods](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-The Microsoft.SCIM.WebHostSample project is a Visual Studio ASP.NET Core Web Application, based on the ***Empty*** template. This allows the sample code to be deployed as standalone, hosted in containers or within Internet Information Services. It also implements the Microsoft.SCIM.IProvider interface using in memory classes as the sample identity store.
+The _Microsoft.SCIM.WebHostSample_ project is a Visual Studio ASP.NET Core Web Application, based on the _Empty_ template. This allows the sample code to be deployed as standalone, hosted in containers or within Internet Information Services. It also implements the _Microsoft.SCIM.IProvider_ interface keeping classes in memory as a sample identity store.
 
 ```csharp
     public class Startup
@@ -787,7 +787,8 @@ The Microsoft.SCIM.WebHostSample project is a Visual Studio ASP.NET Core Web App
 
 ### Building a custom SCIM endpoint
 
-The service must have an HTTP address and server authentication certificate of which the root certification authority is one of the following names: 
+The SCIM service must have an HTTP address and server authentication certificate of which the root certification authority is one of the following names:
+
 * CNNIC
 * Comodo
 * CyberTrust
@@ -803,14 +804,16 @@ The .NET Core SDK includes an HTTPS development certificate that can be used dur
 * Microsoft.SCIM.WebHostSample: https://localhost:5001
 * IIS Express: https://localhost:44359/
 
-For more information on HTTPS in ASP.NET Core use the following link: [Enforce HTTPS in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.1&tabs=visual-studio)
+For more information on HTTPS in ASP.NET Core use the following link:
+[Enforce HTTPS in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
 
 ### Handling endpoint authentication
 
-Requests from Azure Active Directory include an OAuth 2.0 bearer token. Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant. 
-In the token, the issuer is identified by an iss claim, like "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/". In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, ***cbb1a5ac-f33b-45fa-9bf5-f37db0fed422***, is a unique identifier of the Azure Active Directory tenant for which the token was issued.
+Requests from Azure Active Directory include an OAuth 2.0 bearer token. Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant.
 
-The audience for the token will be the application template ID for the application in the gallery, each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests. The application template ID for each application in the gallery varies, please contact ProvisioningFeedback@microsoft.com for questions around the application template ID for a gallery application. The application template ID for all custom apps is ***8adf8e6e-67b2-4cf2-a259-e3dc5476c621***.
+In the token, the issuer is identified by an iss claim, like `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In this example, the base address of the claim value, `https://sts.windows.net`, identifies Azure Active Directory as the issuer, while the relative address segment, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, is a unique identifier of the Azure Active Directory tenant for which the token was issued.
+
+The audience for the token will be the application template ID for the application in the gallery, each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests. The application template ID for each application in the gallery varies, please contact [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) for questions around the application template ID for a gallery application. The application template ID for all custom apps is _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_.
 
 In the sample code, requests are authenticated using the Microsoft.AspNetCore.Authentication.JwtBearer package. The following code enforces that requests to any of the service’s endpoints are authenticated using the bearer token issued by Azure Active Directory for a specified tenant:
 
@@ -850,8 +853,9 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
 
 A bearer token is also required to use of the provided [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
 
-For more information on multiple environments in ASP.NET Core use the following link: [Use multiple environments in ASP.NET Core](
-https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-3.1)
+For more information on multiple environments in ASP.NET Core use the following link:
+[Use multiple environments in ASP.NET Core](
+https://docs.microsoft.com/aspnet/core/fundamentals/environments)
 
 The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
 
@@ -881,9 +885,10 @@ The following code enforces that requests to any of the service’s endpoints ar
                             };
                     });
             }
+	    ...
 ```
 
-Send a GET request to the Token controller to get a valid bearer token, the method GenerateJSONWebToken is responsible to create a token matching the parameters configured for development:
+Send a GET request to the Token controller to get a valid bearer token, the method _GenerateJSONWebToken_ is responsible to create a token matching the parameters configured for development:
 
 ```csharp
         private string GenerateJSONWebToken()
