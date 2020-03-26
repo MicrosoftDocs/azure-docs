@@ -31,7 +31,7 @@ This article applies to you if you are using the following components:
 
 If you're unsure whether your code or custom tools are calling the classic APIs, look at the following:
 
-- Review the URI referenced in your code or tool. The classic APIs use the URI https://management.core.windows.net. You should be using the newer URI for the Resource Manager based APIs begins with https://management.azure.com/.
+- Review the URI referenced in your code or tool. The classic APIs use the URI https://management.core.windows.net. You should be using the newer URI for the Resource Manager based APIs begins with `https://management.azure.com/`.
 
 - Compare the assembly name on your machine. The older classic assembly is  at  https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 

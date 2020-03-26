@@ -50,7 +50,7 @@ To add a repository to your lab, first, get key information from your repository
 
 ### Get the Azure Repos clone URL and personal access token
 
-1. Go to the home page of your team collection (for example, https://contoso-web-team.visualstudio.com), and then select your project.
+1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 2. On the project home page, select **Code**.
 3. To view the clone URL, on the project **Code** page, select **Clone**.
 4. Save the URL. You use the URL later.
