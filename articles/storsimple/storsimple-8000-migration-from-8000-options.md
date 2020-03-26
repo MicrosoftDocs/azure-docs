@@ -15,7 +15,7 @@ ms.author: v-grpr
 > [!IMPORTANT]
 > On December 31, 2022 the StorSimple 8000 series will reach end of support (EOS) status. We recommend that StorSimple 8000 series customers migrate to one of the alternatives described in the document.
 
-StorSimple 8000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series have an option to upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data.
+StorSimple 8000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series have an option to upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data.
 
 ## Migration options
 
@@ -61,13 +61,13 @@ Learn more about how to evolve to a cloud-consolidated enterprise at https://www
 
 ### Q. When do the StorSimple 8000 series devices reach end of service?
 
-A. StorSimple 8000 series reach [end of service](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%208000%20Series) in December 2022. The end of service implies that Microsoft will no longer be able to provide support for both hardware and software of these devices after December 2022. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
+A. StorSimple 8000 series reach [end of support](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The end of support implies that Microsoft will no longer be able to provide support for both hardware and software of these devices after December 2022. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
 
 ### Q. What happens to the data I have stored in Azure?  
 
-A. You can continue to use the data in Azure once you migrate it to a newer service. 
+A. You can continue to use the data in Azure once you migrate it to a newer service.
 
-### Q. What happens to the data I have stored locally on my StorSimple device? 
+### Q. What happens to the data I have stored locally on my StorSimple device?
 
 A. The data that is on the local device can be copied to the newer service as described in the migration documents.
 
@@ -81,7 +81,7 @@ A. Depending on their scenario, StorSimple 8000 series users have the following 
 
 * **Migrate to Azure File Sync**: Use this option when you want to switch to Azure native format. You can use Azure File Sync for centralized management of file shares.
 
-* You can contact Microsoft Support to discuss migration options not listed here.
+* **Other options**: You can contact Microsoft Support to discuss migration options not listed here.
 
 ### Q. Is migration to other storage solutions supported?
 
@@ -95,7 +95,7 @@ A. Migrating from 8000 series is a fully supported operation. In fact, Microsoft
 
 A. When using Azure File Sync, the subscription fees for the service may apply. Customers will also have to pay ongoing storage costs. Refer to [AFS pricing]( https://azure.microsoft.com/pricing/details/storage/files/) for an estimate.
 
-### Q.   How long does it take to complete a migration?
+### Q. How long does it take to complete a migration?
 
 A. The time to migrate data depends on the amount of the data and the upgrade option selected.
 
