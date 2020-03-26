@@ -220,7 +220,6 @@ For more information, see [create SQL Database alerts in Azure portal](sql-datab
 
 - For pricing information, see [Elastic pool pricing](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - To scale elastic pools, see [Scaling elastic pools](sql-database-elastic-pool-scale.md) and [Scale an elastic pool - sample code](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-- For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](sql-database-wtp-overview.md).
 - To learn about resource management in elastic pools with many databases, see [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md).
