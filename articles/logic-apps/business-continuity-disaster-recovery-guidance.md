@@ -94,25 +94,29 @@ You can set up your primary and secondary locations so that your logic app insta
 | Primary-secondary role | Description |
 |------------------------|-------------|
 | *Active-active* | Both logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen at an HTTP endpoint and have traffic load balanced to that instance as necessary. <p>- Or, you can have the second instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| *Active-passive* | The primary logic app instance handles the entire workload, while the secondary instance stays passive or inactive. The secondary waits for a signal that when the primary can no longer function due to disruption, the secondary can take over as the active instance. |
+| *Active-passive* | The primary logic app instance handles the entire workload, while the secondary instance is passive or inactive. The secondary waits for a signal that the primary is unavailable or not working due to disruption or failure and takes over the workload as the active instance. |
 | Combination | Some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
-For example, here is an active-active setup that has both logic app instances actively handle requests and can use any of these patterns to distribute requests between instances:
+<a name="active-active-examples"></a>
 
-* A "physical" or "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), a "soft" load balancer such as Azure [API Management](../api-management/api-management-key-concepts.md), or a service that tracks state, such as [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md):
+### Active-active examples
 
-  !["Active-active" setup that uses a load balancer](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
+These examples show the active-active setup where both logic app instances actively handle requests or messages. This setup uses one of these patterns to distribute the requests or messages between instances:
 
+* A "physical" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), a "soft" load balancer such as [Azure API Management](../api-management/api-management-key-concepts.md), or a service that supports state tracking such as [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). This example features Azure Load Balancer, but you can use a different pattern based your scenario's needs:
 
-, or a service that tracks state, such as Azure Service Bus queue
+  !["Active-active" setup that uses a load balancer or stateful service](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
 
-Or, the setup can have each instance "compete" for requests from a message queue:
+* Have each instance act as a consumer so that both instances compete for messages from a queue:
 
-!["Active-active" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-active-competing-consumers-pattern.png)
+  !["Active-active" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-active-competing-consumers-pattern.png)
 
-Here is an active-passive setup where an enabled logic app is in one location, while a disabled logic app is in another location. If a failure occurs an operator can run a script that will enable the logic app in the secondary location
+<a name="active-passive-examples"></a>
 
+### Active-passive examples
+
+This example shows the active-passive setup where the primary logic app instance is active and enabled in one location, while the secondary instance stays inactive and disable in another location. If the primary experiences a disruption or failure, you can have some kind of operator run a script that enables the secondary to take on the workload.
 
 
 <a name="state-history"></a>
