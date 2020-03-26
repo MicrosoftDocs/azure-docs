@@ -339,7 +339,7 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 Assigning an Azure Policy with _DeployIfNotExists_ type requires an additional level of access.
 To grant the least privilege, you can create a custom role definition
 that extends **Resource Policy Contributor**. The example below creates a role named
-**Resource Policy Contributor DINE** with the additional permission *Microsoft.Authoirzation/roleAssignments/write*.
+**Resource Policy Contributor DINE** with the additional permission *Microsoft.Authorization/roleAssignments/write*.
 
 ```azurepowershell-interactive
 $subscriptionid = '00000000-0000-0000-0000-000000000000'
