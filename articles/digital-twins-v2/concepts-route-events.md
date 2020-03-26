@@ -33,7 +33,7 @@ An event route lets you send event data from digital twins in Azure Digital Twin
 
 Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, Azure Maps, storage, and analytics solutions.
 
-During the current preview release, they are also used to handle events within the twin graph and send data from Azure digital twin to Azure digital twin. This is done by connecting event routes to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), which define how twins should receive and respond to events. 
+During the current preview release, they are also used to handle events within the twin graph and send data from digital twin to digital twin. This is done by connecting event routes to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), which define how twins should receive and respond to events. 
 
 Events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins graph based on an event it received through an event route must either:
 * know in advance the digital twin target it wants to modify, or

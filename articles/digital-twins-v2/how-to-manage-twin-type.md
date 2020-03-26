@@ -259,7 +259,7 @@ public void ParseModels()
 Twin types can also be deleted from the service. 
 
 Deletion is a multi-step process:
-1. First, **decommission** the twin type. A decommissioned twin type is still valid for use by existing Azure digital twins, including the ability to change properties and add or delete relationships. However, new digital twins of this twin type can't be created anymore.
+1. First, **decommission** the twin type. A decommissioned twin type is still valid for use by existing digital twins, including the ability to change properties and add or delete relationships. However, new digital twins of this twin type can't be created anymore.
 2. After decommissioning a twin type, you will either delete existing digital twins of that twin type, or transition those digital twins to a different twin type.
 3. Once there are no more digital twins of a given twin type, and the twin type is no longer referenced by any other twin type, you can **delete** it. 
 

@@ -23,7 +23,7 @@ Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and del
 
 ## Get twin data for an entire digital twin
 
-You can access data on any Azure digital twin by calling:
+You can access data on any digital twin by calling:
 
 ```csharp
 object result = await client.DigitalTwins.GetByIdAsync(id);
@@ -85,7 +85,7 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
 }
 ```
 
-The defined properties of the Azure digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
+The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
 * The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
 * Other properties in a `$metadata` section. This includes:
     - The DTMI of the twin type of the digital twin.
@@ -133,7 +133,7 @@ To patch properties in a digital twin's components, you will use path syntax in 
 
 ## Change the twin type
 
-The `Update` function can also be used to migrate an Azure digital twin to a different twin type. 
+The `Update` function can also be used to migrate a digital twin to a different twin type. 
 
 For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` (twin type) field:
 
@@ -150,7 +150,7 @@ For example, consider the following JSON Patch document that replaces the digita
 This operation will only succeed if the digital twin being modified by the patch conforms with the new twin type. 
 
 Consider the following example:
-1. Imagine an Azure digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
+1. Imagine a digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
 2. The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
 3. After the patch, the digital twin must have both a temperature and humidity property. 
 

@@ -40,7 +40,7 @@ Here are the operations available in Azure Digital Twins Query Store language:
 
 Here are some sample queries that illustrate the query language structure and perform possible query operations.
 
-Get Azure digital twins by properties (including ID and metadata):
+Get digital twins by properties (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -49,7 +49,7 @@ AND T.$dtId in ['123', '456']
 AND T.$metadata.Temperature.reportedValue = 70
 ```
 
-Get Azure digital twins by twin type
+Get digital twins by twin type
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -58,7 +58,7 @@ AND T.roomSize > 50
 ```
 
 > [!TIP]
-> The ID of an Azure digital twin is queried using the metadata field `$dtId`.
+> The ID of a digital twin is queried using the metadata field `$dtId`.
 
 ### Run queries with an API call
 
@@ -164,7 +164,7 @@ AND SBT2.v1 = 123
 
 ### Query properties of relationships
 
-Similarly to the way Azure digital twins have properties described via DTDL, relationships can also have properties. 
+Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
 The Azure Digital Twins Query Store Language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.

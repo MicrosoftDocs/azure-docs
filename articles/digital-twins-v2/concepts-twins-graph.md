@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Create digital twins and the twin graph
 titleSuffix: Azure Digital Twins
-description: Understand the concept of an Azure digital twin, and how their relationships make a graph.
+description: Understand the concept of a digital twin, and how their relationships make a graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -15,12 +15,12 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand Azure digital twins and their twin graph
+# Understand digital twins and their twin graph
 
-In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. An Azure digital twin is an instance of one of your user-created [twin types](concepts-twin-types.md). It can be connected to other Azure digital twins via relationships to form a **twin graph**.
+In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. A digital twin is an instance of one of your user-created [twin types](concepts-twin-types.md). It can be connected to other digital twins via relationships to form a **twin graph**.
 
 > [!TIP]
-> "Azure Digital Twins" (with every word capitalized) refers to this Azure service as a whole. "Azure digital twin(s)" or just "digital twin(s)" refers to individual twin nodes inside your instance of the service.
+> "Azure Digital Twins" refers to this Azure service as a whole. "Digital twin(s)" or just "twin(s)" refers to individual twin nodes inside your instance of the service.
 
 ## Creating digital twins
 
@@ -90,11 +90,11 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 ## JSON representations of graph elements
 
-Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](concepts-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of Azure digital twins and relationships you have created.
+Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](concepts-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of digital twins and relationships you have created.
 
 ### Digital twin JSON format
 
-When represented as a JSON object, an Azure digital twin will display the following fields:
+When represented as a JSON object, a digital twin will display the following fields:
 
 | Field name | Description |
 | --- | --- |
@@ -112,7 +112,7 @@ When represented as a JSON object, an Azure digital twin will display the follow
 | `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
 | `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
 
-Here is an example of an Azure digital twin formatted as a JSON object:
+Here is an example of a digital twin formatted as a JSON object:
 
 ```json
 {
@@ -160,7 +160,7 @@ Here is an example of an Azure digital twin formatted as a JSON object:
 
 ### Relationship JSON format
 
-When represented as a JSON object, a relationship from an Azure digital twin will display the following fields:
+When represented as a JSON object, a relationship from a digital twin will display the following fields:
 
 | Field name | Description |
 | --- | --- |
