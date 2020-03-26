@@ -11,7 +11,7 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Set up Azure Multi-Factor authentication
+# Set up Azure Multi-Factor Authentication
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client.
 
