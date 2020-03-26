@@ -55,4 +55,4 @@ az sig image-version create \
 
 ## Next steps
 
-Create a VM from a [generalized image version](vm-generalized-image-version.md).
+Create a VM from a [generalized image version](vm-generalized-image-version-cli.md).

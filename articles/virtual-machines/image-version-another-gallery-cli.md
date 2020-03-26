@@ -11,7 +11,7 @@ ms.author: cynthn
 #SIG to SIG
 ---
 
-## Copy an image version from another gallery
+# Copy an image version from another gallery
 
 Get the image definition from the original gallery
 Create an image definition in the new gallery that matches the one in the original gallery
@@ -158,4 +158,4 @@ Create a VM from a [generalized](vm-generalized-image-version-cli.md) or a [spec
 
 ## Next steps
 
-[Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
