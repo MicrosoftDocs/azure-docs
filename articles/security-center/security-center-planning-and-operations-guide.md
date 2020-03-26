@@ -29,8 +29,7 @@ In the next section, you will learn how to plan for each one of those areas and 
 
 
 > [!NOTE]
-> Read [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md) for a list of common questions that can also be useful during the designing and planning phase.
->
+> Read [Azure Security Center frequently asked questions (FAQ)](faq-general.md) for a list of common questions that can also be useful during the designing and planning phase.
 
 ## Security roles and access controls
 Depending on the size and structure of your organization, multiple individuals and teams may use Security Center to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
@@ -78,6 +77,10 @@ Using the personas explained in the previous diagram, the following RBAC would b
 **Jeff (Workload Owner)**
 
 * Resource Group Owner/Contributor
+
+**Ellen (CISO/CIO)**
+
+* Subscription Owner/Contributor or Security Admin
 
 **David (IT Security)**
 
@@ -135,8 +138,7 @@ The Microsoft Monitoring Agent for Windows requires use TCP port 443. See the [T
 If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Microsoft Monitoring Agent may be used by other Azure management and monitoring services, the agent will not be uninstalled automatically when you turn off data collection in Security Center. You can manually uninstall the agent if needed.
 
 > [!NOTE]
-> To find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md).
->
+> To find a list of supported VMs, read the [Azure Security Center frequently asked questions (FAQ)](faq-vms.md).
 
 ### Workspace
 
@@ -173,7 +175,7 @@ When you first opt in to use Security Center for your current Azure environment,
 
 Once you address all recommendations, the **Prevention** section should be green for all resources that were addressed. Ongoing monitoring at this point becomes easier since you will only take actions based on changes in the resource security health and recommendations tiles.
 
-The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of threat detection alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
+The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 Plan to visit the [threat intelligence](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
 
@@ -205,7 +207,7 @@ You can use [Adaptive Application Controls](https://docs.microsoft.com/azure/sec
 
 
 ## Incident response
-Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
+Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat protection works, read [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 While this article doesn’t have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 
@@ -231,7 +233,7 @@ This page shows the details regarding the time that the attack took place, the s
 
 From this page, you can also start an [investigation](https://docs.microsoft.com/azure/security-center/security-center-investigation) to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
 
-Once you identify the compromised system, you can run security [playbooks](https://docs.microsoft.com/azure/security-center/security-center-playbooks) that were previously created. Security playbook is a collection of procedures that can be executed from Security Center once a certain playbook is triggered from selected alert.
+Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
 In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
 
@@ -246,5 +248,5 @@ In this document, you learned how to plan for Security Center adoption. To learn
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-* [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
+* [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

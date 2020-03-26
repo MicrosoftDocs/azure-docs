@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/12/2019
+ ms.date: 01/06/2020
  ms.custom: include file
 ---
 

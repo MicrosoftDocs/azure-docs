@@ -47,7 +47,7 @@ Operational recommendations provide insights and suggestions to improve security
 | Low      | Agent sends unutilized messages          | Agent       | 10% or more of security messages were smaller than 4 KB during the last 24 hours.  |
 | Low      | Security twin configuration not optimal | Agent       | Security twin configuration is not optimal.                                        |
 | Low      | Security twin configuration conflict    | Agent       | Conflicts were identified in the security twin configuration. |                          |
-
+|
 
 ## Recommendations for IoT Hub
 

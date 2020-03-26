@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Service Bus topics and subscriptions with Java'
-description: 'Quickstart: Use Service Bus topics and subscriptions in Azure.'
+title: Use Azure Service Bus topics and subscriptions with Java
+description: In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
@@ -179,7 +179,7 @@ public class MyServiceBusTopicClient {
         receiveClient.registerMessageHandler(
         			messageHandler,
                     // callback invoked when the message handler has an exception to report
-                // 1 concurrent call, messages are auto-completed, auto-renew duration
+                // 1 concurrent call, messages aren't auto-completed, auto-renew duration
                 new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
 
     }

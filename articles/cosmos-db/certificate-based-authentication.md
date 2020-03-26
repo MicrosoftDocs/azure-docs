@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication with Azure Cosmos DB
+title: Certificate-based authentication with Azure Cosmos DB and Active Directory
 description: Learn how to configure an Azure AD identity for certificate-based authentication to access keys from Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
@@ -51,7 +51,6 @@ In this step, you will install the Azure AD PowerShell module. This module is re
 1. Open Windows PowerShell ISE with administrator rights. If you haven’t already done, install the AZ PowerShell module and connect to your subscription. If you have multiple subscriptions, you can set the context of current subscription as shown in the following commands:
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 
@@ -242,4 +241,4 @@ Similar to the previous section, you can view the Activity log of your Azure Cos
 
 * [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Security controls for Azure Cosmos DB](cosmos-db-security-controls.md)
+* [Security baseline for Azure Cosmos DB](security-baseline.md)

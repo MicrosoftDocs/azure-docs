@@ -3,12 +3,12 @@ title: Use Azure Key Vault secrets in pipeline activities
 description: Learn how to fetch stored credentials from Azure key vault and use them during data factory pipeline runs. 
 services: data-factory
 author: ChrisLound
-manager: craigg
+manager: anandsub
 editor: ''
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 10/31/2019
@@ -61,7 +61,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     > [!CAUTION]
     > Set the Secure Output option to true to prevent the secret value from being logged in plain text.  Any further activities that consume this value should have their Secure Input option set to true.
 
-5. To use the value in another activity, use the following code expression **@activity("web").output.value)**.
+5. To use the value in another activity, use the following code expression **@activity('Web1').output.value**.
 
     ![Code expression](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

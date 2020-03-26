@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, Swift - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, Swift - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Swift on iOS by using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/23/2019
 ms.author: chlandsi
 ---
 
@@ -22,7 +22,7 @@ In this article, you learn how to create an iOS app in Swift by using the Azure 
 
 Before you get started, you'll need:
 
-* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech Service.
+* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech service.
 * A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later and [CocoaPods](https://cocoapods.org/) installed.
 
 ## Get the Speech SDK for iOS
@@ -31,7 +31,7 @@ Before you get started, you'll need:
 
 This tutorial won't work with a version of the SDK earlier than 1.6.0.
 
-The Cognitive Services Speech SDK for iOS is distributed as a framework bundle. It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/) or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This article uses a CocoaPod.
+The Cognitive Services Speech SDK for iOS is distributed as a framework bundle. It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/) or downloaded from https://aka.ms/csspeech/iosbinary and linked manually. This article uses a CocoaPod.
 
 ## Create an Xcode project
 

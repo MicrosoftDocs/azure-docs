@@ -13,7 +13,7 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
 
 ---
@@ -30,7 +30,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
 * Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
-* Uses the [Resource Manager deployment model](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Uses the [Resource Manager deployment model](../../../azure-resource-manager/management/deployment-models.md).
 * Uses [premium SSDs](../disks-types.md).
 
 ## New VMs
@@ -43,7 +43,7 @@ When provisioning an Azure VM using a SQL Server gallery image, select **Change 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *Readonly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](virtual-machines-windows-sql-performance.md). 
+Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *ReadOnly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](virtual-machines-windows-sql-performance.md). 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
@@ -105,7 +105,6 @@ To modify the storage settings, select **Configure** under **Settings**.
 You can modify the disk settings for the drives that were configured during the SQL Server VM creation process. Selecting **Extend drive** opens the drive modification page, allowing you to change the disk type, as well as add additional disks. 
 
 ![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
-
 
 
 ## Storage configuration

@@ -1,5 +1,5 @@
 ---
-title: Web app that signs in users (overview) - Microsoft identity platform
+title: Sign in users from a Web app - Microsoft identity platform | Azure
 description: Learn how to build a web app that signs in users (overview)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,7 +16,6 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Scenario: Web app that signs in users
@@ -83,7 +82,7 @@ As a second phase, you can enable your application to call web APIs on behalf of
 # [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 

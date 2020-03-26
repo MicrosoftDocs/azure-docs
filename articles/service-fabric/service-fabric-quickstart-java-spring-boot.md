@@ -1,83 +1,56 @@
 ---
 title: 'Quickstart: Create a Spring Boot app on Azure Service Fabric'
 description: In this quickstart, you deploy a Spring Boot application for Azure Service Fabric using a Spring Boot sample application.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-
 ---
 # Quickstart: Deploy a Java Spring Boot app on Azure Service Fabric
 
-This quickstart shows how to deploy a Java Spring Boot application to Azure Service Fabric. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
-
-This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric.
-
-![Spring Boot Service Fabric sample](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
-
-In this quickstart, you learn how to:
-
-* Deploy a Spring Boot application to Service Fabric
-* Deploy the application to your local cluster
-* Scale-out the application across multiple nodes
-* Perform failover of your service with no hit to availability
+In this quickstart, you deploy a Java Spring Boot application to Azure Service Fabric by using familiar command-line tools on Linux or MacOS. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
 ## Prerequisites
 
-To complete this quickstart:
+#### [Linux](#tab/linux)
 
-1. Install Service Fabric SDK & Service Fabric Command Line Interface (CLI)
+- [Java environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) and [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
-    
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+#### [MacOS](#tab/macos)
 
-1. [Install Git](https://git-scm.com/)
-1. Install Yeoman
+- [Java environment and Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+- [Service Fabric SDK & Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
+- [Git](https://git-scm.com/downloads)
 
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-1. Set up Java Environment
-
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-    
-    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+--- 
 
 ## Download the sample
 
-In a terminal window, run the following command to clone the Spring Boot Getting Started sample app to your local machine.
+In a terminal window, run the following command to clone the Spring Boot [Getting Started](https://github.com/spring-guides/gs-spring-boot) sample app to your local machine.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## Build the Spring Boot application 
-1. Inside the `gs-spring-boot/complete` directory, run the command below to build the application 
+Inside the *gs-spring-boot/complete* directory, run the command below to build the application 
 
-    ```bash
-    ./gradlew build
-    ``` 
+```bash
+./gradlew build
+``` 
 
 ## Package the Spring Boot application 
-1. Inside the `gs-spring-boot` directory in your clone, run the `yo azuresfguest` command. 
+1. Inside the *gs-spring-boot* directory in your clone, run the `yo azuresfguest` command. 
 
 1. Enter the following details for each prompt.
 
     ![Spring Boot Yeoman entries](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. In the `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` folder, create a file called `entryPoint.sh`. Add the following to the `entryPoint.sh` file. 
+1. In the *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* folder, create a file called *entryPoint.sh*. Add the following code to the *entryPoint.sh* file. 
 
     ```bash
     #!/bin/bash
@@ -96,7 +69,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
        </Resources>
     ```
 
-    The **ServiceManifest.xml** now looks like this: 
+    The *ServiceManifest.xml* now looks like this: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -141,17 +114,17 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at **http://localhost:19080**. The five healthy nodes indicate the local cluster is up and running. 
+    The startup of the local cluster takes some time. To confirm that the cluster is fully up, access the Service Fabric Explorer at `http://localhost:19080`. The five healthy nodes indicate the local cluster is up and running. 
     
     ![Service Fabric Explorer shows healthy nodes](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
-1. Open the `gs-spring-boot/SpringServiceFabric` folder.
+1. Open the *gs-spring-boot/SpringServiceFabric* folder.
 1. Run the following command to connect to your local cluster.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-1. Run the `install.sh` script.
+1. Run the *install.sh* script.
 
     ```bash
     ./install.sh
@@ -162,6 +135,8 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     ![Spring Boot Service Fabric sample](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 You can now access the Spring Boot application that was deployed to a Service Fabric cluster.
+
+For more information, see the Spring Boot [Getting Started](https://spring.io/guides/gs/spring-boot/) sample on the Spring website.
 
 ## Scale applications and services in a cluster
 

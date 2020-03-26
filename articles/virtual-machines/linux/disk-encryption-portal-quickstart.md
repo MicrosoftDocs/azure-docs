@@ -3,7 +3,8 @@ title: Create and encrypt a Linux VM with the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ---
@@ -67,7 +68,7 @@ When no longer needed, you can delete the resource group, virtual machine, and a
 
 ## Next steps
 
-In this quickstart, you created a Key Vault that was enable for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.  
+In this quickstart, you created a Key Vault that was enabled for encryption keys, created a virtual machine, and enabled the virtual machine for encryption.  
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption overview](disk-encryption-overview.md)

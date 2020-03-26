@@ -1,20 +1,10 @@
 ---
-title: App Service plan overview - Azure | Microsoft Docs
-description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
+title: App Service plans
+description: Learn how App Service plans work in Azure App Service, how they're billed to the customer, and how to scale them for your needs.
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -42,7 +32,7 @@ Each tier also provides a specific subset of App Service features. These feature
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
+> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/dv2-dsv2-series.md) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
 >
 > Similar to other dedicated tiers, three VM sizes are available for this tier:
 >

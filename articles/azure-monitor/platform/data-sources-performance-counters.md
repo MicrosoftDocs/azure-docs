@@ -1,11 +1,10 @@
 ---
 title: Collect and analyze performance counters in Azure Monitor | Microsoft Docs
 description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
 
 ---

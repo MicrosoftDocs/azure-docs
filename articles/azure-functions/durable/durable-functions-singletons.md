@@ -15,7 +15,7 @@ For background jobs, you often need to ensure that only one instance of a partic
 
 The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code ensures that only one instance exists for a specified instance ID.
 
-### C#
+# [C#](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -49,9 +49,10 @@ public static async Task<HttpResponseMessage> RunSingle(
 > [!NOTE]
 > The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
-Here's the function.json file:
+**function.json**
+
 ```json
 {
   "bindings": [
@@ -77,7 +78,8 @@ Here's the function.json file:
 }
 ```
 
-Here's the JavaScript code:
+**index.js**
+
 ```javascript
 const df = require("durable-functions");
 
@@ -104,6 +106,8 @@ module.exports = async function(context, req) {
     }
 };
 ```
+
+---
 
 By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#) or `getStatus` (JavaScript) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
 

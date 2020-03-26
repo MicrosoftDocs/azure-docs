@@ -1,6 +1,6 @@
 ---
-title: Configure and sign in with Azure AD for Azure Database for PostgreSQL - Single Server
-description: Learn about how to set up Azure Active Directory for authentication with Azure Database for PostgreSQL - Single Server
+title: Use Azure Active Directory - Azure Database for PostgreSQL - Single Server
+description: Learn about how to set up Azure Active Directory (AAD) for authentication with Azure Database for PostgreSQL - Single Server
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
@@ -158,7 +158,7 @@ export PGPASSWORD=<copy/pasted TOKEN value from step 2>
 Now you can initiate a connection with Azure Database for PostgreSQL like you normally would:
 
 ```shell
-psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres"
+psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
 
 You are now authenticated to your PostgreSQL server using Azure AD authentication.

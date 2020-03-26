@@ -1,17 +1,18 @@
 ---
 title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
-ms.date: 11/25/2019
+ms.date: 03/16/2020
 ms.topic: quickstart
+ms.custom: subject-armqs
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources by using a Resource Manager template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks.
-
-At the end of this process, you'll successfully identify virtual machines that aren't using managed
+machines that aren't using managed disks. At the end of this process, you'll successfully identify virtual machines that aren't using managed
 disks. They're _non-compliant_ with the policy assignment.
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -24,11 +25,17 @@ In this quickstart, you create a policy assignment and assign a built-in policy 
 _Audit VMs that do not use managed disks_. For a partial list of available built-in policies, see
 [Azure Policy samples](./samples/index.md).
 
-There are several methods for creating policy assignments. In this quickstart, you use a
-[quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
-Here is a copy of the template:
+### Review the template
 
-[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+
+The resource defined in the template is:
+
+- [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
+
+### Deploy the template
 
 > [!NOTE]
 > Azure Policy service is free. For more information, see
@@ -46,7 +53,7 @@ Here is a copy of the template:
    | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Select a region. For example, **Central US**. |
    | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
-   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
+   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | I agree to the terms and conditions stated above | (Select) |
 
@@ -59,11 +66,11 @@ Some additional resources:
 - To see the template reference, go to
   [Azure template reference](/azure/templates/microsoft.authorization/allversions).
 - To learn how to develop Resource Manager templates, see
-  [Azure Resource Manager documentation](../../azure-resource-manager/resource-group-overview.md).
+  [Azure Resource Manager documentation](../../azure-resource-manager/management/overview.md).
 - To learn subscription-level deployment, see
-  [Create resource groups and resources at the subscription level](../../azure-resource-manager/deploy-to-subscription.md).
+  [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
-## Identify non-compliant resources
+## Validate the deployment
 
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.

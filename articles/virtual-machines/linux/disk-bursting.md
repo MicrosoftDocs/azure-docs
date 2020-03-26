@@ -5,11 +5,11 @@ author: roygara
 ms.author: rogarana
 ms.date: 10/22/2019
 ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 
-# Premium SSD bursting
+# Premium SSD bursting (preview)
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 

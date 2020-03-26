@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Virtual machines overview 
+title: Virtual machines overview
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn about CloudSimple virtual machines and their benefits. 
 author: sharaths-cs 
 ms.author: dikamath 

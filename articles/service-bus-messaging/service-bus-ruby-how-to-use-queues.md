@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: How to use Azure Service Bus queues with Ruby'
-description: 'Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.'
+title: How to use Azure Service Bus queues with Ruby
+description: In this tutorial, you learn how to create Ruby applications to send messages to and receive messages from a Service Bus queue.
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

@@ -1,12 +1,9 @@
 ---
-title: Call, trigger, or nest logic apps - Azure Logic Apps
+title: Call, trigger, or nest logic apps
 description: Set up HTTP endpoints to call, trigger, or nest logic app workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
 ---
@@ -308,11 +305,10 @@ To view the JSON definition for the Response action and your logic app's complet
 **A**: Azure securely generates logic app callback URLs by using [Shared Access Signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). This signature passes through as a query parameter and must be validated before your logic app can run. Azure generates the signature using a unique combination of a secret key per logic app, the trigger name, and the operation that's performed. So unless someone has access to the secret logic app key, they cannot generate a valid signature.
 
 > [!IMPORTANT]
-> For production and secure systems, we strongly advise against 
-> calling your logic app directly from the browser for these reasons:
+> For production and higher security systems, we strongly advise against calling your logic app directly from the browser for these reasons:
 >
 > * The shared access key appears in the URL.
-> * You can't manage secure content policies due to shared domains across Azure Logic Apps customers.
+> * You can't manage security content policies due to shared domains across Azure Logic Apps customers.
 
 #### Q: Can I configure HTTP endpoints further?
 

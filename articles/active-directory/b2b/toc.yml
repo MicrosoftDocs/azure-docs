@@ -15,19 +15,21 @@
       href: b2b-quickstart-invite-powershell.md
   - name: Tutorials
     items:
-    - name: Bulk invite B2B guest users
+    - name: Bulk invite via PowerShell
+      href: bulk-invite-powershell.md
+    - name: Bulk invite via the portal (preview)
       href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
   - name: Samples
     items:
-    - name: Self-service sign-up portal sample
-      href: self-service-portal.md
     - name: Code and Azure PowerShell samples
       href: code-samples.md
   - name: Concepts
     expanded: false
     items:
+    - name: B2B best practices
+      href: b2b-fundamentals.md
     - name: B2B licensing
       href: licensing-guidance.md
     - name: B2B and Office 365 external sharing
@@ -46,6 +48,8 @@
       href: conditional-access.md
     - name: B2B for hybrid organizations
       href: hybrid-organizations.md
+    - name: Self-service sign-up
+      href: self-service-portal.md
     - name: Current limitations
       href: current-limitations.md
   - name: How-to guides

@@ -19,7 +19,7 @@ Azure Blockchain Service resources are isolated in a private virtual network. Ea
 
 ## Encryption
 
-User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/common/storage-security-guide.md).
+User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/blobs/security-recommendations.md).
 
 ## Authentication
 

@@ -50,7 +50,7 @@ When you create custom OUs in an Azure AD DS managed domain, you gain additional
 * A default OU for *AADDC Users* is created that contains all the synchronized user accounts from your Azure AD tenant.
     * You can't move users or groups from the *AADDC Users* OU to custom OUs that you create. Only user accounts or resources created in the Azure AD DS managed domain can be moved into custom OUs.
 * User accounts, groups, service accounts, and computer objects that you create under custom OUs aren't available in your Azure AD tenant.
-    * These objects don't show up using the Azure AD Graph API or in the Azure AD UI; they're only available in your Azure AD DS managed domain.
+    * These objects don't show up using the Microsoft Graph API or in the Azure AD UI; they're only available in your Azure AD DS managed domain.
 
 ## Create a custom OU
 
@@ -62,11 +62,11 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 1. Sign in to your management VM. For steps on how to connect using the Azure portal, see [Connect to a Windows Server VM][connect-windows-server-vm].
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
-1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*. A list of existing OUs and resources is shown:
+1. In the left pane, choose your Azure AD DS managed domain, such as *aaddscontoso.com*. A list of existing OUs and resources is shown:
 
     ![Select your Azure AD DS managed domain in the Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. The **Tasks** pane is shown on the right side of the Active Directory Administrative Center. Under the domain, such as *contoso.com*, select **New > Organizational Unit**.
+1. The **Tasks** pane is shown on the right side of the Active Directory Administrative Center. Under the domain, such as *aaddscontoso.com*, select **New > Organizational Unit**.
 
     ![Select the option to create a new OU in the Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

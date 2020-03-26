@@ -7,14 +7,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
 ---
 
 # Quickstart: Create your first data science experiment in Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -42,7 +44,7 @@ This quickstart follows the default workflow for an experiment:
 ## Get the data
 
 The first thing you need in machine learning is data.
-There are several sample datasets included with the classic version of Studio that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
+There are several sample datasets included with Studio (classic) that you can use, or you can import data from many sources. For this example, we'll use the sample dataset, **Automobile price data (Raw)**, that's included in your workspace.
 This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.
 
 > [!TIP]
@@ -128,7 +130,7 @@ Now that the data is clean, we're ready to specify what features we're going to 
 
 ## Define features
 
-In machine learning, *features* are individual measurable properties of something you’re interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile.
+In machine learning, *features* are individual measurable properties of something you're interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile.
 
 Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Some features have a strong correlation with other features and can be removed. For example, city-mpg and highway-mpg are closely related so we can keep one and remove the other without significantly affecting the prediction.
 

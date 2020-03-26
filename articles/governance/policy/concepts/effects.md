@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 11/04/2019
+ms.date: 03/23/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -402,17 +402,19 @@ Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a te
 when the condition is met.
 
 > [!NOTE]
-> [Nested templates](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
-> [linked templates](../../../azure-resource-manager/resource-group-linked-templates.md) are currently not supported.
+> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
+> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template) are currently not supported.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists runs after a Resource Provider has handled a create or update resource request
-and has returned a success status code. A template deployment occurs if there are no related
-resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
+DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
+resource request and has returned a success status code. A template deployment occurs if there are
+no related resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
+The duration of the deployment depends on the complexity of resources included in the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
-are marked as non-compliant, but no action is taken on that resource.
+are marked as non-compliant, but no action is taken on that resource. Existing non-compliant
+resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
 
 ### DeployIfNotExists properties
 
@@ -457,7 +459,7 @@ related resources to match and the template deployment to execute.
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
-  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md),
+  - Sets the type of deployment to be triggered. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/templates/deploy-to-subscription.md),
     _ResourceGroup_ indicates a deployment to a resource group.
   - A _location_ property must be specified in the _Deployment_ when using subscription level
     deployments.
@@ -531,17 +533,16 @@ not, then a deployment to enable is executed.
 This effect is used with a policy definition *mode* of `Microsoft.Kubernetes.Data`. It's used to
 pass Gatekeeper v3 admission control rules defined with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)
-to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to self-managed Kubernetes clusters
-on Azure.
+to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clusters on Azure.
 
 > [!NOTE]
-> [Azure Policy for AKS Engine](aks-engine.md) is in Public Preview and only supports built-in
-> policy definitions.
+> [Azure Policy for Kubernetes](aks-engine.md) is in Preview and only supports built-in policy
+> definitions.
 
 ### EnforceOPAConstraint evaluation
 
 The Open Policy Agent admission controller evaluates any new request on the cluster in real time.
-Every 5 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
+Every 15 minutes, a full scan of the cluster is completed and the results reported to Azure Policy.
 
 ### EnforceOPAConstraint properties
 
@@ -560,10 +561,10 @@ Gatekeeper v3 admission control rule.
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
 
-### EnforceRegoPolicy example
+### EnforceOPAConstraint example
 
-Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in AKS
-Engine.
+Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in
+Kubernetes.
 
 ```json
 "if": {
@@ -602,9 +603,11 @@ to pass Gatekeeper v2 admission control rules defined with
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) on
 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy for AKS](rego-for-aks.md) is in Limited Preview and only supports built-in policy
-> definitions
+> [!IMPORTANT]
+> [Azure Policy for Kubernetes](rego-for-aks.md) is in Preview and only supports built-in policy
+> definitions. Built-in policies are in the **Kubernetes** category. The **EnforceRegoPolicy**
+> effect and related **Kubernetes Service** category policies are being _deprecated_. Instead, use
+> the updated [EnforceOPAConstraint](#enforceopaconstraint) effect.
 
 ### EnforceRegoPolicy evaluation
 

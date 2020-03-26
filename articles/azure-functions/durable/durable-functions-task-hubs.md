@@ -91,9 +91,9 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 }
 ```
 
-The following code is a precompiled C# example of how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
+The following code demonstrates how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -116,7 +116,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 The task hub property in the `function.json` file is set via App Setting:
 
@@ -128,6 +128,8 @@ The task hub property in the `function.json` file is set via App Setting:
     "direction": "in"
 }
 ```
+
+---
 
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
 

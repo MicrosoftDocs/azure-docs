@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#
@@ -35,7 +35,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     using System.Text;
     ```
 
-2. In a new class, create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query.
+2. In a new class, create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -60,7 +60,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     }
     ```
 
-2. In the same function above, create a request URI by combining your API host and path. Append your market to the `?mkt=` parameter, and your query to the `&query=` paramter. Be sure to URL-encode your query. 
+2. In the same function above, create a request URI by combining your API host and path. Append your market to the `?mkt=` parameter, and your query to the `&query=` parameter. Be sure to URL-encode your query. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);

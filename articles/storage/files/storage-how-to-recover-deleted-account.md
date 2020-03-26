@@ -1,6 +1,6 @@
 ---
-title: Use an Azure file share with Azure Storage | Microsoft Docs
-description: Learn how to use an Azure file share with Windows and Windows Server.
+title: How to recover a deleted storage account
+description: Learn how to recover a deleted storage account
 author: todmccoy
 manager: dcscontentpm
 ms.service: storage

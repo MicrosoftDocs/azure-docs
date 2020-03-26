@@ -1,8 +1,6 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Profiler | Microsoft Docs
+title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Profiler.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
@@ -12,6 +10,11 @@ ms.reviewer: mbullwin
 ---
 
 # Troubleshoot problems enabling or viewing Application Insights Profiler
+
+## Active issues
+
+* Profiling for ASP.NET Core 3.x applications isn't supported yet.
+  * If you must have Profiler on, a workaround is to use [Application Insights Profiler for ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). The profiler is labeled for Linux, but it also works with .NET Core 3.0+ applications on Windows. For details, see [Supported versions](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
@@ -43,6 +46,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 * If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Make sure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
+* Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.
 
 ### <a id="double-counting"></a>Double counting in parallel threads
 
@@ -159,6 +163,11 @@ To check the settings that were used to configure Azure Diagnostics:
     If Profiler is running while your application is receiving requests, the following message is displayed: *Activity detected from iKey*. 
 
     When the trace is being uploaded, the following message is displayed: *Start to upload trace*. 
+
+
+## Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Application Insights Profiler service. The IPs used by Application Insights Profiler are included in the Azure Monitor service tag.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

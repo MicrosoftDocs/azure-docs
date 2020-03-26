@@ -1,5 +1,5 @@
 ---
-title: Customize claims for an Azure AD tenant app (Public Preview) 
+title: Customize Azure AD tenant app claims (PowerShell)
 titleSuffix: Microsoft identity platform
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
@@ -9,13 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)
@@ -413,7 +410,13 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors.  Apps that have claims mapping enabled must check a special URI for their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use: 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### Cross-tenant scenarios
 
@@ -461,7 +464,7 @@ In this example, you create a policy that removes the basic claim set from token
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
-   1. To see all your organization's service principals, you can [query Microsoft Graph](/graph/traverse-the-graph). Or, in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
+   1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command:  
 	 
       ``` powershell
@@ -485,7 +488,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-   1. To see all your organization's service principals, you can [query Microsoft Graph](/graph/traverse-the-graph). Or, in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
+   1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command:  
 	 
       ``` powershell
@@ -509,7 +512,7 @@ In this example, you create a policy that emits a custom claim “JoinedData” 
       Get-AzureADPolicy
       ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-   1. To see all your organization's service principals, you can [query Microsoft Graph](/graph/traverse-the-graph). Or, in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
+   1. To see all your organization's service principals, you can [query the Microsoft Graph API](/graph/traverse-the-graph). Or, in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), sign in to your Azure AD account.
    2. When you have the ObjectId of your service principal, run the following command: 
 	 
       ``` powershell

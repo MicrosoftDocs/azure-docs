@@ -86,8 +86,8 @@ To request new features, post them on UserVoice. Share your ideas for making Cog
 
 The release notes are updated as new releases are made available. The notes contain information about new features, improvements, and bug fixes.
 
- - [Custom Vision Service](custom-vision-service/release-notes.md)
- - [Face API](face/releasenotes.md)
+ - [Custom Vision](custom-vision-service/release-notes.md)
+ - [Face](face/releasenotes.md)
  - [Language Understanding (LUIS)](luis/whats-new.md)
  - [Speech Services](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)

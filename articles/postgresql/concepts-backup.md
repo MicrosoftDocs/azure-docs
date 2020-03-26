@@ -1,11 +1,11 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL - Single Server
+title: Backup and restore - Azure Database for PostgreSQL - Single Server
 description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 02/25/2020
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Single Server
@@ -16,9 +16,11 @@ Azure Database for PostgreSQL automatically creates server backups and stores th
 
 Azure Database for PostgreSQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16 TB max storage servers). These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
+These backup files cannot be exported. The backups can only be used for restore operations in Azure Database for PostgreSQL. You can use [pg_dump](howto-migrate-using-dump-and-restore.md) to copy a database.
+
 ### Backup frequency
 
-Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete. As snapshots are instantanious, servers with support up to 16 TB of storage can be restored all the way back to the create time.
+Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete. As snapshots are instantaneous, servers with support up to 16 TB of storage can be restored all the way back to the create time.
 
 ### Backup redundancy options
 
@@ -68,7 +70,7 @@ During geo-restore, the server configurations that can be changed include comput
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server
-- Ensure appropriate server-level firewall rules are in place for users to connect
+- Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate
 

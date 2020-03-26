@@ -1,5 +1,5 @@
 ---
-title: Manage access to Azure resources with Azure AD Privileged Identity Management (PIM)
+title: Manage access to Azure resources with Azure AD and PIM
 description: Learn about managing access to Azure resources using Azure Active Directory Privileged Identity Management (PIM) and role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''

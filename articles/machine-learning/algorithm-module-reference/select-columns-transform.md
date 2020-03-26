@@ -1,7 +1,7 @@
 ---
 title: "Select Columns Transform: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Select Columns Transform module in the Azure Machine Learning service to create a transformation that selects the same subset of columns as in the given dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Select Columns Transform module in Azure Machine Learning to create a transformation that selects the same subset of columns as in the given dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -43,11 +43,11 @@ This scenario assumes that you want to use feature selection to generate a dynam
 
    > [!IMPORTANT]
    > You can't expect to apply [Filter Based Feature Selection](filter-based-feature-selection.md) to the scoring dataset and get the same results. Because feature selection is based on values, it might choose a different set of columns, which would cause the scoring operation to fail.
-7. Run the pipeline.
+7. Submit the pipeline.
 
 This process of saving and then applying a column selection ensures that the same data schema is available for training and scoring.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

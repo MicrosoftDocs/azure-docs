@@ -1,7 +1,7 @@
 ---
 title: Create management groups to organize resources - Azure Governance
 description: Learn how to create Azure management groups to manage multiple resources using the portal, Azure PowerShell, and Azure CLI. 
-ms.date: 04/05/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ---
 # Create management groups for resource organization and management
@@ -14,12 +14,13 @@ groups, see [Organize your resources with Azure management groups](overview.md).
 
 The first management group created in the directory could take up to 15 minutes to complete. There
 are processes that run the first time to set up the management groups service within Azure for your
-directory. You receive a notification when the process is complete.
+directory. You receive a notification when the process is complete. For more information, see [initial setup of management groups](./overview.md#initial-setup-of-management-groups). 
 
 ## Create a management group
 
-You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you
-can't use Resource Manager templates to create management groups.
+Any Azure AD user in the tenant can create a management group without the management group write permission assigned to that user.  This new management group will be a child of the Root Management Group and the creator will be given an "Owner" role assignment. Management group service allows this ability so that role assignments are not needed at the root level. No users have access to the Root Management Group when it is created.  To avoid the hurdle of finding the Azure AD Global Admins to start using management groups, we allow the creation of the initial management groups at the root level.      
+
+You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you can't use Resource Manager templates to create management groups.
 
 ### Create in portal
 

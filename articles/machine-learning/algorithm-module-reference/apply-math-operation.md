@@ -1,7 +1,7 @@
 ---
 title:  "Apply Math Operation"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply Math Operation module in Azure Machine Learning service to apply a mathematical operation to column values in a pipeline.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Apply Math Operation module in Azure Machine Learning to apply a mathematical operation to column values in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -82,7 +82,7 @@ Each instance of this module can perform only one type of operation at a time. T
     - **Inplace**. The values in the columns used as inputs are replaced with the new calculated values. 
     - **ResultOnly**. A single column is returned containing the results of the math operation.
   
-1.  Run the pipeline.  
+1.  Submit the pipeline.  
   
 ## Results
 
@@ -586,4 +586,4 @@ Alternatively, use one of the following modules to do all the calculations at on
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

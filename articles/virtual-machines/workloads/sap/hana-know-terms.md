@@ -3,8 +3,8 @@ title: Know the terms of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Know the terms of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -35,7 +35,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
    Domain users of the on-premises domain can access the servers and run services on those VMs (such as DBMS services). Communication and name resolution between VMs deployed on-premises and Azure-deployed VMs is possible. This scenario is typical of the way in which most SAP assets are deployed. For more information, see [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network with a site-to-site connection by using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: A customer deployed in HANA Large Instance stamp gets isolated into a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the HANA Large Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there is no communication between tenants on the HANA Large Instance stamp level.
 - **SKU category**: For HANA Large Instance, the following two categories of SKUs are offered:
-    - **Type I class**: S72, S72m, S96, S144, S144m, S192, S192m, and S192xm
+    - **Type I class**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, and S224m
     - **Type II class**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, and S960m
 - **Stamp**: Defines the Microsoft internal deployment size of HANA Large Instances. Before HANA Large Instance units can get deployed, a HANA Large Instance stamp consisting out of compute, network, and storage racks need to be deployed in a datacenter location. Such a deployment is called a HANA Large instance stamp or from Revision 4 (see below) on we use the alternate of term of **Large Instance Row**
 - **Revision**: There are two different stamp revisions for HANA Large Instance stamps. These differ in architecture and proximity to Azure virtual machine hosts

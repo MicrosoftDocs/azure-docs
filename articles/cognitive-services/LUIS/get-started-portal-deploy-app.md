@@ -1,21 +1,19 @@
 ---
-title: "Quickstart: Deploy an app with the LUIS portal" 
+title: "Quickstart: Deploy an app with the LUIS portal"
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app. 
+description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 01/27/2020
 ms.author: diberry
-#Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
+#Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint.
 ---
 
 # Quickstart: Deploy an app in the LUIS portal
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 When your LUIS app is ready to return utterance predictions to a client application (for example, a chat bot), you need to deploy the app to the prediction endpoint.
 
@@ -43,7 +41,7 @@ You create the prediction endpoint resource in the Azure portal. This resource s
    |Authoring location|**West US**|The Azure region for authoring.|
    |Authoring pricing tier|**F0**|The default pricing tier for authoring.|
    |Runtime location|**West US**|The Azure region for prediction endpoint queries.|
-   |Runtime pricing tier|**S0**|This pricing tier provides for a high-traffic websites.|
+   |Runtime pricing tier|**S0**|This pricing tier provides for high-traffic websites.|
    | | | |
 
 
@@ -57,7 +55,7 @@ You create the prediction endpoint resource in the Azure portal. This resource s
 
 Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
 
-1. Sign in to the [LUIS portal](https://preview.luis.ai) and choose the **myEnglishApp** app from the apps list.
+1. Sign in to the [preview LUIS portal](https://preview.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
 1. Select **Manage** in the upper-right menu, and then select **Azure Resources**.
 
@@ -72,6 +70,9 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 1. Complete the same steps to add the authoring key to your app.
 
 1. Find the new row in the table for the new prediction resource and copy the endpoint URL. It's correctly constructed to make an `HTTP GET` request to the LUIS API endpoint for a prediction.
+
+> [!TIP]
+> If you intend to use Active learning to improve your LUIS app, select **Change query parameters** and select **Save logs**. This action changes the example URL by adding the `log=true` querystring parameter. Copy and use the changed example query URL when making prediction queries to the runtime endpoint.
 
 ## Train the app
 

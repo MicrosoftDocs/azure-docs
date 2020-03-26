@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,7 @@ Azure Digital Twins supports robust logging, monitoring, and analytics. Solution
 
 * For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 * Consult the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
-* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure portal, Azure CLI, or PowerShell.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure portal, Azure CLI, or PowerShell.
 
 Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 
@@ -51,7 +51,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
-To see all recent telemetry logs query:
+To read all recent telemetry logs query:
 
 ```Kusto
 AzureDiagnostics
@@ -211,4 +211,4 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 
 - Learn how to enable [monitoring and logs](./how-to-configure-monitoring.md) in Azure Digital Twins.
 
-- Read the [Overview of Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) article for more Azure logging options.
+- Read the [Overview of Azure Activity log](../azure-monitor/platform/platform-logs-overview.md) article for more Azure logging options.

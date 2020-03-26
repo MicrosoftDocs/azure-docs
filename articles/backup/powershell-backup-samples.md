@@ -9,8 +9,7 @@ ms.custom: mvc
 
 The following table links to PowerShell script samples that use Azure Backup to back up and restore data.
 
-| | |
+| |                                                              |
 |---|---|
-|**Back up virtual machines**||
 | [Back up an encrypted virtual machine to Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) | Back up all data on the encrypted virtual machine.|
-| | |
+| [Find Registered Storage Account](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Find the recovery services vault where the storage account is registered |

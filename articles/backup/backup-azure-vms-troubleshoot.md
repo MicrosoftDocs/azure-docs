@@ -2,7 +2,7 @@
 title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
 ---
 
@@ -19,7 +19,7 @@ This section covers backup operation failure of Azure Virtual machine.
 * Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Verify that another backup service is not running.
-  * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Verify that the VM has internet connectivity.
   * Make sure another backup service is not running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
@@ -56,7 +56,6 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
-* Check the file system state of all mounted devices using the **tune2fs** command, for example **tune2fs -l /dev/sdb1 \\**.\| grep **Filesystem state**.
 * Unmount the devices for which the file system state was not cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
@@ -79,8 +78,8 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 * If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the below steps:
   * Stop the MSDTC service
   * Open a command prompt (cmd)
-  * Run command “msdtc -uninstall”
-  * Run command “msdtc -install”
+  * Run command "msdtc -uninstall"
+  * Run command "msdtc -install"
   * Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 
@@ -121,7 +120,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
    * Read permissions
 2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
 
-   * [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Open certificates on a local computer console](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
@@ -179,7 +178,6 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 | Error details | Workaround |
 | ------ | --- |
 | **Error code**: 320001, ResourceNotFound <br/> **Error message**: Could not perform the operation as VM no longer exists. <br/> <br/> **Error code**: 400094, BCMV2VMNotFound <br/> **Error message**: The virtual machine doesn't exist <br/> <br/>  An Azure virtual machine wasn't found.  |This error happens when the primary VM is deleted, but the backup policy still looks for a VM to back up. To fix this error, take the following steps: <ol><li> Re-create the virtual machine with the same name and same resource group name, **cloud service name**,<br>**or**</li><li> Stop protecting the virtual machine with or without deleting the backup data. For more information, see [Stop protecting virtual machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-| **Error code**: UserErrorVmProvisioningStateFailed<br/> **Error message**: The VM is in failed provisioning state: <br>Restart the VM and make sure the VM is running or shut down. | This error occurs when one of the extension failures puts the VM into failed provisioning state. Go to the extensions list, check if there's a failed extension, remove it, and try restarting the virtual machine. If all extensions are in running state, check if the VM Agent service is running. If not, restart the VM Agent service. |
 |**Error code**: UserErrorBCMPremiumStorageQuotaError<br/> **Error message**: Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account | For premium VMs on VM backup stack V1, we copy the snapshot to the storage account. This step makes sure that backup management traffic, which works on the snapshot, doesn't limit the number of IOPS available to the application using premium disks. <br><br>We recommend that you allocate only 50 percent, 17.5 TB, of the total storage account space. Then the Azure Backup service can copy the snapshot to the storage account and transfer data from this copied location in the storage account to the vault. |
 | **Error code**: 380008, AzureVmOffline <br/> **Error message**: Failed to install Microsoft Recovery Services extension as virtual machine  is not running | The VM Agent is a prerequisite for the Azure Recovery Services extension. Install the Azure Virtual Machine Agent and restart the registration operation. <br> <ol> <li>Check if the VM Agent is installed correctly. <li>Make sure that the flag on the VM config is set correctly.</ol> Read more about installing the VM Agent and how to validate the VM Agent installation. |
 | **Error code**: ExtensionSnapshotBitlockerError <br/> **Error message**: The snapshot operation failed with the Volume Shadow Copy Service (VSS) operation error **This drive is locked by BitLocker Drive Encryption. You must unlock this drive from the Control Panel.** |Turn off BitLocker for all drives on the VM and check if the VSS issue is resolved. |
@@ -187,7 +185,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 | The VM Agent isn't present on the virtual machine: <br>Install any prerequisite and the VM Agent. Then restart the operation. |Read more about [VM Agent installation and how to validate VM Agent installation](#vm-agent). |
 | **Error code**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Error message**: The snapshot operation failed because of failure to create a secure network communication channel. | <ol><li> Open the Registry Editor by running **regedit.exe** in an elevated mode. <li> Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Error code**: ExtensionVCRedistInstallationFailure <br/> **Error message**: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
-
+| **Error code**:  UserErrorRequestDisallowedByPolicy <BR> **Error message**: An invalid policy is configured on the VM which is preventing Snapshot operation. | If you have an Azure Policy that [governs tags within your environment](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), either consider changing the policy from a [Deny effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) to a [Modify effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify), or create the resource group manually according to the [naming schema required by Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## Jobs
 
 | Error details | Workaround |
@@ -260,7 +258,6 @@ Verify the VM Agent version on Windows VMs:
 
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage or delays in a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
 
-* **Network access to Storage is blocked by using NSG**. Learn more on how to [establish network access](backup-azure-arm-vms-prepare.md#establish-network-connectivity) to Storage by using either allowed list of IPs or through a proxy server.
 * **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
    ```text
@@ -274,29 +271,9 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 
 ## Networking
 
-Like all extensions, Backup extensions need access to the public internet to work. Not having access to the public internet can manifest itself in various ways:
+DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
+Get more information on how to set up a static IP through PowerShell:
 
-* Extension installation can fail.
-* Backup operations like disk snapshot can fail.
-* Displaying the status of the backup operation can fail.
+* [How to add a static internal IP to an existing VM](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
+* [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-The need to resolve public internet addresses is discussed in [this Azure Support blog](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Check the DNS configurations for the VNET and make sure the Azure URIs can be resolved.
-
-After name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
-
-* Allow list of Azure datacenter IP ranges:
-   1. Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be in allow list.
-   1. Unblock the IPs by using the [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window. Run as an Administrator.
-   1. Add rules to the NSG, if you have one in place, to allow access to the IPs.
-* Create a path for HTTP traffic to flow:
-   1. If you have some network restriction in place, deploy an HTTP proxy server to route the traffic. An example is a network security group. See the steps to deploy an HTTP proxy server in [Establish network connectivity](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Add rules to the NSG, if you have one in place, to allow access to the internet from the HTTP proxy.
-
-> [!NOTE]
-> DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
-> Get more information on how to set up a static IP through PowerShell:
->
-> * [How to add a static internal IP to an existing VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

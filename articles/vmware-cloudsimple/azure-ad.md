@@ -81,7 +81,7 @@ You can optionally configure other Azure AD features.  These are not required fo
     |------------|-----------------|
     | **Name** | Name of the identity source. |
     | **Base DN for users** | Base distinguished name for users.  For Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Example: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`.|
-    | **Domain name** | FDQN of the domain, for example, example.com. Do not provide an IP address in this text box. |
+    | **Domain name** | FQDN of the domain, for example, example.com. Do not provide an IP address in this text box. |
     | **Domain alias** | *(optional)* The domain NetBIOS name. Add the NetBIOS name of the Active Directory domain as an alias of the identity source if you are using SSPI authentications. |
     | **Base DN for groups** | The base distinguished name for groups. For Azure AD, use: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  Example: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **Primary Server URL** | Primary domain controller LDAP server for the domain.<br><br>Use the format `ldaps://hostname:port`. The port is typically 636 for LDAPS connections. <br><br>A certificate that establishes trust for the LDAPS endpoint of the Active Directory server is required when you use `ldaps://` in the primary or secondary LDAP URL. |

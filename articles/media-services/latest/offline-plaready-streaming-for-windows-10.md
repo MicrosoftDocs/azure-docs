@@ -1,5 +1,5 @@
 ---
-title: Configure your account for offline streaming of PlayReady protected content - Azure
+title: Configure offline PlayReady streaming with Azure Media Services v3
 description: This article shows how to configure your Azure Media Services account for streaming PlayReady for Windows 10 offline.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
@@ -18,7 +18,7 @@ ms.author: willzhan
 
 ---
 
-# Offline PlayReady Streaming for Windows 10
+# Offline PlayReady Streaming for Windows 10 with Media Services v3
 
 Azure Media Services support offline download/playback with DRM protection. This article covers offline support of Azure Media Services for Windows 10/PlayReady clients. You can read about the offline mode support for iOS/FairPlay and Android/Widevine devices in the following articles:
 
@@ -110,7 +110,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Offline mode playback of PlayReady protected fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 
 In summary, we have achieved offline mode on Azure Media Services:
@@ -119,6 +118,10 @@ In summary, we have achieved offline mode on Azure Media Services:
 * Content can be hosted in Azure Media Services or Azure Storage for progressive download;
 * PlayReady license delivery can be from Azure Media Services or elsewhere;
 * The prepared smooth streaming content can still be used for online streaming via DASH or smooth with PlayReady as the DRM.
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

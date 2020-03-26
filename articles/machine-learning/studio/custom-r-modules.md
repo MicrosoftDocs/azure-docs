@@ -7,21 +7,23 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ---
 # Define custom R modules for Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 This topic describes how to author and deploy a custom R Studio (classic). It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
 
 
 
 ## What is a custom R module?
-A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of the classic version of Azure Machine Learning Studio experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
+A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of Azure Machine Learning Studio (classic) experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
 
-Custom modules have **first-class status** in the classic version of Azure Machine Learning Studio in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that contains custom modules can also be published into the Azure AI Gallery for easy sharing.
+Custom modules have **first-class status** in Azure Machine Learning Studio (classic) in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that contains custom modules can also be published into the Azure AI Gallery for easy sharing.
 
 ## Files in a custom R module
 A custom R module is defined by a .zip file that contains, at a minimum, two files:
@@ -50,7 +52,7 @@ Consider the example of a **Custom Add Rows** module that modifies the standard 
     } 
 
 ### The XML definition file
-To expose this `CustomAddRows` function as the classic version of an Azure Machine Learning Studio module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
+To expose this `CustomAddRows` function as the Azure Machine Learning Studio (classic) module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -92,7 +94,7 @@ In contrast, the **id** attribute for the **Output** element does not correspond
 ### Package and register the module
 Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip the two files together into a *CustomAddRows.zip* file.
 
-To register them in your Machine Learning workspace, go to your workspace in the classic version of Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
+To register them in your Machine Learning workspace, go to your workspace in Azure Machine Learning Studio (classic), click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
 
 ![Upload Zip](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -118,7 +120,7 @@ Rules for characters limits in the Module elements:
 * The content of the **Description** element must not exceed 128 characters in length.
 * The content of the **Owner** element must not exceed 32 characters in length.
 
-A module's results can be deterministic or nondeterministic.** By default, all modules are considered to be deterministic. That is, given an unchanging set of input parameters and data, the module should return the same results eacRAND or a function time it is run. Given this behavior,the classic version of Azure Machine Learning Studio only reruns modules marked as deterministic if a parameter or the input data has changed. Returning the cached results also provides much faster execution of experiments.
+A module's results can be deterministic or nondeterministic.** By default, all modules are considered to be deterministic. That is, given an unchanging set of input parameters and data, the module should return the same results eacRAND or a function time it is run. Given this behavior, Azure Machine Learning Studio (classic) only reruns modules marked as deterministic if a parameter or the input data has changed. Returning the cached results also provides much faster execution of experiments.
 
 There are functions that are nondeterministic, such as RAND or a function that returns the current date or time. If your module uses a nondeterministic function, you can specify that the module is non-deterministic by setting the optional **isDeterministic** attribute to **FALSE**. This insures that the module is rerun whenever the experiment is run, even if the module input and parameters have not changed. 
 
@@ -196,7 +198,7 @@ For example, if you want to modify the **Custom Add Rows** module to output the 
     </Ports> 
 
 
-And return the list of objects in a list in the correct order in ‘CustomAddRows.R’:
+And return the list of objects in a list in the correct order in 'CustomAddRows.R':
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -327,14 +329,14 @@ A module parameter is defined using the **Arg** child element of the **Arguments
   * **default** - The value for the default property must correspond with an ID value from one of the **Item** elements.
 
 ### Auxiliary Files
-Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in the classic version of Azure Machine Learning Studio execution. 
+Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in the Azure Machine Learning Studio (classic) execution. 
 
 > [!NOTE]
-> Notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.
+> Notice that all files are extracted to 'src' directory so all paths should have 'src/' prefix.
 > 
 > 
 
-For example, say you want to remove any rows with NAs from the dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
+For example, say you want to remove any rows with NAs from the dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you've already written an R function that does that in a file RemoveDupNARows.R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -356,7 +358,7 @@ You can source the auxiliary file RemoveDupNARows.R in the CustomAddRows functio
         return (dataset)
     }
 
-Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.
+Next, upload a zip file containing 'CustomAddRows.R', 'CustomAddRows.xml', and 'RemoveDupNARows.R' as a custom R module.
 
 ## Execution Environment
 The execution environment for the R script uses the same version of R as the **Execute R Script** module and can use the same default packages. You can also add additional R packages to your custom module by including them in the custom module zip package. Just load them in your R script as you would in your own R environment. 

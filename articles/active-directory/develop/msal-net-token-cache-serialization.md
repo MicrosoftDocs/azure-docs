@@ -1,25 +1,20 @@
 ---
-title: Token cache serialization in Microsoft Authentication Library for .NET 
+title: Token cache serialization (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about serialization and customer serialization of the token cache using Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about token cache serialization so I can have fine-grained control of the proxy.
-ms.collection: M365-identity-device-management
 ---
 
 # Token cache serialization in MSAL.NET

@@ -2,7 +2,7 @@
 title: 'Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs'
 description: Learn about Azure Private Link
 services: private-link
-author: asudbring
+author: malopMSFT
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
 ms.service: private-link
 ms.topic: article
@@ -55,6 +55,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
 ```
+
+> [!CAUTION]
+> It's easy to confuse the `PrivateEndpointNetworkPoliciesFlag` parameter with another available flag, `PrivateLinkServiceNetworkPoliciesFlag`, because they are both long words and have similar appearance.  Make sure you are using the right one, `PrivateEndpointNetworkPoliciesFlag`.
 
 ### Associate the Subnet to the Virtual Network
 

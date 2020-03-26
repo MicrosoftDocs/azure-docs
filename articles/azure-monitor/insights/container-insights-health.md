@@ -1,17 +1,8 @@
 ---
 title: Monitor Kubernetes cluster health with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the health of your AKS and non-AKS clusters with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
+ms.date: 12/01/2019
 ---
 
 # Understand Kubernetes cluster health with Azure Monitor for containers
@@ -27,7 +18,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 >[!NOTE]
 >To support AKS Engine clusters, verify it meets the following:
 >- It is using the latest version of the [HELM client](https://helm.sh/docs/using_helm/).
->- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- The containerized agent version is *microsoft/oms:ciprod11012019*. To upgrade the agent, see [upgrading agent on Kubernetes cluster](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## Overview

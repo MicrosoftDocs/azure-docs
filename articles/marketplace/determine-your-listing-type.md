@@ -2,20 +2,12 @@
 title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
-author: jm-aditi-ms
-manager: pabutler
-
-
-
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: ellacroi
+ms.author: dsindona
 
 ---
 # Determine your publishing option
@@ -27,9 +19,9 @@ To configure your offer, you'll need to understand the following key marketplace
 
 
 In this article, you will learn…
-<ul><li>	How to determine the appropriate storefront for your solution </ul></li>
-<ul><li>	Which publishing options and calls-to-action are available in each storefront </ul></li>
-<ul><li>	Which offer types are available for each publishing option </ul></li>
+<ul><li>    How to determine the appropriate storefront for your solution </ul></li>
+<ul><li>    Which publishing options and calls-to-action are available in each storefront </ul></li>
+<ul><li>    Which offer types are available for each publishing option </ul></li>
 
 
 ## Selecting a storefront, publishing option, and offer type for your solution
@@ -43,7 +35,7 @@ Before you select a publishing option, it's important to understand the storefro
 
 ## Understand storefront selection
 
-The storefront where your offer will be presented, Azure Marketplace and/or AppSource, will be automatically determined by your offer details and target audience, as well as the categories and industries selected by you when creating your offer. 
+Each storefront serves unique customer requirements. The storefront where your offer will be published will be determined by offer type, offer transact capabilities and category and/or industry selection to target a specific audience. 
 
 >[!Note]
 >"Cross-listing" (for SaaS Apps only): when a list or trial-based offer meets the criteria for both a technical and business user audience, your offer will be listed in both storefronts. Learn more about the publishing options below.
@@ -65,8 +57,8 @@ The publishing options available offer differentiated customer engagement while 
 ## Next steps
 
 *   Once you decide on a publishing option, you are ready to [select the offer type](./publisher-guide-by-offer-type.md) that will be used to present your offer.
-*	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
-*	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+*    Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
+*    Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
 
 
 

@@ -34,7 +34,7 @@ The following steps get you started with ADS.
 
 ## 1. Enable ADS
 
-Enable ADS by navigating to **Advanced Data Security** under the **Security** heading for your SQL Database server or manged instance. To enable ADS for all databases on the database server or managed instance, click **Enable Advanced Data Security on the server**.
+Enable ADS by navigating to **Advanced Data Security** under the **Security** heading for your SQL Database server or managed instance. To enable ADS for all databases on the database server or managed instance, click **Enable Advanced Data Security on the server**.
 
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled ADS for another server in the same resource group and region, then the existing storage account is used.

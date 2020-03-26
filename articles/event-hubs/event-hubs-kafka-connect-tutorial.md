@@ -14,9 +14,9 @@ ms.author: shvija
 ---
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs (Preview)
-As ingestion for business needs increases, so does the requirement to ingest for various external sources and sinks. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) provides such framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Kafka-enabled Event Hubs.
+As ingestion for business needs increases, so does the requirement to ingest for various external sources and sinks. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) provides such framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Event Hubs.
 
-This tutorial walks you through integrating Kafka Connect with a Kafka-enabled Azure event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
+This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
@@ -103,7 +103,9 @@ In this step, a Kafka Connect worker is started locally in distributed mode, usi
 4. Run `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  The Connect worker REST API is ready for interaction when you see `'INFO Finished starting connectors and tasks'`. 
 
 > [!NOTE]
-> Event Hubs supports Kafka clients creating topics automatically. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
+> Kafka Connect uses the Kafka AdminClient API to automatically create topics with recommended configurations, including compaction. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
+>
+>Kafka Connect internal topics **must use compaction**.  The Event Hubs team is not responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
 
 ### Create connectors
 This section walks you through spinning up FileStreamSource and FileStreamSink connectors. 
@@ -157,10 +159,10 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following topic
 
 - [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 - [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
+- [How to create an event hub](event-hubs-create.md)
 - [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Mirror a Kafka broker in a Kafka-enabled event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md)
-- [Connect Apache Flink to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md)
-- [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
+- [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
+- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)

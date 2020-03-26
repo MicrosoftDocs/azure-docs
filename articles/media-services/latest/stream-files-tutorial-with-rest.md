@@ -1,5 +1,5 @@
 ---
-title: Encode a remote file based on URL and stream using Azure Media Services - REST | Microsoft Docs
+title: Encode a remote file and stream using Azure Media Services v3
 description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: juliako
 ---
 
@@ -54,7 +54,9 @@ Clone a GitHub repository that contains the  Postman collection and environment 
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## Access API
+
+For detailed information, see [Get credentials to access Media Services API](access-api-howto.md)
 
 ## Configure Postman
 
@@ -71,7 +73,7 @@ Clone a GitHub repository that contains the  Postman collection and environment 
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-api) steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 

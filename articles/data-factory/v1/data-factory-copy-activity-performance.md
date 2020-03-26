@@ -4,13 +4,13 @@ description: Learn about key factors that affect the performance of data movemen
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 05/25/2018
@@ -416,9 +416,10 @@ In this case, bzip2 data compression might be slowing down the entire pipeline. 
 ## Reference
 Here are performance monitoring and tuning references for some of the supported data stores:
 
-* Azure Storage (including Blob storage and Table storage): [Azure Storage scalability targets](../../storage/common/storage-scalability-targets.md) and [Azure Storage performance and scalability checklist](../../storage/common/storage-performance-checklist.md)
+* Azure Blob storage: [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../../storage/blobs/storage-performance-checklist.md).
+* Azure Table storage: [Scalability and performance targets for Table storage](../../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: You can [monitor the performance](../../sql-database/sql-database-single-database-monitor.md) and check the database transaction unit (DTU) percentage
-* Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure SQL Data Warehouse: Its capability is measured in data warehouse units (DWUs); see [Manage compute power in Azure SQL Data Warehouse (Overview)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx)
 * On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx)

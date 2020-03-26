@@ -2,11 +2,8 @@
 title: Scheduling recurring tasks and workflows in Azure Logic Apps
 description: An overview about scheduling recurring automated tasks, processes, and workflows with Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
 ---
@@ -76,6 +73,20 @@ Here are some patterns that show how you can control recurrence with the start d
 | Start time in the past | **Recurrence** trigger: Calculates run times based on the specified start time and discards past run times. Runs the first workload at the next future run time. <p>Runs future workloads based on calculations from the last run time. <p><p>**Sliding Window** trigger: Calculates run times based on the specified start time and honors past run times. <p>Runs future workloads based on calculations from the specified start time. <p><p>For more explanation, see the example following this table. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, then future run times are calculated using the hours or minutes, respectively, from the first run time. |
 | Start time at present or in the future | Runs the first workload at the specified start time. <p>Runs future workloads based on calculations from the last run time. | Runs the first workload *no sooner* than the start time, based on the schedule calculated from the start time. <p>Runs future workloads based on the specified schedule. <p>**Note:** If you specify a recurrence with a schedule, but don't specify hours or minutes for the schedule, then future run times are calculated using the hours or minutes, respectively, from the first run time. |
 ||||
+
+> [!IMPORTANT]
+> When recurrences don't specify advanced scheduling options, future recurrences are based on the last run time.
+> The start times for these recurrences might drift due to factors such as latency during storage calls. 
+> To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, 
+> use one of these options:
+> 
+> * Provide a start time for the recurrence.
+> 
+> * Specify the hours and minutes for when to run the recurrence by using the 
+> **At these hours** and **At these minutes** properties.
+> 
+> * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), 
+> rather than the Recurrence trigger.
 
 *Example for past start time and recurrence but no schedule*
 

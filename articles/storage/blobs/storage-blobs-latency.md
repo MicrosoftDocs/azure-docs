@@ -63,5 +63,5 @@ To assess latency, first establish baseline metrics for your scenario. Baseline 
 
 ## Next steps
 
-- [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md)
-- [Azure Storage performance and scalability checklist](../common/storage-performance-checklist.md)
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
+- [Performance and scalability checklist for Blob storage](storage-performance-checklist.md)

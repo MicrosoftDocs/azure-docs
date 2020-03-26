@@ -3,12 +3,12 @@ title: Create a search index in the Azure portal
 titleSuffix: Azure Cognitive Search
 description: In this portal quickstart, learn how to use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
 
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
@@ -266,7 +266,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-While the portal is useful for initial exploration and small tasks, reviewing the APIs early on will help you understand the concepts and workflow on a deeper level:
+Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
 
 > [!div class="nextstepaction"]
-> [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Create a search app in the portal](search-create-app-portal.md)

@@ -1,20 +1,10 @@
 ---
-title: Authenticate and authorize users end-to-end - Azure App Service | Microsoft Docs 
+title: 'Tutorial: AuthN/AuthO end-to-end' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -191,7 +181,7 @@ return new NoContentResult();
 
 The first line makes a `DELETE /api/Todo/{id}` call to the back-end API app.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
@@ -243,7 +233,7 @@ You use Azure Active Directory as the identity provider. For more information, s
 
 ### Enable authentication and authorization for front-end app
 
-Follow the same steps for the front-end app, but skip the last step. You don't need the client ID for the front-end app.
+Follow the same steps for the back-end app, but skip the last step. You don't need the client ID for the front-end app.
 
 If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It should now direct you to a secured sign-in page. After you sign in, you still can't access the data from the back-end app, because you still need to do three things:
 
@@ -318,7 +308,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
 This code adds the standard HTTP header `Authorization: Bearer <access-token>` to all remote API calls. In the ASP.NET Core MVC request execution pipeline, `OnActionExecuting` executes just before the respective action method (such as `GetAll()`) does, so each of your outgoing API call now presents the access token.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
@@ -402,7 +392,7 @@ The new change adds the `resolve` mapping that calls `/.auth/me` and sets the ac
 
 ### Deploy updates and test
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .

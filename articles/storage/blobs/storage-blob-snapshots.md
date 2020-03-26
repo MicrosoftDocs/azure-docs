@@ -13,9 +13,11 @@ ms.subservice: blobs
 
 # Create and manage a blob snapshot in .NET
 
-A snapshot is a read-only version of a blob that's taken at a point in time. Snapshots are useful for backing up blobs. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+A snapshot is a read-only version of a blob that's taken at a point in time. Snapshots are useful for backing up blobs. This article shows how to create and manage blob snapshots using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## About blob snapshots
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 A snapshot of a blob is identical to its base blob, except that the blob URI has a **DateTime** value appended to the blob URI to indicate the time at which the snapshot was taken. For example, if a page blob URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, the snapshot URI is similar to `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 

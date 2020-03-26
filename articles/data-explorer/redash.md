@@ -11,7 +11,7 @@ ms.date: 11/04/2019
 
 # Visualize data from Azure Data Explorer in Redash
 
-[Redash](https://www.redash.io/) connects and queries your data sources, builds dashboards to visualize data and share them with peers. In this article, you learn how to set up Azure Data Explorer as a data source for Redash, and then visualize data.
+[Redash](https://redash.io/) connects and queries your data sources, builds dashboards to visualize data and share them with peers. In this article, you learn how to set up Azure Data Explorer as a data source for Redash, and then visualize data.
 
 ## Prerequisites
 
