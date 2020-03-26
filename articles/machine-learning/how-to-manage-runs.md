@@ -29,7 +29,7 @@ This article shows examples of the following tasks:
 
 You'll need the following items:
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -74,6 +74,8 @@ To start a run of your experiment, use the following steps:
     ```azurecli-interactive
     az login
     ```
+    
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
 
