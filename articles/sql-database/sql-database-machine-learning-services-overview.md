@@ -47,7 +47,7 @@ In addition to the pre-installed packages, you can [install additional packages]
 ## Sign up for the preview
 
 > [!IMPORTANT]
-> Sign up for Azure SQL Database Machine Learning Services (preview) is currently closed.
+> Sign up for Azure SQL Database Machine Learning Services (preview) is currently **closed**.
 
 Machine Learning Services with R is not recommended for production workload during the preview.
 
