@@ -164,7 +164,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. |
 | **button_verify_code** | Verify Code |
 | **requiredField_code** | Please enter the verification code you received |
-| **invalid_code** | Please enter the 6 digit code you received |
+| **invalid_code** | Please enter the 6-digit code you received |
 | **button_cancel** | Cancel |
 | **local_number_input_placeholder_text** | Phone number |
 | **button_retry** | Retry |
@@ -231,7 +231,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 ## Azure MFA error messages
 
-The following are the IDs for a [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
 
 | ID | Default value |
 | -- | ------------- |
@@ -259,7 +259,7 @@ The following are the IDs for a [Azure MFA technical profile](multi-factor-auth-
 
 ## One time password error messages
 
-The following are the IDs for a [one time password technical profile](one-time-password-technical-profile.md) error messages
+The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
 
 | ID | Default value |
 | -- | ------------- |
