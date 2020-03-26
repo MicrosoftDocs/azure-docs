@@ -29,6 +29,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 - If you intend to upload a vhd from on-premises: A fixed size vhd that [has been prepared for Azure](../windows/prepare-for-upload-vhd-image.md), stored locally.
 - Or, a managed disk in Azure, if you intend to perform a copy action.
 
+## Basics
 
 To upload your vhd to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
