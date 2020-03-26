@@ -101,9 +101,9 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
 
 1.    Click the **Create connector** button on the top right of the screen before you can Test it.
 
-1.    In the Test Page, click the **+ New Connection**, and enter your search service query key as the value for *api-key*.
+1.  In the Test Page, click the **+ New Connection**, and enter your search service query key as the value for *api-key*.
 
-This step may take you to the out of the wizard and into the Connections page. You may want to go back to the Custom Connections editor to actually test the connection. Go to **Custom Connector** > Select the newly created Connector > … > **View Properties** > **Edit** > **4. Test** to get back to the test page.
+    This step may take you to the out of the wizard and into the Connections page. You may want to go back to the Custom Connections editor to actually test the connection. Go to **Custom Connector** > Select the newly created Connector > *…* > **View Properties** > **Edit** > **4. Test** to get back to the test page.
 
 1.    Now click **Test operation** to make sure that you are getting results from your index. If you were successful you should see a 200 status, and in the body of the response you should see JSON that describes your search results.
 
@@ -165,9 +165,8 @@ The goal of this tutorial is not to show you how to create fancy user experience
  
 1.  Press **F5** to preview the app.  
 
-      Remember that the fields can be set to calculated values. For the example below, the full path to the image files is calculated as the concatenation of the root path for the data and the file name.
- 
-     ![calculated field](./media/search-howto-powerapps/2-8-1-calculated-field.png "Calculated field")
+      Remember that the fields can be set to calculated values.      
+      For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
 
      ![Final app](./media/search-howto-powerapps/2-8-2-final.png  "Final app")
