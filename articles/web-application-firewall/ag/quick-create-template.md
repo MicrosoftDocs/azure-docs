@@ -14,9 +14,9 @@ ms.author: victorh
 
 In this quickstart, you use a Resource Manager template to create an Azure Web Application Firewall v2 on Application Gateway.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 

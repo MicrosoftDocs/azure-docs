@@ -25,7 +25,7 @@
      - name: Deploy WAFv2 - ARM template
        displayName: Resource Manager
        href: ./ag/quick-create-template.md
-      - name: Tutorials
+- name: Tutorials
   items:
   - name: Application Gateway
     items:
