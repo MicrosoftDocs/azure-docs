@@ -62,7 +62,7 @@ If you use AzureFunctions v2+ or Azure WebJobs v3+ - follow this document: https
 TelemetryConfiguration telemetry = TelemetryConfiguration.CreateDefault();
 var TelemetryClient = new TelemetryClient(telemetry);
 ```
-For anyone using the now obsolete method please visit [microsoft/ApplicationInsights-dotnet#1152](microsoft/ApplicationInsights-dotnet#1152) for further details.
+For anyone using the now obsolete method please visit [microsoft/ApplicationInsights-dotnet#1152](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1152) for further details.
 
 *Visual Basic*
 
