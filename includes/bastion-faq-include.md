@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 03/02/2020
+ ms.date: 03/25/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -29,6 +29,11 @@ You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+
+### <a name="limits"></a>How many concurrent RDP and SSH sessions does each Azure Bastion support?
+Both RDP and SSH are a usage-based protocol. High usage of sessions will cause the bastion host to support a lower total number of sessions. The numbers below assume normal day-to-day workflows.
+
+[!INCLUDE [limits](bastion-limits.md)]
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 

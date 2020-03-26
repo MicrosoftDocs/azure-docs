@@ -455,8 +455,8 @@
       - name: Cosmos DB
         href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
         maintainContext: true 
-      - name: Azure SQL Data Warehouse
-        href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+      - name: Azure Synapse Analytics
+        href: /azure/databricks/data/data-sources/azure/synapse-analytics
         maintainContext: true
       - name: Binary file
         href: /azure/databricks/data/data-sources/binary-file

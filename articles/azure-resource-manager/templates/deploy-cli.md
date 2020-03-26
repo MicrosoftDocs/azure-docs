@@ -2,11 +2,13 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/25/2020
 ---
 # Deploy resources with ARM templates and Azure CLI
 
 This article explains how to use Azure CLI with Azure Resource Manager (ARM) templates to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+
+The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

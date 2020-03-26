@@ -6,7 +6,7 @@ author: rambk
 
 ms.service: virtual-network
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 03/25/2020
 ms.author: kumud
 
 ---
@@ -47,6 +47,8 @@ To access your resources deployed in Azure, remote employees could use Azure Bas
 
 For aggregating large-scale VPN connection, to support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks, and to optimize utilization of multiple home broadband networks you can use Azure Virtual WAN. For more information, see [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](https://go.microsoft.com/fwlink/?linkid=2123769).
 
+Another way to support a remote workforce is to deploy a Virtual Desktop Infrastructure (VDI) hosted in your Azure virtual network, secured with an Azure Firewall. For example, Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs in Azure. With Windows Virtual Desktop, you can set up a scalable and flexible environment in your Azure subscription without the need to run any additional gateway servers. You are only responsible for the WVD virtual machines in your virtual network. For more information, see [Azure Firewall remote work support](../firewall/remote-work-support.md). 
+
 Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) Considerations during COVID-19](https://go.microsoft.com/fwlink/?linkid=2123771).
 
 ## Enable employees to access globally distributed on-premises resources
@@ -75,3 +77,4 @@ Following are the Covid-19 preparation articles leveraging different Azure netwo
 | [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
 | [Azure Bastion COVID-19 update](https://go.microsoft.com/fwlink/?linkid=2123939) | March 23, 2020 |
 | [COVID update - ExpressRoute](https://go.microsoft.com/fwlink/?linkid=2123768) | March 23, 2020 |
+|[Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|

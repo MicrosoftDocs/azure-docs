@@ -1,9 +1,8 @@
 ---
 title: Frequently asked questions and terminology for the Commercial Marketplace analytics in Partner Center
 description: Learn how to address commonly asked questions about Commercial Marketplace analytics. Includes a data dictionary for analytics terminology.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
