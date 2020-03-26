@@ -497,7 +497,7 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
-### What does *Other Processes* represent in the Node view?
+### What does *Other Processes* represent under the Node view?
 
 **Other processes** is intended to help you clearly understand the root cause of the high CPU usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes. 
 
