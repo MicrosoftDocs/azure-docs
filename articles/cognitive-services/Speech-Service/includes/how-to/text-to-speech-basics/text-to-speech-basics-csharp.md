@@ -203,7 +203,7 @@ First, create a new XML file for the SSML config in your root project directory,
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
   <voice name="en-GB-George-Apollo">
-    When you're on the motorway, it's a good idea to use a sat nav.
+    When you're on the motorway, it's a good idea to use a sat-nav.
   </voice>
 </speak>
 ```
