@@ -88,4 +88,4 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
+> [Build a single-page web app](../../tutorial-bing-visual-search-single-page-app.md)
