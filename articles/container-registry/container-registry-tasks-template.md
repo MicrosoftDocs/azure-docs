@@ -50,7 +50,7 @@ az deployment group create \
     sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git 
  ```
 
- ### Verify deployment
+### Verify deployment
 
 Verify the image is built by running [az acr repository show-tags][az-acr-repository-show-tags]:
 
@@ -139,6 +139,8 @@ Run ID: ca1 was successful after 47s
 ## Example: Task with managed identity
 
 This [deployment example](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuildwithidentity) queues a task that uses a user-assigned managed identity. During the task run, the identity authenticates to pull an image from another Azure container registry. This scenario is similar to the one in [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md). For example, an organization might maintain a *base registry* with base images accessed by multiple development teams.
+
+For this example, you create a managed identity before queuing the task. However, you can also set up a template to automate creation of the identity. 
 
 ### Prepare a base registry
 
