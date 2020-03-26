@@ -54,7 +54,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Without opening those ports or whitelistening the IP/URL this will prevents the operation of the cluster, and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), otherwise additional ports has to be opened.
+The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Without opening those ports or whitelisting the IP/URL this will prevents the operation of the cluster, and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), otherwise additional ports has to be opened.
 
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
