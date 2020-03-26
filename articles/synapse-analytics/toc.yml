@@ -14,8 +14,8 @@
     href: overview-faq.md
 - name: Release notes
   items:
-  - name: Recent release
-    href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  # - name: Recent release
+  #   href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Quickstarts
   items:
   - name: Create an Azure Synapse workspace
@@ -162,6 +162,8 @@
         href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       # - name: Workspace
       #   href: article-template.md
+      - name: Synapse workspace managed Identity
+        href: ./security/synapse-workspace-managed-identity.md
       - name: Pool and on-demand
         href: ./sql-analytics/access-control.md
       - name: Data
@@ -396,6 +398,8 @@
     items:
     - name: Manage access control 
       items:
+      - name: Set up permissions for Azure Synapse workspace managed Identity
+        href: security/how-to-grant-worspace-managed-identity-permissions.md
       - name: Set up access control
         href: security/how-to-set-up-access-control.md
     #   - name: Implement RBAC policies

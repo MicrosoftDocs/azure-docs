@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/24/2020
 ms.author: jingwang
 
 ---
@@ -180,6 +180,63 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 ## Fault tolerance
 
 By default, the Copy activity stops copying data and returns a failure when source data rows are incompatible with sink data rows. To make the copy succeed, you can configure the Copy activity to skip and log the incompatible rows and copy only the compatible data. See [Copy activity fault tolerance](copy-activity-fault-tolerance.md) for details.
+
+## Add additional columns during copy
+
+In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
+
+- When copy from file-based source, store the relative file path as an additional column to trace from which file the data comes from.
+- Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline id, or store other dynamic value from upstream activity's output.
+- Add a column with static value to meet your downstream consumption need.
+
+You can find the following configuration on copy activity source tab: 
+
+![Add additional columns in copy activity](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+
+To configure it programmatically, add the `additionalColumns` property in your copy activity source:
+
+| Property | Description | Required |
+| --- | --- | --- |
+| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **Expression**<br>- **Static value** | No |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyWithAdditionalColumns",
+        "type": "Copy",
+        "inputs": [...],
+        "outputs": [...],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>",
+                "additionalColumns": [
+                    {
+                        "name": "filePath",
+                        "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "pipelineName",
+                        "value": {
+                            "value": "@pipeline().Pipeline",
+                            "type": "Expression"
+                        }
+                    },
+                    {
+                        "name": "staticValue",
+                        "value": "sampleValue"
+                    }
+                ],
+                ...
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
 
 ## Next steps
 See the following quickstarts, tutorials, and samples:

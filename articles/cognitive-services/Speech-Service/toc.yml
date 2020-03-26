@@ -45,12 +45,14 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Improve accuracy with Phrase Lists
           href: how-to-phrase-lists.md
-        - name: Improve accuracy with tenant models
-          href: tutorial-tenant-model.md
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
           href: how-to-automatic-language-detection.md
+    - name: Tutorials
+      items:
+        - name: Improve accuracy with tenant models
+          href: tutorial-tenant-model.md
     - name: Customization
       items:
         - name: Prepare data for Custom Speech
@@ -127,9 +129,6 @@
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
-        - name: Improve synthesis with Custom Voice
-          displayName: custom voice
-          href: how-to-custom-voice.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
         - name: Get a list of voices with REST (Python)
@@ -415,12 +414,8 @@
           href: direct-line-speech.md
         - name: Quickstarts
           items:
-            - name: 'C# (UWP)'
-              href: quickstart-voice-assistant-csharp-uwp.md
-            - name: 'Java (Windows, macOS, Linux)'
-              href: quickstart-voice-assistant-java-jre.md
-            - name: Java (Android)
-              href: quickstart-voice-assistant-java-android.md
+            - name: 'Create a custom voice assistant'
+              href: quickstarts/voice-assistants.md
         - name: Tutorials
           items:
             - name: Voice enable your bot with Speech SDK

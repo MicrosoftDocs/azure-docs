@@ -16,6 +16,8 @@ This article shows you how to set up SSL encryption between Apache Kafka clients
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use SSL for both producing and consuming. The console producer client `console-producer.sh` does not work with SSL.
 
+> [!Note] 
+> HDInsight Kafka console producer with version 1.1 does not support SSL.
 ## Apache Kafka broker setup
 
 The Kafka SSL broker setup will use four HDInsight cluster VMs in the following way:
@@ -145,7 +147,13 @@ To complete the configuration modification, do the following steps:
 
 1. Go to Ambari configuration UI and verify that the new properties show up under **Advanced kafka-env** and the **kafka-env template** property.
 
+    For HDI version 3.6:
+
     ![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+
+    For HDI version 4.0:
+
+     ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
 
 1. Restart all Kafka brokers.
 1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093.
