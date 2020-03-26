@@ -87,9 +87,9 @@ The data gateway resource is associated with a location or Azure region, just li
 
 <a name="roles"></a>
 
-## Active-active and active-passive roles
+## Active-active versus active-passive roles
 
-You can set up your primary and secondary locations so that your logic app instances in these locations play these roles:
+You can set up your primary and secondary locations so that your logic app instances in these locations can play these roles:
 
 | Primary-secondary role | Description |
 |------------------------|-------------|
@@ -100,17 +100,20 @@ You can set up your primary and secondary locations so that your logic app insta
 
 For example, here is an active-active setup that has both logic app instances actively handle requests and can use any of these patterns to distribute requests between instances:
 
-* A "physical" or "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), a "soft" load balancer such as Azure API Management
+* A "physical" or "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), a "soft" load balancer such as Azure [API Management](../api-management/api-management-key-concepts.md), or a service that tracks state, such as [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md):
 
   !["Active-active" setup that uses a load balancer](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
 
-* /architecture/patterns/queue-based-load-levelin
 
 , or a service that tracks state, such as Azure Service Bus queue
 
 Or, the setup can have each instance "compete" for requests from a message queue:
 
 !["Active-active" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-active-competing-consumers-pattern.png)
+
+Here is an active-passive setup where an enabled logic app is in one location, while a disabled logic app is in another location. If a failure occurs an operator can run a script that will enable the logic app in the secondary location
+
+
 
 <a name="state-history"></a>
 
