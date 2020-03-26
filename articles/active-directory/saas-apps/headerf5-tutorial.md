@@ -298,7 +298,7 @@ This section is intended to be used if you cannot use the Guided configuration o
  
 	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure18.png)
 
-1. We will publish our HeaderApp2 externally as HTTPS in this case, **how should the BIG-IP system handle SSL Traffic**? we specify **Terminate SSL from Client, Plaintext to servers (SSL Offload)**. Specify your Certificate and Key under Which TLS/SSL certificate do you want to use? and **Which SSL private key do you want to use?**. Specify the Virtual Server IP under **What IP Address do you want to use for the Virtual Server?**. 
+1. We will publish our HeaderApp2 externally as HTTPS in this case, **how should the BIG-IP system handle SSL Traffic**? we specify **Terminate SSL from Client, Plaintext to servers (SSL Offload)**. Specify your Certificate and Key under **Which SSL certificate do you want to use?** and **Which SSL private key do you want to use?**. Specify the Virtual Server IP under **What IP Address do you want to use for the Virtual Server?**. 
 
 	* **Specify other details**
 
