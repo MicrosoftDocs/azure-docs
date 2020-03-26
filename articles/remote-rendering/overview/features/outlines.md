@@ -41,7 +41,7 @@ void SetOutlineParameters(AzureSession session)
 
 ## Performance
 
-Outline rendering has a significant impact on rendering performance. This impact scales with the number of outline objects and also depends on the scene's depth complexity: Since the object's outline should be visible for occluded objects, the renderer needs to render those objects regardless of whether they are occluded or not. Bypassing the occlusion test makes rendering less efficient.
+Outline rendering may have a significant impact on rendering performance. This impact varies based on screen-space spatial relation between selected and non-selected objects for a given frame. Specifically, geometry with outline rendering that is occluded by non-selected parts cannot be culled.
 
 ## Next steps
 
