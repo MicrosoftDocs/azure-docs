@@ -335,7 +335,7 @@ The following sections demonstrate how to manage the Azure Cosmos DB database, i
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
-$accountName = "pzcosmosaccount"
+$accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 
 Set-AzCosmosDBSqlDatabase `
