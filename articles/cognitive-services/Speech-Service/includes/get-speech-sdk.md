@@ -120,9 +120,11 @@ https://aka.ms/csspeech/iosbinary
 
 Xamarin.iOS
 
+---
+
 # [macOS](#tab/macos)
 
-The macOS Speech SDK is available natively, or with the Xamarin.macOS and the .NET Standard SDK.
+The macOS Speech SDK is available natively, or with the Xamarin.Mac and the .NET Standard SDK.
 
 # [Native](#tab/macos/native)
 
@@ -131,6 +133,8 @@ https://aka.ms/csspeech/macosbinary
 # [Xamarin.Mac](#tab/macos/xamarin)
 
 Xamarin.Mac
+
+---
 
 # [Android](#tab/android)
 
@@ -160,13 +164,23 @@ The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).
 
 Xamarin.Android
 
+---
+
 # [Node.js](#tab/nodejs)
+
+<div class="icon is-large">
+    <img alt="Node.js" src="https://docs.microsoft.com/media/logos/logo_nodejs.svg">
+</div>
 
 Server JavaScript
 
 https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk
 
 # [Browser](#tab/browser)
+
+<div class="icon is-large">
+    <img alt="Node Package Manager (NPM)" src="https://docs.microsoft.com/media/logos/logo_npm.svg">
+</div>
 
 Client JavaScript
 
