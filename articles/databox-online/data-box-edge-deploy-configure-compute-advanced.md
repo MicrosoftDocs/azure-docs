@@ -1,6 +1,6 @@
 ---
-title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Data Box Edge | Microsoft Docs
-description: Learn how to configure compute role on Data Box Edge and use it to transform data for advanced deployment flow before sending to Azure.
+title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Stack Edge | Microsoft Docs
+description: Learn how to configure compute role on Azure Stack Edge and use it to transform data for advanced deployment flow before sending to Azure.
 services: databox
 author: alkohli
 
@@ -9,19 +9,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Transform data with Azure Data Box Edge for advanced deployment flow
+# Tutorial: Transform data with Azure Stack Edge for advanced deployment flow
 
-This tutorial describes how to configure a compute role for an advanced deployment flow on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
+This tutorial describes how to configure a compute role for an advanced deployment flow on your Azure Stack Edge device. After you configure the compute role, Azure Stack Edge can transform data before sending it to Azure.
 
 Compute can be configured for simple or advanced deployment flow on your device.
 
 |                  | Simple deployment                                | Advanced deployment                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Intended for     | IT administrators                                | Developers                            |
-| Type             | Use Data Box Edge service to deploy modules      | Use IoT Hub service to deploy modules |
+| Type             | Use Azure Stack Edge service to deploy modules      | Use IoT Hub service to deploy modules |
 | Modules deployed | Single                                           | Chained or multiple modules           |
 
 
@@ -39,16 +39,16 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Data Box Edge device, make sure that:
+Before you set up a compute role on your Azure Stack Edge device, make sure that:
 
-- You've activated your Data Box Edge device as described in [Connect, set up, and activate Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md).
+- You've activated your Azure Stack Edge device as described in [Connect, set up, and activate Azure Stack Edge](data-box-edge-deploy-connect-setup-activate.md).
 
 
 ## Configure compute
 
-To configure compute on your Data Box Edge, you'll create an IoT Hub resource.
+To configure compute on your Azure Stack Edge, you'll create an IoT Hub resource.
 
-1. In the Azure portal of your Data Box Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
+1. In the Azure portal of your Azure Stack Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
 
     ![Get started with compute](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-1.png)
 
@@ -61,7 +61,7 @@ To configure compute on your Data Box Edge, you'll create an IoT Hub resource.
    
     |Field  |Value  |
     |---------|---------|
-    |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Data Box Edge resource.     |
+    |IoT Hub     | Choose from **New** or **Existing**. <br> By default, a Standard tier (S1) is used to create an IoT resource. To use a free tier IoT resource, create one and then select the existing resource. <br> In each case, the IoT Hub resource uses the same subscription and resource group that is used by the Azure Stack Edge resource.     |
     |Name     |Enter a name for your IoT Hub resource.         |
 
     ![Get started with compute](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
@@ -81,7 +81,7 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
 1. Add an Edge share on the device by doing the following steps:
 
-    1. In your Data Box Edge resource, go to **Edge compute > Get started**.
+    1. In your Azure Stack Edge resource, go to **Edge compute > Get started**.
     2. On the **Add share(s)** tile, select **Add**.
     3. On the **Add share** blade, provide the share name and select the share type.
     4. To mount the Edge share, select the check box for **Use the share with Edge compute**.
@@ -146,9 +146,9 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
 ## Add a module
 
-There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Data Box Edge device](data-box-edge-create-iot-edge-module.md).
+There are no custom modules on this Edge device. You could add a custom or a pre-built module. To learn how to create a custom module, go to [Develop a C# module for your Azure Stack Edge device](data-box-edge-create-iot-edge-module.md).
 
-In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Data Box Edge](data-box-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Azure Stack Edge](data-box-edge-create-iot-edge-module.md). This custom module takes files from an Edge local share on the Edge device and moves them to an Edge (cloud) share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share.
 
 1. Go to **Edge compute > Get started**. On the **Add modules** tile, select the scenario type as **advanced**. Select **Go to IoT Hub**.
 
@@ -171,7 +171,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 4. Under **Add Modules**, do the following:
 
     1. Enter the name, address, user name, and password for the container registry settings for the custom module.
-    The name, address, and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container that you can deploy to the IoT Edge device that's associated with your Data Box Edge device.
+    The name, address, and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container that you can deploy to the IoT Edge device that's associated with your Azure Stack Edge device.
 
         ![The Set Modules page](./media/data-box-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -179,7 +179,7 @@ In this section, you add a custom module to the IoT Edge device that you created
      
         |Field  |Value  |
         |---------|---------|
-        |Name     | A unique name for the module. This module is a docker container that you can deploy to the IoT Edge device associated with your Data Box Edge.        |
+        |Name     | A unique name for the module. This module is a docker container that you can deploy to the IoT Edge device associated with your Azure Stack Edge.        |
         |Image URI     | The image URI for the corresponding container image for the module.        |
         |Credentials required     | If checked, username and password are used to retrieve modules with a matching URL.        |
     
@@ -211,7 +211,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 
         ![Add custom module](./media/data-box-edge-deploy-configure-compute-advanced/add-module-6.png)
  
-5.	Under **Specify Routes**, set routes between modules.  
+5.    Under **Specify Routes**, set routes between modules.  
     
     ![The Specify Routes](./media/data-box-edge-deploy-configure-compute-advanced/add-module-7.png)
 
@@ -223,7 +223,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 
     ![The Specify Routes section](./media/data-box-edge-deploy-configure-compute-advanced/add-module-8.png)
 
-6.	Under **Review deployment**, review all the settings, and then select **Submit** to submit the module for deployment.
+6.    Under **Review deployment**, review all the settings, and then select **Submit** to submit the module for deployment.
 
     ![The Set Modules page](./media/data-box-edge-deploy-configure-compute-advanced/add-module-9.png)
  
@@ -237,11 +237,11 @@ The final step is to ensure that the module is connected and running as expected
 
 Take the following steps to verify data transform and transfer to Azure.
  
-1.	In File Explorer, connect to both the Edge local and Edge shares you created previously.
+1.    In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-2.png)
  
-1.	Add data to the local share.
+1.    Add data to the local share.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-3.png)
  
@@ -266,7 +266,7 @@ In this tutorial, you learned how to:
 > * Add a compute module
 > * Verify data transform and transfer
 
-To learn how to administer your Data Box Edge device, see:
+To learn how to administer your Azure Stack Edge device, see:
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Edge](data-box-edge-manage-access-power-connectivity-mode.md)
+> [Use local web UI to administer a Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md)
