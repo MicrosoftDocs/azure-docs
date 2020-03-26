@@ -13,31 +13,22 @@ ms.author: cynthn
 
 # Copy an image version from another gallery
 
-Get the image definition from the original gallery
-Create an image definition in the new gallery that matches the one in the original gallery
-Get the ID of the image version in the original gallery
-Create the image definition in the new gallery using the image version ID  from the old gallery as the `--managed-image`.
-
-----------------
-----------------
+If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example.
 
 
-## Before you begin
+To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. We will be creating a new image definition and image version in your destination gallery
 
-To complete this article, you must have an existing [Shared Image Gallery and an image definition](./linux/shared-images.md). Because managed images are always generalized images, create a an image definition for a generalized image before you begin.
-
-To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Capture a managed image](./linux/capture-image.md). If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 
-## Get information from the origin gallery
+## Get information from the source gallery
 
-You will need information from the original image definition so you can create a copy of it in your new gallery.
+You will need information from the source image definition so you can create a copy of it in your new gallery.
 
-List information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list) to find information about the original gallery.
+List information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list) to find information about the source gallery.
 
 ```azurecli-interactive 
 az sig list -o table
@@ -55,7 +46,7 @@ List the shared image versions in a gallery, using [az sig image-version list](/
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
 ```
 
-Once you have all of the information you need, you can get the ID of the original image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Once you have all of the information you need, you can get the ID of the source image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
 
 ```azurecli-interactive
 az sig image-version show \
@@ -69,7 +60,7 @@ az sig image-version show \
 
 ## Create the image definition 
 
-You need to create an image definition that matches the image definition of your original image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
+You need to create an image definition that matches the image definition of your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
 
 ```azurecli-interactive
 az sig image-definition show --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition

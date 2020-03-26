@@ -533,7 +533,9 @@
           - name: From a VM
             href: ../image-version-vm-powershell.md
           - name: Migrate from a managed image
-            href: ../image-version-managed-image-powershell.md            
+            href: ../image-version-managed-image-powershell.md
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-powershell.md             
         - name: Create a VM
           items:
           - name: Specialized
@@ -542,6 +544,28 @@
             href: ../vm-specialized-image-version-powershell.md
         - name: Update image resources
           href: ../update-image-resources-powershell.md
+      - name: CLI
+        items:
+        - name: Create a gallery and image definition
+          href: ../linux/shared-images.md
+        - name: Create an image version
+          items:
+          - name: From a VM
+            href: ../image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
+        - name: Create a VM
+          items:
+          - name: Specialized
+            href: ../vm-generalized-image-version-cli.md
+          - name: Generalized
+            href: ../vm-specialized-image-version-cli.md
+        - name: Update image resources
+          href: ../update-image-resources-cli.md
+        - name: App registration for sharing
+          href: share-images-across-tenants.md
       - name: Portal
         items:
         - name: Create a gallery

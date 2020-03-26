@@ -462,7 +462,9 @@
           - name: From a VM
             href: ../image-version-vm-cli.md
           - name: Migrate from a managed image
-            href: ../image-version-managed-image-cli.md            
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
         - name: Create a VM
           items:
           - name: Specialized
@@ -482,7 +484,9 @@
           - name: From a VM
             href: ../image-version-vm-powershell.md
           - name: Migrate from a managed image
-            href: ../image-version-managed-image-powershell.md            
+            href: ../image-version-managed-image-powershell.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-powershell.md            
         - name: Create a VM
           items:
           - name: Specialized
