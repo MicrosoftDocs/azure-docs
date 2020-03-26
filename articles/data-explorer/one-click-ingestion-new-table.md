@@ -91,7 +91,7 @@ Select **Start ingestion** to create a table and mapping and to begin data inges
 
 **Continuous ingestion**
 
-Continuous ingestion is a feature that enables you to create an event grid that listens to the source container.  Any new blob that meets the criteria of the the pre-defined parameters (prefix, suffix, and so on) will be automatically ingested into the destination table.
+Continuous ingestion enables you to create an event grid that listens to the source container. Any new blob that meets the criteria of the the pre-defined parameters (prefix, suffix, and so on) will be automatically ingested into the destination table.
 
 1. Select **Continuous ingestion** to open the Azure portal. The data connection page opens with the pre-defined parameters already selected (source container, tables, and mappings).
 
