@@ -53,7 +53,7 @@ Azure also has a rich set of eco system partners. Our partners Network Virtual A
 
 ## Extend employees' connection to access globally distributed resources
 
-Following Azure services can be leveraged to enable employees connected to Azure access your globally distributed resources. Your resources could be in any of the Azure regions, on-premise networks across the globe, or even in other public or private clouds. Microsoft support for multi-cloud traffic is discussed later in this article.
+The following Azure services can be leveraged to enable employees connected to Azure to access your globally distributed resources. Your resources could be in any of the Azure regions, on-premises networks across the globe, or even in other public or private clouds. Microsoft support for multi-cloud traffic is discussed later in this article.
 
 Azure VNet-peering: If you deploy your resources in more than one Azure regions and/or if you aggregate the connectivity of remotely working employees using multiple virtual networks (VNet), you can establish cross connectivity between the multiple Azure Vnets using virtual network peering. For more information, see [Virtual network peering][VNet-peer].
 
@@ -65,7 +65,7 @@ Azure Virtual WAN: Azure Virtual WAN allows seemless interoperability between yo
 
 ## Scale customer connectivity to frontend resources
 
-Covid-19 is also creating a need for people to go online more. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see[Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
+Covid-19 is also creating a need for people to go online more. Even those who are not used to online transactions are now forced to do so. This results in increased customer traffic to many corporate websites Azure Application Gateway can help managing this increased frontend workload. For more information, see [Application Gateway COVID-19 Update](https://go.microsoft.com/fwlink/?linkid=2123940).
 
 ## Microsoft support for multi-cloud traffic
 
