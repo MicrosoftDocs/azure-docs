@@ -21,7 +21,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a container registry to store and manage your modules (Docker images).
-> * Create an IoT Edge module to deploy on your Azure Stack Edge device.
+> * Create an IoT Edge module to deploy on your Azure Stack Edge device. 
 
 
 ## About the IoT Edge module
