@@ -136,7 +136,7 @@ Controls options for Application Insights, including [sampling options](./functi
 For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
 > [!NOTE]
-> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `samplingExcludedTypes: "Request"` to the `applicationInsights` value.
+> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `excludedTypes: "Request"` to the `samplingSettings` value.
 
 | Property | Default | Description |
 | --------- | --------- | --------- | 
