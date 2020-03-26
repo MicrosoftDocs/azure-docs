@@ -44,8 +44,6 @@ This article lists SQL Database features that are currently in public preview. F
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create server-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. For information, see [Configure replication in an Azure SQL Database managed instance database](replication-with-sql-database-managed-instance.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
-| Recreate dropped databases with managed instances |For information, see [Re-create dropped databases in Azure SQL Managed Instance](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266).|
-| &nbsp; |
 
 ---
 
@@ -89,7 +87,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 |[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)||Has Workaround||
 |[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)||No Workaround||
 |[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround||
-|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||No Workaround||
+|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround||
 |[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround||
 |[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround||
 |[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround||
@@ -204,6 +202,14 @@ You can [identify the number of remaining files](https://medium.com/azure-sqldb-
 ### GUID values shown instead of database names
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Don't rely on these GUID identifiers because they're replaced with actual database names in the future.
+
+**Workaround**: Use sys.databases view to map physical to logical name
+
+```tsql
+SELECT name, physical_database_name, * 
+FROM sys.databases
+WHERE database_id > 4
+```
 
 ### Error logs aren't persisted
 
