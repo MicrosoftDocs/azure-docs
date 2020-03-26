@@ -145,12 +145,12 @@ Within your pipeline's `PythonScriptStep`, you can retrieve the available output
 
 ```python
 parser = argparse.ArgumentParser()
-parser.add_argument('--output_path', dest='output_path', default=None)
+parser.add_argument('--output_path', dest='output_path', required=True)
 args = parser.parse_args()
 
-if args.output_path != None:
-    print(f"Got output path {args.output_path}")
-    with open(os.path.join(args.output_path, 'temp.txt'), 'w') as f: 
-        f.write("Temporary data")
-        f.close()
+# Make directory for file
+os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+with open(args.output_path, 'w') as f: 
+    f.write("Step 1's output")
 ```
+
