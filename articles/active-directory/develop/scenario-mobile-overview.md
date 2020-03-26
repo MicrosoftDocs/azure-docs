@@ -50,13 +50,14 @@ Considerations for mobile apps:
 - **User experience is key**: Allow users to see the value of your app before you ask for sign-in. Request only the required permissions.
 - **Support all user configurations**: Many mobile business users must adhere to conditional-access policies and device-compliance policies. Be sure to support these key scenarios.
 - **Implement single sign-on (SSO)**: By using MSAL and Microsoft identity platform, you can enable single sign-on through the device's browser or Microsoft Authenticator (and Intune Company Portal on Android).
+- **Implement shared device mode**: You can allow your application to be used by companies that use shared devices for their employees such as hospitals, manufacturing, retail, and finance.
 
 ## Specifics
 
 Keep in mind the following considerations when you build a mobile app on Microsoft identity platform:
 
 - Depending on the platform, some user interaction might be required the first time that users sign in. For example, iOS requires apps to show user interaction when they use SSO for the first time through Microsoft Authenticator (and Intune Company Portal on Android).
-- On iOS and Android, MSAL might use an external browser to sign in users. The external browser might appear on top of your app. You can customize the configuration to use in-app WebViews instead.
+- On iOS and Android, MSAL might use an external browser to sign in users. The external browser might appear on top of your app.
 - Never use a secret in a mobile application. In these applications, secrets are accessible to all users.
 
 ## Next steps
