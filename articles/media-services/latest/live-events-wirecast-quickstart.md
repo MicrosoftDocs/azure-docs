@@ -103,14 +103,14 @@ This part will set up your outputs and enable you to save a recording of your li
 
 1. In Wirecast, select **Output > Start / Stop broadcasting > Start Azure Media Services : Azure Media Services** from the main menu.  When the stream has been sent to the live event, the Live window in Wirecast will be show up in the live event video player on the live event page in Azure Media Services.
 
-![Start broadcast menu items](media/live-events-wirecast-quickstart/start-broadcast.png)
+   ![Start broadcast menu items](media/live-events-wirecast-quickstart/start-broadcast.png)
 
 1. Click the **Go** button under the preview window to start broadcasting the video and audio you selected for the Wirecast layers.
 
-![Wirecast Go button](media/live-events-wirecast-quickstart/go-button.png)
+   ![Wirecast Go button](media/live-events-wirecast-quickstart/go-button.png)
 
-> [!TIP]
-> If there is an error, try reloading the player by clicking the Reload player link above the player.
+   > [!TIP]
+   > If there is an error, try reloading the player by clicking the Reload player link above the player.
 
 ## Running the default streaming endpoint
 
@@ -149,8 +149,8 @@ The output you created is now available for on-demand streaming as long as your 
 
 ## Clean up resources
 
-  > [!IMPORTANT]
-  > Stop the services! Once you have completed the steps in this quickstart, be certain to stop the live event and the streaming endpoint or you will continue to be billed for the time they remain running. To stop the live event, see the Stopping the broadcast, steps 2 and 3 above.
+> [!IMPORTANT]
+> Stop the services! Once you have completed the steps in this quickstart, be certain to stop the live event and the streaming endpoint or you will continue to be billed for the time they remain running. To stop the live event, see the Stopping the broadcast, steps 2 and 3 above.
 
 ### Stopping the streaming endpoint
 
@@ -158,8 +158,8 @@ The output you created is now available for on-demand streaming as long as your 
 2. Click on the **default** streaming endpoint you started earlier. This will open the endpoint's page.
 3. Click on **Stop**.  This will stop the streaming endpoint.
 
->[!TIP]
->If you don't want to keep the assets from this event, be sure to delete them in order to prevent being billed for storage.
+> [!TIP]
+> If you don't want to keep the assets from this event, be sure to delete them in order to prevent being billed for storage.
 
 ## Next steps
 > [!div class="nextstepaction"]
