@@ -77,7 +77,7 @@
     - name: Critical service failed
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Not a bootable disk
-      href: troubleshoot-guide-not-a-bootable-disk.md
+      href: troubleshoot-guide-not-bootable-disk.md
     - name: Reboot loop
       href: troubleshoot-reboot-loop.md
     - name: Stuck at Windows update
