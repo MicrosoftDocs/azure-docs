@@ -63,8 +63,8 @@ To configure and test Azure AD SSO with Logz.io - Cloud Observability for Engine
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Logz.io - Cloud Observability for Engineers SSO](#configure-logz.io---cloud-observability-for-engineers-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Logz.io - Cloud Observability for Engineers test user](#create-logz.io---cloud-observability-for-engineers-test-user)** - to have a counterpart of B.Simon in Logz.io - Cloud Observability for Engineers that is linked to the Azure AD representation of user.
+1. **[Configure Logz.io Cloud Observability for Engineers SSO](#configure-logz.io-cloud-observability-for-engineers-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Logz.io Cloud Observability for Engineers test user](#create-logz.io-cloud-observability-for-engineers-test-user)** - to have a counterpart of B.Simon in Logz.io - Cloud Observability for Engineers that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -138,11 +138,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Logz.io - Cloud Observability for Engineers SSO
+## Configure Logz.io Cloud Observability for Engineers SSO
 
 To configure single sign-on on **Logz.io - Cloud Observability for Engineers** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Logz.io - Cloud Observability for Engineers support team](mailto:help@logz.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create Logz.io - Cloud Observability for Engineers test user
+### Create Logz.io Cloud Observability for Engineers test user
 
 In this section, you create a user called Britta Simon in Logz.io - Cloud Observability for Engineers. Work with [Logz.io - Cloud Observability for Engineers support team](mailto:help@logz.io) to add the users in the Logz.io - Cloud Observability for Engineers platform. Users must be created and activated before you use single sign-on.
 
