@@ -32,13 +32,13 @@ Shared device mode allows you to configure an iOS 13 or higher device so that it
 
 Shared device mode also provides Microsoft identity backed management of the device.
 
-This feature uses the [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) to manage the users on the device and to distribute the [Microsoft Enterprise SSO Plug-In for Apple Devices](apple-sso-plugin.md).
+This feature uses the [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) to manage the users on the device and to distribute the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md).
 
 To create a shared device mode app, developers and cloud device admins work together:
 
 - **Application Developers** write a single-account app (multiple-account apps are not supported in shared device mode) and write code to handle things like shared device sign-out.
 
-- **Device Administrators** prepare the device to be shared by using an MDM provider like Intune to manage the devices that will be used by the organization. The MDM will push the Microsoft Authenticator app to the devices and turn on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what will change the behavior of all the supported apps on the device.  This confiugration from the MDM provider both sets the Shared Device mode for the device and enables the [Microsoft Enterprise SSO Plug-In for Apple Devices](apple-sso-plugin.md) which is required for Shared Device mode. 
+- **Device Administrators** prepare the device to be shared by using an MDM provider like Intune to manage the devices that will be used by the organization. The MDM will push the Microsoft Authenticator app to the devices and turn on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what will change the behavior of all the supported apps on the device.  This confiugration from the MDM provider both sets the Shared Device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for Shared Device mode. 
 
     > [!NOTE]
     > Step Required For Public Preview Only
@@ -53,18 +53,18 @@ To create a shared device mode app, developers and cloud device admins work toge
  > [!NOTE]
     > Step Below Required For Public Preview Only
     >
-    > Intune will soon ship the ability to turn on the Microsoft Enterprise SSO Plug-In for Apple Devices and enable Shared Device Mode through a UI update. The need to manually configure these options below is for Public Preview only.
+    > Intune will soon ship the ability to turn on the Microsoft Enterprise SSO plug-in for Apple devices and enable Shared Device Mode through a UI update. The need to manually configure these options below is for Public Preview only.
 
- * Your device needs to be configured to support shared device mode. It needs to use iOS 13+ and be MDM enrolled. MDM configuration needs to also enable [Microsoft Enterprise SSO Plug-In for Apple Devices](apple-sso-plugin.md). See [Apple video](https://developer.apple.com/videos/play/tech-talks/301/) to learn more about SSO extensions. You may also wish to browse [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings) as you will be using this portal below to push the correct configuration to your Shared Devices.
+ * Your device needs to be configured to support shared device mode. It needs to use iOS 13+ and be MDM enrolled. MDM configuration needs to also enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). See [Apple video](https://developer.apple.com/videos/play/tech-talks/301/) to learn more about SSO extensions. You may also wish to browse [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings) as you will be using this portal below to push the correct configuration to your Shared Devices.
 
  In the Intune Configuration Portal, set the following configuration:  
-* Tell the device to enable the [Microsoft Enterprise SSO Plug-In for Apple Devices] using the following configuration:
+* Tell the device to enable the [Microsoft Enterprise SSO plug-in for Apple devices] using the following configuration:
   * **Type**: Redirect
   * **Extension ID**: com.microsoft.azureauthenticator.ssoextension
   * **Team ID**: SGGM6D27TK
   * **URLs**: https://login.microsoftonline.com (this list will be expanded for the private preview to include other Microsoft clouds)
 
-* Next, configure your MDM to push Microsoft Authenticator app to your device through an MDM profile. You will need to set the following configuration options to turn on the Shared Device mode and tell the Authenticator to use the [Microsoft Enterprise SSO Plug-In for Apple Devices](apple-sso-plugin.md), which is required for the feature to work.
+* Next, configure your MDM to push Microsoft Authenticator app to your device through an MDM profile. You will need to set the following configuration options to turn on the Shared Device mode and tell the Authenticator to use the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md), which is required for the feature to work.
   * Configuration 1:
     - Key: sharedDeviceMode
     - Type: Boolean
@@ -175,12 +175,12 @@ The following code removes the signed-in account and clears cached tokens from n
 
 #### Clearning Browser State
 
-The [Microsoft Enterprise SSO Plug-In for Apple Devices](apple-sso-plugin.md) automatically adds and removes credentials to the Safari browser on the Shared Device. We recommend you rely on this to clear your browser state.
+The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) automatically adds and removes credentials to the Safari browser on the Shared Device. We recommend you rely on this to clear your browser state.
 
 > [!NOTE]
     > Step Below Required For Public Preview Only
     >
-    > For the moment the Microsoft Enterprise SSO Plug-In for Apple Devices only clears state on applications. It does not clear state on the Safari browser. We recommend you manually clear browser session to ensure no traces of user state are left behind. You can use the optional `signoutFromBrowser` property shown below to clear any cookies. This will cause the browser to briefly launch on the device. We expect this to be fixed soon and will update documentation when browsers clear state on sign-out automatically.
+    > For the moment the Microsoft Enterprise SSO plug-in for Apple devices only clears state on applications. It does not clear state on the Safari browser. We recommend you manually clear browser session to ensure no traces of user state are left behind. You can use the optional `signoutFromBrowser` property shown below to clear any cookies. This will cause the browser to briefly launch on the device. We expect this to be fixed soon and will update documentation when browsers clear state on sign-out automatically.
 
 ### Swift
 
