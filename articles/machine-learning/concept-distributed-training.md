@@ -11,13 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2020
 ---
 
-# Distributed training with Azure Machine Learning
-
-## What is distributed training?
+# What is distributed training?
 
 Distributed training refers to the ability to share and parallelize data loads and training tasks across multiple GPUs to accelerate model training. The typical use case for distributed training is for training deep neural networks and [deep learning](concept-deep-learning-vs-machine-learning.md) models. 
 
-Deep neural networks are often compute intensive, as they require large learning workloads in order to process millions of examples and parameters across multiple layers. This deep learning lends itself well to distributed training, since running tasks in parallel instead of serially, saves time and compute resources.
+Deep neural networks are often compute intensive, as they require large learning workloads in order to process millions of examples and parameters across multiple layers. This deep learning lends itself well to distributed training, since running tasks in parallel, instead of serially, saves time and compute resources.
 
 ## Distributed training in Azure Machine Learning
 
@@ -26,7 +24,6 @@ Azure Machine Learning supports distributed training via integrations with popul
 * [Distributed training with PyTorch](how-to-train-tensorflow.md#distributed-training)
 
 * [Distributed training with TensorFlow](how-to-train-pytorch.md#distributed-training)
-
 
 For training traditional ML models, see [Azure Machine Learning SDK for Python](concept-train-machine-learning-model.md#python-sdk) for the different ways to train models using the Python SDK.
 
