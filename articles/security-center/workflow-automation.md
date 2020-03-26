@@ -77,9 +77,9 @@ This article describes the workflow automation feature of Azure Security Center.
 
 ## Manually trigger a Logic App
 
-You can also run Logic Apps manually when viewing a security recommendation.
+You can also run Logic Apps manually when viewing a security alert or any recommendation that offers [Quick Fix remediation](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
 
-To manually run a Logic App, open a security alert or a just-in-time (JIT) virtual machine access recommendation and click **Trigger Logic App**:
+To manually run a Logic App, open an alert or a recommendation that supports Quick Fix remediation and click **Trigger Logic App**:
 
 [![Manually trigger a Logic App](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
