@@ -3,7 +3,7 @@ title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
 ms.subservice: update-management
-ms.date: 01/16/2020
+ms.date: 03/26/2020
 ms.topic: conceptual
 ---
 # Manage updates for multiple machines
@@ -23,21 +23,7 @@ To use Update Management, you need:
 
 - Access to an update repository for Linux VMs onboarded to the solution.
 
-## Supported operating systems
-
-Update Management is supported on the following operating systems:
-
-|Operating system  |Notes  |
-|---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) and 7 (x64)      | |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | |
-|Ubuntu 14.04 LTS, 16.04 LTS and 18.04 LTS (x86/x64)      | |
-
-> [!NOTE]
-> To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#clients).
 
 ## Enable Update Management for Azure virtual machines
 
