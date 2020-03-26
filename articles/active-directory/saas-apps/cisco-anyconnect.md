@@ -63,6 +63,7 @@ To configure and test Azure AD SSO with Cisco AnyConnect, complete the following
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[VPN Configuration CLI](#vpn-configuration-CLI)** - VPN Configuration through CLI.
 1. **[Configure Cisco AnyConnect SSO](#configure-cisco-anyconnect-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Cisco AnyConnect test user](#create-cisco-anyconnect-test-user)** - to have a counterpart of B.Simon in Cisco AnyConnect that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
@@ -80,17 +81,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `your Cisco AnyConnect VPN Value`
+    `< YOUR CISCO ANYCONNECT VPN VALUE >`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `your Cisco AnyConnect VPN Value`
+    `< YOUR CISCO ANYCONNECT VPN VALUE >`
 
-	> [!NOTE]
+    > [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the metadata file and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate file and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Cisco AnyConnect** section, copy the appropriate URL(s) based on your requirement.
 
@@ -126,9 +127,62 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## VPN Configuration CLI
+
+1. You are going to do this on the CLI first, you might come back through and do an ASDM walk-through at another time.
+
+1. Connect to your VPN Appliance, you are going to be using an ASA running 9.8 code train, and your VPN clients will be 4.6+.
+
+1. First you will create a Trustpoint and import our SAML cert.
+
+   ```
+    config t
+
+    crypto ca trustpoint AzureAD-AC-SAML
+      revocation-check none
+      no id-usage
+      enrollment terminal
+      no ca-check
+    crypto ca authenticate AzureAD-AC-SAML
+    -----BEGIN CERTIFICATE-----
+    …
+    PEM Certificate Text from download goes here
+    …
+    -----END CERTIFICATE-----
+    quit
+   ```
+
+1. The following commands will provision your SAML IdP.
+
+   ```
+    webvpn
+    saml idp https://sts.windows.net/xxxxxxxxxxxxx/ (This is your Azure AD Identifier from the Set up Cisco AnyConnect section in the Azure portal)
+    url sign-in https://login.microsoftonline.com/xxxxxxxxxxxxxxxxxxxxxx/saml2 (This is your Login URL from the Set up Cisco AnyConnect section in the Azure portal)
+    url sign-out https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0 (This is Logout URL from the Set up Cisco AnyConnect section in the Azure portal)
+    trustpoint idp AzureAD-AC-SAML
+    trustpoint sp (Trustpoint for SAML Requests - you can use your existing external cert here)
+    no force re-authentication
+    no signature
+    base-url https://my.asa.com
+    ```
+
+1. Now you can apply SAML Authentication to a VPN Tunnel Configuration.
+
+    ```
+    tunnel-group AC-SAML webvpn-attributes
+      saml identity-provider https://sts.windows.net/xxxxxxxxxxxxx/
+      authentication saml
+    end
+
+    write mem
+    ```
+
+    > [!NOTE]
+    > There is a feature with the SAML IdP configuration - If you make changes to the IdP config you need to remove the saml identity-provider config from your Tunnel Group and re-apply it for the changes to become effective.
+
 ## Configure Cisco AnyConnect SSO
 
-To configure single sign-on on **Cisco AnyConnect** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Cisco AnyConnect support team](https://www.cisco.com/c/en/us/support/index.html). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Cisco AnyConnect** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cisco AnyConnect support team](https://www.cisco.com/c/en/us/support/index.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Cisco AnyConnect test user
 
