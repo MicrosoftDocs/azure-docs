@@ -37,11 +37,11 @@ This error message means the OS boot process couldn't locate an active system pa
 
 ### Process Overview
 
-1. Create and Access a Repair VM
-2. Set Partition Status to Active
-3. Fix the Disk Partition
-4. **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection
-5. Rebuild the Original VM
+1. Create and Access a Repair VM.
+2. Set Partition Status to Active.
+3. Fix the Disk Partition.
+4. **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection.
+5. Rebuild the Original VM.
 
    > [!NOTE]
    > When encountering this boot error, the Guest OS isn't operational. You'll be troubleshooting in offline mode to resolve this issue.
@@ -64,7 +64,7 @@ Generation 1 VMs should first verify that the OS partition, which holds the BCD 
 
    ![Figure 2 shows the *DISKPART* window showing the output of list disk command, Disk 0 and Disk 1 displayed in the table.  Also shows output of the sel disk 1 command, Disk 1 is the selected disk](media/troubleshoot-guide-not-bootable-disk/2.jpg)
 
-5. Once the disk is selected, enter *list partition* to list the partitions of the selected disk
+5. Once the disk is selected, enter *list partition* to list the partitions of the selected disk.
 6. Once the boot partition is identified, enter *sel partition #* to select the partition.  Usually the boot partition will be around 350 MB in size.  See Figure 3, where Partition 1 is the boot partition.
 
    Figure 3
