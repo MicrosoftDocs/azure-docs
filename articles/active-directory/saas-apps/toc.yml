@@ -1388,6 +1388,8 @@
         href: spaceiq-tutorial.md
       - name: Spacio
         href: spacio-tutorial.md
+      - name: SpectrumU
+        href: spectrumu-tutorial.md
       - name: Splashtop
         href: splashtop-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
