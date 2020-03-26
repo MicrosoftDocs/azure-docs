@@ -71,8 +71,8 @@ The activities in the following table are used to access variables in runbooks a
 Note that `Get-AutomationVariable` does not work in PowerShell, but only in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
  
 ```powershell
-$testEncryptVar = Get-AutomationVariable -Name TestVariable
-Write-output "The encrypted variable value is: $testEncryptVar"
+$mytestencryptvar = Get-AutomationVariable -Name TestVariable
+Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
 ## Functions to access variables in Python 2 runbooks
