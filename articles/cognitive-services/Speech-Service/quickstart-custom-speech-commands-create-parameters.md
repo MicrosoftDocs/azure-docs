@@ -107,4 +107,4 @@ Open the Test chat panel and try a few interactions.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Quickstart: Use Custom Commands with Custom Voice (Preview)](./quickstart-custom-speech-commands-select-custom-voice.md)

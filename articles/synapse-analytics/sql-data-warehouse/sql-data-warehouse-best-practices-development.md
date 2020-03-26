@@ -1,12 +1,12 @@
 ---
 title: Development best practices
 description: Recommendations and best practices you should know as you develop solutions for Synapse SQL pool. 
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
