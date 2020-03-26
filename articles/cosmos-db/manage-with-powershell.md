@@ -416,7 +416,6 @@ The following sections demonstrate how to manage the Azure Cosmos DB container, 
 * [Create an Azure Cosmos DB container](#create-container)
 * [Create an Azure Cosmos DB container with a large partition key](#create-container-big-pk)
 * [Get the throughput of an Azure Cosmos DB container](#get-container-ru)
-* [Create an Azure Cosmos DB container with shared throughput](#create-container-ru)
 * [Create an Azure Cosmos DB container with custom indexing](#create-container-custom-index)
 * [Create an Azure Cosmos DB container with indexing turned off](#create-container-no-index)
 * [Create an Azure Cosmos DB container with unique key and TTL](#create-container-unique-key-ttl)
