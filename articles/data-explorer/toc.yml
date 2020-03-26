@@ -182,6 +182,8 @@
       href: managed-identities.md
     - name: Configure customer-managed-keys
       items:
+        - name: Portal
+          href: customer-managed-keys-portal.md
         - name: C#
           href: customer-managed-keys-csharp.md
         - name: Azure Resource Manager template
