@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 This tutorial assumes that you are familiar with [Tutorial: Working with remote entities in Unity](working-with-remote-entities.md). However, you only need a Unity project with which you can connect to sessions and load a model, as shown in [Tutorial: Setting up a Unity project from scratch](project-setup.md).
 
 > [!TIP]
-> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials, that you can use as reference.
+> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials in the *Unity* folder, that you can use as reference.
 
 ## Change the environment map
 

@@ -17,7 +17,7 @@ Unity packages are containers that can be managed via Unity's [Package Manager](
 This package contains the entire C# API as well as all plugin binaries required to use Azure Remote Rendering with Unity.
 Following Unity's naming scheme for packages, the package is called **com.microsoft.azure.remote-rendering**.
 
-The package is not part of the [arrClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository, and it is not available from Unity's internal package registry. To add it to a project, you have to manually edit the project's `manifest.md` file to add the following:
+The package is not part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it is not available from Unity's internal package registry. To add it to a project, you have to manually edit the project's `manifest.md` file to add the following:
 ```json
 {
   "scopedRegistries": [

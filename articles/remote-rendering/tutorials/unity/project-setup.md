@@ -34,7 +34,7 @@ For this tutorial you need:
     * **IL2CPP** - Windows Build Support (IL2CPP)
 
 > [!TIP]
-> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials. You can use those projects as a reference.
+> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials. You can use those projects as a reference.
 
 ## Create a new Unity project
 
