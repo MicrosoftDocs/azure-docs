@@ -89,7 +89,7 @@ Explore other ways to connect to SQL Analytics:
 
 - [SSMS](get-started-ssms.md)
 - [Power BI](get-started-power-bi-professional.md)
-- [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+- [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](get-started-connect-sqlcmd.md)
 
 
