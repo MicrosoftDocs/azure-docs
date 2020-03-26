@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/19/2020
+ms.date: 03/25/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://hub.fcm.travel/SsoSp/SpInit?clientid=<CUSTOMID>`
 
     > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact account manager who is assined to you to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL. Contact account manager who is assigned to you to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Save**.
 
