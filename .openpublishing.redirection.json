@@ -27478,7 +27478,7 @@
     {
       "source_path": "articles/storage/blobs/storage-blob-snapshots.md",
       "redirect_url": "/azure/storage/blobs/snapshots-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/blobs/storage-blob-soft-delete.md",

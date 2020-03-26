@@ -30,31 +30,31 @@ Enable soft delete for blobs on your storage account by using Azure portal:
 
 5. Choose the **Save** button to confirm your Data Protection settings
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 To view soft deleted blobs, select the **Show deleted blobs** checkbox.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 To view soft deleted snapshots for a given blob, select the blob then click **View snapshots**.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Make sure the **Show deleted snapshots** checkbox is selected.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 When you click on a soft deleted blob or snapshot, notice the new blob properties. They indicate when the object was deleted, and how many days are left until the blob or blob snapshot is permanently expired. If the soft deleted object is not a snapshot, you will also have the option to undelete it.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-properties.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
 
 Remember that undeleting a blob will also undelete all associated snapshots. To undelete soft deleted snapshots for an active blob, click on the blob and select **Undelete all snapshots**.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Once you undelete a blob's snapshots, you can click **Promote** to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
+![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # [Powershell](#tab/azure-powershell)
 
