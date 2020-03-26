@@ -224,6 +224,13 @@ Try either of the following:
 
 2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
+### Soil Moisture map has white areas 
+
+**Issue**: The Soil Moisture map was generated, but the map has mostly white areas.
+
+**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, please visit [Technical Guide from Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
+1. Rerun the job for a different date range and check to see if the NDVI values in the satellite indices are more than 0.3
+
 ## Collect logs manually
 
 [Install and deploy Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
@@ -338,4 +345,4 @@ Try either of the following:
 
 ## Next steps
 
-If you're still facing FarmBeats issues, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats).
+If you're still facing FarmBeats issues, contact our [Support Forum](https://aka.ms/farmbeatssupport).
