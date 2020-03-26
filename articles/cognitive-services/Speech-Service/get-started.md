@@ -14,7 +14,7 @@ ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ---
 
-# Try the Speech service for free
+# Try the Speech service for free''
 
 In this article, you choose an option to easily test the Speech service free of charge so you can discover what the service can do, and decide whether it's right for your needs. Choose one of the two following options depending on your situation and use-case:
 

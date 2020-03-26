@@ -24,7 +24,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Speech-to-text
 
-Speech-to-text (also known as *speech recognition*) transcribes audio streams to text in real-time that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis) to derive user intents from transcribed speech and act on voice commands.
+Speech-to-text (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis) to derive user intents from transcribed speech and act on voice commands. For more information, see [Speech-to-text basics](speech-to-text-basics.md).
 
 ### Text-to-speech
 
@@ -32,7 +32,7 @@ Text-to-speech (also known as *speech synthesis*) converts input text into human
 
 ### Keyword spotting
 
-
+The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
 
 ### Voice assistants
 
@@ -61,48 +61,6 @@ A common scenario for speech-to-text is transcribing large volumes of telephony 
 ### Codec compressed audio input
 
 Several of the Speech SDKs' support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-<!-- NOTES!
-
-- Speech-to-text (STT, SR, speech recognition, etc.) Phrase list, intent, translation
-- Text-to-speech (TTS, SS, speech synthesis, etc.)
-- Keyword spotting (KWS)
-- Voice assistants
-- Conversation Transcription
-- Multi-device Conversation
-- Call Center Transcription
-- Codec Compressed Audio input
-
-1. We have a SDK that currently covers SR, Speech Translation, Speech Intent, TTS, CTS, Commands, and Dialog.  Additionally, as a backup, a limited REST API for SR and TTS is available for the rare situation that the SDK can't be used.
-2. The SDK currently does not cover Batch (non-realtime with input files in Blob storage), Endpoint Management, or Custom Model Creation/training and those are controlled via REST APIs.  Some of these may be covered by the SDK in the future.
-
-### SDK APIs are ideal for real time and non-real time scenarios utilizing local devices, files, and streams
-
-* Real time scenarios (basic TTS and Custom TTS w/local device outputs)
-* Real time scenarios (basic SR and Custom Speech, w/local device inputs or w/stream inputs)
-* Real time scenarios (translation, both speech to text, and speech to speech, w/local device inputs or w/local stream inputs)
-* Real time scenarios (keyword spotting, intent recognition, bot framework, and custom commands, w/local device inputs or w/stream inputs)
-
-* Non real time scenarios (basic TTS and Custom TTS, w/local file or stream outputs)
-* Non real time scenarios (basic SR and Custom Speech, w/local file or stream inputs)
-* Non real time scenarios (translation, both speech to text, and speech to speech, w/local file or stream inputs)
-* Non real time scenarios (keyword spotting, intent recognition, bot framework, and custom commands, w/local file or stream inputs)
-
-### MANAGEMENT REST APIs are ideal for Custom Voice and Custom Speech model and endpoint management
-* Custom Voice project/dataset/model/endpoint management, and quality testing
-* Custom Speech project/dataset/model/endpoint management, and accuracy testing
-
-### BATCH REST APIs is ideal for non-real time Custom Speech utilizing remote files stored in blob storage
-
-* Non real time scenarios (basic SR and Custom SR,  w/remote files in blob storage)
-* Non real time scenarios (basic SR and Customer SR + Sentiment analysis, w/remote files in blob storage)
-
-### NON-BATCH REST APIs are ideal for non-real time scenarios utilizing non-supported SDK programming languages or platforms
-
-* Non real time scenarios (basic TTS and Custom TTS, w/non-streaming output)
-* Non real time scenarios (basic SR and Custom SR,  w/non-streaming input or output) 
-
--->
 
 ## Known limitations
 
@@ -193,98 +151,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-On Debian 9:
-
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.2 libasound2
-```
-
-On RHEL/CentOS 8:
-
-```sh
-sudo yum update
-sudo yum install alsa-lib openssl
-```
-
-> [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-* C#:
-  You can reference and use the latest version of our Speech SDK NuGet package. To reference the SDK, add the following package reference to your project:
-
-  ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
-  ```
-
-* Java:
-  You can reference and use the latest version of our Speech SDK Maven package. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` as a dependency.
-
-* C++: Download the SDK as a [.tar package](https://aka.ms/csspeech/linuxbinary) and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
-
-  | Path                   | Description                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | License                                              |
-  | `ThirdPartyNotices.md` | Third-party notices                                  |
-  | `include`              | Header files for C++                                 |
-  | `lib/x64`              | Native x64 library for linking with your application |
-  | `lib/x86`              | Native x86 library for linking with your application |
-
-  To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
-
-The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 distributions.
-For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
-
-- The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
-- The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
-- The shared library for ALSA applications (`libasound.so.2`)
-
-On Ubuntu, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
-
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2
-```
-
-On Debian 9 install these packages:
-
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.2 libasound2
-```
-
-On RHEL/CentOS 8:
-
-```sh
-sudo yum update
-sudo yum install alsa-lib openssl
-```
-
-> [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-# [Android](#tab/android)
-
-The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
-
-To consume the package from your Android Studio project, make the following changes:
-
-* In the project-level build.gradle file, add the following to the `repository` section:
-
-  ```gradle
-  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
-  ```
-
-* In the module-level build.gradle file, add the following to the `dependencies` section:
-
-  ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.10.0'
-  ```
-
-The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
-
----
+[!INCLUDE [Get the Speech SDK](includes/get-speech-sdk.md)]
 
 [!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
