@@ -14,7 +14,7 @@ ms.reviewer: ereilebr
 
 # Query acceleration SQL language reference (preview)
 
-Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is in most ways a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
+Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
 
 The only SQL statement supported by query acceleration is the SELECT statement. 
 
@@ -26,14 +26,14 @@ SELECT * FROM table [WHERE expression] [LIMIT limit]
 
 Returns every row for which expression returns true.
 
-For CSV-formatted data, *table* must be BlobStorage.  This means that the query will run against whichever blob was specified in the REST call.
-For JSON-formatted data, *table* is a "table descriptor."  See the section on "Table Descriptors" below.
+For CSV-formatted data, *table* must be `BlobStorage`.  This means that the query will run against whichever blob was specified in the REST call.
+For JSON-formatted data, *table* is a "table descriptor."   See the [Table Descriptors](#table-descriptors) section of this article.
 
 ```sql
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Every row for which the WHERE *expression* returns true, returns a new row made from evaluating each of the "projection" expressions.
+For each row for which the WHERE *expression* returns true, this statement will return a new row that is made from evaluating each of the projection expressions.
 
 ```sql
 SELECT aggregate_expression FROM table [WHERE expression] [LIMIT limit]
@@ -59,15 +59,15 @@ Returns suitable offsets for splitting a CSV-formatted blob.  See the [Sys.Split
 |TIMESTAMP|A point in time.                           |
 |BOOLEAN  |True or false.                             |
 
-When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context; for more info, see [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
 ## Expressions
 
 ### Referencing fields
 
-For JSON-formatted data, or CSV-formatted data with a "header" row, fields may be referenced by name.  Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters ("), may contain spaces, and are case-sensitive.  Unquoted field names are case-insensitive, and may not contain any special characters.
+For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name.  Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters ("), may contain spaces, and are case-sensitive.  Unquoted field names are case-insensitive, and may not contain any special characters.
 
-In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character.  For example, the first field may be referenced as _1, or the eleventh field may be referenced as _11.  Referencing fields by ordinal is useful for CSV-formatted data that does not contain a "header" row, in which case the only way to reference a particular field is by ordinal.
+In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character.  For example, the first field may be referenced as _1, or the eleventh field may be referenced as _11.  Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
 
 ### Operators
 
@@ -75,19 +75,19 @@ The following standard SQL operators are supported:
 
 ``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
 
-If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017)
+If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
-We only support a very small subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
+The query acceleration SQL language supports only a very small subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
 
 ### Casts
 
-We support the CAST operator, according to the rules here: [Data type conversion (Database Engine)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+The query acceleration SQL language supports the CAST operator, according to the rules here: [Data type conversion (Database Engine)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
 
-We only support a tiny subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
+The query acceleration SQL language supports only a tiny subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
 
 ### String functions
 
-We support the following standard SQL string functions:
+The query acceleration SQL language supports the following standard SQL string functions:
 
 ``LIKE``, ``CHAR_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
 
@@ -101,7 +101,7 @@ Currently we convert all the [date formats of standard IS08601](https://www.w3.o
 
 #### DATE_ADD function
 
-We support for year, month, day, hour, minute, second for the ``DATE_ADD`` function.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_ADD`` function.
 
 Examples:
 
@@ -112,7 +112,7 @@ DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 #### DATE_DIFF function
 
-We support for year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -121,7 +121,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 #### EXTRACT function
 
-For EXTRACT other than date part supported for the ``DATE_ADD`` function, we support timezone_hour and timezone_minute as date part.
+For EXTRACT other than date part supported for the ``DATE_ADD`` function, the query acceleration SQL language supports timezone_hour and timezone_minute as date part.
 
 Examples:
 
@@ -188,7 +188,7 @@ TO_TIMESTAMP('2007T')
 
 ## Aggregate Expressions
 
-A SELECT statement may contain either one or more "projection" expressions or a single "aggregate" expression.  The following aggregate expressions are supported:
+A SELECT statement may contain either one or more projection expressions or a single aggregate expression.  The following aggregate expressions are supported:
 
 |Expression|Description|
 |--|--|
@@ -201,11 +201,13 @@ A SELECT statement may contain either one or more "projection" expressions or a 
 
 ### MISSING
 
-The ``IS MISSING`` operator is the only non-standard that we support.  For JSON data, if a field is missing from a particular input record, the expression field ``IS MISSING`` will evaluate to the Boolean value true.
+The ``IS MISSING`` operator is the only non-standard that the query acceleration SQL language supports.  For JSON data, if a field is missing from a particular input record, the expression field ``IS MISSING`` will evaluate to the Boolean value true.
+
+<a id="table-descriptors" />
 
 ## Table Descriptors
 
-For CSV data, the table name is always "BlobStorage."  For example:
+For CSV data, the table name is always `BlobStorage`.  For example:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -219,7 +221,7 @@ SELECT * FROM BlobStorage[*].path
 
 This allows queries over subsets of the JSON data.
 
-For JSON queries, we can mention the path in part of the FROM clause. These paths will help to parse the subset of JSON data. These paths can reference to JSON Array and Object values.
+For JSON queries, you can mention the path in part of the FROM clause. These paths will help to parse the subset of JSON data. These paths can reference to JSON Array and Object values.
 
 Let's take an example to understand this in more detail.
 
@@ -231,13 +233,13 @@ This is our sample data:
         "warehouses":[{"latitude":41.8, "longitude": -87.6}]}
 ```
 
-You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so we can mention this in the FROM clause. Our sample query can look something like this.
+You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so you can mention this in the FROM clause. Your sample query can look something like this.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
 ```
 
-In above query, we are trying to get all the fields from warehouses. We can only access only the latitude and longitude from this data. 
+The query above tries to get all the fields from warehouses. With this query, you'd be able to access only the latitude and longitude from this data. 
 
 If you wanted to access only the `dimensions` JSON object value, you could use refer to that object in your query. For example:
 
@@ -252,7 +254,7 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage and BlobStorage[*] both refer to the whole object. However, if you have a path in the FROM clause, then you'll need to use BlobStorage[*].path
+> BlobStorage and BlobStorage[\*] both refer to the whole object. However, if you have a path in the FROM clause, then you'll need to use BlobStorage[\*].path
 
 <a id="sys-split" />
 
