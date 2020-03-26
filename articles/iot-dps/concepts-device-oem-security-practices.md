@@ -113,7 +113,7 @@ If you don't use a pre-loaded certificate, you must install the certificate as p
 
 There are software tools available that let you run the installation process and final quality check in a single step. You can modify these tools to generate a certificate, or to pull a certificate from a pre-generated certificate store. Then the software can install the certificate where you need to install it. Software tools of this type enable you to run production quality manufacturing at scale. 
 
-If you need help with installing certificates in your IoT devices, contact the Microsoft security auditor program. After you have certificates installed on your devices, the next step is to learn how to enroll the devices with DPS.  
+If you need help with installing certificates in your IoT devices, contact the Azure IoT Hub DPS product team. After you have certificates installed on your devices, the next step is to learn how to enroll the devices with DPS.  
 
 ## Selecting device authentication options
 The ultimate aim of any IoT device security measure is to create a secure IoT solution. But issues such as hardware limitations, cost, and level of security expertise, all impact which options you choose. Further, your approach to security impacts how your IoT devices connect to the cloud. While there are [several elements of IoT security](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) to consider, a key element that every customer encounters is what authentication type to use. 
