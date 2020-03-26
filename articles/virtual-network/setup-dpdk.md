@@ -116,7 +116,7 @@ After restarting, run the following commands once:
 
 1. Hugepages
 
-   * Configure hugepage by running the following command, once for each numa nodes:
+   * Configure hugepage by running the following command, once for each numa node:
 
      ```bash
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
