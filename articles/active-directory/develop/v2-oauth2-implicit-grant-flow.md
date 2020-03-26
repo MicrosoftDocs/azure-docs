@@ -66,6 +66,9 @@ If your application is a native client, the implicit flow isn’t a great fit. T
 
 If you are developing a Web application that includes a backend, and consuming an API from its backend code, the implicit flow is also not a good fit. Other grants give you far more power. For example, the OAuth2 client credentials grant provides the ability to obtain tokens that reflect the permissions assigned to the application itself, as opposed to user delegations. This means the client has the ability to maintain programmatic access to resources even when a user is not actively engaged in a session, and so on. Not only that, but such grants give higher security guarantees. For instance, access tokens never transit through the user browser, they don’t risk being saved in the browser history, and so on. The client application can also perform strong authentication when requesting a token.
 
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
+
 ## Protocol diagram
 
 The following diagram shows what the entire implicit sign-in flow looks like and the sections that follow describe each step in more detail.
