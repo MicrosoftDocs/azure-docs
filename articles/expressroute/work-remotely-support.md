@@ -17,7 +17,7 @@ This article describes how you can leverage ExpressRoute, Azure, Microsoft netwo
 ## Connecting to Azure services with ExpressRoute
 
 >[!NOTE]
->This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of Covid-19 crisis.
+>This article describes how you can leverage ExpressRoute, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
 [ExpressRoute](expressroute-introduction.md) is an Azure service that enables private connectivity between Microsoft datacenters and infrastructure that's on your premises or in a colocation facility. ExpressRoute connections do not go over the public Internet. They offer secure connectivity, reliability, and speeds, with lower and consistent latencies than typical connections over the Internet.
