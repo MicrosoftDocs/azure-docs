@@ -109,8 +109,6 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
   * IP address for NW1:  10.3.1.14
   * IP address for NW2:  10.3.1.16
   * IP address for NW3:  10.3.1.13
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Ports
   * Port 620<strong>&lt;nr&gt;</strong>, therefore for NW1, NW2, and NW3 probe ports 620**00**, 620**10** and 620**20**
 * Load-balancing rules - 
@@ -131,8 +129,6 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
   * IP address for NW1 10.3.1.15
   * IP address for NW2 10.3.1.17
   * IP address for NW3 10.3.1.19
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>, therefore for NW1, NW2, and N# probe ports 621**02**, 621**12** and 621**22**
 * Load-balancing rules - create one for each instance, that is, NW1/ERS, NW2/ERS and NW3/ERS.
@@ -143,6 +139,9 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Backend configuration
+  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 
 
 > [!Note]
