@@ -51,7 +51,7 @@ A lab account serves as a container for one or more classroom labs. When getting
 
 The following list highlights scenarios where more than one lab account may be beneficial:
 
-- **Manage different policy requirements across classroom labs.** 
+- **Manage different policy requirements across classroom labs** 
     
     When you set up a lab account, you set policies that apply to *all* classroom labs under the lab account, such as:
     - The Azure virtual network with shared resources that the classroom lab can access. For example, you may have a set of classroom labs that need access to a shared data set within a virtual network.
@@ -59,11 +59,11 @@ The following list highlights scenarios where more than one lab account may be b
     
     If you have classroom labs that have unique policy requirements from one another, it may be beneficial to create separate lab accounts to manage these classroom labs separately.
 
-- **Separate budget by lab account.**
+- **Separate budget by lab account**
   
     Instead of reporting all classroom lab costs through a single lab account, you may need a more clearly separated budget. For example, you can create lab accounts for your university's Math department, Computer Science department, and so forth, to separate the budget across departments.  You can then view the cost for each individual lab account using [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
     
-- **Isolate pilot labs from active\production labs.**
+- **Isolate pilot labs from active\production labs**
   
     You may have cases where you want to pilot policy changes for a lab account without potentially impacting active\production labs. In this type of scenario, creating a separate lab account for piloting purposes allows you to isolate changes. 
 
@@ -75,15 +75,15 @@ A classroom lab contains virtual machines (VMs) that are each assigned to a sing
 
 Consider the following points when determining how to structure your classroom labs:
 
-- **All VMs within a classroom lab are deployed with the same image that's published**. 
+- **All VMs within a classroom lab are deployed with the same image that's published**
 
     As a result, if you have a class that requires different lab images be published at the same time, separate classroom labs must be created for each one.
   
-- **Usage quota is set at the lab level and applies to all users within the lab**. 
+- **Usage quota is set at the lab level and applies to all users within the lab**
     
     To set different quotas for users, you must create separate classroom labs. However, it's possible to add more hours to a specific user after you have set the quota.
   
-- **The startup or shutdown schedule is set at the lab level and applies to all VMs within the lab**. 
+- **The startup or shutdown schedule is set at the lab level and applies to all VMs within the lab**
 
     Similar to the previous point, if you need to set different schedules for users, you need to create separate classroom labs. 
 
