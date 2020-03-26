@@ -23,6 +23,11 @@ npm start
 ```
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+mvn clean package 
+mvn azure-functions:run
+::: zone-end
+
 Toward the end of the output, the following lines should appear: 
 
 <pre>

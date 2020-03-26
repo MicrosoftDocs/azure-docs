@@ -1,23 +1,18 @@
 ---
-title: Create your first function in Azure with Kotlin and Maven| Microsoft Docs
+title: Create your first function in Azure with Kotlin and Maven
 description: Create and publish a simple HTTP triggered function to Azure with Kotlin and Maven.
-services: functions
-documentationcenter: na
 author: dglover
-manager: pachanez
-keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
-ms.devlang: kotlin
-ms.date: 05/31/2019
+ms.date: 03/25/2020
 ms.author: dglover
-ms.custom: mvc, devcenter
 ---
 
-# Create your first function with Kotlin and Maven
+# Quickstart: Create your first function with Kotlin and Maven
 
-This article guides you through using the Maven command line tool to build and publish a Kotlin function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article guides you through using the Maven command line tool to build and publish a Kotlin function project to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+
+You can also build and publish a Java function project to Azure by [using Maven archetypes](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) or by [using Gradle](functions-create-first-java-maven.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,40 +32,36 @@ To develop functions using Kotlin, you must have the following installed:
 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### Linux/macOS
-
+# [bash](#tab/bash)
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-kotlin-archetype
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
 ```
 
 > [!NOTE]
 > If you're experiencing issues with running the command, take a look at what `maven-archetype-plugin` version is used. Because you are running the command in an empty directory with no `.pom` file, it might be attempting to use a plugin of the older version from `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` if you upgraded your Maven from an older version. If so, try deleting the `maven-archetype-plugin` directory and re-running the command.
 
-### Windows
-
-#### PowerShell
-
+# [PowerShell](#tab/powershell)
 ```powershell
 mvn archetype:generate `
     "-DarchetypeGroupId=com.microsoft.azure" `
     "-DarchetypeArtifactId=azure-functions-kotlin-archetype"
 ```
 
-#### Command Line
-
+# [Cmd](#tab/cmd)
 ```cmd
 mvn archetype:generate ^
-	-DarchetypeGroupId=com.microsoft.azure ^
-	-DarchetypeArtifactId=azure-functions-kotlin-archetype
+    -DarchetypeGroupId=com.microsoft.azure ^
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
 ```
+---
 
-Maven will ask you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Kotlin package for the generated function code.
+Maven asks you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Kotlin package for the generated function code.
 
 The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You are encouraged to supply your own values to Maven in this step.
 
-```Output
+<pre>
 [INFO] Parameter: groupId, Value: com.fabrikam.function
 [INFO] Parameter: artifactId, Value: fabrikam-function
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
@@ -83,7 +74,7 @@ The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used
 [INFO] Parameter: groupId, Value: com.fabrikam.function
 [INFO] Parameter: appRegion, Value: westus
 [INFO] Parameter: artifactId, Value: fabrikam-function
-```
+</pre>
 
 Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
 
@@ -144,24 +135,24 @@ mvn azure-functions:run
 
 You see this output when the function is running locally on your system and ready to respond to HTTP requests:
 
-```Output
+<pre>
 Now listening on: http://0.0.0.0:7071
 Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
         HttpTrigger-Java: [GET,POST] http://localhost:7071/api/HttpTrigger-Java
-```
+</pre>
 
 Trigger the function from the command line using curl in a new terminal window:
 
-```bash
+```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/HttpTrigger-Java
 ```
 
-```Output
+<pre>
 Hello LocalFunction!
-```
+</pre>
 
 Use `Ctrl-C` in the terminal to stop the function code.
 
@@ -184,13 +175,13 @@ mvn azure-functions:deploy
 
 When the deploy is complete, you see the URL you can use to access your Azure function app:
 
-```output
+<pre>
 [INFO] Successfully deployed Function App with package.
 [INFO] Deleting deployment package from Azure Storage...
 [INFO] Successfully deleted deployment package fabrikam-function-20170920120101928.20170920143621915.zip
 [INFO] Successfully deployed Function App at https://fabrikam-function-20170920120101928.azurewebsites.net
 [INFO] ------------------------------------------------------------------------
-```
+</pre>
 
 Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
 
@@ -227,15 +218,15 @@ return request
 
 Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
 
-```bash
+```
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
-Will have updated output:
+You see the updated output:
 
-```Output
+<pre>
 Hi, AzureFunctionsTest
-```
+</pre>
 
 ## Next steps
 

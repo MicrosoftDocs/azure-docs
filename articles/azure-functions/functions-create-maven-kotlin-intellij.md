@@ -1,28 +1,19 @@
 ---
-title: Create an Azure function with Kotlin and IntelliJ | Microsoft Docs
+title: Create an Azure function with Kotlin and IntelliJ 
 description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Kotlin and IntelliJ.
-services: functions
-documentationcenter: na
 author: dglover
-manager: pachanez
-keywords: azure functions, functions, event processing, compute, serverless architecture, kotlin
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: conceptual
-ms.devlang: kotlin
-ms.date: 07/01/2018
+ms.topic: quickstart
+ms.date: 03/25/2020
 ms.author: dglover
-ms.custom: mvc, devcenter
 ---
 
-# Create your first Azure function with Kotlin and IntelliJ
+# Quickstart: Create your first HTTP triggered function with Kotlin and IntelliJ
 
 This article shows you:
 - How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven
 - Steps for testing and debugging the function in the integrated development environment (IDE) on your own computer
 - Instructions for deploying the function project to Azure Functions
-
-<!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-kotlin-maven/hello-azure.png) -->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,11 +25,10 @@ To develop a function with Kotlin and IntelliJ, install the following software:
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Version 2.x](functions-run-local.md#v2) of the Azure Functions Core Tools. It provides a local development environment for writing, running, and debugging Azure Functions.
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete the steps in this article.
-
- We recommend that you install [Azure Functions Core Tools, version 2](functions-run-local.md#v2). It provides a local development environment for writing, running, and debugging Azure Functions.
 
 ## Create a Functions project
 

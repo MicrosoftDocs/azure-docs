@@ -178,6 +178,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"    
 ## Create supporting Azure resources for your function
 
 Before you can deploy your function code to Azure, you need to create three resources:
@@ -199,10 +200,10 @@ Use the following Azure CLI commands to create these items. Each command provide
     ```azurecli
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
-    ::: zone pivot="programming-language-python"  
+
     > [!NOTE]
     > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
-    ::: zone-end  
+ 
     
 1. Create a general-purpose storage account in your resource group and region by using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In the following example, replace `<STORAGE_NAME>` with a globally unique name appropriate to you. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
 
@@ -213,6 +214,7 @@ Use the following Azure CLI commands to create these items. Each command provide
     The storage account incurs only a few cents (USD) for this quickstart.
     
 1. Create the function app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
+::: zone-end  
 
     ::: zone pivot="programming-language-python"  
     If you are using Python 3.8, change `--runtime-version` to `3.8` and `--functions_version` to `3`.
@@ -245,9 +247,11 @@ Use the following Azure CLI commands to create these items. Each command provide
     ```
     ::: zone-end  
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"  
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
     
 ## Deploy the function project to Azure
+::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
 Before you use Core Tools to deploy your project to Azure, you create a production-ready build of JavaScript files from the TypeScript source files.
@@ -259,6 +263,7 @@ npm run build:production
 ```
 ::: zone-end  
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"  
 With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
 
 ```
@@ -285,6 +290,37 @@ Functions in msdocs-azurefunctions-qs:
     HttpExample - [httpTrigger]
         Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample?code=KYHrydo4GFe9y0000000qRgRJ8NdLFKpkakGJQfC3izYVidzzDN4gQ==
 </pre>
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Deploy the function project to Azure
+
+A function app and related resources are created in Azure when you first deploy your function app. Settings for the Azure resources being created are defined in the **configuration** element of the plugin with a **groupId** of `com.microsoft.azure` in the generated pom.xml file. You can change these settings to control how resources are created in Azure. In this article, you'll accept the defaults.
+
+Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
+
+```azurecli
+az login
+```
+
+> [!TIP]
+> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az-account-set) to set the default subscription for this session. 
+
+Use the following command to deploy your project to a new function app. 
+
+```
+mvn azure-functions:deploy
+```
+
+This creates the following resources in Azure:
+
++ Resource group. Named as _java-functions-group_.
++ Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
++ App Service plan. Serverless hosting for your function app in the _westus_ region. The name is _java-functions-app-service-plan_.
++ Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your your _artifactId_, appended with a randomly generated number. 
+
+The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
+::: zone-end
 
 ## Invoke the function on Azure
 
