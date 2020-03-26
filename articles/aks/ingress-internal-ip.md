@@ -42,7 +42,7 @@ controller:
 
 Now deploy the *nginx-ingress* chart with Helm. To use the manifest file created in the previous step, add the `-f internal-ingress.yaml` parameter. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
-The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
+The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
 > The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the Helm commands.
@@ -211,10 +211,10 @@ Alternatively, a more granular approach is to delete the individual resources cr
 ```
 $ helm list
 
-NAME             	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
-kissing-ferret   	1       	Tue Oct 16 17:13:39 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
-intended-lemur   	1       	Tue Oct 16 17:20:59 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
-pioneering-wombat	1       	Tue Oct 16 17:21:05 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+NAME                 REVISION    UPDATED                     STATUS      CHART                   APP VERSION    NAMESPACE
+kissing-ferret       1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0         kube-system
+intended-lemur       1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                   default
+pioneering-wombat    1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                   default
 ```
 
 Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, and the two sample AKS hello world apps.

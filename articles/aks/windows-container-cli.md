@@ -1,19 +1,17 @@
 ---
-title: Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
+title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 04/07/2020
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
-# Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
+# Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
-
-This feature is currently in preview.
 
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
 
@@ -25,58 +23,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.61 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Before you begin
-
-You must add an additional node pool after you create your cluster that can run Windows Server containers. Adding an additional node pool is covered in a later step, but you first need to enable a few preview features.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
-
-### Install aks-preview CLI extension
-
-To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register Windows preview feature
-
-To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable the *WindowsPreview* feature flags on your subscription. The *WindowsPreview* feature also uses multi-node pool clusters and virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the  *WindowsPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Any AKS cluster you create after you've successfully registered the *WindowsPreview* feature flag use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
-
-It takes a few minutes for the registration to complete. Check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
-```
-
-When the registration state is `Registered`, press Ctrl-C to stop monitoring the state.  Then refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ### Limitations
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
 * You can't delete the first node pool.
 
-While this feature is in preview, the following additional limitations apply:
+The following additional limitations apply to Windows Server node pools:
 
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.

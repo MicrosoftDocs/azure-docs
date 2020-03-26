@@ -26,7 +26,7 @@ This article shows you how to use *kubenet* networking to create and use a virtu
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
-> To use Windows Server node pools (currently in preview in AKS), you must use Azure CNI. The use of kubenet as the network model is not available for Windows Server containers.
+> To use Windows Server node pools, you must use Azure CNI. The use of kubenet as the network model is not available for Windows Server containers.
 
 ## Before you begin
 

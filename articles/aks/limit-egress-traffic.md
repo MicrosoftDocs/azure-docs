@@ -163,10 +163,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | *.gk.\<location\>.azmk8s.io | HTTPS:443    | Azure policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on that sends telemetry data to applications insights endpoint. |
 
-## Required by Windows Server based nodes (in public preview) enabled
-
-> [!CAUTION]
-> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+## Required by Windows Server based nodes enabled
 
 The following FQDN / application rules are required for Windows Server based AKS clusters:
 
@@ -175,7 +172,6 @@ The following FQDN / application rules are required for Windows Server based AKS
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | To install windows-related binaries |
 | mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows-related binaries |
 | kms.core.windows.net | TCP:1688 | To install windows-related binaries |
-
 
 ## Next steps
 

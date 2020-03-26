@@ -12,13 +12,7 @@ ms.date: 12/18/2019
 
 In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows Server as the guest OS on the nodes. These nodes can run native Windows container applications, such as those built on the .NET Framework. As there are major differences in how the Linux and Windows OS provides container support, some common Kubernetes and pod-related features are not currently available for Windows node pools.
 
-This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS. Node pools for Windows Server are currently in preview.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional information, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS.
 
 ## Which Windows operating systems are supported?
 
@@ -62,7 +56,7 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 
 ## How do I rotate the service principal for my Windows node pool?
 
-During preview, Windows node pools do not support service principal rotation as a preview limitation. In order to update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
+Windows node pools do not support service principal rotation. In order to update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
 
 ## How many node pools can I create?
 
@@ -116,5 +110,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [aks-faq]: faq.md
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
-[preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909

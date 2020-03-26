@@ -248,7 +248,7 @@
     - name: View container data real-time
       href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
-  - name: Use Windows Server containers (preview)
+  - name: Use Windows Server containers
     items:
     - name: Create an AKS cluster
       href: windows-container-cli.md
