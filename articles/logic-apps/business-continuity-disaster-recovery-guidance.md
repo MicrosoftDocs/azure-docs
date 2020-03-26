@@ -93,14 +93,24 @@ You can set up your primary and secondary locations so that your logic app insta
 
 | Primary-secondary role | Description |
 |------------------------|-------------|
-| *Active-active* | Both logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen to an HTTP endpoint and then load balance traffic between the two instances as necessary. <p>- Or, you can have the second instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
+| *Active-active* | Both logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen at an HTTP endpoint and have traffic load balanced to that instance as necessary. <p>- Or, you can have the second instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
 | *Active-passive* | The primary logic app instance handles the entire workload, while the secondary instance stays passive or inactive. The secondary waits for a signal that when the primary can no longer function due to disruption, the secondary can take over as the active instance. |
 | Combination | Some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
-For example, here is an active-active setup where both logic app instances actively handle requests. These instances can use either a load balancer to distribute these requests, or they can "compete" for requests from a message queue:
+For example, here is an active-active setup that has both logic app instances actively handle requests and can use any of these patterns to distribute requests between instances:
 
-!["Active-active" pattern - ](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
+* A "physical" or "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), a "soft" load balancer such as Azure API Management
+
+  !["Active-active" setup that uses a load balancer](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
+
+* /architecture/patterns/queue-based-load-levelin
+
+, or a service that tracks state, such as Azure Service Bus queue
+
+Or, the setup can have each instance "compete" for requests from a message queue:
+
+!["Active-active" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-active-competing-consumers-pattern.png)
 
 <a name="state-history"></a>
 
@@ -116,19 +126,19 @@ When your logic app is triggered and starts running, the app's state is stored i
 
 ### Reduce abandoned in-progress instances
 
-To minimize the number of abandoned in-progress workflow instances, you can choose from various patterns that you can implement, for example, such as the process broker, message peek-lock, and the:
+To minimize the number of abandoned in-progress workflow instances, you can choose from various message patterns that you can implement, for example:
 
 * [Fixed routing slip pattern](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
-  This enterprise message pattern that splits a business process into smaller stages. You can the set up a logic app to handle the workload for each stage. To communicate with each other, your logic apps use an asynchronous messaging protocol, such as Azure Service Bus queues or topics. By dividing a process into smaller stages, you can reduce the number of stages that might get stuck in a failed workflow instance.
-  
-  If your logic app instances follows this pattern in both the primary and secondary locations, you can implement the competing consumer pattern by setting up [active-active roles](#roles) for the instances in the primary and secondary locations.
+  This enterprise message pattern that splits a business process into smaller stages. For each stage, you set up a logic app that handles the workload for that stage. To communicate with each other, your logic apps use an asynchronous messaging protocol such as Azure Service Bus queues or topics. When you divide a process into smaller stages, you reduce the number of stages that might get stuck on a failed logic app instance. For more general information about this pattern, see [Enterprise integration patterns - Routing slip](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
-  ![Split a business process into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
+  This example shows a routing slip pattern where each logic app represents a stage and uses a Service Bus queue to communicate with the next logic app in the process.
 
-  For more information, see [Routing slip](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html) enterprise integration pattern.
+  ![Split a business process into stages represented by logic apps, which communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-* [Process broker]
+  If both primary and secondary logic app instances follow the same routing slip pattern in their locations, you can implement the [competing consumers pattern](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) by setting up [active-active roles](#roles) for those instances.
+
+* [Process manager (broker) pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
 * [Peek-lock without timeout message pattern](../servicebus/peek-lock-message-non-destructive-read.md)
 
