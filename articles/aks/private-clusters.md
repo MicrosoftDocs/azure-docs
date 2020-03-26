@@ -58,7 +58,8 @@ Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 The API server endpoint has no public IP address. To manage the API server, you will need to use a VM that has access to the AKS cluster's Azure Virtual Network (VNet). There are several options for establishing network connectivity to the private cluster.
 
 * Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
-* Use a VM in a separate network and set up [Virtual network peering][virtual-network-peering].  See the section below for more information on this option.
+* Use a VM in a separate network, set up [Virtual network peering][virtual-network-peering] and create a link between the VM virtual network and the private DNS zone.  See the section below for more information on this option.
+* Use [Azure Bastion host][azure-bastion] in a separate network, setup [Virtual network peering][virtual-network-peering] and create a link between the VM virtual network and the private DNS zone.  See the section below for more information on this option.
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
 
 Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
