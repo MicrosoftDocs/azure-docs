@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# About the query langauge for Azure Digital Twins
+# About the query language for Azure Digital Twins
 
 Recall that the center of Azure Digital Twins is the **twin graph**, constructed from [digital twins](concepts-twins-graph.md) and relationships. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
 
