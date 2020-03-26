@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 03/26/2020
 ---
 
-# Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure PowerShell
+# Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell
 
 In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer. 
 
