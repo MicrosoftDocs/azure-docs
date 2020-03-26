@@ -18,7 +18,6 @@ Traditional SMP data warehouses use an Extract, Transform and Load (ETL) process
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-
 ## What is ELT?
 
 Extract, Load, and Transform (ELT) is a process by which data is extracted from a source system, loaded into a data warehouse and then transformed. 
@@ -33,7 +32,7 @@ The basic steps for implementing a PolyBase ELT for SQL Data Warehouse are:
 6. Insert the data into production tables.
 
 
-For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
@@ -73,7 +72,7 @@ PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addit
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 
-To land the data in Azure storage, you can move it to [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md). In either location, the data should be stored in text files. PolyBase can load from either location.
+To land the data in Azure storage, you can move it to [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) or [Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). In either location, the data should be stored in text files. PolyBase can load from either location.
 
 Tools and services you can use to move data to Azure Storage:
 
@@ -94,7 +93,7 @@ Defining external tables involves specifying the data source, the format of the 
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
-For an example of creating external objects, see the [Create external tables](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) step in the loading tutorial.
+For an example of creating external objects, see the [Create external tables](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-external-tables-for-the-sample-data) step in the loading tutorial.
 
 ### Format text files
 
@@ -114,10 +113,10 @@ It is best practice to load data into a staging table. Staging tables allow you 
 
 To load data with PolyBase, you can use any of these loading options:
 
-- [PolyBase with T-SQL](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
+- [PolyBase with T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
-- [PolyBase with Azure Data Factory (ADF)](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
-- [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
+- [PolyBase with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs. 
+- [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
 
 ### Non-PolyBase loading options
 
@@ -138,7 +137,7 @@ As you design an ETL process, try running the process on a small test sample. Tr
 
 ## Partner loading solutions
 
-Many of our partners have loading solutions. To find out more, see a list of our [solution partners](../../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md). 
+Many of our partners have loading solutions. To find out more, see a list of our [solution partners](../sql-data-warehouse/sql-data-warehouse-partner-business-intelligence.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
 
 
 ## Next steps

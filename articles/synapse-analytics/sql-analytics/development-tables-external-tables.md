@@ -22,7 +22,7 @@ In SQL pool, you'll use an external table to:
 - Query Hadoop or Azure Blob Storage data with Transact-SQL statements.
 - Import and store data from Hadoop, Azure Blob Storage, and Azure Data Lake Storage into Azure SQL Data Warehouse.
 
-When used in conjunction with the [CREATE TABLE AS SELECT](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 
 ## External tables in SQL on-demand (preview)
