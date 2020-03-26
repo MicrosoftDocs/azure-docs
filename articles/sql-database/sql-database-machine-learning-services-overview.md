@@ -49,8 +49,6 @@ In addition to the pre-installed packages, you can [install additional packages]
 > [!IMPORTANT]
 > Sign up for Azure SQL Database Machine Learning Services (preview) is currently **closed**.
 
-Machine Learning Services with R is not recommended for production workload during the preview.
-
 ## Next steps
 
 - See the [key differences from SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md).
