@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/24/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -28,6 +28,12 @@ As a result, decide what your Azure resource group quotas must be for your workl
 For limits on resource names, see [Naming rules and restrictions for Azure resources](resource-name-rules.md).
 
 For information about Resource Manager API read and write limits, see [Throttling Resource Manager requests](request-limits-and-throttling.md).
+
+### Management group limits
+
+The following limits apply to [management groups](../../governance/management-groups/overview.md).
+
+[!INCLUDE [management-group-limits](../../../includes/management-group-limits.md)]
 
 ### Subscription limits
 

@@ -1,13 +1,12 @@
 ---
 title: Windows Remote Management over HTTPS for Azure | Azure Marketplace
 description: Explains how to configure an Azure-hosted, Windows-based VM so that it can be managed remotely with PowerShell.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Windows Remote Management over HTTPS

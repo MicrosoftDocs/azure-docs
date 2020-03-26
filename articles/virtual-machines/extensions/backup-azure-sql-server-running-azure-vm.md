@@ -17,7 +17,7 @@ To do that, Azure Backup installs the **AzureBackupWindowsWorkload** extension o
 
 ## Prerequisites
 
-For the list of supported scenarios, refer to the [supportability matrix](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support) supported by Azure Backup.
+For the list of supported scenarios, refer to the [supportability matrix](../../backup/sql-support-matrix.md#scenario-support) supported by Azure Backup.
 
 ## Network connectivity
 
