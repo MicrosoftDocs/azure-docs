@@ -50307,6 +50307,11 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-best-practices-development.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices-development",
+      "redirect_document_id": true
+    },
+    {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
         "redirect_document_id": true
@@ -50419,9 +50424,23 @@
       "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
 	  "redirect_document_id": true
     },
+	{
+	  "source_path": "articles/azure-monitor/app/opencensus-go.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+	},
+	{
+	  "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+	},
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
+    },
+    {
+      "source_path": "articles/load-balancer/use-existing-lb-vmss-cli.md",
+      "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
     }
   ]
 }
