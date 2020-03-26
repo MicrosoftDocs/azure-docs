@@ -8,19 +8,59 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 03/26/2020
 ms.author: dapine
 ---
 
 # About the Speech SDK
 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications. There are various SDKs available in many programming languages. Depending on the programming language, the SDK is likely cross-platform. Refer to the following table as a point of reference.
+The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications. There are various SDKs available in many programming languages. All of the Speech SDKs are cross-platform, with the exception of the Objective-C / Swift SDK (which is only available on iOS and macOS).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-## Capabilities
+## Scenario capabilities
 
-The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated to scenarios. It's ideal for both real-time and non-real-time scenarios, utilizing local devices, files, and even input and out streams. There are known [limitations](#limitations) with the Speech SDK, where feature gaps exist. When a scenario is unachievable with the Speech SDK, look for a REST API alternative.
+The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated to scenarios. It's ideal for both real-time and non-real-time scenarios, utilizing local devices, files, and even input and output streams. There are [known limitations](#known-limitations) with the Speech SDK, where feature gaps exist. When a scenario is unachievable with the Speech SDK, look for a REST API alternative.
+
+### Speech-to-text
+
+Speech-to-text (also known as *speech recognition*) transcribes audio streams to text in real-time that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis) to derive user intents from transcribed speech and act on voice commands.
+
+### Text-to-speech
+
+Text-to-speech (also known as *speech synthesis*) converts input text into human-like synthesized speech using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Choose from standard or neural voices, for more information, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
+
+### Keyword spotting
+
+
+
+### Voice assistants
+
+Voice assistants using the Speech service empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion.
+
+### Meeting scenarios
+
+The Speech SDK is perfect for transcribing meeting scenarios, whether from a single device or multi-device conversation.
+
+#### Conversation Transcription
+
+Enables real-time (and asynchronous) speech recognition, speaker identification, and sentence attribution to each speaker (also known as *diarization*). It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
+
+#### Multi-device Conversation
+
+Connect multiple devices or clients in a conversation to send speech-based or text-based messages, with easy support for transcription and translation.
+
+### Custom / agent scenarios
+
+The Speech SDK can be used for transcribing call center scenarios, where telephony data is generated.
+
+#### Call Center Transcription
+
+A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The latest speech recognition models from the Speech service excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand.
+
+### Codec compressed audio input
+
+Several of the Speech SDKs' support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 <!-- NOTES!
 
@@ -64,34 +104,41 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 -->
 
-## Limitations
+## Known limitations
 
-While the Speech SDK covers many scenarios, there are known gaps. 
+While the Speech SDK covers many feature capabilities with various scenarios, there are known limitations. Certain functionalities are only available from the Azure portal or the REST API. An example of this is endpoint management. There are several other limitations to consider.
+
+### Batch transcription
+
+Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service however, which uses the same endpoint as customization and model management. Batch transcription is only possible from the REST API.
+
+### Custom Speech-to-text
+
+If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. This is only available through the [Custom Speech Portal](https://aka.ms/customspeech), and not the Speech SDK.
+
+### Custom Text-to-speech
+
+Custom text-to-speech, also known as Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. This is only available through the [Custom Voice Portal](https://aka.ms/customvoice), and not the Speech SDK.
 
 ## Get the SDK
-
-[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 # [Windows](#tab/windows)
 
 > [!WARNING]
-> The Speech SDK supports Windows 10 or later versions. Earlier Windows versions are **not supported**.
+> The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not supported**.
 
-The Cognitive Services Speech SDK is tested on Windows 10 and on Windows Server 2016.
+The Speech SDK requires the <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable for Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span></a> on the system.
 
-The Cognitive Services Speech SDK requires the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on the system. You can download installers for the latest version of the `Microsoft Visual C++ Redistributable for Visual Studio 2019` here:
-
-- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
-
-If your application uses managed code, the `.NET Framework 4.6.1` or later is required on the target machine.
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Install for x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 For microphone input, the Media Foundation libraries must be installed. These libraries are part of Windows 10 and Windows Server 2016. It's possible to use the Speech SDK without these libraries, as long as a microphone isn't used as the audio input device.
 
-The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (Win32/x64) that matches your application.
+The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (x86/x64) that matches your application.
 
 | Name                                            | Function                                             |
-|:------------------------------------------------|:-----------------------------------------------------|
+|-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, required for native and managed deployment |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment                      |
 
@@ -185,8 +232,6 @@ sudo yum install alsa-lib openssl
 
   To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
 
----
-
 The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 distributions.
 For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
@@ -234,16 +279,18 @@ To consume the package from your Android Studio project, make the following chan
 * In the module-level build.gradle file, add the following to the `dependencies` section:
 
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.7.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.10.0'
   ```
 
 The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
 
 ---
 
+[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+
 [!INCLUDE [Sample source code](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [See how to recognize speech in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
