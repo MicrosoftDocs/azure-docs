@@ -1,20 +1,16 @@
 ---
-title: "Quickstart: Search for videos using the SDK for Java - Bing Video Search"
+title: Bing Video Search Java client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send video search requests using the Bing Video Search SDK for Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-video-search
-ms.topic: quickstart
-ms.date: 12/09/2019
+ms.topic: include
+ms.date: 03/19/2020
 ms.author: aahi
 ---
-# Quickstart: Perform a video search with the Bing Video Search SDK for Java
 
-Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), with additional annotations, and features.
+Use this quickstart to begin searching for news with the Bing Video Search client library for Java. While Bing Video Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), with additional annotations, and features.
 
 ## Prerequisites
 
@@ -22,9 +18,9 @@ Use this quickstart to begin searching for news with the Bing Video Search SDK f
 
 * The [Gson library](https://github.com/google/gson)
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
+Install the Bing Video Search client library dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
 ```xml
   <dependencies>
@@ -41,7 +37,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
 
 Create a new Java project in your favorite IDE or editor, and import the following libraries.
 
-    ```java
+```java
     import com.microsoft.azure.cognitiveservices.videosearch.*;
     import com.microsoft.azure.cognitiveservices.videosearch.VideoObject;
     import com.microsoft.rest.credentials.ServiceClientCredentials;
@@ -52,7 +48,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
     import java.io.IOException;
     import java.util.ArrayList;
     import java.util.List; 
-    ```
+```
 
 ## Create a search client
 
@@ -154,9 +150,9 @@ Create a new Java project in your favorite IDE or editor, and import the followi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
+> [Create a single page web app](../../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
-* [What is the Bing Video Search API?](../overview.md)
+* [What is the Bing Video Search API?](../../overview.md)
 * [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
