@@ -41,9 +41,9 @@ Consider using a replicated table when:
 - The table size on disk is less than 2 GB, regardless of the number of rows. To find the size of a table, you can use the [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) command: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - The table is used in joins that would otherwise require data movem'nt. When joining tables that are not distributed on the same column, such as a hash-distributed table to a round-robin table, data movement is required to complete the query.  If one of the tables is small, consider a replicated table. We recommend using replicated tables instead of round-robin tables in most cases. To view data movement operations in query plans, use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  The BroadcastMoveOperation is the typical data movement operation that can be eliminated by using a replicated table.  
  
-Replicated tables may not yield the best query'performance when:
+Replicated tables may not yield the best query performance when:
 
-- The table has frequent insert, update, and delete operations. Thes' data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
+- The table has frequent insert, update, and delete operations. The data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
 - The SQL Analytics database is scaled frequently. Scaling a SQL Analytics database changes the number of Compute nodes, which incurs rebuilding the replicated table.
 - The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Analytics only moves data for the requested columns. 
 
@@ -65,31 +65,31 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
        
 ```       
            
-    # Convert existing round-robin tables to replicated tables
-            you already have round-robin tables, we recommend converting them to replicated tables if they meet the criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. '
+## Convert existing round-robin tables to replicated tables
+If you already have round-robin tables, we recommend converting them to replicated tables if they meet the criteria outlined in this article. Replicated tables improve performance over round-robin tables because they eliminate the need for data movement.  A round-robin table always requires data movement for joins. 
+
+This example uses [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
+
+```sql
+CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
+WITH   
+  (   
+    CLUSTERED COLUMNSTORE INDEX,  
+    DISTRIBUTION = REPLICATE  
+  )  
+AS SELECT * FROM [dbo].[DimSalesTerritory]
+OPTION  (LABEL  = 'CTAS : DimSalesTerritory_REPLICATE') 
+
+-- Switch table names
+RENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
+RENAME OBJECT [dbo].[DimSalesTerritory_REPLICATE] TO [DimSalesTerritory];
+
+DROP TABLE [dbo].[DimSalesTerritory_old];
+``` 
     
-          his example uses [CTAS](/sql/t-sql/statements/create-ta'le-as-select-azure-sql-data-warehouse) to change the DimSalesTerritory table to a replicated table. This example works regardless of whether DimSalesTerritory is hash-distributed or round-robin.
+### Query performance example for round-robin versus replicated 
     
-    ``sql
-    REATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
-    ITH   
-     (   
-       CLUSTERED COLUMNSTORE INDEX,  
-       DISTRIBUTION = REPLICATE  
-     )  
-    S SELECT * FROM [dbo].[DimSalesTerritory]
-    PTION  (LABEL  = 'CTAS : DimSalesTerritory_REPLICATE') 
-    
-    - Switch table names
-    ENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
-    ENAME OBJECT [dbo'.[DimSalesTerrit'ry_REPLICATE] TO [DimSalesTerritory];
-    
-    ROP TABLE [dbo].[DimSalesTerritory_old];
-    ``  
-    
-    ## Query performance example for round-robin versus replicated 
-    
-     replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view. 
+A replicated table does not require any data movement for joins because the entire table is already present on each Compute node. If the dimension tables are round-robin distributed, a join copies the dimension table in full to each Compute node. To move the data, the query plan contains an operation called BroadcastMoveOperation. This type of data movement operation slows query performance and is eliminated by using replicated tables. To view query plan steps, use the [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system catalog view.  
 
 For example, in following query against the AdventureWorks schema, the `FactInternetSales` table is hash-distributed. The `DimDate` and `DimSalesTerritory` tables are smaller dimension tables. This query returns the total sales in North America for fiscal year 2004:
 
@@ -132,7 +132,7 @@ Standard indexing practices apply to replicated tables. SQL Analytics rebuilds e
 ### Batch data loads
 When loading data into replicated tables, try to minimize rebuilds by batching loads together. Perform all the batched loads before running select statements.
 
-       or example, this load pattern loads data from four sources and invokes four rebuilds. ''
+For example, this load pattern loads data from four sources and invokes four rebuilds. 
 
         Load from source 1.
 - Select statement triggers rebuild 1.
@@ -181,7 +181,3 @@ To create a replicated table, use one of these statements:
 - [CREATE TABLE AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 For an overview of distributed tables, see [distributed tables](sql-data-warehouse-tables-distribute.md).
-
-
-
-""""
