@@ -27,6 +27,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |Name|Definition|Description|
 |---|---|---|
 |z|z|x|
+|`widgets` | Strings separated by comma | Allows you to control the insights that you want to render.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renders only people and keywords UI insights.<br/>Available options: people, animatedCharacters ,keywords, labels, sentiments, emotions, topics, keyframes, transcript,ocr , speakers, scenes, and namedEntities.|
 
 ### Player widget
 
