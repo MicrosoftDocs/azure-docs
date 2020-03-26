@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/28/2020
+ms.date: 03/27/2020
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
@@ -158,11 +158,17 @@ The first staging tasks that run on your self-hosted IR are billed separately, j
 
 The second staging tasks that run on your Azure-SSIS IR are not be billed separately, but your running Azure-SSIS IR is billed as specified in the [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/) article.
 
+## Enabling TLS 1.2
+
+If you need to use strong cryptography/more secure network protocol (TLS 1.2) and disable older SSL/TLS versions on your self-hosted IR, you can download and run the *main.cmd* script that can be found in the *CustomSetupScript/UserScenarios/TLS 1.2* folder of our public preview container.  Using [Azure Storage Explorer](https://storageexplorer.com/), you can connect to our public preview container by entering the following SAS URI:
+
+`https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
+
 ## Current limitations
 
-- Only data flow tasks with Open Database Connectivity (ODBC), OLEDB, or Flat File connection managers and ODBC, OLEDB, or Flat File sources are currently supported. 
+- Only data flow tasks with Open Database Connectivity (ODBC)/OLEDB/Flat File sources or OLEDB destination are currently supported. 
 - Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
-- *ParameterMapping* in OLEDB Source is not supported yet. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. To illustrate this, you can find a sample package *(ParameterMappingSample.dtsx)* in *SelfhostedIrProxy/Limitations* folder of our public preview container by entering the following SAS URI on [Azure Storage Explorer](https://storageexplorer.com/): *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c*.
+- *ParameterMapping* in OLEDB Source is not supported yet. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview container. Using Azure Storage Explorer, you can connect to our public preview container by entering the above SAS URI.
 
 ## Next steps
 
