@@ -15,7 +15,7 @@ ms.author: cherylmc
 # Azure Virtual WAN and supporting remote work
 
 >[!NOTE]
->This article describes how you can leverage Azure Virtual WAN, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of Covid-19 crisis.
+>This article describes how you can leverage Azure Virtual WAN, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
 >
 
 Are you scrambling to provide connectivity for remote users?

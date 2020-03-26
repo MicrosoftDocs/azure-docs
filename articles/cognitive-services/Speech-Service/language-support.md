@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/26/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -37,6 +37,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
 | `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
+| `ar-SY` | Arabic (Syria)                    | Yes       | Language model                                    |
 | `ca-ES` | Catalan                           | Yes       | Language model                                    |
 | `da-DK` | Danish (Denmark)                  | Yes       | Language model                                    |
 | `de-DE` | German (Germany)                  | Yes       | Acoustic model<br>Language model<br>Pronunciation |
