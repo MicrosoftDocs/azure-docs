@@ -14,7 +14,7 @@ As you create and manage Azure Service Fabric clusters, you are providing networ
 Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) to learn how to create clusters that use the following features: Existing virtual network or subnet, Static public IP address, Internal-only load balancer, or Internal and external load balancer.
 
 ## Infrastructure Networking
-Maximize your Virtual Machine’s performance with Accelerated Networking, by declaring enableAcceleratedNetworking property in your Resource Manager template, the following snippet is of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
+Maximize your Virtual Machine's performance with Accelerated Networking, by declaring enableAcceleratedNetworking property in your Resource Manager template, the following snippet is of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -46,7 +46,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 * Service Fabric clusters can be deployed into an existing virtual network by following the steps outlined in [Service Fabric networking patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Network security groups (NSGs) are recommended for node types that restrict inbound and outbound traffic to their cluster. Ensure that the necessary ports are opened in the NSG. 
+* Network security groups (NSGs) are recommended for node types to restrict inbound and outbound traffic to their cluster. Ensure that the necessary ports are opened in the NSG. 
 
 * The primary node type, which contains the Service Fabric system services does not need to be exposed via the external load balancer and can be exposed by an [internal load balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
@@ -54,7 +54,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The basic rules here are the minimum to lockdown an Azure managed Service Fabric cluster. Without opening those ports or whitelistening the IP/URL this will cause operation of the cluster, which may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) on all scale sets.
+The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Without opening those ports or whitelistening the IP/URL this will prevents the operation of the cluster, and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), otherwise additional ports has to be opened.
 
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
@@ -72,7 +72,7 @@ The basic rules here are the minimum to lockdown an Azure managed Service Fabric
 
 More information about the inbound security rules.
 
-* **Azure**. This port is used by Service Fabric Explorer to browse and manage your cluster, and it is also used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal.  If this port is not accessible from the SFRP then you will see a message such as ‘Nodes Not Found’ in the management portal and your node and application list will appear empty.  This means that if you wish to have visibility of your cluster via the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
+* **Azure**. This port is used by Service Fabric Explorer to browse and manage your cluster, and it is also used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
 
 * **Client**. The client connection endpoint for APIs like REST/PowerShell/CLI. The Azure portal gather information about the cluster, nodes, and applications. 
 
@@ -105,9 +105,9 @@ More information about the outbound security rules.
 
 * **Resource Provider**. Connection to execute all ARM deployments by the Service Fabric resource provider.
 
-* **Upgrade**. The upgrade service using the Akaimai network with dynamic IP addresses to download the bits, this is needed for setup, re-image and runtime upgrades. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optional this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
+* **Upgrade**. The upgrade service using the Akaimai network to download the bits, this is needed for setup, re-image and runtime upgrades. Akaimai are using dynamic IP addresses, we are working to make this Azure internal. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optional this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
 
-Use Azure Firewall with [NSG flow log](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview) and [traffic analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics) to track issues. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start with. 
+Use Azure Firewall with [NSG flow log](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview) and [traffic analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
 
 
 ## Application Networking
