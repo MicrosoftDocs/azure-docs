@@ -56,7 +56,7 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
-    -name: How to use IntelliJ to deploy Azure Spring Cloud applications
+    - name: How to use IntelliJ to deploy Azure Spring Cloud applications
       href: spring-cloud-howto-intellij-deploy-apps.md
 - name: DevOps Deployment to Azure Spring Cloud
   items:
