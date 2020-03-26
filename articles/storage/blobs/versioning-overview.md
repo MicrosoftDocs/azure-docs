@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -117,7 +117,7 @@ To automate the process of moving blobs to the appropriate tier, use blob life c
 
 ## Disable blob versioning
 
-When you turn off blob versioning, any existing versions remain in your storage account and are accessible. No new versions are subsequently created.
+When you turn off blob versioning, any existing historical versions remain accessible in your storage account. No new versions are subsequently created.
 
 If a base blob was created or modified after versioning was enabled on the storage account, then overwriting the base blob creates a new historical version. The updated base blob is no longer a version and does not have a version ID. All subsequent updates to the base blob will overwrite its data.
 
