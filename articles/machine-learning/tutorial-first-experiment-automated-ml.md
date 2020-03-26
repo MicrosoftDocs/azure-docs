@@ -199,7 +199,7 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 ### Delete the deployment instance
 
-Delete just the deployment instance from Azure Machine Learning at https://ml.azure.com/ , if you want to keep the resource group and workspace for other tutorials and exploration. 
+Delete just the deployment instance from Azure Machine Learning at https:\//ml.azure.com/, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
 1. Go to [Azure Machine Learning](https://ml.azure.com/). Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
 
