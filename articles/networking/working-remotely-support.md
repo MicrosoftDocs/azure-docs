@@ -14,7 +14,7 @@ ms.author: rambala
 # Working remotely using Azure networking services
 
 >[!NOTE]
-> This article describes how you can leverage Azure networking services, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you are facing because of the COVID-19 crisis.
+> This article describes how you can leverage Azure networking services, Microsoft network, and the Azure partner ecosystem to work remotely and mitigate network issues that you might be facing because of the COVID-19 crisis.
 
 This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during periods of peak utilization. Network architects are faced with the following challenges:
 
@@ -22,7 +22,7 @@ This article describes the options that are available to organizations to set up
 - provide reliable-secure connectivity to more employees of their company and customers.
 - provide connectivity to remote locations across the globe.
 
-Not all networks (for example, private WAN and corporate core networks) experience congestion from peak remote worker load. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
+Not all networks (for example, private WAN and corporate core networks) experience congestion from peak remote worker load. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations..
 
 Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas, replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
