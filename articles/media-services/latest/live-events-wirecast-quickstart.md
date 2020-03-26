@@ -60,7 +60,7 @@ To keep things simple, we will use an encoding preset for Azure Media Services i
 1. Assuming that you still have the Wirecast application open, select **Create Empty Document** from the main menu, then click **Continue**.
 ![Wirecast start screen](media/live-events-wirecast-quickstart/open-empty-document.png)
 1. Hover over the first layer in the Wirecast layers area.  Click the **Add** icon that appears and select the video input you want to stream.  The Master Layer 1 dialogue box will open.<br/>
-![Wirecast add icon](media/live-events-wirecast-quickstart/add_icon.png)
+![Wirecast add icon](media/live-events-wirecast-quickstart/add-icon.png)
 1. Select **Video capture** from the menu and then select the camera that you want to use. If selecting a camera, the view from the camera will appear in the Preview area.
 ![Wirecast video shot selection screen](media/live-events-wirecast-quickstart/video-shot-selection.png)
 1. Hover over the second layer in the Wirecast layers area. Click the **Add** icon that appears and select the audio input you want to stream.  The Master Layer 2 dialogue box will open.
