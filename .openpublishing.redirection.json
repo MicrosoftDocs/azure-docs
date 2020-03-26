@@ -7575,6 +7575,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-create-first-java-maven.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-java-gradle",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/scripts/functions-cli-configure-custom-domain.md",
       "redirect_url": "/azure/app-service/scripts/cli-configure-custom-domain?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false

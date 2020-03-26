@@ -46,19 +46,17 @@ You're now ready to try out the new output binding locally.
 
 As before, use the following command to build the project and start the Functions runtime locally:
 
-::: zone pivot="java-build-tools-maven"  
+# [Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# [Gradle](#tab/gradle) 
 ```bash
 gradle jar --info
 gradle azureFunctionsRun
 ```
-::: zone-end
+---
 
 > [!NOTE]  
 > Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#add-to-your-functions-app) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
@@ -81,17 +79,15 @@ Next, you use the Azure CLI to view the new queue and verify that a message was 
 
 To update your published app, run the following command again:  
 
-::: zone pivot="java-build-tools-maven"  
+# [Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# [Gradle](#tab/gradle)  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
+---
 
 Again, you can use cURL to test the deployed function. As before, pass the value `AzureFunctions` in the body of the POST request to the URL, as in this example:
 

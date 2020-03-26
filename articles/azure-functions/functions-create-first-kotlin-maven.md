@@ -1,6 +1,6 @@
 ---
 title: Create your first function in Azure with Kotlin and Maven
-description: Create and publish a simple HTTP triggered function to Azure with Kotlin and Maven.
+description: Create and publish an HTTP triggered function to Azure with Kotlin and Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
@@ -10,9 +10,7 @@ ms.author: dglover
 
 # Quickstart: Create your first function with Kotlin and Maven
 
-This article guides you through using the Maven command line tool to build and publish a Kotlin function project to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
-
-You can also build and publish a Java function project to Azure by [using Maven archetypes](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) or by [using Gradle](functions-create-first-java-maven.md).
+This article guides you through using the Maven command-line tool to build and publish a Kotlin function project to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -59,7 +57,7 @@ mvn archetype:generate ^
 
 Maven asks you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Kotlin package for the generated function code.
 
-The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You are encouraged to supply your own values to Maven in this step.
+The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used as an example and to make later steps in this quickstart easier to read. You're encouraged to supply your own values to Maven in this step.
 
 <pre>
 [INFO] Parameter: groupId, Value: com.fabrikam.function
@@ -116,10 +114,6 @@ class Function {
 }
 ```
 
-## Reference bindings
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 ## Run the function locally
 
 Change directory to the newly created project folder and build and run the function with Maven:
@@ -158,7 +152,7 @@ Use `Ctrl-C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
 
 ```azurecli
 az login
@@ -207,7 +201,7 @@ return request
         .build()
 ```
 
-To the following:
+To the following code:
 
 ```kotlin
 return request
@@ -228,9 +222,16 @@ You see the updated output:
 Hi, AzureFunctionsTest
 </pre>
 
+
+## Reference bindings
+
+To work with [Functions triggers and bindings](functions-triggers-bindings.md) other than HTTP trigger and Timer trigger, you need to install binding extensions. While not required by this article, you'll need to know how to do enable extensions when working with other binding types.
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 ## Next steps
 
-You have created a Kotlin function app with a simple HTTP trigger and deployed it to Azure Functions.
+You've created a Kotlin function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.

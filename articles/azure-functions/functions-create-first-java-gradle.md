@@ -64,7 +64,7 @@ Run the following command to build then run the function project:
 gradle jar --info
 gradle azureFunctionsRun
 ```
-You will see output like the following from Azure Functions Core Tools when you run the project locally:
+You see output like the following from Azure Functions Core Tools when you run the project locally:
 
 <pre>
 ...
@@ -78,16 +78,20 @@ Http Functions:
 ...
 </pre>
 
-Trigger the function from the command line using cURL in a new terminal window:
+Trigger the function from the command line using the following cURL command in a new terminal window:
 
 ```bash
 curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 ```
 
-```output
+The expected output is the following:
+
+<pre>
 Hello AzureFunctions!
-```
-The [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) isn't required when running locally. Use `Ctrl+C` in the terminal to stop the function code.
+</pre>
+
+The [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) isn't required when running locally.  
+Use `Ctrl+C` in the terminal to stop the function code.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
@@ -105,36 +109,25 @@ az login
 
 Use the following command to deploy your project to a new function app. 
 
-
-::: zone pivot="java-build-tools-maven" 
-```bash
-mvn azure-functions:deploy
-```
-::: zone-end 
-
-::: zone pivot="java-build-tools-gradle"  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
 
-This will create the following resources in Azure:
+This creates the following resources in Azure, based on the values in the build.gradle file:
 
 + Resource group. Named with the _resourceGroup_ you supplied.
 + Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
-+ App service plan. Serverless hosting for your function app in the specified _appRegion_. The name is generated randomly.
++ App Service plan. Serverless Consumption plan hosting for your function app in the specified _appRegion_. The name is generated randomly.
 + Function app. A function app is the deployment and execution unit for your functions. The name is your _appName_, appended with a randomly generated number. 
 
 The deployment also packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy), with run-from-package mode enabled.
 
-After the deployment completes, you see the URL you can use to access your function app endpoints. Because the HTTP trigger we published uses `authLevel = AuthorizationLevel.FUNCTION`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
+Because the HTTP trigger we published uses `authLevel = AuthorizationLevel.FUNCTION`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## Get the HTTP trigger URL
-
-<!--- We can updates this to remove portal dependency after the Maven archetype returns the full URLs with keys on publish (https://github.com/microsoft/azure-maven-plugins/issues/571). -->
 
 You can get the URL required to trigger your function, with the function key, from the Azure portal. 
 
@@ -158,9 +151,9 @@ curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/
 
 This sends a POST request to the function endpoint with `AzureFunctions` in the body of the request. You see the following response.
 
-```output
+<pre>
 Hello AzureFunctions!
-```
+</pre>
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
