@@ -203,5 +203,5 @@ In this tutorial, you learned how to:
 Continue to the overview for the Update Management solution.
 
 > [!div class="nextstepaction"]
-> [Update Management solution](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Update Management solution](automation-update-management.md)
 
