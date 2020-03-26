@@ -11,7 +11,7 @@ ms.date: 08/10/2018
 
 This article shows you how to build and publish a Java function project to Azure Functions with the Gradle command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](functions-scale.md#consumption-plan) and is triggered by an HTTP request. 
 
-You can also build and publish a Java function project from the command line by using [Maven archetypes](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) or by using [Kotlin archetypes](functions-create-first-kotlin-maven.md).
+You can also build and publish a Java function project from the command line by using [Maven archetypes](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
 
 ## Prerequisites
 

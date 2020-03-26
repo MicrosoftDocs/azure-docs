@@ -172,11 +172,13 @@
         - name: Visual Studio Code
           href: create-visual-studio-code.md
         - name: Java using Gradle
-          href: functions-create-first-java-maven.md
+          href: functions-create-first-java-gradle.md
         - name: Java using Eclipse
           href: functions-create-maven-eclipse.md
         - name: Java using IntelliJ IDEA
           href: functions-create-maven-intellij.md
+        - name: Kotlin using Gradle
+          href: functions-create-first-kotlin-maven.md
         - name: Linux App Service plan
           href: create-function-app-linux-app-service-plan.md
         - name: Linux Consumption plan

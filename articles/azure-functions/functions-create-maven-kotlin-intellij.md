@@ -10,10 +10,7 @@ ms.author: dglover
 
 # Quickstart: Create your first HTTP triggered function with Kotlin and IntelliJ
 
-This article shows you:
-- How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven
-- Steps for testing and debugging the function in the integrated development environment (IDE) on your own computer
-- Instructions for deploying the function project to Azure Functions
+This article shows you how to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven. It also shows how to locally debug your function code in the integrated development environment (IDE) and then deploy the function project to Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -103,5 +100,5 @@ Maven creates the project files in a new folder with the same name as the _Artif
 
 ## Next steps
 
-- Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
+Now that you have deployed your first Kotlin function to Azure, review the [Java Functions developer guide](functions-reference-java.md) for more information on developing Java and Kotlin functions.
 - Add additional functions with different triggers to your project by using the `azure-functions:add` Maven target.
