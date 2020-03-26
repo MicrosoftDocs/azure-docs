@@ -1,12 +1,12 @@
 ---
 title: Upgrade to the latest generation
 description: Upgrade Azure Synapse Analytics SQL pool to latest generation of Azure hardware and storage architecture.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick

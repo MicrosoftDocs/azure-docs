@@ -1,8 +1,8 @@
 ---
 title: Release notes 
 description: Release notes for Azure Synapse Analytics.
-services: sql-data-warehouse
-ms.service: sql-data-warehouse
+services: synapse-analytics
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
 ms.date: 2/4/2020
