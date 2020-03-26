@@ -10,299 +10,376 @@ ms.subservice: blobs
 ms.topic: quickstart
 ---
 
+<!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
+
 # Quickstart: Manage blobs with JavaScript v12 SDK in a browser
 
 In this quickstart, you learn to manage blobs by using JavaScript in a browser. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
 
-[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (bundling)](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+
+> [!NOTE]
+> To get started with the previous SDK version, see [Quickstart: Manage blobs with JavaScript v10 SDK in Node.js](storage-quickstart-blobs-nodejs-legacy.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
-- [Node.js](https://nodejs.org/en/download/).
+- A local web server. This article uses [Node.js](https://nodejs.org) to open a basic server.
+- [Visual Studio Code](https://code.visualstudio.com).
+- A VS Code extension for browser debugging, such as [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
-> [!NOTE]
-> To get started with the previous SDK version, see [Quickstart: Manage blobs with JavaScript v10 SDK in Node.js](storage-quickstart-blobs-nodejs-legacy.md).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## Setting up
+## Setting up storage account CORS rules
 
-This section walks you through preparing a project to work with the Azure Blob storage client library v12 for JavaScript.
+Before your web application can access a blob storage from the client, you must configure your account to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
 
-### Create the project
+Return to the Azure portal and select your storage account. To define a new CORS rule, navigate to the **Settings** section and click on the **CORS** link. Next, click the **Add** button to open the **Add CORS rule** window. For this quickstart, you create an open CORS rule:
 
-Create a JavaScript application named *blob-quickstart-v12*.
+![Azure Blob Storage Account CORS settings](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
-1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
+The following table describes each CORS setting and explains the values used to define the rule.
 
-    ```console
-    mkdir blob-quickstart-v12
-    ```
-
-1. Switch to the newly created *blob-quickstart-v12* directory.
-
-    ```console
-    cd blob-quickstart-v12
-    ```
-
-1. Create a new text file called *package.json*. This file defines the Node.js project. Save this file in the *blob-quickstart-v12* directory. Here is the contents of the file:
-
-    ```json
-    {
-        "name": "blob-quickstart-v12",
-        "version": "1.0.0",
-        "description": "Use the @azure/storage-blob SDK version 12 to interact with Azure Blob storage",
-        "main": "blob-quickstart-v12.js",
-        "scripts": {
-            "start": "node blob-quickstart-v12.js"
-        },
-        "author": "Your Name",
-        "license": "MIT",
-        "dependencies": {
-            "@azure/storage-blob": "^12.0.0",
-            "@types/dotenv": "^4.0.3",
-            "dotenv": "^6.0.0"
-        }
-    }
-    ```
-
-    You can put your own name in for the `author` field, if you'd like.
-
-### Install the package
-
-While still in the *blob-quickstart-v12* directory, install the Azure Blob storage client library for JavaScript package by using the `npm install` command. This command reads the *package.json* file and installs the Azure Blob storage client library v12 for JavaScript package and all the libraries on which it depends.
-
-```console
-npm install
-```
-
-### Set up the app framework
-
-From the project directory:
-
-1. Open another new text file in your code editor
-1. Add `require` calls to load Azure and Node.js modules
-1. Create the structure for the program, including basic exception handling
-
-    Here's the code:
-
-    ```javascript
-    const { BlobServiceClient } = require('@azure/storage-blob');
-    const uuidv1 = require('uuid/v1');
-
-    async function main() {
-        console.log('Azure Blob storage v12 - JavaScript quickstart sample');
-        // Quick start code goes here
-    }
-
-    main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
-    ```
-
-1. Save the new file as *blob-quickstart-v12.js* in the *blob-quickstart-v12* directory.
-
-[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
-
-## Object model
-
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
-
-* The storage account
-* A container in the storage account
-* A blob in the container
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Use the following JavaScript classes to interact with these resources:
-
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-* [BlobClient](/javascript/api/@azure/storage-blob/blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-
-## Code examples
-
-These example code snippets show you how to perform the following with the Azure Blob storage client library for JavaScript:
-
-* [Get the connection string](#get-the-connection-string)
-* [Create a container](#create-a-container)
-* [Upload blobs to a container](#upload-blobs-to-a-container)
-* [List the blobs in a container](#list-the-blobs-in-a-container)
-* [Download blobs](#download-blobs)
-* [Delete a container](#delete-a-container)
-
-### Get the connection string
-
-The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
-
-Add this code inside the `main` function:
-
-```javascript
-// Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable on the machine
-// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
-// environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be closed
-// and reloaded to take the environment variable into account.
-const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
-```
-
-<!-- :::code language="javascript" source="~/azure-sdk-for-js/sdk/storage/storage-blob/samples/javascript/basic.js" range="14-21"::: -->
-
-### Create a container
-
-Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it is unique.
+|Setting  |Value  | Description |
+|---------|---------|---------|
+| Allowed origins | * | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
+| Allowed methods     | delete, get, head, merge, post, options, and put | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
+| Allowed headers | * | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
+| Exposed headers | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header.  |
+| Max age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Ensure any settings you use in production expose the minimum amount of access necessary to your storage account to maintain secure access. The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
 
-Create an instance of the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class by calling the [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) method. Then, call the [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) method to get a reference to a container. Finally, call [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) to actually create the container in your storage account.
+Next, you use the Azure cloud shell to create a security token.
 
-Add this code to the end of the `main` function:
+[!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
-```javascript
-// Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
+## Create a shared access signature
 
-// Create a unique name for the container
-const containerName = 'quickstart' + uuidv1();
+The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
-console.log('\nCreating container...');
-console.log('\t', containerName);
+You can create a SAS using the Azure CLI through the Azure cloud shell, or with the Azure portal or Azure Storage Explorer. The following table describes the parameters you need to provide values for to generate a SAS with the CLI.
 
-// Get a reference to a container
-const containerClient = await blobServiceClient.getContainerClient(containerName);
+| Parameter      |Description  | Placeholder |
+|----------------|-------------|-------------|
+| *expiry*       | The expiration date of the access token in YYYY-MM-DD format. Enter tomorrow's date for use with this quickstart. | *FUTURE_DATE* |
+| *account-name* | The storage account name. Use the name set aside in an earlier step. | *YOUR_STORAGE_ACCOUNT_NAME* |
+| *account-key*  | The storage account key. Use the key set aside in an earlier step. | *YOUR_STORAGE_ACCOUNT_KEY* |
 
-// Create the container
-const createContainerResponse = await containerClient.create();
-console.log("Container was created successfully. requestId: ", createContainerResponse.requestId);
+Use the following CLI command, with actual values for each placeholder, to generate a SAS that you can use in your JavaScript code.
+
+```azurecli-interactive
+az storage account generate-sas \
+  --permissions racwdl \
+  --resource-types sco \
+  --services b \
+  --expiry FUTURE_DATE \
+  --account-name YOUR_STORAGE_ACCOUNT_NAME \
+  --account-key YOUR_STORAGE_ACCOUNT_KEY
 ```
 
-### Upload blobs to a container
+You may find the series of values after each parameter a bit cryptic. These parameter values are taken from the first letter of their respective permission. The following table explains where the values come from:
 
-The following code snippet:
+| Parameter        | Value   | Description  |
+|------------------|---------|---------|
+| *permissions*    | racwdl  | This SAS allows *read*, *append*, *create*, *write*, *delete*, and *list* capabilities. |
+| *resource-types* | sco     | The resources affected by the SAS are *service*, *container*, and *object*. |
+| *services*       | b       | The service affected by the SAS is the *blob* service. |
 
-1. Creates a text string to upload to a blob.
-1. Gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) from the [Create a container](#create-a-container) section.
-1. Uploads the text string data to the blob by calling the [upload](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) method.
+Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you will need to remove the initial `?` if it is present. This character is a URL separator that is already provided in the URL template later in this topic where the SAS is used.
 
-Add this code to the end of the `main` function:
+> [!IMPORTANT]
+> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
-```javascript
-// Create a unique name for the blob
-const blobName = 'quickstart' + uuidv1() + '.txt';
+## Implement the HTML page
 
-// Get a block blob client
-const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
 
-console.log('\nUploading to Azure storage as blob:\n\t', blobName);
+### Set up the web application
 
-// Upload data to the blob
-const data = 'Hello, World!';
-const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
-console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
+First, create a new folder named *azure-blobs-javascript* and open it in VS Code. Then create a new file in VS Code, add the following HTML, and save it as *index.html* in the *azure-blobs-javascript* folder.
+
+```html
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id="create-container-button">Create container</button>
+    <button id="delete-container-button">Delete container</button>
+    <button id="select-button">Select and upload files</button>
+    <input type="file" id="file-input" multiple style="display: none;" />
+    <button id="list-button">List files</button>
+    <button id="delete-button">Delete selected files</button>
+    <p><b>Status:</b></p>
+    <p id="status" style="height:160px; width: 593px; overflow: scroll;" />
+    <p><b>Files:</b></p>
+    <select id="file-list" multiple style="height:222px; width: 593px; overflow: scroll;" />
+</body>
+
+<!-- You'll add code here later in this quickstart. -->
+
+</html>
 ```
 
-### List the blobs in a container
+### Configure the debugger
 
-List the blobs in the container by calling the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+To set up the debugger extension in VS Code, select **Debug > Add Configuration...**, then select **Chrome** or **Edge**, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
 
-Add this code to the end of the `main` function:
+Next, modify the *launch.json* file so that the `url` value includes `/index.html` as shown:
 
-```javascript
-console.log('\nListing blobs...');
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "edge",
+            "request": "launch",
+            "name": "Launch Edge against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}```
 
-// List the blob(s) in the container.
-for await (const blob of containerClient.listBlobsFlat()) {
-    console.log('\t', blob.name);
-}
-```
+This configuration tells VS Code which browser to launch and which URL to load.
 
-### Download blobs
+### Launch the web server
 
-Download the previously created blob by calling the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method. The example code includes a helper function called `streamToString`, which is used to read a Node.js readable stream into a string.
-
-Add this code to the end of the `main` function:
-
-```javascript
-// Get blob content from position 0 to the end
-// In Node.js, get downloaded data by accessing downloadBlockBlobResponse.readableStreamBody
-// In browsers, get downloaded data by accessing downloadBlockBlobResponse.blobBody
-const downloadBlockBlobResponse = await blockBlobClient.download(0);
-console.log('\nDownloaded blob content...');
-console.log('\t', await streamToString(downloadBlockBlobResponse.readableStreamBody));
-```
-
-Add this helper function *after* the `main` function:
-
-```javascript
-// A helper function used to read a Node.js readable stream into a string
-async function streamToString(readableStream) {
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-    readableStream.on("data", (data) => {
-      chunks.push(data.toString());
-    });
-    readableStream.on("end", () => {
-      resolve(chunks.join(""));
-    });
-    readableStream.on("error", reject);
-  });
-}
-```
-
-### Delete a container
-
-The following code cleans up the resources the app created by removing the entire container using the [​delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) method. You can also delete the local files, if you like.
-
-Add this code to the end of the `main` function:
-
-```javascript
-console.log('\nDeleting container...');
-
-// Delete container
-const deleteContainerResponse = await containerClient.delete();
-console.log("Container was deleted successfully. requestId: ", deleteContainerResponse.requestId);
-```
-
-## Run the code
-
-This app creates a text string and uploads it to Blob storage. The example then lists the blob(s) in the container, downloads the blob, and displays the downloaded data.
-
-From a console prompt, navigate to the directory containing the *blob-quickstart-v12.py* file, then execute the following `node` command to run the app.
+To launch the local Node.js web server, select **View > Terminal** to open a console window inside VS Code, then enter the following command.
 
 ```console
-node blob-quickstart-v12.js
+npx http-server
 ```
 
-The output of the app is similar to the following example:
+This command will install the *http-server* package and launch the server, making the current folder available through default URLs including the one indicated in the previous step.
 
-```output
-Azure Blob storage v12 - JavaScript quickstart sample
+### Start debugging
 
-Creating container...
-         quickstart4a0780c0-fb72-11e9-b7b9-b387d3c488da
+To launch *index.html* in the browser with the VS Code debugger attached, select **Debug > Start Debugging** or press F5 in VS Code.
 
-Uploading to Azure Storage as blob:
-         quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
+The UI displayed doesn't do anything yet, but you'll add JavaScript code in the following section to implement each function shown. You can then set breakpoints and interact with the debugger when it's paused on your code.
 
-Listing blobs...
-         quickstart4a3128d0-fb72-11e9-b7b9-b387d3c488da.txt
+When you make changes to *index.html*, be sure to reload the page to see the changes in the browser. In VS Code, you can also select **Debug > Restart Debugging** or press CTRL + SHIFT + F5.
 
-Downloaded blob content...
-         Hello, World!
+### Add the blob storage client library
 
-Deleting container...
-Done
+To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. This process takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers.
+
+See [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md). Use `npm` to install the `@azure/storage-blob` client library in your project, then continue with this article.
+
+After you've completed the steps to create a bundle, include the bundle in the *index.html* page via a script tag:
+
+```html
+<script src="./dist/main.js"></script>
 ```
 
-Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
+### Add the initial JavaScript code
+
+Next, add the following code to the *index.js* file.
+
+```javascript
+const createContainerButton = document.getElementById("create-container-button");
+const deleteContainerButton = document.getElementById("delete-container-button");
+const selectButton = document.getElementById("select-button");
+const fileInput = document.getElementById("file-input");
+const listButton = document.getElementById("list-button");
+const deleteButton = document.getElementById("delete-button");
+const status = document.getElementById("status");
+const fileList = document.getElementById("file-list");
+
+const reportStatus = message => {
+    status.innerHTML += `${message}<br/>`;
+    status.scrollTop = status.scrollHeight;
+}
+```
+
+This code creates fields for each HTML element that the following code will use, and implements a `reportStatus` function to display output.
+
+In the following sections, add each new block of JavaScript code after the previous block.
+
+### Add your storage account info
+
+Next, add code to access your storage account, replacing the placeholders with your account name and the SAS you generated in a previous step.  Add the following code to the *index.js* file.
+
+```javascript
+// Update with your account name and SAS string
+const accountName = "<Add your storage account name>";
+const sasString = "<Add the SAS you generated earlier>";
+```
+
+### Create client objects
+
+Create [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) and [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) objects for interacting with the Azure Blob storage service. Add the following code to the *index.js* file.
+
+```javascript
+// Create a unique name for the container by 
+// appending the current time to the file name
+const containerName = "container" + new Date().getTime();
+
+// Create a new BlobServiceClient
+const blobServiceClient = new BlobServiceClient(`https://${accountName}.blob.core.windows.net/?${sasString}`);
+
+// Get a container client from the BlobServiceClient
+const containerClient = blobServiceClient.getContainerClient(containerName);
+```
+
+This code uses your account info and SAS to create a [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instance, which is useful for creating and manipulating a storage container.
+
+### Create and delete a storage container
+
+Next, add code to create and delete the storage container when you press the corresponding button. Add the following code to the *index.js* file.
+
+```javascript
+const createContainer = async () => {
+    try {
+        reportStatus(`Creating container "${containerName}"...`);
+        await containerClient.create();
+        reportStatus(`Done.`);
+    } catch (error) {
+        reportStatus(error.message);
+    }
+};
+
+const deleteContainer = async () => {
+    try {
+        reportStatus(`Deleting container "${containerName}"...`);
+        await containerClient.delete();
+        reportStatus(`Done.`);
+    } catch (error) {
+        reportStatus(error.message);
+    }
+};
+
+createContainerButton.addEventListener("click", createContainer);
+deleteContainerButton.addEventListener("click", deleteContainer);
+```
+
+This code calls the [ContainerClient.create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) and [delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) functions. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled.
+
+### List blobs
+
+Next, add code to list the contents of the storage container when you press the **List files** button. Add the following code to the *index.js* file.
+
+```javascript
+const listFiles = async () => {
+    fileList.size = 0;
+    fileList.innerHTML = "";
+    try {
+        reportStatus("Retrieving file list...");
+        let iter = containerClient.listBlobsFlat();
+        let blobItem = await iter.next();
+        while (!blobItem.done) {
+            fileList.size += 1;
+            fileList.innerHTML += `<option>${blobItem.value.name}</option>`;
+            blobItem = await iter.next();
+        }
+        if (fileList.size > 0) {
+            reportStatus("Done.");
+        } else {
+            reportStatus("The container does not contain any files.");
+        }
+    } catch (error) {
+        reportStatus(error.message);
+    }
+};
+
+listButton.addEventListener("click", listFiles);
+```
+
+This code calls the [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) function, then uses an iterator to retrieve the name of each [BlobItem](/javascript/api/@azure/storage-blob/blobitem) returned. For each `BlobItem`, it updates the **Files** list with the [name](/javascript/api/@azure/storage-blob/blobitem#name) property value.
+
+### Upload blobs
+
+Next, add code to upload files to the storage container when you press the **Select and upload files** button. Add the following code to the *index.js* file.
+
+```javascript
+const uploadFiles = async () => {
+    try {
+        reportStatus("Uploading files...");
+        const promises = [];
+        for (const file of fileInput.files) {
+            const blockBlobClient = containerClient.getBlockBlobClient(file.name);
+            promises.push(blockBlobClient.uploadBrowserData(file));
+        }
+        await Promise.all(promises);
+        reportStatus("Done.");
+        listFiles();
+    }
+    catch (error) {
+            reportStatus(error.message);
+    }
+}
+
+selectButton.addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", uploadFiles);
+```
+
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function creates a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, then calls the browser-only [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
+
+### Delete blobs
+
+Next, add code to delete files from the storage container when you press the **Delete selected files** button. Add the following code to the *index.js* file.
+
+```javascript
+const deleteFiles = async () => {
+    try {
+        if (fileList.selectedOptions.length > 0) {
+            reportStatus("Deleting files...");
+            for (const option of fileList.selectedOptions) {
+                await containerClient.deleteBlob(option.text);
+            }
+            reportStatus("Done.");
+            listFiles();
+        } else {
+            reportStatus("No files selected.");
+        }
+    } catch (error) {
+        reportStatus(error.message);
+    }
+};
+
+deleteButton.addEventListener("click", deleteFiles);
+```
+
+This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) function to remove each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the **Files** list.
+
+### Run and test the web application
+
+From the command line, run the command for your chosen bundler to recreate the bundle with your updated *index.js* file.
+
+**WebPack**
+
+```console
+webpack --mode=development
+```
+
+**Rollup**
+
+```console
+rollup --config
+```
+
+**Parcel**
+
+```console
+parcel index.html
+```
+
+At this point, you can launch the page and experiment to get a feel for how blob storage works. If any errors occur (for example, when you try to list files before you've created the container), the **Status** pane will display the error message received. You can also set breakpoints in the JavaScript code to examine the values returned by the storage APIs.
+
+## Clean up resources
+
+To clean up the resources created during this quickstart, go to the [Azure portal](https://portal.azure.com) and delete the resource group you created in the [Prerequisites](#prerequisites) section.
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
+In this quickstart, you learned how to upload, list, and delete blobs using JavaScript. You also learned how to create and delete a blob storage container.
 
 For tutorials, samples, quickstarts, and other documentation, visit:
 
