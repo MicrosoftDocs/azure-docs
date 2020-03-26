@@ -160,7 +160,7 @@ Follow these steps to deploy the template:
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+You first need to create the virtual machines for this NFS cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pool.
 
 1. Create a Resource Group
 1. Create a Virtual Network
@@ -187,7 +187,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Click OK
       1. IP address 10.0.0.8 for the ASCS ERS
          * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-backend**)
-   1. Create the backend pools
+   1. Create the backend pool
       1. Open the load balancer, select backend pools, and click Add
       1. Enter the name of the new backend pool (for example **nw1-backend**)
       1. Click Add a virtual machine.
@@ -221,7 +221,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. Click OK
       1. IP address 10.0.0.8 for the ASCS ERS
          * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-frontend**)
-   1. Create the backend pools
+   1. Create the backend pool
       1. Open the load balancer, select backend pools, and click Add
       1. Enter the name of the new backend pool (for example **nw1-backend**)
       1. Click Add a virtual machine.

@@ -242,7 +242,7 @@ In this example, the resources were deployed manually via the [Azure portal](htt
 
 ### Deploy Azure Load Balancer manually via Azure portal
 
-First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pool.
 
 1. Create load balancer (internal, standard):  
    1. Create the frontend IP addresses
@@ -253,7 +253,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   1. Create the backend pools
+   1. Create the backend pool
       1. Open the load balancer, select backend pools, and click Add
       1. Enter the name of the new backend pool (for example **backend.QAS**)
       1. Click Add a virtual machine.
@@ -287,7 +287,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   1. Create the backend pools
+   1. Create the backend pool
       1. Open the load balancer, select backend pools, and click Add
       1. Enter the name of the new backend pool (for example **backend.QAS**)
       1. Click Add a virtual machine.
