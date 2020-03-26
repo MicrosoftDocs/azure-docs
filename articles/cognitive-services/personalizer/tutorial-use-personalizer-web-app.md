@@ -124,17 +124,47 @@ In this tutorial, the complete sample web app is provided for you.
 
 ## Create a Personalizer resource in the Azure portal
 
-Use either the [Azure portal](how-to-create-resource.md#create-a-resource-in-the-azure-portal) or the [Azure CLI](how-to-create-resource.md#create-a-resource-with-the-azure-cli) to create a Personalizer resource. The Personalizer resource also known as a Personalizer _loop_.
+Use either the [Azure portal](how-to-create-resource.md#create-a-resource-in-the-azure-portal) or the [Azure CLI](how-to-create-resource.md#create-a-resource-with-the-azure-cli) to create a Personalizer resource.
 
 The resource has 2 values you need in order to use the loop:
 
-* Endpoint - an example is: ``
-* Key
+* **Endpoint** - an example is: `https://your-resource-name.cognitiveservices.azure.com/`
+* **Key** - a 32 character string
 
-## Configure the web app with your Personalizer endpoint
+## Configure project with your Personalizer endpoint
 
-and search for
+Using best security practices, the endpoint is stored in the `appsetings.json` file, as the property **ServiceEndpoint**. Change `your-resource-end-goes-here` to your own endpoint URL.
 
-Using best security practices, the endpoint is stored in the `appsetings.json` file.
+```JSON
+{
+  "PersonalizerConfiguration": {
+    "ServiceEndpoint": "replace-with-your-resource-endpoint"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
+## Configure project with your Personalizer key
 
+Using best security practices, use the Visual Studio solution feature to manage user secrets.
+
+1. In Visual Studio, on the **Solution Explorer**, right-click the **HTTPRequestFeaturesExample** project, then select **Manage User Secrets**.
+
+1. In the secrets.json file, enter the value for the **PersonalizerApiKey**.
+
+    ```json
+    {
+      "PersonalizerApiKey": "replace-with-your-resource-key"
+    }
+    ```
+
+## Run the sample
+
+1. Build and run the **HTTPRequestFeaturesExample** project. A browser window opens to `https://localhost:44332/` displaying the single page application.
+
+## How does the web app use Personalizer? 
