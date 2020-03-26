@@ -12,8 +12,6 @@ manager: philmea
 
 # Configure rules
 
-
-
 *This article applies to operators, builders, and administrators.*
 
 Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
@@ -32,11 +30,11 @@ In the following screenshot, the conditions check when the temperature is greate
 
 ![Conditions](media/howto-configure-rules/conditions.png)
 
-## Use value field advanced
+### Use a cloud property in a value field
 
-Cloud properties that have been added to the device template can be referenced as a value. The evaluation between a telemetry and a cloud property only works as long as they are of a similar type. For example, if Temperature is of data type double, then cloud properties of type double will be shown as options.
+You can reference a cloud property from the device template in the **Value** field for a condition. The cloud property and telemetry value must have similar types. For example, if **Temperature** is a double, then only cloud properties of type double show as options in the **Value** drop-down.
 
-If the telemetry selected is of type event, in the drop-down of the value section will be the option **[Any]**. It means that the rule will fire upon receiving any payload of that event type, regardless of the value carried in the payload.
+If you choose an event type telemetry value, the **Value** drop-down includes the option **[Any]**. The **[Any]** option means the rule fires when your application receives an event of that type, whatever the payload.
 
 ## Use aggregate windowing
 
