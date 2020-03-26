@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 03/25/2020
 ---
 
 # Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI
