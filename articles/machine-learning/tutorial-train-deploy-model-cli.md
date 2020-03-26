@@ -78,6 +78,8 @@ az login
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
 ## Install the machine learning extension
 
 To install the machine learning extension, use the following command:
