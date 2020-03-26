@@ -44,7 +44,7 @@ To create a new notebook:
 5. Select a file directory.
 6. Select **Create**.
 
-> [!NOTE]
+> [!TIP]
 > You can create text files as well.  Select **Text** as the file type and add the extension to the name (for example, myfile.py or myfile.txt)  
 
 You can also upload folders and files, including notebooks, with the tools at the top of the Notebooks page.  Notebooks and most text file types display in the preview section.  No preview is available for most other file types.
