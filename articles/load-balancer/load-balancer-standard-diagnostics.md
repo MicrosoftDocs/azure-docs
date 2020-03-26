@@ -52,7 +52,9 @@ To view the metrics for your Standard Load Balancer resources:
 2. Set the appropriate metric aggregation type.
 3. Optionally, configure the required filtering and grouping.
 4. Optionally, configure the time range and aggregation. By default time is displayed in UTC.
- * **Note:** time aggregation is important when interpreting certain metrics as data is sampled once per minute. If time aggregation is set to five minutes and metric aggregation type Sum is used for metrics such as SNAT Allocation, your graph will display five times the total allocated SNAT ports. 
+
+  >[!NOTE] 
+  >Time aggregation is important when interpreting certain metrics as data is sampled once per minute. If time aggregation is set to five minutes and metric aggregation type Sum is used for metrics such as SNAT Allocation, your graph will display five times the total  allocated SNAT ports. 
 
     ![Metrics for Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
@@ -129,18 +131,22 @@ The SNAT usage metric demonstrates how many unique flows are establish between a
 If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
 
 To get SNAT usage and allocation:
+1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
 1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
-  * By default this will be the average number of SNAT ports allocated to each backend VMs or VMSSes, corresponding to all frontend public IPs, mapped to your Load Balancer aggregated over TCP and UDP.
-2a. One helpful Load Balancer view is to filter to a specific **Protocol Type** and a set of **Backend IPs** or **Frontend IPs**.
-2b. To monitor health per backend or frontend instance, apply splitting. Note this only allows for a single metric to be displayed at a time. To monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. View SNAT Allocation by switching metric type to **SNAT Allocation** and view by Frontend IP by switching split to **Frontend IP**.
+    * By default this will be the average number of SNAT ports allocated to or used by each backend VMs or VMSSes, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
+    * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
+1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
+1. To monitor health per backend or frontend instance, apply splitting. 
+    * Note this only allows for a single metric to be displayed at a time. 
+1. For example, to monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. 
 
-![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/SNAT_Usage_and_Allocation.png)
+![SNAT allocation and usage](./media/load-balancer-standard-diagnostics/snat-usage-and-allocation.png)
 
-*Figure: Average TCP SNAT allocation and usage for a set of backend VMs*
+*Figure: Average TCP SNAT port allocation and usage for a set of backend VMs*
 
-![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/SNAT_Usage_by_backend_IP.png)
+![SNAT usage by backend instance](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
 
-*Figure: TCP SNAT allocation and usage for a set of backend VMs*
+*Figure: TCP SNAT port usage per backend instance*
 
 #### How do I check inbound/outbound connection attempts for my service?
 
