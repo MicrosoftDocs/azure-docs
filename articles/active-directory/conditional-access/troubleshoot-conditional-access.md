@@ -23,7 +23,7 @@ The information in this article can be used to troubleshoot unexpected sign-in o
 
 The first way is to review the error message that appears. For problems signing in when using a web browser, the error page itself has detailed information. This information alone may describe what the problem is and that may suggest a solution.
 
-![Sign in error page from a browser](./media/troubleshoot-conditional-access/image1.png)
+![Sign in error - compliant device required](./media/troubleshoot-conditional-access/image1.png)
 
 In the above error, the message states that the application can only be accessed from devices or client applications that meet the company's mobile device management policy. In this case, the application and device do not meet that policy.
 
@@ -40,10 +40,11 @@ To find out which Conditional Access policy or policies applied and why do the f
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or global reader.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
-   1. Add filters like:
+   1. Add filters to narrow the scope:
       1. **Correlation ID** when you have a specific event to investigate.
-      1. **Conditional access** to see policy failure and success.
+      1. **Conditional access** to see policy failure and success. Scope your filter to show only failures to limit results.
       1. **Username** to see information related to specific users.
+      1. **Date** scoped to the time frame in question.
 
    ![Selecting the Conditional access filter in the sign-ins log](./media/troubleshoot-conditional-access/image3.png)
 
