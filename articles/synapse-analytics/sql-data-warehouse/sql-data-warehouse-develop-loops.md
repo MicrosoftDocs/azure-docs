@@ -1,12 +1,12 @@
 ---
 title: Using T-SQL loops
 description: Tips for using T-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
