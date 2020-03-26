@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 08/23/2019
+ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
@@ -173,7 +173,7 @@ If the query is actively waiting on resources from another query, then the state
 
 ## Monitor tempdb
 
-Tempdb is used to hold intermediate results during query execution. High utilization of the tempdb database can lead to slow query performance. Each node in SQL pool has approximately 1 TB of raw space for tempdb. Below are tips for monitoring tempdb usage and for decreasing tempdb usage in your queries. 
+Tempdb is used to hold intermediate results during query execution. High utilization of the tempdb database can lead to slow query performance. For every DW100c configured, 399 GB of tempdb space is allocated (DW1000c would have 3.99 TB of total tempdb space).  Below are tips for monitoring tempdb usage and for decreasing tempdb usage in your queries. 
 
 ### Monitoring tempdb with views
 

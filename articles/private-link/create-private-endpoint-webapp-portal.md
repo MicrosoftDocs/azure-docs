@@ -167,7 +167,7 @@ In this section, you will connect privately to the Web App using the Private End
 
 1. Copy the Private IP of your Private Endpoint and the FQDN of your Web App, in our case webappdemope.azurewebsites.net 10.10.2.4
 
-1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and copy the Web App name, you must have a 403 forbidden error page
+1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and paste the Web App name, you must have a 403 forbidden error page
 
    > [!div class="mx-imgBorder"]
    >![Forbidden][17]
