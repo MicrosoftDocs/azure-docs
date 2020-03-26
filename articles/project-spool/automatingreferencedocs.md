@@ -20,44 +20,66 @@ The status and ownership of these reference docs are outlined in [this spreadshe
 
 #### Generating REST Management API Docs
 
-We want to give our customers something that looks like this: TODO
+Customer intent: Manage Azure resources via REST APIs
 
-To do that... TODO
+Golden standard: TODO
+
+Preparation instructions: TODO
 
 
 #### Generating Azure CLI Docs
 
-We want to give our customers something that looks like this: TODO
+Customer intent: Manage Azure resources via Azure CLI
 
-To do that... TODO
+Golden standard: TODO
+
+Preparation instructions: TODO
 
 
 #### Generating C# SDK Reference Docs
 
-We want to give our customers something that looks like this: TODO
+**Customer intent**: Utilize Spool Client and Server C# SDKs.
 
-To do that... TODO
+**Golden standard**: TODO
+
+**Preparation instructions**: Instructions are detailed [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/documenting-api?branch=master). In summary:
+
+- In your project's build settings, enable the generation of an XML comment file with the `-doc` compiler option. Our nuget packages must include this file.
+- Annotate your code with [XML documentation comments](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/). Within these comments, use the [recommended documentation tags](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/xmldoc/recommended-tags-for-documentation-comments). .NET API documentation writing guidelines are located [here](https://github.com/dotnet/dotnet-api-docs/wiki).
+- You can include markdown in your annotations by following the instructions [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/documenting-api?branch=master). An example of this is [here](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml.transforms.valuemappingestimator?view=ml-dotnet).
+- Publish your package to Nuget, and then let Mick know you're ready. He'll then [open an onboarding request with the docs team](https://review.docs.microsoft.com/en-us/help/onboard/?branch=master).
+
+
 
 
 #### Generating JS SDK Reference Docs
 
-We want to give our customers something that looks like this: TODO
+Customer intent: Utilize Spool Client and Server JS SDKs
 
-To do that... TODO
+Golden standard: TODO
+
+Preparation instructions: Instructions are detailed [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/js-ts/documenting-api?branch=master). In summary:
+- For Javascript, [JSDoc conventions](https://jsdoc.app/) are used.
+- For TypeScript, [TypeDoc conventions](http://typedoc.org/guides/doccomments/) are used.
+- Once your package is ready, let Mick know and he'll [open an onboarding request with the docs team](https://review.docs.microsoft.com/en-us/help/onboard/?branch=master).
 
 
 #### Generating Swift SDK Reference Docs
 
-We want to give our customers something that looks like this: TODO
+Customer intent: TODO
 
-To do that... TODO
+Golden standard: TODO
+
+Preparation instructions: TODO
 
 
 #### Generating Java SDK Reference Docs
 
-We want to give our customers something that looks like this: TODO
+Customer intent: TODO
 
-To do that... TODO
+Golden standard: TODO
+
+Preparation instructions: TODO
 
 
 ### Outstanding Risks / Concerns
