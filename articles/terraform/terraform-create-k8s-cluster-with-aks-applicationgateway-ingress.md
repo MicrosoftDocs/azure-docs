@@ -219,7 +219,7 @@ Create the Terraform configuration file that lists all the variables required fo
     }
 
     variable "tags" {
-      type = "map"
+      type = map(string)
 
       default = {
         source = "terraform"
@@ -380,7 +380,7 @@ Create Terraform configuration file that creates all the resources.
 
       tags = var.tags
 
-      depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
+      depends_on = [azurerm_virtual_network.test, azurerm_public_ip.test]
     }
     ```
 
@@ -392,28 +392,28 @@ Create Terraform configuration file that creates all the resources.
       role_definition_name = "Network Contributor"
       principal_id         = var.aks_service_principal_object_id 
 
-      depends_on = ["azurerm_virtual_network.test"]
+      depends_on = [azurerm_virtual_network.test]
     }
 
     resource "azurerm_role_assignment" "ra2" {
       scope                = azurerm_user_assigned_identity.testIdentity.id
       role_definition_name = "Managed Identity Operator"
       principal_id         = var.aks_service_principal_object_id
-      depends_on           = ["azurerm_user_assigned_identity.testIdentity"]
+      depends_on           = [azurerm_user_assigned_identity.testIdentity]
     }
 
     resource "azurerm_role_assignment" "ra3" {
       scope                = azurerm_application_gateway.network.id
       role_definition_name = "Contributor"
       principal_id         = azurerm_user_assigned_identity.testIdentity.principal_id
-      depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+      depends_on           = [azurerm_user_assigned_identity.testIdentity, azurerm_application_gateway.network]
     }
 
     resource "azurerm_role_assignment" "ra4" {
       scope                = data.azurerm_resource_group.rg.id
       role_definition_name = "Reader"
       principal_id         = azurerm_user_assigned_identity.testIdentity.principal_id
-      depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
+      depends_on           = [azurerm_user_assigned_identity.testIdentity, azurerm_application_gateway.network]
     }
     ```
 
@@ -461,7 +461,7 @@ Create Terraform configuration file that creates all the resources.
         service_cidr       = var.aks_service_cidr
       }
 
-      depends_on = ["azurerm_virtual_network.test", "azurerm_application_gateway.network"]
+      depends_on = [azurerm_virtual_network.test, azurerm_application_gateway.network]
       tags       = var.tags
     }
 
