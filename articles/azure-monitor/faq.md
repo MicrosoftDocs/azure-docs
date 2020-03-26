@@ -499,7 +499,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for
 
 ### What does *Other Processes* represent under the Node view?
 
-**Other processes** is intended to help you clearly understand the root cause of the high CPU usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes. 
+**Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
 
 What are these **Other Processes**? 
 
@@ -507,9 +507,9 @@ These are non-containerized processes that run on your node.
 
 How do we calculate this?
 
-**Other Processes** = Total usage from CAdvisor - Usage from containerized process
+**Other Processes** = *Total usage from CAdvisor* - *Usage from containerized process*
 
-The **Other processes** can include: 
+The **Other processes** includes:
 
 - Self-managed or managed Kubernetes non-containerized processes 
 
@@ -519,7 +519,7 @@ The **Other processes** can include:
 
 - System processes running on your node 
 
-- Other non-kubernetes workloads running on node hardware or VM 
+- Other non-Kubernetes workloads running on node hardware or VM 
 
 ### I don't see Image and Name property values populated when I query the ContainerLog table.
 
