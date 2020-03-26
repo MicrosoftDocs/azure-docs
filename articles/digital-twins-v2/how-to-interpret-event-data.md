@@ -32,7 +32,7 @@ Notification message headers are represented with key-value pairs. Depending on 
 Some notifications conform to the CloudEvents standard. CloudEvents conformance is as follows.
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
-* Notifications emitted from Azure digital twin based on twin types conform to CloudEvents
+* Notifications emitted from digital twin based on twin types conform to CloudEvents
 * Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
 
 Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
@@ -92,11 +92,11 @@ This section goes into more detail about the different types of notifications em
 
 ### Digital twin life-cycle notifications
 
-All Azure digital twins emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of life-cycle notifications, which have to do with the digital twin itself.
+All digital twins emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of life-cycle notifications, which have to do with the digital twin itself.
 
 Life-cycle notifications are triggered when:
-* An Azure digital twin is created
-* An Azure digital twin is deleted
+* A digital twin is created
+* A digital twin is deleted
 
 #### Properties
 
@@ -109,7 +109,7 @@ Here are the fields in the body of a life-cycle notification.
 | specversion | 1.0 |
 | type | `Microsoft.<Service RP>.Twin.Create`<br>`Microsoft.<Service RP>.Twin.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Create`<br>`Microsoft.<Service RP>.TwinProxy.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Attach`<br>`Microsoft.<Service RP>.TwinProxy.Detach` |
 | datacontenttype | application/json |
-| subject | ID of the Azure digital twin |
+| subject | ID of the digital twin |
 | time | Timestamp for when the operation occurred on the twin |
 | sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
 | sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
@@ -152,7 +152,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 }
 ```
 
-Here is another example of an Azure digital twin. This one is based on a twin type, and does not support components:
+Here is another example of a digital twin. This one is based on a twin type, and does not support components:
 
 ```json
 {
@@ -182,7 +182,7 @@ Here is another example of an Azure digital twin. This one is based on a twin ty
 
 ### Digital twin edge change notifications
 
-Edge change notifications are triggered when any relationship of an Azure digital twin is created, updated, or deleted. 
+Edge change notifications are triggered when any relationship of a digital twin is created, updated, or deleted. 
 
 #### Properties
 
@@ -274,7 +274,7 @@ For `Model.Delete`, the request body is the same as a `GET` request, and it gets
 
 ### Digital twin change notifications
 
-These notifications are triggered when an Azure digital twin is being updated, like:
+These notifications are triggered when a digital twin is being updated, like:
 * When property values or metadata changes.
 * When digital twin or component metadata changes. An example of this scenario is changing the twin type of a digital twin.
 
@@ -296,7 +296,7 @@ Here are the fields in the body of a digital twin change notification.
 
 #### Body details
 
-The body for the `Twin.Update` notification is a JSON Patch document containing the update to the Azure digital twin.
+The body for the `Twin.Update` notification is a JSON Patch document containing the update to the digital twin.
 
 For example, say that a digital twin was updated using the following Patch.
 

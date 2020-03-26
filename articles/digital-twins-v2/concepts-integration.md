@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Deploy Azure Digital Twins
+title: Integration with other services
 titleSuffix: Azure Digital Twins
 description: Understand the ingress and egress requirements when deploying Azure Digital Twins.
 author: baanders
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Deploy Azure Digital Twins alongside other services
 
-Azure Digital Twins is typically used together with other services. Azure Digital Twins receives data from upstream services such as IoT Hub, which is used to deliver telemetry. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics, and other uses. 
+Azure Digital Twins is typically used together with other services. Azure Digital Twins receives data from upstream services such as IoT Hub, which is used to deliver telemetry and notifications. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics, and other uses. 
 
 ## Data ingress
 

@@ -26,30 +26,30 @@ To submit a query to the service from a client app, you will use the Azure Digit
 Azure Digital Twins provides extensive query capabilities against the twin graph. Queries are described using SQL-like syntax, as a superset of the capabilities of the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md).
 
 Here are the operations available in Azure Digital Twins Query Store language:
-* Get digital twins by properties
-* Get digital twins by relationships
-* Get digital twins over multiple relationship types and multiple hops (`JOIN` queries)
-* Get digital twins based on actual state condition (information about digital twins and their last known property value)
-* Use custom twin type function: `IS_OF_MODEL(twinToCheck, twinTypeName)` allows query authors to filter based on information within DTDL twin types
+* Get twins by digital twins' properties
+* Get twins by digital twins' interfaces
+* Get twins by relationship properties
+* Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview)
+* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on DTDL twin interfaces or types. It supports inheritance.
 * Use any combination (`AND`, `OR`, `NOT` operator) of the above
 * Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
 * Use query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
-* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twin one page at a time, by repeating calls to the `nextAsTwin` method.
+* Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time, by repeating calls to the `nextAsTwin` method.
 
 ## Query syntax
 
 Here are some sample queries that illustrate the query language structure and perform possible query operations.
 
-Get Azure digital twins by properties (including ID and metadata):
+Get digital twins by properties (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
 WHERE T.firmwareVersion = '1.1'
 AND T.$dtId in ['123', '456']
-AND T.$metadata.Temperature.reportedValue = 70
+AND T.Temperature = 70
 ```
 
-Get Azure digital twins by twin type
+Get digital twins by twin type
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -58,7 +58,7 @@ AND T.roomSize > 50
 ```
 
 > [!TIP]
-> The ID of an Azure digital twin is queried using the metadata field `$dtId`.
+> The ID of a digital twin is queried using the metadata field `$dtId`.
 
 ### Run queries with an API call
 
@@ -138,33 +138,9 @@ WHERE T.$dtId = 'ABC'
 >[!NOTE] 
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
-You can reference the same digital twin collection multiple times in one query. The next example shows how to traverse two different relationship types, *contains* and *servicedBy*, for the digital twin `T`.
-
-```sql
-SELECT T, CT, SBT1
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-JOIN SBT1 RELATED T.servicedBy
-WHERE T.$dtId = 'ABC' 
-```
-
-You can also query over multiple levels of relationships, and based on related digital twins' properties. The next example extends the previous example to get:
-* the digital twins with a *v1* value of '123', that are serviced by  
-    * the digital twins contained by
-        * the digital twins with an *ID* property of 'ABC'
-
-```sql
-SELECT T, CT, SBT2
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-JOIN SBT2 RELATED CT.servicedBy
-WHERE T.$dtId = 'ABC' 
-AND SBT2.v1 = 123
-```
-
 ### Query properties of relationships
 
-Similarly to the way Azure digital twins have properties described via DTDL, relationships can also have properties. 
+Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
 The Azure Digital Twins Query Store Language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.

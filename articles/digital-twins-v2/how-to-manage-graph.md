@@ -47,7 +47,7 @@ The twin type and initial property values are provided through the `initData` pa
 
 ### Initialize properties
 
-All non-optional properties and components of Azure digital twins must be initialized at creation time, and are provided in the create call as `initData`. 
+All non-optional properties and components of digital twins must be initialized at creation time, and are provided in the create call as `initData`. 
 
 > [!NOTE]
 > Relationships may be initialized, but do not need to be. 
