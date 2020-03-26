@@ -35,7 +35,10 @@ To complete this article, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need *global administrator*, *authentication admin, or *privileged authentication admin* privileges in your Azure AD tenant to enable SMS-based authentication.
+* You need *global administrator*, *authentication admin*, or *privileged authentication admin* privileges in your Azure AD tenant to enable SMS-based authentication.
+* Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
+    * [Azure AD Premium P1 or P2][azuread-licensing]
+    * [Microsoft 365 F1 or F3][m365-firstline-workers-licensing]
 
 ## Limitations
 
@@ -51,7 +54,7 @@ There are three main steps to enable and use SMS-based authentication in your or
 * Enable the authentication method policy.
 * Select users or groups that can use the SMS-based authentication method.
 * Assign a phone number for each user account.
-    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Profile* [-- LINKS REQUIRED --]
+    * This phone number can be assigned in the Azure portal (which is shown in this article), and in *My Staff* or *My Profile*
 
 First, let's enable SMS-based authentication for your Azure AD tenant.
 
@@ -78,6 +81,8 @@ With SMS-based authentication enabled in your Azure AD tenant, now select some u
     [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. When you've selected your users or groups, choose **Select**, then **Save** the updated authentication method policy.
+
+Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Make sure you have the appropriate licenses for the users you enable in the authentication method policy, especially when you enable the feature for large groups of users.
 
 ## Set a phone number for user accounts
 
@@ -145,3 +150,5 @@ For additional ways to sign in to Azure AD without a password, such as the Micro
 <!-- EXTERNAL LINKS -->
 [azure-portal]: https://portal.azure.com
 [office]: https://www.office.com
+[m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
+[azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
