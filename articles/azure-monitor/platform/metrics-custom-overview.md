@@ -30,7 +30,7 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal. The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!NOTE]  
-> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource the token is requested for is https://monitoring.azure.com/. Be sure to include the trailing '/'.
+> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing '/'.
 
 ### Subject
 This property captures which Azure resource ID the custom metric is reported for. This information will be encoded in the URL of the API call being made. Each API can only submit metric values for a single Azure resource.
