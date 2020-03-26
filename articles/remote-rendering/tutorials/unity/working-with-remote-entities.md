@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 * This tutorial builds on top of [Tutorial: Setting up a Unity project from scratch](project-setup.md).
 
 > [!TIP]
-> The [samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials in the *Unity* folder, that you can use as reference.
+> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains prepared Unity projects for all tutorials in the *Unity* folder, that you can use as reference.
 
 ## Pick objects
 
