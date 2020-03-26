@@ -30,7 +30,7 @@ Sign into Azure.
 az login
 ```
 
-## Deploy a VM scale set with existing load balancer
+## Deploy a virtual machine scale set with existing load balancer
 
 Replace the values in brackets with the names of the resources in your configuration.
 
