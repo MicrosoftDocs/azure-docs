@@ -60,20 +60,20 @@ Before you start, make sure you have these things:
 
 ![](media/4d310d3500156228aedeaab7c58d0862.png)
 
-## Whitelist users with a filter for trusted locations
+## Change policy enforcement to allow trusted IP addresses
 
-Now that you've set up your Selective Access policy, you have the option to create a filter for policy enforcement based on your company's public IP address. With this filter, users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted location, they'll get the MFA prompt again.
+Now that you've set up your Selective Access policy, you have the option to configure how Azure MFA enforces your policy based on your company's public IP address. You can configure your policy so that users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted IP, they'll get the MFA prompt again.
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
 ![A screenshot of the named locations tab. Configure MFA trusted IPs is highlighted in red.](media/configure-mfa-trusted-ips.png)
 
-To set up a filter:
+To set up your trusted IPs list:
 
 1. In the **Named locations** tab, select **Configure MFA trusted IPs**.
    
-2. When the **Multi-factor authentication** page opens, go to the **Trusted IPs** section and enter the public IP addresses that you want to whitelist from Azure MFA enforcement.
+2. When the **Multi-factor authentication** page opens, go to the **Trusted IPs** section and enter the public IP addresses that you want to add to your trusted locations list.
 
 ![A screenshot of the multi-factor authentication page.](media/mfa-page.png)
 
@@ -107,11 +107,10 @@ To set up a filter:
     >
     >The default setting is a rolling window of 90 days, which means the client will ask users to sign in again when they try to access a resource after being inactive on their machine for 90 days or longer.
 
-
 11. Enable the policy.
 
 12. Select **Create** to confirm the policy.
 
     ![A screenshot of the Create button.](media/create-button.png)
 
-13. You're all done! Feel free to test the policy to make sure your whitelist is working as intended.
+13. You're all done! Feel free to test the policy to make sure your policy works as intended.
