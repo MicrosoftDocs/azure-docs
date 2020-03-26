@@ -55,7 +55,7 @@ conceptualContent:
           text: Java
         - url: ./app/opencensus-python.md
           itemType: how-to-guide
-          text: Python (preview)
+          text: Python
         - url: ./app/javascript.md
           itemType: how-to-guide
           text: JavaScript
@@ -468,7 +468,7 @@ additionalContent:
         summary: Code samples for all the Application Insights API calls
         url: https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics
       - title: Application Insights PowerShell
-        summary: Learn how to install and use the Application Insights powershell cmdlets.
+        summary: Learn how to install and use the Application Insights PowerShell cmdlets.
         url: https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).

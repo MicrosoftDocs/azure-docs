@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/06/2020
 ms.author: victorh
 ---
 
@@ -60,6 +60,8 @@ See the [order of listener processing](https://docs.microsoft.com/azure/applicat
 ### Where do I find the Application Gateway IP and DNS?
 
 If you're using a public IP address as an endpoint, you'll find the IP and DNS information on the public IP address resource. Or find it in the portal, on the overview page for the application gateway. If you're using internal IP addresses, find the information on the overview page.
+
+For the v2 SKU, open the public IP resource and select **Configuration**. The **DNS name label (optional)** field is available to configure the DNS name.
 
 ### What are the settings for Keep-Alive timeout and TCP idle timeout?
 

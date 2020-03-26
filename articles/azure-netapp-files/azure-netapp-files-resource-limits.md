@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 3/13/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -36,8 +36,11 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No    |
-|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
 |  Maximum size of a single file     |    16 TiB    |    No    |    
+|  Maximum size of a single directory      |    320 MB    |    No    |    
+|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
+
+For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
 
 ## Maxfiles limits <a name="maxfiles"></a> 
 

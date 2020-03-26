@@ -166,7 +166,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--blob-type** string                     Defines the type of blob at the destination. This is used for uploading blobs and when copying between accounts (default 'Detect'). Valid values include 'Detect', 'BlockBlob', 'PageBlob', and 'AppendBlob'. When copying between accounts, a value of 'Detect' causes AzCopy to use the type of source blob to determine the type of the destination blob. When uploading a file, 'Detect' determines if the file is a VHD or a VHDX file based on the file extension. If the file is ether a VHD or VHDX file, AzCopy treats the file as a page blob. (default "Detect")
 
-**--block-blob-tier** string               upload block blob to Azure Storage using this blob tier. (default "None")
+**--block-blob-tier** string               Upload block blobs directly to the [access tier](../blobs/storage-blob-storage-tiers.md) of your choice. (default 'None'). Valid values include 'None', 'Hot', 'Cool', and 'Archive'. If 'None' or no tier is passed, the blob will inherit the tier of the storage account.
 
 **--block-size-mb** float                  Use this block size (specified in MiB) when uploading to Azure Storage, and downloading from Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 

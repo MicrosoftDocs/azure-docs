@@ -266,7 +266,7 @@ You can create a [webhook](automation-webhooks.md) for your runbook and configur
 
 ![Create webhook and assign parameters](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-When you execute a runbook by using a webhook, the predefined input parameter *[WebhookData](automation-webhooks.md#details-of-a-webhook)* is sent, along with the input parameters that you define. 
+When you execute a runbook by using a webhook, the predefined input parameter *[WebhookData](automation-webhooks.md)* is sent, along with the input parameters that you define. 
 
 ![WebhookData parameter](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

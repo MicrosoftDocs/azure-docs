@@ -2,7 +2,7 @@
 title: Developer resources - Language Understanding
 description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 03/16/2020
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
@@ -100,11 +100,12 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
 * [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - an integrated development tool for developers and multi-disciplinary teams to build bots and conversational experiences with the Microsoft Bot Framework
+* [microsoft/NLU.DevOps](https://github.com/microsoft/NLU.DevOps) - Tools supporting continuous integration and deployment for NLU services.
 
 ## Next steps
 
 * Learn about the common [HTTP error codes](luis-reference-response-codes.md)
-* [Reference documentation](https://docs.microsoft.com/azure/index#pivot=sdkstools) for all APIs and SDKs
+* [Reference documentation](https://docs.microsoft.com/azure/index) for all APIs and SDKs
 * [Bot framework](https://github.com/Microsoft/botbuilder-dotnet) and [Azure Bot Service](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [Cognitive Containers](../cognitive-services-container-support.md)

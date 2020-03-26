@@ -55,6 +55,8 @@ There's a limit of 10 KB for a single key-value item.
 
 You control who can access App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach provides the best security isolation.
 
+If you do not need security isolation between environments, you can use labels to differentiate between configuration values. [Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
+
 ## What are the recommended ways to use App Configuration?
 
 See [best practices](./howto-best-practices.md).

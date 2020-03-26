@@ -81,4 +81,4 @@ If you encounter any bugs with the Jenkins solution template, file an issue in t
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [Add Azure VMs as Jenkins agents](/azure/jenkins-azure-vm-agents)
+> [Add Azure VMs as Jenkins agents](/azure/jenkins/jenkins-azure-vm-agents)

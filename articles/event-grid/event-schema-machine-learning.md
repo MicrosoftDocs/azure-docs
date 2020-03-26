@@ -26,6 +26,7 @@ Azure Machine Learning emits the following event types:
 | Microsoft.MachineLearningServices.ModelDeployed | Raised when Model(s) have been successfully deployed to an Endpoint. |
 | Microsoft.MachineLearningServices.RunCompleted | Raised when a Run has been successfully completed. |
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Raised when a Dataset drift monitor detects drift. |
+| Microsoft.MachineLearningServices.RunStatusChanged | Raised when a run status changes to 'failed'. |
 
 ## The contents of an event response
 
@@ -144,6 +145,46 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
+### Microsoft.MachineLearningServices.RunStatusChanged event
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+  "eventType": "Microsoft.MachineLearningServices.RunCompleted",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "ExperimentName": "automl-local-regression",
+    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "RunType": null,
+    "RunTags": {},
+    "RunProperties": {
+        "runTemplate": "automl_child",
+        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
+        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
+        "training_percent": "100",
+        "predicted_cost": "0.062226144097381045",
+        "iteration": "5",
+        "run_template": "automl_child",
+        "run_preprocessor": "StandardScalerWrapper",
+        "run_algorithm": "LassoLars",
+        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
+        "model_name": "AutoMLad912b2d65",
+        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
+        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
+    },
+   "RunStatus": "failed"
+   },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+
+
+
 ## Event properties
 
 An event has the following top-level data:
@@ -166,7 +207,7 @@ The data object has the following properties for each event type:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | ModelName | string | The name of the model that was registered. |
-| ModelVersion | int | The version of the model that was registered. |
+| ModelVersion | string | The version of the model that was registered. |
 | ModelTags | object | The tags of the model that was registered. |
 | ModelProperties | object | The properties of the model that was registered. |
 
@@ -204,6 +245,17 @@ The data object has the following properties for each event type:
 | StartTime | datetime | The start time of the target dataset time series that resulted in drift detection.  |
 | EndTime | datetime | The end time of the target dataset time series that resulted in drift detection. |
 
+### Microsoft.MachineLearningServices.RunStatusChanged
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| ExperimentId | string | The ID of the experiment that the run belongs to. |
+| ExperimentName | string | The name of the experiment that the run belongs to. |
+| RunId | string | The ID of the Run that was completed. |
+| RunType | string | The Run Type of the completed Run. |
+| RunTags | object | The tags of the completed Run. |
+| RunProperties | object | The properties of the completed Run. |
+| RunStatus | string | The status of the Run. |
 
 ## Next steps
 

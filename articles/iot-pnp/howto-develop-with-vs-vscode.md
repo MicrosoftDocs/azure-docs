@@ -4,7 +4,7 @@ description: Use Visual Studio and Visual Studio Code to accelerate authoring Io
 author: liydu
 ms.author: liydu
 ms.date: 12/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc

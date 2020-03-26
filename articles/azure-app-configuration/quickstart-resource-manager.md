@@ -6,14 +6,16 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
+ms.custom: [mvc, subject-armqs]
 ---
 
-# Quickstart: Automated VM deployment with App Configuration
+# Quickstart: Automated VM deployment with App Configuration and Resource Manager template
 
 The Azure PowerShell module is used to create and manage Azure resources using PowerShell cmdlets or scripts. This quickstart shows you how to use Azure PowerShell and Azure Resource Manager templates to deploy an Azure App Configuration store. Then you learn how to use the key-values in the store to deploy a VM.
 
 You use the prerequisite template to create an App Configuration store, and then add key-values into the store using the Azure portal or Azure CLI. The primary template references existing key-value configurations from an existing configuration store. The retrieved values are used to set properties of the resources created by the template, like a VM in this example.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Before you begin
 
@@ -80,7 +82,7 @@ Before you can apply key-values to the VM, you must have an existing Azure App C
       },
       "skuName": {
         "type": "string",
-        "defaultValue": "free",
+        "defaultValue": "standard",
         "metadata": {
           "description": "Specifies the SKU of the app configuration store."
         }
@@ -327,7 +329,7 @@ Now that you've added key-values to the store, you're ready to deploy a VM using
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('windowsOSVersionParameters')).value]",
+                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -335,7 +337,7 @@ Now that you've added key-values to the store, you're ready to deploy a VM using
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('diskSizeGBParameters')).value]",
+                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
                             "lun": 0,
                             "createOption": "Empty"
                         }

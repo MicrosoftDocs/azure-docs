@@ -71,7 +71,7 @@ When you need to attach storage to pods, you use persistent volumes. These persi
 
 ![Persistent volume claims in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volume-claims.png)
 
-A persistent volume claim (PVC) lets you dynamically create storage as needed. The underlying Azure disks are created as pods request them. In the pod definition, you request a volume to be created and attached to a designed mount path
+A persistent volume claim (PVC) lets you dynamically create storage as needed. The underlying Azure disks are created as pods request them. In the pod definition, you request a volume to be created and attached to a designated mount path.
 
 For the concepts on how to dynamically create and use volumes, see [Persistent Volumes Claims][aks-concepts-storage-pvcs].
 

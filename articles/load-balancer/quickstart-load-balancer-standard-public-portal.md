@@ -29,7 +29,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Load Balancer
 
-In this section, you create a Load Balancer that helps load balance virtual machines. You can create a public Load Balancer or an internal  Load Balancer. When you create a public Load Balancer, and you must also create a new Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Load Balancer.
+In this section, you create a Load Balancer that helps load balance virtual machines. You can create a public Load Balancer or an internal  Load Balancer. When you create a public Load Balancer, you must also create a new Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Load Balancer.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
