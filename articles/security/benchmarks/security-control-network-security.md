@@ -140,7 +140,7 @@ https://docs.microsoft.com/azure/firewall/threat-intel
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Customer |
 
-Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.
+Deploy Azure Application Gateway for web applications with HTTPS/TLS enabled for trusted certificates.
 
 How to deploy Application Gateway:
 

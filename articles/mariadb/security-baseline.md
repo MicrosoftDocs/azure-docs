@@ -506,7 +506,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. In the Azure portal, ensure "Enforce SSL connection" is enabled for all of your MariaDB instances.
+**Guidance**: Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. In the Azure portal, ensure "Enforce SSL connection" is enabled for all of your MariaDB instances.
 
 How to configure encryption in transit for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-ssl
 

@@ -126,7 +126,7 @@ Understand service tag usage for Azure Database for PostgreSQL: https://docs.mic
 
 - DDoS Protection Standard should be enabled
 
-- Enforce SSL connection should be enabled for PostgreSQL database servers
+- Enforce TLS connection should be enabled for PostgreSQL database servers
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -521,7 +521,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: Azure Database for PostgreSQL supports connecting your PostgreSQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. In the Azure portal, ensure "Enforce SSL connection" is enabled for all of your Azure Database for PostgreSQL instances by default.
+**Guidance**: Azure Database for PostgreSQL supports connecting your PostgreSQL server to client applications using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. In the Azure portal, ensure "Enforce SSL connection" is enabled for all of your Azure Database for PostgreSQL instances by default.
 
 Currently the TLS version supported for Azure Database for PostgreSQL are TLS 1.0, TLS 1.1, TLS 1.2.
 
@@ -790,7 +790,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Guidance**: Define and implement standard security configurations for your Azure Database for PostgreSQL instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.DBforPostgreSQL" namespace to create custom policies to audit or enforce the network configuration of your Azure Database for PostgreSQL instances. You may also make use of built-in policy definitions related to your Azure Database for PostgreSQL instances, such as:
 
-- Enforce SSL connection should be enabled for PostgreSQL database servers
+- Enforce TLS connection should be enabled for PostgreSQL database servers
 
 - Log connections should be enabled for PostgreSQL database servers
 
