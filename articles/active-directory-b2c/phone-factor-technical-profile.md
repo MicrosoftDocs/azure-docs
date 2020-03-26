@@ -95,7 +95,7 @@ The **CryptographicKeys** element is not used.
 
 ### UI elements
 
-The phone factor authentication page user interface elements can be [localized](localization.md#phone-factor-authentication-page-user-interface-elements).
+The phone factor authentication page user interface elements can be [localized](localization-string-ids#azure-mfa-error-messages).
 
 ## Next steps
 
