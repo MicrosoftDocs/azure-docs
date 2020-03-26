@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ---
 
-# Configure customer-managed-keys using the Azure Portal
+# Configure customer-managed-keys using the Azure portal
 
 > [!div class="op_single_selector"]
 > * [Portal](customer-managed-keys-portal.md)
@@ -18,7 +18,7 @@ ms.date: 03/26/2020
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
-## Enable encryption with customer-managed keys in the Azure Portal
+## Enable encryption with customer-managed keys in the Azure portal
 
 This article shows you how to enable customer-managed keys encryption using the Azure portal. By default, Azure Data Explorer encryption uses Microsoft-managed keys. Configure your Azure Data Explorer cluster to use customer-managed keys and specify the key to associate with the cluster.
 
@@ -27,7 +27,7 @@ This article shows you how to enable customer-managed keys encryption using the 
 1. In the **Encryption** pane, select **On** for the **Customer-managed key** setting.
 1. Click **Select Key**
 
-    ![Configure customer managed keys](media/customer-managed-key-portal/cmk-encryption-setting.png)
+    ![Configure customer-managed keys](media/customer-managed-key-portal/cmk-encryption-setting.png)
 
 1. In the **Select key from Azure Key Vault** window, select an existing **Key vault** from the dropdown list. If you select **Create new** to [create a new Key Vault](/azure/key-vault/quick-create-portal#create-a-vault), you'll be routed to the **Create Key Vault** screen.
 
@@ -37,14 +37,14 @@ This article shows you how to enable customer-managed keys encryption using the 
 
     ![Select key from Azure Key Vault](media/customer-managed-key-portal/cmk-key-vault.png)
 
-1. In the **Encrytion** pane that now contains your key, select **Save**. When CMK creation succeeds, you will see a success message in **Notifications**.
+1. In the **Encryption** pane that now contains your key, select **Save**. When CMK creation succeeds, you'll see a success message in **Notifications**.
 
-    ![Save customer managed key](media/customer-managed-key-portal/cmk-encryption-setting.png)
+    ![Save customer-managed key](media/customer-managed-key-portal/cmk-encryption-setting.png)
 
 By enabling customer-managed keys for your Azure Data Explorer cluster, you'll be creating a system assigned identity for the cluster if one doesn't exist. In addition, you'll be providing the required view permissions to your Azure Data Explorer cluster on the selected Key Vault and get the Key Vault properties. 
 
 > [!NOTE]
-> Select **Off** to remove the customer managed key after it has been created.
+> Select **Off** to remove the customer-managed key after it has been created.
 
 ## Next steps
 
