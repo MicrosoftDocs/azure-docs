@@ -507,7 +507,7 @@ These are non-containerized processes that run on your node.
 
 How do we calculate this?
 
-Other Processes = Total usage from CAdvisor - Usage from containerized process
+**Other Processes** = Total usage from CAdvisor - Usage from containerized process
 
 The **Other processes** can include: 
 
