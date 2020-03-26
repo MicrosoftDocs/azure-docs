@@ -172,12 +172,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using SQL Analytics workload management features. For more information, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+> Re-creating large tables can benefit from using SQL Analytics workload management features. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 > 
 > 
 
 ## Optimizing with partition switching
-If faced with large-scale modifications inside a [table partition](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
+If faced with large-scale modifications inside a [table partition](sql-data-warehouse-tables-partition.md), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
 
 The steps to perform a partition switch are as follows:
 
@@ -413,5 +413,5 @@ The best scenario is to let in flight data modification transactions complete pr
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL Analytics](../../sql-data-warehouse/sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+See [Transactions in SQL Analytics](sql-data-warehouse-develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](sql-data-warehouse-best-practices.md).
 

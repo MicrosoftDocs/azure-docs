@@ -65,33 +65,29 @@ Supported cloud-based storage services in Azure that can be registered as datast
 
 Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your data, so no extra storage cost is incurred. To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
-Datasets can be created from local files, public urls, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file.  
+Datasets can be created from local files, public urls, [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/), or Azure storage services via datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a parquet, and create your dataset from that file.  
 
-The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
+We support 2 types of datasets: 
++ A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
-![Data-concept-diagram](./media/concept-data/dataset-workflow.svg)
++ A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. You can [download or mount files](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) referenced by FileDatasets to your compute target.
 
 Additional datasets capabilities can be found in the following documentation:
 
 + [Version and track](how-to-version-track-datasets.md) dataset lineage.
-+ [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
-+  See the following for documentation on the two types of datasets:
-    + A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
-
-    + A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can [download or mount files](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) of your choosing to your compute target as a FileDataset object.
++ [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.    
 
 ## Work with your data
 
 With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
 + Create a [data labeling project](#label).
-+ Create a dataset from an [Azure Open Dataset](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
-+ [Train machine learning models](how-to-train-with-datasets.md).
-+ Consume datasets in 
++ Train machine learning models:
      + [automated ML experiments](how-to-use-automated-ml-for-ml-models.md)
-     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
+     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
+     + [notebooks](how-to-train-with-datasets.md)
      + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
-+ Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
++ Access datasets for scoring with [batch inference](how-to-use-parallel-run-step.md) in [machine learning pipelines](how-to-create-your-first-pipeline.md).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
 <a name="label"></a>

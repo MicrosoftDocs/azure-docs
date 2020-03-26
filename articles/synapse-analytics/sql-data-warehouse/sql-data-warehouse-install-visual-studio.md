@@ -44,7 +44,7 @@ There are times when feature releases for SQL Analytics may not include support 
 
 ## Next steps
 
-Now that you have the latest version of SSDT, you're ready to [connect](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md) to your SQL pool.
+Now that you have the latest version of SSDT, you're ready to [connect](sql-data-warehouse-query-visual-studio.md) to your SQL pool.
 
 
 

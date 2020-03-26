@@ -23,13 +23,11 @@
     href: stream-analytics-manage-job.md
   - name: 2 - Run Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: 3 - Run a JavaScript UDF
-    href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Deploy with CI/CD in Azure Pipelines
+  - name: 3 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 5 - Run a C# UDF
+  - name: 4 - Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
-  - name: 6 - Create custom .NET deserializer
+  - name: 5 - Create custom .NET deserializer
     href: custom-deserializer.md
 - name: Samples
   items:
@@ -67,6 +65,8 @@
       href: machine-learning-udf.md
     - name: C# UDF
       href: stream-analytics-edge-csharp-udf-methods.md
+    - name: JavaScript UDF
+      href: stream-analytics-javascript-user-defined-functions.md
   - name: Optimize your Stream Analytics job
     items:
     - name: Understand and adjust Streaming Units

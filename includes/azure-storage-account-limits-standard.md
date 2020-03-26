@@ -12,7 +12,7 @@
 
 The following table describes default limits for Azure general-purpose v1, v2, Blob storage, block blob storage, and Data Lake Storage Gen2 enabled storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including standard, premium, and Data Lake Storage Gen2 enabled storage accounts.<sup>3</sup> | 250 |
 | Maximum storage account capacity | 5 PiB <sup>1</sup>|
