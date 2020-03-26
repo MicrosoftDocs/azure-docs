@@ -134,6 +134,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Zoho One China** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Zoho One China support team](mailto:support@zohocorp.com.cn). They set this setting to have the SAML SSO connection set properly on both sides.
 
+### Create Zoho One China test user
+
+In this section, you create a user called Britta Simon in Zoho One China. Work with [Zoho One China support team](mailto:support@zohocorp.com.cn) to add the users in the Zoho One China platform. Users must be created and activated before you use single sign-on.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
