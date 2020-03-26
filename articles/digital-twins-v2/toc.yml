@@ -14,8 +14,8 @@
     href: concepts-twins-graph.md
   - name: Route events
     href: concepts-route-events.md
-  - name: Query the twin graph
-    href: concepts-query-graph.md
+  - name: Azure Digital Twins query language
+    href: concepts-query-language.md
   - name: Integration with other services
     href: concepts-integration.md
   - name: Secure Azure Digital Twins solutions
@@ -36,6 +36,8 @@
     href: how-to-manage-twin.md
   - name: Manage a twin graph
     href: how-to-manage-graph.md
+  - name: Query the twin graph
+    href: how-to-query-graph.md
   - name: Set up endpoints and routes
     href: how-to-create-endpoints-routes.md
   - name: Understand event data

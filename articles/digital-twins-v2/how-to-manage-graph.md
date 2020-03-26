@@ -484,4 +484,5 @@ static async Task<List<object>> ListTwins()
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [Query the twin graph](concepts-query-graph.md)
+* [Azure Digital Twins query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

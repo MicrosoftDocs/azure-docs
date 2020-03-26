@@ -89,4 +89,4 @@ If you have worked with the previous preview release of Azure Digital Twins, lea
 To start learning about the key elements of Azure Digital Twins, visit:
 * [Create a twin type](concepts-twin-types.md)
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
-* [Query the twin graph](concepts-query-graph.md)
+* [Azure Digital Twins query language](concepts-query-language.md)
