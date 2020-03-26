@@ -14,7 +14,7 @@ ms.custom: seodec18
 The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB resources, including account, database, container, and throughput.
 
 > [!NOTE]
-> The samples in this article use `Get-Resource`/`Set-AzResource` Powershell cmdlets for Azure Resource operations as well as [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please note that the `Az.CosmosDB` cmdlets are still in preview and may change before release. Please check for updates to `Az.CosmosDB` regularly.
+> Samples in this article use `Get-AzResource`/`Set-AzResource` Powershell cmdlets for Azure resource operations as well as [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please note that the `Az.CosmosDB` cmdlets are still in preview and may change before release. Please check for updates to `Az.CosmosDB` regularly.
 
 To view all of the properties that can be managed using `Get-Resource`/`Set-AzResource` PowerShell cmdlets, see [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 
