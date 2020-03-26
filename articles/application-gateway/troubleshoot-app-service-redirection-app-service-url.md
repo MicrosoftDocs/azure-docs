@@ -72,7 +72,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-In the previous example, notice that the response header has a status code of 301 for redirection. The location header has the app service’s host name instead of the original host name `www.contoso.com`.
+In the previous example, notice that the response header has a status code of 301 for redirection. The location header has the app service's host name instead of the original host name `www.contoso.com`.
 
 ## Solution: Rewrite the location header
 
@@ -102,7 +102,7 @@ You must own a custom domain and follow this process:
   > [!NOTE]
   > For the next step, make sure that your custom probe isn't associated to your back-end HTTP settings. Your HTTP settings still have the **Pick Hostname from Backend Address** switch enabled at this point.
 
-- Set your application gateway’s HTTP settings to disable **Pick Hostname from Backend Address**. In the Azure portal, clear the check box. In PowerShell, don't use the **-PickHostNameFromBackendAddress** switch in the **Set-AzApplicationGatewayBackendHttpSettings** command.
+- Set your application gateway's HTTP settings to disable **Pick Hostname from Backend Address**. In the Azure portal, clear the check box. In PowerShell, don't use the **-PickHostNameFromBackendAddress** switch in the **Set-AzApplicationGatewayBackendHttpSettings** command.
 
 - Associate the custom probe back to the back-end HTTP settings, and verify that the back end is healthy.
 

@@ -44,8 +44,12 @@
       href: kql-quick-reference.md
   - name: Data visualization overview
     href: viz-overview.md
-  - name: Security overview
-    href: security.md
+  - name: Security
+    items:  
+    - name: Security overview
+      href: security.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Create cluster and database
