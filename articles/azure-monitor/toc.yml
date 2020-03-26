@@ -303,10 +303,6 @@
       - name: Telemetry correlation
         href: app/correlation.md
         displayname: correlation headers, w3c, distributed tracing, tracing
-      - name: Local forwarder
-        href: app/opencensus-local-forwarder.md
-      - name: Go
-        href: app/opencensus-go.md
     - name: Live Metric stream
       displayname: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
