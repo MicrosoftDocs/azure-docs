@@ -11,6 +11,9 @@ ms.date: 03/27/2020
 
 # Power BI app creation overview
 
+> [!IMPORTANT]
+> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Power BI App offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer) for Cloud Partner Portal to manage your offers.
+
 This article explains how to publish a Power BI app to Microsoft [AppSource](https://appsource.microsoft.com/). A Power BI app packages customizable content, including datasets, reports, and dashboards. You can then use the app with other Power BI platforms using AppSource, perform the adjustments and customizations allowed by the developer, and connect it to your own data.
 
 ## Publishing benefits

@@ -12,7 +12,7 @@ ms.date: 03/25/2020
 # Create a Power BI App
 
 > [!IMPORTANT]
-> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your Power BI app offers are migrated, please continue to follow the instructions in [Create a Power BI app offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) in Cloud Partner Portal to manage your offers.
+> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Create a Power BI App offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) for Cloud Partner Portal to manage your offers.
 
 This article describes how to create and publish a Power BI App offer to the Microsoft [AppSource](https://appsource.microsoft.com/). Before you can create a Power BI app, you must create a [Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) account.
 
@@ -25,7 +25,7 @@ This article describes how to create and publish a Power BI App offer to the Mic
 2. Select **+ New offer** , then select **Power BI App**. The **New offer** dialog box appears.
 
 > [!IMPORTANT]
-> If the **Power BI App** option isn&#39;t shown or isn&#39;t enabled, your account doesn&#39;t have permission to create this offer type. Please check that you&#39;ve met all the [requirements](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-prerequisites) for this offer type, including registering for a developer account
+> If the **Power BI App** option isn&#39;t shown or isn&#39;t enabled, your account doesn&#39;t have permission to create this offer type. Please check that you&#39;ve met all the [requirements](create-power-bi-app-overview.md) for this offer type, including registering for a developer account
 
 ### Offer ID and alias
 
@@ -53,8 +53,6 @@ It includes links to perform operations on this offer based on the selection you
 - If the offer is live - [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
 - If the offer is in preview - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
 - If you haven&#39;t completed publisher sign-out - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
-
-Continue below.
 
 ## Offer setup
 
@@ -234,7 +232,7 @@ Optionally, add instructions (up to 3000 characters) to help the Microsoft valid
 
  After you&#39;ve completed all the required sections of the offer, select **Review and publish** in the top-right corner of the portal.
 
-On the review page you can see the [publishing status](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status):
+On the review page you can:
 
 - See the completion status for each section of the offer. You can&#39;t publish until all sections of the offer are marked as complete.
   - **Not started** - The section hasn&#39;t been started and needs to be completed.
