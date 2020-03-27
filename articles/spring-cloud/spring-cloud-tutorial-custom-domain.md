@@ -51,9 +51,8 @@ Upload your certificate to key vault, then import it to Azure Spring Cloud. For 
 * If there are no further operations, the first thing the Key Vault does is send an expiration notice.
 * The user can edit the policy, which is functional at the time of import, but where no information was specified at import, such as  no issuer information, it will use default information.
 
-## Create a virtual machine
-
-## Add a certificate to virtual machine from Key Vault
+## Create application
+Build application in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
 
 ## Configure application to use the certificate
 
