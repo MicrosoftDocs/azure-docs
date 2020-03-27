@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: dapine
 ---
 
@@ -19,7 +19,9 @@ ms.author: dapine
 :::row-end:::
 
 > [!TIP]
-> Although the JavaScript Speech SDK is available as an npm package, thus both Node.js and client web browsers can consume it - consider the various architectural implications each impose.
+> Although the JavaScript Speech SDK is available as an npm package, thus both Node.js and client web browsers can consume it - consider the various architectural implications of each environment. For example, the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">document object model (DOM) <span class="docon docon-navigate-external x-hidden-focus"></span></a> is not available for server-side applications just as the <a href="https://nodejs.org/api/fs.html" target="_blank">file system <span class="docon docon-navigate-external x-hidden-focus"></span></a> is not available to client-side applications.
+
+### Node.js Package Manager (NPM)
 
 To install the JavaScript Speech SDK run the following `npm install` command below.
 

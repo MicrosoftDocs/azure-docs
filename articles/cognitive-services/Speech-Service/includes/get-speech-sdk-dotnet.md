@@ -2,12 +2,12 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: dapine
 ---
 
 :::row:::
-    :::column:::
+    :::column span="3":::
         The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
     :::column-end:::
     :::column:::

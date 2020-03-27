@@ -2,10 +2,9 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: dapine
 ---
-
 
 > [!WARNING]
 > The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not supported**.

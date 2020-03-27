@@ -1,10 +1,23 @@
-The iOS Speech SDK is available natively as a CocoaPod, or if you prefer to developer with C# the .NET Standard SDK is compatible with Xamarin.iOS.
+---
+author: IEvangelist
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 03/27/2020
+ms.author: dapine
+---
+
+When developing for iOS, there are two Speech SDKs available. The Objective-C Speech SDK is available natively as an iOS CocoaPod package, or the .NET Speech SDK could be used with **Xamarin.iOS** as it implements .NET Standard 2.0.
+
+### System requirements
+
+- A macOS machine with <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode <span class="docon docon-navigate-external x-hidden-focus"></span></a> 9.4.1 or later
+- Target iOS 9.3 or later
 
 # [Xcode](#tab/ios-xcode)
 
 :::row:::
     :::column span="3":::
-        The iOS CocoaPod package is available for download and use with the Xcode integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a **Podfile** and list the `pod` as a `target`.
+        The iOS CocoaPod package is available for download and use with the Xcode integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
     :::column-end:::
     :::column:::
         <br>
@@ -13,6 +26,15 @@ The iOS Speech SDK is available natively as a CocoaPod, or if you prefer to deve
         </div>
     :::column-end:::
 :::row-end:::
+
+```
+platform :ios, '9.3'
+use_frameworks!
+
+target 'MyApp' do
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.10.0'
+end
+```
 
 # [Xamarin.iOS](#tab/ios-xamarin)
 
