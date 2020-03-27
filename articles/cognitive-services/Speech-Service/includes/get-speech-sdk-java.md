@@ -14,8 +14,6 @@ ms.author: dapine
         <br>
         <div class="icon is-large">
             <img alt="Java" src="https://docs.microsoft.com/media/logos/logo_java.svg" width="60px">
-            &nbsp; ❤️ &nbsp;
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -23,13 +21,11 @@ ms.author: dapine
 To consume the package from your Android Studio project, make the following changes:
 
 1. In the project-level *build.gradle* file, add the following to the `repository` section:
-
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
 2. In the module-level *build.gradle* file, add the following to the `dependencies` section:
-
   ```gradle
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.10.0'
   ```

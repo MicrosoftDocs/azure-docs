@@ -6,12 +6,6 @@ ms.date: 03/27/2020
 ms.author: dapine
 ---
 
-The Speech SDK on Windows requires the <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable for Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span></a> on the system.
-
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Install for x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
 :::row:::
     :::column span="3":::
         The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not** officially supported, however; it is possible to use parts of the Speech SDK with earlier versions of Windows.
@@ -24,7 +18,15 @@ The Speech SDK on Windows requires the <a href="https://support.microsoft.com/he
     :::column-end:::
 :::row-end:::
 
-### .NET
+### System requirements
+
+The Speech SDK on Windows requires the <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable for Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span></a> on the system.
+
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Install for x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
+### C# SDK
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
@@ -43,10 +45,14 @@ The required Speech SDK files can be deployed in the same directory as your appl
 > [!IMPORTANT]
 > For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the `Application Files` button and find corresponding libraries from the scroll down list. Make sure the value is set to `Included`. Visual Studio will include the file when project is published/deployed.
 
-### C++
+### C++ SDK
 
 [!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]
 
-### Java
+### Python SDK
+
+[!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
+
+### Java SDK
 
 [!INCLUDE [Get Java Speech SDK](get-speech-sdk-java.md)]

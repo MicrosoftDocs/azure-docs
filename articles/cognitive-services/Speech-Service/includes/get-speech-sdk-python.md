@@ -8,12 +8,22 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The Python Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        The Python Speech SDK is available as a Python Package Index (PyPI) module, for more information see <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The Python Speech SDK is compatible with Windows, Linux, and macOS.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="C#" src="https://docs.microsoft.com/media/logos/logo_Csharp.svg" width="60px">
+            <img alt="Python" src="https://docs.microsoft.com/media/logos/logo_python.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
+
+```Bash
+pip install azure-cognitiveservices-speech
+```
+
+> [!TIP]
+> If you are on macOS, you may need to run the following command to get the pip command above to work:
+> ```Bash
+> python3 -m pip install --upgrade pip
+> ```

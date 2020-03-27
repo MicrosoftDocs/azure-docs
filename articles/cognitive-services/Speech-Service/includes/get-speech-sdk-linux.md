@@ -8,7 +8,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        Currently, the Speech SDK only supports **Ubuntu 16.04**, **Ubuntu 18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the following target architectures:
+        The Speech SDK only supports **Ubuntu 16.04**, **Ubuntu 18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 8** on the following target architectures:
         - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
         - x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
         - x64 for .NET Core and Python
@@ -20,6 +20,8 @@ ms.author: dapine
         </div>
     :::column-end:::
 :::row-end:::
+
+### System requirements
 
 For a native applications, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
 
@@ -53,13 +55,17 @@ sudo yum install alsa-lib openssl
 
 ---
 
-### .NET
+### C#
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
 ### C++
 
 [!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]
+
+### Python SDK
+
+[!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
 
 ### Java
 
