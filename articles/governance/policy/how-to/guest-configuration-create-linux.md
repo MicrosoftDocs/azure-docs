@@ -14,7 +14,7 @@ To learn about creating Guest Configuration policies for Windows, see the page
 
 When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/). The InSpec
 profile defines the condition that the machine should be in. If the evaluation of the configuration
-fails, the Policy effect **auditIfNotExists** is triggered and the machine is considered
+fails, the policy effect **auditIfNotExists** is triggered and the machine is considered
 **non-compliant**.
 
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
@@ -28,13 +28,15 @@ non-Azure machine.
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating
-a policy definition, and publishing the policy, is entirely automatable using the Guest Configuration module in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with PowerShell 6.2 or later
-running locally, or with [Azure Cloud Shell](https://shell.azure.com), or with the
+Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
+definition, and publishing the policy, is entirely automatable using the Guest Configuration module
+in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
+with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
-> Compilation of configurations is not yet supported on Linux.
+> Compilation of configurations isn't supported on Linux.
 
 ### Base requirements
 
@@ -186,7 +188,7 @@ Test- cmdlet on the same OS platform as you plan to audit.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
-- **Name**: Guest Configuration Policy name.
+- **Name**: Guest Configuration policy name.
 - **Parameter**: Policy parameters provided in hashtable format.
 - **Path**: Full path of the Guest Configuration package.
 
@@ -330,10 +332,10 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-Assigning an Azure Policy with _DeployIfNotExists_ type requires an additional level of access.
-To grant the least privilege, you can create a custom role definition
-that extends **Resource Policy Contributor**. The example below creates a role named
-**Resource Policy Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
+Assigning an policy definition with _DeployIfNotExists_ effect requires an additional level of
+access. To grant the least privilege, you can create a custom role definition that extends
+**Resource Policy Contributor**. The example below creates a role named **Resource Policy
+Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
 
 ```azurepowershell-interactive
 $subscriptionid = '00000000-0000-0000-0000-000000000000'
@@ -356,9 +358,10 @@ override values are provided through Azure Policy and don't impact how the Confi
 authored or compiled.
 
 With InSpec, parameters are typically handled as input either at runtime or as code using
-attributes. Guest Configuration obfuscates this process so input can be provided when policy is assigned. An attributes file is automatically created within the machine. You
-don't need to create and add a file in your project. There are two steps to adding parameters to
-your Linux audit project.
+attributes. Guest Configuration obfuscates this process so input can be provided when policy is
+assigned. An attributes file is automatically created within the machine. You don't need to create
+and add a file in your project. There are two steps to adding parameters to your Linux audit
+project.
 
 Define the input in the Ruby file where you script what to audit on the machine. An example is given
 below.
@@ -376,8 +379,8 @@ parameter named **Parameters**. This parameter takes a hashtable including all d
 about each parameter and automatically creates all the required sections of the files used to create
 each Azure Policy definition.
 
-The following example creates an Azure Policy to audit a file path, where the user provides the path
-at the time of Policy assignment.
+The following example creates an policy definition to audit a file path, where the user provides the
+path at the time of policy assignment.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -392,7 +395,7 @@ $PolicyParameterInfo = @(
     }
 )
 
-# The hashtable also supports a property named 'AllowedValues' with an array of strings if you would like to limit input to a list
+# The hashtable also supports a property named 'AllowedValues' with an array of strings to limit input to a list
 
 New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditFilePathExists.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
@@ -425,15 +428,15 @@ Configuration AuditFilePathExists
 
 ## Policy lifecycle
 
-If you would like to release an update to the Policy, there are two fields
-that require attention.
+To release an update to the policy definition, there are two fields that require attention.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published. The property updates the version of the Guest
   Configuration assignment so the agent recognizes the updated package.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
-  must be correct for the `.zip` file you publish. If only the **contentUri** property is updated, the Extension won't accept the content package.
+  must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,
+  the Extension won't accept the content package.
 
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
@@ -441,8 +444,7 @@ updated.
 
 ## Optional: Signing Guest Configuration packages
 
-Guest Configuration custom policies use SHA256 hash to validate the policy package hasn't
-changed.
+Guest Configuration custom policies use SHA256 hash to validate the policy package hasn't changed.
 Optionally, customers may also use a certificate to sign packages and force the Guest Configuration
 extension to only allow signed content.
 
