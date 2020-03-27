@@ -4,7 +4,7 @@ description: This how-to article shows you, as a builder, how to configure telem
 author: vavilla
 ms.author: vavilla
 ms.date: 11/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea

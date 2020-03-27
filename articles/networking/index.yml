@@ -1,7 +1,7 @@
 ### YamlMime:Hub 
 
-title: Azure Networking documentation 
-summary: Learn about the various networking services available in Azure. 
+title: Azure networking documentation 
+summary: Learn about the various Azure networking services available that provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
@@ -33,9 +33,9 @@ highlightedContent:
     - title: Private access to a SQL database server
       itemType: tutorial
       url: ../private-link/create-private-endpoint-portal.md
-    - title: What is virtual network NAT?
+    - title: Working remotely using Azure services
       itemType: concept
-      url: ../virtual-network/nat-overview.md
+      url: working-remotely-support.md
     
 
 

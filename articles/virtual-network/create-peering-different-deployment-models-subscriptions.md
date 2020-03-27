@@ -96,9 +96,10 @@ This tutorial uses different accounts for each subscription. If you're using an 
 2. Run the classic CLI in Service Management mode by entering the `azure config mode asm` command.
 3. Enter the following classic CLI command to create the virtual network (classic):
 
-    ```azurecli
+    ```console
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
+
 4. The remaining steps must be completed using a bash shell with the Azure CLI (not the classic CLI).
 5. Copy the following script to a text editor on your PC. Replace `<SubscriptionB-Id>` with your subscription ID. If you don't know your subscription Id, enter the `az account show` command. The value for **id** in the output is your subscription Id. Copy the modified script, paste it in to your CLI session, and then press `Enter`.
 
@@ -165,6 +166,7 @@ This tutorial uses different accounts for each subscription. If you're using an 
       --vnet-name myVnetA \
       --output table
     ```
+
     The output shows **Connected** in the **PeeringState** column.
 
     Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -199,8 +201,8 @@ This tutorial uses different accounts for each subscription. If you're using an 
 
 5. Log in to UserB's subscription as UserB to use Resource Manager commands by entering the `Connect-AzAccount` command.
 6. Assign UserA permissions to virtual network B. Copy the following script to a text editor on your PC and replace `<SubscriptionB-id>` with the ID of subscription B. If you don't know the subscription Id, enter the `Get-AzSubscription` command to view it. The value for **Id** in the returned output is your subscription ID. Azure created the virtual network (classic) you created in step 4 in a resource group named *Default-Networking*. To execute the script, copy the modified script, paste it in to PowerShell, and then press `Enter`.
-    
-    ```powershell 
+
+    ```powershell
     New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
@@ -284,7 +286,7 @@ When you've finished this tutorial, you might want to delete the resources you c
 
 2. Sign in to Azure using the classic CLI to delete the virtual network (classic) with the following commands:
 
-   ```azurecli-interactive
+   ```console
    azure config mode asm
 
    azure network vnet delete --vnet myVnetB --quiet
