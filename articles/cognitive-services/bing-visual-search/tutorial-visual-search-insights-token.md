@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 03/27/2020
 ms.author: aahi
 ---
 # Tutorial: Find similar images from previous searches using an image insights token
