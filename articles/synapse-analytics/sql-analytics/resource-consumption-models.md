@@ -167,7 +167,6 @@ Content-Type: application/json; charset=UTF-8
     }
 }
 ```
-
 For more REST API examples, see [REST APIs for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Check status of DWU changes

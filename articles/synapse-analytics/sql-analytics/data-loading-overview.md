@@ -33,7 +33,6 @@ The basic steps for implementing a PolyBase ELT for SQL pool are:
 5. Transform the data.
 6. Insert the data into production tables.
 
-
 For a loading tutorial, see [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 For more information, see [Loading patterns blog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
