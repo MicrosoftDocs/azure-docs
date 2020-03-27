@@ -13,15 +13,12 @@ ms.date: 03/27/2020
 
 # Distributed training with Azure Machine Learning
 
-In distributed training the work load to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. 
-
-This training is well suited for compute and time intensive tasks, like training deep neural networks and [deep learning](concept-deep-learning-vs-machine-learning.md).
-
-There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). Azure Machine Learning currently only supports integrations with frameworks that can perform data parallelism.
+In distributed training the work load to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Distrbuted training is well suited for compute and time intensive tasks, like [deep learning](concept-deep-learning-vs-machine-learning.md) for training deep neural networks.
 
 ## Distributed training in Azure Machine Learning
 
-Azure Machine Learning is integrated with popular deep learning frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
+There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). 
+Azure Machine Learning supports integrations with the popular deep learning frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
 
 * [Distributed training with PyTorch in the Python SDK](how-to-train-pytorch.md#distributed-training)
 
