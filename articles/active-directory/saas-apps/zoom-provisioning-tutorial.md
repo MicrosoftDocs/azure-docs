@@ -102,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 
- 	![Zoom provisioning](./media/Zoom-provisioning-tutorial/provisioning.png)
+ 	![Zoom provisioning](./media/zoom-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
