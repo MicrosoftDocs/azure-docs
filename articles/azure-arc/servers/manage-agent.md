@@ -138,18 +138,18 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
 
    * From the command-line type:
 
-    ```dos
-    msiexec.exe /x {product code GUID} /qn
-    ```
+       ```dos
+       msiexec.exe /x {product code GUID} /qn
+       ```
 
    * You can perform the same steps using PowerShell:
 
-    ```powershell
-    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-    Get-ItemProperty | `
-    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
-    ```
+       ```powershell
+       Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+       Get-ItemProperty | `
+       Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+       ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
+       ```
 
 ### Linux agent
 
