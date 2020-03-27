@@ -171,7 +171,7 @@ To use customer managed keys by using a Resource Manager template, update your t
             "value": "clusterkey"
         },
         "diskEncryptionKeyVersion": {
-            "value": "7cfd94ad4e09471296b069d2a2cee395"
+            "value": "<Cluster_Key_Value>"
         },
         "diskEncryptionMsiResourceId": {
             "value": "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>"
