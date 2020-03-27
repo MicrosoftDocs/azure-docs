@@ -32,7 +32,7 @@ Network planners can help ease the bottlenecks and alleviate the network congest
 
 ## Sharing our best practices - Azure network is designed for elasticity and high-availability
 
-Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operates one of the worlds' largest networks. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
+Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help during periods of peak utilization. Also, Microsoft maintains and operates one of the worlds' largest networks. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
 
 The Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic including delay sensitive multimedia traffic for Skype and Teams, CDN, real-time big data analysis, Azure storage, Bing, and Xbox. To provide optimal performance for different types of traffic, the Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the origin of the traffic.
 
