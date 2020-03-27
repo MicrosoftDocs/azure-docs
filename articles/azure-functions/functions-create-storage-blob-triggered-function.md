@@ -64,9 +64,9 @@ Next, you connect to your Azure Storage account and create the **samples-workite
 
     ![Add container to your storage account in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png)
 
-1. Expand the attached storage account, right-click **Blob Containers**, click **Create Blob Container**, type `samples-workitems`, and then press enter.
+1. In the **Name** field, type `samples-workitems`, and then select **Create**.
 
-    ![Create a storage queue.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
+    ![Name the storage queue.](./media/functions-create-storage-blob-triggered-function/functions-storage-name-blob-container.png)
 
 Now that you have a blob container, you can test the function by uploading a file to the container.
 
