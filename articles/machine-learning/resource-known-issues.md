@@ -18,7 +18,7 @@ This article helps you find and correct errors or failures encountered when usin
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, 
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs: 
 1. Visit [Azure Machine Learning studio](https://ml.azure.com). 
 1. On the left-hand side, select **Experiment** 
 1. Select an experiment.
@@ -27,6 +27,7 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 
 > [!NOTE]
 > Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+
 
 ## Resource quotas
 
@@ -98,11 +99,6 @@ Issues with a Machine Learning workspace.
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 * **Azure portal**: If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
-
-* **Activity logs**: Some actions within the Azure Machine Learning workspace do not log information to the __Activity log__. For example, starting a training run or registering a model.
-
-    Some of these actions appear in the __Activities__ area of your workspace, however they do not indicate who initiated the activity.
-
 
 ## Set up your environment
 
