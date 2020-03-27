@@ -87,7 +87,7 @@ These rules are required so that replication can be enabled from the target regi
   - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
-  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
+  - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
 
 
 ## Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
@@ -107,7 +107,7 @@ These rules are required so that replication can be enabled from the target regi
   4. Azure Site Recovery Mobility Service agent supports only ***un-authenticated proxies***.
 
 ### Fix the problem
-To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
 
 
 ## Next steps

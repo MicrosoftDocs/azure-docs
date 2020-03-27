@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 4/30/2019
+ms.date: 03/24/2020
 ms.author: victorh
 
 ---
@@ -22,6 +22,7 @@ Azure Application Gateway is updated on an ongoing basis. To stay updated with t
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
+| User-Defined Routes (UDR) on v2 (Preview) |User-defined routes are now supported in some scenarios on Application Gateway v2 SKUs. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |March 2020 |
 |Affinity cookie changes |When cookie-based affinity is enabled, Application Gateway injects another identical cookie called *ApplicationGatewayAffinityCORS* in addition to the existing ApplicationGatewayAffinity cookie. *ApplicationGatewayAffinityCORS* has two more attributes added to it (*SameSite=None; Secure*) so that sticky sessions are maintained even for cross-origin requests. See [Application Gateway Cookie based affinity](configuration-overview.md#cookie-based-affinity) for more information. |February 2020 |
 |Probe enhancements |With the custom probe enhancements in Application Gateway v2 SKU, we have simplified [probe configuration](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilitated [on-demand backend health tests](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) and added [more diagnostic information](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) to help you troubleshoot backend health issues.  |October 2019 |
 |More metrics |We've added the following new metrics to help you monitor your Application Gateway v2 SKU: [Timing-related metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), Backend response status, Bytes received, Bytes sent, Client TLS protocol and Current compute units. See [Metrics supported by Application Gateway V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |August 2019 |

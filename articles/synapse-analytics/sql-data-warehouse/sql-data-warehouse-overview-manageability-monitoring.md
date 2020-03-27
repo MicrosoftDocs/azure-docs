@@ -1,12 +1,12 @@
 ---
 title: Manageability and monitoring - overview 
 description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore) with SQL pool.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
