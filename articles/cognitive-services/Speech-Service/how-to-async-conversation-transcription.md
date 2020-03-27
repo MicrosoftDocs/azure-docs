@@ -37,7 +37,7 @@ SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey",
 speechConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
 // Set the property for asynchronous transcription
-speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyChannel.UriQueryParameter);
+speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);
 
 // Set the property for real-time plus asynchronous transcription
 //speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
@@ -100,7 +100,7 @@ If you want real-time _plus_ asynchronous, comment and uncomment the appropriate
 
 ```java
 // Set the property for asynchronous transcription
-//speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyChannel.UriQueryParameter);
+//speechConfig.setServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);
 
 // Set the property for real-time plus asynchronous transcription
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
