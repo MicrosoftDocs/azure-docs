@@ -15,7 +15,7 @@ ms.author: cynthn
 
 If you have an existing VM that you would like to use to make multiple, identical VMs, then you can use that VM to create an image version in a Shared Image Gallery. 
 
-An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times.
+An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create disks for the new VM. Image versions can be used multiple times.
 
 
 ## Before you begin
@@ -24,10 +24,9 @@ To complete this article, you must have an existing Shared Image Gallery and an 
 
 Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create a generalized image definition. If you want to use the VM without removing existing user accounts, create a specialized image definition.
 
-To complete the example in this article, you must have an existing VM in Azure. If the has a data disk attached, the data disk size cannot be more than 1 TB.
+You must also have an existing VM in Azure, in the same region as your gallery. If the has a data disk attached, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
-
 
 ## Get infornation about the VM
 
@@ -50,7 +49,7 @@ Create an image version from the VM using [az image gallery create-image-version
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage.
+In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
 
 Replace the value of `--managed-image` in this example with the ID of your VM from the previous step.
 
@@ -60,7 +59,7 @@ az sig image-version create \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
+   --target-regions "westcentralus" "southcentralus=1" "eastus2=1=standard_zrs" \
    --replica-count 2 \
    --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
 ```
