@@ -32,11 +32,13 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 
 Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
-## Installation and import errors
+## Installation and import
+
+Issues with installing the Python SDK or importing packages.
 
 * **Error message: Cannot uninstall 'PyYAML'**
 
-    Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
+    Azure Machine Learning SDK for Python: PyYAML is a `distutils` installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
     
     ```Python
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
