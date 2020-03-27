@@ -1,12 +1,12 @@
 ---
 title: Authentication
 description: Learn how to authenticate to Azure Synapse Analytics by using Azure Active Directory (AAD) or SQL Server authentication.
-services: sql-data-warehouse
+services: synapse-analytics
 author: julieMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: security
+ms.subservice: 
 ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan

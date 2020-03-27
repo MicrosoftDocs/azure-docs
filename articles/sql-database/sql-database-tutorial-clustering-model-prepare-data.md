@@ -19,6 +19,8 @@ ms.date: 07/29/2019
 
 In part one of this three-part tutorial series, you'll import and prepare the data from an Azure SQL database using R. Later in this series, you'll use this data to train and deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 *Clustering* can be explained as organizing data into groups where members of a group are similar in some way.
 You'll use the **K-Means** algorithm to perform the clustering of customers in a dataset of product purchases and returns. By clustering customers, you can focus your marketing efforts more effectively by targeting specific groups.
 K-Means clustering is an *unsupervised learning* algorithm that looks for patterns in data based on similarities.
