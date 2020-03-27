@@ -6,10 +6,8 @@ ms.author: timlt
 ms.date: 3/02/2020
 ms.topic: conceptual
 ms.service: iot-dps
-
-# Optional fields. Don't forget to remove # if you need a field.
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
-# ms.reviewer: MSFT-alias-of-reviewer
+ms.reviewer: nberdy
 ---
 # Security practices for Azure IoT device manufacturers
 As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices. This article summarizes recommended security practices to consider when you manufacture devices for use with DPS.  
@@ -29,12 +27,13 @@ A critical step in manufacturing a device with a TPM chip is to take ownership o
 > The following guidance assumes you use a discrete, firmware, or integrated TPM. In places where it's applicable, the guidance adds notes on using a non-discrete or software TPM. If you use a software TPM, there may be additional steps that this guidance doesn't include. Software TPMs have a variety of implementations that are beyond the scope of this article.  In general, it's possible to integrate a software TPM into the following general manufacturing timeline. However, while a software emulated TPM is suitable for prototyping and testing, it can't provide the same level of security as a discrete, firmware, or integrated TPM. As a general practice, avoid using a software TPM in production.
 
 ### General manufacturing timeline
-The following timeline shows how a TPM goes through a production process and ends up in a device. Each manufacturing process is unique and this timeline shows the most common patterns. The timeline offers guidance on when to take certain actions with the keys. 
+The following timeline shows how a TPM goes through a production process and ends up in a device. Each manufacturing process is unique, and this timeline shows the most common patterns. The timeline offers guidance on when to take certain actions with the keys. 
 
 #### Step 1: TPM is manufactured
 - If you buy TPMs from a manufacturer for use in your devices, see if they'll extract public endorsement keys (EK_pubs) for you. It's helpful if the manufacturer provides the list of EK_pubs with the shipped devices. 
     > [!NOTE]
     > You could give the TPM manufacturer write access to your enrollment list by using shared access policies in your provisioning service.  This approach lets them add the TPMs to your enrollment list for you.  But that is early in the manufacturing process, and it requires trust in the TPM manufacturer. Do so at your own risk. 
+
 - If you manufacture TPMs to sell to device manufacturers, consider giving your customers a list of EK_pubs along with their physical TPMs.  Providing customers with EK_pubs saves a step in their process. 
 - If you manufacture TPMs to use with your own devices, identify which point in your process is the most convenient to extract the EK_pub. You can extract the EK_pub at any of the remaining points in the timeline. 
 
@@ -62,7 +61,7 @@ For more information, see [Autoprovisioning concepts](concepts-auto-provisioning
 When you start using certificates on IoT devices in a manufacturing process, you'll need to make several decisions.  These include decisions about common certificate variables, when to generate certificates, and when to install them. 
 
 > [!CAUTION]
-> A note on security. If you're used to using passwords, you might ask why you can't use the same certificate in all your devices. In the same way that you'd be able to use the same password in all your devices. First, using the same password everywhere is dangerous and has exposed companies to major DDoS attacks. Including the one that took down DNS on the US East Coast several years ago. Never use the same password everywhere, even with personal accounts. Second, a certificate isn't a password, it's a unique identity. A password is like a secret code that anyone can use to open a door at a secured building.  It's something you know, and you could give the password to anyone to gain entrance.  A certificate is like a driver's license with your photo and other details, which you can show to a guard to get into a secured building. It's tied to who you are.  Provided that the guard accurately matches people with driver's licenses, only you can use your license (identity) to gain entrance. 
+> If you're used to using passwords, you might ask why you can't use the same certificate in all your devices, in the same way that you'd be able to use the same password in all your devices. First, using the same password everywhere is dangerous. The practice has exposed companies to major DDoS attacks, including the one that took down DNS on the US East Coast several years ago. Never use the same password everywhere, even with personal accounts. Second, a certificate isn't a password, it's a unique identity. A password is like a secret code that anyone can use to open a door at a secured building.  It's something you know, and you could give the password to anyone to gain entrance.  A certificate is like a driver's license with your photo and other details, which you can show to a guard to get into a secured building. It's tied to who you are.  Provided that the guard accurately matches people with driver's licenses, only you can use your license (identity) to gain entrance. 
 
 ### Variables involved in certificate decisions
 Consider the following variables, and how each one impacts the overall manufacturing process. 
@@ -92,11 +91,11 @@ Depending on the type of devices you produce, you might have a regulatory requir
 
 #### Length of certificate validity
 Like a driver's license, certificates have an expiration date that is set when they are created. Here are the options for length of certificate validity:
-- Renewal not required.  This approach uses a long renewal period, so you'll never need to renew the certificate during the device's lifetime. While such an approach is convenient, it's also risky.  You can reduce the risk by using secure storage like an HSM on your devices. However, it's not recommended to use long-lived certificates.
-- Renewal required.  You'll need to renew the certificate during the lifetime of the device. The length of the certificate validity depends on context and you'll need a strategy for renewal.  The strategy should include where you're getting certificates, and what type of over-the-air functionality your devices have to use in the renewal process. 
+- Renewal not required.  This approach uses a long renewal period, so you'll never need to renew the certificate during the device's lifetime. While such an approach is convenient, it's also risky.  You can reduce the risk by using secure storage like an HSM on your devices. However, we don't recommend using long-lived certificates.
+- Renewal required.  You'll need to renew the certificate during the lifetime of the device. The length of the certificate validity depends on context, and you'll need a strategy for renewal.  The strategy should include where you're getting certificates, and what type of over-the-air functionality your devices have to use in the renewal process. 
 
 ### When to generate certificates
-The Internet connectivity capabilities at your factory will impact your process for generating certificates. You have several options for when to generate certificates. 
+The internet connectivity capabilities at your factory will impact your process for generating certificates. You have several options for when to generate certificates: 
 
 - Pre-loaded certificates.  Some HSM vendors offer a premium service in which the HSM vendor installs certificates for the customer. First, customers give the HSM vendor access to a signing certificate. Then the HSM vendor installs certificates signed by that signing certificate onto each HSM the customer buys. All the customer has to do is install the HSM on the device. While this service adds cost, it helps to streamline your manufacturing process.  And it resolves the question of when to install certificates.
 - Device-generated certificates.  If your devices generate certificates internally, then you must extract the public X.509 certificate from the device to enroll it in DPS. 
@@ -116,7 +115,7 @@ There are software tools available that let you run the installation process and
 If you need help with installing certificates in your IoT devices, contact the Azure IoT Hub DPS product team. After you have certificates installed on your devices, the next step is to learn how to enroll the devices with DPS.  
 
 ## Selecting device authentication options
-The ultimate aim of any IoT device security measure is to create a secure IoT solution. But issues such as hardware limitations, cost, and level of security expertise, all impact which options you choose. Further, your approach to security impacts how your IoT devices connect to the cloud. While there are [several elements of IoT security](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) to consider, a key element that every customer encounters is what authentication type to use. 
+The ultimate aim of any IoT device security measure is to create a secure IoT solution. But issues such as hardware limitations, cost, and level of security expertise all impact which options you choose. Further, your approach to security impacts how your IoT devices connect to the cloud. While there are [several elements of IoT security](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) to consider, a key element that every customer encounters is what authentication type to use. 
 
 Three widely used authentication types are X.509 certificates, Trusted Platform Modules (TPM), and symmetric keys. While other authentication types exist, most customers who build solutions on Azure IoT use one of these three types. The rest of this article surveys pro and cons of using each authentication type.
 
@@ -154,7 +153,7 @@ Cons for TPM:
 - If you roll the EK on a TPM, it destroys the identity of the TPM and creates a new one. Although the physical chip stays the same, it has a new identity in your IoT solution.
 
 ### Symmetric key
-With symmetric keys, the same key is used to encrypt and decrypt messages. As a result, the same key is known to both the device and the service that authenticates it. Azure IoT supports SAS token-based symmetric key connections. However, symmetric authentication is less secure than the other methods surveyed in this article. If you use symmetric keys, it's recommended that you protect the keys by using a hardware security module (HSM).
+With symmetric keys, the same key is used to encrypt and decrypt messages. As a result, the same key is known to both the device and the service that authenticates it. Azure IoT supports SAS token-based symmetric key connections. However, symmetric authentication is less secure than the other methods surveyed in this article. If you use symmetric keys, we recommend that you protect the keys by using a hardware security module (HSM).
 
 Pros for symmetric key:
 - Using symmetric keys is the simplest, lowest cost way to get started with authentication.
@@ -165,7 +164,7 @@ Cons for symmetric key:
 - Symmetric keys make it easy to follow poor security practices. A common tendency with symmetric keys is to hard code the unencrypted keys on devices. While this practice is convenient, it leaves the keys vulnerable. You can mitigate some risk by securely storing the symmetric key on the device. However, if your priority is ultimately security rather than convenience, use X.509 certificates or TPM for authentication. 
 
 ### Shared symmetric key
-There's a variation of symmetric key authentication known as shared symmetric key. This approach involves using the same symmetric key in all devices. It is recommended that you avoid using shared symmetric keys on your devices. 
+There's a variation of symmetric key authentication known as shared symmetric key. This approach involves using the same symmetric key in all devices. We recommend that you avoid using shared symmetric keys on your devices. 
 
 Pro for shared symmetric key:
 - Simple to implement and inexpensive to produce at scale. 
@@ -178,7 +177,7 @@ Cons for shared symmetric key:
 ### Making the right choice for your devices
 To choose an authentication method, make sure you consider the benefits and costs of each approach for your unique manufacturing process.  For device authentication, usually there's an inverse relationship between how secure a given approach is, and how convenient it is.  
 
-In addition to the practices in this article, Azure IoT provides resources to help with selecting secure hardware, and creating secure IoT deployments: 
+In addition to the practices in this article, Azure IoT provides resources to help with selecting secure hardware and creating secure IoT deployments: 
 - Azure IoT [security recommendations](../iot-fundamentals/security-recommendations.md) to guide the deployment process. 
 - The [Azure Security Center](https://azure.microsoft.com/services/security-center/) offers a service to help create secure IoT deployments. 
 - For help evaluating your hardware environment, see the whitepaper [Evaluating your IoT Security](https://download.microsoft.com/download/D/3/9/D3948E3C-D5DC-474E-B22F-81BA8ED7A446/Evaluating_Your_IOT_Security_whitepaper_EN_US.pdf). 
