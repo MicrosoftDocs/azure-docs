@@ -21,7 +21,7 @@ Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL), certif
 ## Create key vault
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an service that safeguards cryptographic keys and secrets used by cloud applications and services. It is the storage of choice for Azure Spring Cloud certificates.
 
-## Import Certificate 
+## Import certificate 
  Upload your certificate to key vault, then import it to Azure Spring Cloud. For information about importing a certificate, see [Import a certificate
 ](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate).
 
@@ -29,15 +29,15 @@ Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL), certif
 
 ## Configure server to use the certificate
 
-## Add a certificate to VM from Key Vault
+## Add a certificate to virtual machine from Key Vault
 
-## Add SSL Binding 
+## Add SSL binding 
 In the custom domain table, select **Add ssl binding**.
 
 ## Test the secure web app
 
 ## See also
-* [Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-secure-web-server)
+* [Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-secure-web-server)
 * [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
