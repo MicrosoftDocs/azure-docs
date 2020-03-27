@@ -166,13 +166,13 @@ Although both applications are running locally when you follow this tutorial, yo
     ```
 
 1. Navigate to `http://localhost:6420` in your browser to view the application.
+
+    ![Single-page application sample app shown in browser](./media/tutorial-single-page-app-webapi/tutorial-01-sample-app-browser.png)
+
 1. Sign in using the email address and password you used in the [previous tutorial](tutorial-single-page-app.md). Upon successful login, you should see the `User 'Your Username' logged-in` message.
 1. Select the **Call API** button. The SPA obtains an authorization grant from Azure AD B2C, then accesses the protected web API to display the name of the logged-in user:
 
-    ```Output
-    Web API returned:
-    {"name":"Lisa Andrews"}
-    ```
+    ![Single-page application in browser showing username JSON result returned by API](./media/tutorial-single-page-app-webapi/tutorial-02-call-api.png)
 
 ## Next steps
 
