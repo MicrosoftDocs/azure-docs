@@ -19,8 +19,6 @@
       href: connect-metamask.md
     - name: Using Geth
       href: connect-geth.md
-    - name: Using Truffle
-      href: connect-truffle.md
 - name: Tutorials
   items:
   - name: Create smart contracts
