@@ -1,7 +1,7 @@
 ---
 title: How to configure RHEL/CentOS 7
 titleSuffix: Azure Cognitive Services
-description: Learn how to configure RHEL/CentOS 7 so that SpeechSDK can be used.
+description: Learn how to configure RHEL/CentOS 7 so that the Speech SDK can be used.
 services: cognitive-services
 author: pankopon
 manager: jhakulin
@@ -14,9 +14,7 @@ ms.author: pankopon
 
 # Configure RHEL/CentOS 7 for Speech SDK
 
-Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64 are officially supported from Speech SDK version 1.10.0 onwards.
-
-It is also possible to use Speech SDK on RHEL/CentOS 7 x64, but this requires updating the C++ compiler (for C++ development) and the shared C++ runtime library on the system.
+Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64 are officially supported from the Speech SDK version 1.10.0 onwards. It is also possible to use the Speech SDK on RHEL/CentOS 7 x64, but this requires updating the C++ compiler (for C++ development) and the shared C++ runtime library on the system.
 
 To check the C++ compiler version, run a command:
 
@@ -62,13 +60,14 @@ CXXABI_1.3.7
 ...
 ```
 
-Speech SDK requires **CXXABI_1.3.9** and **GLIBCXX_3.4.21**. (This can be seen e.g. by running `ldd libMicrosoft.CognitiveServices.Speech.core.so` on Speech SDK libraries from the Linux package.)
+The Speech SDK requires **CXXABI_1.3.9** and **GLIBCXX_3.4.21**. (This can be seen e.g. by running `ldd libMicrosoft.CognitiveServices.Speech.core.so` on Speech SDK libraries from the Linux package.)
 
+[!TIP]
 It is recommended that the version of GCC installed on the system is at least **5.4.0**, with matching runtime libraries.
 
 ## Example
 
-The following is a full set of commands to configure RHEL/CentOS 7 x64 for development (C++, C#, Java, Python) with SpeechSDK 1.10.0 or later.
+To configure RHEL/CentOS 7 x64 for development (C++, C#, Java, Python) with the SpeechSDK 1.10.0 or later, consider the following example command set.
 
 ```bash
 # Only run ONE of the following two commands
