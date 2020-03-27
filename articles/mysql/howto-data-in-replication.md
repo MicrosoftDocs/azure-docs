@@ -14,7 +14,7 @@ In this article, you will learn how to set up Data-in Replication in the Azure D
 
 This article assumes that you have at least some prior experience with MySQL servers and databases.
 
-Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of data-in replication prior to performing the steps in this article.
+Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication prior to performing the steps in this article.
 
 ## Create a MySQL server to be used as replica
 
