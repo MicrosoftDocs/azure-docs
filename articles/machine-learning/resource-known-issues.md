@@ -19,7 +19,7 @@ This article helps you find and correct errors or failures encountered when usin
 ## Diagnostic logs
 
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, 
-1. visit [Azure Machine Learning studio](https://ml.azure.com). 
+1. Visit [Azure Machine Learning studio](https://ml.azure.com). 
 1. On the left-hand side, select **Experiment** 
 1. Select an experiment.
 1. Select a run.
