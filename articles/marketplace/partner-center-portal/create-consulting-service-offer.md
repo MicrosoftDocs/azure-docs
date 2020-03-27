@@ -61,7 +61,7 @@ For offers with one of the following options selected as the primary product, yo
 
 - **Criteria**: Must be eligible for Advanced Benefits in the [Power Apps Partnership](https://aka.ms/PowerAppsPartner) Program.
 
-For details on meeting these prerequisites, see the [Consulting service prerequisites](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites).
+For details on meeting these prerequisites, see the [Consulting service prerequisites](consulting-service-prerequisites.md).
 
 ### Logistical requirements
 
@@ -255,4 +255,4 @@ For more information about how long you can expect your offer to spend in each p
 
 ## Update your existing consulting service offers
 
-- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer).
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
