@@ -1,16 +1,16 @@
 ---
-title: Use GROUP BY options in SQL Analytics
-description: SQL Analytics allows for developing solutions by implementing different GROUP BY options.
+title: Using group by options 
+description: Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.
 services: synapse-analytics
-author: filippopovic
+author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
-ms.date: 01/06/2020
-ms.author: fipopovi
-ms.reviewer: jrasnick
-ms.custom: 
+ms.subservice: 
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # GROUP BY options in SQL Analytics

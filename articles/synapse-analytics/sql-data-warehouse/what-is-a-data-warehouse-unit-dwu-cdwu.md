@@ -1,13 +1,16 @@
 ---
-title: Synapse Analytics SQL resource consumption
-description: Learn about SQL Analytics consumption models in Azure Synapse Analytics.
-services: synapse analytics
-author: vvasic-msft
+title: Data Warehouse Units (DWUs) in Azure Synapse Analytics (formerly SQL DW) 
+description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
+services: synapse-analytics
+author: mlee3gsd
+manager: craigg
 ms.service: synapse-analytics
-ms.topic: overview
-ms.date: 10/24/2019
-ms.author: vvasic
-ms.reviewer: jrasnick  
+ms.topic: conceptual
+ms.subservice: 
+ms.date: 11/22/2019
+ms.author: martinle
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Azure Synapse Analytics SQL resource consumption

@@ -1,12 +1,12 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS) 
 description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in SQL Analytics for developing solutions.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan

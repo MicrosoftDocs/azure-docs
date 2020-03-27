@@ -1,12 +1,12 @@
 ---
 title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in SQL Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author:  XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
