@@ -20,7 +20,7 @@ ms.reviewer: ''
 ms.custom: aaddev
 ---
 
-# How to: Troubleshoot MSAL for iOS and macOS TLS issues
+# How to: Troubleshoot MSAL for iOS and macOS TLS/SSL issues
 
 This article provides information to help you troubleshoot issues that you may come across while using the [Microsoft Authentication Library (MSAL) for iOS and macOS](reference-v2-libraries.md)
 
@@ -34,7 +34,7 @@ This error is from Apple's networking library. A full list of NSURL error codes 
 
 ## Certificate issues
 
-If the URL providing an invalid certificate connects to the server that you intend to use as part of the authentication flow, a good start to diagnosing the problem is to test the URL with a TLS validation service such as [Qualys SSL Labs Analyzer](https://www.ssllabs.com/ssltest/analyze.html). It tests the server against a wide array of scenarios and browsers and checks for many known vulnerabilities.
+If the URL providing an invalid certificate connects to the server that you intend to use as part of the authentication flow, a good start to diagnosing the problem is to test the URL with an SSL validation service such as [SSL Server Test](https://www.ssllabs.com/ssltest/analyze.html). It tests the server against a wide array of scenarios and browsers and checks for many known vulnerabilities.
 
 By default, Apple's new [App Transport Security (ATS)](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) feature applies more stringent security policies to apps that use TLS/SSL certificates. Some operating systems and web browsers have started enforcing some of these policies by default. For security reasons, we recommend you not disable ATS.
 
