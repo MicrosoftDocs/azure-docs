@@ -22,7 +22,7 @@ This article describes the options that are available to organizations to set up
 - provide reliable-secure connectivity to more employees of their company and customers.
 - provide connectivity to remote locations across the globe.
 
-Not all networks (for example, private WAN and corporate core networks) experience congestion from peak remote worker load. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations..
+Not all networks (for example, private WAN and corporate core networks) experience congestion from peak remote worker load. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
 
 Network planners can help ease the bottlenecks and alleviate the network congestion by keeping in mind that different traffic types need different network treatment priorities and by some smart load redirection/distribution. For example, real-time tele-medecine traffic of doctor-patient interaction is of high importance and delay/jitter sensitive. Whereas, replication of the same traffic between storages is not delay sensitive. The former traffic must be routed via the most optimal network path with higher quality of service; whereas it is acceptable to route the later traffic via sub-optimal route.
 
@@ -52,7 +52,7 @@ For aggregating large-scale VPN connection, to support any-to-any connections be
 
 Another way to support a remote workforce is to deploy a Virtual Desktop Infrastructure (VDI) hosted in your Azure virtual network, secured with an Azure Firewall. For example, Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs in Azure. With Windows Virtual Desktop, you can set up a scalable and flexible environment in your Azure subscription without the need to run any additional gateway servers. You are only responsible for the WVD virtual machines in your virtual network. For more information, see [Azure Firewall remote work support](../firewall/remote-work-support.md). 
 
-Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) Considerations for remote work](https://go.microsoft.com/fwlink/?linkid=2123771).
+Azure also has a rich set of eco system partners. Our partners Network Virtual Appliances on Azure can also help scale VPN connectivity. For more information, see [Network Virtual Appliance (NVA) considerations for remote work](https://go.microsoft.com/fwlink/?linkid=2123771).
 
 ## Extend employees' connection to access globally distributed resources
 
@@ -62,7 +62,7 @@ The following Azure services can be leveraged to enable employees connected to A
 
 - **Azure VPN-based solution**: For your remote employees connected to Azure via P2S or S2S VPN, you can enable access to on-premises networks by configuring S2S VPN between your on-premises networks and Azure VPN gateway. For more information, see [Create a Site-to-Site connection][S2S].
 
-- **ExpressRoute**: Using ExpressRoute private peering you can enable private connectivity between your Azure deployments and on-premises infrastructure or your infrastructure in a colocation facility. ExpressRoute, via Microsoft peering, also permits accessing public endpoints in Microsoft from your on-premises network. ExpressRoute connections do not go over the public Internet. They offer secure connectivity, reliability, higher throughput, with lower and consistent latencies than typical connections over the Internet. For more information, see [ExpressRoute overview][ExR]. Leveraging your existing network provider that is already part of our [ExpressRoute partner ecosystem][ExR-eco] can help reduce the time to get large bandwidth connections to Microsoft.  Using [ExpressRoute Direct][ExR-D] you can directly connect your on-premises network to the Microsoft backbone. ExpressRoute Direct offers two different line-rate options of dual 10 Gbps or 100 Gbps.. 
+- **ExpressRoute**: Using ExpressRoute private peering you can enable private connectivity between your Azure deployments and on-premises infrastructure or your infrastructure in a co-location facility. ExpressRoute, via Microsoft peering, also permits accessing public endpoints in Microsoft from your on-premises network. ExpressRoute connections do not go over the public Internet. They offer secure connectivity, reliability, higher throughput, with lower and consistent latencies than typical connections over the Internet. For more information, see [ExpressRoute overview][ExR]. Leveraging your existing network provider that is already part of our [ExpressRoute partner ecosystem][ExR-eco] can help reduce the time to get large bandwidth connections to Microsoft.  Using [ExpressRoute Direct][ExR-D] you can directly connect your on-premises network to the Microsoft backbone. ExpressRoute Direct offers two different line-rate options of dual 10 Gbps or 100 Gbps. 
 
 - **Azure Virtual WAN**: Azure Virtual WAN allows seamless interoperability between your VPN connections and ExpressRoute circuits. As mentioned earlier, Azure Virtual WAN also support any-to-any connections between resources in different on-prem global locations, in different regional hub and spoke virtual networks
 
