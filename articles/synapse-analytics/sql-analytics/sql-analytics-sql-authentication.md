@@ -17,7 +17,7 @@ To authorize to SQL Analytics, you can use two authorization types:
 - AAD authorization
 - SQL authorization
 
-AAD authorization relies on Azure Active Directory and enables you to have single place for user management. On the other hand, SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
+AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
 
 ## Administrative accounts
 
