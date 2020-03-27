@@ -15,6 +15,8 @@
       href: search-create-service-portal.md
     - name: Create an index
       href: search-get-started-portal.md
+    - name: Query with Search explorer
+      href: search-explorer.md
     - name: Create an app
       href: search-create-app-portal.md
     - name: Create a skillset
@@ -231,8 +233,6 @@
       href: search-query-simple-examples.md
     - name: Use full Lucene syntax
       href: search-query-lucene-examples.md
-    - name: Use Search Explorer (portal)
-      href: search-explorer.md
     - name: Special characters and partial terms
       href: search-query-partial-matching.md
     - name: Syntax reference
