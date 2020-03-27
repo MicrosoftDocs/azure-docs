@@ -76,7 +76,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
     ```javascript
     var clientID = "<your-webapi-application-ID>"; // Application (client) ID
     var b2cDomainHost = "<your-tenant-name>.b2clogin.com";
-    var tenantId = "<your-tenant-ID>.onmicrosoft.com";
+    var tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (a GUID)
     var policyName = "B2C_1_signupsignin1";
     ```
 
@@ -84,7 +84,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 To allow your single-page application to call the Node.js web API, you need to enable [CORS](https://expressjs.com/en/resources/middleware/cors.html) in the web API. In a production application you should be careful about which domain is making the request, but for this tutorial, allow requests from any domain.
 
-To enable CORS, use the following middleware. In the Node.js web API code sample used in this tutorial, you can find this code in the *index.js* file.
+To enable CORS, use the following middleware. In the Node.js web API code sample in this tutorial, it's already been added to the *index.js* file.
 
 ```javascript
 app.use((req, res, next) => {
@@ -96,9 +96,9 @@ app.use((req, res, next) => {
 
 ### Configure the single-page application
 
-The single-page application (SPA) from the [previous tutorial](tutorial-single-page-app.md) in the series uses Azure AD B2C for user sign-up and sign-in, and calls the Node.js web API protected by the *frabrikamb2c* demo tenant.
+The single-page application (SPA) from the [previous tutorial](tutorial-single-page-app.md) in the series uses Azure AD B2C for user sign-up and sign-in, and by default, calls the Node.js web API protected by the *frabrikamb2c* demo tenant.
 
-In this section, you update the single-page application to call the Node.js web API protected by *your* Azure AD B2C tenant (and which you run on your local machine).
+In this section, you update the single-page web application to call the Node.js web API protected by *your* Azure AD B2C tenant (and which you run on your local machine).
 
 To change the settings in the SPA:
 
@@ -110,26 +110,26 @@ To change the settings in the SPA:
     The `apiConfig` definition should look similar to the following code block, but with your B2C tenant's name in the place of `<your-tenant-name>`:
 
     ```javascript
+    // The current application coordinates were pre-registered in a B2C tenant.
     const apiConfig = {
-        b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
-        webApi: "http://localhost:5000/"
-    };
-
-    // request to acquire a token for resource access
-    const tokenRequest = {
-        scopes: apiConfig.b2cScopes
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
+      webApi: "http://localhost:5000/"
     };
     ```
 
 ## Run the SPA and web API
 
-Finally, you run both the Node.js web API and the sample JavaScript single-page application on your local machine. Then, you sign in to the single-page application and press a button to initiate a request to the protected API.
+You're now ready to test the single-page application's scoped access to the API. Run both the Node.js web API and the sample JavaScript single-page application on your local machine. Then, sign in to the single-page application and select the **Call API** button to initiate a request to the protected API.
 
-Although both applications run locally in this tutorial, they use Azure AD B2C for secure sign-up/sign-in and to grant access to the protected web API.
+Although both applications are running locally when you follow this tutorial, you've configured them to use Azure AD B2C for secure sign-up/sign-in and to grant access to the protected web API.
 
 ### Run the Node.js web API
 
-1. Open a console window and change to the directory containing the Node.js web API sample. For example: `cd active-directory-b2c-javascript-nodejs-webapi`
+1. Open a console window and change to the directory containing the Node.js web API sample. For example:
+
+    ```console
+    cd active-directory-b2c-javascript-nodejs-webapi
+    ```
 
 1. Run the following commands:
 
@@ -146,7 +146,7 @@ Although both applications run locally in this tutorial, they use Azure AD B2C f
 
 ### Run the single-page app
 
-1. Open a console window and change to the directory containing the JavaScript SPA sample. For example:
+1. Open another console window and change to the directory containing the JavaScript SPA sample. For example:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
