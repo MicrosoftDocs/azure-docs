@@ -158,7 +158,7 @@ To use customer managed keys by using a Resource Manager template, update your t
          }
 
 1. In the **azuredeploy.parameters.json** file, add the following parameters. You can get the values of these parameters from the Key Vault URI and the managed Identity. For example, if you have the following URI and identity values,
-    * Sample key vault URI: https://omakv.vault.azure.net/keys/clusterkey/7cfd94ad4e09471296b069d2a2cee395
+    * Sample key vault URI: https://<KeyVault_Name>.vault.azure.net/keys/clusterkey/<Cluster_Key_Value>
     * Sample user-assigned managed identity: "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>
 
     The parameters in the **azuredeploy.parameters.json** file are:
