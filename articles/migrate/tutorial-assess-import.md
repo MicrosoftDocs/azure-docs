@@ -137,7 +137,6 @@ The following table summarizes the file fields to fill in:
 **Business owner** | No | Business unit owner.
 **Business application name** | No | Name of the application to which the app belongs.
 **Location** | No | Datacenter in which the server is located.
-**Server decommission date** | No | Decommission date of physical server or of the underlying physical server of the virtual server.
 
 ### Add operating systems
 

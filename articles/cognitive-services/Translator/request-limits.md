@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/17/2020
 ms.author: swmachan
 ---
 
@@ -18,7 +18,7 @@ This article provides throttling limits for the Translator Text API. Services in
 
 ## Character and array limits per request
 
-Each Translate request is limited to 5,000 characters. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
+Each translate request is limited to 5,000 characters, across all the target languages you are translating to. For example, sending a translate request of 1,500 characters to translate to 3 different languages results in a request size of 1,500x3 = 4,500 characters, which satisfies the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
 The following table lists array element and character limits for each operation of the Translator Text API.
 

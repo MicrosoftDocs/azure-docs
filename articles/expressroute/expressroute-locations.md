@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/15/2020
+ms.date: 03/25/2020
 ms.author: cherylmc
 
 ---
@@ -29,7 +29,7 @@ The tables in this article provide information on ExpressRoute geographical cove
 Azure regions are global datacenters where Azure compute, networking and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
 
 ## ExpressRoute locations
-ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft’s network – and are globally distributed, providing customers the opportunity to connect to Microsoft’s network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft’s network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
+ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
 You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
 
@@ -78,6 +78,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Aryaka Networks](https://www.aryaka.com/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Supported |Supported |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
+| **[AT TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Supported | Supported | Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Supported | Supported | Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions)** |Supported |Supported |Cape Town|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Supported |Supported |Montreal, Toronto, Quebec City |
@@ -236,7 +237,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
 | **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
-| **[Beanfield Metroconnect](https://www.beanfield.com/cloud-exchange/)** |Megaport |Toronto|
+| **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-connect)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | London |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Amsterdam, Frankfurt, London, Singapore, Washington DC |
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokyo |

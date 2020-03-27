@@ -534,7 +534,7 @@ If you want to do machine learning by using data stored in a PostgreSQL database
 
 ### SQL Data Warehouse
 
-Azure SQL Data Warehouse is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse is a cloud-based, scale-out database that can process massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 To connect to the data warehouse and create the table, run the following command from a command prompt:
 

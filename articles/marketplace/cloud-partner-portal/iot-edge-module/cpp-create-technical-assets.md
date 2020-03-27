@@ -1,13 +1,12 @@
 ---
 title: Create Azure IoT Edge module technical assets | Azure Marketplace
 description: Create the technical assets for an IoT Edge module.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Prepare your IoT Edge module technical assets
