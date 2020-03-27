@@ -110,6 +110,46 @@ Context features help Personalizer understand the context of the actions. The co
 * user's preference for taste - salty or sweet
 * browser's context - user agent, geographical location, referrer
 
+```json
+"contextFeatures": [
+    {
+      "time": "morning"
+    },
+    {
+      "taste": "sweet"
+    },
+    {
+      "httpRequestFeatures": {
+        "_synthetic": false,
+        "OUserAgent": {
+          "_ua": "",
+          "_DeviceBrand": "",
+          "_DeviceFamily": "Other",
+          "_DeviceIsSpider": false,
+          "_DeviceModel": "",
+          "_OSFamily": "Windows",
+          "_OSMajor": "10",
+          "DeviceType": "Desktop"
+        }
+      }
+    }
+  ]
+```
+
+## How does the web app use Personalizer?
+
+The web app uses Personalizer to select the best action from the list of pasta, ice cream, juice, and salad. It does this by sending the following information with each Rank API call:
+* **actions** with their features such as `taste` and `spiceLevel`
+* **context** features such as `time` of day, user's `taste` preference, and the browser's user agent information, and context features
+* **actions to exclude** such as juice
+* **eventid** which is different for each call to Rank API.
+
+## Features in a web app
+
+A web app, using Personalizer, needs features about the actions (content) and the context. Features should be selected with the same planning and design that you would apply to any schema or model in your technical architecture. The feature values can be determined with business logic or 3rd party values should not be so highly-specific that they don't apply across a group or class.
+
+This app uses `time` as a feature but groups time into categories of `morning`, `afternoon`, `evening`, and `night`. That is an example of using the information of time but not in a highly specific way, such as `10:05:01 UTC+2`.
+
 ## Download the working sample
 
 In this tutorial, the complete sample web app is provided for you.
@@ -120,7 +160,16 @@ In this tutorial, the complete sample web app is provided for you.
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-    This sample is found within the `/samples/HttpRequestFeatures` folder. Use Visual Studio 2019 to open the solution, `HttpRequestFeatures.sln`.
+1. Use Visual Studio 2019 to open the solution, `HttpRequestFeatures.sln`. This sample is found within the `/samples/HttpRequestFeatures` folder.
+
+    The solution includes two projects:
+    * **HttpRequestFeaturesExample**, a .NET web app which manages both the web page and the Rank API call.
+        * **HomeController.cs** manages the interaction with Personalizer and passes the data to the Index.cshtml page to display.
+        * **Index.cshtml** displays the values passed from HomeController.cs
+    * **HttpRequestFeatures**, a class library which create the context features for the user agent.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use Visual Studio 2019 to open the solution, `HttpRequestFeatures.sln`. This sample is found within the `/samples/HttpRequestFeatures` folder.](./media/tutorial-web-app/solution-explorer-files.png)
 
 ## Create a Personalizer resource in the Azure portal
 
@@ -167,4 +216,10 @@ Using best security practices, use the Visual Studio solution feature to manage 
 
 1. Build and run the **HTTPRequestFeaturesExample** project. A browser window opens to `https://localhost:44332/` displaying the single page application.
 
-## How does the web app use Personalizer? 
+    > [!div class="mx-imgBorder"]
+    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to `https://localhost:44332/` displaying the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+
+## Step through code execution to understand the Rank API
+
+
+
