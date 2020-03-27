@@ -8,7 +8,7 @@ The iOS Speech SDK is available natively, or with the Xamarin.iOS and the .NET S
 
 https://aka.ms/csspeech/iosbinary
 
-# [Xamarin.iOS](#tab/xamarin)
+# [Xamarin.iOS](#tab/ios-xamarin)
 
 For more information, see <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 

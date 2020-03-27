@@ -8,7 +8,7 @@ ms.author: dapine
 
 The macOS Speech SDK is available natively, or with the Xamarin.Mac and the .NET Standard SDK.
 
-# [Xcode](#tab/macos-xcode)
+# [Xcode](#tab/mac-xcode)
 
 <div class="icon is-large">
     <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg">
@@ -16,7 +16,7 @@ The macOS Speech SDK is available natively, or with the Xamarin.Mac and the .NET
 
 https://aka.ms/csspeech/macosbinary
 
-# [Xamarin.Mac](#tab/xamarin)
+# [Xamarin.Mac](#tab/mac-xamarin)
 
 <div class="icon is-large">
     <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg">

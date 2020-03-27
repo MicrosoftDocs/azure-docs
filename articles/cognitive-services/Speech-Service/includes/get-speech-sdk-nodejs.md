@@ -6,11 +6,17 @@ ms.date: 03/26/2020
 ms.author: dapine
 ---
 
-The JavaScript Speech SDK is available as an npm package, see <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk <span class="docon docon-navigate-external x-hidden-focus"></span></a> and it's companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">Microsoft/cognitive-services-speech-sdk-js <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-<div class="icon is-large">
-    <img alt="Node.js" src="https://docs.microsoft.com/media/logos/logo_nodejs.svg">
-</div>
+:::row:::
+    :::column span="3":::
+        The JavaScript Speech SDK is available as an npm package, see <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk <span class="docon docon-navigate-external x-hidden-focus"></span></a> and it's companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">Microsoft/cognitive-services-speech-sdk-js <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+    :::column-end:::
+    :::column:::
+        <br>
+        <div class="icon is-large">
+            <img alt="Node.js" src="https://docs.microsoft.com/media/logos/logo_nodejs.svg">
+        </div>
+    :::column-end:::
+:::row-end:::
 
 > [!TIP]
 > Although the JavaScript Speech SDK is available as an npm package, thus both Node.js and client web browsers can consume it - consider the various architectural implications each impose.
