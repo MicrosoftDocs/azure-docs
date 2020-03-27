@@ -21,18 +21,18 @@ Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL), certif
 ## Create key vault
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an service that safeguards cryptographic keys and secrets used by cloud applications and services. It is the storage of choice for Azure Spring Cloud certificates.
 
-1. From the Azure portal menu, or from the Home page, select Create a resource.
-1. In the Search box, enter Key Vault.
-1. From the results list, choose Key Vault.
-1. On the Key Vault section, choose Create.
-1. On the Create key vault section provide the following information: 
-* Name: A unique name is required.
-* Subscription: Choose a subscription.
-* Under Resource Group, choose Create new and enter a resource group name.
-* In the Location pull-down menu, choose a location.
+1. From the Azure portal menu, or from the Home page, click **Create a resource**.
+1. In the search box, enter *Key Vault*.
+1. From the results list, choose *Key Vault*.
+1. On the Key Vault section, click **Create**.
+1. On the **Create key vault** section provide the following information: 
+* Name: A unique name
+* Subscription: Choose a subscription
+* Under Resource Group, choose **Create new** and enter a resource group name.
+* In the **Location** pull-down menu, choose a location.
 * Leave the other options to their defaults.
 
-After providing the information above, select Create.
+After providing the information above, click **Create**.
 
 Take note of the two properties listed below:
 * Vault Name: In the example, this is Contoso-Vault2. You will use this name for other steps.
@@ -55,7 +55,26 @@ Upload your certificate to key vault, then import it to Azure Spring Cloud. For 
 
 ## Add a certificate to virtual machine from Key Vault
 
-## Configure server to use the certificate
+## Configure application to use the certificate
+
+Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to key vault to retrieve them. Managed identities for Azure resources overview helps to solve this problem by giving Azure services an automatically managed identity in Azure Active Directory (AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including key vault, without having to display credentials in your code.
+
+In the Azure CLI, to create the identity for this application, run the assign-identity command:
+
+```azurecli
+az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+```
+Replace <YourAppName> with the name of the published app on Azure.
+
+Make a note of the *PrincipalId* when you publish the application to Azure. The output of the command in the step should be in the following format:
+```json
+{
+  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "SystemAssigned"
+}
+```
+The command in this CLI procedure is the equivalent of going to the Azure portal and switching the Identity/System assigned setting to *On* in the web application properties.
 
 ## Add SSL binding 
 In the custom domain table, select **Add ssl binding**.
@@ -66,6 +85,7 @@ In the custom domain table, select **Add ssl binding**.
 * [Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-secure-web-server)
 * [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Use Azure Key Vault with an Azure web app in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-create-vault-azure-web-app)
 * [Import a certificate](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 * [Manage storage account keys with Key Vault and the Azure CLI](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)
