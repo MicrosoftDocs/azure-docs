@@ -31,3 +31,8 @@ To consume the package from your Android Studio project, make the following chan
   ```
 
 The Java SDK is also part of the [Speech Devices SDK](../speech-devices-sdk.md).
+
+### Additional resources
+
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android" target="_blank">Android specific Java quickstart source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre" target="_blank">Java Runtime (JRE) quickstart source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>

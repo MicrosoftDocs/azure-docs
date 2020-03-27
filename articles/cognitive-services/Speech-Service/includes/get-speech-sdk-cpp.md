@@ -39,3 +39,7 @@ To install the C++ Speech SDK from the binaries, download the SDK as a <a href="
   | `lib/x86`              | Native x86 library for linking with your application |
 
   To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
+
+### Additional resources
+
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Windows, Linux, and macOS quickstart C++ source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
