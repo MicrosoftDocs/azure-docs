@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 03/25/2020
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal
@@ -150,8 +150,8 @@ To complete all the database objects like table schemas, indexes and stored proc
    > Triggers (insert or update) in the data enforce data integrity in the target ahead of the data being replicated  from the source. As a result, it's recommended that you disable triggers in all the tables **at the target** during migration, and then re-enable the triggers after migration is complete.
 
     ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
+    SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
+    FROM information_schema.triggers
     ```
 
 ## Register the Microsoft.DataMigration resource provider

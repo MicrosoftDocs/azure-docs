@@ -455,8 +455,8 @@
       - name: Cosmos DB
         href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
         maintainContext: true 
-      - name: Azure SQL Data Warehouse
-        href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+      - name: Azure Synapse Analytics
+        href: /azure/databricks/data/data-sources/azure/synapse-analytics
         maintainContext: true
       - name: Binary file
         href: /azure/databricks/data/data-sources/binary-file
@@ -920,7 +920,13 @@
         maintainContext: true
     - name: Reproduce runs with MLflow projects
       href: /azure/databricks/applications/mlflow/projects
-      maintainContext: true  
+      maintainContext: true
+    - name: Manage the Lifecycle of MLflow Models in MLflow Model Registry
+      href: /azure/databricks/applications/mlflow/model-registry
+      maintainContext: true 
+    - name: MLflow Model Registry example
+      href: /azure/databricks/applications/mlflow/model-registry-example
+      maintainContext: true 
   - name: Graph analysis
     items:
     - name: Graph analysis overview
@@ -1046,6 +1052,9 @@
       - name: Diagnostic logging in Azure Databricks
         href: /azure/databricks/administration-guide/account-settings/azure-diagnostic-logs
         maintainContext: true
+      - name: Monitor usage using tags
+        href: /azure/databricks/administration-guide/account-settings/usage-detail-tags-azure
+        maintainContext: true        
     - name: Manage users and groups
       items:
       - name: Users and groups overview
@@ -1769,16 +1778,16 @@
             href: /azure/databricks/release-notes/runtime/supported
             maintainContext: true
           - name: Databricks Runtime 7.0 (Beta)
-            href: /azure/databricks/release-notes/runtime/7.0.md
+            href: /azure/databricks/release-notes/runtime/7.0
             maintainContext: true
           - name: Databricks Runtime 6.5 (Beta)
-            href: /azure/databricks/release-notes/runtime/6.5.md
+            href: /azure/databricks/release-notes/runtime/6.5
             maintainContext: true
           - name: Databricks Runtime 6.5 ML (Beta)
-            href: /azure/databricks/release-notes/runtime/6.5ml.md
+            href: /azure/databricks/release-notes/runtime/6.5ml
             maintainContext: true
           - name: Databricks Runtime 6.5 Genomics (Beta)
-            href: /azure/databricks/release-notes/runtime/6.5genomics.md
+            href: /azure/databricks/release-notes/runtime/6.5genomics
             maintainContext: true
           - name: Databricks Runtime 6.4
             href: /azure/databricks/release-notes/runtime/6.4

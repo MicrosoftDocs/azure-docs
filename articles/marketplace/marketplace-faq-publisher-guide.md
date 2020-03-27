@@ -1,13 +1,12 @@
 ---
 title: Microsoft Commercial Marketplace FAQ 
 description: Answers to common questions about the Azure Marketplace and Microsoft AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/4/2019
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Microsoft Commercial Marketplace FAQs
