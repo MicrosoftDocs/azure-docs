@@ -7,7 +7,7 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/31/2020
 tags: connectors
 ---
 
@@ -57,7 +57,7 @@ If you don't already have an MQ connection when you add an MQ action, you're pro
 
    * To use Secure Sockets Layer (SSL), select **Enable SSL?**.
 
-     The MQ connector supports only server authentication, not client authentication. This limitation means that the connector doesn't send certificates and only validates the server certificate. For more information, see [Connection and authentication problems](#connection-problems).
+     The MQ connector currently supports only server authentication, not client authentication. For more information, see [Connection and authentication problems](#connection-problems).
 
 1. In the **gateway** section, follow these steps:
 
@@ -73,15 +73,22 @@ If you don't already have an MQ connection when you add an MQ action, you're pro
 
 When your logic app tries connecting to your on-premises MQ server, you might get this error:
 
-`"MQ: Could not Connect the Queue Manager 'EBNGWT': The Server was expecting an SSL connection."`
+`"MQ: Could not Connect the Queue Manager '<queue-manager-name>': The Server was expecting an SSL connection."`
 
-* If the certificate from the MQ server isn't from a trusted certificate authority, install a self-signed certificate in the **Trusted Root Certification Authorities** store on the local computer where the on-premises data gateway service is running. 
+* If you're using the MQ connector directly in Azure, the MQ server needs to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-  The Windows OS has two certificate stores, **Certificates - Current User** and **Certificates - Local Computer**. Make sure that you add the certificate to the **Certificates - Current User** store for the user account that's running the on-premises data gateway service.
+* If you're using the on-premises data gateway, you can use a self-signed certificate, preferably issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-  To install the certificate, you can use Windows Certification Manager (certmgr.msc). On the local computer, from the start menu, find and select **Manage user certificates**.
+  To install the server's self-signed certificate, you can use the **Windows Certification Manager** (certmgr.msc) tool. For this scenario, on your local computer where the on-premises data gateway service is running, you need to install the certificate in your **Local Computer** certificates store at the **Trusted Root Certification Authorities** level.
 
-* The MQ server requires that you define the cipher specification to use with SSL. However, SsLStream in .NET doesn't permit you to specify the order for cipher specifications. To work around this limitation, you can change your MQ server configuration to match the first cipher specification in the suite that the connector sends in the SSL negotiation.
+  1. On the computer where the on-premises-data gateway service is running, open the start menu, find and select **Manage user certificates**.
+
+  1. After the Windows Certification Manager tool opens, go to the **Certificates - Local Computer** >  **Trusted Root Certification Authorities** folder, and install the certificate.
+
+     > [!IMPORTANT]
+     > Make sure that you install certificate in the **Certificates - Local Computer** > **Trusted Root Certification Authorities** store.
+
+* The MQ server requires that you define the cipher specification that you want to use for SSL connections. However, SsLStream in .NET doesn't permit you to specify the order for cipher specifications. To work around this limitation, you can change your MQ server configuration to match the first cipher specification in the suite that the connector sends in the SSL negotiation.
 
   When you try the connection, the MQ server logs an event message that indicates the connection failed because the other end used the incorrect cipher specification. The event message contains the cipher specification that appears first in the list. Update the cipher specification in the channel configuration to match the cipher specification in the event message.
 
