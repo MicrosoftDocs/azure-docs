@@ -92,7 +92,7 @@ To list all role assignments at a subscription scope, use [az role assignment li
 az role assignment list --subscription <subscription_name_or_id>
 ```
 
-Examaple:
+Example:
 
 ```azurecli-interactive
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
