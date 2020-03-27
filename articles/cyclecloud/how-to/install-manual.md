@@ -104,7 +104,10 @@ Once the installer has finished running, you will be provided a link to complete
 
 The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend [configuring SSL](ssl-configuration.md) for all installations.
 
-Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. Anyone with access to the CycleCloud group will gain access to nonencrypted data. We recommend that non-admin users not be added to this group.
+Do not install CycleCloud on a shared drive, or any drive in which non-admin users have access. Anyone with access to the CycleCloud group will gain access to non-encrypted data. We recommend that non-admin users not be added to this group.
+
+> [!NOTE]
+> The default CycleCloud configuration may be customized for specific environments using settings in the $CS_HOME/config/cycle_server.properties file.
 
 ## Configuration
 
