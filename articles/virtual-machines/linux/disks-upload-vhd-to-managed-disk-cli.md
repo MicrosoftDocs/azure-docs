@@ -12,11 +12,7 @@ ms.subservice: disks
 
 # Upload a VHD to Azure using Azure CLI
 
-This article explains how to upload a VHD from your local machine to an Azure managed disk. Previously, you had to follow an involved process that included staging your data in a storage account and managing that storage account. Now, all you need to do is create an empty managed disk and upload a VHD directly to it. This simplifies uploading on-premises VMs to Azure and enables you to upload a VHD up to 32 TiB directly into a large managed disk or easily copy your managed disks across regions.
-
-If you are providing a backup solution for IaaS VMs in Azure, we recommend using direct upload to restore customer backups to managed disks. If you are uploading a VHD from a machine external to Azure, speeds will depend on your local bandwidth. If you are using an Azure VM, then your bandwidth will be the same as standard HDDs.
-
-Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra disks.
+[!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 > [!NOTE]
 > If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](disks-use-storage-explorer-managed-disks.md)
@@ -25,7 +21,6 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
-- A .vhd file, stored locally
 - If you intend to upload a VHD from on-premises: A fixed size VHD that [has been prepared for Azure](../windows/prepare-for-upload-vhd-image.md), stored locally.
 - Or, a managed disk in Azure, if you intend to perform a copy action.
 
