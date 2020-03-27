@@ -6,7 +6,7 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: quickstart
 ms.custom: mvc,subject-armqs
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: cynthn
 
 ---
@@ -41,6 +41,8 @@ These resources are defined in the template:
 - [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
 - [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
 
+#### Define a scale set
+
 The highlighted portion is the scale set resource definition. To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
@@ -56,7 +58,9 @@ The highlighted portion is the scale set resource definition. To create a scale 
 | osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
 | osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
 
-To customize a scale set template, you can change the VM size or initial capacity, or use a different platform or a custom image.
+To customize a scale set template, you can change the VM size or initial capacity. Another option is to use a different platform or a custom image.
+
+#### Add a sample application
 
 To test your scale set, install a basic web application. When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
 
@@ -90,8 +94,7 @@ az group deployment create \
 
 Answer the prompts to provide a scale set name, instance count, and admin credentials for the VM instances. It takes a few minutes for the scale set and supporting resources to be created.
 
-
-## Validate the deployment
+## Test the deployment
 
 To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip) as follows:
 
@@ -105,16 +108,16 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 ![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
-
 ## Clean up resources
+
 When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## Next steps
+
 In this quickstart, you created a Linux scale set with an Azure template and used the Custom Script Extension to install a basic Python web server on the VM instances. To learn more, continue to the tutorial for how to create and manage Azure virtual machine scale sets.
 
 > [!div class="nextstepaction"]
