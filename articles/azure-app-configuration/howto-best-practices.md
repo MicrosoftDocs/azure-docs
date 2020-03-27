@@ -81,7 +81,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 ## Importing configuration data into App Configuration
 
-App Configuration offers the option to bulk [import](https://aka.ms/azconfig-importexport1) your configuration settings from your current configuration files using either the Azure Portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](https://aka.ms/azconfig-gha2) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
+App Configuration offers the option to bulk [import](https://aka.ms/azconfig-importexport1) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](https://aka.ms/azconfig-gha2) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
 
 ## Next steps
 
