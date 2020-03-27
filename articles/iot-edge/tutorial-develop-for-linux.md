@@ -85,6 +85,7 @@ Use the Docker documentation to install on your development machine:
 * [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
 
 * Read [About Docker CE](https://docs.docker.com/install/) for installation information on several Linux platforms.
+  * For Windows Subsystem for Linux (WSL) users, install Docker Desktop for Windows or install [Docker Desktop WSL 2 backend](https://docs.docker.com/docker-for-windows/wsl-tech-preview/), which is available in preview.
 
 ## Set up VS Code and tools
 
