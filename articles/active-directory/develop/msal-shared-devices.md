@@ -1,9 +1,10 @@
 ---
-title: Shared Device Mode | Azure
-description: Learn about shared device mode, which allows Firstline Workers to share a device 
+title: Shared device mode overview
+titleSuffix: Microsoft identity platform
+description: Learn about shared device mode to enable device sharing for your Firstline Workers.
 services: active-directory
 documentationcenter: dev-center-name
-author: mmacy
+author: brandwe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,65 +12,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/24/2020
+ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviwer: brandwe
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev
 ---
 
-# Shared Device Mode Overview
+# Overview of Shared Device Mode
 
+Shared Device Mode is a feature of Azure Active Directory that allows you to build applications that support Firstline Workers and enable Shared Device Mode on the devices deployed to them.
 
 > [!NOTE]
 > This feature is in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## What Are Firstline Workers?
+## What are Firstline Workers?
 
-Firstline Workers (FLW) are retail employees, maintenance or field agents, medical personal — all categories of users who don’t sit in front of a PC or use a corporate email for collaboration. They represent the next billion or more users for your application. Microsoft provides features to enable your application to target these companies and their users.
+Firstline Workers are retail employees, maintenance and field agents, medical personnel, and other users that don't sit in front of a computer or use corporate email for collaboration. Microsoft provides features to enable your application to be used by companies that employ Firstline Workers.
 
-Applying digital transformation to FLW workflows represent unique challenges vs. Information Workers because of high turnover, diverse demographics, and low familiarity with core productivity tools. To empower FLWs, organizations are adopting different strategies. Some organizations are adopting a BYOD strategy (employees use business apps on their personal phone) while others will provide their employees with shared devices such as iPads or Android tablets. 
+Applying digital transformation to Firstline Worker workflows presents challenges not usually presented by typical information workers. Such challenges can include high turnover rate and less familiarity with an organization's core productivity tools. To empower Firstline Workers, organizations are adopting different strategies. Some are adopting a bring-your-own-device (BYOD) strategy in which their employees use business apps on their personal phone, while others provide their employees with shared devices like iPads or Android tablets.
 
-Unfortunately, mobile devices running iOS or Android were designed for single users. As a result, most applications optimize their experience for single users as well. Part of this optimized experience means enabling single sign-on across applications and keeping users signed in on their device. When a user removes an account from an app, applications typically do not consider this a security related event. Many even continue to keep those credentials around for quick sign-in if the user wishes to sign in again. You may have even experienced times when you deleted an application on your mobile device and when you re-installed it discovered you were still signed in!
+Because mobile devices running iOS or Android were designed for single users, most applications optimize their experience for use by a single user. Part of this optimized experience means enabling single sign-on across applications and keeping users signed in on their device. When a user removes their account from an application, the app typically doesn't consider it a security-related event. Many apps even keep a user's credentials around for quick sign-in. You may even have experienced this yourself when you've deleted an application from your mobile device and then reinstalled it, only to discover you're still signed in.
 
-To allow customers to use these devices as part of a pool shared by employees, developers need to enable the exact opposite experience. Employees need to be able to pick a device from the pool, perform a single gesture to “make it theirs” for the duration of their shift and then perform another gesture at the end of their shift. When they do this, they should be signed out globally on the device with all their company and personal information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of the employee’s shift and/or after a period of inactivity.
+To allow an organization's employees to use its apps across a pool of devices shared by those employees, developers need to enable the opposite experience. Employees need to be able to pick a device from the pool, perform a single gesture to "make it theirs" for the duration of their shift, and then perform another gesture at the end of their shift. When they do so, they should be signed out globally on the device with all their company and personal information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of the employee's shift and/or after a period of inactivity.
 
-Azure Active Directory now supports these scenarios through a new feature called Shared Device Mode.
+Azure Active Directory supports these scenarios with a feature called Shared Device Mode.
 
 ## What Is Shared Device Mode?
 
-Shared Device Mode is a feature of Azure Active Directory that allows for the following:
+As mentioned previously, Shared Device Mode is a feature of Azure Active Directory that enables you to:
 
-* Build Applications So That They Can Support Firstline Workers
-* Deploy Devices To Firstline Workers and Turn On Shared Device Mode
+* Build applications that support Firstline Workers
+* Deploy devices to Firstline Workers and turn on Shared Device Mode
 
+### Build applications that support Firstline Workers
 
-### Build Applications So That They Can Support Firstline Worker
+You can support Firstline Workers in your applications by using the Microsoft Authentication Library (MSAL) and [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) to enable a device state called *Shared Device Mode*. When a device is in Shared Device Mode, Microsoft provides your application with information to allow it to modify its behavior based on the state of the user on the device, protecting user data.
 
-We provide the ability to support Firstline Workers through our Microsoft Authentication Library (MSAL) and [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) to provide a new device state called "Shared Device Mode". When a device is in shared device mode, Microsoft will provide your applications with information that will allow it to modify its behavior and protect user data depending on the state of the user on the device. 
+Supported features are:
 
-These features in detail are:
-
-* **Sign in a user device wide** through any supported application.
-* **Sign out a user device wide** through any supported application.
-* **Query the state of the device** to determine if your application is on a device that is in Shared Device mode. 
+* **Sign in a user device-wide** through any supported application.
+* **Sign out a user device-wide** through any supported application.
+* **Query the state of the device** to determine if your application is on a device that is in Shared Device mode.
 * **Query the device state of the user** on the device to determine if anything has changed since the last time your application was used.
 
-Supporting Shared Device mode should be considered a security upgrade for your application as well as a feature upgrade. **By supporting Shared Device mode, your application is telling customers it can be used in highly regulated environments such as Healthcare and Finance.** Your users will be depending on you to ensure their data does not leak to another user. We will provide helpful signals to indicate to your application when a change has occurred you need to manage. However, you are responsible for checking on the state of the user on the device every time your app is used and clearing the previous user data. This includes if it is reloaded from the background in multi-tasking. On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We highly recommend if your company has a security review process to use it after updating your app to support Shared Device mode.
+Supporting Shared Device Mode should be considered both a security enhancement and feature upgrade for your application, and can help increase its adoption in highly regulated environments like healthcare and finance.
 
-Detailed walkthroughs for how to modify your application to support Shared Device Mode for each supported platform is provided in Next Steps below.
+Your users depend on you to ensure their data isn't leaked to another user. Share Device Mode provides helpful signals to indicate to your application that a change you should manage has occurred. Your application is responsible for checking the state of the user on the device every time the app is used, clearing the previous user's data. This includes if it is reloaded from the background in multi-tasking. On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We recommend you always perform a thorough security review process after adding Shared Device Mode capability to your app.
 
-### Deploy Devices To Firstline Worker Customers and Turn On Shared Device Mode
+For details on how to modify your applications to support Shared Device Mode, see the [Next Steps](#next-steps) section at the end of this article.
 
-Once your applications support Shared Device Mode, along with all the data and security changes, you can advertise your applications as being usable for Firstline Workers. 
+### Deploy devices To Firstline Workers and turn on Shared Device Mode
 
-Device Administrators in a company are able to deploy devices and your applications to their stores and workplaces through an MDM like Intune. Part of this provisioning process will be marking the device as a "Shared Device". They configure this Shared Device mode by deploying the [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) and setting Shared Device mode through configuration parameters. Once this is done, all the applications that can support Shared Device Mode will use the Microsoft Authenticator application to manage its user state and provide security features for the device and the organization. 
+Once your applications support Shared Device Mode and include the required data and security changes, you can advertise them as being usable by Firstline Workers.
+
+An organization's device administrators are able to deploy their devices and your applications to their stores and workplaces through a mobile device management (MDM) solution like Microsoft Intune. Part of the provisioning process is marking the device as a *Shared Device*. Administrators configure Shared Device Mode by deploying the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) and setting Shared Device Mode through configuration parameters. After performing these steps, all applications that support Shared Device Mode will use the Microsoft Authenticator application to manage its user state and provide security features for the device and organization.
 
 ## Next Steps
 
-We support iOS and Android platforms for Shared Device Mode. Review the documentation below for your particular platform and begin enabling your applications to target Fristline Workers.
+We support iOS and Android platforms for Shared Device Mode. Review the documentation below for your platform to begin supporting Firstline Workers in your applications.
 
 * [Supporting Shared Device Mode for iOS](/msal-ios-shared-devices.md)
 * [Supporting Shared Device Mode for Android](msal-android-shared-devices.md)
-
