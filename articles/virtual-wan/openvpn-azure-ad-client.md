@@ -34,7 +34,7 @@ Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
-When working with a certificate-based profile, make sure that the appropriate certificates are installed on the client computer. For more information about certificates, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
+When working with a certificate-based profile, make sure that the appropriate certificates are installed on the client computer. For more information about certificates, see [Install client certificates](certificates-point-to-site.md).
 
   ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
 
