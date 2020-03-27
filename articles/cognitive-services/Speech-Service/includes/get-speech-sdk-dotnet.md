@@ -32,6 +32,6 @@ To install the .NET Speech SDK from the **Package Manager** run the following co
 Install-Package Microsoft.CognitiveServices.Speech
 ```
 
-### Additional resources
+#### Additional resources
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET Core, .NET Framework, Unity, UWP, and Xamarin quickstart C# source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>

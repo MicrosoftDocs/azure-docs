@@ -69,7 +69,7 @@ end
 
 ---
 
-### Additional resources
+#### Additional resources
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">iOS Speech SDK quickstart Objective-C source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">iOS Speech SDK quickstart Swift source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>

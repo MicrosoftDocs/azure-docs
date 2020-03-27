@@ -28,6 +28,6 @@ pip install azure-cognitiveservices-speech
 > python3 -m pip install --upgrade pip
 > ```
 
-### Additional resources
+#### Additional resources
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python" target="_blank">Python Speech SDK quickstart source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
