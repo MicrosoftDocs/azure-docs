@@ -8,7 +8,7 @@
     - name: Compare the Bing Search APIs
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: REST API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
     - name: REST API
