@@ -148,8 +148,7 @@ The following example re-imagines the *Planet* twin type from the earlier DTDL e
             "@type": "Relationship",
             "name": "satellites",
             "target": "urn:contosocom:example:Moon:1"
-        }
-        ,
+        },
         {
             "@type": "Component",
             "name": "deepestCrater",

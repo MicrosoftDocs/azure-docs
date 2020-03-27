@@ -49,7 +49,7 @@ Select the *Event Grid trigger* and press "Create".
 
 ## Write an Azure function with an Event Grid trigger
 
-The following code creates a short Azure function that you can use to for this how-to: 
+The following code creates a short Azure function that you can use to log events: 
 
 ```csharp
 // Default URL for triggering Event Grid function in the local environment
