@@ -21,7 +21,7 @@ A database created with a Spark job will become visible with that same name to a
 
 If there are SQL pools in the workspace that have metadata synchronization enabled or if a new SQL pool is created with the metadata synchronization enabled, these Spark created databases are automatically mapped into special schemas in the SQL pool database. 
 
-Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark-generated database are exposed as external tables in the corresponding special schema.
+Each schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark-generated database are exposed as external tables in the corresponding special schema.
 
 The Spark default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`, and in any of the SQL pool databases with metadata synchronization turned on as the schema `$default`.
 
@@ -74,7 +74,7 @@ First create a new Spark database named `mytestdb` using a Spark cluster you hav
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-This creates the Spark database. After a short delay, you can see the database from SQL on-demand. For example, run the following statement from SQL on-demand.
+After a short delay, you can see the database from SQL on-demand. For example, run the following statement from SQL on-demand.
 
 ```sql
 SELECT * FROM sys.databases;
