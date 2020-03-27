@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Configure Data-in Replication in Azure Database for MariaDB
@@ -112,7 +112,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 5. Get the current binary log file name and offset.
 
    To determine the current binary log file name and offset, run the command [`show master status`](https://mariadb.com/kb/en/library/show-master-status/).
-	
+    
    ```sql
    show master status;
    ```
@@ -178,7 +178,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
    - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
-   - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in an empty string.*
+   - master_ssl_ca: CA certificate's context. If you're not using SSL, pass in an empty string.*
     
     
     *We recommend passing in the master_ssl_ca parameter as a variable. For more information, see the following examples.
@@ -191,7 +191,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 
@@ -219,7 +219,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 3. Check replication status.
 
    Call the [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) command on the replica server to view the replication status.
-	
+    
    ```sql
    show slave status;
    ```
@@ -227,11 +227,11 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    If `Slave_IO_Running` and `Slave_SQL_Running` are in the state `yes`, and the value of `Seconds_Behind_Master` is `0`, replication is working. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't `0`, then the replica is processing updates.
 
 4. Update the corresponding server variables to make data-in replication safer (required only for replication without GTID).
-	
-	Because of a native replication limitation in MariaDB, you must set  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
+    
+    Because of a native replication limitation in MariaDB, you must set  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
 
     Check your slave server's `sync_master_info` and `sync_relay_log_info` variables to make sure the data-in replication is stable, and set the variables to `1`.
-	
+    
 ## Other stored procedures
 
 ### Stop replication
@@ -253,7 +253,7 @@ CALL mysql.az_replication_remove_master;
 ### Skip the replication error
 
 To skip a replication error and allow replication, use the following stored procedure:
-	
+    
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```

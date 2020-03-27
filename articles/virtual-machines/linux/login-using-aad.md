@@ -53,6 +53,8 @@ The following Azure regions are currently supported during the preview of this f
 
 >[!IMPORTANT]
 > To use this preview feature, only deploy a supported Linux distro and in a supported Azure region. The feature is not supported in Azure Government or sovereign clouds.
+>
+> It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
@@ -62,6 +64,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 To enable Azure AD authentication for your Linux VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
 
 * https:\//login.microsoftonline.com
+* https:\//login.windows.net
 * https:\//device.login.microsoftonline.com
 * https:\//pas.windows.net
 * https:\//management.azure.com
@@ -143,7 +146,7 @@ az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o 
 
 Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Replace the example account with your own. Account addresses should be entered in all lowercase. Replace the example IP address with the public IP address of your VM from the previous command.
 
-```azurecli-interactive
+```console
 ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 ```
 
@@ -164,6 +167,7 @@ The first time that you run sudo, you will be asked to authenticate a second tim
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
+
 With this line:
 
 ```bash
@@ -179,7 +183,7 @@ Some common errors when you try to SSH with Azure AD credentials include no RBAC
 
 If you see the following error on your SSH prompt, verify that you have configured RBAC policies for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
 
-```bash
+```output
 login as: azureuser@contoso.onmicrosoft.com
 Using keyboard-interactive authentication.
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJX327AXD to authenticate. Press ENTER when ready.

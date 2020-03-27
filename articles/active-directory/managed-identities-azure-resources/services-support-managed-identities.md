@@ -27,8 +27,8 @@ The following Azure services support managed identities for Azure resources:
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Preview | Preview | Preview | 
-| User assigned | ![Available][check] | Preview | Preview | Preview |
+| System assigned | ![Available][check] | ![Available][check] | Preview | Preview | 
+| User assigned | ![Available][check] | ![Available][check] | Preview | Preview |
 
 Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
 
@@ -58,7 +58,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
-| User assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | ![Available][check] | ![Available][check]  | ![Available][check]  | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure App Service (in regions where available):
 
@@ -84,7 +84,7 @@ Refer to the following list to use a managed identity with [Azure Blueprints](..
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
-| User assigned | ![Available][check] | Not available | Not available | Not available |
+| User assigned | ![Available][check] | ![Available][check]  | ![Available][check]  | ![Available][check]  |
 
 Refer to the following list to configure managed identity for Azure Functions (in regions where available):
 

@@ -32,9 +32,10 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
+
 ## Create virtual machine
 
 To create a virtual machine (VM), use the [az vm create](/cli/azure/vm) command. 
@@ -53,7 +54,7 @@ az vm create \
 
 After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/{snip}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -70,7 +71,7 @@ After you create the VM, Azure CLI displays information similar to the following
 
 To create an SSH session with the VM, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -87,7 +88,7 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 
     The output is similar to the following:
 
-    ```bash
+    ```output
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
@@ -145,6 +146,7 @@ Before you connect, you need to set two environment variables: *ORACLE_HOME* and
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
+
 You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would save the environment variables for future sign-ins. Confirm the following statements have been added to the `~/.bashrc` file using editor of your choice.
 
 ```bash
@@ -178,7 +180,7 @@ For a GUI management tool that you can use to explore the database, set up Oracl
 
     The output is similar to the following:
 
-    ```bash
+    ```output
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
@@ -199,6 +201,7 @@ You need to type `quit` to end the sqlplus session and type `exit` to logout of 
 The Oracle database by default doesn't automatically start when you restart the VM. To set up the Oracle database to start automatically, first sign in as root. Then, create and update some system files.
 
 1. Sign on as root
+
     ```bash
     sudo su -
     ```
@@ -211,7 +214,7 @@ The Oracle database by default doesn't automatically start when you restart the 
 
 3.  Create a file named `/etc/init.d/dbora` and paste the following contents:
 
-    ```
+    ```bash
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
@@ -301,7 +304,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
 
 4.  Connect EM Express from your browser. Make sure your browser is compatible with EM Express (Flash install is required): 
 
-    ```
+    ```https
     https://<VM ip address or hostname>:5502/em
     ```
 
@@ -313,7 +316,7 @@ You can log in by using the **SYS** account, and check the **as sysdba** checkbo
 
 Once you have finished exploring your first Oracle database on Azure and the VM is no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

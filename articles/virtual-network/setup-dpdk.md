@@ -36,13 +36,13 @@ DPDK can run on Azure virtual machines that are supporting multiple operating sy
 
 The following distributions from the Azure Gallery are supported:
 
-| Linux OS     | Kernel version        |
-|--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-azure     |
-| Ubuntu 18.04 | 4.15.0-1015-azure     |
-| SLES 15      | 4.12.14-5.5-azure     |
-| RHEL 7.5     | 3.10.0-862.9.1.el7    |
-| CentOS 7.5   | 3.10.0-862.3.3.el7    |
+| Linux OS     | Kernel version               | DPDK-18.11   | DPDK-19.11    |
+|--------------|---------------------------   |--------------|-------------- |
+| Ubuntu 16.04 | 4.15.0-1014-azure+           | Pass         | Pass          |
+| Ubuntu 18.04 | 4.15.0-1014-azure+           | Pass         | Pass          |
+| SUSE15SP1    | 4.12.14-8.27-azure+          | Pass         | Pass          |
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | Pass         | Pass          |
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | Pass         | Pass          |
 
 **Custom kernel support**
 
@@ -119,8 +119,7 @@ After restarting, run the following commands once:
    * Configure hugepage by running the following command, once for all numanodes:
 
      ```bash
-     echo 1024 | sudo tee
-     /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+     echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
    * Create a directory for mounting with `mkdir /mnt/huge`.

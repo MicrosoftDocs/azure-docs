@@ -135,6 +135,9 @@
     - name: Select a disk type
       href: ../virtual-machines/windows/disks-types.md
       maintainContext: true
+    - name: Encryption
+      href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+      maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true

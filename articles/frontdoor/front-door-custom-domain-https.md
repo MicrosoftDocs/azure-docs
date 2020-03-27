@@ -80,8 +80,8 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
 
-> [!IMPORTANT]
-> You must upload the certificate in PFX format **without** password protection.
+> [!NOTE]
+> For your own SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms.
 
 #### Register Azure Front Door
 
@@ -256,8 +256,8 @@ The following table shows the operation progress that occurs when you disable HT
     If you have a CNAME entry for your custom domain that points directly to your endpoint hostname (and you are not using the afdverify subdomain name), you won't receive a domain verification email. Validation occurs automatically. Otherwise, if you don't have a CNAME entry and you haven't received an email within 24 hours, contact Microsoft support.
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
-	
-	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
+    
+    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
 
 5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 

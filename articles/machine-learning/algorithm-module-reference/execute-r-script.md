@@ -93,10 +93,10 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-After the pipeline is submitted successfully, you can preview the image in the right panel of the module
+After the pipeline run is finished, you can preview the image in the right panel of the module
 
-[!div class="mx-imgBorder"]
-![Uploaded-image](media/module/upload-image-in-r-script.png)
+> [!div class="mx-imgBorder"]
+> ![Uploaded-image](media/module/upload-image-in-r-script.png)
 
 ## How to configure Execute R Script
 
@@ -154,7 +154,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
 1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Results
 
