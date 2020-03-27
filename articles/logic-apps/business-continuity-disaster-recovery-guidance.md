@@ -326,10 +326,9 @@ You can set up logging for your logic app runs and send the resulting diagnostic
 
 * If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces.
 
-* If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:
+* If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:<p>
 
   * [Azure Blob Storage disaster recovery and account failover](../storage/common/storage-disaster-recovery-guidance.md)
-
   * [Azure Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md)
 
 ## Next steps
