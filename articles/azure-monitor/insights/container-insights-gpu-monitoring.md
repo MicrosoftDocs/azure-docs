@@ -2,7 +2,7 @@
 title: Configure GPU monitoring with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure monitoring Kubernetes clusters with NVIDIA and AMD GPU enabled nodes with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/27/2020
 ---
 
 # Configure GPU monitoring with Azure Monitor for containers
@@ -31,7 +31,7 @@ Azure Monitor for containers automatically starts monitoring GPU usage on nodes,
 
 ## GPU performance charts 
 
-Azure Monitor for containers includes pre-configured charts for the metrics listed earlier in the table as a GPU workbook for every cluster. You can find the GPU workbook directly from an AKS cluster by selecting **Workbooks** from the left-hand pane, and from the **View Workbooks** drop-down list in the Insight.
+Azure Monitor for containers includes pre-configured charts for the metrics listed earlier in the table as a GPU workbook for every cluster. You can find the GPU workbook **Node GPU** directly from an AKS cluster by selecting **Workbooks** from the left-hand pane, and from the **View Workbooks** drop-down list in the Insight.
 
 ## Next steps
 
