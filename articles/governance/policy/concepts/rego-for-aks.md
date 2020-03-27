@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service.
-ms.date: 03/23/2020
+ms.date: 03/27/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Azure Kubernetes Service
@@ -18,6 +18,10 @@ clusters from one place.
 > policies are in the **Kubernetes** category. The **EnforceRegoPolicy** effect and related
 > **Kubernetes Service** category policies are being _deprecated_. Instead, use the updated
 > [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+
+> [!WARNING]
+> This feature isn't yet available in all regions. For a status on the rollout, see
+> [AKS Issues - Breaking Change for Policy Add-on](https://github.com/Azure/AKS/issues/1529).
 
 ## Overview
 
