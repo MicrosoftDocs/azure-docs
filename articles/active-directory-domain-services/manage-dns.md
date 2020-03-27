@@ -90,7 +90,7 @@ To create a conditional forwarder in your Azure AD DS managed domain, complete t
 
 1. Check the box for **Create this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
 
-    ![DNS Console - administer domain](./media/manage-dns/dns-manager.png)
+    ![DNS Console - administer domain](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
     > If the conditional forwarder is stored in the forest instead of the domain, the conditional forwarder fails.
