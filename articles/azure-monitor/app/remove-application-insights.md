@@ -16,7 +16,7 @@ To remove Application Insights, you'll need to remove the NuGet packages and ref
 
 You can remove ASP.NET NuGet packages by using the Package Management Console or Manage NuGet Solution in Visual Studio. The following sections will show you how to remove NuGet Packages and what was automatically added in your project. Be sure to confirm the files added and areas with in your own code in which you made calls to the API are removed.
 
-### .ASP.NET: What is created when you add Application Insights
+### ASP.NET: What is created when you add Application Insights
 
 When you add Application Insights Telemetry to a Visual Studio ASP.NET template project, it adds the following files:
 
@@ -109,7 +109,7 @@ The following pieces of code are added:
     
     ![Enter command in console](./media/remove-application-insights/package-management-console.png)
 
-### ASP.NET: Using the Visual Studio NuGet UI
+### ASP.NET: Using the Visual Studio NuGet UI
 
 1. In the *Solution Explore* on the right, right click on **Solution** and select **Manage NuGet Packages for Solution**
     You'll then see a screen that allows you to edit all the NuGet packages that are part of the project.
@@ -186,10 +186,11 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
             }
     ```
 
-### ASP.NET Core: Using the Package Management Console
+### ASP.NET Core: Using the Package Management Console
 
-1. To open the Package Management Console, in the top menu select Tools > NuGet Package Manager > Package Manager Console.  
-2. Enter the following command: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. To open the Package Management Console, in the top menu select Tools > NuGet Package Manager > Package Manager Console. 
+
+1. Enter the following command: ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
     After entering the command, the Application Insights package and all of its dependencies will be uninstalled from the project
 
 ### ASP.NET Core: Using the Visual Studio NuGet UI
@@ -206,4 +207,4 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ## Next Steps
 
-- [Azure Monitor](www.docs.microsoft.com/azure/azure-monitor/overview)
+- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
