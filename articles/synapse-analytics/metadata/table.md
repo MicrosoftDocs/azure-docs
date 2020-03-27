@@ -82,7 +82,6 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `array`     |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
 | `map`       |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
 | `struct`    |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_CP1_CI_AS_UTF8` |
-|---|---|---|
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
