@@ -32,19 +32,19 @@ Network planners can help ease the bottlenecks and alleviate the network congest
 
 ## Sharing our best practices - Azure network is designed for elasticity and high-availability
 
-Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operates one of the worlds' largest network. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
+Azure is designed to withstand sudden changes in the utilization of the resources and can greatly help at the time of crisis like this. Also, Microsoft maintains and operates one of the worlds' largest networks. Microsoft's network has been designed for high availability that can withstand different types of failure: from a single network element failure to failure of an entire region.
 
-Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic. Microsoft network is used to service from Teams delay sensitive multimedia traffic to CDN traffic; from real-time big data analysis traffic to Azure storage traffic; from Xbox traffic to Bing traffic. To provide optimal performance for different types of traffic, Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the traffic origination.
+The Microsoft network is designed to meet the requirements and provide optimal performance for different types of network traffic including delay sensitive multimedia traffic for Skype and Teams, CDN, real-time big data analysis, Azure storage, Bing, and Xbox. To provide optimal performance for different types of traffic, the Microsoft network attracts all the traffic that is destined to- or wanting to transit through- its resources as close as possible to the origin of the traffic.
 
 >[!NOTE] 
->Using any of features in Azure described below leverages the traffic attraction edge behavior of the Microsoft world-wide network; thereby, off loading traffic from the critically congested first/last mile networks as soon as possible.
+>Using the Azure networking features described below leverages the traffic attraction behavior of the Microsoft global network to provide a better customer networking experience. The traffic attraction behavior of the Microsoft network helps off loading traffic as soon as possible from the first/last mile networks that may experience congestion during periods of peak utilization.
 >
 
 ## Enable employees to work remotely
 
-Azure scalable VPN gateway support both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. For more information, see [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770). 
+Azure VPN gateway supports both Point-to-Site (P2S) and Site-to-Site (S2S) VPN connections. Using the Azure VPN gateway you can scale your employee's connections to securely access both your Azure deployed resources and your on-premises resources. For more information, see [How to enable users to work remotely](https://go.microsoft.com/fwlink/?linkid=2123770). 
 
-If you are using SSTP, the number of concurrent connections would be limited to 128. To overcome the 128 connections limitation, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
+If you are using Secure Sockets Tunneling Protocol (SSTP), the number of concurrent connections is limited to 128. To get a higher number of connections, we suggest transitioning to OpenVPN or IKEv2. For more information, see [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
 
 To access your resources deployed in Azure, remote developers could use Azure Bastion solution, instead of VPN connection to get secure shell access (RDP or SSH) without requiring public IPs on the VMs being accessed. For more information, see [Work remotely using Azure Bastion](https://go.microsoft.com/fwlink/?linkid=2123939).
 
@@ -56,9 +56,9 @@ Azure also has a rich set of eco system partners. Our partners Network Virtual A
 
 ## Extend employees' connection to access globally distributed resources
 
-The following Azure services can be leveraged to enable employees connected to Azure to access your globally distributed resources. Your resources could be in any of the Azure regions, on-premises networks across the globe, or even in other public or private clouds. Microsoft support for multi-cloud traffic is discussed later in this article.
+The following Azure services can help enable employees to access your globally distributed resources. Your resources could be in any of the Azure regions, on-premises networks, or even in other public or private clouds. 
 
-- **Azure virtual network peering**: If you deploy your resources in more than one Azure regions and/or if you aggregate the connectivity of remotely working employees using multiple virtual networks, you can establish cross connectivity between the multiple Azure virtual networks using virtual network peering. For more information, see [Virtual network peering][VNet-peer].
+- **Azure virtual network peering**: If you deploy your resources in more than one Azure regions and/or if you aggregate the connectivity of remotely working employees using multiple virtual networks, you can establish connectivity between the multiple Azure virtual networks using virtual network peering. For more information, see [Virtual network peering][VNet-peer].
 
 - **Azure VPN-based solution**: For your remote employees connected to Azure via P2S or S2S VPN, you can enable access to on-premises networks by configuring S2S VPN between your on-premises networks and Azure VPN gateway. For more information, see [Create a Site-to-Site connection][S2S].
 
