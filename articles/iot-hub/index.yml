@@ -13,27 +13,44 @@ metadata:
   ms.date: 03/23/2020
 
 landingContent:
- - title: Getting Started 
+ - title: Getting Started
    linkLists:
-     - linkListType: get-started
+    - linkListType: quickstart
+      links:
+      - text: Create a hub using the Azure portal
+        url: iot-hub-create-through-portal.md
+      - text: Send telemetry from a device to a hub using CLI
+        url: quickstart-send-telemetry-cli.md
+      - text: Control a device connected to a hub
+        url: quickstart-control-device-node.md
+    - linkListType: get-started
+      links:
+      - text: Device management 
+        url: iot-hub-node-node-devicemanagement-get-started.md
+      - text: Configuring devices
+        url: iot-hub-configuration-best-practices.md
+ - title: Using Device Twins 
+   linkLists:
+     - linkListType: how-to-guide
        links:
-       - text: Create a hub using the Azure portal
-         url: iot-hub-create-through-portal.md
-       - text: Send telemetry from a device to a hub using CLI
-         url: quickstart-send-telemetry-cli.md
-       - text: Control a device with your hub
-         url: quickstart-control-device-node.md
+       - text: Working with Device Twins (node)
+         url: iot-hub-node-node-twin-get-started.md
+       - text: Understanding IoT metrics 
+         url: iot-hub-metrics.md
+       - text: Diagnostics Logging
+         url: iot-hub-monitor-resource-health.md
+       - text: Monitor, diagnose, and troubleshoot disconnects with IoT
+         url: iot-hub-troubleshoot-connectivity.md
+
  - title: Scale your solution
    linkLists:
      - linkListType: concept
        links:
          - text: Choosing the right tier
            url: iot-hub-scaling.md
-         - text: Best practices for configuring devices
-           url: iot-hub-configuration-best-practices.md
          - text: Understand quotas and throttling
            url: iot-hub-devguide-quotas-throttling.md
- -   title: Select Protocol
+ -   title: Select your Protocol
      linkLists:
      -  linkListType: concept
         links:
@@ -63,37 +80,31 @@ landingContent:
           url: tutorial-routing-config-message-routing-rm-template.md
         - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
-     -  linkListType: sample
-        links:
-        - text: Azure IoT Samples for C# (.NET)
-          url: /samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net
- - title: Security
+ - title: Learn about IoT Security
    linkLists:
      - linkListType: concept
        links:
-         - text: Understand Azure IoT Hub security
+         - text: Control access to IoT Hub
            url: iot-hub-devguide-security.md
-         - text: Recommendations
+         - text: Security recommendations for IoT deployment
            url: ../iot-fundamentals/security-recommendations.md
-         - text: Security From the ground up
-           url: ../iot-fundamentals/iot-security-ground-up.md
          - text: Security Best practices
            url: ../iot-fundamentals/iot-security-best-practices.md
          - text: Security Architecture
            url: ../iot-fundamentals/iot-security-architecture.md
          - text: Secure your IoT deployment
            url: ../iot-fundamentals/iot-security-deployment.md            
- - title: Security certificates
+ - title: Create and use security certificates
    linkLists:
      - linkListType: concept
        links:
-         - text: Device Authentication using X.509 CA Certs
+         - text: Device Authentication using X.509 CA verts
            url: iot-hub-x509ca-overview.md
          - text: X.509 security with IoT Hub
            url: iot-hub-security-x509-get-started.md
          - text: X.509 CA cert security concepts
            url: iot-hub-x509ca-concept.md
- -   title: Tools
+ -   title: Use IoT Hub Tools
      linkLists:
      -  linkListType: how-to-guide
         links:
