@@ -1,106 +1,67 @@
 ---
-title: Configuration
-description: Configure your Azure credentials to work with Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
-ms.author: adjohnso
+title: Azure Configuration
+description: Prepare your Azure subscription for Azure CycleCloud.
+author: bwatrous
+ms.date: 03/25/2020
+ms.author: bewatrou
 ---
 
-# Configuring Azure Credentials
+# Configure your Azure Subscription
 
-Once Azure CycleCloud has been installed, you will need to add valid Azure credentials to use the software.
+In order to run Azure CycleCloud, you will need a valid Azure Subscription and [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
-To begin, click on **Clusters** in the top menu bar. A notice will appear that you currently do not have a cloud provider set up.
+Generally, Azure Tenant and Subscription creation and configuration decisions are business decisions outside the scope of the Azure CycleCloud documentation.  However, since HPC and big compute applications in general are resource intensive, it is worth considering creating a dedicated subscription to track billing, apply usage limits and isolate resource and API usage. For more information on designing your Azure tenant and subscriptions, see [Azure subscription management](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-![No Accounts Found error](~/images/no_accounts_found.png)
+## Configure a Virtual Network
 
-Click the link to add your credentials.
+You will need to select an existing Azure Virtual Network and subnets or create a new Virtual Network in which to run the CycleCloud VM and the compute clusters that will be managed by CycleCloud.
 
-## Account Information
+If the Virtual Network has not already been created, then you may want to consider starting from the provided [CycleCloud ARM Template Deployment](./install-arm.md). The CycleCloud ARM template creates a new virtual network for CycleCloud and the compute clusters at deployment time.  Alternatively, you can follow these instructions to [create a new Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 
-You will need to configure your Azure account for CycleCloud by generating access credentials, configuring network settings, and enabling certain services. CycleCloud uses the credentials you provide to provision infrastructure.
+Next, if Express Route or VPN are not already configured for your Virtual Network, it is possible to connect to your Virtual Network over the public internet, but it is strongly recommended that you [configure a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-![Create Cloud Provider Account window](~/images/validate-credentials.png)
+## Configure a Subnet and Network Security Group
 
-Enter a descriptive name for your cloud provider setup, such as "My Azure Account". You can choose to have this account be the default used for new clusters by checking the "Set Default" box. From the dropdown, select your Cloud Environment or leave "Azure Public Cloud" as the default. Enter the Tenant ID, Application ID, Application Secret, and Subscription ID (all of which are provided when you create the Service Account in Azure).
+Since CycleCloud generally has different network security requirements and access policies than the compute clusters, it is often good practice to run Azure CycleCloud in a different Azure Subnet from the clusters.
 
-Once you have added the credentials for your Azure account, click **Validate Credentials** to verify the information. If successful, a "Test Succeeded" message will appear.
+The recommended best practice is to use at least two subnets - one for the CycleCloud VM and any other VMs with the same access policies, and additional subnets for the compute clusters. However, keep in mind that for large clusters, the IP range of the subnet may become a limiting factor. So, in general, the CycleCloud subnet should use a small CIDR range and compute subnets should be large.
 
-## Azure Resources
+Follow the instructions here to [create one or more subnets in your Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
 
-Once your account credentials have been validated, you will be able to enter or select the resources to be used with Azure CycleCloud. Using the dropdown menus, choose a **Default Location** for your resources.
+## Network Security Group Settings for the CycleCloud Subnet
 
-Next, select your **Resource Group** and **Storage Account**. If the Storage Account doesn't exist, you can create it here. Finally, enter a **Storage Container**. This will be created if it does not exist within your account. Click **Save** to store the information.
+Configuring your Azure Virtual Network for security is a broad topic, well beyond the scope of this document.
 
-![Select Azure Resources window](~/images/provider-configuration.png)
+CycleCloud and CycleCloud clusters may operate in very locked down environments. See [Running in Locked Down Networks](./running-in-locked-down-network.md) and [Running behind a Proxy](./running-behind-proxy.md) for configuration details.
 
-This information is required to start using CycleCloud, but can be changed at any time via [cluster template](cluster-templates.md).
+However, for less restrictive networks, there are a few general guidelines.  First, CycleCloud GUI users require access to the CycleCloud VM via HTTPS and administrators may require SSH access. Cluster users will generally require SSH access to at least the submission nodes in the compute clusters and potentially other access such as RDP for Windows clusters. The last general rule is to restrict access to the minimum required.
 
-## Requirements
+To create a new Network Security Group for each of the subnets created above, follow the guide to [creating a Network Security Group](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-a-network-security-group).
 
-You will need the following:
+### Inbound Security Rules
 
-- A Microsoft Azure account with an active subscription
-- An [Application Registration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios#web-application-to-web-api) with [Contributor access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) for the Subscription used with CycleCloud
-- A [Network Security Group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) set up to allow CycleCloud to communicate with Azure
-- A [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) for CycleCloud
+> [!IMPORTANT]
+> The following rules assume that your virtual network is configured with Express Route or VPN for private network access.
+> If running over the public internet, then the Source should be changed to your public IP address or corporate IP range.
 
-### Network Security Group Settings
+#### CycleCloud VM Subnet
 
-From your Azure Dashboard, click on **Network Security Groups**. If you don't see the option, click on **All Services** and search for or scroll down to **Network Security Groups**.
+| Name    | Priority | Source            | Service | Protocol | Port Range |
+| ------- | -------- | ----------------- | ------- | -------- | ---------- |
+| SSH     | 100      | VirtualNetwork    | Custom  | TCP      | 22         |
+| HTTPS   | 110      | VirtualNetwork    | Custom  | TCP      | 443        |
+| HTTPS   | 110      | VirtualNetwork    | Custom  | TCP      | 9443       |
 
-1. Click **+ Add**
-2. Give your Network Security Group a unique name. Security groups are managed per region, so we suggest including the region you intend to run in.
-3. Create a new Resource Group with a unique name
-4. Click **Create**
+#### Compute Subnets
 
-In the dashboard, click on the name of the Network Security Group you just created. If you do not see it, click **Refresh**. In the new panel, click on **Inbound Security Rules** and add the following:
+| Name    | Priority | Source | Service  | Protocol | Port Range |
+| ------- | -------- | ----------------- | ------- | -------- | ---------- |
+| SSH     | 100      | VirtualNetwork    | Custom  | TCP      | 22         |
+| RDP     | 110      | VirtualNetwork    | Custom  | TCP      | 3389       |
+| Ganglia | 120      | VirtualNetwork    | Custom  | TCP      | 8652       |
 
-| Name    | Priority | Source | Service | Protocol | Port Range |
-| ------- | -------- | ------ | ------- | -------- | ---------- |
-| SSH     | 100      | Any    | Custom  | Any      | 22         |
-| RDP     | 110      | Any    | Custom  | Any      | 3389       |
-| Ganglia | 120      | Any    | Custom  | Any      | 8652       |
+### Outbound Security Rules
 
-5. For each entry, **Allow** the action
-6. Click **OK** to add the rule
+In general, the CycleCloud VM and the compute clusters expect to be able to access the internet for package installation and Azure REST API calls.
 
-![Azure Inbound Rule screen](~/images/azure_inbound_rule.png)
-
->[!Note]
->Should you wish to start a cluster that includes CycleServer (such as the standard Condor cluster), you may want to include the following rule for port 8443. Please note that this will require SSL configured with a valid domain and certificates.
-
-| Name        | Priority | Source | Service | Protocol | Port Range |
-| ----------- | -------- | ------ | ------- | -------- | ---------- |
-| https_8443  | 150      | Any    | HTTPS   | TCP      | 8443       |
-
-### Creating a Virtual Network
-
-You will need to set up a Virtual Network within Azure to work with CycleCloud. From the main menu, click on **Virtual Network**. If you don't see the option, click on **All Services** and either search for Virtual Networks or scroll down to the **Networking** section.
-
-1. Click **+ Add**
-2. Enter a unique name for your Virtual Network
-3. Create a new Resource Group if you don't have one set up
-4. The other default settings will suffice for this example
-5. Select the Resource Group name you created in the previous step
-6. Click **Create**
-
-![Azure Virtual Network](~/images/azure_virtual_network.png)
-
-Your Virtual Network requires a subnet, and your Network Security Group assigned to it:
-
-- From the dashboard, click on the Virtual Network you just created
-- Under "Settings", click on **Subnets**
-- Click on the default subnet
-- Click on the **Network Security Groups** header
-- Select the group created earlier
-- Click **OK**
-
-### Information Location
-
-Here's a list of what you'll need and where to find it:
-
-- Application ID: Click on Dashboard - Azure Active Directory - App Registrations - the Application ID
-- Application Secret: This is the secret key that you saved when creating your Application Registration
-- Subscription ID: Dashboard - All Services - Subscriptions - Subscription - Subscription ID
-- Tenant ID: This is the Directory ID. It is found under Azure Active Directory - Properties - Directory ID
+If outbound internet access is blocked by security policy, then follow the instructions for [Running in Locked Down Networks](./running-in-locked-down-network.md) and [Running behind a Proxy](./running-behind-proxy.md) for configuration details.
