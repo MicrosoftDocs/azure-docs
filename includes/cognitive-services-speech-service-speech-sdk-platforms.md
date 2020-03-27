@@ -11,7 +11,7 @@ ms.author: dapine
 | C# <sup>1</sup>      | Windows, Linux, macOS, Mono, Xamarin.iOS, Xamarin.Mac, Xamarin.Android, UWP, Unity | [.NET SDK][net-sdk]        |
 | C++                  | Windows, Linux, macOS                                                              | [C++ SDK][cpp-sdk]         |
 | Java <sup>2</sup>    | Android, Windows, Linux, macOS                                                     | [Java SDK][javasdk]        |
-| JavaScript           | Browser, Node.js, Windows, Linux, macOS                                            | [JavaScript SDK][ecmasdk]  |
+| JavaScript           | Browser, Node.js                                                                   | [JavaScript SDK][ecmasdk]  |
 | Objective-C / Swift  | iOS, macOS                                                                         | [Objective-C SDK][obj-sdk] |
 | Python               | Windows, Linux, macOS                                                              | [Python SDK][pyt-sdk]      |
 
