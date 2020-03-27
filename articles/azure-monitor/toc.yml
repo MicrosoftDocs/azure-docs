@@ -704,6 +704,8 @@
         href: insights/container-insights-analyze.md
       - name: Monitor health
         href: insights/container-insights-health.md
+      - name: Monitor GPU performance
+        href: insights/container-insights-gpu-monitoring.md
       - name: View live data
         items:
         - name: Live Data (preview) overview
