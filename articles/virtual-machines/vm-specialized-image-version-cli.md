@@ -29,12 +29,11 @@ az sig image-version show \
 Create the VM using [az vm create](/cli/azure/vm#az-vm-create) by supplying th image version ID for `--attach-os-disk`. 
 
 ```azurecli
+az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
-    --name myCopiedVM \
-	--nics myNic \
-	--size Standard_DS1_v2 \
+    --name myVM \
 	--os-type Linux \
-    --attach-os-disk "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"
 ```
 
 
