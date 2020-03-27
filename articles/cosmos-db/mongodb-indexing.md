@@ -217,9 +217,9 @@ The index progress details contain percentage of progress for the current index 
 
 ### Background index updates
 
-In Azure Cosmos DB's API for MongoDB, index updates are always done in the background. Index updates consume RU's at a lower priority than other database operations. Therefore, index changes won't result in any downtime for writes, updates, or deletes.
+Regardless of the value specified for the **Background** index property, index updates are always done in the background. Index updates consume RU's at a lower priority than other database operations. Therefore, index changes won't result in any downtime for writes, updates, or deletes.
 
-When adding a new index, queries will immediately utilize it. This means that queries may not return all the matching results, and will do so without returning any errors. Once the index transformation is completed, query results will be consistent.
+When adding a new index, queries will immediately utilize it. This means that queries may not return all the matching results, and will do so without returning any errors. Once the index transformation is completed, query results will be consistent. You can [track the index progress](#track-the-index-progress).
 
 ## Migrating collections with indexes
 
