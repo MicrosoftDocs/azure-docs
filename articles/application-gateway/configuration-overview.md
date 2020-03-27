@@ -80,7 +80,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
    > An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway v2. Ensure that all management/control plane traffic is sent directly to the Internet and not through a virtual appliance. Logging and metrics could also be affected.
 
 
-     **Scenario 1**: UDR to disable Border Gateway Protocol (BGP) Route Propagation to the Application Gateway subnet
+  **Scenario 1**: UDR to disable Border Gateway Protocol (BGP) Route Propagation to the Application Gateway subnet
 
    Sometimes the default gateway route (0.0.0.0/0) is advertised via the ExpressRoute or VPN gateways associated with the Application Gateway virtual network. This breaks management plane traffic, which requires a direct path to the Internet. In such scenarios, a UDR can be used to disable BGP route propagation. 
 
@@ -92,7 +92,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
    Enabling the UDR for this scenario shouldn't break any existing setups.
 
-**Scenario 2**: UDR to direct 0.0.0.0/0 to the Internet
+  **Scenario 2**: UDR to direct 0.0.0.0/0 to the Internet
 
    You can create a UDR to send 0.0.0.0/0 traffic directly to the Internet. 
 
