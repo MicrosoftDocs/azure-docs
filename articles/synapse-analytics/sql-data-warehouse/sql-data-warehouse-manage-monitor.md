@@ -1,12 +1,12 @@
 ---
 title: Monitor your SQL pool workload using DMVs 
 description: Learn how to monitor your Azure Synapse Analytics SQL pool workload and query execution using DMVs.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
