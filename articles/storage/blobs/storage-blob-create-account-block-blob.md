@@ -117,6 +117,9 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
    To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
+   >[!NOTE]
+   The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see this form.
+
 8. Select **Review + create** to review the storage account settings.
 
 9. Select **Create**.
