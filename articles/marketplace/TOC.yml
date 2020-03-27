@@ -464,6 +464,8 @@
           href: ./partner-center-portal/azure-app-apis.md
     - name: Consulting services
       items:
+        - name: Prerequisites
+          href: ./partner-center-portal/consulting-service-prerequisites.md
         - name: Create a consulting service offer
           href: ./partner-center-portal/create-consulting-service-offer.md
     - name: Dynamics 365 offers

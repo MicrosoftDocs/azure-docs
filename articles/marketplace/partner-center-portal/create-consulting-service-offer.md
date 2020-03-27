@@ -37,7 +37,7 @@ For offers with one of the following options selected as the primary product, yo
 
 - **Applies to**: Dynamics 365 Sales, Dynamics 365 Marketing, Dynamics 365 Customer Service, Dynamics 365 Field Service, Dynamics 365 Human Resources
 
-- **Criteria**: Must be Gold or Silver certified in the [Cloud Busine](https://partner.microsoft.com/membership/cloud-business-applications-competency)[s](https://partner.microsoft.com//membership/cloud-business-applications-competency)[s Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.
+- **Criteria**: Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.
 
 **Finance and Operations Applications**
 
@@ -226,10 +226,6 @@ Add up to five screenshots that show how your offer works. Each must be 1280 x 7
 
 Add up to four videos that demonstrate your offer. Enter the video&#39;s name, its web link (URL), and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
-#### Offer examples
-
-The following examples show how the offer listing fields appear in different places of the offer.
-
 Select **Save draft** before continuing to the next section, Pricing and availability.
 
 ## Pricing and availability
@@ -241,21 +237,22 @@ Here you'll define elements like pricing, market, and a private key.
 2. **Preview Audience**: configure the **Hide Key** used to set the private audience for your offer.
 3. **Pricing**: specify whether your offer is a **Free** or **Paid** offer.
 
-Note: Consulting Service offers are for the listing only;  any transactions will happen directly, outside of the commercial marketplace.
+> [!NOTE]
+> Consulting Service offers are for the listing only;  any transactions will happen directly, outside of the commercial marketplace.
 
-1. For a paid offer, specify the **Price and currency** and whether the price is **Fixed** or **Estimated**. If Estimated, you must specify in the description what factors will affect the price.
-2. Select **Save draft**.
+4. For a paid offer, specify the **Price and currency** and whether the price is **Fixed** or **Estimated**. If Estimated, you must specify in the description what factors will affect the price.
+5. Select **Save draft**.
 
 ## Review and Publish
 
-1. When you&#39;re ready to publish your consulting service offer, click **Review and publish**.
+1. When you're ready to publish your consulting service offer, click **Review and publish**.
 2. Review the details on the final submission page.
 3. If necessary, write a note to the certification team if you believe any of the details of your offer require explanation.
-4. When you&#39;re ready, click **Submit**.
-5. Partner Center displays a page that shows what publishing stage your offer is in.
+4. When you're ready, click **Submit**.
+5. Partner Center displays an offer preview page that shows what publishing stage your offer is in.
 
 For more information about how long you can expect your offer to spend in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
 
 ## Update your existing consulting service offers
 
-After your consulting service offer is live, you can update most fields and resubmit an updated version to either Azure Marketplace or AppSource. For details, see [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer).
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer).
