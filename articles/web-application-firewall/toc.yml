@@ -1,4 +1,4 @@
-- name: Azure Web Application Firewall Documentation
+- name: Azure Web Application Firewall documentation
   href: index.yml
 - name: Overview
   items:
@@ -42,7 +42,7 @@
   items:
   - name: Application Gateway
     items:
-    - name: Managed Rules
+    - name: Managed rules
       href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
