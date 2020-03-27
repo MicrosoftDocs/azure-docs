@@ -8,7 +8,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The Java SDK for Android is packaged as an <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android Library) <span class="docon docon-navigate-external x-hidden-focus"></span></a>, which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
+        The Java SDK for Android is packaged as an <a href="https://developer.android.com/studio/projects/android-library" target="_blank">AAR (Android Library) <span class="docon docon-navigate-external x-hidden-focus"></span></a>, which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.10.0`.
     :::column-end:::
     :::column:::
         <br>

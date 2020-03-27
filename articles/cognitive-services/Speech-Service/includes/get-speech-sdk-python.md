@@ -6,4 +6,14 @@ ms.date: 03/27/2020
 ms.author: dapine
 ---
 
-
+:::row:::
+    :::column span="3":::
+        The Python Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+    :::column-end:::
+    :::column:::
+        <br>
+        <div class="icon is-large">
+            <img alt="C#" src="https://docs.microsoft.com/media/logos/logo_Csharp.svg" width="60px">
+        </div>
+    :::column-end:::
+:::row-end:::

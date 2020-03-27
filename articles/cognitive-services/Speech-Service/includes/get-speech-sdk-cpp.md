@@ -28,7 +28,7 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 ### Binaries
 
-To install the C++ Speech SDK from the binaries, download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
+To install the C++ Speech SDK from the binaries, download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The following table shows the SDK folder structure (which include header files for both x86 and x64 target architectures):
 
   | Path                   | Description                                          |
   |------------------------|------------------------------------------------------|

@@ -14,7 +14,7 @@ The Speech SDK on Windows requires the <a href="https://support.microsoft.com/he
 
 :::row:::
     :::column span="3":::
-        The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not supported**.
+        The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not** officially supported, however; it is possible to use parts of the Speech SDK with earlier versions of Windows.
     :::column-end:::
     :::column:::
         <br>

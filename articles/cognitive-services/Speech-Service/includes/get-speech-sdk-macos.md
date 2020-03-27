@@ -15,7 +15,7 @@ When developing for macOS, there are two Speech SDKs available. The Objective-C 
 
 :::row:::
     :::column span="3":::
-        The macOS CocoaPod package is available for download and use with the Xcode integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
+        The macOS CocoaPod package is available for download and use with the **Xcode** integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
     :::column-end:::
     :::column:::
         <br>
