@@ -43,9 +43,9 @@ For example, John creates *Azure sub 01* on 5 March and *Azure sub 02* on 10 Mar
 
 ## Download your MSOP Azure subscription invoice
 
-An invoice is only generated for a subscription that belongs to a billing account for an MOSP. [Check your access to an MOSP account](./manage/view-all-accounts.md#check-the-type-of-your-account). 
+An invoice is only generated for a subscription that belongs to a billing account for an MOSP. [Check your access to an MOSP account](../manage/view-all-accounts.md#check-the-type-of-your-account). 
 
-You must have an account admin role for a subscription to download its invoice. Users with owner, contributor, or reader roles can download its invoice, if the account admin has given them permission. For more information, see [Allow users to download invoices](..manage/manage-billing-access.md#opt-in).
+You must have an account admin role for a subscription to download its invoice. Users with owner, contributor, or reader roles can download its invoice, if the account admin has given them permission. For more information, see [Allow users to download invoices](../manage/manage-billing-access.md#opt-in).
 
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 1. Select **Invoices** from the billing section.  
@@ -114,7 +114,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 You may want to share the invoices for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
 
-1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-your-subscriptions-and-support-plans-invoices-in-email) and select **Configure recipients**.  
+1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-msop-invoices-in-email) and select **Configure recipients**.  
     ![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoicearticlestep03.png)
 1. Enter an email address, and then select **Add recipient**. You can add multiple email addresses.  
     ![Screenshot that shows a user adding additional recipients](./media/download-azure-invoice/invoicearticlestep04.png)
