@@ -15,7 +15,7 @@ ms.date: 02/11/2020
 
 This article describes a module included in Azure Machine Learning designer (preview).
 
-Use the Edit Data module to change metadata that's associated with columns in a dataset. The value and data type of the dataset will  change after use of the Edit Metadata module.
+Use the Edit Metadata module to change metadata that's associated with columns in a dataset. The value and data type of the dataset will  change after use of the Edit Metadata module.
 
 Typical metadata changes might include:
   
@@ -89,7 +89,7 @@ Typical metadata changes might include:
   
     + All selected columns must be renamed. You can't omit or skip columns.  
   
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Next steps
 

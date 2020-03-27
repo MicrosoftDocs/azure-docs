@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 03/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,16 +36,17 @@ Device identity management is the foundation for [device-based Conditional Acces
 To get a device in Azure AD, you have multiple options:
 
 - **Azure AD registered**
-   - Devices that are Azure AD registered are typically personally owned or mobile devices, and are signed into with a personal Microsoft account or another local account.
+   - Devices that are Azure AD registered are typically personally owned or mobile devices, and are signed in with a personal Microsoft account or another local account.
       - Windows 10
       - iOS
       - Android
       - MacOS
 - **Azure AD joined**
-   - Devices that are Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization. They exist only in the cloud.
+   - Devices that are Azure AD joined are owned by an organization, and are signed in with an Azure AD account belonging to that organization. They exist only in the cloud.
       - Windows 10 
+      - Windows Server 2019 (Server core is not supported)
 - **Hybrid Azure AD joined**
-   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization. They exist in the cloud and on-premises.
+   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in with an Azure AD account belonging to that organization. They exist in the cloud and on-premises.
       - Windows 7, 8.1, or 10
       - Windows Server 2008 or newer
 
@@ -84,7 +85,7 @@ Getting devices in to Azure AD can be done in a self-service manner or a control
 With device identity management in Azure AD, you can:
 
 - Simplify the process of bringing and managing devices in Azure AD
-- Provide your users with an easy to use access to your organization’s cloud-based resources
+- Provide your users with an easy to use access to your organization's cloud-based resources
 
 ## License requirements
 

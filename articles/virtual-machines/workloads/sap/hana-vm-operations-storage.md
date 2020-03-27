@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -33,6 +33,10 @@ To learn about these disk types, see the article [Select a disk type](https://do
 Azure offers two deployment methods for VHDs on Azure Standard and Premium Storage. If the overall scenario permits, take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) deployments. 
 
 For a list of storage types and their SLAs in IOPS and storage throughput, review the [Azure documentation for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+> [!IMPORTANT]
+> Independent of the Azure storage type chosen, the file system that is used on that storage needs to be supported by SAP for the specific operating system and DBMS. [SAP support note #405827](https://launchpad.support.sap.com/#/notes/405827) lists the supported file systems for different operating systems and databases, including SAP HANA. This applies to all volumes SAP HANA might access for reading and writing for whatever task. Specifically using NFS on Azure for SAP HANA, additional restrictions of NFS versions apply as stated later in this article 
+
 
 The minimum SAP HANA certified conditions for the different storage types are: 
 
@@ -273,6 +277,9 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 The [Azure NetApp Files throughput limits](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB of volume quota are:
 - Premium Storage Tier - 64 MiB/s  
 - Ultra Storage Tier - 128 MiB/s  
+
+> [!IMPORTANT]
+> Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth leveraged by a consumer in a virtual machine. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. hosted on ANF.
 
 To meet the SAP minimum throughput requirements for data and log, and according to the guidelines for `/hana/shared`, the recommended sizes would look like:
 

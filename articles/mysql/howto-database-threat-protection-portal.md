@@ -5,7 +5,7 @@ author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MySQL
 

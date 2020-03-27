@@ -1,6 +1,6 @@
 ---
 
-title: Azure DDoS Protection - Designing resilient solutions | Microsoft Docs
+title: Designing resilient solutions with Azure DDoS Protection
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 author: barclayn

@@ -180,8 +180,11 @@ The **Receive messages** action has the same inputs and outputs as the **Browse 
 
 ## Connector reference
 
-For technical details about actions and limits, which are described by the connector's Swagger description, 
-review the connector's [reference page](/connectors/mq/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/mq/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

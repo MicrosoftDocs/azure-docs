@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
+ms.date: 02/26/2020
 ---
 
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -28,7 +28,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Hadoop and YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
 | Apache Pig             | 0.16.0        | 0.16.0                      |
-| Apache Hive            | 3.1.0         | 2.1.0, 1.2.1                |
+| Apache Hive            | 3.1.0         | 2.1.0 (Non-ESP clusters), 1.2.1 (ESP clusters)                |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
 | Apache HBase           | 2.0.2         | 1.1.2                       |
@@ -57,6 +57,12 @@ The Hadoop ecosystem component versions associated with HDInsight cluster versio
 See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## Supported HDInsight versions
+
+### Support expiration and retirement for HDInsight versions
+
+**Support expiration** means that Microsoft will no longer provide support for the specified HDInsight version and it will no longer be avaiable through the Azure portal for cluster creation. However, these versions can still be created using the Azure CLI or the various SDKs. 
+
+**Retirement** of an HDInsight version means that existing clusters will continue to run as-is. However, new clusters of this version cannot be created through any means (including CLI and SDKs). Other control plane features (such as manual scaling and Autoscaling) may also not work after version retirement. Support is not available for retired versions.
 
 The following tables list the versions of HDInsight. The support expiration and retirement dates are also provided, when they're known.
 

@@ -82,6 +82,8 @@ To add the custom route, follow these steps:
 
 ### For Classic VMs
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Run the following commands:
 

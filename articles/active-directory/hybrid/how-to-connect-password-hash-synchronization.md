@@ -9,7 +9,7 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
@@ -52,7 +52,7 @@ The following section describes, in-depth, how password hash synchronization wor
 4. The password hash synchronization agent expands the 16-byte binary password hash to 64 bytes by first converting the hash to a 32-byte hexadecimal string, then converting this string back into binary with UTF-16 encoding.
 5. The password hash synchronization agent adds a per user salt, consisting of a 10-byte length salt, to the 64-byte binary to further protect the original hash.
 6. The password hash synchronization agent then combines the MD4 hash plus the per user salt, and inputs it into the [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) function. 1000 iterations of the [HMAC-SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) keyed hashing algorithm are used. 
-7. The password hash synchronization agent takes the resulting 32-byte hash, concatenates both the per user salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from Azure AD Connect to Azure AD over SSL.</br> 
+7. The password hash synchronization agent takes the resulting 32-byte hash, concatenates both the per user salt and the number of SHA256 iterations to it (for use by Azure AD), then transmits the string from Azure AD Connect to Azure AD over TLS.</br> 
 8. When a user attempts to sign in to Azure AD and enters their password, the password is run through the same MD4+salt+PBKDF2+HMAC-SHA256 process. If the resulting hash matches the hash stored in Azure AD, the user has entered the correct password and is authenticated.
 
 > [!NOTE]
@@ -119,6 +119,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 
 > [!NOTE]
 > This feature is in Public Preview right now.
+> The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
 
 #### Public Preview of synchronizing temporary passwords and "Force Password Change on Next Logon"
 
@@ -131,10 +132,10 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> Forcing a user to change their password on next logon requires a password change at the same time.  AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
+> Forcing a user to change their password on next logon requires a password change at the same time.  Azure AD Connect will not pick up the force password change flag by itself; it is supplemental to the detected password change that occurs during password hash sync.
 
 > [!CAUTION]
-> If you do not enable Self-service Password Reset (SSPR) in Azure AD users will have a confusing experience when they reset their password in Azure AD and then attempt to sign in in Active Directory with the new password, as the new password isn’t valid in Active Directory. You should only use this feature when SSPR and Password Writeback is enabled on the tenant.
+> You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.
 
 > [!NOTE]
 > This feature is in public preview right now.

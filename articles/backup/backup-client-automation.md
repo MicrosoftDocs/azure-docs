@@ -132,7 +132,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > A bug with generation of vault certificate is fixed in Az 3.5.0 release. Use Az 3.5.0 release version or greater to download a vault certificate.
 
-In the latest Az module of Powershell, due to underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
+In the latest Az module of PowerShell, due to underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -397,34 +397,6 @@ State           : New
 PolicyState     : Valid
 ```
 
-## Back up Windows Server System State in MABS agent
-
-This section covers the PowerShell command to set up System State in MABS agent
-
-### Schedule
-
-```powershell
-$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
-```
-
-### Retention
-
-```powershell
-$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
-```
-
-### Configuring schedule and retention
-
-```powershell
-New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
- ```
-
-### Verifying the policy
-
-```powershell
-Get-OBSystemStatePolicy
- ```
-
 ### Applying the policy
 
 Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy, ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation, use the `-Confirm:$false` flag with the cmdlet.
@@ -559,6 +531,34 @@ Job completed.
 The backup operation completed successfully.
 ```
 
+## Back up Windows Server System State in MABS agent
+
+This section covers the PowerShell command to set up System State in MABS agent
+
+### Schedule
+
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### Retention
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### Configuring schedule and retention
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### Verifying the policy
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
+
 ## Restore data from Azure Backup
 
 This section will guide you through the steps for automating recovery of data from Azure Backup. Doing so involves the following steps:
@@ -589,7 +589,7 @@ ServerName : myserver.microsoft.com
 
 ### Choosing a backup point from which to restore
 
-You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *C:* and use it to recover a specific file.
+You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) cmdlet with appropriate parameters. In our example, we'll choose the latest backup point for the source volume *C:* and use it to recover a specific file.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -625,7 +625,7 @@ The object `$Rps` is an array of backup points. The first element is the latest 
 
 ### Specifying an item to restore
 
-To restore a specific file, specify the file name relative to the root volume. For example, to retrieve C:\Test\Cat.job, execute the following command. 
+To restore a specific file, specify the file name relative to the root volume. For example, to retrieve C:\Test\Cat.job, execute the following command.
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
@@ -734,4 +734,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 For more information about Azure Backup for Windows Server/Client:
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-* [Back up Windows Servers](backup-configure-vault.md)
+* [Back up Windows Servers](backup-windows-with-mars-agent.md)

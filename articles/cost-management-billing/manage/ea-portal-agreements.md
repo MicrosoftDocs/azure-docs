@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
@@ -20,10 +20,6 @@ Any amendments for Azure customers need to go through their partner or Microsoft
 ## Enrollment provisioning status
 
 The start date of a new monetary commitment is defined by the date that the regional operations center processed it. Since monetary commitment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your monetary commitment purchase order was processed in a different region. The coverage start date on the purchase order at https://www.explore.ms shows the start of the monetary commitment. The coverage start date is when the monetary commitment appears in the Azure EA portal.
-
-## Special pricing and Azure commitment discount amendments
-
-If you require special pricing and Azure Commitment Discount (ACD) amendments, you need to discuss them with your account team. The Azure Ops team can apply ACD after an amendment has been processed by the Business Desk ​and requested to Azure Ops team. ACD discount is only applied to the current month. Any previous months are compensated by backdated credit. ​
 
 ## Support offer not provisioned
 

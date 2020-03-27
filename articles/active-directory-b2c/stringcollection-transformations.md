@@ -3,14 +3,14 @@ title: StringCollection claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: StringCollection claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -22,13 +22,13 @@ This article provides examples for using the string collection claims transforma
 
 ## AddItemToStringCollection
 
-Adds a string claim to a new stringCollection claim.
+Adds a string claim to a new unique values stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | The ClaimType to be added to the output claim. |
 | InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
-| OutputClaim | collection | stringCollection | The ClaimTypes that are produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input claim. |
 
 Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **AAD-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType.
 
@@ -56,13 +56,13 @@ The following claims transformation adds the **email** ClaimType to **otherMails
 
 ## AddParameterToStringCollection
 
-Adds a string parameter to a new stringCollection claim.
+Adds a string parameter to a new unique values stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
 | InputParameter | item | string | The value to be added to the output claim. |
-| OutputClaim | collection | stringCollection | The ClaimTypes that will be produced after this ClaimsTransformation has been invoked. |
+| OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
 
 Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the **otherMails** claim.
 
@@ -143,7 +143,7 @@ Following example checks whether the `roles` stringCollection claim type contain
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 

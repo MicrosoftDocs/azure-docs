@@ -1,5 +1,5 @@
 ---
-title: "GitHub Actions & Azure Kubernetes Service"
+title: "GitHub Actions & Azure Kubernetes Service (preview)"
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
@@ -33,7 +33,7 @@ In this guide, you will learn how to:
 
 Create an Azure Container Registry (ACR):
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -46,7 +46,7 @@ Save the *loginServer* value from the output because it is used in a later step.
 
 Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create a service principal. For example:
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
@@ -54,19 +54,19 @@ Save the JSON output because it is used in a later step.
 
 Use [az aks show][az-aks-show] to display the *ID* of your AKS cluster:
 
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
 Use [az acr show][az-acr-show] to display the *ID* of the ACR:
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 Use [az role assignment create][az-role-assignment-create] to give *Contributor* access to your AKS cluster and *AcrPush* access to your ACR.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -152,7 +152,7 @@ If you merge your changes into the *master* branch in your fork, another action 
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

@@ -8,15 +8,30 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 10/11/2019
+ms.date: 03/05/2020
 ---
 # Git integration for Azure Machine Learning
 
-[Git](https://git-scm.com/) is a popular version control system that allows you to share and collaborate your projects. When submitting a training job to Azure Machine Learning, if the training files are stored in a local git repository then information about the repo is tracked as part of the training process.
+[Git](https://git-scm.com/) is a popular version control system that allows you to share and collaborate on your projects. 
+
+Azure Machine Learning fully supports Git repositories for tracking work - you can clone repositories directly onto your shared workspace file system, use Git on your local workstation, or use Git from a CI/CD pipeline.
+
+When submitting a job to Azure Machine Learning, if source files are stored in a local git repository then information about the repo is tracked as part of the training process.
 
 Since Azure Machine Learning tracks information from a local git repo, it isn't tied to any specific central repository. Your repository can be cloned from GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.
 
-## How does git integration work?
+## Clone Git repositories into your workspace file system
+Azure Machine Learning provides a shared file system for all users in the workspace.
+To clone a Git repository into this file share, we recommend that you create a Compute Instance & open a terminal.
+Once the terminal is opened, you have access to a full Git client and can clone and work with Git via the Git CLI experience.
+
+We recommend that you clone the repository into your users directory so that others will not make collisions directly on your working branch.
+
+You can clone any Git repository you can authenticate to (GitHub, Azure Repos, BitBucket, etc.)
+
+For a guide on how to use the Git CLI, read here [here](https://guides.github.com/introduction/git-handbook/).
+
+## Track code that comes from Git repositories
 
 When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
 

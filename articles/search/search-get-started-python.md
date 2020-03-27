@@ -122,7 +122,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     }
     ```
 
-2. In another cell, formulate the request. This PUT request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
+2. In another cell, formulate the request. This POST request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
 
    ```python
    url = endpoint + "indexes" + api_version

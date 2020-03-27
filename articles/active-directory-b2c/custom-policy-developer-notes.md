@@ -3,14 +3,14 @@ title: Developer notes for custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

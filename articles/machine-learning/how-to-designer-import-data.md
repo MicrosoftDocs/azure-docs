@@ -42,7 +42,6 @@ Your registered datasets can be found in the module palette, under **Datasets** 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
-
 > [!NOTE]
 > The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
 
@@ -52,6 +51,8 @@ While we recommend that you use datasets to import data, you can also use the [I
 
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
+> [!NOTE]
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#use-the-ui).
 
 ## Supported sources
 

@@ -3,7 +3,7 @@ title: Azure Application Insights log-based metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg

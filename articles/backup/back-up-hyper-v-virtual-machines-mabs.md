@@ -166,7 +166,7 @@ After you complete the steps in the previous sections, and the MABS Summary Mana
 
 1. Open SQL Server Management Studio and connect to the instance that hosts the MABS database.
 
-2. Run the following query: `select * from tbl_SCH_ScheduleDefinition where JobDefinitionID='9B30D213-B836-4B9E-97C2-DB03C3EB39D7'`. This query returns the **ScheduleID**. Note this ID as you will use it in the next step.
+2. Run the following query: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. This query returns the **ScheduleID**. Note this ID as you will use it in the next step.
 
 3. In the SQL Server Management Studio, expand **SQL Server Agent**, and then expand **Jobs**. Right-click **ScheduleID** that you noted, and select **Start Job at Step**.
 

@@ -16,7 +16,7 @@ There's an industry-wide push toward the exclusive use of Transport Layer Securi
 
 As a part of this effort, we'll be making the following changes to Azure Cache for Redis:
 
-* **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances.  Existing cache instances won't be updated at this point.  You'll be allowed to [change the minimum TLS version](cache-configure.md#access-ports) back to 1.0 or 1.1 for backward compatibility, if needed.  This change can be done through the Azure portal or other management APIs.
+* **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances. (This used to be TLS 1.0.) Existing cache instances won't be updated at this point. You'll be allowed to [change the minimum TLS version](cache-configure.md#access-ports) back to 1.0 or 1.1 for backward compatibility, if needed. This change can be done through the Azure portal or other management APIs.
 * **Phase 2:** We'll stop supporting TLS versions 1.0 and 1.1. After this change, your application will be required to use TLS 1.2 or later to communicate with your cache.
 
 Additionally, as a part of this change, we'll be removing support for older, insecure cypher suites.  Our supported cypher suites will be restricted to the following when the cache is configured with a minimum TLS version of 1.2.
@@ -28,12 +28,12 @@ This article provides general guidance about how to detect dependencies on these
 
 The dates when these changes take effect are:
 
-| Cloud               | Phase 1 Start Date | Phase 2 Start Date |
-|---------------------|--------------------|--------------------|
-| Azure (global)      |  January 13, 2020  | March 31, 2020     |
-| Azure Government    |  March 13, 2020    | May 11, 2020       |
-| Azure Germany       |  March 13, 2020    | May 11, 2020       |
-| Azure China         |  March 13, 2020    | May 11, 2020       |
+| Cloud               | Phase 1 Start Date | Phase 2 Start Date      |
+|---------------------|--------------------|-------------------------|
+| Azure (global)      |  January 13, 2020  | May 11, 2020 (extended) |
+| Azure Government    |  March 13, 2020    | May 11, 2020            |
+| Azure Germany       |  March 13, 2020    | May 11, 2020            |
+| Azure China         |  March 13, 2020    | May 11, 2020            |
 
 ## Check whether your application is already compliant
 
@@ -84,21 +84,27 @@ Node Redis and IORedis use TLS 1.2 by default.
 
 ### PHP
 
-Predis on PHP 7 won't work because PHP 7 supports only TLS 1.0. On PHP 7.2.1 or earlier, Predis uses TLS 1.0 or 1.1 by default. You can specify TLS 1.2 when you create the client instance:
+#### Predis
+ 
+* Versions earlier than PHP 7: Predis supports only TLS 1.0. These versions don't work with TLS 1.2; you must upgrade to use TLS 1.2.
+ 
+* PHP 7.0 to PHP 7.2.1: Predis uses only TLS 1.0 or 1.1 by default. You can use the following workaround to use TLS 1.2. Specify TLS 1.2 when you create the client instance:
 
-``` PHP
-$redis=newPredis\Client([
-    'scheme'=>'tls',
-    'host'=>'host',
-    'port'=>6380,
-    'password'=>'password',
-    'ssl'=>[
-        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-    ],
-]);
-```
+  ``` PHP
+  $redis=newPredis\Client([
+      'scheme'=>'tls',
+      'host'=>'host',
+      'port'=>6380,
+      'password'=>'password',
+      'ssl'=>[
+          'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+      ],
+  ]);
+  ```
 
-On PHP 7.3 or above, Predis uses the latest TLS version.
+* PHP 7.3 and later versions: Predis uses the latest TLS version.
+
+#### PhpRedis
 
 PhpRedis doesn't support TLS on any PHP version.
 

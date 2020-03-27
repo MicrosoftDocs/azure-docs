@@ -47,6 +47,10 @@ SELECT
 [{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
 ```  
 
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+
 ## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)

@@ -1,9 +1,9 @@
 ---
 title: Azure Blockchain Service overview
 description: Overview of Azure Blockchain Service
-ms.date: 11/21/2019
+ms.date: 03/12/2020
 ms.topic: overview
-ms.reviewer: janders
+ms.reviewer: ravastra
 #Customer intent: As a network operator or developer, I want to understand how I can use Azure Blockchain Service to build and manage consortium blockchain networks on Azure
 ---
 
@@ -25,7 +25,7 @@ Deploying Azure Blockchain Service is done through the Azure portal, Azure CLI, 
 
 ### Performance and service tiers
 
-Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard).
+Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard). 
 
 ![Pricing tiers](./media/overview/pricing-tiers.png)
 

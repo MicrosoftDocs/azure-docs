@@ -3,7 +3,7 @@ title: Install and configure Windows Azure diagnostics extension (WAD)
 description: Learn how to collect Azure diagnostics data in an Azure Storage account so you can view it with one of several available tools.
 services: azure-monitor
 author: bwren
-ms.service: azure-monitor
+
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
@@ -12,7 +12,7 @@ ms.author: bwren
 # Install and configure Windows Azure diagnostics extension (WAD)
 Azure diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
 
-The diagnostics extension is implemented as a [virtual machine extension](/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](/virtual-machines/extensions/features-windows) for details on installing and maintaining virtual machine extensions.
+The diagnostics extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure, so it supports the same installation options using Resource Manager templates, PowerShell, and CLI. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md) for details on installing and maintaining virtual machine extensions.
 
 ## Install with Azure portal
 You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration with the most common performance counters and events. You can modify this default configuration according to your specific requirements.

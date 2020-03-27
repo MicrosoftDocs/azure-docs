@@ -1,11 +1,7 @@
 ---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/23/2016
 
 ---
@@ -380,6 +376,14 @@ You can add as many initializers as you like, and they are called in the order t
 
 Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported,make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
+> [!NOTE]
+> You can modify the `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
+
+```python
+def callback_function(envelope):
+	envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+```
+
 ```python
 # Example for log exporter
 import logging
@@ -487,7 +491,7 @@ The following sample initializer adds a custom property to every tracked telemet
 public void Initialize(ITelemetry item)
 {
   var itemProperties = item as ISupportProperties;
-  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+  if(itemProperties != null && !itemProperties.Properties.ContainsKey("customProp"))
     {
         itemProperties.Properties["customProp"] = "customValue";
     }
