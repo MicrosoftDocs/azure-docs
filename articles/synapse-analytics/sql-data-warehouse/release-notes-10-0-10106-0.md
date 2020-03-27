@@ -5,7 +5,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 2/4/2020
+ms.date: 3/26/2020
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
@@ -34,6 +34,12 @@ Use the version identified to confirm which release has been applied to your SQL
 > ```
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## March 2020
+
+| Service improvements                                         | Details                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16.6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)** | This release includes the following improvements and fixes: </br> </br> - Resolved an issue where changing a Table referenced by a Materialized View (MV) causes Alter View statements to be generated which is not supported for MVs<br/><br/> - Implemented a change to ensure the Schema Compare operation does not fail when Row-Level Security objects are present in the database or project. Row-level security objects is currently not supported for SSDT.  <br/><br/> - SQL Server Object Explorer timeout threshold has been increased to avoid timeouts when listing a large number of objects in the database<br/><br/> - Optimized the way SQL Server Object Explorer retrieves the list of database objects to reduce instability and increase performance when populating the object explorer |
 
 ## February 2020
 
