@@ -50,7 +50,7 @@ AKS clusters with Windows node pools must use the Azure CNI (advanced) networkin
 
 ## Can I change the max. # of pods per node?
 
-Yes, take a look here on the implications and options available: [Maximum number of pods][maximum-number-of-pods].
+Yes. For the implications and options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
 ## How do patch my Windows nodes?
 
