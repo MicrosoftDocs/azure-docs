@@ -17,7 +17,7 @@ To authorize to SQL Analytics, you can use two authorization types:
 - AAD authorization
 - SQL authorization
 
-AAD authorization relies on Azure Active Directory and enables you to have single place for user management. On the other hand, SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
+AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use SQL Analytics in a well familiar way.
 
 ## Administrative accounts
 
@@ -141,7 +141,7 @@ In Azure SQL Database, use the `ALTER ROLE` statement.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-In Azure SQL Data Warehouse use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+In SQL pool use [EXEC sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-ver15).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
