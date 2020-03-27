@@ -93,10 +93,10 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-After the pipeline is submitted successfully, you can preview the image in the right panel of the module
+After the pipeline run is finished, you can preview the image in the right panel of the module
 
-[!div class="mx-imgBorder"]
-![Uploaded-image](media/module/upload-image-in-r-script.png)
+> [!div class="mx-imgBorder"]
+> ![Uploaded-image](media/module/upload-image-in-r-script.png)
 
 ## How to configure Execute R Script
 

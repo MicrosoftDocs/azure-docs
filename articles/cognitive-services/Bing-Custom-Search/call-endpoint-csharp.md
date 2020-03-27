@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: maheshb
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using C# 

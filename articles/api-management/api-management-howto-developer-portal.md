@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/15/2020
 ms.author: apimpm
 ---
 
@@ -134,30 +134,20 @@ Most configuration changes (for example, VNet, sign-in and product terms) requir
 
 ### <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
-The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s). You can specify all the parameters manually or use wildcard `*` values. For example:
+The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s).
 
-```XML
-<cors allow-credentials="true">
-    <allowed-origins>
-        <origin>https://contoso.com</origin>
-    </allowed-origins>
-    <allowed-methods preflight-result-max-age="300">
-        <method>*</method>
-    </allowed-methods>
-    <allowed-headers>
-        <header>*</header>
-    </allowed-headers>
-    <expose-headers>
-        <header>*</header>
-    </expose-headers>
-</cors>
-```
+You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
 
-Apply the CORS on the global scope to ensure it's enabled for all APIs.
+![API Management developer portal](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
-1. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
-2. Click on the **</>** icon in the **Inbound processing** section.
-3. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
+Automatically apply the CORS policy by clicking on the **Enable CORS** button.
+
+You can also enable CORS manually.
+
+1. Click on the **Manually apply it on the global level** link to see the generated policy code.
+2. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
+3. Click on the **</>** icon in the **Inbound processing** section.
+4. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
 
 > [!NOTE]
 > 

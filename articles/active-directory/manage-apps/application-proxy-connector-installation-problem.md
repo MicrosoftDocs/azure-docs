@@ -45,7 +45,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 2.  If any of those ports is not successful, verify that the Firewall or backend proxy has access to the required domains and ports see, [Prepare your on-premises environment](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Open a browser (separate tab) and go to the following web page: <https://login.microsoftonline.com>, make sure that you can login to that page.
+3.  Open a browser (separate tab) and go to the following web page: `https://login.microsoftonline.com`, make sure that you can login to that page.
 
 ## Verify Machine and backend components support for Application Proxy trust cert
 
@@ -68,9 +68,9 @@ When the installation of a connector fails, the root cause is usually one of the
 
 **To verify the credentials are correct:**
 
-Connect to <https://login.microsoftonline.com> and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
+Connect to `https://login.microsoftonline.com` and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
 
-Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is "Application Administrator". If you are unable to access any of the pages along these steps, you do not have the required role.
+Select your user account, then "Directory Role" in the resulting menu. Verify that the selected role is "Application Administrator". If you are unable to access any of the pages along these steps, you do not have the required role.
 
 ## Next steps
 [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)

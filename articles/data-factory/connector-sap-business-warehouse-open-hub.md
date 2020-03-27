@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/04/2019
+ms.date: 03/24/2020
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory
@@ -241,6 +241,11 @@ When copying data from SAP BW Open Hub, the following mappings are used from SAP
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
+## Troubleshooting tips
+
+**Symptoms:** If you are running SAP BW on HANA and observe only subset of data is copied over using ADF copy activity (1 million rows), the possible cause is that you enable "SAP HANA Execution" option in your DTP, in which case ADF can only retrieve the first batch of data.
+
+**Resolution:** Disable "SAP HANA Execution" option in DTP, reprocess the data, then try executing the copy activity again.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

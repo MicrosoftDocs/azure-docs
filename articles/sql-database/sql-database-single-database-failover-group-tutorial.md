@@ -14,11 +14,11 @@ ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database single database to a failover group
 
-Configure a failover group for an Azure SQL Database single database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
+A [failover group](sql-database-auto-failover-group.md) is a declarative abstraction layer that allows you to group mulitple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database single database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure SQL Database single database.
-> - Create a [failover group](sql-database-auto-failover-group.md) for a single database between two logical SQL servers.
+> - Create a failover group for a single database between two logical SQL servers.
 > - Test failover.
 
 ## Prerequisites
@@ -56,7 +56,7 @@ Create your failover group and add your single database to it using the Azure po
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the single database created in section 1, such as `mySampleDatabase`. 
-1. Select the name of the server under **Server name** to open the settings for the server.
+1. Failover groups can be configurd at the server level. Select the name of the server under **Server name** to open the settings for the server.
 
    ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 

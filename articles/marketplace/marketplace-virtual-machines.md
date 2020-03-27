@@ -2,12 +2,12 @@
 title: Virtual Machine Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish a virtual machine and a software free trial to be deployed from the Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Virtual Machine Offer Publishing Guide
@@ -18,14 +18,7 @@ These are transaction offers which are deployed and billed through the Marketpla
 
 ## Free Trial 
 
-You can arrange for users to test your offer by accessing limited term software licenses when using the Bring Your Own License (BYOL) billing model. Below are the requirements to deploy this offer. 
-
-|Requirements  |Details  |
-|---------|---------|
-|Free trial period and trial experience     |   Your customers may try your app for free for a limited time. Your customers are note required to pay any license or subscription fees for your offer. Your customers are not required to pay for the underlying Microsoft first-party product or service. All trial options are deployed to your Azure subscription. You have sole control of the cost optimization and management. You may choose a free trial or interactive demo. No matter what you choose, your free trial must provide customers a pre-set amount of time to try your offer at no additional cost.|
-|Easily configurable, ready-to-use solution    |  Your app must be easy and quick to configure and set up.       |
-|Availability / uptime    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |
-|Azure Active Directory     |    Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) (Azure AD federated SSO) with consent enabled.     |
+You can arrange for users to test your offer by accessing limited term software licenses when using the Bring Your Own License (BYOL) billing model. 
 
 ## Test Drive
 

@@ -641,7 +641,7 @@
       - name: General Availability FAQ
         href: insights/vminsights-ga-release-faq.md  
       - name: FAQ
-        href: faq.md#azure-monitor-for-vms-preview
+        href: faq.md#azure-monitor-for-vms
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -658,10 +658,12 @@
         href: insights/vminsights-maps.md
       - name: Monitor performance
         href: insights/vminsights-performance.md
-      - name: Using workbooks
-        href: insights/vminsights-workbooks.md
       - name: Analyze data with log queries
         href: insights/vminsights-log-search.md
+      - name: Visualize data with workbooks
+        href: insights/vminsights-workbooks.md
+      - name: Create alert rules
+        href: insights/vminsights-alerts.md
       - name: Upgrade Dependency agent
         href: insights/vminsights-dependency-agent-maintenance.md
       - name: Disable monitoring
@@ -971,6 +973,8 @@
       href: platform/grafana-plugin.md
   - name: Alerting
     items:
+    - name: Troubleshoot alerts
+      href: platform/alerts-troubleshoot.md
     - name: Application alert rules
       items:
       - name: Availability
@@ -995,7 +999,7 @@
         href: platform/alerts-log-query.md
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
-      - name: Troubleshooting
+      - name: Troubleshoot log alerts
         href: platform/alert-log-troubleshoot.md
     - name:  Activity log alert rules
       items:

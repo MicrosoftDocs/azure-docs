@@ -15,7 +15,7 @@ Ingesting historical data from Internet of Things (IoT) resources such as device
 
 ## Before you begin
 
-Before you proceed with this article, make sure that you've installed FarmBeats and collected historical data from your IoT devices. You also need to enable partner access as mentioned in the following steps.
+Before you proceed with this article, ensure that you've installed FarmBeats and collected historical data from your IoT devices. You also need to enable partner access as mentioned in the following steps.
 
 ## Enable partner access
 
@@ -29,10 +29,11 @@ You need to enable partner integration to your Azure FarmBeats instance. This st
 
 Follow these steps:
 
->[!NOTE]
+> [!NOTE]
 > You must be an administrator to do the following steps.
 
 1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
+
 2. Sign in to https://portal.azure.com/ and go to **Azure Active Directory** > **App Registrations**.
 
 3. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats Datahub.
@@ -62,9 +63,10 @@ Follow these steps:
     ```
 
 10. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+
 ## Create device or sensor metadata
 
- Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by calling FarmBeats APIs. Make sure to call the APIs as the client app that you created in the above section.
+ Now that you have the required credentials, you can define the device and sensors. To do this, create the metadata by calling FarmBeats APIs. Make sure to call the APIs as the client app that you have created in the above section.
 
  FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata.
 
@@ -105,17 +107,17 @@ Follow these steps:
 |        SensorMeasures > Unit	            | Unit of sensor telemetry data. The system-defined units are NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to the /ExtendedType API.|
 |    SensorMeasures > AggregationType	 |  Values can be none, average, maximum, minimum, or StandardDeviation.  |
 |          Name            | Name to identify a resource. For example, the model name or product name.  |
-|    Description        | Provide a meaningful description of the model.  |
-|   Properties       |  Additional properties from the manufacturer.  |
+|    Description        | Provide a meaningful description of the model.|
+|   Properties       |  Additional properties from the manufacturer.|
 |    **Sensor**      |          |
-| HardwareId          |   Unique ID for the sensor set by the manufacturer. |
-|  SensorModelId     |    ID of the associated sensor model.   |
+| HardwareId          |   Unique ID for the sensor set by the manufacturer.|
+|  SensorModelId     |    ID of the associated sensor model.|
 | Location          |  Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).|
-|   Port > Name	       |  Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model. |
-|    DeviceID  |    ID of the device that the sensor is connected to.     |
+|   Port > Name	       |  Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.|
+|    DeviceID  |    ID of the device that the sensor is connected to. |
 | Name	          |   Name to identify resource. For example, sensor name or product name and model number or product code.|
-|    Description	  | Provide a meaningful description. |
-|    Properties        |Additional properties from the manufacturer. |
+|    Description	  | Provide a meaningful description.|
+|    Properties        |Additional properties from the manufacturer.|
 
 For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -157,7 +159,6 @@ token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLI
 #Should get an access token here 
 access_token = token_response.get('accessToken') 
 ```
-
 
 **HTTP request headers**
 
@@ -271,6 +272,7 @@ Sensor
   }
 }
 ```
+
 The following sample request creates a device. This request has input JSON as payload with the request body.
 
 ```bash
@@ -288,6 +290,7 @@ import requests
 import json
 
 # Got access token - Calling the Device Model API
+
 headers = {
     "Authorization": "Bearer " + access_token,
     "Content-Type" : "application/json"
@@ -295,7 +298,6 @@ headers = {
 payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
 response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
 ```
-
 
 > [!NOTE]
 > The APIs return unique IDs for each instance created. You must retain the IDs to send the corresponding telemetry messages.
@@ -433,7 +435,6 @@ Here's an example of a telemetry message:
  ]
 }
 ```
-
 
 ## Next steps
 

@@ -83,6 +83,6 @@ For executing **SQL on-demand** queries, recommended tools are [Azure Data Studi
 
 
 ## Next steps
-To connect and query with Visual Studio, see [Query with Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md). To learn more about authentication options, see [Authentication to SQL Analytics](../../sql-data-warehouse/sql-data-warehouse-authentication.md).
+To connect and query with Visual Studio, see [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). To learn more about authentication options, see [Authentication to SQL Analytics](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 

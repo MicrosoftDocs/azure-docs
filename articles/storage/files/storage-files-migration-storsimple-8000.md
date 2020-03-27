@@ -132,12 +132,18 @@ The specs you decide on need to encompass every share/path or the root of the St
 The overall size of the data is less of a bottleneck - it is the number of items you need to tailor the machine specs to.
 
 * [Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
+
+    **Please note:** The previously linked article presents a table with a range for server memory (RAM). Orient towards the large number for the Azure VM. You can orient towards the smaller number for your on-premises machine.
+
 * [Learn how to deploy a Windows Sever VM.](../../virtual-machines/windows/quick-create-portal.md)
 
 > [!IMPORTANT]
 > Make sure that the VM is deployed in the same Azure region as the StorSimple 8020 virtual appliance. If as part of this migration, you also need to change the region of your cloud data from the region it is stored in today, you can do that at a later step, when you provision Azure file shares.
 
-### Expose the StorSimple 8020 volumes to the VM
+> [!IMPORTANT]
+> To optimize for performance, deploy a **very fast OS disk** for your cloud VM. You will store the sync database on the OS disk for all of your data volumes. Furthermore, ensure that you create a **large OS disk**. Depending on the number of items (files and folders) on your StorSimple volumes, the OS disk might need a **several hundred GiB** of space to accommodate the sync database.
+
+### Expose the StorSimple 8020 volumes to the Azure VM
 
 In this phase, you are connecting one or several StorSimple volumes from the 8020 virtual appliance over iSCSI to the Windows Server VM you've provisioned.
 

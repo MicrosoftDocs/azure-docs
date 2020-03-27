@@ -23,14 +23,14 @@ The articles below highlight concepts and design decisions for SQL Analytics dev
 |                                                          |   SQL pool   | SQL on-demand |
 | -----------------------------------------------------    | ---- | ---- |
 | [Connections](connect-overview.md)                    | Yes | Yes |
-| [Resource classes and concurrency](../../sql-data-warehouse/resource-classes-for-workload-management.md) | Yes    | No |
+| [Resource classes and concurrency](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | No |
 | [Transactions](development-transactions.md)              | Yes | No |
 | [User-defined schemas](development-user-defined-schemas.md) | Yes | Yes |
-| [Table distribution](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md)                 | Yes | No |
-| [Table indexes](../../sql-data-warehouse/sql-data-warehouse-tables-index.md)                           | Yes | No |
-| [Table partitions](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md)                     | Yes | No |
+| [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | No |
+| [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | No |
+| [Table partitions](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | No |
 | [Statistics](development-tables-statistics.md)            | Yes | Yes |
-| [CTAS](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)                                             | Yes | No |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)                                             | Yes | No |
 | [External tables](development-tables-external-tables.md) | Yes | Yes |
 | [CETAS](development-tables-cetas.md)                     | Yes | Yes |
 
@@ -51,5 +51,5 @@ Below you'll find essential articles that emphasize specific coding techniques, 
 | [Variable assignment](development-variable-assignment.md) | Yes                | Yes                     |
 
 ## Next steps
-For more reference information, see [SQL pool T-SQL statements](../../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [SQL pool T-SQL statements](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

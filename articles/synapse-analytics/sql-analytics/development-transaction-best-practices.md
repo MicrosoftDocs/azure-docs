@@ -38,7 +38,7 @@ The transaction safety limits only apply to fully logged operations.
 ## Minimally logged operations
 The following operations are capable of being minimally logged:
 
-* CREATE TABLE AS SELECT ([CTAS](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md))
+* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -80,7 +80,7 @@ It is worth noting that any writes to update secondary or non-clustered indexes 
 Loading data into a non-empty table with a clustered index can often contain a mixture of fully logged and minimally logged rows. A clustered index is a balanced tree (b-tree) of pages. If the page being written to already contains rows from another transaction, then these writes will be fully logged. However, if the page is empty then the write to that page will be minimally logged.
 
 ## Optimizing deletes
-DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql) to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -172,12 +172,12 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using SQL pool workload management features. For more information, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+> Re-creating large tables can benefit from using SQL pool workload management features. For more information, see [Resource classes for workload management](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 > 
 > 
 
 ## Optimizing with partition switching
-If faced with large-scale modifications inside a [table partition](../../sql-data-warehouse/sql-data-warehouse-tables-partition.md), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
+If faced with large-scale modifications inside a [table partition](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
 
 The steps to perform a partition switch are as follows:
 
@@ -400,7 +400,7 @@ END
 ```
 
 ## Pause and scaling guidance
-Azure Synapse Analytics lets you [pause, resume, and scale](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) your SQL pool on demand. When you pause or scale your SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your SQL pool. 
+Azure Synapse Analytics lets you [pause, resume, and scale](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) your SQL pool on demand. When you pause or scale your SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your SQL pool. 
 
 > [!IMPORTANT]
 > Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
