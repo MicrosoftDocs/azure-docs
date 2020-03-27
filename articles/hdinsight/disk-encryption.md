@@ -11,7 +11,7 @@ ms.date: 02/20/2020
 
 # Customer-managed key disk encryption
 
-Azure HDInsight supports customer-managed key encryption for data on managed disks and resource disks attached to HDInsight cluster virtual machines. This feature allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. 
+Azure HDInsight supports customer-managed key encryption for data on managed disks and resource disks attached to HDInsight cluster virtual machines. This feature allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters.
 
 All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable customer-managed keys for HDInsight, you provide the encryption keys for HDInsight to use and manage those keys using Azure Key Vault.
 
@@ -140,6 +140,24 @@ az hdinsight rotate-disk-encryption-key \
 --encryption-vault-uri https://MyKeyVault.vault.azure.net \
 --name MyCluster \
 --resource-group MyResourceGroup
+```
+
+## Azure Resource Manager templates
+
+Please add the following to the resources properties section:
+
+```
+"diskEncryptionProperties": {
+
+                "vaultUri": "[parameters('diskEncryptionVaultUri')]",
+
+                "keyName": "[parameters('diskEncryptionKeyName')]",
+
+                "keyVersion": "[parameters('diskEncryptionKeyVersion')]",
+
+                "msiResourceId": "[parameters('diskEncryptionMsiResourceId')]"
+
+            }
 ```
 
 ## FAQ for customer-managed key encryption
