@@ -18,9 +18,9 @@ ms.author: rambala
 
 This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during periods of peak utilization. Network architects are faced with the following challenges:
 
-- address an increased in network utilization.
-- provide reliable-secure connectivity to more employees of their company and customers.
-- provide connectivity to remote locations across the globe.
+- Address an increased in-network utilization.
+- Provide reliable-secure connectivity to more employees of their company and customers.
+- Provide connectivity to remote locations across the globe.
 
 Not all networks (for example, private WAN and corporate core networks) experience congestion from peak remote worker load. The bottlenecks are commonly reported only in home broadband networks and VPN gateways of on-premises networks of corporations.
 
