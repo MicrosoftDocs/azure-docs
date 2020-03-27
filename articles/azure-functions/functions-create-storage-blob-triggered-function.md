@@ -52,17 +52,17 @@ Next, you connect to your Azure Storage account and create the **samples-workite
 
 ## Create the container
 
-1. In your function, click **Integrate**, expand **Documentation**, and copy both **Account name** and **Account key**. You use these credentials to connect to the storage account. If you have already connected your storage account, skip to step 4.
+1. In your function, on the **Overview** page, select your resource group.
 
-    ![Get the Storage account connection credentials.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
+    ![Select your Azure portal resource group.](./media/functions-create-storage-blob-triggered-function/function-storage-resource-group.png)
 
-1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
+1. Find and select your resource group's storage account.
 
-    ![Run the Storage Account Explorer tool.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
+    ![Run the Storage Account Explorer tool.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png)
 
-1. Enter the **Account name** and **Account key** from step 1, click **Next** and then **Connect**. 
+1. Choose **Containers**, and then choose **+ Containers**. 
 
-    ![Enter the storage credentials and connect.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
+    ![Add container to your storage account in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png)
 
 1. Expand the attached storage account, right-click **Blob Containers**, click **Create Blob Container**, type `samples-workitems`, and then press enter.
 
