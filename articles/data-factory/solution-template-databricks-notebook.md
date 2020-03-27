@@ -29,11 +29,11 @@ For simplicity, the template in this tutorial doesn't create a scheduled trigger
 
 ## Prerequisites
 
-- An **Azure Blob storage account** with a container called `sinkdata` for use as **sink**
+- An Azure Blob storage account with a container called `sinkdata` for use as a sink.
 
-  Make note of the **storage account name**, **container name**, and **access key**. You'll need these values later in the template.
+  Make note of the storage account name, container name, and access key. You'll need these values later in the template.
 
-- An **Azure Databricks workspace**
+- An Azure Databricks workspace.
 
 ## Import a notebook for Transformation
 
@@ -92,7 +92,7 @@ To import a **Transformation** notebook to your Databricks workspace:
 
    ![Connections setting](media/solution-template-Databricks-notebook/connections-preview.png)
 
-    - **Source Blob Connection** – to access the source data.
+    - **Source Blob Connection** - to access the source data.
 
        For this exercise, you can use the public blob storage that contains the source files. Reference the following screenshot for the configuration. Use the following **SAS URL** to connect to source storage (read-only access):
 
@@ -100,13 +100,13 @@ To import a **Transformation** notebook to your Databricks workspace:
 
         ![Selections for authentication method and SAS URL](media/solution-template-Databricks-notebook/source-blob-connection.png)
 
-    - **Destination Blob Connection** – to store the copied data.
+    - **Destination Blob Connection** - to store the copied data.
 
        In the **New linked service** window, select your sink storage blob.
 
        ![Sink storage blob as a new linked service](media/solution-template-Databricks-notebook/destination-blob-connection.png)
 
-    - **Azure Databricks** – to connect to the Databricks cluster.
+    - **Azure Databricks** - to connect to the Databricks cluster.
 
         Create a Databricks-linked service by using the access key that you generated previously. You can opt to select an *interactive cluster* if you have one. This example uses the **New job cluster** option.
 
@@ -124,7 +124,7 @@ In the new pipeline, most settings are configured automatically with default val
 
    ![Source dataset value](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. In the **Copy data** activity **file-to-blob**, check the source and sink tabs. Change settings if necessary.
+1. In the **Copy data** activity **file-to-blob**, check the **Source** and **Sink** tabs. Change settings if necessary.
 
    - **Source** tab
    ![Source tab](media/solution-template-Databricks-notebook/copy-source-settings.png)
@@ -160,7 +160,7 @@ In the new pipeline, most settings are configured automatically with default val
 
        ![Selections for linked service and file path for SourceFilesDataset](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-   - **DestinationFilesDataset** – to copy the data into the sink destination location. Use the following values:
+   - **DestinationFilesDataset** - to copy the data into the sink destination location. Use the following values:
 
      - **Linked service** - `sinkBlob_LS`, created in a previous step.
 
