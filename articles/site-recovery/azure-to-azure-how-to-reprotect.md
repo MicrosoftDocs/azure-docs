@@ -74,7 +74,7 @@ When you trigger a reprotect job, and the target VM and disks don't exist, the f
 
 #### Estimated time to do the reprotection
 
-In most cases, Azure Site Recovery doesn’t replicate the complete data to the source region.
+In most cases, Azure Site Recovery doesn't replicate the complete data to the source region.
 The following conditions determine how much data is replicated:
 
 1. If the source VM data is deleted, corrupted, or inaccessible for some reason, such as a resource group change/delete, then during reprotection a complete initial replication will happen because there's no data available on the source region to use.
@@ -84,6 +84,10 @@ The following conditions determine how much data is replicated:
 |---|---|
 |Source region has 1 VM with 1 TB standard disk.<br/>Only 127 GB data is used, and the rest of the disk is empty.<br/>Disk type is standard with 60 MiB/S throughput.<br/>No data change after failover.| Approximate time: 45 minutes – 1.5 hours.<br/>During reprotection, Site Recovery will populate the checksum of all data that will take 127 GB/ 45 MBs, approximately 45 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes.<br/>No Egress charges. |
 |Source region has 1 VM with 1 TB standard disk.<br/>Only 127 GB data is used and rest of the disk is empty.<br/>Disk type is standard with 60 MiB/S throughput.<br/>45 GB data changes after failover.| Approximate time: 1 hour – 2 hours.<br/>During reprotection, Site Recovery will populate the checksum of all data that will take 127 GB/ 45 MBs, approximately 45 minutes.<br/>Transfer time to apply changes of 45 GB that is 45 GB/ 45 MBps, approximately 17 minutes.<br/>Egress charges would be for 45 GB data changes, not for the checksum. |
+
+When the VM is re-protected after failing back to the primary region (i.e., if the VM is re-protected from primary region to DR region), the target VM and associated NIC(s) are deleted.
+
+When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
 
 ## Next steps
 

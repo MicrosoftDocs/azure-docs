@@ -127,7 +127,7 @@ The following example triggers a query every minute and sends an email based on 
 ### Run query and visualize results
         
 > [!Note]
-> If your query starts with a dot (meaning it's a [control command]((https://docs.microsoft.com/azure/kusto/management/index)), use [Run control command and visualize results](#run-control-command-and-visualize-results)
+> If your query starts with a dot (meaning it's a [control command](https://docs.microsoft.com/azure/kusto/management/index)), use [Run control command and visualize results](#run-control-command-and-visualize-results)
         
 Use the Run query and visualize results action to visualize Kusto query result as a table or chart. For example, use this flow to receive daily ICM reports by email. 
     

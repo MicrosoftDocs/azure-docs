@@ -66,6 +66,8 @@
       href: security-center-alerts-overview.md      
     - name: Reference list of alerts
       href: alerts-reference.md
+    - name: Alerts schemas
+      href: alerts-schemas.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents

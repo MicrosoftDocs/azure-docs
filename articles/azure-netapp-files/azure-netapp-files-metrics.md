@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -23,29 +23,27 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 <!-- 
-- *Volume pool allocated size*  
-    The size (GiB) of the provisioned capacity pool  
---> 
 - *Pool Provisioned Size*  
     The logical space (GiB) the capacity pool is provisioned with.  
     This size is the size you selected during capacity pool creation. 
+--> 
 - *Pool Allocated to Volume Size*  
     The total of volume quota (GiB) in a given capacity pool (that is, the total of the volumes' provisioned sizes in the capacity pool).  
     This size is the size you selected during volume creation.  
 - *Pool Consumed Size*  
     The total of logical space (GiB) used across volumes in a capacity pool.  
+<!-- 
 - *Pool Consumed Snapshot Size*  
     The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
-<!-- 
-- *Volume pool total snapshot size*  
-    The total of incremental logical space used by the snapshots  
 -->
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
+<!--
 - *Volume Quota Size*    
     The quota size (GiB) the volume is provisioned with.   
     This size is the size you selected during capacity pool creation. 
+-->
 - *Volume Consumed Size*   
     The total logical space used in a volume (GiB).  
     This size includes logical space used by active file systems and snapshots.  

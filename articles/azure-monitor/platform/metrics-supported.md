@@ -2168,6 +2168,12 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 ## Microsoft.Web/sites (excluding functions)
 
+> [!NOTE]
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+
+> [!IMPORTANT]
+> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
+
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuTime|CPU Time|Seconds|Total|CPU Time|Instance|
@@ -2185,7 +2191,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|Instance|
+|ResponseTime|Response Time|Seconds|Total|Response Time|Instance|
+|AverageResponseTime|Average Response Time (deprecated)|Seconds|Average|Average Response Time|Instance|
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
 |Threads|Thread Count|Count|Average|Thread Count|Instance|

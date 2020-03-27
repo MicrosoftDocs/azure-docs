@@ -4,7 +4,7 @@ description: This article describes how to show and hide chat in your IoT Centra
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
