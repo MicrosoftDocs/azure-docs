@@ -19,29 +19,31 @@ You can download your invoice in the [Azure portal](https://portal.azure.com/) o
 
 ## When invoices are generated
 
-An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts.
+An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
 ## Invoices for MOSP billing accounts
 
-An MSOP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+An MOSP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-Customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) can have a billing account for an MCA. 
+Customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) can have a billing account for an MCA.
 
 If you're unsure of your billing account type, see [Check your billing account type](../manage/view-all-accounts.md#check-the-type-of-your-account) before following the instructions in this article. 
 
 An MOSP billing account can have the following invoices:
 
-**Azure service charges** - An invoice is generated for each Azure subscription that contains Azure resources used by the subscription. The invoice contains charges for a billing period. The billing period is determined by the day of the month when the subscription is created. 
+**Azure service charges** - An invoice is generated for each Azure subscription that contains Azure resources used by the subscription. The invoice contains charges for a billing period. The billing period is determined by the day of the month when the subscription is created.
 
-For example, John creates *Azure sub 01* on 5 March and *Azure sub 02* on 10 March. The invoice for *Azure sub 01* will have charges from the fifth day of a month to the fourth day of next month. The invoice for *Azure sub 02* will have charges from the tenth day of a month to the ninth day of next month. The invoices for all Azure subscriptions are generated on the day of the month that the account was created. In this example, if John created his account on 2 February, the invoices for both *Azure sub 01* and *Azure sub 02* will be generated on the second day of each month.
+For example, John creates *Azure sub 01* on 5 March and *Azure sub 02* on 10 March. The invoice for *Azure sub 01* will have charges from the fifth day of a month to the fourth day of next month. The invoice for *Azure sub 02* will have charges from the tenth day of a month to the ninth day of next month. The invoices for all Azure subscriptions are normally generated on the day of the month that the account was created but can be up to two days later. In this example, if John created his account on 2 February, the invoices for both *Azure sub 01* and *Azure sub 02* will normally be generated on the second day of each month but could be up to two days later.
 
-**Azure marketplace, reservations, and spot VMs** - An invoice is generated for reservations, marketplace products, and spot VMs purchased using a subscription. The invoice shows respective charges from the previous month. For example, John purchased a reservation on 1 March and another reservation on 30 March. A single invoice will be generated for both the reservations in April. The invoice for Azure marketplace, reservations, and spot VMs are always generated around the ninth day of the month. 
+**Azure marketplace, reservations, and spot VMs** - An invoice is generated for reservations, marketplace products, and spot VMs purchased using a subscription. The invoice shows respective charges from the previous month. For example, John purchased a reservation on 1 March and another reservation on 30 March. A single invoice will be generated for both the reservations in April. The invoice for Azure marketplace, reservations, and spot VMs are always generated around the ninth day of the month.
 
-**Azure support plan** - An invoice is generated each month for your support plan subscription. The invoice is generated 1 to 2 days from the day the support plan is purchased. For example, John purchased a developer support plan subscription on 2 March, he'll get an invoice on either the third or fourth day of each month until the support plan is active.
+If you pay for Azure with a credit card and you buy reservation, Azure generates an immediate invoice. However, when billed by an invoice, you are charged for the reservation on your next monthly invoice.
 
-## Download your MSOP Azure subscription invoice
+**Azure support plan** - An invoice is generated each month for your support plan subscription. The first invoice is generated on the day of purchase or up to two days later. Subsequent support plan invoices are normally generated on the same day of the month that the account was created but could be generated up to two days later.
+
+## Download your MOSP Azure subscription invoice
 
 An invoice is only generated for a subscription that belongs to a billing account for an MOSP. [Check your access to an MOSP account](../manage/view-all-accounts.md#check-the-type-of-your-account). 
 
@@ -57,9 +59,9 @@ You must have an account admin role for a subscription to download its invoice. 
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help with managing your costs, see [Prevent unexpected costs with Azure billing and cost management](../manage/getting-started.md).
 
-## Download your MSOP support plan invoice
+## Download your MOSP support plan invoice
 
-An invoice is only generated for a support plan subscription that belongs to an MSOP billing account. [Check your access to an MOSP account](../manage/view-all-accounts.md#check-the-type-of-your-account). 
+An invoice is only generated for a support plan subscription that belongs to an MOSP billing account. [Check your access to an MOSP account](../manage/view-all-accounts.md#check-the-type-of-your-account). 
 
 You must have an account admin role on the support plan subscription to download its invoice.
 
@@ -72,7 +74,7 @@ You must have an account admin role on the support plan subscription to download
 1.  Select **Download** to download a PDF version of your invoice.  
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/downloadinvoice-supportplan.png)
 
-## Allow others to download an MSOP subscription invoice
+## Allow others to download an MOSP subscription invoice
 
 The PDF version of the invoice contains personal information about the account admin, so the account administrator for this subscription must grant other users permission to download the invoice. After permission is granted, the following people and users with appropriate roles can download subscription invoices:
 
@@ -96,7 +98,7 @@ To download an invoice:
 1.  Select **On** and then **Save** at the top of the page.  
     ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoice.png)
 
-## Get MSOP invoices in email
+## Get MOSP subscription invoice in email
 
 You must have an account admin role on a subscription or a support plan to opt in to receive its invoice by email. Email invoices are available only for subscriptions and support plans, not for reservations or Azure Marketplace purchases. Once you've opted-in you can add additional recipients, who receive the invoice by email as well.
 
@@ -110,16 +112,15 @@ You must have an account admin role on a subscription or a support plan to opt i
 1. The invoice is sent to your preferred communication email address. You can update the email address in the [contact info of your billing account](https://https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoicearticlestep03-verifyemail.png)
 
-## Share your MSOP invoices with others by email
+## Share your MOSP invoices with others by email
 
 You may want to share the invoices for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
 
-1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-msop-invoices-in-email) and select **Configure recipients**.  
+1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-MOSP-invoices-in-email) and select **Configure recipients**.  
     ![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoicearticlestep03.png)
 1. Enter an email address, and then select **Add recipient**. You can add multiple email addresses.  
     ![Screenshot that shows a user adding additional recipients](./media/download-azure-invoice/invoicearticlestep04.png)
 1. Once you've added all the email addresses, select **Done** from the bottom of the screen.
-
 
 ## Invoices for MCA and MPA billing accounts
 
@@ -175,7 +176,7 @@ There could be several reasons that you don't see an invoice:
 - Azure bills you a few days after the end of your billing period. So, an invoice might not have been generated yet.
 - You don't have permission to view invoices.
     If you have an MCA or MPA billing account, you must have an Owner, Contributor, Reader, or Invoice manager role on a billing profile or an Owner, Contributor, or Reader role on the billing account to view invoices. For other subscriptions, you might not see the invoices if you aren't the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
-- If you have a MOSP billing account and you signed up for an Azure Free Account or a subscription with a monthly credit amount, you only get an invoice when you exceed the monthly credit amount. If you have a billing account for an MCA or an MPA, you always receive an invoice.
+- If you have an MOSP billing account and you signed up for an Azure Free Account or a subscription with a monthly credit amount, you only get an invoice when you exceed the monthly credit amount. If you have a billing account for an MCA or an MPA, you always receive an invoice.
 
 ## Need help? Contact us.
 
@@ -191,7 +192,7 @@ To learn more about your invoice and charges, see:
 - [Understand terms on your Microsoft Azure detailed usage](understand-usage.md)
 - [View your organization's Azure pricing](../manage/ea-pricing.md)
 
-If you have a MCA, see:
+If you have an MCA, see:
 
 - [Understand the charges on the invoice for your billing profile](review-customer-agreement-bill.md)
 - [Understand terms on the invoice for your billing profile](mca-understand-your-invoice.md)
