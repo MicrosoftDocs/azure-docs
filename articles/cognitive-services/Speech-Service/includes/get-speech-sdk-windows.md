@@ -26,7 +26,7 @@ The Speech SDK on Windows requires the <a href="https://support.microsoft.com/he
 - <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Install for x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Install for ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
-### C# SDK
+### C#
 
 [!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
