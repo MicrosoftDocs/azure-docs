@@ -13,7 +13,7 @@ ms.date: 03/27/2020
 ms.author: iainfou
 
 ---
-# Administer DNS and conditional forwarders in an Azure AD Domain Services managed domain
+# Administer DNS and create conditional forwarders in an Azure AD Domain Services managed domain
 
 In Azure Active Directory Domain Services (Azure AD DS), a key component is DNS (Domain Name Resolution). Azure AD DS includes a DNS server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
 
@@ -34,7 +34,7 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 * Connectivity from your Azure AD DS virtual network to on-premises environment.
-    * This connectivity can be provided with an [Azure ExpressRoute][expressroute] or [Azure VPN Gateway][vpn-gateway].
+    * This connectivity can be provided with an [Azure ExpressRoute][expressroute] or [Azure VPN Gateway][vpn-gateway] connection.
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
@@ -78,7 +78,7 @@ With the DNS Server tools installed, you can administer DNS records on the Azure
 
 ## Create conditional forwarders
 
-An Azure AD DS DNS zone should only contain the zone and records for the managed domain itself. Don't create additional zones with Azure AD DS to resolve on-premises resources. Instead, use conditional forwarders in the Azure AD DS managed domain to tell the DNS server where to go in order to resolve addresses for on-premises resources.
+An Azure AD DS DNS zone should only contain the zone and records for the managed domain itself. Don't create additional zones in Azure AD DS to resolve on-premises resources. Instead, use conditional forwarders in the Azure AD DS managed domain to tell the DNS server where to go in order to resolve addresses for on-premises resources.
 
 A conditional forwarder is a configuration option in a DNS server that lets you define a DNS domain, such as *contoso.com*, to forward queries to. Instead of the local DNS server trying to resolve queries for records in that domain, DNS queries are forwarded to the configured DNS for that domain. This configuration makes sure that the correct DNS records are returned, as you don't create a local a DNS zone with duplicate records in the Azure AD DS managed domain to reflect your on-premises resources.
 
@@ -90,16 +90,16 @@ To create a conditional forwarder in your Azure AD DS managed domain, complete t
 
     ![Add and configure a conditional forwarder for the DNS server](./media/manage-dns/create-conditional-forwarder.png)
 
-1. Check the box for **Create this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
+1. Check the box for **Store this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
 
     ![DNS Console - administer domain](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
-    > If the conditional forwarder is stored in the forest instead of the domain, the conditional forwarder fails.
+    > If the conditional forwarder is stored in the *forest* instead of the *domain*, the conditional forwarder fails.
 
 1. To create the conditional forwarder, select **OK**.
 
-Name resolution for on-premises resources from VMs connected to the Azure AD DS managed domain should now resolve correctly. DNS queries for the DNS domain configured in the conditional forwarder are forwarded to the on-premises DNS servers.
+Name resolution for on-premises resources from VMs connected to the Azure AD DS managed domain should now resolve correctly. Queries for the DNS domain configured in the conditional forwarder are passed to the on-premises DNS servers.
 
 ## Next steps
 
