@@ -8,7 +8,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        When developing for iOS, there are two Speech SDKs available. The Objective-C Speech SDK is available natively as an iOS CocoaPod package, or the .NET Speech SDK could be used with **Xamarin.iOS** as it implements .NET Standard 2.0.
+        When developing for iOS, there are two Speech SDKs available. The Objective-C Speech SDK is available natively as an iOS CocoaPod package, or the .NET Speech SDK could be used with Xamarin.iOS as it implements .NET Standard 2.0.
     :::column-end:::
     :::column:::
         <br>
@@ -17,6 +17,9 @@ ms.author: dapine
         </div>
     :::column-end:::
 :::row-end:::
+
+> [!TIP]
+> For details using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ### System requirements
 
@@ -27,7 +30,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The iOS CocoaPod package is available for download and use with the **Xcode** integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
+        The iOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) <span class="docon docon-navigate-external x-hidden-focus"></span></a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
     :::column-end:::
     :::column:::
         <br>

@@ -12,6 +12,9 @@ When developing for macOS, there are three Speech SDKs available.
 - The .NET Speech SDK could be used with **Xamarin.Mac** as it implements .NET Standard 2.0
 - The Python Speech SDK is available as a PyPI module
 
+> [!TIP]
+> For details using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 ### System requirements
 
 - A macOS version 10.13 or later
@@ -21,7 +24,7 @@ When developing for macOS, there are three Speech SDKs available.
 
 :::row:::
     :::column span="3":::
-        The macOS CocoaPod package is available for download and use with the **Xcode** integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
+        The macOS CocoaPod package is available for download and use with the <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (or later) <span class="docon docon-navigate-external x-hidden-focus"></span></a> integrated development environment (IDE). First, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a *Podfile* and list the `pod` as a `target`.
     :::column-end:::
     :::column:::
         <br>
