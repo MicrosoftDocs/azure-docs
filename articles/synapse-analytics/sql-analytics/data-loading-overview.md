@@ -47,7 +47,7 @@ Getting data out of your source system depends on the storage location.  The goa
 
 PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML. 
 
-If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility) to export the data into delimited text files. The Parquet to SQL DW data type mapping is the following:
+If you are exporting from SQL Server, you can use [bcp command-line tool](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) to export the data into delimited text files. The Parquet to SQL DW data type mapping is the following:
 
 | **Parquet Data Type** |                      **SQL Data Type**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -93,9 +93,9 @@ You might need to prepare and clean the data in your storage account before load
 Before you can load data, you need to define external tables in your data warehouse. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the data warehouse. 
 
 Defining external tables involves specifying the data source, the format of the text files, and the table definitions. These are the T-SQL syntax topics that you will need:
-- [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
-- [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
-- [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15)
+- [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver15)
+- [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15)
 
 For an example of creating external objects, see the [Create external tables](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-external-tables-for-the-sample-data) step in the loading tutorial.
 
@@ -106,7 +106,7 @@ To format the text files:
 
 - If your data is coming from a non-relational source, you need to transform it into rows and columns. Whether the data is from a relational or non-relational source, the data must be transformed to align with the column definitions for the table into which you plan to load the data. 
 - Format data in the text file to align with the columns and data types in the SQL pool destination table. Misalignment between data types in the external text files and the data warehouse table causes rows to be rejected during the load.
-- Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that is not found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
+- Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that is not found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver15).
 
 
 ## 4. Load the data into SQL pool staging tables using PolyBase
@@ -118,18 +118,13 @@ It is best practice to load data into a staging table. Staging tables allow you 
 To load data with PolyBase, you can use any of these loading options:
 
 - [PolyBase with T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
-- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
-<<<<<<< HEAD
-- [PolyBase with Azure Data Factory (ADF)](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
-- [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a SQL pool table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL pool table using PolyBase.
-=======
+- [PolyBase with SSIS](https://docs.microsoft.com/sql/integration-services/load-data-to-sql-data-warehouse?view=sql-server-ver15) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
 - [PolyBase with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs. 
 - [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transfers data from a SQL Data Warehouse table to a Databricks dataframe and/or writes data from a Databricks dataframe to a SQL Data Warehouse table using PolyBase.
->>>>>>> 38afc1ef22c3291246a0ecc95092c4025a72484c
 
 ### Non-PolyBase loading options
 
-If your data is not compatible with PolyBase, you can use [bcp](/sql/tools/bcp-utility) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL pool without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase. 
+If your data is not compatible with PolyBase, you can use [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to SQL pool without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is significantly slower than PolyBase. 
 
 
 ## 5. Transform the data

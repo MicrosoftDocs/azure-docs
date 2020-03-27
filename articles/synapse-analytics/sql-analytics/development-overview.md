@@ -30,7 +30,7 @@ The articles below highlight concepts and design decisions for SQL Analytics dev
 | [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | No |
 | [Table partitions](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | No |
 | [Statistics](development-tables-statistics.md)            | Yes | Yes |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md)                                             | Yes | No |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Yes | No |
 | [External tables](development-tables-external-tables.md) | Yes | Yes |
 | [CETAS](development-tables-cetas.md)                     | Yes | Yes |
 

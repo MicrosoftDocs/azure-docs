@@ -59,7 +59,8 @@ Run loads under static rather than dynamic resource classes. Using the static re
 
 ## Allowing multiple users to load
 
-There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
+There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7
+) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
@@ -94,13 +95,13 @@ To fix the dirty records, ensure that your external table and external file form
 
 ## Inserting data into a production table
 
-A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
+A one-time load to a small table with an [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver15), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 For a detailed explanation of statistics, see [Statistics](development-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 
@@ -118,7 +119,7 @@ It is good security practice to change the access key to your blob storage on a 
 
 To rotate Azure Storage account keys:
 
-For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql).
+For each storage account whose key has changed, issue [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?view=azure-sqldw-latest).
 
 Example:
 

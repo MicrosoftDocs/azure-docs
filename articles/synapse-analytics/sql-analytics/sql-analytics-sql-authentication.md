@@ -141,7 +141,7 @@ In Azure SQL Database, use the `ALTER ROLE` statement.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-In SQL pool use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+In SQL pool use [EXEC sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-ver15).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```

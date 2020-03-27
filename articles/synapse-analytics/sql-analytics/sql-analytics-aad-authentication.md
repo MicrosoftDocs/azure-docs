@@ -24,7 +24,7 @@ With Azure AD authentication, you can centrally manage the identities of users h
 - Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
 - Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Analytics](sql-analytics-mfa-authentication.md).
 - Azure AD supports similar connections from SQL Server Data Tools (SSDT) that use Active Directory Interactive Authentication. For more information, see 
-[Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
+[Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azure-sqldw-latest).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
@@ -70,7 +70,7 @@ To create a contained database user in SQL Analytics, you must connect to the da
   - Imported members from other Azure AD's who are native or federated domain members.
   - Active Directory groups created as security groups.
 
-- Azure AD users that are part of a group that has `db_owner` server role cannot use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** syntax against SQL Analytics. You will see the following error:
+- Azure AD users that are part of a group that has `db_owner` server role cannot use the **[CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=sql-server-ver15)** syntax against SQL Analytics. You will see the following error:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
@@ -108,7 +108,7 @@ The following authentication methods are supported for Azure AD server principal
 - Only an Azure AD administrator for SQL Analytics can initially connect to the SQL Analytics using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.   
 - We recommend setting the connection timeout to 30 seconds.
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Azure AD authentication.   
-- Beginning with version 15.0.1, [sqlcmd utility](/sql/tools/sqlcmd-utility) and [bcp utility](/sql/tools/bcp-utility) support Active Directory Interactive authentication with MFA.
+- Beginning with version 15.0.1, [sqlcmd utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-ver15) and [bcp utility](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) support Active Directory Interactive authentication with MFA.
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Azure AD authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).   
 
