@@ -17,7 +17,7 @@ ms.author: alkohli
 
 Azure Stack Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device.
 
-Azure Stack Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway.
+Azure Stack Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. 
 
 ## Use cases
 
@@ -83,4 +83,4 @@ Azure Stack Edge physical device, Azure resource, and target storage account to 
 
 - Review the [Azure Stack Edge system requirements](data-box-edge-system-requirements.md).
 - Understand the [Azure Stack Edge limits](data-box-edge-limits.md).
-- Deploy [Azure Azure Stack Edge](data-box-edge-deploy-prep.md) in Azure portal.
+- Deploy [Azure Stack Edge](data-box-edge-deploy-prep.md) in Azure portal.
