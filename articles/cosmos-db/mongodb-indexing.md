@@ -12,7 +12,7 @@ ms.author: tisande
 ---
 # Indexing using Azure Cosmos DB's API for MongoDB
 
-Azure Cosmos DB's API for MongoDB leverages the core index management capabilities of Azure Cosmos DB. This document focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that is relevant to all API's.
+Azure Cosmos DB's API for MongoDB leverages the core index management capabilities of Azure Cosmos DB. This document focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that is relevant across all API's.
 
 ## Indexing for version 3.6
 
@@ -66,7 +66,7 @@ Here's an example for creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-Text indexes are not currently supported. For text search queries on strings, you should use [Azure Cognitive Search's](https://docs.microsoft.com/en-us/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
+Text indexes are not currently supported. For text search queries on strings, you should use [Azure Cognitive Search's](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
 
 ## Index properties
 
