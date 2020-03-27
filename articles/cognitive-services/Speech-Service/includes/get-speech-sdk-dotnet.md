@@ -8,7 +8,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
     :::column-end:::
     :::column:::
         <br>
@@ -20,13 +20,13 @@ ms.author: dapine
 
 #### C# NuGet Package
 
-To install the .NET Speech SDK from the **.NET Core CLI** run the following command.
+The .NET Speech SDK can be installed from the **.NET Core CLI** with the following `dotnet add` command.
 
 ```dotnetcli
 dotnet add package Microsoft.CognitiveServices.Speech
 ```
 
-To install the .NET Speech SDK from the **Package Manager** run the following command.
+The .NET Speech SDK can be installed from the **Package Manager** with the following `Install-Package` command.
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech

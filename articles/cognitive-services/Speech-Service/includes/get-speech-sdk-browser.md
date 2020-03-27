@@ -23,7 +23,7 @@ ms.author: dapine
 
 ### Node.js Package Manager (NPM)
 
-To install the JavaScript Speech SDK run the following `npm install` command below.
+To install the JavaScript Speech SDK, run the following `npm install` command below.
 
 ```nodejs
 npm install microsoft-cognitiveservices-speech-sdk

@@ -23,7 +23,7 @@ ms.author: dapine
 
 ### System requirements
 
-For a native applications, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
+For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
 
 - The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
 - The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)

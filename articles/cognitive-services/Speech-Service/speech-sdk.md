@@ -14,13 +14,13 @@ ms.author: dapine
 
 # About the Speech SDK
 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications. There are various SDKs available in many programming languages. All of the Speech SDKs are cross-platform, with the exception of the Objective-C / Swift SDK (which is only available on iOS and macOS).
+The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications. There are various SDKs available in many programming languages. All of the Speech SDKs are cross-platform, with the exception of the Objective-C SDK (which is only available on iOS and macOS).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## Scenario capabilities
 
-The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated to scenarios. It's ideal for both real-time and non-real-time scenarios, utilizing local devices, files, and even input and output streams. There are [known limitations](#known-limitations) with the Speech SDK, where feature gaps exist. When a scenario is unachievable with the Speech SDK, look for a REST API alternative.
+The Speech SDK exposes many features from the Speech service, but not all of them. The capabilities of the Speech SDK are often associated to scenarios. It's ideal for both real-time and non-real-time scenarios, using local devices, files, and even input and output streams. There are [known limitations](#known-limitations) with the Speech SDK, where feature gaps exist. When a scenario is unachievable with the Speech SDK, look for a REST API alternative.
 
 ### Speech-to-text
 
@@ -28,7 +28,7 @@ Speech-to-text (also known as *speech recognition*) transcribes audio streams to
 
 ### Text-to-speech
 
-Text-to-speech (also known as *speech synthesis*) converts input text into human-like synthesized speech using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Choose from standard or neural voices, for more information, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
+Text-to-speech (also known as *speech synthesis*) converts text into human-like synthesized speech, using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
 
 ### Keyword spotting
 
@@ -36,7 +36,7 @@ The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported
 
 ### Voice assistants
 
-Voice assistants using the Speech service empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion.
+Voice assistants using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion.
 
 ### Meeting scenarios
 
@@ -64,15 +64,15 @@ Several of the Speech SDKs' support codec compressed audio input streams. For mo
 
 ## Known limitations
 
-While the Speech SDK covers many feature capabilities with various scenarios, there are known limitations. Certain functionalities are only available from the Azure portal or the REST API. An example of this is endpoint management. There are several other limitations to consider.
+While the Speech SDK covers many feature capabilities with various scenarios, there are known limitations. Certain functionalities are only available from the Azure portal, Custom Speech portal, Custom voice portal, or the REST API. As an example, endpoint management is not possible through the Speech SDK.
 
 ### Batch transcription
 
-Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. This is a REST-based service however, which uses the same endpoint as customization and model management. Batch transcription is only possible from the REST API.
+Batch transcription enables asynchronous speech-to-text transcription of large volumes of data. It is a REST-based service however, which uses the same endpoint as customization and model management. Batch transcription is only possible from the REST API.
 
 ### Custom Speech-to-text
 
-If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of Custom Speech models is only available through the [Custom Speech Portal](https://aka.ms/customspeech), and not the Speech SDK. However, once the Custom Speech model is published it can be consumed by the Speech SDK.
+When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of Custom Speech models is only available through the [Custom Speech Portal](https://aka.ms/customspeech), and not the Speech SDK. However, once the Custom Speech model is published it can be consumed by the Speech SDK.
 
 ### Custom Text-to-speech
 

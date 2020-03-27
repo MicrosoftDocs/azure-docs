@@ -8,7 +8,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not** officially supported, however; it is possible to use parts of the Speech SDK with earlier versions of Windows.
+        The Speech SDK supports Windows 10 and Windows Server 2016, or later versions. Earlier versions are **not** officially supported. It is possible to use parts of the Speech SDK with earlier versions of Windows, although it's not advised.
     :::column-end:::
     :::column:::
         <br>

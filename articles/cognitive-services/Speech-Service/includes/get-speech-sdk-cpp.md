@@ -20,7 +20,7 @@ ms.author: dapine
 
 #### C++ NuGet package
 
-To install the C++ Speech SDK from the **Package Manager** run the following command.
+The C++ Speech SDK can be installed from the **Package Manager** with the following `Install-Package` command.
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
@@ -28,7 +28,7 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 #### C++ binaries and header files
 
-To install the C++ Speech SDK from the binaries, download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The following table shows the SDK folder structure (which include header files for both x86 and x64 target architectures):
+Alternatively, the C++ Speech SDK can be installed from binaries. Download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The contents of this package (which include header files for both x86 and x64 target architectures) are structured as follows:
 
   | Path                   | Description                                          |
   |------------------------|------------------------------------------------------|
