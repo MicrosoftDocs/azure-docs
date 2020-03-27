@@ -1,7 +1,7 @@
 ---
 title: Create a consulting service offer in Partner Center
 description: Learn how to publish a consulting service offer to either Azure Marketplace or AppSource using Partner Center.
-author: james-wall-microsoft
+author: anbene
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -12,7 +12,7 @@ ms.date: 03/26/2020
 # Consulting service creation overview
 
 > [!IMPORTANT]
-> We're moving the management of your consulting service offers from Cloud Partner Portal to Partner Center. Until your consulting service offers are migrated, please continue to follow the instructions in [Consulting Services in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) to manage your offers.
+> We're moving the management of your Consulting service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Azure and Dynamics 365 consulting service offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) for Cloud Partner Portal to manage your offers.
 
 This article describes how to publish a consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List consulting service offers based on Microsoft Azure on Azure Marketplace.
 
