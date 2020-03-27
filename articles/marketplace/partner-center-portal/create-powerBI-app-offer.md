@@ -1,7 +1,7 @@
 ---
 title: Create a Power BI app offer
 description: Learn how to create and publish a Power BI App offer to Microsoft AppSource.
-author: EricMuench 
+author: emuench 
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -20,7 +20,7 @@ This article describes how to create and publish a Power BI App offer to the Mic
 
 1. In the left-navigation menu, select **Commercial Marketplace** , then **Overview**.
 
-    :::image type="content" source="media/powerbi-menu-overview.png" alt-text="overview of the commercial marketplace menu":::
+    :::image type="content" source="media/powerbi-menu-overview.png" alt-text="overview of the commercial marketplace menu" border="false":::
 
 2. Select **+ New offer** , then select **Power BI App**. The **New offer** dialog box appears.
 
@@ -168,7 +168,7 @@ Here are some tips for writing your description:
 
 To make your offer **Description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
 
-:::image type="content" source="media/powerbi-rich-text-editor.png" alt-text="illustrates the rich text editor":::
+:::image type="content" source="media/powerbi-rich-text-editor.png" alt-text="illustrates the rich text editor" border="false":::
 
 ### Search keywords
 
