@@ -11,6 +11,9 @@ ms.date: 03/26/2020
 
 # Consulting service creation overview
 
+> [!IMPORTANT]
+> We're moving the management of your consulting service offers from Cloud Partner Portal to Partner Center. Until your consulting service offers are migrated, please continue to follow the instructions in [Consulting Services in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) to manage your offers.
+
 This article describes how to publish a consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List consulting service offers based on Microsoft Azure on Azure Marketplace.
 
 ## Requirements
@@ -34,7 +37,7 @@ For offers with one of the following options selected as the primary product, yo
 
 - **Applies to**: Dynamics 365 Sales, Dynamics 365 Marketing, Dynamics 365 Customer Service, Dynamics 365 Field Service, Dynamics 365 Human Resources
 
-- **Criteria**: Must be Gold or Silver certified in the [Cloud Busine](https://partner.microsoft.com/en-us/membership/cloud-business-applications-competency)[s](https://partner.microsoft.com/en-us/membership/cloud-business-applications-competency)[s Applications competency](https://partner.microsoft.com/en-us/membership/cloud-business-applications-competency) for Customer Engagement option.
+- **Criteria**: Must be Gold or Silver certified in the [Cloud Busine](https://partner.microsoft.com/membership/cloud-business-applications-competency)[s](https://partner.microsoft.com//membership/cloud-business-applications-competency)[s Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.
 
 **Finance and Operations Applications**
 
@@ -58,7 +61,7 @@ For offers with one of the following options selected as the primary product, yo
 
 - **Criteria**: Must be eligible for Advanced Benefits in the [Power Apps Partnership](https://aka.ms/PowerAppsPartner) Program.
 
-For details on meeting these prerequisites, see the [Consulting service prerequisites](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites).
+For details on meeting these prerequisites, see the [Consulting service prerequisites](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites).
 
 ### Logistical requirements
 
@@ -68,7 +71,7 @@ To create a consulting service offer in either Azure Marketplace or AppSource co
 
 After meeting the requirements described above, follow these steps to create a consulting service offer.
 
-1. Log in to [Partner Center](https://partner.microsoft.com/en-US/) and select **Dashboard** at the top.
+1. Log in to [Partner Center](https://partner.microsoft.com) and select **Dashboard** at the top.
 2. In the left-nav bar, select **Commercial Marketplace**, then select **Overview**.
 
 :::image type="content" source="media/cs-menu-overview.png" alt-text="Illustrates the menu for commercial marketplace":::
@@ -100,12 +103,12 @@ When publishing your offer to the marketplace with Partner Center, you _must_ co
 
 1. **Select**  **Connect**  **to specify where you want us to send customer leads**. Partner Center supports the following systems:
 
-- [Dynamics 365](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-- [Marketo](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
+- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
 > [!NOTE]
-> If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+> If your CRM system isn&#39;t listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we&#39;ll validate the connection and send you a test lead. While you preview the offer before you go live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -113,7 +116,7 @@ When publishing your offer to the marketplace with Partner Center, you _must_ co
 
 Here are some additional lead management resources:
 
-- [Lead management overview](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
+- [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (Make sure your pop-up blocker is turned off)
@@ -142,7 +145,7 @@ Select **Save draft** before continuing to the next section, Offer listing.
 
 ## Offer listing
 
-Here you&#39;ll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on. Be sure to follow the policies detailed on [Microsoft&#39;s policy page](https://docs.microsoft.com/en-us/legal/marketplace/certification-policies#800-consulting-services) while configuring this offer.
+Here you&#39;ll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on. Be sure to follow the policies detailed on [Microsoft&#39;s policy page](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) while configuring this offer.
 
 > [!NOTE]
 > Offer details aren&#39;t required to be in English if the offer description begins with the phrase, &quot;This application is available only in [non-English language].&quot; It&#39;s also okay to provide a Useful Link to offer content in a language that&#39;s different from the one used in the Offer listing details.
@@ -251,8 +254,8 @@ Note: Consulting Service offers are for the listing only;  any transactions will
 4. When you&#39;re ready, click **Submit**.
 5. Partner Center displays a page that shows what publishing stage your offer is in.
 
-For more information about how long you can expect your offer to spend in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/publishing-status).
+For more information about how long you can expect your offer to spend in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
 
 ## Update your existing consulting service offers
 
-After your consulting service offer is live, you can update most fields and resubmit an updated version to either Azure Marketplace or AppSource. For details, see [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/update-existing-offer).
+After your consulting service offer is live, you can update most fields and resubmit an updated version to either Azure Marketplace or AppSource. For details, see [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer).
