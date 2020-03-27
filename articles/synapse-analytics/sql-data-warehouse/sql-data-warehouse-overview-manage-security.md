@@ -1,12 +1,12 @@
 ---
 title: Secure a database
 description: Tips for securing a database and developing solutions in the SQL pool resource of SQL Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: julieMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: security
+ms.subservice: 
 ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan

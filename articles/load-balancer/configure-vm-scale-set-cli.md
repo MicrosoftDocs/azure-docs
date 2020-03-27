@@ -15,7 +15,7 @@ In this article, you'll learn how to configure a virtual machine scale set with 
 ## Prerequisites
 
 - An Azure subscription.
-- An existing Azure Load Balancer in the subscription where the virtual machine scale set will be deployed.
+- An existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
 - An Azure Virtual Network for the virtual machine scale set.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
@@ -76,9 +76,10 @@ az vmss create \
 > [!NOTE]
 > After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
-## Next Steps
+## Next steps
 
 In this article, you deployed a virtual machine scale set with an existing Azure Load Balancer.  To learn more about virtual machine scale sets and load balancer, see:
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
 - [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
+                                

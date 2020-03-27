@@ -1,12 +1,12 @@
 ---
 title: Load Contoso retail data to a SQL Analytics data warehouse
 description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Azure SQL Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: load-data
+ms.subservice: 
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan

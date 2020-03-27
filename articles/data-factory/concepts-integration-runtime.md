@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
+ms.date: 03/26/2020
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -123,13 +123,12 @@ The IR Location defines the location of its back-end compute, and essentially th
 
 ### Azure IR location
 
-<<<<<<< HEAD
-You can set a certain location of an Azure IR, in which case the data movement or activity dispatch happens in that specific region. 
-=======
-If you choose to use the **auto-resolve Azure IR**, which is the default, 
->>>>>>> cb433b6cf1ac2806554cdfaf0bcb4004e32e22c0
+- For copy activity, ADF will make a best effort to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the data factory region as alternative is used.
 
-If you choose to use the **autoresolve Azure IR** (which is the default):
+  For example, you have your factory created in East US, 
+  
+  - When copy data to Azure Blob in West US, if ADF successfully detected that the Blob is in West US, copy activity is executed on IR in West US; if the region detection fails, copy activity is executed on IR in East US.
+  - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
 
 - For copy activity, ADF makes a best effort to automatically detect your sink and source data store to choose the best location, either in the same region (if available), or the closest one in the same geography, or if not detectable to use the data factory region as alternative.
 
@@ -141,9 +140,6 @@ If you choose to use the **autoresolve Azure IR** (which is the default):
   > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as Data Factory location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
-
->[!TIP]
->If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
 ### Self-hosted IR location
 

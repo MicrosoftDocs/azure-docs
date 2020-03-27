@@ -13,7 +13,7 @@ ms.author: sukishen
 
 # Interconnect with China using Azure Virtual WAN and Secure Hub
 
-When looking at common manufacturing industries, there is often the question about how to improve interconnection with China. Those improvements are mostly relevant for using Cloud Services like Office 365, Azure Global Services, or interconnect branches inside of China with a customer backbone.
+When looking at common automotive, manufacturing, logistics industries or other institutes like embassies, there is often the question about how to improve interconnection with China. Those improvements are mostly relevant for using Cloud Services like Office 365, Azure Global Services, or interconnect branches inside of China with a customer backbone.
 
 In most of the cases, customers are struggling with high latencies, low bandwidth, unstable connection, and high costs connecting to outside of China (for example, Europe or the United States).
 
@@ -41,7 +41,7 @@ Depending on the provider and your needs, you now need to purchase one of the fo
 * A Software Defined WAN (SDWAN)
 * Dedicated Internet Access
 
-Next, you need to agree with that provider to give a breakout to the Microsoft Global Network and its Edge Network in Hong Kong, not in Beijing or Shanghai. In this case, Hong Kong is very import because of its physical connection and location to China.
+Next, you need to agree with that provider to give a breakout to the Microsoft Global Network and its Edge Network in Hong Kong, not in Beijing or Shanghai. In this case, Hong Kong is very important because of its physical connection and location to China.
 
 While most customers think using Singapore for interconnect is the best case because it looks nearer to China when looking on the map, this is not true. When you follow network fiber maps, nearly all network connects go through Beijing, Shanghai, and Hong Kong. This makes Hong Kong a better location choice to interconnect to China.
 

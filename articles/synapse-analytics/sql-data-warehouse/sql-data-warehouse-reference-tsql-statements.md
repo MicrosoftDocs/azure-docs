@@ -1,8 +1,9 @@
 ---
 title: T-SQL statements
 description: Links to the documentation for T-SQL statements supported in SQL Analytics.
-services: sql-analytics
-author: filippopovic
+services: synapse-analytics
+author: XiaoyuMSFT
+manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 

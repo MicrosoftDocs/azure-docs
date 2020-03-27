@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Analytics (formerly SQL DW) Frequently Asked Questions 
 description: This article lists out frequently asked questions about Azure Synapse Analytics (formerly SQL DW) from customers and developers
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan

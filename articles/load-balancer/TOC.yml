@@ -68,8 +68,10 @@
     items:
     - name: Use with an existing Azure Load Balancer - Portal
       href: configure-vm-scale-set-portal.md
+    - name: Use with an existing Azure Load Balancer - PowerShell
+      href: configure-vm-scale-set-powershell.md
     - name: Use with an existing Azure Load Balancer - CLI
-      href: use-existing-lb-vmss-cli.md
+      href: configure-vm-scale-set-cli.md
   - name: Upgrade a Basic Load Balancer to Standard Load Balancer
     items:
     - name: Upgrade a Basic Public Load Balancer
