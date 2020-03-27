@@ -30,13 +30,13 @@ This article provides step-by-step instructions to build a translation system wi
 
 If you are first time user, you will be asked to agree to the Terms of Service, to create a workspace and to associate your workspace with Microsoft Translator Text API subscription.
 
-![Create workspace](media/quickstart/CT-TermsOfService.PNG)
-![Create workspace](media/quickstart/CT-CreateWorkspace1.PNG)
-![Create workspace](media/quickstart/CT-CreateWorkspace2.PNG)
-![Create workspace](media/quickstart/CT-CreateWorkspace3.PNG)
-![Create workspace](media/quickstart/CT-CreateWorkspace4.PNG)
-![Create workspace](media/quickstart/CT-CreateWorkspace5.PNG)
-![Create workspace](media/quickstart/CT-CreateWorkspace6.PNG)
+![Create workspace](media/quickstart/TermsOfService.png)
+![Create workspace](media/quickstart/CreateWorkspace1.png)
+![Create workspace](media/quickstart/CreateWorkspace2.png)
+![Create workspace](media/quickstart/CreateWorkspace3.png)
+![Create workspace](media/quickstart/CreateWorkspace4.png)
+![Create workspace](media/quickstart/CreateWorkspace5.png)
+![Create workspace](media/quickstart/CreateWorkspace6.png)
 
 On subsequent visits to the Custom Translator portal, navigate to the Settings page where you can manage your workspace, create more workspaces, associate your Microsoft Translator Text API subscription key with your workspaces, add co-owners, and change a subscription key.
 
