@@ -144,21 +144,39 @@ az hdinsight rotate-disk-encryption-key \
 
 ## Azure Resource Manager templates
 
-Please add the following to the resources properties section:
+To use customer managed keys by using a Resource Manager template, update your template with the following changes:
 
-```
-"diskEncryptionProperties": {
+1. In the **azuredeploy.json** file, add the following property to the resources" object:
 
-                "vaultUri": "[parameters('diskEncryptionVaultUri')]",
+    ```json
+       "diskEncryptionProperties":
+         {
+                 "vaultUri": "[parameters('diskEncryptionVaultUri')]",
+                  "keyName": "[parameters('diskEncryptionKeyName')]",
+                  "keyVersion": "[parameters('diskEncryptionKeyVersion')]",
+                   "msiResourceId": "[parameters('diskEncryptionMsiResourceId')]"
+         }
 
-                "keyName": "[parameters('diskEncryptionKeyName')]",
+1. In the **azuredeploy.parameters.json** file, add the following parameters. You can get the values of these parameters from the Key Vault URI and the managed Identity. For example, if you have the following URI and identity values,
+    * Sample key vault URI: https://omakv.vault.azure.net/keys/clusterkey/7cfd94ad4e09471296b069d2a2cee395
+    * Sample user-assigned managed identity: "/subscriptions/d66b1168-d835-4066-8c45-7d2ed713c082/resourcegroups/OmidRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/OMMSI
 
-                "keyVersion": "[parameters('diskEncryptionKeyVersion')]",
+    The parameters in the **azuredeploy.parameters.json** file are:
 
-                "msiResourceId": "[parameters('diskEncryptionMsiResourceId')]"
-
-            }
-```
+    ```json
+   "diskEncryptionVaultUri": {
+            "value": "https://omakv.vault.azure.net"
+        },
+        "diskEncryptionKeyName": {
+            "value": "clusterkey"
+        },
+        "diskEncryptionKeyVersion": {
+            "value": "7cfd94ad4e09471296b069d2a2cee395"
+        },
+        "diskEncryptionMsiResourceId": {
+            "value": "/subscriptions/d66b1168-d835-4066-8c45-7d2ed713c082/resourcegroups/OmidRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/OMMSI"
+        }
+    ```
 
 ## FAQ for customer-managed key encryption
 
