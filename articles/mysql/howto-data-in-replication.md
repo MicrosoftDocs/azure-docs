@@ -32,7 +32,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 3. Add the master server's IP address to the replica's firewall rules. 
 
-   Update firewall rules using the [Azure portal](howto-manage-firewall-using-portal) or [Azure CLI](howto-manage-firewall-using-cli).
+   Update firewall rules using the [Azure portal](howto-manage-firewall-using-portal.md) or [Azure CLI](howto-manage-firewall-using-cli.md).
 
 ## Configure the master server
 The following steps prepare and configure the MySQL server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "master" in Data-in replication.
