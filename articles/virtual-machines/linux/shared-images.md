@@ -27,12 +27,10 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../../includes/virtual-machines-common-shared-images-cli.md)]
 
 
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
-
 
 
 ## Next steps
 
-Create an image version from a [VM](image-version-vm-cli.md), or a [managed image](image-version-managed-image-cli.md).
+Create an image version from a [VM](../image-version-vm-cli.md), or a [managed image](../image-version-managed-image-cli.md).
 
 For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
