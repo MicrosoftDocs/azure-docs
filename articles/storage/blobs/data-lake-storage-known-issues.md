@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 03/27/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -66,27 +66,6 @@ Get and set ACL operations are not currently recursive.
 
 Get and set ACL operations are not currently recursive.
 
-## Premium-performance block blob storage accounts
-
-- Diagnostics logs can't yet be enabled by using the Azure portal. You can enable them by using PowerShell. For example:
-
-  ```powershell
-  #To login
-  Connect-AzAccount
-
-  #Set default block blob storage account.
-  Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-  #Enable logging
-  Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-  ```
-
-- Lifecycle management is currently not supported in premium-performance block blob storage accounts. Data can't be moved from the premium tier to lower tiers. The **Delete Blob** action is currently not supported, but we are working on enabling it. 
-
-- When you create a n HDInsight cluster, you can't yet select a block blob storage accounts that have the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
-
-- Dremio doesn't yet connect to block blob storage accounts that have the hierarchical namespace feature enabled on it. 
-
 ## Lifecycle management policies
 
 The deletion of blob snapshots is not yet supported. 
@@ -131,6 +110,39 @@ If [anonymous read access](storage-manage-access-to-resources.md) has been grant
 ## Windows Azure Storage Blob (WASB) driver
 
 Currently, there are several issues associated with using the WASB driver along with accounts that have a hierarchical namespace. We recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your workloads. 
+
+## Premium-performance block blob storage accounts
+
+### Diagnostic logs
+
+Diagnostics logs can't yet be enabled by using the Azure portal. You can enable them by using PowerShell. For example:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### Lifecycle management policies
+
+- Lifecycle management policies aren't yet supported in premium-performance block blob storage accounts. 
+
+- Data can't be moved from the premium tier to lower tiers. 
+
+- The **Delete Blob** action is currently not supported. 
+
+### HDInsight support
+
+When you create a n HDInsight cluster, you can't yet select a block blob storage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
+
+### Dremio support
+
+Dremio doesn't yet connect to a block blob storage account that has the hierarchical namespace feature enabled on it. 
 
 
 

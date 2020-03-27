@@ -19,7 +19,9 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 ## Supported Blob storage features
 
 > [!NOTE]
-> Support level refers only to how the feature is supported with Data Lake Storage Gen2. [Premium-performance block blob storage accounts](storage-blob-create-account-block-blob.md) is currently in public preview. Support-levels for those accounts appear in the **Premium block blob accounts** column.
+> Support level refers only to how the feature is supported with Data Lake Storage Gen2. 
+>
+> [Premium-performance block blob storage accounts](storage-blob-create-account-block-blob.md) for Data Lake Storage Gen2 are currently in public preview. Support-levels for these types of accounts appear in the **Premium block blob accounts** column.
 
 |Blob Storage feature |General-purpose V2 accounts|Premium block blob accounts |Related articles |
 |---------------|-------------------|---|
