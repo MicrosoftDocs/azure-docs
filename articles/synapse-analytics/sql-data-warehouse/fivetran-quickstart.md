@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Fivetran and data warehouse" 
 description: Get started with Fivetran and an Azure Synapse Analytics data warehouse.  
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: integration
+ms.subservice: 
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan

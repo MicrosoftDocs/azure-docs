@@ -391,6 +391,10 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
+### PHP and WordPress are not supported
+
+PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+
 ## Next steps
 * [Run the profiler on your live app](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
