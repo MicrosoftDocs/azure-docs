@@ -1,6 +1,6 @@
 ﻿---
 title: Utilize template reference
-description: Utilize the Azure Resource Manager template reference to create a template for deploying an encrypted storage account.
+description: Utilize the Azure Resource Manager template reference to create a template.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
@@ -14,7 +14,7 @@ Learn how to find the template schema information, and use the information to cr
 
 In this tutorial, you use a base template from Azure Quickstart templates. Using template reference documentation, you customize the template.
 
-![Resource Manager template reference deploy encrypted storage account](./media/template-tutorial-use-template-reference/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
+![Resource Manager template reference deploy storage account](./media/template-tutorial-use-template-reference/resource-manager-template-tutorial-deploy-storage-account.png)
 
 This tutorial covers the following tasks:
 
@@ -62,7 +62,7 @@ To complete this article, you need:
 
 1. Expand **resources**. There is a `Microsoft.Storage/storageAccounts` resource defined.
 
-    ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-encrypted-storage-resource.png)
+    ![Resource Manager template storage account definition](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
 
 ## Find the template reference
 
@@ -87,7 +87,7 @@ To complete this article, you need:
 
 From Visual Studio Code, add the additional storage account types as shown in the following screenshot:
 
-![Resource Manager template encrypted storage account resources](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus.png)
+![Resource Manager template storage account resources](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus.png)
 
 ## Deploy the template
 
