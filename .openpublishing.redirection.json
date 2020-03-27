@@ -49331,6 +49331,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cost-management-billing/reservations/monthly-payments-reservations.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepare-buy-reservation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/billing/billing-prepay-app-service-isolated-stamp.md",
       "redirect_url": "/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp",
       "redirect_document_id": true
