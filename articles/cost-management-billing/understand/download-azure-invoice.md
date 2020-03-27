@@ -116,7 +116,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 You may want to share the invoices for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
 
-1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-MOSP-invoices-in-email) and select **Configure recipients**.  
+1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-mosp-subscription-invoice-in-email) and select **Configure recipients**.  
     ![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoicearticlestep03.png)
 1. Enter an email address, and then select **Add recipient**. You can add multiple email addresses.  
     ![Screenshot that shows a user adding additional recipients](./media/download-azure-invoice/invoicearticlestep04.png)
