@@ -15,7 +15,7 @@ To learn about creating Guest Configuration policies for Linux, see the page
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
 and configuration file. The DSC configuration defines the condition that the machine should be in.
-If the evaluation of the configuration fails, the Policy effect **auditIfNotExists** is triggered
+If the evaluation of the configuration fails, the policy effect **auditIfNotExists** is triggered
 and the machine is considered **non-compliant**.
 
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
@@ -29,9 +29,11 @@ non-Azure machine.
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating
-a policy definition, and publishing the policy, is entirely automatable using the Guest Configuration module in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with PowerShell 6.2 or later
-running locally, or with [Azure Cloud Shell](https://shell.azure.com), or with the
+Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
+definition, and publishing the policy, is entirely automatable using the Guest Configuration module
+in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
+with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
@@ -74,9 +76,9 @@ To install the **GuestConfiguration** module in PowerShell:
 ## Guest Configuration artifacts and policy for Windows
 
 Guest Configuration uses PowerShell Desired State Configuration as a language abstraction for
-writing what to audit in Windows. The agent loads a standalone instance of PowerShell 6.2, so there's no conflict with usage of
-PowerShell DSC in Windows PowerShell 5.1, and there's no requirement to pre-install PowerShell 6.2
-or later.
+writing what to audit in Windows. The agent loads a standalone instance of PowerShell 6.2, so there
+isn't conflict with usage of PowerShell DSC in Windows PowerShell 5.1, and there's no requirement to
+pre-install PowerShell 6.2 or later.
 
 For an overview of DSC concepts and terminology, see
 [PowerShell DSC Overview](/powershell/scripting/dsc/overview/overview).
@@ -232,7 +234,7 @@ Test- cmdlet on the same OS platform as you plan to audit.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
-- **Name**: Guest Configuration Policy name.
+- **Name**: Guest Configuration policy name.
 - **Parameter**: Policy parameters provided in hashtable format.
 - **Path**: Full path of the Guest Configuration package.
 
@@ -348,11 +350,12 @@ Finally, publish the policy definitions using the `Publish-GuestConfigurationPol
 cmdlet only has the **Path** parameter that points to the location of the JSON files created by
 `New-GuestConfigurationPolicy`.
 
-To run the Publish command, you need access to create Policies in Azure. The specific authorization requirements are documented in the [Azure Policy Overview](../overview.md) page. The best built-in role is **Resource Policy Contributor**.
+To run the Publish command, you need access to create policies in Azure. The specific authorization
+requirements are documented in the [Azure Policy Overview](../overview.md) page. The best built-in
+role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
 ```
 
 The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
@@ -377,10 +380,10 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-Assigning an Azure Policy with _DeployIfNotExists_ type requires an additional level of access.
-To grant the least privilege, you can create a custom role definition
-that extends **Resource Policy Contributor**. The example below creates a role named
-**Resource Policy Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
+Assigning an policy definition with _DeployIfNotExists_ effect requires an additional level of
+access. To grant the least privilege, you can create a custom role definition that extends
+**Resource Policy Contributor**. The example below creates a role named **Resource Policy
+Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
 
 ```azurepowershell-interactive
 $subscriptionid = '00000000-0000-0000-0000-000000000000'
@@ -404,10 +407,11 @@ authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
 parameter named **Parameters**. This parameter takes a hashtable definition including all details
-about each parameter and creates the required sections of each file used for the Azure Policy definition.
+about each parameter and creates the required sections of each file used for the Azure Policy
+definition.
 
-The following example creates an Azure Policy to audit a service, where the user selects from a
-list when the Policy is assigned.
+The following example creates a policy definition to audit a service, where the user selects from a
+list at the time of policy assignment.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -434,15 +438,15 @@ New-GuestConfigurationPolicy
 
 ## Policy lifecycle
 
-If you would like to release an update to the Policy, there are two fields
-that require attention.
+If you would like to release an update to the policy, there are two fields that require attention.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published. The property updates the version of the Guest
   Configuration assignment so the agent recognizes the updated package.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy`
   cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property
-  must be correct for the `.zip` file you publish. If only the **contentUri** property is updated, the Extension won't accept the content package.
+  must be correct for the `.zip` file you publish. If only the **contentUri** property is updated,
+  the Extension won't accept the content package.
 
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
@@ -487,7 +491,7 @@ GuestConfiguration agent expects the certificate public key to be present in "Tr
 Certificate Authorities" on Windows machines and in the path
 `/usr/local/share/ca-certificates/extra` on Linux machines. For the node to verify signed content,
 install the certificate public key on the machine before applying the custom policy. This process
-can be done using any technique inside the VM, or by using Azure Policy. An example template is
+can be done using any technique inside the VM or by using Azure Policy. An example template is
 [provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
 The Key Vault access policy must allow the Compute resource provider to access certificates during
 deployments. For detailed steps, see
