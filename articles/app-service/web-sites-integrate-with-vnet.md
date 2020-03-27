@@ -120,7 +120,7 @@ The only operation you can take in the app view of your VNet Integration is to d
 
 The App Service plan VNet Integration UI shows you all of the VNet integrations used by the apps in your App Service plan. To see details on each VNet, select the VNet you're interested in. There are two actions you can perform here for gateway-required VNet Integration:
 
-* **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a **Sync network** operation. This operation restarts any apps that use this VNet.
+* **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a sync network operation. This operation restarts any apps that use this VNet.
 * **Add routes**: Adding routes drives outbound traffic into your VNet.
 
 ### Gateway-required VNet Integration routing

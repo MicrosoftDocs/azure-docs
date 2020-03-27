@@ -9,22 +9,22 @@ ms.author: ccompy
 The feature is easy to set up, but that doesn't mean your experience will be problem free. If you encounter problems accessing your desired endpoint, there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console, and the other is the console in the Azure portal. To reach the Kudu console from your app, go to **Tools** > **Kudu**. You can also reach the Kudo console at [sitename].scm.azurewebsites.net. After the website loads, go to the **Debug console** tab. To get to the Azure portal-hosted console from your app, go to **Tools** > **Console**.
 
 #### Tools
-The tools ping, nslookup, and tracert won't work through the console because of security constraints. To fill the void, two separate tools are added. To test DNS functionality, we added a tool named nameresolver.exe. The syntax is:
+The tools **ping**, **nslookup**, and **tracert** won't work through the console because of security constraints. To fill the void, two separate tools are added. To test DNS functionality, we added a tool named **nameresolver.exe**. The syntax is:
 
     nameresolver.exe hostname [optional: DNS Server]
 
 You can use nameresolver to check the hostnames that your app depends on. This way you can test if you have anything misconfigured with your DNS or perhaps don't have access to your DNS server. You can see the DNS server that your app uses in the console by looking at the environmental variables WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER.
 
-You can use the next tool to test for TCP connectivity to a host and port combination. This tool is called tcpping and the syntax is:
+You can use the next tool to test for TCP connectivity to a host and port combination. This tool is called **tcpping** and the syntax is:
 
     tcpping.exe hostname [optional: port]
 
-The tcpping utility tells you if you can reach a specific host and port. It can show success only if there's an application listening at the host and port combination, and there's network access from your app to the specified host and port.
+The **tcpping** utility tells you if you can reach a specific host and port. It can show success only if there's an application listening at the host and port combination, and there's network access from your app to the specified host and port.
 
 #### Debug access to VNet-hosted resources
 A number of things can prevent your app from reaching a specific host and port. Most of the time it's one of these things:
 
-* **A firewall is in the way.** If you have a firewall in the way, you hit the TCP timeout. The TCP timeout is 21 seconds in this case. Use the tcpping tool to test connectivity. TCP timeouts can be caused by many things beyond firewalls, but start there.
+* **A firewall is in the way.** If you have a firewall in the way, you hit the TCP timeout. The TCP timeout is 21 seconds in this case. Use the **tcpping** tool to test connectivity. TCP timeouts can be caused by many things beyond firewalls, but start there.
 * **DNS isn't accessible.** The DNS timeout is 3 seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. You can't use nslookup, because that doesn't use the DNS your VNet is configured with. If inaccessible, you could have a firewall or NSG blocking access to DNS or it could be down.
 
 If those items don't answer your problems, look first for things like:
@@ -59,7 +59,7 @@ Additional debug steps include:
 
       test-netconnection hostname [optional: -Port]
 
-* Bring up an application on a VM and test access to that host and port from the console from your app by using tcpping.
+* Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
 
 #### On-premises resources ####
 
