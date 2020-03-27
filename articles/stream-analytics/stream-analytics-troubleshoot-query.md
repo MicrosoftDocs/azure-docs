@@ -6,7 +6,7 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2020
 ms.custom: seodec18
 ---
 
@@ -29,6 +29,7 @@ This article describes common issues with developing Stream Analytics queries an
     - A [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) instead.
     - When you use window functions, wait for the entire window duration to see an output from the query.
     - The timestamp for events precedes the job start time and, therefore, events are being dropped.
+    - **JOIN** condition not matching: If there are no matches then there will be zero output.
 
 5.  Ensure event ordering policies are configured as expected. Go to the **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
 
@@ -36,12 +37,15 @@ This article describes common issues with developing Stream Analytics queries an
     - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
     - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
 
-## Job is consuming too many Streaming Units
+## Resource utilization is high
+
 Ensure you take advantage of parallelization in Azure Stream Analytics. You can learn to [scale with query parallelization](stream-analytics-parallelization.md) of Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
 
 ## Debug queries progressively
 
-In real-time data processing, knowing what the data looks like in the middle of the query can be helpful. Because inputs or steps of an Azure Stream Analytics job can be read multiple times, you can write extra SELECT INTO statements. Doing so outputs intermediate data into storage and lets you inspect the correctness of the data, just as *watch variables* do when you debug a program.
+In real-time data processing, knowing what the data looks like in the middle of the query can be helpful. You can see this using the job diagram in Visual Studio. If you don't have Visual Studio, you can take additional steps to output intermediate data.
+
+Because inputs or steps of an Azure Stream Analytics job can be read multiple times, you can write extra SELECT INTO statements. Doing so outputs intermediate data into storage and lets you inspect the correctness of the data, just as *watch variables* do when you debug a program.
 
 The following example query in an Azure Stream Analytics job has one stream input, two reference data inputs, and an output to Azure Table Storage. The query joins data from the event hub and two reference blobs to get the name and category information:
 
