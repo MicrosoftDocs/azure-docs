@@ -2,7 +2,7 @@
 title: Overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 08/29/2019
+ms.date: 03/25/2020
 ---
 # What is Azure Resource Manager?
 
