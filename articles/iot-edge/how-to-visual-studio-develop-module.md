@@ -4,7 +4,7 @@ description: Use Visual Studio with Azure IoT Tools to develop a C or C# IoT Edg
 services: iot-edge
 author: shizn
 manager: philmea
-ms.author: kgremban
+ms.author: shizn
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
