@@ -106,7 +106,7 @@ In some cases, VM failover requires intermediate step that usually takes around 
 You might want to automate actions during failover. To do this, you can use scripts or Azure automation runbooks in recovery plans.
 
 - [Learn](site-recovery-create-recovery-plans.md) about creating and customizing recovery plans, including adding scripts.
-- [Learn](site-recovery-runbook-automation.md) abut adding Azure Automation runbooks to recovery plans.
+- [Learn](site-recovery-runbook-automation.md) about adding Azure Automation runbooks to recovery plans.
 
 
 ## Configure settings after failover

@@ -4,7 +4,7 @@ description: As a builder, learn how to configure the default Azure IoT Central 
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea

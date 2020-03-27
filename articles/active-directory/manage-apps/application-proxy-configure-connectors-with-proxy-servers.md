@@ -100,7 +100,7 @@ There are four aspects to consider at the outbound proxy:
 * Proxy outbound rules
 * Proxy authentication
 * Proxy ports
-* SSL inspection
+* TLS inspection
 
 #### Proxy outbound rules
 
@@ -125,14 +125,14 @@ Proxy authentication is not currently supported. Our current recommendation is t
 
 #### Proxy ports
 
-The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
+The connector makes outbound TLS-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
 
 > [!NOTE]
 > When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
 
-#### SSL inspection
+#### TLS inspection
 
-Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during SSL inspection.
+Do not use TLS inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during TLS inspection.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
 

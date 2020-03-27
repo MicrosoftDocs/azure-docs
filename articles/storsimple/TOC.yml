@@ -1,5 +1,5 @@
-- name: StorSimple Documentation
-  href: index.md
+- name: StorSimple documentation
+  href: index.yml
 - name: StorSimple Virtual Array
   items:
   - name: Overview

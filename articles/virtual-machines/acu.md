@@ -4,7 +4,7 @@ description: Overview of the concept of the Azure compute units. The ACU provide
 services: virtual-machines
 documentationcenter: ''
 author: mimckitt
-manager: gwallace
+manager: vashan
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
+ms.author: mimckitt
 
 ---
 

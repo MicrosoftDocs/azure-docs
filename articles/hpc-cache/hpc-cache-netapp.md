@@ -71,7 +71,7 @@ Follow the [mount instructions in the Azure NetApp Files documentation](../azure
 
 You also can find IP addresses with the Azure CLI:
 
-```bash
+```azurecli
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 

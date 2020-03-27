@@ -2,10 +2,11 @@
 title: Security controls for Azure Storage
 description: A checklist of security controls for evaluating Azure Storage
 services: storage
-documentationcenter: ''
+
 author: msmbaldwin
-manager: rkarlin
+
 ms.service: storage
+ms.subservice: common
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin

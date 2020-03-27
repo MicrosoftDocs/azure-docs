@@ -52,6 +52,8 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
+[Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
+
 ## App Configuration bootstrap
 
 To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Because connection strings contain credential information, they're considered secrets. These secrets need to be stored in Azure Key Vault, and your code must authenticate to Key Vault to retrieve them.
@@ -76,6 +78,10 @@ Excessive requests to App Configuration can result in throttling or overage char
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
 * Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. See [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md) for more information
+
+## Importing configuration data into App Configuration
+
+App Configuration offers the option to bulk [import](https://aka.ms/azconfig-importexport1) your configuration settings from your current configuration files using either the Azure Portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](https://aka.ms/azconfig-gha2) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
 
 ## Next steps
 

@@ -70,7 +70,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 ### Outbound connectivity for IP address ranges
 
-If you're using a network security group (NSG), create service-tag based NSG rules for access to Azure Storage, Azure Active Directory, Site Recovery service, and Site Recovery monitoring. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+If you're using a network security group (NSG), create service-tag based NSG rules for access to Azure Storage, Azure Active Directory, Site Recovery service, and Site Recovery monitoring. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## Verify Azure VM certificates
 

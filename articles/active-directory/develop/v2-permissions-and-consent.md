@@ -17,8 +17,7 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
-ms.custom: fasttrack-edit
+ms.custom: aaddev, fasttrack-edit
 ---
 
 # Permissions and consent in the Microsoft identity platform endpoint
@@ -196,13 +195,13 @@ When you're ready to request permissions from your organization's admin, you can
 ```
 
 
-| Parameter		| Condition		| Description																				|
+| Parameter        | Condition        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Required | The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with organizations as seen in the example. Do not use 'common', as personal accounts cannot provide admin consent except in the context of a tenant. To ensure best compatibility with personal accounts that manage tenants, use the tenant ID when possible. |
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope`		| Required		| Defines the set of permissions being requested by the application. This can be either static (using [`/.default`](#the-default-scope)) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). If you need application permissions, you must use `/.default` to request the statically configured list of permissions.  | 
+|`scope`        | Required        | Defines the set of permissions being requested by the application. This can be either static (using [`/.default`](#the-default-scope)) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). If you need application permissions, you must use `/.default` to request the statically configured list of permissions.  | 
 
 
 At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.

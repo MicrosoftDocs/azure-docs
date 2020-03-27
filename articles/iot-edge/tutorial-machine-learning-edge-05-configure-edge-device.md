@@ -190,7 +190,7 @@ We will deal with the leaf device later in the tutorial. In this section, downlo
 
 1. From the SSH session on the Linux virtual machine, sign in to Azure with the Azure CLI.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -200,7 +200,7 @@ We will deal with the leaf device later in the tutorial. In this section, downlo
 
 1. Set the Azure subscription that you want to use for Azure CLI commands.
 
-    ```bash
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
@@ -212,7 +212,7 @@ We will deal with the leaf device later in the tutorial. In this section, downlo
 
 1. Download the certificates that you stored in the key vault: new-edge-device-full-chain.cert.pem, new-edge-device.key.pem, and azure-iot-test-only.root.ca.cert.pem
 
-    ```bash
+    ```azurecli
     key_vault_name="<key vault name>"
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-full-chain-cert-pem -f /edgeMlCertificates/new-edge-device-full-chain.cert.pem
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-key-pem -f /edgeMlCertificates/new-edge-device.key.pem
