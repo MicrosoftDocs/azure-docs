@@ -1,12 +1,12 @@
 ---
 title: Transparent Data Encryption (Portal)
 description: Transparent Data Encryption (TDE) in Azure Synapse Analytics
-services: sql-data-warehouse
+services: synapse-analytics
 author: julieMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: security
+ms.subservice: 
 ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
