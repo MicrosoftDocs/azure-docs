@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -215,18 +215,18 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ### Acquiring an access token 
 
-You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-custom.md), by calling a REST API that returns an access token, by using an [ROPC flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), or by using the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)).  
+You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-custom.md), by calling a REST API that returns an access token, by using an [ROPC flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), or by using the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  
 
-The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).
+The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. To configure this in Azure AD, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). You may need to modify this to interface with your Identity Provider. 
 
-You may need to modify this to interface with your Identity Provider. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
+For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tenant. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
 
 ```xml
 <TechnicalProfile Id="SecureREST-AccessToken">
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="ServiceUrl">https://login.microsoftonline.com/microsoft.com/oauth2/v2.0/token</Item>
+    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.microsoft.com/oauth2/v2.0/token</Item>
     <Item Key="AuthenticationType">Basic</Item>
      <Item Key="SendClaimsIn">Form</Item>
   </Metadata>
