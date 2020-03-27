@@ -50,7 +50,7 @@ Considerations for mobile apps:
 - **User experience is key**: Allow users to see the value of your app before you ask for sign-in. Request only the required permissions.
 - **Support all user configurations**: Many mobile business users must adhere to conditional-access policies and device-compliance policies. Be sure to support these key scenarios.
 - **Implement single sign-on (SSO)**: By using MSAL and Microsoft identity platform, you can enable single sign-on through the device's browser or Microsoft Authenticator (and Intune Company Portal on Android).
-- **Implement shared device mode**: You can allow your application to be used by companies that use shared devices for their employees such as hospitals, manufacturing, retail, and finance.
+- **Implement shared device mode**: You can allow your application to be used by companies that use shared devices for their employees such as hospitals, manufacturing, retail, and finance. [Read more about supporting Shared Device Mode](msal-shared-devices.md)
 
 ## Specifics
 

@@ -57,23 +57,22 @@ To create a shared device mode app, developers and cloud device admins work toge
 
  * Your device needs to be configured to support shared device mode. It needs to use iOS 13+ and be MDM enrolled. MDM configuration needs to also enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). See [Apple video](https://developer.apple.com/videos/play/tech-talks/301/) to learn more about SSO extensions. You may also wish to browse [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings) as you will be using this portal below to push the correct configuration to your Shared Devices.
 
- In the Intune Configuration Portal, set the following configuration:  
+ In the Intune Configuration Portal, set the following extension configuration:  
 * Tell the device to enable the [Microsoft Enterprise SSO plug-in for Apple devices] using the following configuration:
   * **Type**: Redirect
   * **Extension ID**: com.microsoft.azureauthenticator.ssoextension
   * **Team ID**: SGGM6D27TK
   * **URLs**: https://login.microsoftonline.com (this list will be expanded for the private preview to include other Microsoft clouds)
+  Additional Data to configure:
+    * Key: sharedDeviceMode
+    * Type: Boolean
+    * Value: True
 
-* Next, configure your MDM to push Microsoft Authenticator app to your device through an MDM profile. You will need to set the following configuration options to turn on the Shared Device mode and tell the Authenticator to use the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md), which is required for the feature to work.
+* Next, configure your MDM to push Microsoft Authenticator app to your device through an MDM profile. You will need to set the following configuration options to turn on the Shared Device mode.
   * Configuration 1:
     - Key: sharedDeviceMode
     - Type: Boolean
     - Value: True
-  * Configuration 2:
-    - Key: useSSOExtensionOnly
-    - Type: Boolean
-    - Value: True
-
 
 
  ## Modifying Your iOS Application to Support Shared Device Mode
@@ -188,7 +187,7 @@ The [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) au
 let account = .... /* account retrieved above */
 
 let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
-signoutParameters.signoutFromBrowser = false
+signoutParameters.signoutFromBrowser = true // Only needed for Public Preview.
             
 application.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
                 
