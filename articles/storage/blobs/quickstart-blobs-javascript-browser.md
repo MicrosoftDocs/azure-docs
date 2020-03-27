@@ -178,6 +178,35 @@ After you've completed the steps to create a bundle, include the bundle in the *
 ```html
 <script src="./dist/main.js"></script>
 ```
+## Object model
+
+Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+
+* The storage account
+* A container in the storage account
+* A blob in the container
+
+The following diagram shows the relationship between these resources.
+
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+
+Use the following JavaScript classes to interact with these resources:
+
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
+* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): The `BlockBlobClient` class allows you to manipulate Azure Storage blobs.
+
+## Code examples
+
+These example code snippets show you how to perform the following with the Azure Blob storage client library for JavaScript:
+
+* [Add the initial JavaScript code](#add-the-initial-javascript-code)
+* [Add your storage account info](#add-your-storage-account-info)
+* [Create client objects](#create-client-objects)
+* [Create and delete a storage container](#create-and-delete-a-storage-container)
+* [List blobs](#list-blobs)
+* [Upload blobs](#upload-blobs)
+* [Delete blobs](#delete-blobs)
 
 ### Add the initial JavaScript code
 
@@ -349,7 +378,7 @@ deleteButton.addEventListener("click", deleteFiles);
 
 This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-blob/containerclient#deleteblob-string--blobdeleteoptions-) function to remove each file selected in the list. It then calls the `listFiles` function shown earlier to refresh the contents of the **Files** list.
 
-### Run and test the web application
+## Run and test the web application
 
 From the command line, run the command for your chosen bundler to recreate the bundle with your updated *index.js* file.
 
