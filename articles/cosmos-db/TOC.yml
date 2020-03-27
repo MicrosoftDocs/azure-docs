@@ -1012,6 +1012,7 @@
         href: access-secrets-from-keyvault.md
       - name: Secure keys using a managed identity
         href: managed-identity-based-authentication.md
+        displayName: msi, managed service identity, aad, azure active directory, identity 
       - name: Certificate-based authentication with Azure AD
         href: certificate-based-authentication.md
       - name: Restrict user access to data operations only
