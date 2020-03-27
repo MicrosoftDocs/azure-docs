@@ -33,7 +33,7 @@ landingContent:
    linkLists:
      - linkListType: how-to-guide
        links:
-       - text: Working with Device Twins (node)
+       - text: Working with Device Twins using Node.js
          url: iot-hub-node-node-twin-get-started.md
        - text: Understanding IoT metrics 
          url: iot-hub-metrics.md
