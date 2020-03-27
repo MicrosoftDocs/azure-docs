@@ -165,7 +165,7 @@ To use customer managed keys by using a Resource Manager template, update your t
 
     ```json
    "diskEncryptionVaultUri": {
-            "value": "https://omakv.vault.azure.net"
+            "value": "https://<KeyVault_Name>.vault.azure.net"
         },
         "diskEncryptionKeyName": {
             "value": "clusterkey"
