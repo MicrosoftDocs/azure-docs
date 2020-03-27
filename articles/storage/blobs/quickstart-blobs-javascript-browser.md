@@ -171,9 +171,7 @@ When you make changes to *index.html*, be sure to reload the page to see the cha
 
 To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. This process takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers.
 
-See [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md). Use `npm` to install the `@azure/storage-blob` client library in your project, then continue with this article.
-
-After you've completed the steps to create a bundle, include the bundle in the *index.html* page via a script tag:
+See [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md). After you've completed the steps to create a bundle, include the bundle in the *index.html* page via a script tag:
 
 ```html
 <script src="./dist/main.js"></script>
