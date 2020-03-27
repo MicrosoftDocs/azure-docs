@@ -220,7 +220,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 1. In **Cloud Explorer**, expand your subscription, find your Azure IoT Hub and the Azure IoT Edge device you want to deploy.
 
-1. Right-click on the IoT Edge device to create a deployment for it, you need to select the deployment manifest file under the `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.arm32v7.json`.
 
    > [!NOTE]
    > You must not select `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
