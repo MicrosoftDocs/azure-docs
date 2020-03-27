@@ -164,7 +164,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-To determine if Media Services is available in a datacenter, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
+Use [Azure Products by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=media-services&regions=all) to determine if Media Services is available in a given datacenter.
 
 ### Streaming endpoints 
 
