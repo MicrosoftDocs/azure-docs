@@ -1,15 +1,14 @@
 ---
-title: PowerShell script to list and get Azure Cosmos DB Table API operations
-description: Azure PowerShell script - Azure Cosmos DB list and get operations for Table API
+title: PowerShell script to update an Azure Cosmos account's regions
+description: Azure PowerShell script sample - Update an Azure Cosmos account's regions
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 03/21/2020
 ms.author: mjbrown
 ---
 
-# List and get tables for Azure Cosmos DB - Table API
+# Update an Azure Cosmos account's regions using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -17,7 +16,12 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-list-get.ps1 "List or get tables for Table API")]
+> [!NOTE]
+> You cannot modify regions and change other Cosmos account properties in the same operation. These must be done as two separate operations.
+> [!NOTE]
+> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply to your API specific script.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
 ## Clean up deployment
 
@@ -33,9 +37,8 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Cosmos DB**| |
-| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
-| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Lists Cosmos DB Table API Tables in an Account, or gets a specified Cosmos DB Table API Table in an Account. |
+|**Azure Resources**| |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Update a resource. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
