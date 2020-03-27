@@ -136,13 +136,13 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
 
 3. You can then uninstall the agent by using Msiexec using the following examples:
 
-   a. From the command-line type: 
+   * From the command-line type:
 
     ```dos
     msiexec.exe /x {product code GUID} /qn
     ```
 
-   b. You can perform the same steps using PowerShell:
+   * You can perform the same steps using PowerShell:
 
     ```powershell
     Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
