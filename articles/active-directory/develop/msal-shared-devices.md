@@ -29,19 +29,25 @@ Shared Device Mode is a feature of Azure Active Directory that allows you to bui
 
 ## What are Firstline Workers?
 
-Firstline Workers are retail employees, maintenance and field agents, medical personnel, and other users that don't sit in front of a computer or use corporate email for collaboration. Microsoft provides features to enable your application to be used by companies that employ Firstline Workers.
+Firstline Workers are retail employees, maintenance and field agents, medical personnel, and other users that don't sit in front of a computer or use corporate email for collaboration. The following sections introduce the aspects and challenges of supporting Firstline Workers, followed by an introduction to the features provided by Microsoft that enable your application for use by an organization's Firstline Workers.
 
-Applying digital transformation to Firstline Worker workflows presents challenges not usually presented by typical information workers. Such challenges can include high turnover rate and less familiarity with an organization's core productivity tools. To empower Firstline Workers, organizations are adopting different strategies. Some are adopting a bring-your-own-device (BYOD) strategy in which their employees use business apps on their personal phone, while others provide their employees with shared devices like iPads or Android tablets.
+### Challenges of supporting Firstline Workers
+
+Enabling Firstline Worker workflows includes challenges not usually presented by typical information workers. Such challenges can include high turnover rate and less familiarity with an organization's core productivity tools. To empower their Firstline Workers, organizations are adopting different strategies. Some are adopting a bring-your-own-device (BYOD) strategy in which their employees use business apps on their personal phone, while others provide their employees with shared devices like iPads or Android tablets.
+
+### Supporting multiple users on devices designed for one user
 
 Because mobile devices running iOS or Android were designed for single users, most applications optimize their experience for use by a single user. Part of this optimized experience means enabling single sign-on across applications and keeping users signed in on their device. When a user removes their account from an application, the app typically doesn't consider it a security-related event. Many apps even keep a user's credentials around for quick sign-in. You may even have experienced this yourself when you've deleted an application from your mobile device and then reinstalled it, only to discover you're still signed in.
 
-To allow an organization's employees to use its apps across a pool of devices shared by those employees, developers need to enable the opposite experience. Employees need to be able to pick a device from the pool, perform a single gesture to "make it theirs" for the duration of their shift, and then perform another gesture at the end of their shift. When they do so, they should be signed out globally on the device with all their company and personal information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of the employee's shift and/or after a period of inactivity.
+### Global sign-in and sign-out (SSO)
 
-Azure Active Directory supports these scenarios with a feature called Shared Device Mode.
+To allow an organization's employees to use its apps across a pool of devices shared by those employees, developers need to enable the opposite experience. Employees should be able to pick a device from the pool and perform a single gesture to "make it theirs" for the duration of their shift. At the end of their shift, they should be able to perform another gesture to sign globally on the device, with all their personal and company information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of their shift and/or after a period of inactivity.
 
-## What Is Shared Device Mode?
+Azure Active Directory enables these scenarios with a feature called **Shared Device Mode**.
 
-As mentioned previously, Shared Device Mode is a feature of Azure Active Directory that enables you to:
+## Introducing Shared Device Mode
+
+As mentioned, Shared Device Mode is a feature of Azure Active Directory that enables you to:
 
 * Build applications that support Firstline Workers
 * Deploy devices to Firstline Workers and turn on Shared Device Mode
