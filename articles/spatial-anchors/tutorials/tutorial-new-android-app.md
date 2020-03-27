@@ -65,7 +65,7 @@ dependencies {
 
 ## Integrating _Sceneform_
 
-<a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> makes it simple to render realistic 3D scenes in Augmented Reality apps, without having to learn OpenGL.
+[_Sceneform_](https://developers.google.com/sceneform/develop/) makes it simple to render realistic 3D scenes in Augmented Reality apps, without having to learn OpenGL.
 
 Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.8, since it should match the version of ARCore your app is using. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 

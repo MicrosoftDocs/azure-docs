@@ -184,7 +184,7 @@ The Azure Policy language structure for managing Kubernetes follows that of exis
 effect _EnforceOPAConstraint_ is used to manage your Kubernetes clusters and takes details
 properties specific to working with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint)
-and Gatekeeper v3. For details and examples, see the  
+and Gatekeeper v3. For details and examples, see the 
 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
   
 As part of the _details.constraintTemplate_ and _details.constraint_ properties in the policy
@@ -244,7 +244,7 @@ assign an AKS policy. Search for a Kubernetes policy definition instead of the s
 
 > [!IMPORTANT]
 > Built-in policies in category **Kubernetes** are only for use with AKS. For a list of built-in
-> policies, see [../samples/built-in-policies.md#kubernetes]
+> policies, see [Kubernetes samples](../samples/built-in-policies.md#kubernetes).
 
 ## Logging
 

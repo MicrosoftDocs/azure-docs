@@ -1,13 +1,12 @@
 ---
 title: Certify your VM image for the Azure Marketplace 
 description: Explains how to test and submit a VM image for Azure Marketplace certification.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/26/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Certify your VM image
