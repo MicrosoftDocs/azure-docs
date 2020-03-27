@@ -111,6 +111,7 @@ The September Guest OS has released.
 >5. Change the OS Family to 6 and build a package
 >6. Deploy the package to Azure using the Azure portal or Visual Studio
 >
+>Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn [more].
 
 
 | Configuration string | Release date | Disable date |
@@ -319,3 +320,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
