@@ -84,5 +84,5 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 
 ## Next steps
 
+* [Tutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
 * [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
-* [Understand role definitions for Azure resources](role-definitions.md)
