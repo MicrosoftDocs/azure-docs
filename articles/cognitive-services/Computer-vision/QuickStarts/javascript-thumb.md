@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -29,7 +29,6 @@ To create and run the sample, do the following steps:
 
 1. Create a file called _get-thumbnail.html_, open it in a text editor, and copy the following code into it.
 1. Optionally, replace the value of the `value` attribute of the `inputImage` control with the URL of a different image that you want to analyze.
-1. Save the code as a file with an `.html` extension. For example, `get-thumbnail.html`.
 1. Open a browser window.
 1. In the browser, drag and drop the file into the browser window.
 1. When the webpage is displayed in the browser, paste your subscription key and endpoint URL into the appropriate input boxes.

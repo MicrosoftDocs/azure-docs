@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -27,12 +27,12 @@ You must have a subscription key for Computer Vision. You can get a free trial k
 
 To create and run the sample, do the following steps:
 
-1. Copy the following code into a text editor.
+1. Create a file called _analyze-image.html_, open it in a text editor, and copy the following code into it.
 1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image that you want to analyze.
-1. Save the code as a file with an `.html` extension. For example, `analyze-image.html`.
 1. Open a browser window.
 1. In the browser, drag and drop the file into the browser window.
-1. When the webpage is displayed in the browser, choose the **Analyze Image** button.
+1. When the webpage is displayed in the browser, paste your subscription key and endpoint URL into the appropriate input boxes.
+1. Select the **Analyze Image** button.
 
 ```html
 <!DOCTYPE html>
@@ -49,9 +49,8 @@ To create and run the sample, do the following steps:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/analyze";
 
@@ -101,6 +100,13 @@ To create and run the sample, do the following steps:
 
 <h1>Analyze image:</h1>
 Enter the URL to an image, then click the <strong>Analyze image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
