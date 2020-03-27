@@ -1,6 +1,6 @@
 ---
 title: How to use a system-assigned managed identity to access Azure Cosmos DB data.
-description: Learn how to configure an Azure AD system-assigned managed identity to access keys from Azure Cosmos DB.
+description: Learn how to configure an Azure AD system-assigned managed identity to access keys from Azure Cosmos DB. msi, managed service identity, aad, azure active directory, identity
 author: j-patrick
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -12,15 +12,13 @@ ms.reviewer: sngun
 
 # How to use a system-assigned managed identity to access Azure Cosmos DB data.
 
-In this article you will set up a **robust, key rotation agnostic,** solution to manage Azure Cosmos DB keys by leveraging [Managed Identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses an Azure Function. However, you can achieve this solution by using any service that supports managed identities. 
+In this article you will set up a **robust, key rotation agnostic,** solution to access Azure Cosmos DB keys by leveraging [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses an Azure Function. However, you can achieve this solution by using any service that supports managed identities. 
 
-You'll learn how to create an Azure Function that can access Azure Cosmos DB without copying a key.
+You'll learn how to create an Azure Function that can access Azure Cosmos DB without needing to copy any Azure Cosmos DB keys. The function will wake up every minute and record the current temperature of an aquarium fish tank. To learn how to set up a timer triggered Azure Function see the [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) article.
 
-You will build an Azure Function that handles summarizing the last hour of sales information. The Azure Function runs every hour, it reads a set of sale receipts from Azure Cosmos DB. Then the function will create an hourly summary of sales and store it back in the Azure Cosmos container. To simplify the scenario, the processed receipts are deleted by a configured [Time To Live](./time-to-live.md) setting. 
+To simplify the scenario, cleanup of older temperature documents is handled by an already configured [Time To Live](./time-to-live.md) setting. 
 
-Setting up a timer triggered Azure Function is outlined in [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) article.
-
-## Assign a system-assigned Managed Identity to an Azure Function
+## Assign a system-assigned managed identity to an Azure Function
 
 In this step, you'll assign a system-assigned managed identity to your Azure Function.
 
@@ -45,9 +43,9 @@ In this step, you'll assign a role to the Azure Function's system-assigned manag
 > RBAC support in Azure Cosmos DB is applicable to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
 
 > [!TIP] 
-> When assigning roles, only assign the needed access. If your service only requires reading data, then assign the  Managed Identity to **Cosmos DB Account Reader** role. For more information about the importance of least privilege access, see the [lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
+> When assigning roles, only assign the needed access. If your service only requires reading data, then assign the managed identity to **Cosmos DB Account Reader** role. For more information about the importance of least privilege access, see the [lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
-For your scenario, you will read the sale receipt documents, summarize them, and then write back that summary to a container in Azure Cosmos DB. Because you have to write the data, you will use the **DocumentDB Account Contributor** role. 
+For your scenario, you will read the temperature, then write back that data to a container in Azure Cosmos DB. Because you have to write the data, you will use the **DocumentDB Account Contributor** role. 
 
 1. Sign in to the Azure portal and navigate to your Azure Cosmos account. Open the **Access Management (IAM) Pane**, and then the **Role Assignments** tab:
 ![IAM Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
@@ -64,11 +62,11 @@ For your scenario, you will read the sale receipt documents, summarize them, and
 
         ![Select Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
-1. Select the function app and click **Save**.
+1. After the function app's identity is selected click **Save**.
 
 ## Programmatically access the Azure Cosmos DB keys from the Azure Function
 
-Now we have a function app that has a system-assigned managed identity. That identity is given the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, and run the business logic to summarize the sales receipt.
+Now we have a function app that has a system-assigned managed identity. That identity is given the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature, then save this to Cosmos DB.
 
 This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos account keys.
 
@@ -89,12 +87,26 @@ namespace SummarizationService
 }
 ```
 
-You will use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned Managed Identity token. To learn other ways to get the token and more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service To Service Authentication](../key-vault/service-to-service-authentication.md) article.
+The example also uses a simple document called "TemperatureRecord", which is defined as follows:
+```csharp
+using System;
 
+namespace Monitor
+{
+    public class TemperatureRecord
+    {
+        public string id { get; set; } = Guid.NewGuid().ToString();
+        public DateTime RecordTime { get; set; }
+        public int Temperature { get; set; }
+
+    }
+}
+```
+
+You will use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service To Service Authentication](../key-vault/service-to-service-authentication.md) article.
 
 ```csharp
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -103,49 +115,47 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 
-namespace SummarizationService
+namespace Monitor
 {
-    public static class SummarizationFunction
+    public static class TemperatureMonitor
     {
-        private static string subscriptionId = 
+        private static string subscriptionId =
         "<azure subscription id>";
-        private static string resourceGroupName = "
-        <name of your azure resource group>";
-        private static string accountName = 
+        private static string resourceGroupName =
+        "<name of your azure resource group>";
+        private static string accountName =
         "<Azure Cosmos DB account name>";
-        private static string cosmosDbEndpoint = 
+        private static string cosmosDbEndpoint =
         "<Azure Cosmos DB endpoint>";
-        private static string databaseName = 
+        private static string databaseName =
         "<Azure Cosmos DB name>";
         private static string containerName =
-        "<container where the sales receipts are>";
-        private static string indexToQuery = 
-        "<index to query for the sale receipts>";
+        "<container to store the temperature in>";
 
-        [FunctionName("SummarizationService")]
-        public static async Task Run([TimerTrigger("0 5 * * * *")]TimerInfo myTimer, ILogger log)
+        [FunctionName("TemperatureMonitor")]
+        public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
-            log.LogInformation($"Starting receipt processing: {DateTime.Now}");
+            log.LogInformation($"Starting temperature monitoring: {DateTime.Now}");
 
             // AzureServiceTokenProvider will help us to get the Service Managed token.
             var azureServiceTokenProvider = new AzureServiceTokenProvider();
 
             // In order to get the Service Managed token we need to authenticate to the Azure Resource Manager.
             string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
-            
+
             // To get the Azure Cosmos DB keys setup the List Keys API:
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
-            
+
             // setup an HTTP Client and add the access token.
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            
+
             // Post to the endpoint to get the keys result.
             var result = await httpClient.PostAsync(endpoint, new StringContent(""));
 
             // Get the Result back as a DatabaseAccountListKeysResult.
             DatabaseAccountListKeysResult keys = await result.Content.ReadAsAsync<DatabaseAccountListKeysResult>();
-     
+
             log.LogInformation("Starting to create the client");
 
             CosmosClient client = new CosmosClient(cosmosDbEndpoint, keys.primaryMasterKey);
@@ -154,32 +164,23 @@ namespace SummarizationService
 
             var database = client.GetDatabase(databaseName);
             var container = database.GetContainer(containerName);
-            
-            // get all the receipts that are for "sales"
-            QueryDefinition query = new QueryDefinition($"SELECT * FROM {containerName} f WHERE f.type = @type")
-            .WithParameter("@type", "sales");
 
-            SummarySalesReceipt summarySales = new SummarySalesReceipt();
+            log.LogInformation("Get the temperature.");
 
-            FeedIterator<SalesReceipt> resultSetIterator = 
-            container.GetItemQueryIterator<SalesReceipt>(query, 
-            requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey(indexToQuery) });
+            var tempRecord = new TemperatureRecord() { RecordTime = DateTime.UtcNow, Temperature = GetTemperature() };
 
-            while (resultSetIterator.HasMoreResults)
-            {
-                // Get all the sales receipts
-                FeedResponse<SalesReceipt> response = await resultSetIterator.ReadNextAsync();
+            log.LogInformation("Store temperature");
 
-               // ... summarization logic for sales receipts.
-               // The summary is then added to the summarySales document.
-               // Note: another function will handle cleanup ...
+            await container.CreateItemAsync<TemperatureRecord>(tempRecord);
 
-            }
+            log.LogInformation($"Ending temperature monitor: {DateTime.Now}");
+        }
 
-            log.LogInformation("Finished the summarization");
-            await container.CreateItemAsync<SummarySalesReceipt>(summarySales);
-            
-            log.LogInformation($"Ending receipt processing: {DateTime.Now}");
+        private static int GetTemperature()
+        {
+            // fake the temperature sensor for this demo
+            Random r = new Random(DateTime.UtcNow.Second);
+            return r.Next(0, 120);
         }
     }
 }
@@ -190,5 +191,4 @@ You are now ready to [deploy your Azure Function.](../azure-functions/functions-
 
 * [Certificate-based authentication with Azure Cosmos DB and Active Directory](certificate-based-authentication.md)
 * [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
-
 * [Security baseline for Azure Cosmos DB](security-baseline.md)
