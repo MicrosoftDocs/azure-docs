@@ -84,6 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.opsginie.com/auth/saml?id=<UNIQUEID>`
 
+    > [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL, which is explained later in this tutorial.
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
