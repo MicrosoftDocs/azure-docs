@@ -41,7 +41,7 @@ Because mobile devices running iOS or Android were designed for single users, mo
 
 ### Global sign-in and sign-out (SSO)
 
-To allow an organization's employees to use its apps across a pool of devices shared by those employees, developers need to enable the opposite experience. Employees should be able to pick a device from the pool and perform a single gesture to "make it theirs" for the duration of their shift. At the end of their shift, they should be able to perform another gesture to sign globally on the device, with all their personal and company information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of their shift and/or after a period of inactivity.
+To allow an organization's employees to use its apps across a pool of devices shared by those employees, developers need to enable the opposite experience. Employees should be able to pick a device from the pool and perform a single gesture to "make it theirs" for the duration of their shift. At the end of their shift, they should be able to perform another gesture to sign out globally on the device, with all their personal and company information removed so they can return it to the device pool. Furthermore, if an employee forgets to sign out, the device should be automatically signed out at the end of their shift and/or after a period of inactivity.
 
 Azure Active Directory enables these scenarios with a feature called **Shared Device Mode**.
 
@@ -60,22 +60,22 @@ Supported features are:
 
 * **Sign in a user device-wide** through any supported application.
 * **Sign out a user device-wide** through any supported application.
-* **Query the state of the device** to determine if your application is on a device that is in Shared Device mode.
+* **Query the state of the device** to determine if your application is on a device that's in Shared Device mode.
 * **Query the device state of the user** on the device to determine if anything has changed since the last time your application was used.
 
 Supporting Shared Device Mode should be considered both a security enhancement and feature upgrade for your application, and can help increase its adoption in highly regulated environments like healthcare and finance.
 
 Your users depend on you to ensure their data isn't leaked to another user. Share Device Mode provides helpful signals to indicate to your application that a change you should manage has occurred. Your application is responsible for checking the state of the user on the device every time the app is used, clearing the previous user's data. This includes if it is reloaded from the background in multi-tasking. On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We recommend you always perform a thorough security review process after adding Shared Device Mode capability to your app.
 
-For details on how to modify your applications to support Shared Device Mode, see the [Next Steps](#next-steps) section at the end of this article.
+For details on how to modify your applications to support Shared Device Mode, see the [Next steps](#next-steps) section at the end of this article.
 
-### Deploy devices To Firstline Workers and turn on Shared Device Mode
+### Deploy devices to Firstline Workers and turn on Shared Device Mode
 
 Once your applications support Shared Device Mode and include the required data and security changes, you can advertise them as being usable by Firstline Workers.
 
 An organization's device administrators are able to deploy their devices and your applications to their stores and workplaces through a mobile device management (MDM) solution like Microsoft Intune. Part of the provisioning process is marking the device as a *Shared Device*. Administrators configure Shared Device Mode by deploying the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) and setting Shared Device Mode through configuration parameters. After performing these steps, all applications that support Shared Device Mode will use the Microsoft Authenticator application to manage its user state and provide security features for the device and organization.
 
-## Next Steps
+## Next steps
 
 We support iOS and Android platforms for Shared Device Mode. Review the documentation below for your platform to begin supporting Firstline Workers in your applications.
 
