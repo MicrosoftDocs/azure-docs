@@ -114,7 +114,7 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## List role assignments for a managed identity
 
-1. Get the the object ID of the system-assigned or user-assigned managed identity.
+1. Get the object ID of the system-assigned or user-assigned managed identity.
 
     To get the object ID of a user-assigned managed identity, you can use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) or [az identity list](/cli/azure/identity#az-identity-list).
 
