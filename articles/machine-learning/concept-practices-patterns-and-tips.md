@@ -32,12 +32,19 @@ You can create a minimal pipeline using this architecture using [tk notebook tk]
 
 {>> How do you modularize? "How do you modularize your code for ease-of-use legibility instead of a 600-line pipeline.py scripts?<<}
 
-Pipelines give you a great opportunity to modularize your ML code. However, it has to be kept in mind that moving between pipeline steps is vastly more expensive than a function call. The question you must ask is not so much "Are these functions and data conceptually different than those in this other section?" but "Do I want these functions and data to evolve separately?" or "Is this an expensive computation whose output I can reuse?" 
+Pipelines give you a great opportunity to modularize your ML code. However, it has to be kept in mind that moving between pipeline steps is vastly more expensive than a function call. The question you must ask is not so much "Are these functions and data conceptually different than those in this other section?" but "Do I want these functions and data to evolve separately?" or "Is this an expensive computation whose output I can reuse?"
+
+As discussed previously, separating data preparation from training is often one such opportunity. Sometimes data preparation is complex and time-consuming enough that it can be appropriate to break into separate pipeline steps. Other opportunities include post-training testing and analysis. 
 
 ## H2
 
 {>> How can you quickly iterate on a single step without having to spin up a new compute? <<}
+
+tk I don't know the answer to this. tk 
+
 {>>How do you collaborate while using pipelines?<<}
+
+Separate pipelines are natural lines along which to split effort. 
 
 ## H2
 
