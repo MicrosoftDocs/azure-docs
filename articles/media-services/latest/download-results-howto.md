@@ -22,7 +22,7 @@ This article demonstrates how to download the results using Java and .NET SDKs.
 
 ## Prerequisites 
 
-[Manage assets](manage-asset-concept.md)
+Review [manage assets](manage-asset-concept.md).
 
 ## Java
 
