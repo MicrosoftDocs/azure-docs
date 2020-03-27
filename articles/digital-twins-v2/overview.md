@@ -48,7 +48,7 @@ Azure Digital Twins digital representations are meant to be live, up-to-date rep
 
 Routing events allows you to:
 * Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin)
-* Propagate state through the twin graph (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes)
+* Update the twin graph based on event data (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes)
 * Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters)
 * Send data to downstream destinations (such as storing it for long-term bulk analytics or triggering workflow integrations)
 
@@ -63,7 +63,7 @@ Here are some examples of insights you can gather:
 
 ### Manage access
 
-Using fine-grained, twin-level access control, you can define the policies for data access in Azure Digital Twins.
+Using twin-level access control, you can define the policies for data access in Azure Digital Twins.
 
 ### Work with with IoT Hub for device-centric scenarios
 
