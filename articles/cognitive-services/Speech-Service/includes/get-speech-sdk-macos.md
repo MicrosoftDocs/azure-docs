@@ -36,10 +36,18 @@ end
 
 # [Xamarin.Mac](#tab/mac-xamarin)
 
-<div class="icon is-large">
-    <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
-</div>
+:::row:::
+    :::column span="3":::
+        For more information, see <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+    :::column-end:::
+    :::column:::
+        <br>
+        <div class="icon is-large">
+            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+        </div>
+    :::column-end:::
+:::row-end:::
 
-Xamarin.Mac
+[!INCLUDE [get-speech-sdk-dotnet](get-speech-sdk-dotnet.md)]
 
 ---
