@@ -54,7 +54,7 @@ Next, you connect to your Azure Storage account and create the **samples-workite
 
 1. In your function, on the **Overview** page, select your resource group.
 
-    ![Select your Azure portal resource group.](./media/functions-create-storage-blob-triggered-function/function-storage-resource-group.png)
+    ![Select your Azure portal resource group.](./media/functions-create-storage-blob-triggered-function/functions-storage-resource-group.png)
 
 1. Find and select your resource group's storage account.
 
