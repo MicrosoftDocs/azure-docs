@@ -63,7 +63,6 @@ To configure and test Azure AD SSO with Cisco AnyConnect, complete the following
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[VPN Configuration CLI](#vpn-configuration-cli)** - VPN Configuration through CLI.
 1. **[Configure Cisco AnyConnect SSO](#configure-cisco-anyconnect-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Cisco AnyConnect test user](#create-cisco-anyconnect-test-user)** - to have a counterpart of B.Simon in Cisco AnyConnect that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
@@ -127,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## VPN Configuration CLI
+## Configure Cisco AnyConnect SSO
 
 1. You are going to do this on the CLI first, you might come back through and do an ASDM walk-through at another time.
 
@@ -179,10 +178,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     > [!NOTE]
     > There is a feature with the SAML IdP configuration - If you make changes to the IdP config you need to remove the saml identity-provider config from your Tunnel Group and re-apply it for the changes to become effective.
-
-## Configure Cisco AnyConnect SSO
-
-To configure single sign-on on **Cisco AnyConnect** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cisco AnyConnect support team](https://www.cisco.com/c/en/us/support/index.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Cisco AnyConnect test user
 
