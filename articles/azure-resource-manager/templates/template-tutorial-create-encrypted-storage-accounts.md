@@ -2,7 +2,7 @@
 title: Utilize template reference
 description: Utilize the Azure Resource Manager template reference to create a template for deploying an encrypted storage account.
 author: mumian
-ms.date: 03/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 Learn how to find the template schema information, and use the information to create Azure Resource Manager (ARM) templates.
 
-In this tutorial, you use a base template from Azure Quickstart templates. Using template reference documentation, you customize the template to create an encrypted Storage account.
+In this tutorial, you use a base template from Azure Quickstart templates. Using template reference documentation, you customize the template.
 
 ![Resource Manager template reference deploy encrypted storage account](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
@@ -38,13 +38,14 @@ To complete this article, you need:
 [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
 1. From Visual Studio Code, select **File**>**Open File**.
-2. In **File name**, paste the following URL:
+1. In **File name**, paste the following URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
+
+1. Select **Open** to open the file.
+1. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
 ## Understand the schema
 
@@ -59,78 +60,38 @@ To complete this article, you need:
     * **resources**: specify the resource types that are deployed or updated in a resource group.
     * **outputs**: specify the values that are returned after deployment.
 
-2. Expand **resources**. There is a `Microsoft.Storage/storageAccounts` resource defined. The template creates a non-encrypted Storage account.
+1. Expand **resources**. There is a `Microsoft.Storage/storageAccounts` resource defined.
 
     ![Resource Manager template storage account definition](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resource.png)
 
 ## Find the template reference
 
 1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
-2. In the **Filter by title** box, enter **storage accounts**.
-3. Select **Reference/Template reference/Storage/&lt;Version>/Storage Accounts** as shown in the following screenshot:
+1. In the **Filter by title** box, enter **storage accounts**, and select the first **Storage Accounts** under **Reference > Storage**.
 
     ![Resource Manager template reference storage account](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    If you don't know which version to choose, use the latest version.
+1. A resource provider usually have several API versions:
 
-4. Find the encryption-related definition information.
+    ![Resource Manager template reference storage account versions](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-versions.png)
 
-    ```json
-    "encryption": {
-      "services": {
-        "blob": {
-          "enabled": boolean
-        },
-        "file": {
-          "enabled": boolean
-        }
-      },
-      "keySource": "string",
-      "keyvaultproperties": {
-        "keyname": "string",
-        "keyversion": "string",
-        "keyvaulturi": "string"
-      }
-    },
-    ```
+1. Select **All resources** under **Storage** from the left pane. This page lists the resource types and versions of the storage resource provider. It is recommended to use the latest API versions for the resource types defined in your template.
 
-    On the same web page, the following description confirms the `encryption` object is used to create an encrypted storage account.
+    ![Resource Manager template reference storage account types versions](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-    ![Resource Manager template reference storage account encryption](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption.png)
+1. Select the latest version of the **storageAccount** resource type.  It is **2019-06-01** when this article is written.
 
-    And there are two ways for managing the encryption key. You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. To keep this tutorial simple, you use the `Microsoft.Storage` option, so you don't have to create an Azure Key Vault.
-
-    ![Resource Manager template reference storage account encryption object](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts-encryption-object.png)
-
-    Your encryption object shall look like:
-
-    ```json
-    "encryption": {
-        "services": {
-            "blob": {
-                "enabled": true
-            },
-            "file": {
-              "enabled": true
-            }
-        },
-        "keySource": "Microsoft.Storage"
-    }
-    ```
+1. This page lists the details of the storageAccount resource type.  For example, it lists the allowed values for the **Sku** object. There are more skus than what is listed in the quickstart template that you opened earlier. You can customize the quickstart template to include all the available storage types.
 
 ## Edit the template
 
-From Visual Studio Code, modify the template so that the resources element looks like:
+From Visual Studio Code, add the additional storage account types as shown in the following screenshot:
 
-![Resource Manager template encrypted storage account resources](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+![Resource Manager template encrypted storage account resources](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-storage-resources-skus.png)
 
 ## Deploy the template
 
-Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure.
-
-The following screenshot shows the CLI command for listing the newly created storage account, which indicates encryption has been enabled for the blob storage.
-
-![Azure Resource Manager encrypted storage account](./media/template-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure. When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Premium_ZRS**. The deploy would fail if you use the original quickstart template because **Premium_ZRS** was not an allowed value.
 
 ## Clean up resources
 
