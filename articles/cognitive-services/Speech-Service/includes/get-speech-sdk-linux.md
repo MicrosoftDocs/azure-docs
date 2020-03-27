@@ -63,7 +63,7 @@ sudo yum install alsa-lib openssl
 
 [!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]
 
-### Python SDK
+### Python
 
 [!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
 

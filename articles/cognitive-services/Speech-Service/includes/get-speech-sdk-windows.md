@@ -45,14 +45,14 @@ The required Speech SDK files can be deployed in the same directory as your appl
 > [!IMPORTANT]
 > For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the `Application Files` button and find corresponding libraries from the scroll down list. Make sure the value is set to `Included`. Visual Studio will include the file when project is published/deployed.
 
-### C++ SDK
+### C++
 
 [!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]
 
-### Python SDK
+### Python
 
 [!INCLUDE [Get Python Speech SDK](get-speech-sdk-python.md)]
 
-### Java SDK
+### Java
 
 [!INCLUDE [Get Java Speech SDK](get-speech-sdk-java.md)]

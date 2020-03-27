@@ -14,8 +14,8 @@ When developing for macOS, there are three Speech SDKs available.
 
 ### System requirements
 
-- A macOS machine with <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode <span class="docon docon-navigate-external x-hidden-focus"></span></a> 9.4.1 or later
-- Target iOS 9.3 or later
+- A macOS version 10.13 or later
+- When developing Target iOS 9.3 or later
 
 # [Xcode](#tab/mac-xcode)
 
