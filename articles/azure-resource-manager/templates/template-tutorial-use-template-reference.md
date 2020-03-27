@@ -35,7 +35,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
 1. From Visual Studio Code, select **File**>**Open File**.
 1. In **File name**, paste the following URL:
@@ -71,7 +71,7 @@ To complete this article, you need:
 
     ![Resource Manager template reference storage account](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
 
-1. A resource provider usually have several API versions:
+    A resource provider usually has several API versions:
 
     ![Resource Manager template reference storage account versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-versions.png)
 
@@ -79,9 +79,11 @@ To complete this article, you need:
 
     ![Resource Manager template reference storage account types versions](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Select the latest version of the **storageAccount** resource type.  It is **2019-06-01** when this article is written.
+1. Select the latest version of the **storageAccount** resource type.  The latest version is **2019-06-01** when this article is written.
 
 1. This page lists the details of the storageAccount resource type.  For example, it lists the allowed values for the **Sku** object. There are more skus than what is listed in the quickstart template that you opened earlier. You can customize the quickstart template to include all the available storage types.
+
+    ![Resource Manager template reference storage account skus](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-skus.png)
 
 ## Edit the template
 
