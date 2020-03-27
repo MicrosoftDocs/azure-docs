@@ -34,9 +34,13 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## Create an image definition
 
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
+
+For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
+
+In this example, the image definition is named *myImageDefinition*, and is for a specialized Linux OS. To create a definition for images using a Windows OS, use `--os-type Windows`. To create a generalized image definition, use `--os-state generalized`.
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -46,12 +50,15 @@ az sig image-definition create \
    --publisher myPublisher \
    --offer myOffer \
    --sku 16.04-LTS \
-   --os-type Linux 
+   --os-type Linux \
+   --os-state specialized
 ```
 
 
 
 ## Share the gallery
+
+You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version leve. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
 
 We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
 
@@ -68,4 +75,4 @@ Use the object ID as a scope, along with an email address and [az role assignmen
 az role assignment create --role "Reader" --assignee <email address> --scope <gallery ID>
 ```
 
-
+For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
