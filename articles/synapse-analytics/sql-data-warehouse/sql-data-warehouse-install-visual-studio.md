@@ -1,14 +1,14 @@
 ---
 title: Install Visual Studio 2019 
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for SQL Analytics
-services: sql-data-warehouse
+services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
