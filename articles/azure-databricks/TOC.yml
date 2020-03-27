@@ -920,7 +920,13 @@
         maintainContext: true
     - name: Reproduce runs with MLflow projects
       href: /azure/databricks/applications/mlflow/projects
-      maintainContext: true  
+      maintainContext: true
+    - name: Manage the Lifecycle of MLflow Models in MLflow Model Registry
+      href: /azure/databricks/applications/mlflow/model-registry
+      maintainContext: true 
+    - name: MLflow Model Registry example
+      href: /azure/databricks/applications/mlflow/model-registry-example
+      maintainContext: true 
   - name: Graph analysis
     items:
     - name: Graph analysis overview
@@ -1046,6 +1052,9 @@
       - name: Diagnostic logging in Azure Databricks
         href: /azure/databricks/administration-guide/account-settings/azure-diagnostic-logs
         maintainContext: true
+      - name: Monitor usage using tags
+        href: /azure/databricks/administration-guide/account-settings/usage-detail-tags-azure
+        maintainContext: true        
     - name: Manage users and groups
       items:
       - name: Users and groups overview
