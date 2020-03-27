@@ -136,7 +136,7 @@ Here is a list of features not supported by Premium and their mitigation -
 
 ### Partitioned entities
 
-   Partitioned entities were supported in the Standard tier to provide better availablility in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
+   Partitioned entities were supported in the Standard tier to provide better availability in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
 
    During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
 
