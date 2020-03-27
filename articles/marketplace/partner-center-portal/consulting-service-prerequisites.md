@@ -11,7 +11,7 @@ ms.author: mingshen
 
 # Consulting service prerequisites
 
-Review the description of and requirements for this offer type in [Consulting Services for Azure Marketplace and AppSource](../../consulting-services.md).  The following specific consulting service types have additional requirements:
+Review the description of and requirements for this offer type in [Consulting Services for Azure Marketplace and AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services).  The following specific consulting service types have additional requirements:
 
 | Offer type | Requirement |
 |---------|---------|
