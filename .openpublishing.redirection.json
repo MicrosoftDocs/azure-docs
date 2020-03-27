@@ -12530,6 +12530,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/blockchain/service/connect-truffle.md",
+      "redirect_url": "/azure/blockchain/service/connect-vscode",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/best-practices-resource-manager-security.md",
       "redirect_url": "/azure/best-practices-network-security",
       "redirect_document_id": false
