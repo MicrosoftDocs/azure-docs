@@ -73,7 +73,7 @@ Specify the **ApplicationCertificateValidationPolicy** with value **ServiceCommo
 
    To specify the list of service common name and issuer thumbprints, add a [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) section under **fabricSettings**, as shown below. Multiple certificate common name and issuer thumbprint pairs can be added in the **parameters** array. 
 
-   If the endpoint reverse proxy is connecting to presents a certificate who's common name and  issuer thumbprint matches any of the values specified here, TLS channel is established. 
+   If the endpoint reverse proxy is connecting to presents a certificate who's common name and issuer thumbprint matches any of the values specified here, a TLS channel is established.
    Upon failure to match the certificate details, reverse proxy fails the client's request with a 502 (Bad Gateway) status code. The HTTP status line will also contain the phrase "Invalid SSL Certificate." 
 
    ```json
