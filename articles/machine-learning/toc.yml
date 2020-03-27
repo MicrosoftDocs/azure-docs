@@ -198,7 +198,7 @@
       - name: Create datasets with labels
         displayName: data, labels, torchvision
         href: how-to-use-labeled-dataset.md
-    - name: Prepare data
+    - name: Get data
       items:
       - name: Data ingestion with Azure Data Factory
         displayName: data, ingestion, adf
