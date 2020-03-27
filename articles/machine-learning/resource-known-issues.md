@@ -132,7 +132,6 @@ These are known issues for Azure Machine Learning Datasets.
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
 
-
 ### Data labeling projects issues
 
 Known issues with labeling projects.
