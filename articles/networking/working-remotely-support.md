@@ -18,7 +18,7 @@ ms.author: rambala
 
 This article describes the options that are available to organizations to set up remote access for their users or to supplement their existing solutions with additional capacity during periods of peak utilization. Network architects are faced with the following challenges:
 
-- Address an increased in-network utilization.
+- Address an increase in network utilization.
 - Provide reliable-secure connectivity to more employees of their company and customers.
 - Provide connectivity to remote locations across the globe.
 
