@@ -19,7 +19,7 @@ In Azure Active Directory Domain Services (Azure AD DS), a key component is DNS 
 
 As you run your own applications and services, you may need to create DNS records for machines that aren't joined to the domain, configure virtual IP addresses for load balancers, or set up external DNS forwarders. Users who belong to the *AAD DC Administrators* group are granted DNS administration privileges on the Azure AD DS managed domain and can create and edit custom DNS records.
 
-In a hybrid environment, DNS zones and records configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define and use your own DNS entries, create records in the Azure AD DS DNS server or use conditional forwarders that point to existing DNS servers in your environment.
+In a hybrid environment, DNS zones and records configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To resolve on-premises domains and resources, create and use conditional forwarders that point to existing DNS servers in your environment.
 
 This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Azure AD DS.
 
@@ -33,6 +33,8 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+* Connectivity from your Azure AD DS virtual network to on-premises environment.
+    * This connectivity can be provided with an [Azure ExpressRoute][expressroute] or [Azure VPN Gateway][vpn-gateway].
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
@@ -97,7 +99,7 @@ To create a conditional forwarder in your Azure AD DS managed domain, complete t
 
 1. To create the conditional forwarder, select **OK**.
 
-Name resolution for on-premises resources from VMs connected to the Azure AD DS managed domain should now resolve correctly.
+Name resolution for on-premises resources from VMs connected to the Azure AD DS managed domain should now resolve correctly. DNS queries for the DNS domain configured in the conditional forwarder are forwarded to the on-premises DNS servers.
 
 ## Next steps
 
@@ -107,6 +109,8 @@ For more information about managing DNS, see the [DNS tools article on Technet](
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
+[expressroute]: ../expressroute/expressroute-introduction.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
