@@ -46,7 +46,7 @@ To support disaster recovery strategies, your logic apps and locations must meet
 
 * Both logic app instances have the same host type. So, either both instances are deployed to public regions in multi-tenant Azure, or both instances are deployed to separate ISEs when your logic app needs to access resources in an Azure virtual network.
 
-  For example, you must use ISEs as both the primary and secondary location when your primary logic app instance runs in an ISE and uses [ISE-versioned connectors](../connectors/apis-list.md#ise-connectors), HTTP actions to call resources in the Azure virtual network, or both. In this scenario, your secondary logic app instance must atlso have a similar setup in the secondary location.
+  For example, you must use ISEs as both the primary and secondary location when your primary logic app instance runs in an ISE and uses [ISE-versioned connectors](../connectors/apis-list.md#ise-connectors), HTTP actions to call resources in the Azure virtual network, or both. In this scenario, your secondary logic app instance must also have a similar setup in the secondary location.
 
 > [!NOTE]
 > For more advanced scenarios, you can mix both multi-tenant Azure and an 
@@ -102,13 +102,17 @@ You can set up your primary and secondary locations so that your logic app insta
 
 ### Active-active examples
 
-These examples show the active-active setup where both logic app instances actively handle requests or messages. This setup uses one of these patterns to distribute the requests or messages between instances:
+These examples show the active-active setup where both logic app instances actively handle requests or messages. Some other system or service distributes the requests or messages between instances, for example, one of these options:
 
-* A "physical" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), a "soft" load balancer such as [Azure API Management](../api-management/api-management-key-concepts.md), or a service that supports state tracking such as [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). This example features Azure Load Balancer, but you can use a different pattern based your scenario's needs:
+* A "physical" load balancer, such as a piece of hardware that routes traffic
+
+* A "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), [Azure API Management](../api-management/api-management-key-concepts.md), or a service that supports state tracking such as [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). With API Management, you can specify policies that determine how to load balance incoming traffic.
+
+  Although this example primarily shows Azure Load Balancer, you can use the option that best suits your scenario's needs:
 
   !["Active-active" setup that uses a load balancer or stateful service](./media/business-continuity-disaster-recovery-guidance/active-active-setup-load-balancer.png)
 
-* Have each instance act as a consumer so that both instances compete for messages from a queue:
+* Each logic app instance acts as a consumer and have both instances compete for messages from a queue:
 
   !["Active-active" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-active-competing-consumers-pattern.png)
 
@@ -118,16 +122,13 @@ These examples show the active-active setup where both logic app instances activ
 
 This example shows the active-passive setup where the primary logic app instance is active and enabled in one location, while the secondary instance stays inactive and disable in another location. If the primary experiences a disruption or failure, you can have some kind of operator run a script that enables the secondary to take on the workload.
 
+!["Active-passive" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-passive-setup.png)
 
 <a name="state-history"></a>
 
 ## Logic app state and history
 
 When your logic app is triggered and starts running, the app's state is stored in the same location where the app started and is non-transferable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
-
-> [!NOTE]
-> The Sliding Window trigger, which is a schedule-based trigger, has the capability for you to 
-> move that trigger's state to an alternate region, but the API for this task is undocumented.
 
 <a name="reduce-abandoned-in-progress"></a>
 
@@ -147,7 +148,7 @@ To minimize the number of abandoned in-progress workflow instances, you can choo
 
 * [Process manager (broker) pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
-* [Peek-lock without timeout message pattern](../servicebus/peek-lock-message-non-destructive-read.md)
+* [Peek-lock without timeout pattern](https://social.technet.microsoft.com/wiki/contents/articles/50022.azure-service-bus-how-to-peek-lock-a-message-from-queue-using-azure-logic-apps.aspx)
 
 <a name="access-trigger-runs-history"></a>
 
@@ -185,6 +186,8 @@ For example, if you have a logic app that needs to run every 10 minutes, set up 
 
   * In the secondary location, set the *passive* logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour that's set in the other location, for example, 9:10 AM.
 
+    !["Active-passive" setup that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/active-passive-recurrence-trigger.png)
+
 * Passive-active
 
   * In the secondary location, set the *active* logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
@@ -192,6 +195,8 @@ For example, if you have a logic app that needs to run every 10 minutes, set up 
   * In the primary location, set the *passive* logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
 
   When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
+
+  !["Passive-active" setup that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/passive-active-recurrence-trigger.png)
 
 <a name="polling-trigger"></a>
 
@@ -218,13 +223,17 @@ From a disaster recovery perspective, when you set up your logic app's primary a
 
 * For a logic app that tracks client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
 
-* For a logic app that tracks server side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
+  For example, an Office 365 Outlook trigger is a client-side trigger that maintains state. The trigger tracks the the timestamp for the most recently read email to avoid reading a duplicate.
+
+* For a logic app that tracks server-side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
+
+  For example, reading from a message queue, such as an Azure Service Bus queue, requires tracking server-side state because the queuing service maintains locks on messages to prevent other clients from reading the same messages.
 
   > [!NOTE]
   > If your logic app needs to read messages in a specific order, for example, from a Service Bus queue, 
   > you can use the competing consumer pattern but only when combined with Service Bus sessions, 
-  > which is also known as the *sequential convoy* pattern. Otherwise, you must set up your logic 
-  > app instances with the active-passive roles.
+  > which is also known as the [*sequential convoy* pattern](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). 
+  > Otherwise, you must set up your logic app instances with the active-passive roles.
 
 <a name="request-trigger"></a>
 
@@ -234,16 +243,17 @@ The **Request** trigger makes your logic app callable from other apps, services,
 
 * A direct REST API for your logic app that others can call
 
-  For example, use this trigger when you want to call your logic app from other logic apps by using the **Call workflow - Logic Apps** action.
+  For example, use the Request trigger to start your logic app so other logic apps can call the trigger by using the **Call workflow - Logic Apps** action.
 
 * A [webhook](#webhook-trigger) or callback mechanism for your logic app
 
-* A mechanism for user operation routines to manually call your logic app
+* A way that you can manually run user operations or routines to call your logic app, for example, by using a PowerShell script that performs a specific task
 
-From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until something explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances to play either of these roles:
+From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until some other service or system explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances in these ways:
 
-* Active-passive where the caller or router determines when to enable or activate those instances
-* Active-active when you use the load balancer pattern
+* [Active-active](#roles): Both instances are enabled and active. The caller or router balances or distributes traffic between those instances.
+
+* [Active-passive](#roles): Only the primary instance is enabled and active, handling all the work. The secondary instance is inactive and waits until the primary is disrupted or fails. The caller or router determines when to enable the secondary instance.
 
 As a recommended architecture, you can use Azure API Management as a proxy for the logic apps that use Request triggers. API Management provides [built-in cross-regional resiliency and the capability to route traffic across multiple endpoints](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
 
