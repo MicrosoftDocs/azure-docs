@@ -320,4 +320,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[more]: https://docs.microsoft.com/en-us/azure/cloud-services/applications-dont-support-tls-1-2  
+[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
