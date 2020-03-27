@@ -12,6 +12,6 @@
 
 This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region. To either upload a VHD or copy it across regions, you must create an empty managed disk labeled for upload and use AzCopy to upload your VHD to it. This process also enables you to upload a VHD up to 32 TiB in size directly into a managed disk.
 
-If you're providing a backup solution for IaaS VMs in Azure, we recommend using direct upload to restore customer backups to managed disks. When uploading a VHD from a machine external to Azure, speeds would depend on your local bandwidth. When uploading or copying from an Azure VM, then your bandwidth would be the same as standard HDDs.
+If you're providing a backup solution for IaaS VMs in Azure, we recommend using direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds would depend on your local bandwidth. When uploading or copying from an Azure VM, then your bandwidth would be the same as standard HDDs.
 
 Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It isn't supported for ultra disks, yet.
