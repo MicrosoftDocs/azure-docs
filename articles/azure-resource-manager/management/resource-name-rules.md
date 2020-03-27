@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/26/2020
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -379,6 +379,13 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | jobs | resource group | 2-64 | Alphanumerics and hyphens.<br><br>Start with letter. |
+
+## Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
 
 ## Microsoft.IoTCentral
 
