@@ -1,6 +1,6 @@
 ---
 title: Manage DNS for Azure AD Domain Services | Microsoft Docs
-description: Learn how to install the DNS Server Tools to manage DNS for an Azure Active Directory Domain Services managed domain.
+description: Learn how to install the DNS Server Tools to manage DNS and create conditional forwarders for an Azure Active Directory Domain Services managed domain.
 author: iainfoulds
 manager: daveba
 
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/27/2020
 ms.author: iainfou
 
 ---
-# Administer DNS in an Azure AD Domain Services managed domain
+# Administer DNS and conditional forwarders in an Azure AD Domain Services managed domain
 
 In Azure Active Directory Domain Services (Azure AD DS), a key component is DNS (Domain Name Resolution). Azure AD DS includes a DNS server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
 
@@ -21,16 +21,14 @@ As you run your own applications and services, you may need to create DNS record
 
 In a hybrid environment, DNS zones and records configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define and use your own DNS entries, create records in the Azure AD DS DNS server or use conditional forwarders that point to existing DNS servers in your environment.
 
-This article shows you how to install the DNS Server tools then use the DNS console to manage records in Azure AD DS.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Azure AD DS.
 
 ## Before you begin
 
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -52,7 +50,7 @@ To create and modify DNS records in Azure AD DS, you need to install the DNS Ser
 1. On the **Server Roles** page, click **Next**.
 1. On the **Features** page, expand the **Remote Server Administration Tools** node, then expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
 
-    ![Choose to install the DNS Server Tools from the list of available role administration tools](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
+    ![Choose to install the DNS Server Tools from the list of available role administration tools](./media/manage-dns/install-dns-tools.png)
 
 1. On the **Confirmation** page, select **Install**. It may take a minute or two to install the Group Policy Management tools.
 1. When feature installation is complete, select **Close** to exit the **Add Roles and Features** wizard.
@@ -67,14 +65,39 @@ With the DNS Server tools installed, you can administer DNS records on the Azure
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown, including **DNS** installed in the previous section. Select **DNS** to launch the DNS Management console.
 1. In the **Connect to DNS Server** dialog, select **The following computer**, then enter the DNS domain name of the managed domain, such as *aaddscontoso.com*:
 
-    ![Connect to the Azure AD DS managed domain in the DNS console](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
+    ![Connect to the Azure AD DS managed domain in the DNS console](./media/manage-dns/connect-dns-server.png)
 
 1. The DNS Console connects to the specified Azure AD DS managed domain. Expand the **Forward Lookup Zones** or **Reverse Lookup Zones** to create your required DNS entries or edit existing records as needed.
 
-    ![DNS Console - administer domain](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
+    ![DNS Console - administer domain](./media/manage-dns/dns-manager.png)
 
 > [!WARNING]
 > When you manage records using the DNS Server tools, make sure that you don't delete or modify the built-in DNS records that are used by Azure AD DS. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
+
+## Create conditional forwarders
+
+An Azure AD DS DNS zone should only contain the zone and records for the managed domain itself. Don't create additional zones with Azure AD DS to resolve on-premises resources. Instead, use conditional forwarders in the Azure AD DS managed domain to tell the DNS server where to go in order to resolve addresses for on-premises resources.
+
+A conditional forwarder is a configuration option in a DNS server that lets you define a DNS domain, such as *contoso.com*, to forward queries to. Instead of the local DNS server trying to resolve queries for records in that domain, DNS queries are forwarded to the configured DNS for that domain. This configuration makes sure that the correct DNS records are returned, as you don't create a local a DNS zone with duplicate records in the Azure AD DS managed domain to reflect your on-premises resources.
+
+To create a conditional forwarder in your Azure AD DS managed domain, complete the following steps:
+
+1. Select your Azure AD DS DNS zone, such as *aaddscontoso.com*.
+1. Select **Conditional Forwarders**, then right-select and choose **New Conditional Forwarder...**
+1. Enter your on-premises **DNS Domain**, such as *contoso.com*, then enter the IP addresses of the on-prem DNS servers, as shown in the following example:
+
+    ![Add and configure a conditional forwarder for the DNS server](./media/manage-dns/create-conditional-forwarder.png)
+
+1. Check the box for **Create this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
+
+    ![DNS Console - administer domain](./media/manage-dns/dns-manager.png)
+
+    > [!IMPORTANT]
+    > If the conditional forwarder is stored in the forest instead of the domain, the conditional forwarder fails.
+
+1. To create the conditional forwarder, select **OK**.
+
+Name resolution for on-premises resources from VMs connected to the Azure AD DS managed domain should now resolve correctly.
 
 ## Next steps
 
