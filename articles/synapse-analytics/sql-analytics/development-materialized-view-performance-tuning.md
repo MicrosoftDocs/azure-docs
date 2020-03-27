@@ -13,14 +13,14 @@ ms.reviewer: nibruno; jrasnick
 ---
 
 # Performance tuning with materialized views 
-The materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
+In Synapse SQL pool, the materialized views provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 
 ## Materialized views vs. standard views
-SQL pool supports standard and materialized views.  Both are virtual tables created with SELECT expressions and presented to queries as logical tables.  Views reveal the complexity of common data computation and add an abstraction layer to computation changes so there's no need to rewrite queries.  
+SQL pool supports both standard and materialized views.  Both are virtual tables created with SELECT expressions and presented to queries as logical tables.  Views reveal the complexity of common data computation and add an abstraction layer to computation changes so there's no need to rewrite queries.  
 
 A standard view computes its data each time when the view is used.  There's no data stored on disk. People typically use standard views as a tool that helps organize the logical objects and queries in a database.  To use a standard view, a query needs to make direct reference to it. 
 
-A materialized view pre-computes, stores, and maintains its data in SQL pool just like a table.  There's no recomputation needed each time a materialized view is used.  That's why queries that use all or a subset of the data in materialized views can gain faster performance.  Even better,  queries can use a materialized view without making direct reference to it, so there's no need to change application code.  
+A materialized view pre-computes, stores, and maintains its data in SQL pool just like a table.  Recomputation isn't needed each time a materialized view is used.  That's why queries that use all or a subset of the data in materialized views can gain faster performance.  Even better,  queries can use a materialized view without making direct reference to it, so there's no need to change application code.  
 
 Most of the standard view requirements still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
 
@@ -76,7 +76,7 @@ In comparison to other tuning options, such as scaling and statistics management
 
 Azure data warehouse is a distributed and massively parallel processing (MPP) system.   Data in a data warehouse table is distributed across 60 nodes using one of three [distribution strategies](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) (hash, round_robin, or replicated).  
 
-The data distribution is specified at the table creation time and remains unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that is different from the base tables but optimal for the performance of queries that frequently use the views.  
+The data distribution is specified at the table creation time and remains unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that's different from the base tables but optimal for the performance of queries that frequently use the views.  
 
 ## Design guidance 
 
@@ -156,7 +156,7 @@ To use the cached result, the form of the cache requesting query must match with
 
 ## Example
 
-This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores, and identifies the preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY. 
+This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores. It also identifies the preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY. 
 
 ```sql
 WITH year_total AS (
