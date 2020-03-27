@@ -21,15 +21,34 @@ Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL), certif
 ## Create key vault
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an service that safeguards cryptographic keys and secrets used by cloud applications and services. It is the storage of choice for Azure Spring Cloud certificates.
 
+1. From the Azure portal menu, or from the Home page, select Create a resource.
+1. In the Search box, enter Key Vault.
+1. From the results list, choose Key Vault.
+1. On the Key Vault section, choose Create.
+1. On the Create key vault section provide the following information: 
+* Name: A unique name is required. For this quickstart, we use Contoso-vault2.
+* Subscription: Choose a subscription.
+* Under Resource Group, choose Create new and enter a resource group name.
+* In the Location pull-down menu, choose a location.
+* Leave the other options to their defaults.
+1. After providing the information above, select Create.
+
+Take note of the two properties listed below:
+* Vault Name: In the example, this is Contoso-Vault2. You will use this name for other steps.
+* Vault URI: Applications that use your vault through its REST API must use this URI.
+
+At this point, your Azure account is the only one authorized to perform operations on this new vault.
+
+
 ## Import certificate 
  Upload your certificate to key vault, then import it to Azure Spring Cloud. For information about importing a certificate, see [Import a certificate
 ](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate).
 
 ## Create a virtual machine
 
-## Configure server to use the certificate
-
 ## Add a certificate to virtual machine from Key Vault
+
+## Configure server to use the certificate
 
 ## Add SSL binding 
 In the custom domain table, select **Add ssl binding**.
