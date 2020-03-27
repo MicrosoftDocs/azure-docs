@@ -211,8 +211,8 @@
         href: how-to-designer-import-data.md
     - name: Access data
       items:
-      - name: Connect to data in Azure Storage
-        displayName: blob, get, fileshare, access storage, mount, download
+      - name: Connect to Azure Storage
+        displayName: blob, get, fileshare, access, mount, download, data lake
         href: how-to-access-data.md
       - name: Get data from a datastore
         displayName: data, data set, register, access data
