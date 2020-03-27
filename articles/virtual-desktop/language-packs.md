@@ -12,48 +12,35 @@ manager: lizross
 ---
 # Install language packs on Windows 10 Multi-session VMs
 
-The following documentation highlights the general steps to prepare an image
-that supports multiple language packs on Virtual Machines (VMs) running Windows
-10 multi-session and how to change the display language as a standard user.
+The following documentation highlights the general steps to prepare an image that supports multiple language packs on Virtual Machines (VMs) running Windows 10 multi-session and how to change the display language as a standard user.
 
-For more information on how to deploy a VM in Azure, please visit [this
-documentation](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone).
+For more information on how to deploy a VM in Azure, please visit [this documentation](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone).
 
-Language Pack Installation
---------------------------
+## install a language pack
 
--   Make sure you are signed in as an Administrator
+- Make sure you are signed in as an Administrator
 
--   Ensure you have installed all the latest Windows updates as well as latest
-    Windows Store updates.
+- Ensure you have installed all the latest Windows updates as well as latest Windows Store updates.
 
--   Then navigate to the Settings -\> Time & Language and click the Region tab
-    on the left menu
+- Then navigate to **Settings** > **Time & Language** and click the Region tab on the left menu
 
--   Select your preferred country or region from the dropdown menu under Country
+- Select your preferred country or region from the dropdown menu under Country
     or region.
 
     -   For the sake of this example, we are selecting France
 
 ![](media/a4420d1da60b751573e20da3d4306bbe.png)
 
--   Then click on the Language tab on the left menu. Click "Add a language" and
-    choose the language that you would like installed from the list. Then click
-    "Next"
+- Then click on the Language tab on the left menu. Click "Add a language" and choose the language that you would like installed from the list. Then click "Next"
 
--   When you are prompted with the Install language features window, be sure to
-    check off the first option "Install language pack and set as my Windows
-    display language". Then click "Install"
+- When you are prompted with the Install language features window, be sure to check off the first option "Install language pack and set as my Windows display language". Then click "Install"
 
-    -   Note: you may also add multiple languages by clicking "Add a language"
-        and selecting a language from the list again. Repeat this process
-        necessary
+    >[!NOTE]
+    >you may also add multiple languages by clicking "Add a language" and selecting a language from the list again. Repeat this process necessary
+    >
+    >only one language can be set as your Windows display language at a time
 
-    -   Note: only one language can be set as your Windows display language at a
-        time
-
-    -   For this example, we will install the French and Dutch languages and set
-        French as our display language
+   For this example, we will install the French and Dutch languages and set French as our display language
 
 ![](media/17f8f692abb8a97575243572065a890b.png)
 
@@ -61,60 +48,45 @@ Language Pack Installation
 
 ![](media/0377fd907747017608b4f822d5ed0e20.png)
 
--   After waiting several minutes for the installation of your language packs,
-    you should see them in the list of languages underneath "Add a language"
+- After waiting several minutes for the installation of your language packs, you should see them in the list of languages underneath "Add a language"
 
 ![](media/e1e98f818b103a0961ab529b73558866.png)
 
 ![](media/7e4fc0fe551faf296a5ab9c45ccdab1d.png)
 
--   You may be prompted with a window requesting you to sign out of your
-    session. When you sign back in, you will see the language change on your
-    desktop
+- You may be prompted with a window requesting you to sign out of your session. When you sign back in, you will see the language change on your desktop
 
--   Once you sign back in, navigate to Control Panel -\> Clock and Region -\>
-    Region
+- Once you sign back in, navigate to Control Panel -\> Clock and Region -\> Region
 
--   When the Region window is displayed, click on the Administration tab and
-    click "Copy Settings"
+- When the Region window is displayed, click on the Administration tab and click "Copy Settings"
 
--   Ensure that you check off both "Welcome screen and system accounts" and "New
-    user accounts". Then click "OK"
+- Ensure that you check off both "Welcome screen and system accounts" and "New user accounts". Then click "OK"
 
--   You will be prompted with a window telling you to restart, so click "Restart
-    now"
+- You will be prompted with a window telling you to restart, so click "Restart now"
 
 ![](media/6c20941b9a73579a37a2fbbfbb730a73.png)
 
 ![](media/652a8ff39875e3aa1845c64259207572.png)
 
--   When you resume your session, navigate back to Control Panel -\> Clock and
-    Region -\> Region as you did above
+- When you resume your session, navigate back to Control Panel > Clock and Region > Region as you did above
 
--   When presented with the Region window once again, select the Administration
-    tab
+- When presented with the Region window once again, select the Administration tab
 
--   This time, click "Change system locale..."
+- This time, click "Change system locale..."
 
--   Select your preferred language from the dropdown under "Current system
-    locale:" Then click "OK"
+- Select your preferred language from the dropdown under "Current system locale:" Then click "OK"
 
--   You will be prompted with a window telling you to restart, so click "Restart
-    now"
+- You will be prompted with a window telling you to restart, so click "Restart now"
 
 ![](media/9ed02275a56cbd8e8554c15a5395b5b7.png)
 
 ![](media/30b3c16c8d54cf5245bff6a8af5fdd55.png)
 
--   Log into your session once again
+- Log into your session once again
 
--   Ensure that you have completed all the Windows updates and that you have
-    installed all the Windows Store updates
+- Ensure that you have completed all the Windows updates and that you have installed all the Windows Store updates
 
--   When checking for Windows Updates, you should see a screen displaying a
-    green check mark indicating that Windows is up to date. If you don't, please
-    install the updates, restart your machine if necessary, and launch your
-    session before continuing to the next steps
+- When checking for Windows Updates, you should see a screen displaying a green check mark indicating that Windows is up to date. If you don't, please install the updates, restart your machine if necessary, and launch your session before continuing to the next steps
 
 ![](media/f217a4b6c6ba5cbb851594906b2cbaa8.png)
 
