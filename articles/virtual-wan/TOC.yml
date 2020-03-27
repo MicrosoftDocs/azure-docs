@@ -76,7 +76,7 @@
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md  
-  - name: Configure routing
+  - name: Routing
     items:
     - name: Route traffic from a virtual hub to an NVA
       items:
