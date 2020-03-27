@@ -35,9 +35,7 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### Use Flight Recorder
 
-All Java runtimes on App Service that use the Azul JVMs have the Zulu Flight Recorder installed. You can use this to connect to the JVM and start a profiler recording or generate a heap dump. You can use the Flight Recorder to take a single timed recording, or to start a continuous recording with a fixed buffer size.
-
-#### Start a timed recording
+All Java runtimes on App Service using the Azul JVMs come with the Zulu Flight Recorder. You can use this to record JVM, system, and Java level events to monitor the behavior and troubleshoot problems in your Java applications.
 
 To take a timed recording you will need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
 
@@ -45,24 +43,6 @@ Next, open the **Debug Console** in the top toolbar of the SCM site and run the 
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
-```
-
-For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
-
-#### Start a continuous recording
-
-You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting with the necessary configuration.
-
-For Tomcat applications:
-
-```azurecli
-az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings CATALINA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
-```
-
-For Java SE applications:
-
-```azurecli
-az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
 ```
 
 For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
