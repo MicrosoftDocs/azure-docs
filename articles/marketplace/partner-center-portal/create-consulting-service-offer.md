@@ -137,7 +137,7 @@ This page lets you set the primary product that your consulting service offer be
     - **Workshop** : An interactive engagement conducted on a customer&#39;s premises. It can involve training, briefings, assessments, or demos built on the customer&#39;s data or environment.
 
 1. If you selected a primary product of **Azure**, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn&#39;t choose Azure, skip this step.
-2. If you selected a primary product _other_ than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](http://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+2. If you selected a primary product _other_ than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 3. Select up to six **Industries** that your offer applies to. This will make it easier for customers to find your offer.
 4. Add up to three **Competencies** that your company has earned to display on your consulting service offer listing. At least one competency is required except for Azure Expert MSP&#39;s and Azure Networking MSP&#39;s.
 
