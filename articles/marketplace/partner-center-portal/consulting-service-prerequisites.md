@@ -11,6 +11,9 @@ ms.author: mingshen
 
 # Consulting service prerequisites
 
+> [!IMPORTANT]
+> We're moving the management of your consulting service offers from Cloud Partner Portal to Partner Center. Until your consulting service offers are migrated, please continue to follow the instructions in [Consulting Services in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) to manage your offers.
+
 Review the description of and requirements for this offer type in [Consulting Services for Azure Marketplace and AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services).  The following specific consulting service types have additional requirements:
 
 | Offer type | Requirement |

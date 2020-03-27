@@ -248,8 +248,8 @@ Here you'll define elements like pricing, market, and a private key.
 1. When you're ready to publish your consulting service offer, click **Review and publish**.
 2. Review the details on the final submission page.
 3. If necessary, write a note to the certification team if you believe any of the details of your offer require explanation.
-4. When you're ready, click **Submit**.
-5. Partner Center displays an offer preview page that shows what publishing stage your offer is in.
+4. When you're ready, select **Submit**.
+5. The **Offer overview** page shows what publishing stage your offer is in.
 
 For more information about how long you can expect your offer to spend in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
 
