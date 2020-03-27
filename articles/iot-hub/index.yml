@@ -26,7 +26,7 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Device management 
-        url: iot-hub-node-node-devicemanagement-get-started.md
+        url: iot-hub-node-node-device-management-get-started.md
       - text: Configuring devices
         url: iot-hub-configuration-best-practices.md
  - title: Using Device Twins 
