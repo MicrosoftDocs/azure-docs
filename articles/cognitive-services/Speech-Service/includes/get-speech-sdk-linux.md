@@ -2,7 +2,7 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: dapine
 ---
 
@@ -21,24 +21,27 @@ ms.author: dapine
     :::column-end:::
 :::row-end:::
 
+For a native applications, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
 
-Make sure you have the required libraries installed by running the following shell commands:
+- The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
+- The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
+- The shared library for ALSA applications (`libasound.so.2`)
 
-On Ubuntu:
-
-```Bash
-sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2
-```
-
-On Debian 9:
+# [Ubuntu](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install libssl1.0.2 libasound2
+sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-On RHEL/CentOS 8:
+# [Debian 9](#tab/debian)
+
+```Bash
+sudo apt-get update
+sudo apt-get install build-essential libssl1.0.2 libasound2
+```
+
+# [RHEL / CentOS 8](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
@@ -48,26 +51,12 @@ sudo yum install alsa-lib openssl
 > [!TIP]
 > On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
 
-* Java:
-  You can reference and use the latest version of our Speech SDK Maven package. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` as a dependency.
+---
 
-* C++: Download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
+### Java
 
-  | Path                   | Description                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | License                                              |
-  | `ThirdPartyNotices.md` | Third-party notices                                  |
-  | `include`              | Header files for C++                                 |
-  | `lib/x64`              | Native x64 library for linking with your application |
-  | `lib/x86`              | Native x86 library for linking with your application |
+[!INCLUDE [get-speech-sdk-dotnet](get-speech-sdk-java.md)]
 
-  To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
+### C++
 
-The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 distributions.
-For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
-Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
-
-- The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
-- The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
-- The shared library for ALSA applications (`libasound.so.2`)
-
+[!INCLUDE [Get Speech SDK C++](get-speech-sdk-cpp.md)]

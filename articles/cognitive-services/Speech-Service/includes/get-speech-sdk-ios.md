@@ -2,11 +2,17 @@ The iOS Speech SDK is available natively as a CocoaPod, or if you prefer to deve
 
 # [Xcode](#tab/ios-xcode)
 
-<div class="icon is-large">
-    <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg">
-</div>
-
-https://aka.ms/csspeech/iosbinary
+:::row:::
+    :::column span="3":::
+        The iOS CocoaPod package is available for download and use with the Xcode integrated developer environment (IDE). First, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">download the binary CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Extract the pod in the same directory for its intended use, create a **Podfile** and list the `pod` as a `target`.
+    :::column-end:::
+    :::column:::
+        <br>
+        <div class="icon is-large">
+            <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xcode.svg" width="60px">
+        </div>
+    :::column-end:::
+:::row-end:::
 
 # [Xamarin.iOS](#tab/ios-xamarin)
 
