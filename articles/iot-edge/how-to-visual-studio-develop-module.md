@@ -222,9 +222,6 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 1. Right-click on the IoT Edge device to create a deployment for it. Navigate to the deployment manifest configured for your platform located in the **config** folder in your Visual Studio solution, such as `deployment.arm32v7.json`.
 
-   > [!NOTE]
-   > You must not select `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
-
 1. Click the refresh button to see the new modules running along with the **SimulatedTemperatureSensor** module and **$edgeAgent** and **$edgeHub**.
 
 ## View generated data
