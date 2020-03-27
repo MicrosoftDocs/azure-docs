@@ -201,7 +201,6 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 - The maximum number of usable ephemeral ports per frontend IP address is 64,000.
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load Balancer does not support ICMP for outbound NAT.
-- Portal cannot be used to configure or view outbound rules.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
 - Outbound rules can only be applied to primary IP configuration of a NIC.  Multiple NICs are supported.
 
 ## Next steps

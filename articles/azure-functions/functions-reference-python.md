@@ -60,16 +60,16 @@ The recommended folder structure for a Python Functions project looks like the f
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -84,19 +84,47 @@ The main project folder (\_\_app\_\_) can contain the following files:
 
 Each function has its own code file and binding configuration file (function.json). 
 
-Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the SharedCode folder, you can use the following syntax:
-
-```python
-from __app__.SharedCode import myFirstHelperFunction
-```
-
-To reference modules local to a function, you can use the relative import syntax as follows:
-
-```python
-from . import example
-```
-
 When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+
+## Import behavior
+
+You can import modules in your function code using both explicit relative and absolute references. Based on the folder structure shown above, the following imports work from within the function file *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py*:
+
+```python
+from . import example #(explicit relative)
+```
+
+```python
+from ..shared_code import my_first_helper_function #(explicit relative)
+```
+
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+The following imports *don't work* from within the same file:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+Shared code should be kept in a separate folder in *\_\_app\_\_*. To reference modules in the *shared\_code* folder, you can use the following syntax:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## Triggers and Inputs
 
@@ -362,7 +390,18 @@ For local development, application settings are [maintained in the local.setting
 
 ## Python version 
 
-Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. Version change is allowed only on Function App creation.  
+Azure Functions supports the following Python versions:
+
+| Functions version | Python<sup>*</sup> versions |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2.x | 3.7<br/>3.6 |
+
+<sup>*</sup>Official CPython distributions
+
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.  
+
+When running locally, the runtime uses the available Python version. 
 
 ## Package management
 

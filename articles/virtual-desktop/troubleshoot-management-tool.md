@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 11/09/2019
 ms.author: helohr
+manager: lizross
 ---
 # Troubleshoot the Windows Virtual Desktop management tool
 

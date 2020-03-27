@@ -119,7 +119,7 @@ The offline backup process using MARS and Azure Data Box requires the Data Box d
 
 1. Make sure you uninstall any previous installations of the MARS Agent.
 1. Download the latest MARS Agent from [this website](https://aka.ms/azurebackup_agent).
-1. Run *MARSAgentInstaller.exe*, and do *only* the steps to [install and register the agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent) to the Recovery Services vault where you want your backups to be stored.
+1. Run *MARSAgentInstaller.exe*, and do *only* the steps to [install and register the agent](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) to the Recovery Services vault where you want your backups to be stored.
 
    > [!NOTE]
    > The Recovery Services vault must be in the same subscription as the Azure Data Box job.
@@ -238,7 +238,7 @@ This section explains the steps to take after the backup of the data to the Azur
 * [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
 
     >[!NOTE]
-    >The MARS Agent triggers backups at the times scheduled during policy creation. These jobs flag “Waiting for Azure Data Box job to be completed” until the time the job is finished.
+    >The MARS Agent triggers backups at the times scheduled during policy creation. These jobs flag "Waiting for Azure Data Box job to be completed" until the time the job is finished.
 
 * After the MARS Agent successfully creates a recovery point that corresponds to the initial backup, you can delete the storage account or specific contents associated with the Azure Data Box job.
 
@@ -302,7 +302,7 @@ From the server you're trying to configure for offline backup, perform the follo
     >[!NOTE]
     > To get the Azure user ID, perform one of these actions:
     >
-    >* From the Azure-connected PowerShell, run the `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as defined in the portal”` command.
+    >* From the Azure-connected PowerShell, run the `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` command.
     > * Go to the registry path *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup* with the name *CurrentUserId*.
 
 6. Right-click the string added in the previous step, and select **Modify**. In the value, provide the thumbprint of the certificate you exported in step 2. Select **OK**.

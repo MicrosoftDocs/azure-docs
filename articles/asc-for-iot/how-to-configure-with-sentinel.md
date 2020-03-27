@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center for IoT guide for configuration with Azure Sentinel (preview)| Microsoft Docs
-description: This how to guide explains how to configure Azure Sentinel to receive data from your Azure Security Center for IoT solution.
+description: Explains how to configure Azure Sentinel to receive data from your Azure Security Center for IoT solution.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -48,10 +48,10 @@ Connect alerts from Azure Security Center for IoT and stream them directly into 
 ## Connect to Azure Security Center for IoT
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Azure Security Center for IoT** tile.
-1. From the bottom right pane, click **Open connector page**. 
+1. From the bottom of the right pane, click **Open connector page**. 
 1. Click **Connect**, next to each IoT Hub subscription whose alerts and device alerts you want to stream into Azure Sentinel. 
-    - If Azure Security Center for IoT is not enabled on that Hub, you’ll see an Enable warning message. Click the **Enable** link to start the service. 
-1. You can decide whether you want the alerts from Azure Security Center for IoT to automatically generate incidents in Azure Sentinel. Under **Create incidents**,  select **Enable** to enable the default analytic rule to create incidents automatically from alerts generated in the connected security service.This rule can be changed or edited under **Analytics** > **Active** rules.
+    - If Azure Security Center for IoT isn't enabled on that Hub, you’ll see an Enable warning message. Click the **Enable** link to start and enable the service. 
+1. You can decide whether you want the alerts from Azure Security Center for IoT to automatically generate incidents in Azure Sentinel. Under **Create incidents**,  select **Enable** to enable the rule to automatically create incidents from the generated alerts.  This rule can be changed or edited under **Analytics** > **Active** rules.
 
 > [!NOTE]
 >It can take 10 seconds or more to refresh the hub list after making connection changes. 

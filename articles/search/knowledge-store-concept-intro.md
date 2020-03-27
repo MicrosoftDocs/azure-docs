@@ -144,3 +144,13 @@ The simplest approach for creating enriched documents is [through the portal](kn
 
 > [!div class="nextstepaction"]
 > [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
+
+To learn more about projections, the capabilities and how you [define them in a skillset](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projections in a knowledge store](knowledge-store-projection-overview.md)
+
+For a tutorial covering advanced projections concepts like slicing, inline shaping and relationships, start with [define projections in a knowledge store](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

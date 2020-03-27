@@ -60,10 +60,10 @@ In this section you'll need to replace the following parameters in the steps wit
 
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
-| **\<resource-group-name>**  | MyAzureResourceGroup |
+| **\<resource-group-name>**  | MyAzureResourceGroup (Select existing resource group) |
 | **\<virtual-network-name>** | MyAzureVNet          |
 | **\<region-name>**          | West Central US      |
-| **\<IPv4 address space>**   | 10.2.0.0\16          |
+| **\<IPv4-address-space>**   | 10.2.0.0\16          |
 | **\<subnet-name>**          | MyAzureSubnet        |
 | **\<subnet-address-range>** | 10.2.0.0\24          |
 

@@ -25,7 +25,7 @@ This quickstart requires:
 
 * Python 2.7.x or 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor.
-* An Azure subscription and a Speech service subscription key. [Create an Azure account](../../get-started.md#new-resource) and [create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) to get the key. When creating the Speech resource, make sure that your pricing tier is set to **S0**, and location is set to a [supported region](../../regions.md#standard-and-neural-voices).
+* An Azure subscription and a Speech service subscription key. [Create an Azure account](../../get-started.md#new-resource) and [create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource) to get the key. When creating the Speech resource, make sure that your pricing tier is set to **S0**, and location is set to a [supported region](../../regions.md#standard-and-neural-voices).
 
 ## Create a project and import required modules
 

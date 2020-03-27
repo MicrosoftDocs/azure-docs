@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - Routing rule matching monitoring | Microsoft Docs
-description: This article helps you understand how Azure Front Door Service matches which routing rule to use for an incoming request
+title: Azure Front Door - Routing rule matching monitoring | Microsoft Docs
+description: This article helps you understand how Azure Front Door matches which routing rule to use for an incoming request
 services: front-door
 documentationcenter: ''
 author: sharad4u

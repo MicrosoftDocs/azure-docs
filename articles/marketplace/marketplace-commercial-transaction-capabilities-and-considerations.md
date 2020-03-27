@@ -2,15 +2,12 @@
 title: Marketplace ‎Commercial Transaction Capabilities and Considerations | Azure
 description: This article describes the Transact pricing, billing, invoicing, and payout considerations for an offer type.
 services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-
-author: yijenj
-manager: nuno costa
-
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: pabutler
+ms.author: dsindona
 
 ---
 # Commercial marketplace transaction capabilities and considerations
@@ -127,7 +124,7 @@ This option allows higher or lower pricing than the publicly available offering.
 **SaaS App subscription**
 
 This option must be configured to sell through Microsoft and can be priced at a flat rate or per user on a monthly or annual basis.
-•	If you enable the Sell through Microsoft option for a SaaS offer, then you have the following cost structure.
+*    If you enable the Sell through Microsoft option for a SaaS offer, then you have the following cost structure.
 
 |Your license cost       | $100.00 per month  |
 |--------------|---------|

@@ -159,7 +159,7 @@ In this section, you learn to attach a database to an existing cluser by using a
 		},
 		"defaultPrincipalsModificationKind": {
 			"type": "string",
-			"defaultValue": "",
+			"defaultValue": "Union",
 			"metadata": {
 				"description": "The default principal modification kind."
 			}
@@ -175,13 +175,10 @@ In this section, you learn to attach a database to an existing cluser by using a
 	"variables": {},
 	"resources": [
 		{
-			"name": "[parameters('attachedDatabaseConfigurationsName')]",
+			"name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
 			"type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
 			"apiVersion": "2019-09-07",
 			"location": "[parameters('location')]",
-			"dependsOn": [
-				"[resourceId('Microsoft.Kusto/clusters', parameters('followerClusterName'))]"
-			],
 			"properties": {
 				"databaseName": "[parameters('databaseName')]",
 				"clusterResourceId": "[parameters('leaderClusterResourceId')]",
