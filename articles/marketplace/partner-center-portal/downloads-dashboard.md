@@ -1,9 +1,8 @@
 ---
 title: Downloads dashboard in Commercial Marketplace analytics on Partner Center
 description: Learn how to access download requests for your marketplace offers.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
