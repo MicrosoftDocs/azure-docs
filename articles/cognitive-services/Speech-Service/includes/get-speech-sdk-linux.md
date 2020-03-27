@@ -16,12 +16,10 @@ ms.author: dapine
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg">
+            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
-
-
 
 
 Make sure you have the required libraries installed by running the following shell commands:

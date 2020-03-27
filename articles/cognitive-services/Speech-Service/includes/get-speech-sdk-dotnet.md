@@ -13,7 +13,7 @@ ms.author: dapine
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt=".NET Standard" src="https://docs.microsoft.com/media/logos/logo_NETstandard.svg">
+            <img alt=".NET Standard" src="https://docs.microsoft.com/media/logos/logo_NETstandard.svg"  width="60px">
         </div>
     :::column-end:::
 :::row-end:::

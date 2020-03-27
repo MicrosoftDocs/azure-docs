@@ -17,7 +17,7 @@ When developing for Android, there are two Speech SDKs available. The Java Speec
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg">
+            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg"  width="60px">
         </div>
     :::column-end:::
 :::row-end:::

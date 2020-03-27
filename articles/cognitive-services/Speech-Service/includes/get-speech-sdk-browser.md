@@ -13,7 +13,7 @@ ms.author: dapine
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="JavaScript" src="https://docs.microsoft.com/media/logos/logo_js.svg">
+            <img alt="JavaScript" src="https://docs.microsoft.com/media/logos/logo_js.svg"  width="60px">
         </div>
     :::column-end:::
 :::row-end:::
