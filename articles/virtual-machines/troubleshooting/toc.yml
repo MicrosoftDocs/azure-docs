@@ -75,7 +75,7 @@
     - name: Checking file system errors
       href: troubleshoot-check-disk-boot-error.md
     - name: Critical process disabled
-      href: troubleshooting-guide-critical-process-died.md
+      href: troubleshoot-guide-critical-process-died.md
     - name: Critical service failed
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Not a bootable disk
@@ -87,7 +87,7 @@
     - name: VM startup is stuck
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM cannot boot due to windows boot manager
-      href: troubleshooting-guide-windows-boot-manager-menu.md
+      href: troubleshoot-guide-windows-boot-manager-menu.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
