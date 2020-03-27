@@ -21,7 +21,7 @@ To quickly generate a search page for your client, explore these options:
 + Use the [application generator](search-create-app-portal.md) in the portal to create an HTML page with a search bar, faceted navigation, and results area.
 + Follow the [Create your first app in C#](tutorial-csharp-create-first-app.md) tutorial to create a functional client.
 
-Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://aka.ms/azjobsdemo), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more information about request syntax, see [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice).
@@ -103,7 +103,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
     }
 ```
 
-
+> [!IMPORTANT]
+> Services created after July 15, 2020 will provide a different highlighting experience. Services created before that date will not change in their highlighting behavior. With this change, only phrases that match the full phrase query will be returned. Also, it will be possible to specify the fragment size returned for the highlight.
+>
+> When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 
 ## Faceted navigation
 

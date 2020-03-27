@@ -16,6 +16,8 @@ ms.reviewer: jmartens, mldocs
 
 # View and delete in-product user data from Azure AI Gallery
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 You can view and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article tells you how.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
@@ -26,9 +28,9 @@ You can view and delete your in-product user data from Azure AI Gallery using th
 
 You can view items you published through the Azure AI Gallery website UI. Users can view both public and unlisted solutions, projects, experiments, and other published items:
 
-1.	Sign in to the [Azure AI Gallery](https://gallery.azure.ai/).
-2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
-3.	The profile page displays all items published to the gallery, including unlisted entries.
+1.    Sign in to the [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3.    The profile page displays all items published to the gallery, including unlisted entries.
 
 ## Use the AI Gallery Catalog API to view your data
 
@@ -39,9 +41,9 @@ Catalog responses are returned in JSON format.
 ### Get an author ID
 The author ID is based on the email address used when publishing to the Azure AI Gallery. It doesn't change:
 
-1.	Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
-2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
-3.	The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL: 
+1.    Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3.    The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL: 
     `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Author ID: 
@@ -53,12 +55,12 @@ You need an access token to view unlisted entities through the Catalog API. With
 
 To get an access token, you need to inspect the `DataLabAccessToken` header of an HTTP request the browser makes to the Catalog API while logged in:
 
-1.	Sign in to the [Azure AI Gallery](https://gallery.azure.ai/).
-2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
-3.	Open the browser Developer Tools pane by pressing F12, select the Network tab, and refresh the page. 
+1.    Sign in to the [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3.    Open the browser Developer Tools pane by pressing F12, select the Network tab, and refresh the page. 
 4. Filter requests on the string *catalog* by typing into the Filter text box.
-5.	In requests to the URL `https://catalog.cortanaanalytics.com/entities`, find a GET request and select the *Headers* tab. Scroll down to the *Request Headers* section.
-6.	Under the header `DataLabAccessToken` is the alphanumeric token. To help keep your data secure, don't share this token.
+5.    In requests to the URL `https://catalog.cortanaanalytics.com/entities`, find a GET request and select the *Headers* tab. Scroll down to the *Request Headers* section.
+6.    Under the header `DataLabAccessToken` is the alphanumeric token. To help keep your data secure, don't share this token.
 
 ### View user information
 Using the author ID you got in the previous steps, view information in a user's profile by replacing `[AuthorId]` in the following URL:
@@ -90,9 +92,9 @@ For example:
 
 This query displays only public entities. To view all your entities, including unlisted ones, provide the access token obtained from the previous section.
 
-1.	Using a tool like [Postman](https://www.getpostman.com), create an HTTP GET request to the catalog URL as described in [Get your access token](#get-your-access-token).
-2.	Create an HTTP request header called `DataLabAccessToken`, with the value set to the access token.
-3.	Submit the HTTP request.
+1.    Using a tool like [Postman](https://www.getpostman.com), create an HTTP GET request to the catalog URL as described in [Get your access token](#get-your-access-token).
+2.    Create an HTTP request header called `DataLabAccessToken`, with the value set to the access token.
+3.    Submit the HTTP request.
 
 > [!TIP]
 > If unlisted entities are not showing up in responses from the Catalog API, the user may have an invalid or expired access token. Sign out of the Azure AI Gallery, and then repeat the steps in [Get your access token](#get-your-access-token) to renew the token. 

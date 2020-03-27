@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/10/2020
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -23,7 +23,7 @@ The following table summarizes the Azure Storage services that are supported wit
 
 | Storage service | Account type | Namespace Type | Supported services | Supported performance tiers | Supported access tiers | HDInsight Version | Cluster type |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | 3.6+ | All except Spark 2.1 |
+|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | 3.6+ | All except Spark 2.1 and 2.2|
 |Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | 3.6+ | All |
 |Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
@@ -41,7 +41,6 @@ You can create a cluster using different combinations of services for primary an
 |---|---|---|---|
 | 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen2 | No |
-| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
@@ -49,11 +48,12 @@ You can create a cluster using different combinations of services for primary an
 | 3.6 | Data Lake Storage Gen1 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Any | No |
+| 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | No |
 
 *=This could be one or multiple Data Lake Storage Gen2 accounts, as long as they are all setup to use the same managed identity for cluster access.
 
 > [!Note] 
-> Data Lake Storage Gen2 primary storage is not supported for Spark 2.1 clusters. 
+> Data Lake Storage Gen2 primary storage is not supported for Spark 2.1 or 2.2 clusters. 
 
 ## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 

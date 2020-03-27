@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Manage blob properties and metadata with .NET
 
-In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## About properties and metadata
 

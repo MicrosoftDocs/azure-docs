@@ -2,7 +2,7 @@
  title: M-series - Azure Virtual Machines
  description: Specifications for the M-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: ayshakeen
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/05/2019
@@ -20,6 +20,10 @@ ACU: 160-180
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 

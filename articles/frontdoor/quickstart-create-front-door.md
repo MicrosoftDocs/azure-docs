@@ -71,7 +71,7 @@ Next, you need to configure your application backend(s) in a backend pool for Fr
 3. Select **Target host type** as 'App Service', select the subscription in which you created the web site and then choose the first web site from the **Target host name**, that is, *myAppServicePlanEastUS.azurewebsites.net*.
 4. Leave the remaining fields as is for now and click **Add'**.
 5. Repeat steps 2 to 4 to add the other website, that is, *myAppServicePlanWestEurope.azurewebsites.net*
-6. You can optionally choose to update the Health Probes and Load Balancing settings for the backend pool, but the default values should also work. Click **Add**.
+6. You can optionally choose to update the Health Probes and Load-Balancing settings for the backend pool, but the default values should also work. Click **Add**.
 
 
 ### C. Add a routing rule

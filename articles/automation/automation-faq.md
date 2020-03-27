@@ -10,7 +10,7 @@ ms.date: 02/25/2020
 
 ---
 
-# Azure Automation Frequently Asked Questions
+# Azure Automation frequently asked questions
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Automation. If you have any additional questions about its capabilities, go to the discussion forum and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 

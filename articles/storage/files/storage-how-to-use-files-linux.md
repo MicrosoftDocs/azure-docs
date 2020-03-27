@@ -221,7 +221,7 @@ sudo modinfo -p cifs | grep disable_legacy_dialects
 
 This command should output the following message:
 
-```Output
+```output
 disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
 ```
 
@@ -271,7 +271,7 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ## Feedback
 Linux users, we want to hear from you!
 
-The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
+The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefiles@microsoft.com) to join the users' group.
 
 ## Next steps
 See these links for more information about Azure Files:

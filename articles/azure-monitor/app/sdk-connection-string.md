@@ -102,7 +102,7 @@ See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#re
 
 In this example, only the Instrumentation Key has been set.
 
-- Authorization scheme defaults to “ikey” 
+- Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) and will connect to the public global Azure:
    - Ingestion: https://dc.services.visualstudio.com/
@@ -118,7 +118,7 @@ In this example, only the Instrumentation Key has been set.
 
 In this example, this connection string specifies the endpoint suffix and the SDK will construct service endpoints.
 
-- Authorization scheme defaults to “ikey” 
+- Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on provided endpoint suffix: 
    - Ingestion: https://dc.ai.contoso.com
@@ -134,7 +134,7 @@ In this example, this connection string specifies the endpoint suffix and the SD
 
 In this example, this connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
 
-- Authorization scheme defaults to “ikey” 
+- Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the explicit override values: 
    - Ingestion: https:\//custom.com:111/
@@ -275,4 +275,4 @@ Get started at development time with:
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python (preview)](../../azure-monitor/app/opencensus-python.md)
+* [Python](../../azure-monitor/app/opencensus-python.md)

@@ -27,7 +27,6 @@ landingContent:
         links:
           - text: What are Azure Active Directory reports?
             url: overview-reports.md
-        links:
           - text: What is Azure Active Directory monitoring?
             url: overview-monitoring.md
       - linkListType: concept

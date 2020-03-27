@@ -29,11 +29,16 @@ It is important to remember to check for errors when working with a REST service
 - Throttling can cause errors such as 429 or 503 status code HTTP responses with the Retry-after header.
 - 4xx errors that include such errors as AlreadyExists and InvalidOperation. This means that the resource is not in the correct state for the state transition.
 
+For detailed information about the various types of error codes and specific error codes, see [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+
 ## When to retry
 
 The Batch APIs will notify you if there is a failure. They can all be retried, and they all include a global retry handler for that purpose. It is best to use this built-in mechanism.
 
 After a failure, you should wait a bit (several seconds between retries) before retrying. If you retry too frequently or too quickly, the retry handler will throttle.
 
+### For more information  
+
+[Batch APIs and tools](batch-apis-tools.md) links to API reference information. The .NET API, for example, has a [RetryPolicyProvider class]( https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet) where the required retry policy should be specified. 
 
 For detailed information about each API and their default retry policies, read [Batch Status and Error Codes](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).

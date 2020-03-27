@@ -2,7 +2,7 @@
  title: Mv2-series - Azure Virtual Machines
  description: Specifications for the Mv2-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: ayshakeen
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -18,6 +18,10 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 Premium Storage: Supported
 
 Premium Storage caching: Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 

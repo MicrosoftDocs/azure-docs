@@ -6,8 +6,9 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 03/26/2020
 ms.author: helohr
+manager: lizross
 ---
 # Scale session hosts using Azure Automation
 
@@ -32,7 +33,7 @@ During peak usage time, the job checks the current number of sessions and the VM
 >[!NOTE]
 >*SessionThresholdPerCPU* doesn't restrict the number of sessions on the VM. This parameter only determines when new VMs need to be started to load-balance the connections. To restrict the number of sessions, you need to follow the instructions [Set-RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) to configure the *MaxSessionLimit* parameter accordingly.
 
-During the off-peak usage time, the job determines which session host VMs should shut down based on the *MinimumNumberOfRDSH* parameter. The job will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the *LimitSecondsToForceLogOffUser* parameter to a non-zero positive value, the script will notify any currently signed in users to save their work, wait the configured amount of time, and then force the users to sign out. Once all user sessions on the session host VM have been signed out, the script will shut down the VM.
+During the off-peak usage time, the job determines which session host VMs should shut down based on the *MinimumNumberOfRDSH* parameter. The job will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the *LimitSecondsToForceLogOffUser* parameter to a non-zero positive value, the job will notify any currently signed in users to save their work, wait the configured amount of time, and then force the users to sign out. Once all user sessions on the session host VM have been signed out, the job will shut down the VM.
 
 If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job will allow the session configuration setting in specified group policies to handle signing off user sessions. To see these group policies, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Terminal Services** > **Terminal Server** > **Session Time Limits**. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there are no active sessions, the job will shut down the session host VM.
 
@@ -78,7 +79,9 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 3. Run the following cmdlet to download the script for creating the Azure Automation account:
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
 4. Run the following cmdlet to execute the script and create the Azure Automation account:
@@ -89,11 +92,11 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 
 5. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic apps.
 
-After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
+6. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
-![An image of the Azure overview page showing the newly created automation account and runbook.](media/automation-account.png)
+   ![An image of the Azure overview page showing the newly created automation account and runbook.](media/automation-account.png)
 
-To check if your webhook is where it should be, go to the Resources list on the left side of your screen and select **Webhook**.
+  To check if your webhook is where it should be, select the name of your runbook. Next, go to your runbook's Resources section and select **Webhooks**.
 
 ## Create an Azure Automation Run As account
 
@@ -170,9 +173,9 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
      $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
 
-     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you'd like to scale"
 
-     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
 
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
 
@@ -198,7 +201,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
      $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
 
-     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
        -AADTenantID $aadTenantId `
@@ -248,3 +251,7 @@ You can view the logs of scale-out and scale-in operations by opening your runbo
 Navigate to the runbook (the default name is WVDAutoScaleRunbook) in your resource group hosting the Azure Automation account and select **Overview**. On the overview page, select a job under Recent Jobs to view its scaling tool output, as shown in the following image.
 
 ![An image of the output window for the scaling tool.](media/tool-output.png)
+
+## Report issues
+
+If you encounter any issues with the scaling tool, you can report them at the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

@@ -30,34 +30,6 @@ This feature does not require you to enable or configure anything, these Azure C
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
-## View operation level metrics for Azure Cosmos DB
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
-
-   ![Metrics pane in Azure Monitor](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
-
-1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
-
-   ![Choose a Cosmos DB account to view metrics](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
-
-1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](../../cosmos-db/monitor-cosmos-db-reference.md) article. In this example, let’s select **Request units** and **Avg** as the aggregation value.
-
-   In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
-
-   ![Choose a metric from the Azure portal](./media/cosmosdb-insights-overview/metric-types.png)
-
-### Add filters to metrics
-
-You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **StatusCode**. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
-
-![Add a filter to select the metric granularity](./media/cosmosdb-insights-overview/add-metrics-filter.png)
-
-You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image:
-
-![Add apply splitting filter](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
-
 ## View utilization and performance metrics for Azure Cosmos DB
 
 To view the utilization and performance of your storage accounts across all of your subscriptions, perform the following steps.

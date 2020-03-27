@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/26/2019
 ---
 

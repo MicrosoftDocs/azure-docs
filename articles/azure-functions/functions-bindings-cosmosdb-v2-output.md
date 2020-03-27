@@ -569,6 +569,8 @@ The following table explains the binding configuration properties that you set i
 |**partitionKey**|**PartitionKey** |When `CreateIfNotExists` is true, it defines the partition key path for the created collection.|
 |**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection.|
 |**connectionStringSetting**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.        |
+|**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

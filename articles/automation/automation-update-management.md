@@ -3,7 +3,7 @@ title: Update Management solution in Azure
 description: This article describes how to use the Azure Update Management solution to manage updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 02/24/2020
+ms.date: 02/27/2020
 ms.topic: conceptual
 ---
 # Update Management solution in Azure
@@ -22,6 +22,8 @@ You can enable Update Management for virtual machines (VMs) using the following 
 > The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+An Azure [Resource Manager template](automation-update-management-deploy-template.md) is available that enables you to deploy the Update Management solution to a new or existing Automation account and Log Analytics workspace in your subscription.
 
 ## Solution overview
 
@@ -57,7 +59,7 @@ The scheduled deployment defines which target machines receive the applicable up
 
 You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
-Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and they don’t require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included machines. The master runbook starts a child runbook on each agent to install the required updates.
+Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and they don't require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included machines. The master runbook starts a child runbook on each agent to install the required updates.
 
 At the date and time specified in the update deployment, the target machines execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client machines, if the updates aren't approved in WSUS, update deployment fails.
 
@@ -241,10 +243,15 @@ Update Management relies on the locally configured update repository to update s
 
 To begin updating systems, you need to enable the Update Management solution. The following are the recommended and supported methods to onboard the solution:
 
-* [From a virtual machine](automation-onboard-solutions-from-vm.md)
-* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
-* [From your Automation account](automation-onboard-solutions-from-automation-account.md)
-* [With an Azure Automation runbook](automation-onboard-solutions.md)
+- [From a virtual machine](automation-onboard-solutions-from-vm.md)
+
+- [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
+
+- [From your Automation account](automation-onboard-solutions-from-automation-account.md)
+
+- [With an Azure Automation runbook](automation-onboard-solutions.md)
+
+- [With an Azure Resource Manager template](automation-update-management-deploy-template.md)
 
 ## Next steps
 

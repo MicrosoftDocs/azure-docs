@@ -551,9 +551,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PlacementSearchTimeout | Time in seconds, default is 0.5 |Dynamic| Specify timespan in seconds. When placing services; search for at most this long before returning a result. |
 |PLBRefreshGap | Time in seconds, default is 1 |Dynamic| Specify timespan in seconds. Defines the minimum amount of time that must pass before PLB refreshes state again. |
 |PreferredLocationConstraintPriority | Int, default is 2| Dynamic|Determines the priority of preferred location constraint: 0: Hard; 1: Soft; 2: Optimization; negative: Ignore |
+|PreferredPrimaryDomainsConstraintPriority| Int, default is 1 | Dynamic| Determines the priority of preferred primary domain constraint: 0: Hard; 1: Soft; negative: Ignore |
 |PreferUpgradedUDs|bool,default is FALSE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs. Starting with SF 7.0, the default value for this parameter is changed from TRUE to FALSE.|
 |PreventTransientOvercommit | Bool, default is false | Dynamic|Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kinds of overcommits and on-demand defrag (aka placementWithMove) will be disabled. |
 |ScaleoutCountConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of scaleout count constraint: 0: Hard; 1: Soft; negative: Ignore. |
+|SubclusteringEnabled|Bool, default is FALSE | Dynamic |Acknowledge subclustering when calculating standard deviation for balancing |
+|SubclusteringReportingPolicy| Int, default is 1 |Dynamic|Defines how and if the subclustering health reports are sent: 0: Do not report; 1: Warning; 2: OK |
 |SwapPrimaryThrottlingAssociatedMetric | string, default is ""|Static| The associated metric name for this throttling. |
 |SwapPrimaryThrottlingEnabled | Bool, default is false|Dynamic| Determine whether the swap-primary throttling is enabled. |
 |SwapPrimaryThrottlingGlobalMaxValue | Int, default is 0 |Dynamic| The maximal number of swap-primary replicas allowed globally. |
@@ -561,6 +564,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UpgradeDomainConstraintPriority | Int, default is 1| Dynamic|Determines the priority of upgrade domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |UseMoveCostReports | Bool, default is false | Dynamic|Instructs the LB to ignore the cost element of the scoring function; resulting potentially large number of moves for better balanced placement. |
 |UseSeparateSecondaryLoad | Bool, default is true | Dynamic|Setting which determines if use different secondary load. |
+|UseSeparateSecondaryMoveCost|Bool, default is FALSE | Dynamic|Setting which determines if PLB should use different move cost for secondary on each node If UseSeparateSecondaryMoveCost is turned off: - Reported move cost for secondary on one node will result in overwritting move cost for each secondary (on all other nodes) If UseSeparateSecondaryMoveCost is turned on: - Reported move cost for secondary on one node will take effect only on that secondary (no effect on secondaries on other nodes) - If replica crash happens - new replica is created with default move cost specified on service level - If PLB moves existing replica - move cost goes with it |
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
@@ -666,7 +670,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableFirewallRuleForDomainProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for domain profile |
 |DisableFirewallRuleForPrivateProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for private profile | 
 |DisableFirewallRuleForPublicProfile| bool, default is TRUE | Static|Indicates if firewall rule should not be enabled for public profile |
-| EnforceLinuxMinTlsVersion | bool, default is FALSE | Dynamic | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
+| EnforceLinuxMinTlsVersion | bool, default is FALSE | Static | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
+| EnforcePrevalidationOnSecurityChanges | bool, default is FALSE| Dynamic | Flag controlling the behavior of cluster upgrade upon detecting changes of its security settings. If set to 'true', the cluster upgrade will attempt to ensure that at least one of the certificates matching any of the presentation rules can pass a corresponding validation rule. The pre-validation is executed before the new settings are applied to any node, but runs only on the node hosting the primary replica of the Cluster Manager service at the time of initiating the upgrade. The default is currently set to 'false'; starting with release 7.1, the setting will be set to 'true' for new Azure Service Fabric clusters.|
 |FabricHostSpn| string, default is "" |Static| Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It is the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account |
 |IgnoreCrlOfflineError|bool, default is FALSE|Dynamic|Whether to ignore CRL offline error when server-side verifies incoming client certificates |
 |IgnoreSvrCrlOfflineError|bool, default is TRUE|Dynamic|Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates. |
@@ -675,6 +680,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SettingsX509StoreName| string, default is "MY"| Dynamic|X509 certificate store used by fabric for configuration protection |
 |UseClusterCertForIpcServerTlsSecurity|bool, default is FALSE|Static|Whether to use cluster certificate to secure IPC Server TLS transport unit |
 |X509Folder|string, default is /var/lib/waagent|Static|Folder where X509 certificates and private keys are located |
+|TLS1_2_CipherList| string| Static|If set to a non-empty string; overrides the supported cipher list for TLS1.2 and below. See the 'openssl-ciphers' documentation for retrieving the supported cipher list and the list format Example of strong cipher list for TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Applies to Linux only. |
 
 ## Security/AdminClientX509Names
 

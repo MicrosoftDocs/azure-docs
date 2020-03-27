@@ -1432,8 +1432,9 @@ The following table explains the binding configuration properties that you set i
 |**collectionName** |**CollectionName** | The name of the collection that contains the document. |
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the `id` and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the `id` and `sqlQuery` properties. If you don't set either one, the entire collection is retrieved.|
-|**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string.        |
+|**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string. |
 |**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../cosmos-db/partition-data.md#logical-partitions) collections.|
+|**preferredLocations**| **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
