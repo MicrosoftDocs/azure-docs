@@ -4041,6 +4041,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md",
+      "redirect_url": "articles/azure-resource-manager/templates/template-tutorial-use-template-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-security-controls",
       "redirect_document_id": false
@@ -6236,14 +6241,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-basic-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
       "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
       "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/rest-api-claims-exchange-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
@@ -49328,6 +49348,11 @@
     {
       "source_path": "articles/billing/billing-monthly-payments-reservations.md",
       "redirect_url": "/azure/cost-management-billing/reservations/monthly-payments-reservations",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cost-management-billing/reservations/monthly-payments-reservations.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepare-buy-reservation",
       "redirect_document_id": true
     },
     {
