@@ -139,9 +139,10 @@ You must have an owner, contributor, reader, or an invoice manager role on a bil
 1. Select **Invoices** from the left-hand side.
     ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-invoices.png)
 1. In the invoices table, select the invoice that you want to download.
-1. Select **Download invoice pdf** the top of the page.  
+1. Select **Download invoice pdf** at the top of the page.  
     ![Screenshot that shows downloading invoice pdf](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)
 1. You can also download your daily breakdown of consumed quantities and estimated charges by selecting **Download Azure usage**. It may take a few minutes to prepare the csv file.
+    You can also download a CSV file containing your daily breakdown of consumed quantities and estimated charges by selecting **Download Azure usage**. It may take a few minutes to prepare the csv file.
 
 ## Get your billing profile's invoice in email
 
