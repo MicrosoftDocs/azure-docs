@@ -1,7 +1,7 @@
 ---
 title: Create a consulting service offer in Partner Center
 description: Learn how to publish a consulting service offer to either Azure Marketplace or AppSource using Partner Center.
-author: anbene
+author: james-wall-microsoft
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
