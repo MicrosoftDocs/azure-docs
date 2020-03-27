@@ -1,6 +1,6 @@
 ---
 title: Filter data by using Azure Data Lake Storage query acceleration (preview) | Microsoft Docs
-description: Use .NET and query acceleration (preview) to retrieve a subset of data from your storage
+description: Use query acceleration (preview) to retrieve a subset of data from your storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -12,7 +12,7 @@ ms.reviewer: jamsbak
 
 # Filter data by using Azure Data Lake Storage query acceleration (preview)
 
-This article shows you how to use .NET and query acceleration (preview) to retrieve a subset of data from your storage account. 
+This article shows you how to use query acceleration (preview) to retrieve a subset of data from your storage account. 
 
 Query acceleration (preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration (preview)](data-lake-storage-query-acceleration.md).
 
@@ -26,6 +26,8 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
 - To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
+
+- [.NET SDK](https://dotnet.microsoft.com/download). 
 
 ### [Java](#tab/java)
 
@@ -48,21 +50,9 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
 
 1. Download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
 
-2. Extract the contents of this file to any directory on your local drive. 
+2. Extract the contents of this file to your project directory.
 
-3. In a console window (such as cmd, PowerShell, or Bash), switch to the directory that contains the extracted files.
-
-4. Install each package to your project by using the [nuget.exe CLI](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-nuget-cli).
-
-   These example commands install each package into a subdirectory of a project named `packages`.\
-
-   ```console
-   nuget add Azure.Storage.Blobs.12.4.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
-   nuget add Azure.Storage.Common.12.3.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
-   nuget add Azure.Storage.QuickQuery.12.0.0-preview.1.nupkg -source C:\Users\contoso\myProject\packages
-   ```
-
-5. Add the following xml to your project file.
+3. Open your project file (*.csproj*) in a text editor, and add these package references inside of the <Project> element.
 
    ```xml
    <ItemGroup>
@@ -72,8 +62,17 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
    </ItemGroup>
    ```
 
-To learn about other ways to install a NuGet package, see [Ways to install a NuGet Package](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow#ways-to-install-a-nuget-package).
+4. Restore the preview SDK packages. This example command restores the preview SDK packages by using the `dotnet restore` command. 
 
+   ```console
+   dotnet restore --source C:\Users\contoso\myProject
+   ```
+
+5. Restore all other dependencies from the public NuGet repository.
+
+   ```console
+   dotnet restore
+   ```
 
 ### [Java](#tab/java)
 
@@ -151,11 +150,21 @@ using Azure.Storage.QuickQuery;
 using Azure.Storage.QuickQuery.Models;
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these using statements to the top of the code file.
+Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
 
 ```csharp
 using CsvHelper;
 using CsvHelper.Configuration;
+```
+
+To compile examples presented in this article, you'll also need to add these `using` statements as well.
+
+```csharp
+using System.Threading.Tasks;
+using System.IO;
+using System.Globalization;
+using System.Threading;
+using System.Linq;
 ```
 
 ### [Java](#tab/java)

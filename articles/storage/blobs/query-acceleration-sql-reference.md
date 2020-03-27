@@ -16,36 +16,38 @@ ms.reviewer: ereilebr
 
 Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
 
-The only SQL statement supported by query acceleration is the SELECT statement. 
+> [!NOTE]
+> The query acceleration feature is in public preview, and is available in the West Central US and West US 2 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup).
 
 ## SELECT Syntax
+
+The only SQL statement supported by query acceleration is the SELECT statement. This example returns every row for which expression returns true.
 
 ```sql
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Returns every row for which expression returns true.
-
 For CSV-formatted data, *table* must be `BlobStorage`.  This means that the query will run against whichever blob was specified in the REST call.
 For JSON-formatted data, *table* is a "table descriptor."   See the [Table Descriptors](#table-descriptors) section of this article.
+
+In the following example, for each row for which the WHERE *expression* returns true, this statement will return a new row that is made from evaluating each of the projection expressions.
+
 
 ```sql
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
 
-For each row for which the WHERE *expression* returns true, this statement will return a new row that is made from evaluating each of the projection expressions.
+The following example returns an aggregate computation (For example: the average value of a particular column) over each of the rows for which *expression* returns true. 
 
 ```sql
 SELECT aggregate_expression FROM table [WHERE expression] [LIMIT limit]
 ```
 
-Returns an aggregate computation (For example: the average value of a particular column) over each of the rows for which *expression* returns true. 
+The following example returns suitable offsets for splitting a CSV-formatted blob.  See the [Sys.Split](#sys-split) section of this article.
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
 ```
-
-Returns suitable offsets for splitting a CSV-formatted blob.  See the [Sys.Split](#sys-split) section of this article.
 
 <a id="data-types" />
 
@@ -192,12 +194,12 @@ A SELECT statement may contain either one or more projection expressions or a si
 
 |Expression|Description|
 |--|--|
-|COUNT(*)    |Returns the number of records which matched the predicate expression.|
-|COUNT(expression)    |Returns the number of records for which expression is non-null.|
-|AVERAGE(expression)    |Returns the average of the non-null values of expression.|
-|MIN(expression)    |Returns the minimum non-null value of expression.
-|(expression)    |Returns the maximum non-null value of expression.|
-|SUM(expression)    |Returns the sum of all non-null values of expression.|
+|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returns the number of records which matched the predicate expression.|
+|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returns the number of records for which expression is non-null.|
+|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Returns the average of the non-null values of expression.|
+|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Returns the minimum non-null value of expression.|
+|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Returns the maximum non-null value of expression.|
+|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Returns the sum of all non-null values of expression.|
 
 ### MISSING
 
@@ -228,9 +230,27 @@ Let's take an example to understand this in more detail.
 This is our sample data:
 
 ```json
-{"id":1, "name":"mouse", "price":12.5, "tags":["wireless", "accessory"],
-        "dimensions":{"length": 3, "width": 2, "height": 2}, "weight":0.2,
-        "warehouses":[{"latitude":41.8, "longitude": -87.6}]}
+{
+  "id": 1,
+  "name": "mouse",
+  "price": 12.5,
+  "tags": [
+    "wireless",
+    "accessory"
+  ],
+  "dimensions": {
+    "length": 3,
+    "width": 2,
+    "height": 2
+  },
+  "weight": 0.2,
+  "warehouses": [
+    {
+      "latitude": 41.8,
+      "longitude": -87.6
+    }
+  ]
+}
 ```
 
 You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so you can mention this in the FROM clause. Your sample query can look something like this.
@@ -239,7 +259,7 @@ You might be interested only in the `warehouses` JSON object from the above data
 SELECT latitude FROM BlobStorage[*].warehouses[*]
 ```
 
-The query above tries to get all the fields from warehouses. With this query, you'd be able to access only the latitude and longitude from this data. 
+The query gets all fields but selects only the latitude.
 
 If you wanted to access only the `dimensions` JSON object value, you could use refer to that object in your query. For example:
 
