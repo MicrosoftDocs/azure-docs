@@ -165,7 +165,7 @@ You give others access to view, download, and pay invoices by assigning them the
    ![Screenshot that shows billing profile list](./media/download-azure-invoice/mca-select-profile-zoomed-in.png)
 1. Select **Access Control (IAM)** from the left-hand side and then select **Add** from the top of the page.  
     ![Screenshot that shows access control page](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
-1. In the Role drop-down list, select **Invoice Manager**. Enter the email address of the user to give access. Select **Save** to assign the role.
+1. In the Role drop-down list, select **Invoice Manager**. Enter the email address of the user to give access. Select **Save** to assign the role.  
    ![Screenshot that shows adding a user as an invoice manager](./media/download-azure-invoice/mca-added-invoice-manager.png)]
 
 ## <a name="noinvoice"></a> Why you might not see an invoice
