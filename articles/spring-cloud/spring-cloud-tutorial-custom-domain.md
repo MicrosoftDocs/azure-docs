@@ -26,12 +26,13 @@ Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL), certif
 1. From the results list, choose Key Vault.
 1. On the Key Vault section, choose Create.
 1. On the Create key vault section provide the following information: 
-* Name: A unique name is required. For this quickstart, we use Contoso-vault2.
+* Name: A unique name is required.
 * Subscription: Choose a subscription.
 * Under Resource Group, choose Create new and enter a resource group name.
 * In the Location pull-down menu, choose a location.
 * Leave the other options to their defaults.
-1. After providing the information above, select Create.
+
+After providing the information above, select Create.
 
 Take note of the two properties listed below:
 * Vault Name: In the example, this is Contoso-Vault2. You will use this name for other steps.
@@ -39,10 +40,16 @@ Take note of the two properties listed below:
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
-
 ## Import certificate 
- Upload your certificate to key vault, then import it to Azure Spring Cloud. For information about importing a certificate, see [Import a certificate
-](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate).
+Import certificate – requires a PEM or PFX to be on disk and have a private key.  
+
+Upload your certificate to key vault, then import it to Azure Spring Cloud. For information about importing a certificate, see .
+
+* You must specify: vault name and certificate name (policy is optional)
+* PEM/PFX files contains attributes that KV can parse and use to populate the certificate policy. If a certificate policy is already specified, key vault will try to match data from PFX/PEM file.
+* Once the import is final, subsequent operations will use new policy with new versions.
+* If there are no further operations, the first thing the Key Vault does is send an expiration notice.
+* The user can edit the policy, which is functional at the time of import, but where no information was specified at import, such as  no issuer information, it will use default information.
 
 ## Create a virtual machine
 
@@ -59,5 +66,6 @@ In the custom domain table, select **Add ssl binding**.
 * [Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-secure-web-server)
 * [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Import a certificate](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 * [Manage storage account keys with Key Vault and the Azure CLI](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)
