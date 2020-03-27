@@ -13,25 +13,25 @@ ms.date: 03/27/2020
 
 # Quickstart: Use Search explorer to run queries in the portal
 
-**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or validate the results of an index refresh by looking up a specific document.
+**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm the results of an index refresh by verifying newer content exists.
 
-This quickstart uses a sample index and data to learn Search explorer. Requests are formulated using the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), with responses returned as JSON documents.
+This quickstart uses **realestate-us-sample-index** to demonstrate Search explorer. Requests are formulated using the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), with responses returned as JSON documents.
 
 ## Prerequisites
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
-+ **realestate-us-sample-index** is used for this quickstart. You can step through the [**Import data**](search-import-data-portal.md) wizard to generate the index from the built-in samples data source.
++ **realestate-us-sample-index** is used for this quickstart. Step through the [**Import data**](search-import-data-portal.md) wizard to generate the index from the built-in samples data source.
 
 ## Start Search explorer
 
 1. In the [Azure portal](https://portal.azure.com), open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-1. Open Search explorer. You can start it from the command bar:
+1. Open Search explorer from the command bar:
 
    ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
 
-    Or use the **Search explorer** tab on an open index:
+    Or use the embedded **Search explorer** tab on an open index:
 
    ![Search explorer tab](./media/search-explorer/search-explorer-tab.png "Search explorer tab")
 
@@ -79,7 +79,7 @@ Add **$count=true** to get the number of matches found in an index. On an empty 
 
 ## Limit fields in search results
 
-Add [**$select**](search-query-odata-select) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search string and **$count=true**, prefix arguments with **&**. 
+Add [**$select**](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search string and **$count=true**, prefix arguments with **&**. 
 
    ```http
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
