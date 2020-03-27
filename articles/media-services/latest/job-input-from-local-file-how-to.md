@@ -20,8 +20,8 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 ## Prerequisites 
 
-* [Create a Media Services account](create-account-cli-how-to.md)
-* [Manage assets](manage-asset-concept.md)
+* [Create a Media Services account](create-account-cli-how-to.md).
+* Review [manage assets](manage-asset-concept.md).
 
 ## .NET sample
 
