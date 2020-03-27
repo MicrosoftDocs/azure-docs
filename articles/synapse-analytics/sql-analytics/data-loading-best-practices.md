@@ -101,7 +101,7 @@ If you have thousands or more single inserts throughout the day, batch the inser
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 For a detailed explanation of statistics, see [Statistics](development-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 
