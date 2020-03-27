@@ -80,4 +80,4 @@ The business requirements include procedural, contractual, and legal obligations
 
 ## Next steps
 
-- [Create a Power BI App offer in Partner Center](https://aka.ms/AzureCreatePBIServiceApp)
+- [Create a Power BI app offer in Partner Center](https://aka.ms/AzureCreatePBIServiceApp)
