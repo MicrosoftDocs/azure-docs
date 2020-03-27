@@ -8,7 +8,7 @@ ms.author: dapine
 
 :::row:::
     :::column span="3":::
-        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
     :::column-end:::
     :::column:::
         <br>

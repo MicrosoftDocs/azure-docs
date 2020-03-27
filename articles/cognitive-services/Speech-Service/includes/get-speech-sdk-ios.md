@@ -31,7 +31,7 @@ When developing for iOS, there are two Speech SDKs available. The Objective-C Sp
 platform :ios, '9.3'
 use_frameworks!
 
-target 'MyApp' do
+target 'AppName' do
   pod 'MicrosoftCognitiveServicesSpeech', '~> 1.10.0'
 end
 ```
@@ -40,7 +40,7 @@ end
 
 :::row:::
     :::column span="3":::
-        For more information, see <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
     :::column-end:::
     :::column:::
         <br>
@@ -52,6 +52,6 @@ end
     :::column-end:::
 :::row-end:::
 
-[!INCLUDE [get-speech-sdk-dotnet](get-speech-sdk-dotnet.md)]
+[!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
 ---

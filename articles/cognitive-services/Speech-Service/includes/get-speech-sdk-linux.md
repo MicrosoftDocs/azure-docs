@@ -16,7 +16,7 @@ ms.author: dapine
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg" width="60px">
+            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -53,10 +53,14 @@ sudo yum install alsa-lib openssl
 
 ---
 
-### Java
+### .NET
 
-[!INCLUDE [get-speech-sdk-dotnet](get-speech-sdk-java.md)]
+[!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
 ### C++
 
-[!INCLUDE [Get Speech SDK C++](get-speech-sdk-cpp.md)]
+[!INCLUDE [Get C++ Speech SDK](get-speech-sdk-cpp.md)]
+
+### Java
+
+[!INCLUDE [Get Java Speech SDK](get-speech-sdk-java.md)]

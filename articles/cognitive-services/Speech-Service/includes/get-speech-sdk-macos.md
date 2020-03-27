@@ -38,7 +38,7 @@ end
 
 :::row:::
     :::column span="3":::
-        For more information, see <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications using C#. For more information, see <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
     :::column-end:::
     :::column:::
         <br>
@@ -48,6 +48,6 @@ end
     :::column-end:::
 :::row-end:::
 
-[!INCLUDE [get-speech-sdk-dotnet](get-speech-sdk-dotnet.md)]
+[!INCLUDE [Get .NET Speech SDK](get-speech-sdk-dotnet.md)]
 
 ---

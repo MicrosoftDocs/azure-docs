@@ -13,6 +13,8 @@ ms.author: dapine
     :::column:::
         <br>
         <div class="icon is-large">
+            <img alt="Java" src="https://docs.microsoft.com/media/logos/logo_java.svg" width="60px">
+            &nbsp; ❤️ &nbsp;
             <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::

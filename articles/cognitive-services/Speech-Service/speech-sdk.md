@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/27/2020
 ms.author: dapine
 ---
 
@@ -72,11 +72,11 @@ Batch transcription enables asynchronous speech-to-text transcription of large v
 
 ### Custom Speech-to-text
 
-If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. This is only available through the [Custom Speech Portal](https://aka.ms/customspeech), and not the Speech SDK.
+If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of Custom Speech models is only available through the [Custom Speech Portal](https://aka.ms/customspeech), and not the Speech SDK. However, once the Custom Speech model is published it can be consumed by the Speech SDK.
 
 ### Custom Text-to-speech
 
-Custom text-to-speech, also known as Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. This is only available through the [Custom Voice Portal](https://aka.ms/customvoice), and not the Speech SDK.
+Custom text-to-speech, also known as Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. The creation and management of Custom Voice models is only available through the [Custom Voice Portal](https://aka.ms/customvoice), and not the Speech SDK. However, once the Custom Voice model is published it can be consumed by the Speech SDK.
 
 ## Get the SDK
 

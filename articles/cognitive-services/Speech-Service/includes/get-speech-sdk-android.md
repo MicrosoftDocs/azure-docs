@@ -16,14 +16,14 @@ When developing for Android, there are two Speech SDKs available. The Java Speec
 
 :::row:::
     :::column span="3":::
-        For more information, see <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        Xamarin.Android exposes the complete Android SDK for .NET developers. Build fully native Android apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin.Android <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
+            <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
             &nbsp; ❤️ &nbsp;
-            <img alt="Xcode" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
+            <img alt="Android" src="https://docs.microsoft.com/media/logos/logo_android.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

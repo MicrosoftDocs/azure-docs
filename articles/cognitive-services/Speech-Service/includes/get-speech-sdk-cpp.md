@@ -6,8 +6,29 @@ ms.date: 03/27/2020
 ms.author: dapine
 ---
 
-The C++ Speech SDK, 
-Download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
+:::row:::
+    :::column span="3":::
+        The C++ Speech SDK is available on Windows, Linux, and macOS. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+    :::column-end:::
+    :::column:::
+        <br>
+        <div class="icon is-large">
+            <img alt="C++" src="https://docs.microsoft.com/media/logos/logo_Cplusplus.svg" width="60px">
+        </div>
+    :::column-end:::
+:::row-end:::
+
+### NuGet package
+
+To install the C++ Speech SDK from the **Package Manager** run the following command.
+
+```powershell
+Install-Package Microsoft.CognitiveServices.Speech
+```
+
+### Binaries
+
+To install the C++ Speech SDK from the binaries, download the SDK as a <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">.tar package <span class="docon docon-navigate-external x-hidden-focus"></span></a> and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
 
   | Path                   | Description                                          |
   |------------------------|------------------------------------------------------|
