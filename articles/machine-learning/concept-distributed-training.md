@@ -1,7 +1,7 @@
 ---
 title: What is distributed training?
 titleSuffix: Azure Machine Learning
-description: Distributed training refers to the ability to accelerate model training by sharing and parallelizing data loads and training tasks across multiple GPUs.
+description: Learn about distributed training and how Azure Machine Learning supports it.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -13,18 +13,19 @@ ms.date: 03/27/2020
 
 # Distributed training with Azure Machine Learning
 
-In distributed training the work load to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Distrbuted training is well suited for compute and time intensive tasks, like [deep learning](concept-deep-learning-vs-machine-learning.md) for training deep neural networks.
+In this article, you learn about distributed training and how Azure Machine Learning supports it. 
 
-## Distributed training in Azure Machine Learning
+In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Distributed training is well suited for compute and time intensive tasks, like [deep learning](concept-deep-learning-vs-machine-learning.md) for training deep neural networks.
 
-There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). 
-The [Azure Machine Learning SDK in Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) supports integrations with popular deep learning frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
+## Deep learning and distributed training 
+
+There are two main types of distributed training: [data parallelism](#data-parallelism) and [model parallelism](#model-parallelism). For distributed training, the [Azure Machine Learning SDK in Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) supports integrations with popular deep learning frameworks, PyTorch and TensorFlow. Both frameworks employ data parallelism for distributed training, and leverage [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) for optimizing compute speeds. 
 
 * [Distributed training with PyTorch](how-to-train-pytorch.md#distributed-training)
 
 * [Distributed training with TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
-For training traditional ML models, see [Azure Machine Learning SDK for Python](concept-train-machine-learning-model.md#python-sdk) for the different ways to train models using the Python SDK.
+For training traditional ML models, see [train models with Azure Machine Learning](concept-train-machine-learning-model.md#python-sdk) for the different ways to train models using the Python SDK.
 
 ## Data parallelism
 
