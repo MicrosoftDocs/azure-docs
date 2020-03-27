@@ -56,7 +56,7 @@ For more information about instance size flexibility, see [Virtual machine size 
 
 Analyze your usage information to help determine which reservations you should purchase. Usage data is available in the usage file and APIs. Use them together to determine which reservation to purchase. Check for VM instances that have high usage on daily basis to determine the quantity of reservations to purchase. Avoid the `Meter` subcategory and `Product` fields in usage data. They don't distinguish between VM sizes that use premium storage. If you use these fields to determine the VM size for reservation purchase, you may buy the wrong size. Then you won't get the reservation discount you expect. Instead, refer to the `AdditionalInfo` field in your usage file or usage API to determine the correct VM size.
 
-Your usage file shows your charges by billing period and daily usage. For information about downloading your usage file, see [View and download your Azure usage and charges](../articles/cost-management-billing/understand/download-azure-daily-usage). Then, by using the usage file information, you can [determine what reservation to purchase](../articles/cost-management-billing/reservations/determine-reservation-purchase.md).
+Your usage file shows your charges by billing period and daily usage. For information about downloading your usage file, see [View and download your Azure usage and charges](../articles/cost-management-billing/understand/download-azure-daily-usage.md). Then, by using the usage file information, you can [determine what reservation to purchase](../articles/cost-management-billing/reservations/determine-reservation-purchase.md).
 
 ### Purchase restriction considerations
 
