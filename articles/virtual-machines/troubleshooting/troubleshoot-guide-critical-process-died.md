@@ -25,7 +25,7 @@ This article provides steps to resolve issues where a critical process dies duri
 
 When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays the error *#0x000000EF* with the message *Critical Process Died*.
 
-!["Your PC ran into a problem and needs to restart. We're just collecting some error info, and then you can restart. (##% complete) If you'd like to know more, you can search online later for this error: 0x000000EF"](media/troubleshooting-guide-critical-process-died/1.jpg)
+!["Your PC ran into a problem and needs to restart. We're just collecting some error info, and then you can restart. (##% complete) If you'd like to know more, you can search online later for this error: 0x000000EF"](media/troubleshoot-guide-critical-process-died/1.jpg)
 
 ## Cause
 

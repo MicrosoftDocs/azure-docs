@@ -29,7 +29,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 Figure 1
  
-![Windows Boot Manager stating "Choose an operating system to start, or press TAB to select a tool:"](media/troubleshooting-guide-windows-boot-manager-menu/1.jpg)
+![Windows Boot Manager stating "Choose an operating system to start, or press TAB to select a tool:"](media/troubleshoot-guide-windows-boot-manager-menu/1.jpg)
 
 ## Cause
 
