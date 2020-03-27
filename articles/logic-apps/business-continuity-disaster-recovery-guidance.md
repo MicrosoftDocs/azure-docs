@@ -10,7 +10,7 @@ ms.date: 03/31/2020
 
 # Business continuity and disaster recovery for Azure Logic Apps
 
-To help reduce the impact and effects that unpredictable events have on your business and customers, make sure that you have a [*disaster recovery* (DR)](https://en.wikipedia.org/wiki/Disaster_recovery) solution in place so that you can protect data, quickly restore the resources that support critical business functions, and keep operations running to maintain [*business continuity* (BC)](https://en.wikipedia.org/wiki/Business_continuity_planning). For example, disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your enterprise or organization can more respond faster to interruptions, planned or unplanned, and reduce downtime for your customers.
+To help reduce the impact and effects that unpredictable events have on your business and customers, make sure that you have a [*disaster recovery* (DR)](https://en.wikipedia.org/wiki/Disaster_recovery) solution in place so that you can protect data, quickly restore the resources that support critical business functions, and keep operations running to maintain [*business continuity* (BC)](https://en.wikipedia.org/wiki/Business_continuity_planning). For example, disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a business continuity and disaster recovery (BCDR) solution ready, your enterprise or organization can more respond faster to interruptions, planned or unplanned, and reduce downtime for your customers.
 
 This article provides BCDR guidance and strategies that you can apply when you build automated workflows by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for BCDR, make sure that you consider not just your logic apps, but also these resources that you use with your logic apps:
 
@@ -22,7 +22,7 @@ This article provides BCDR guidance and strategies that you can apply when you b
 
 ## Primary and secondary locations
 
-Each logic app has to specify a location that you want to use for deployment. This location is either a public region in global multi-tenant Azure such as "West US" or an ISE that you previously created and deployed into an Azure virtual network. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
+Each logic app has to specify a location that you want to use for deployment. This location is either a public region in global multi-tenant Azure such as "West US" or an ISE that you previously created and deployed into an Azure virtual network. Running logic apps in an ISE is similar to running logic apps in a global Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
 
 > [!NOTE]
 > If your logic app also uses B2B artifacts, which are stored in an integration account, 
@@ -63,7 +63,7 @@ If your logic app needs access to services, systems, and resources such as Azure
 
 From a disaster recovery perspective, when you set up your secondary logic app in an alternate location, consider whether or not this logic app should have its own connections and entities, rather than share the same connections with the primary logic app.
 
-For example, suppose that your logic app connects to an external service such as Salesforce. Your logic app's availability in a specific location is usually independent from that service's availability and location. In this case, you could use the same API connection to that service.
+For example, suppose that your logic app connects to an external service such as Salesforce. Your logic app's availability in a specific location is typically independent from that service's availability and location. In this case, you could use the same API connection to that service.
 
 However, suppose that your logic app connects to a service that's also in the same location or region, for example, Azure SQL Database. If that entire region becomes unavailable, Azure SQL Database in that region is most likely unavailable. In this case, you'd want your secondary location to have a replicated or backup database, and you'd also want to use a separate API connection to that database.
 
@@ -82,7 +82,7 @@ The data gateway resource is associated with a location or Azure region, just li
 >
 > If no ISE-versioned connector is available for the resource that you want, 
 > your logic app can still create the connection by using a non-ISE connector, 
-> which runs in multi-tenant Azure, not your ISE. However, this connection 
+> which runs in the global multi-tenant Azure, not your ISE. However, this connection 
 > requires the on-premises data gateway.
 
 <a name="roles"></a>
@@ -160,7 +160,7 @@ To get more information about your logic app's past workflow executions, you can
 
 ## Trigger type guidance
 
-The trigger type that you use in your logic apps determine your options for how you can set up logic apps across locations in your disaster recovery strategy. You can use these trigger types in logic apps:
+The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in your disaster recovery strategy. You can use these trigger types in logic apps:
 
 * [Recurrence trigger](#recurrence-trigger)
 * [Polling trigger](#polling-trigger)
@@ -223,7 +223,7 @@ From a disaster recovery perspective, when you set up your logic app's primary a
 
 * For a logic app that tracks client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
 
-  For example, an Office 365 Outlook trigger is a client-side trigger that maintains state. The trigger tracks the the timestamp for the most recently read email to avoid reading a duplicate.
+  For example, an Office 365 Outlook trigger is a client-side trigger that maintains state. The trigger tracks the timestamp for the most recently read email to avoid reading a duplicate.
 
 * For a logic app that tracks server-side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
 
