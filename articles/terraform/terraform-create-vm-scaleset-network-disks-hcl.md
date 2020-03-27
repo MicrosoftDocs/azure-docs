@@ -75,7 +75,7 @@ Within the Azure Cloud Shell, do the following steps:
 
    variable "tags" {
     description = "A map of the tags to use for the resources that are deployed"
-    type        = "map"
+    type        = map
 
     default = {
       environment = "codelab"
