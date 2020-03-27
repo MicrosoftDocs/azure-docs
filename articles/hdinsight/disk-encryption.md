@@ -174,7 +174,7 @@ To use customer managed keys by using a Resource Manager template, update your t
             "value": "7cfd94ad4e09471296b069d2a2cee395"
         },
         "diskEncryptionMsiResourceId": {
-            "value": "/subscriptions/d66b1168-d835-4066-8c45-7d2ed713c082/resourcegroups/OmidRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/OMMSI"
+            "value": "/subscriptions/<subscriptionID>/resourcegroups/<ResourceGroup_Name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI_Name>"
         }
     ```
 
