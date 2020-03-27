@@ -29,7 +29,7 @@ ms.author: juliako
  
 This topic shows how to scale a streaming endpoint.
 
-For information about pricing details, see [Media Services Pricing Details](https://azure.microsoft.com/en-us/pricing/details/media-services/).
+For information about pricing details, see [Media Services Pricing Details](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## Scale streaming endpoints
 
