@@ -63,7 +63,10 @@ az sig image-version show \
 You need to create an image definition that matches the image definition of your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
 
 ```azurecli-interactive
-az sig image-definition show --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition
+az sig image-definition show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition
 ```
 
 The output will look something like this:

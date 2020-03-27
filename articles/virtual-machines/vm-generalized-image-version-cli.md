@@ -12,7 +12,7 @@ ms.author: cynthn
 ---
 # Create a VM from a generalized image version using the CLI
 
-Create a VM from a generalized image version stored in a Shared Image Gallery. If want to create a VM using a specialized image version, see [Create a VM from a specialized image version](vm-specialized-image-version-cli.md).
+Create a VM from a [generalized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a specialized image version, see [Create a VM from a specialized image version](vm-specialized-image-version-cli.md).
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 

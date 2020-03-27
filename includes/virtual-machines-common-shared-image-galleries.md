@@ -73,15 +73,6 @@ Specialized VMs have not been through a process to remove machine specific infor
 - VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
 - The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
 
-> [!IMPORTANT]
-> Specialized images are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Known preview limitations**
-> VMs can only be created from specialized images using the portal or API. The is no CLI or PowerShell support for the preview.
-
-
 ## Regional Support
 
 Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/

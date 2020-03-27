@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-
+ms.custom: legacy
 ---
 # How to create a managed image of a virtual machine or VHD
 
