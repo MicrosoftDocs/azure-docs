@@ -18,6 +18,8 @@ ms.author: dapine
     :::column-end:::
 :::row-end:::
 
+#### C# NuGet Package
+
 To install the .NET Speech SDK from the **.NET Core CLI** run the following command.
 
 ```dotnetcli
