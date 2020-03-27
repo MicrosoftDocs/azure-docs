@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -92,6 +92,10 @@ The **CryptographicKeys** element is not used.
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | ManualPhoneNumberEntryAllowed| No | Specify whether or not a user is allowed to manually enter a phone number. Possible values: `true` or `false` (default).|
+
+### UI elements
+
+The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#azure-mfa-error-messages).
 
 ## Next steps
 

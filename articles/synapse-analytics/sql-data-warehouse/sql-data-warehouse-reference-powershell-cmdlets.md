@@ -1,12 +1,12 @@
 ---
 title: PowerShell & REST APIs 
 description: Find the top PowerShell cmdlets for Azure Synapse Analytics SQL pool including how to pause and resume a database.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
