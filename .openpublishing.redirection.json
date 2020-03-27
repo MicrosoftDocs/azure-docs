@@ -6236,14 +6236,27 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-basic-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
       "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
       "redirect_document_id": true
     },
-    {
+    },    {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
       "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/rest-api-claims-exchange-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
