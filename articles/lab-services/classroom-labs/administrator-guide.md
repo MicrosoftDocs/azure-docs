@@ -152,9 +152,6 @@ The location that a classroom lab exists in varies based on the following factor
        
     When there is **no** VNet peered and [lab creators are allowed to pick the lab location](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), the locations that can be selected by the lab creator are based on available capacity.
 
-> [!NOTE]
-> To help ensure that there is sufficient VM capacity for a region, it's important that you first request capacity through the lab account or when creating the lab.
-
 A general rule is to set a resource's region to one that is closest to its users. For classroom labs, this means creating the classroom lab closest to your students. For online courses where students are located all over the world, you need to use your best judgment to create a classroom lab that's centrally located. Or, split a class into multiple classroom labs based on your students' region.
 
 ### Shared image gallery
