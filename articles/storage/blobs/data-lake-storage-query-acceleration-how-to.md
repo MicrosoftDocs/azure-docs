@@ -52,7 +52,7 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
 
 2. Extract the contents of this file to your project directory.
 
-3. Open your project file (*.csproj*) in a text editor, and add these package references inside of the <Project> element.
+3. Open your project file (*.csproj*) in a text editor, and add these package references inside of the \<Project\> element.
 
    ```xml
    <ItemGroup>
