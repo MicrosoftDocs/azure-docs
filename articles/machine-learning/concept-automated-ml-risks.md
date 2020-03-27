@@ -1,7 +1,7 @@
 ---
-title: Identify and handle common risks to automated machine learning 
+title: Manage common ML model pitfalls with automated machine learning.
 titleSuffix: Azure Machine Learning
-description: Optimize your automated machine learning models.
+description: Identify and manage common pitfalls of ML models with Azure Machine Learning's automated machine learning solutions. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/23/2020
+ms.date: 03/27/2020
 ---
 
-# Common risks to automated machine learning
+# Manage ML pitfalls with automated machine learning
 
-Over-fitting and imbalanced data are common risks when you build machine learning models. Azure Machine Learning's automated machine learning by default provides charts and metrics to help you identify these risks, and implements best practices to help mitigate them. 
+Over-fitting and imbalanced data are common pitfalls when you build machine learning models. By default, Azure Machine Learning's automated machine learning provides charts and metrics to help you identify these risks, and implements best practices to help mitigate them. 
 
 ## Identify over-fitting
 
