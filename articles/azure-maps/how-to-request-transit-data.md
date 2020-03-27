@@ -43,7 +43,7 @@ Let's make a request to get the Metro Area for the Seattle-Tacoma metro area ID.
     
     ![Create a request in Postman](./media/how-to-request-transit-data/postman-new.png)
 
-3. Select the **GET** HTTP method on the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
+3. Select the **GET** HTTP method in the builder tab and enter the following URL to create a GET request. Replace `{subscription-key}`, with your Azure Maps primary key.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/metroArea/id/json?subscription-key={subscription-key}&api-version=1.0&query=47.63096,-122.126
@@ -116,7 +116,7 @@ To make a request to the [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNe
 
 1. In Postman, click **New Request** | **GET request** and name it **Get Nearby stops**.
 
-2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
+2. in the builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=47.63096,-122.126&radius=300&objectType=stop
@@ -226,7 +226,7 @@ To make a request to the Fuzzy search service, follow the steps below:
 
 1. In Postman, click **New Request** | **GET request** and name it **Get location coordinates**.
 
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+2.  in the builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
  
     ```HTTP
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
@@ -334,7 +334,7 @@ To make a route request, complete the steps below:
 
 1. In Postman, click **New Request** | **GET request** and name it **Get Route info**.
 
-2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
+2. in the builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
     We'll request public transit routes for a bus by specifying the `modeType` and `transitType` parameters. The request URL contains the locations retrieved in the previous sections. For the `originType`, we now have a **stopId**. And for the `destionationType`, we have the **position**.
 
@@ -497,7 +497,7 @@ The Azure Maps [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitIt
 
 1. In Postman, click **New Request** | **GET request** and name it **Get Transit info**.
 
-2. On the Builder tab, select the **GET** HTTP method. Enter the following request URL for your API endpoint and click **Send**.
+2. in the builder tab, select the **GET** HTTP method. Enter the following request URL for your API endpoint and click **Send**.
 
     We'll set the `detailType` parameter to **geometry** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
 
