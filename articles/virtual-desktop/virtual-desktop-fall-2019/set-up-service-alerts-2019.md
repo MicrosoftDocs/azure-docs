@@ -26,9 +26,9 @@ To learn more about Azure Service Health, see the [Azure Health Documentation](h
 
 ## Prerequisites
 
-- [Tutorial: Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)
-- [Tutorial: Create service principals and role assignments with PowerShell](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md)
-- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Tutorial: Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
+- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace-2019.md)
 
 ## Create service alerts
 
@@ -56,4 +56,4 @@ To configure service alerts:
 In this tutorial, you learned how to set up and use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. To learn about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
 > [!div class="nextstepaction"]
-> [Connect to the Remote Desktop client on Windows 7 and Windows 10](./connect-windows-7-and-10.md)
+> [Connect to the Remote Desktop client on Windows 7 and Windows 10](../connect-windows-7-and-10.md)

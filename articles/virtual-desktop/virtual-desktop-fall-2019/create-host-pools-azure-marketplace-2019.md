@@ -30,7 +30,7 @@ The tasks in this tutorial include:
 
 ## Prerequisites
 
-* A tenant in Virtual Desktop. A previous [tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) creates a tenant.
+* A tenant in Virtual Desktop. A previous [tutorial](tenant-setup-azure-active-directory.md) creates a tenant.
 * [Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
 
 Once you have this module, run the following cmdlet to sign in to your account:
@@ -92,7 +92,7 @@ For the **Virtual machine settings** tab:
 1. Enter the user principal name and password. This account must be the domain account that will join the virtual machines to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 
    >[!NOTE]
-   > If you're joining your virtual machines to an Azure AD DS environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+   > If you're joining your virtual machines to an Azure AD DS environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
    >
    > The account must also be part of the Azure AD DS managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
 
@@ -107,7 +107,7 @@ For the **Windows Virtual Desktop tenant information** tab:
 1. For **Windows Virtual Desktop tenant name**, enter the name of the tenant where you'll be creating this host pool.
 1. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. Enter the UPN or Service principal and a password.
 
-   If you completed the [Create service principals and role assignments with PowerShell tutorial](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md), select **Service principal**.
+   If you completed the [Create service principals and role assignments with PowerShell tutorial](create-service-principal-role-powershell.md), select **Service principal**.
 
 1. For **Service principal**, for **Azure AD tenant ID**, enter the tenant admin account for the Azure AD instance that contains the service principal. Only service principals with a password credential are supported.
 1. Select **Next: Review + create**.
@@ -121,7 +121,7 @@ Depending on how many virtual machines you're creating, this process can take 30
 >[!IMPORTANT]
 > To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your virtual machines. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's virtual machines.
 >
-> If you must open port 3389 for troubleshooting purposes, we recommend you use just-in-time access. For more information, see [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md).
+> If you must open port 3389 for troubleshooting purposes, we recommend you use just-in-time access. For more information, see [Secure your management ports with just-in-time access](../../security-center/security-center-just-in-time.md).
 
 ## (Optional) Assign additional users to the desktop application group
 
@@ -149,8 +149,8 @@ Users you add to the desktop application group can sign in to Windows Virtual De
 
 Here are the current supported clients:
 
-* [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
-* [Windows Virtual Desktop web client](connect-web.md)
+* [Remote Desktop client for Windows 7 and Windows 10](../connect-windows-7-and-10.md)
+* [Windows Virtual Desktop web client](connect-web-2019.md)
 
 ## Next steps
 

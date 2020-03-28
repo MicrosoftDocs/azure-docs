@@ -56,7 +56,7 @@ $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/multiplecustomrdpproperty.png)
+![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
 
@@ -66,11 +66,11 @@ You can reset individual custom RDP properties to their default values by follow
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/resetcustomrdpproperty.png)
+![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/resetcustomrdpproperty.png)
 
 ## Next steps
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
-- [Connect with the web client](connect-web.md)
+- [Connect with the Windows Desktop client](../connect-windows-7-and-10.md)
+- [Connect with the web client](connect-web-2019.md)

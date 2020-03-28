@@ -14,7 +14,7 @@ manager: lizross
 # Deploy a management tool with PowerShell
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../manage-resources-using-ui-powershell.md).
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article will show you how to deploy the management tool using PowerShell.
 
@@ -163,4 +163,4 @@ If you come across any issues with the management tool or other Windows Virtual 
 
 ## Next steps
 
-Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](../set-up-service-alerts.md).
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](../set-up-service-alerts-2019.md).

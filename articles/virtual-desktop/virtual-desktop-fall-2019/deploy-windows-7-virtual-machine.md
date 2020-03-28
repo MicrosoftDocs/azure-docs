@@ -19,7 +19,7 @@ The process to deploy a Windows 7 virtual machine (VM) on Windows Virtual Deskto
 
 ## Prerequisites
 
-Before you start, follow the instructions in [Create a host pool with PowerShell](../create-host-pools-powershell-2019.md) to create a host pool. After that, follow the instructions in [Create host pools in Azure Marketplace](../create-host-pools-azure-marketplace-2019.md#optional-assign-additional-users-to-the-desktop-application-group) to assign one or more users to the desktop application group.
+Before you start, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to create a host pool. After that, follow the instructions in [Create host pools in Azure Marketplace](create-host-pools-azure-marketplace-2019.md#optional-assign-additional-users-to-the-desktop-application-group) to assign one or more users to the desktop application group.
 
 ## Configure a Windows 7 virtual machine
 
@@ -54,4 +54,4 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
 
 Your Windows Virtual Desktop deployment is now ready to use. [Download the latest version of the Windows Virtual Desktop client](https://aka.ms/wvd/clients/windows) to get started.
 
-For a list of known issues and troubleshooting instructions for Windows 7 on Windows Virtual Desktop, see our troubleshooting article at [Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop](troubleshoot-windows-7-vm.md).
+For a list of known issues and troubleshooting instructions for Windows 7 on Windows Virtual Desktop, see our troubleshooting article at [Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop](troubleshoot-windows-7-vm-2019.md).

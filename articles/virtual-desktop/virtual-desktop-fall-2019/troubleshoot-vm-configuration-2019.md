@@ -25,7 +25,7 @@ Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microso
 
 Follow these instructions if you're having issues joining VMs to the domain.
 
-- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 - Try pinging the domain name from command line on VM.
 - Review the list of domain join error messages in [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
@@ -36,7 +36,7 @@ Follow these instructions if you're having issues joining VMs to the domain.
 **Fix:** Take one of the following actions to resolve.
 
 - Manually add the VMs to a domain.
-- Redeploy the template once credentials have been confirmed. See [Create a host pool with PowerShell](create-host-pools-powershell.md).
+- Redeploy the template once credentials have been confirmed. See [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 - Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### Error: Timeout waiting for user input
@@ -61,17 +61,17 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Cause 1:** VMs are on a virtual network that's not associated with the virtual network (VNET) where the domain is located.
 
-**Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](../virtual-network/create-peering-different-subscriptions.md).
+**Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](../../virtual-network/create-peering-different-subscriptions.md).
 
 **Cause 2:** When using Azure Active Directory Domain Services (Azure AD DS), the virtual network doesn't have its DNS server settings updated to point to the managed domain controllers.
 
-**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
+**Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Cause 3:** The network interface's DNS server settings do not point to the appropriate DNS server on the virtual network.
 
 **Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
-- Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
-- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.md#change-dns-servers).
+- Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
+- Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../../active-directory-b2c/application-insights-technical-profile.mdvirtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 ## Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
@@ -87,7 +87,7 @@ Follow these instructions to confirm the components are installed and to check f
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
-**Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](create-host-pools-powershell.md).
+**Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 
 **Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it can't sign in to Windows Virtual Desktop and obtain needed information.
 
@@ -113,7 +113,7 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 ### Error: The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable
 
-![Get-RdsSessionHost cmdlet shows status as Unavailable.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Get-RdsSessionHost cmdlet shows status as Unavailable.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The agent isn't able to update itself to a new version.
 
@@ -186,9 +186,9 @@ If you're having issues with the Windows Virtual Desktop side-by-side stack, typ
 
 The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-side stack is installed and enabled.
 
-![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell.md) on how to reinstall the side-by-side stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow the instructions in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) on how to reinstall the side-by-side stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -200,7 +200,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ### Error: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE error code.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![O_REVERSE_CONNECT_STACK_FAILURE error code.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The side-by-side stack isn't installed on the session host VM.
 
@@ -213,7 +213,7 @@ Examine the registry entries listed below and confirm that their values match. I
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-3. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell.md).
+3. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
 
@@ -225,7 +225,7 @@ There are known circumstances that can cause the side-by-side stack to malfuncti
 - Running enablesxsstackrc.ps1 multiple times
 - Running enablesxsstackrc.ps1 in an account that doesn't have local admin privileges
 
-The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to "Register the VM with the Windows Virtual Desktop host pool" in [Create a host pool with PowerShell](create-host-pools-powershell.md) to reinstall the side-by-side stack.
+The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to "Register the VM with the Windows Virtual Desktop host pool" in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to reinstall the side-by-side stack.
 
 The VM used to run remediation must be on the same subnet and domain as the VM with the malfunctioning side-by-side stack.
 
@@ -247,14 +247,14 @@ Follow these instructions to run remediation from the same subnet and domain:
 
 7. Accept the PsExec License Agreement by clicking Agree.
 
-    ![Software license agreement screenshot.](media/SoftwareLicenseTerms.png)
+    ![Software license agreement screenshot.](../media/SoftwareLicenseTerms.png)
 
     >[!Note]
     >This dialog will show up only the first time PsExec is run.
 
 8. After the command prompt session opens on the VM with the malfunctioning side-by-side stack, run qwinsta and confirm that an entry named rdp-sxs is available. If not, a side-by-side stack isn't present on the VM so the issue isn't tied to the side-by-side stack.
 
-    ![Administrator command prompt](media/AdministratorCommandPrompt.png)
+    ![Administrator command prompt](../media/AdministratorCommandPrompt.png)
 
 9. Run the following command, which will list Microsoft components installed on the VM with the malfunctioning side-by-side stack.
 
@@ -322,7 +322,7 @@ To check which version of Windows 10 Enterprise multi-session you have:
 3. Select **About your PC**.
 4. Check the number next to "Version." The number should be either "1809" or "1903," as shown in the following image.
 
-    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](media/windows-specifications.png)
+    ![A screenshot of the Windows specifications window. The version number is highlighted in blue.](../media/windows-specifications.png)
 
 Now that you know your version number, skip ahead to the relevant section.
 
@@ -337,12 +337,12 @@ Redeploy the host operating system with the latest version of the Windows 10, ve
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).
+- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup-2019.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

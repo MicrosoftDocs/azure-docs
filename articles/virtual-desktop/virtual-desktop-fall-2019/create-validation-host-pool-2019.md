@@ -19,7 +19,7 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your production environment as possible. Users should connect as frequently to the validation host pool as they do to the production host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
-You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Windows Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview-2019.md).
+You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service-2019.md) or the [Windows Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview-2019.md).
 
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
@@ -33,9 +33,9 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ## Create your host pool
 
 You can create a host pool by following the instructions in any of these articles:
-- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Create a host pool with an Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
-- [Create a host pool with PowerShell](create-host-pools-powershell.md)
+- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace-2019.md)
+- [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
+- [Create a host pool with PowerShell](create-host-pools-powershell-2019.md)
 
 ## Define your host pool as a validation host pool
 
@@ -77,4 +77,4 @@ Service updates happen monthly. If there are major issues, critical updates will
 Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment. 
 
 > [!div class="nextstepaction"]
-> [Set up service alerts](./set-up-service-alerts.md)
+> [Set up service alerts](../set-up-service-alerts.md)

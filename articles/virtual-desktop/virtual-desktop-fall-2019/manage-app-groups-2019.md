@@ -79,4 +79,4 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 In this tutorial, you learned how to create an app group, populate it with RemoteApp programs, and assign users to the app group. To learn how to create a validation host pool, see the following tutorial. You can use a validation host pool to monitor service updates before rolling them out to your production environment.
 
 > [!div class="nextstepaction"]
-> [Create a host pool to validate service updates](./create-validation-host-pool.md)
+> [Create a host pool to validate service updates](create-validation-host-pool-2019.md)

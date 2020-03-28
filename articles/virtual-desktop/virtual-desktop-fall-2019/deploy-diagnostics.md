@@ -19,7 +19,7 @@ manager: lizross
 >[!IMPORTANT]
 >As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
 >
->Until then, we highly recommend you [use Log Analytics](../diagnostics-log-analytics-2019.md) for continued monitoring.
+>Until then, we highly recommend you [use Log Analytics](diagnostics-log-analytics-2019.md) for continued monitoring.
 
 Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
@@ -215,7 +215,7 @@ After you've signed in to your account using the information you've received fro
 
 ### How to read activity search results
 
-Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify and diagnose issues](../diagnostics-role-service-2019.md#common-error-scenarios).
+Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify and diagnose issues](diagnostics-role-service-2019.md#common-error-scenarios).
 
 >[!NOTE]
 >Service errors are called "external errors" in the linked documentation. This will be changed when we update the PowerShell reference.
@@ -263,5 +263,5 @@ You can also interact with users on the session host:
 
 ## Next steps
 
-- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](../diagnostics-log-analytics-2019.md).
-- Read about common error scenarios and how to fix them at [Identify and diagnose issues](../diagnostics-role-service-2019.md).
+- Learn how to monitor activity logs at [Use diagnostics with Log Analytics](diagnostics-log-analytics-2019.md).
+- Read about common error scenarios and how to fix them at [Identify and diagnose issues](diagnostics-role-service-2019.md).

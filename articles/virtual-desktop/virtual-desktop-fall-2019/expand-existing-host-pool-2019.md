@@ -23,9 +23,9 @@ This article will tell you how you can expand an existing host pool with new ses
 
 Before you start, make sure you've created a host pool and session host virtual machines (VMs) using one of the following methods:
 
-- [Azure Marketplace offering](./create-host-pools-azure-marketplace.md)
-- [GitHub Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
-- [Create a host pool with PowerShell](./create-host-pools-powershell.md)
+- [Azure Marketplace offering](create-host-pools-azure-marketplace-2019.md)
+- [GitHub Azure Resource Manager template](create-host-pools-arm-template.md)
+- [Create a host pool with PowerShell](create-host-pools-powershell-2019.md)
 
 You'll also need the following information from when you first created the host pool and session host VMs:
 
@@ -40,7 +40,7 @@ The next three sections are three methods you can use to expand the host pool. Y
 
 ## Redeploy from Azure
 
-If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md), you can redeploy the same template from the Azure portal. Redeploying the template automatically reenters all the information you entered into the original template except for passwords.
+If you've already created a host pool and session host VMs using the [Azure Marketplace offering](create-host-pools-azure-marketplace-2019.md) or [GitHub Azure Resource Manager template](create-host-pools-arm-template.md), you can redeploy the same template from the Azure portal. Redeploying the template automatically reenters all the information you entered into the original template except for passwords.
 
 Here's how to redeploy the Azure Resource Manager template to expand a host pool:
 
@@ -69,7 +69,7 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
 
 ## Run the Azure Marketplace offering
 
-Follow the instructions in [Create a host pool by using the Azure Marketplace](./create-host-pools-azure-marketplace.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
+Follow the instructions in [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace-2019.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
 
 ### Basics
 
@@ -119,14 +119,14 @@ All parameter values in this section should match what you provided when you fir
 
 ## Run the GitHub Azure Resource Manager template
 
-Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
 
 ## Next steps
 
 Now that you've expanded your existing host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
 - [Connect with the Windows Desktop client](./connect-windows-7-and-10.md)
-- [Connect with the web client](./connect-web.md)
-- [Connect with the Android client](./connect-android.md)
-- [Connect with the macOS client](./connect-macos.md)
-- [Connect with the iOS client](./connect-ios.md)
+- [Connect with the web client](connect-web-2019.md)
+- [Connect with the Android client](connect-android-2019.md)
+- [Connect with the macOS client](connect-macos-2019.md)
+- [Connect with the iOS client](connect-ios-2019.md)

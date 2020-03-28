@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as `<tenantName>`, should be replaced with the values that apply to your situation.
 
 >[!IMPORTANT]
->The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md) for more information about how to send diagnostics data to your workspace. 
+>The diagnostics feature is for single-user troubleshooting. All queries using PowerShell must include either the *-UserName* or *-ActivityID* parameters. For monitoring capabilities, use Log Analytics. See [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics-2019.md) for more information about how to send diagnostics data to your workspace. 
 
 ### Filter diagnostic activities by user
 
@@ -149,7 +149,7 @@ The following table lists common errors your admins might run into.
 |8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
 |8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
 |8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
-|8008|TenantConsentRequired|Follow the instructions [here](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to provide consent for your tenant.|
+|8008|TenantConsentRequired|Follow the instructions [here](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) to provide consent for your tenant.|
 
 ### External connection error codes
 
@@ -168,6 +168,6 @@ The following table lists common errors your admins might run into.
 
 ## Next steps
 
-To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
+To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup-2019.md).
 
 To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).

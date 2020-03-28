@@ -59,14 +59,14 @@ Now you can create an Azure virtual machine that can be joined to your Windows V
 
 You can create a virtual machine in multiple ways:
 
-- [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [Create a virtual machine from an Azure Gallery image](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Create a virtual machine from a managed image](../../virtual-machines/windows/create-vm-generalized-managed.md)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
 
 >[!NOTE]
->If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
 
-After you've created your session host virtual machines, [apply a Windows license to a session host VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license. 
+After you've created your session host virtual machines, [apply a Windows license to a session host VM](../apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license. 
 
 ## Prepare the virtual machines for Windows Virtual Desktop agent installations
 
@@ -77,14 +77,14 @@ You need to do the following things to prepare your virtual machines before you 
 
 To successfully domain-join, do the following things on each virtual machine:
 
-1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. On the virtual machine, launch **Control Panel** and select **System**.
 3. Select **Computer name**, select **Change settings**, and then select **Change…**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## Register the virtual machines to the Windows Virtual Desktop host pool
 
@@ -92,7 +92,7 @@ Registering the virtual machines to a Windows Virtual Desktop host pool is as si
 
 To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
-1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](../../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Windows Virtual Desktop Agent.
    - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
    - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
@@ -103,11 +103,11 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
    - Run the installer.
 
 >[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../../security-center/security-center-just-in-time.md).
 
 ## Next steps
 
 Now that you've made a host pool, you can populate it with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](./manage-app-groups.md)
+> [Manage app groups tutorial](../manage-app-groups.md)

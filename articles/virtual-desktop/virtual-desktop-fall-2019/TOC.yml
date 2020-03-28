@@ -98,8 +98,6 @@
     href: troubleshoot-powershell-2019.md
 - name: Reference
   items:
-  - name: Linux support
-    href: linux-overview.md
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
   - name: REST API
