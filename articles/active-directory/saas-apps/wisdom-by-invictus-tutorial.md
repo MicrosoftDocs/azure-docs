@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with WISDOM BY INVICTUS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Wisdom by Invictus | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and WISDOM BY INVICTUS.
 services: active-directory
 documentationCenter: na
