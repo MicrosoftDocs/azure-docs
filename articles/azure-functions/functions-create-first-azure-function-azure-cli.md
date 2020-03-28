@@ -21,7 +21,8 @@ There is also a [Visual Studio Code-based version](functions-create-first-functi
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:::: zone-end  
+Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+::: zone-end  
 ::: zone pivot="programming-language-python"  
 ```
 func init LocalFunctionProj --python
