@@ -139,10 +139,10 @@ At present, this allows _any_ client application in your Azure AD tenant to requ
 1. Select the app registration you created earlier. If you don't see the app registration, make sure that you've [added an App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
 1. Under **Application permissions**, select the App Role you created earlier, and then select **Add permissions**.
 1. Make sure to click **Grant admin consent** to authorize the client application to request the permission.
-1. As before, you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
-2. Within the target App Service or Function app code, you can now validate that the expected roles are present in the token (this is not performed by App Service Authentication / Authorization). For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
+1. Similar to the previous scenario (before any roles were added), you can now [request an access token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target `resource`, and the access token will include a `roles` claim containing the App Roles that were authorized for the client application.
+1. Within the target App Service or Function app code, you can now validate that the expected roles are present in the token (this is not performed by App Service Authentication / Authorization). For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
 
-You have now configured a daemon client application that can access your App Service app on behalf of itself.
+You have now configured a daemon client application that can access your App Service app using its own identity.
 
 ## <a name="related-content"> </a>Next steps
 
