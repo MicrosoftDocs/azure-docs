@@ -150,7 +150,7 @@ You must have an owner or a contributor role on the billing profile or its billi
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  
 1.  Select **Invoices** from the left-hand side and then select **Email Invoice** from the top of the page.  
-    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)
+    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice-zoomed.png#lightbox)
 1.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.  
     ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-email-invoice.png)
 1.  Select **Update**.
@@ -166,7 +166,7 @@ You give others access to view, download, and pay invoices by assigning them the
 1. Select **Access Control (IAM)** from the left-hand side and then select **Add** from the top of the page.  
     ![Screenshot that shows access control page](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png)
 1. In the Role drop-down list, select **Invoice Manager**. Enter the email address of the user to give access. Select **Save** to assign the role.  
-   ![Screenshot that shows adding a user as an invoice manager](./media/download-azure-invoice/mca-added-invoice-manager.png)]
+   ![Screenshot that shows adding a user as an invoice manager](./media/download-azure-invoice/mca-added-invoice-manager.png)
 
 ## <a name="noinvoice"></a> Why you might not see an invoice
 
