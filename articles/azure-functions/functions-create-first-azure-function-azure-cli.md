@@ -21,31 +21,31 @@ There is also a [Visual Studio Code-based version](functions-create-first-functi
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
-::: zone pivot="programming-language-python"  
+    ::: zone pivot="programming-language-python"  
     ```
     func init LocalFunctionProj --python
     ```
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp"  
     ```
     func init LocalFunctionProj --dotnet
     ```
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript"  
     ```
     func init LocalFunctionProj --javascript
     ```
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
     ```
     func init LocalFunctionProj --typescript
     ```
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-powershell"  
     ```
     func init LocalFunctionProj --powershell
     ```
-::: zone-end  
+    ::: zone-end    
 ::: zone pivot="programming-language-java"  
 1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
@@ -79,16 +79,16 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone-end  
 1. Navigate into the project folder:
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
     ```
     cd LocalFunctionsProject
     ```
-::: zone-end  
-::: zone pivot="programming-language-java"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-java"  
     ```
     cd fabrikam-functions
     ```
-::: zone-end  
+    ::: zone-end  
     This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
     
 [!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
