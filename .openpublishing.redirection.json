@@ -50413,7 +50413,7 @@
       "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
     },
     {
-      "source_path": "artciles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train"
     }
   ]
