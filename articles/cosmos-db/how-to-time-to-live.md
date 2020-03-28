@@ -344,7 +344,7 @@ CosmosAsyncItemResponse<SalesOrder> itemResponse = container.readItem("SO05", ne
             SalesOrder salesOrder = readResponse.getItem();
             salesOrder.setTtl(60 * 30 * 30);
             return container.createItem(salesOrder);
-        }).block();
+}).block();
 ```
 
 ### <a id="java3-enable-modifyitemexpiry"></a>Java SDK V3 (Maven com.microsoft.azure::azure-cosmos)
@@ -405,7 +405,7 @@ CosmosAsyncItemResponse<SalesOrder> itemResponse = container.readItem("SO05", ne
             SalesOrder salesOrder = readResponse.getItem();
             salesOrder.setTtl(null);
             return container.createItem(salesOrder);
-        }).block();
+}).block();
 ```
 
 ### <a id="java3-enable-itemdefaultexpiry"></a>Java SDK V3 (Maven com.microsoft.azure::azure-cosmos)
