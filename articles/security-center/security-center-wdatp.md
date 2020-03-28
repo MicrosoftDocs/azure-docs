@@ -34,10 +34,6 @@ The following capabilities are now available in Azure Security Center:
 
 - **Single pane of glass**: The Azure Security Center console displays Microsoft Defender ATP alerts.
 
-- **Detailed machine investigation**: Azure Security Center customers can use Microsoft Defender ATP console to conduct a detailed investigation to uncover the scope of a breach.
-
-![Azure Security Center, displaying a list of alerts and general information about each alert](media/security-center-wdatp/image1.png)
-
 To investigate further, use Microsoft Defender ATP. Microsoft Defender ATP provides additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
 ![Microsoft Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
