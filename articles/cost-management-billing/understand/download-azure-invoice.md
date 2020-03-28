@@ -53,7 +53,7 @@ You must have an account admin role for a subscription to download its invoice. 
 1. Select **Invoices** from the billing section.  
     ![Screenshot that shows a user selecting invoices option for a subscription](./media/download-azure-invoice/select-subscription-invoice.png)
 1. Select **Download** to download a PDF version of your invoice and then select **Download** under the invoice section.  
-    ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/downloadinvoice-subscription.png)
+    [![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/downloadinvoice-subscription.png)](./media/download-azure-invoice/downloadinvoice-subscription-zoomed.png#lightbox)
 1. You can also download a daily breakdown of consumed quantities and charges by selecting **Download** under the usage details section. It may take a few minutes to prepare the CSV file.  
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice/usageandinvoice-subscription.png)
 
@@ -70,7 +70,7 @@ You must have an account admin role on the support plan subscription to download
     ![Screenshot that shows search in portal for cost management + billing](./media/download-azure-invoice/search-cmb.png)
 1.  Select **Invoices** from the left-hand side.
 1.  Select your support plan subscription and then select **Download**.  
-    ![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-invoices.png)
+    [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-invoices.png)](./media/download-azure-invoice/cmb-invoices-zoomed-in.png#lightbox)
 1.  Select **Download** to download a PDF version of your invoice.  
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/download-azure-invoice/downloadinvoice-supportplan.png)
 
@@ -94,7 +94,7 @@ To download an invoice:
 1.  Search for **Cost Management + Billing**.  
 1.  Select **Invoices** from the left-hand side.
 1.  Select your Azure subscription and then select **Access to invoice**.  
-    ![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)
+    [![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 1.  Select **On** and then **Save** at the top of the page.  
     ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoice.png)
 
@@ -106,7 +106,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 1.  Search for **Cost Management + Billing**.  
 1.  Select **Invoices** from the left-hand side.
 1.  Select your Azure subscription or support plan subscription and then select **Email invoice**.  
-    ![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-emailinvoice.png)
+    [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-emailinvoice.png)](./media/download-azure-invoice/cmb-emailinvoice-zoomed-in.png#lightbox)
 1. Select **Opt in** and accept the terms.  
     ![Screenshot that shows the opt-in flow step 2](./media/download-azure-invoice/invoicearticlestep02.png)
 1. The invoice is sent to your preferred communication email address. You can update the email address in the [contact info of your billing account](https://https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
@@ -137,7 +137,7 @@ You must have an owner, contributor, reader, or an invoice manager role on a bil
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  
 1. Select **Invoices** from the left-hand side.
-    ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-invoices.png)
+    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-invoices.png)](./media/download-azure-invoice/mca-billingprofile-invoices-zoomed.png#lightbox)
 1. In the invoices table, select the invoice that you want to download.
 1. Select **Download invoice pdf** at the top of the page.  
     ![Screenshot that shows downloading invoice pdf](./media/download-azure-invoice/mca-billingprofile-download-invoice.png)
@@ -150,7 +150,7 @@ You must have an owner or a contributor role on the billing profile or its billi
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  
 1.  Select **Invoices** from the left-hand side and then select **Email Invoice** from the top of the page.  
-    ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)
+    [![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)](./media/download-azure-invoice/mca-billingprofile-select-emailinvoice.png)
 1.  If you have multiple billing profiles, select a billing profile and then select **Opt in**.  
     ![Screenshot that shows invoices page for an MCA billing account](./media/download-azure-invoice/mca-billingprofile-email-invoice.png)
 1.  Select **Update**.
