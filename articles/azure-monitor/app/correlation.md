@@ -198,13 +198,13 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
 
 The [OpenTracing data model specification](https://opentracing.io/) and Application Insights data models map in the following way:
 
-| Application Insights               	| OpenTracing                                    	|
-|------------------------------------	|-------------------------------------------------	|
-| `Request`, `PageView`              	| `Span` with `span.kind = server`                	|
-| `Dependency`                       	| `Span` with `span.kind = client`                	|
-| `Id` of `Request` and `Dependency` 	| `SpanId`                                        	|
-| `Operation_Id`                     	| `TraceId`                                       	|
-| `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
+| Application Insights                   | OpenTracing                                        |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `Span` with `span.kind = server`                    |
+| `Dependency`                           | `Span` with `span.kind = client`                    |
+| `Id` of `Request` and `Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `Reference` of type `ChildOf` (the parent span)     |
 
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
@@ -324,11 +324,6 @@ The Application Insights SDK, starting with version 2.4.0-beta1, uses `Diagnosti
 > Only calls made via Apache HttpClient are supported for the correlation feature. Both Spring RestTemplate and Feign can be used with Apache HttpClient under the hood.
 
 Currently, automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported. It is possible to code such scenarios manually by using the `trackDependency` and `trackRequest` methods. In these methods, a dependency telemetry represents a message being enqueued by a producer. The request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
-
-### Telemetry correlation in asynchronous Java applications
-
-To learn how to correlate telemetry in an asynchronous Spring Boot application, see [Distributed Tracing in Asynchronous Java Applications](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications). This article provides guidance for instrumenting Spring's [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) and [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html).
-
 
 <a name="java-role-name"></a>
 ## Role name
