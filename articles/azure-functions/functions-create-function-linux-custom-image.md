@@ -47,41 +47,38 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 1. Run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
-
 ::: zone-end
-
-    ::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp"  
     ```
     func init LocalFunctionsProject --worker-runtime dotnet --docker
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript"  
+::: zone-end
+    
+::: zone pivot="programming-language-javascript"  
     ```
     func init LocalFunctionsProject --worker-runtime node --language javascript --docker
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-powershell"  
+::: zone-end
+    
+::: zone pivot="programming-language-powershell"  
     ```
     func init LocalFunctionsProject --worker-runtime powershell --docker
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-python"  
+::: zone-end
+    
+::: zone pivot="programming-language-python"  
     ```
     func init LocalFunctionsProject --worker-runtime python --docker
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-typescript"  
+::: zone-end
+    
+::: zone pivot="programming-language-typescript"  
     ```
     func init LocalFunctionsProject --worker-runtime node --language typescript --docker
     ```
-    ::: zone-end
-
+::: zone-end
+    
 ::: zone pivot="programming-language-java"
-
 1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
     # [bash](#tab/bash)
@@ -115,16 +112,16 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     
 1. Navigate into the project folder:
 
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
     ```
     cd LocalFunctionsProject
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-java"  
+::: zone-end  
+::: zone pivot="programming-language-java"  
     ```
     cd fabrikam-functions
     ```
-    ::: zone-end  
+::: zone-end  
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
@@ -132,31 +129,27 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     func new --name HttpExample --template "HTTP trigger"
     ```
 
-1. To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder:
-   
-    ::: zone pivot="programming-language-csharp"
+1. To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder: 
+::: zone pivot="programming-language-csharp"
     ```
     func start --build
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
     ```
     func start
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-typescript"
+::: zone-end
+::: zone pivot="programming-language-typescript"
     ```
     npm install
     npm start
     ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-java"
+::: zone-end
+::: zone pivot="programming-language-java"
     mvn clean package 
     mvn azure-functions:run
-    ::: zone-end
+::: zone-end
 
 1. Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
 
