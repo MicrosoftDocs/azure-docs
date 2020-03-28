@@ -74,50 +74,6 @@ cd jetpack
 This command will install jetpack to _/opt/cycle/jetpack_ and will log installation
 details to _/var/log/jetpack-install.log_.
 
-#### Change the **cyclecloud** User Home Directory
-
-Running the installer on a linux OS creates the *cyclecloud*
-user with a home directory in _/home_. A somewhat common use case
-is to mount _/home_ as an NFS mount, in which case the local *cyclecloud* user would be impaired.
-
-To work around this, configure the installer to move the *cyclecloud* home directory
-to _/opt/cycle/home/cyclecloud_ or another locally available directory.
-
-> [!NOTE]
-> The custom cyclecloud home directory must be created before running the installer as shown in example.
-
-```bash
-tar -xf jetpack-7.5.1-centos-7.tar.gz
-cd jetpack
-find . |xargs perl -pi -e 's/\/home\/cyclecloud/\/opt\/cycle\/home\/cyclecloud/'
-mkdir -p /opt/cycle/home/cyclecloud
-./install.sh
-```
-
-```Output
-Installing to: /opt/cycle/jetpack
-Installation complete, see install.log for details.
-```
-
-It's safe to ignore _Can't do inplace edit_ errors resulting from perl operating
-on a directory.
-
-When using this image, it's important to update any cluster
-configuration to relocate the SSH public key to the updated
-home directory. This is done by setting the following attribute
-on all nodes using this image.
-
-```ini
-  [[node node-with-custom-image]]
-    ImageId = /subscriptions/ac721984-82f4-4f77-aef6-95d3a95bbccb/resourceGroups/images-rg/providers/Microsoft.Compute/images/ubuntu-16-jetpack-home
-    InstallJetpack = false
-    AwaitInstallation = true
-    AuthorizedKeysPath = /opt/cycle/home/cyclecloud/.ssh/authorized_keys
-```
-
-In this case `AuthorizedKeysPath` redirects the public keypair from
-the default location to the new *cyclecloud* home directory.
-
 ## Capturing the Custom Image and Using it with CycleCloud
 
 After installing Jetpack and performing any other custom image configurations the
