@@ -65,15 +65,15 @@ This example shows the previous primary and secondary logic app instances but de
 
 Azure Logic Apps provides [built-in triggers and actions plus hundreds of managed connectors](../connectors/apis-list.md) that your logic app can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, Office 365 Outlook email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
 
-For your disaster recovery strategy, consider where dependent resources exist relative to your primary instance:
+For your disaster recovery strategy, consider the locations where dependent resources exist relative to your logic app instances:
 
-* Your primary instance and dependent resources exist in different locations. In this case, your secondary instance can connect to the same dependent resources or endpoints. However, make sure that you create separate connections specifically for your secondary instance to these resources. That way, your secondary's connections remain should your primary location becomes unavailable.
+* Your primary instance and dependent resources exist in different locations. In this case, your secondary instance can connect to the same dependent resources or endpoints. However, you should create connections specifically for your secondary instance. That way, if your primary location becomes unavailable, your secondary's connections aren't affected.
 
-  For example, suppose that your primary logic app connects to an external service such as Salesforce. The external service's availability and location are typically independent from your logic app's availability. In this case, your secondary instance can connect to the same service but by using its own separate connection.
+  For example, suppose that your primary logic app connects to an external service such as Salesforce. Usually, the external service's availability and location are independent from your logic app's availability. In this case, your secondary instance can connect to the same service but should have its own connection.
 
-* Both your primary instance and dependent resources exist in the same location. In this case, you'll likely want your dependent resources to have backups in a different location so that your secondary can use those resources when necessary.
+* Both your primary instance and dependent resources exist in the same location. In this case, dependent resources should have backups or replicated versions in a different location so that your secondary instance can still access those resources.
 
-  For example, suppose that your primary logic app connects to a service that's also in the same location or region, for example, Azure SQL Database. If this entire region becomes unavailable, the Azure SQL Database service in that region is also likely unavailable. In this case, you'd want your secondary instance to use a replicated or backup database and a separate connection to that database.
+  For example, suppose that your primary logic app connects to a service that's in the same location or region, for example, Azure SQL Database. If this entire region becomes unavailable, the Azure SQL Database service in that region is also likely unavailable. In this case, you'd want your secondary instance to use a replicated or backup database along with a separate connection to that database.
 
 <a name="on-premises-data-gateways"></a>
 
