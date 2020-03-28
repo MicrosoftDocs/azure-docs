@@ -1,6 +1,6 @@
 ---
 title: Configure Twitter authentication
-description: Learn how to configure Twitter authentication as an identity provider for your App Service or Function app.
+description: Learn how to configure Twitter authentication as an identity provider for your App Service or Azure Functions app.
 
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
@@ -10,7 +10,7 @@ ms.custom: fasttrack-edit
 
 ---
 
-# Configure your App Service or Function app to use Twitter login
+# Configure your App Service or Azure Functions app to use Twitter login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

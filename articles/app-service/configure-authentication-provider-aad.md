@@ -1,6 +1,6 @@
 ---
 title: Configure Azure AD authentication
-description: Learn how to configure Azure Active Directory authentication as an identity provider for your App Service or Function app.
+description: Learn how to configure Azure Active Directory authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
@@ -9,7 +9,7 @@ ms.custom: fasttrack-edit
 
 ---
 
-# Configure your App Service or Function app to use Azure AD login
+# Configure your App Service or Azure Functions app to use Azure AD login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -108,7 +108,7 @@ You're now ready to use Azure Active Directory for authentication in your App Se
 
 ## Configure a native client application
 
-You can register native clients to allow authentication to Web API's hosted in your App Service or Function app using a client library such as the **Active Directory Authentication Library**.
+You can register native clients to allow authentication to Web API's hosted in your app using a client library such as the **Active Directory Authentication Library**.
 
 1. In the [Azure portal], select **Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
