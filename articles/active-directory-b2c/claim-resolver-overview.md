@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -72,7 +72,7 @@ The following sections list available claim resolvers.
 | {OIDC:Prompt} | The `prompt` query string parameter. | login |
 | {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
-| {OIDC:scope} |The `scope`  query string parameter. | openid |
+| {OIDC:Scope} |The `scope`  query string parameter. | openid |
 | {OIDC:Username}| The [resource owner password credentials flow](ropc-custom.md) user's username.| emily@contoso.com| 
 
 ### Context
