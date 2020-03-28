@@ -47,7 +47,7 @@ In Azure Functions, a function project is a container for one or more individual
     ```
     ::: zone-end    
 ::: zone pivot="programming-language-java"  
-1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+&#49;.  In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
     # [bash](#tab/bash)
     ```bash
@@ -77,7 +77,7 @@ In Azure Functions, a function project is a container for one or more individual
     
     Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 ::: zone-end  
-1. Navigate into the project folder:
+&#50;.  Navigate into the project folder:
 
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
     ```

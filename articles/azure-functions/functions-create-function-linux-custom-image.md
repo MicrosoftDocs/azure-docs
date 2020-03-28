@@ -39,14 +39,8 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 ## Create and test the local functions project
 
-1. In a terminal or command prompt, create a folder for this tutorial in an appropriate location, then navigate into that folder.
-
-::: zone pivot="programming-language-python"  
-1. Follow the instructions on [Create and activate a virtual environment](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) to create a virtual environment for use with this tutorial.  
-::: zone-end
-
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-1. Run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. 
 ::: zone-end  
     ::: zone pivot="programming-language-csharp"  
     ```
@@ -104,8 +98,9 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     
     Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 ::: zone-end
-    
-1. Navigate into the project folder:
+    The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+
+&#50;.  Navigate into the project folder:
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
     ```
     cd LocalFunctionsProject
@@ -116,21 +111,21 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     cd fabrikam-functions
     ```
     ::: zone-end  
-1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+&#51;.   Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
     ```
 
-1. To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder: 
+&#52;.   To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder: 
     ::: zone pivot="programming-language-csharp"  
     ```
-    func start --build
+    func start --build  
     ```
     ::: zone-end  
     ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
     ```
-    func start
+    func start  
     ```
     ::: zone-end  
     ::: zone pivot="programming-language-typescript"  
@@ -140,12 +135,12 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     ```
     ::: zone-end  
     ::: zone pivot="programming-language-java"  
-    mvn clean package 
+    mvn clean package  
     mvn azure-functions:run
     ::: zone-end
-1. Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
+&#53;.   Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
 
-1. Use **Ctrl**-**C** to stop the host.
+&#54;.   Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
