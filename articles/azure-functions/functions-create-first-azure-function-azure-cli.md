@@ -20,76 +20,77 @@ There is also a [Visual Studio Code-based version](functions-create-first-functi
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
-    ::: zone pivot="programming-language-python"  
-    ```
-    func init LocalFunctionProj --python
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-csharp"  
-    ```
-    func init LocalFunctionProj --dotnet
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript"  
-    ```
-    func init LocalFunctionProj --javascript
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
-    ```
-    func init LocalFunctionProj --typescript
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-powershell"  
-    ```
-    func init LocalFunctionProj --powershell
-    ```
-    ::: zone-end    
-::: zone pivot="programming-language-java"  
-&#49;.  In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
-
-    # [bash](#tab/bash)
-    ```bash
-    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
-    ```
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
-    ```
-    # [Cmd](#tab/cmd)
-    ```cmd
-    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
-    ```
-    ---
-
-    Maven asks you for values needed to finish generating the project on deployment.   
-    Provide the following values when prompted:
-
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
-    | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
-    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
-    | **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
-    
-    Type `Y` or press Enter to confirm.
-    
-    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:::: zone-end
+::: zone pivot="programming-language-python"  
+```
+func init LocalFunctionProj --python
+```
 ::: zone-end  
-&#50;.  Navigate into the project folder:
+::: zone pivot="programming-language-csharp"  
+```
+func init LocalFunctionProj --dotnet
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+```
+func init LocalFunctionProj --javascript
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```
+func init LocalFunctionProj --typescript
+```
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+```
+func init LocalFunctionProj --powershell
+```
+::: zone-end    
+::: zone pivot="programming-language-java"  
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-    ```
-    cd LocalFunctionsProject
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-java"  
-    ```
-    cd fabrikam-functions
-    ```
-    ::: zone-end  
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+# [bash](#tab/bash)
+```bash
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+```
+# [PowerShell](#tab/powershell)
+```powershell
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+```
+# [Cmd](#tab/cmd)
+```cmd
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+```
+---
+
+Maven asks you for values needed to finish generating the project on deployment.   
+Provide the following values when prompted:
+
+| Prompt | Value | Description |
+| ------ | ----- | ----------- |
+| **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+| **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
+| **version** | `1.0-SNAPSHOT` | Choose the default value. |
+| **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
+
+Type `Y` or press Enter to confirm.
+
+Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+::: zone-end  
+Navigate into the project folder:
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+```
+cd LocalFunctionsProject
+```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+```
+cd fabrikam-functions
+```
+::: zone-end  
+This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
     
 [!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 

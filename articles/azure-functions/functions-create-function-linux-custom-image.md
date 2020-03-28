@@ -39,108 +39,108 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 ## Create and test the local functions project
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+In a terminal or command prompt, run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`.  
 ::: zone-end  
-    ::: zone pivot="programming-language-csharp"  
-    ```
-    func init LocalFunctionsProject --worker-runtime dotnet --docker
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript"  
-    ```
-    func init LocalFunctionsProject --worker-runtime node --language javascript --docker
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-powershell"  
-    ```
-    func init LocalFunctionsProject --worker-runtime powershell --docker
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
-    ```
-    func init LocalFunctionsProject --worker-runtime python --docker
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
-    ```
-    func init LocalFunctionsProject --worker-runtime node --language typescript --docker
-    ```
-    ::: zone-end
-::: zone pivot="programming-language-java"  
-1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
-
-    # [bash](#tab/bash)
-    ```bash
-    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
-    ```
-    # [PowerShell](#tab/powershell)
-    ```powershell
-    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
-    ```
-    # [Cmd](#tab/cmd)
-    ```cmd
-    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
-    ```
-    ---
-
-    Maven asks you for values needed to finish generating the project on deployment.   
-    Provide the following values when prompted:
-
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
-    | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
-    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
-    | **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
-    
-    Type `Y` or press Enter to confirm.
-    
-    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+::: zone pivot="programming-language-csharp"  
+```
+func init LocalFunctionsProject --worker-runtime dotnet --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+```
+func init LocalFunctionsProject --worker-runtime node --language javascript --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+```
+func init LocalFunctionsProject --worker-runtime powershell --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-python"  
+```
+func init LocalFunctionsProject --worker-runtime python --docker
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```
+func init LocalFunctionsProject --worker-runtime node --language typescript --docker
+```
 ::: zone-end
-    The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+::: zone pivot="programming-language-java"  
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-&#50;.  Navigate into the project folder:
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-    ```
-    cd LocalFunctionsProject
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-java"  
-    ```
-    cd fabrikam-functions
-    ```
-    ::: zone-end  
-&#51;.   Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+# [bash](#tab/bash)
+```bash
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+```
+# [PowerShell](#tab/powershell)
+```powershell
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+```
+# [Cmd](#tab/cmd)
+```cmd
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+```
+---
 
-    ```
-    func new --name HttpExample --template "HTTP trigger"
-    ```
+Maven asks you for values needed to finish generating the project on deployment.   
+Provide the following values when prompted:
 
-&#52;.   To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder: 
-    ::: zone pivot="programming-language-csharp"  
-    ```
-    func start --build  
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
-    ```
-    func start  
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
-    ```
-    npm install
-    npm start
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-java"  
-    mvn clean package  
-    mvn azure-functions:run
-    ::: zone-end
-&#53;.   Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
+| Prompt | Value | Description |
+| ------ | ----- | ----------- |
+| **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+| **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
+| **version** | `1.0-SNAPSHOT` | Choose the default value. |
+| **package** | `com.fabrikam.functions` | A value that is the Java package for the generated function code. Use the default. |
 
-&#54;.   Use **Ctrl**-**C** to stop the host.
+Type `Y` or press Enter to confirm.
+
+Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+::: zone-end
+The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+
+Navigate into the project folder:
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+```
+cd LocalFunctionsProject
+```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+```
+cd fabrikam-functions
+```
+::: zone-end  
+Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+
+```
+func new --name HttpExample --template "HTTP trigger"
+```
+
+To test the function locally, start the local Azure Functions runtime host in the *LocalFunctionsProject* folder: 
+::: zone pivot="programming-language-csharp"  
+```
+func start --build  
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
+```
+func start  
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```
+npm install
+npm start
+```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+mvn clean package  
+mvn azure-functions:run
+::: zone-end
+Once you see the `HttpExample` endpoint appear in the output, navigate to [`http://localhost:7071/api/HttpExample?name=Functions`](http://localhost:7071/api/HttpExample?name=Functions). The browser should display a "hello" message that echos back `Functions`, the value supplied to the `name` query parameter.
+
+Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
