@@ -1,9 +1,10 @@
 ---
-title: Supporting Shared Device Mode for iOS | Azure
-description: Learn about shared device mode, which allows Firstline Workers to share an Android device 
+title: Shared device mode for Android devices
+titleSuffix: Microsoft identity platform
+description: Learn about shared device mode, which allows Firstline Workers to share an Android device
 services: active-directory
 documentationcenter: dev-center-name
-author: mmacy
+author: brandwe
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/24/2020
+ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
@@ -38,7 +39,7 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 - **Application Developers** write a single-account app (multiple-account apps are not supported in shared device mode) and write code to handle things like shared device sign-out.
 
-- **Device Administrators** prepare the device to be shared by using an MDM provider like Intune to manage the devices that will be used by the organization. The MDM will push the Microsoft Authenticator app to the devices and turn on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what will change the behavior of all the supported apps on the device.  This confiugration from the MDM provider both sets the Shared Device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for Shared Device mode. 
+- **Device Administrators** prepare the device to be shared by using an MDM provider like Intune to manage the devices that will be used by the organization. The MDM will push the Microsoft Authenticator app to the devices and turn on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what will change the behavior of all the supported apps on the device.  This confiugration from the MDM provider both sets the Shared Device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for Shared Device mode.
 
     > [!NOTE]
     > Step Required For Public Preview Only
@@ -57,7 +58,7 @@ To create a shared device mode app, developers and cloud device admins work toge
 
  * Your device needs to be configured to support shared device mode. It needs to use iOS 13+ and be MDM enrolled. MDM configuration needs to also enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). See [Apple video](https://developer.apple.com/videos/play/tech-talks/301/) to learn more about SSO extensions. You may also wish to browse [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings) as you will be using this portal below to push the correct configuration to your Shared Devices.
 
- In the Intune Configuration Portal, set the following extension configuration:  
+ In the Intune Configuration Portal, set the following extension configuration:
 * Tell the device to enable the [Microsoft Enterprise SSO plug-in for Apple devices] using the following configuration:
   * **Type**: Redirect
   * **Extension ID**: com.microsoft.azureauthenticator.ssoextension
@@ -85,23 +86,23 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 ### Detect shared device mode:
 
-Detecting Shared Device mode is important for your application. Most applications will need to change its User Experience when their application is on a Shared Device. As an example, your application may have a "Sign-Up" feature that would not make sense to expose to a Firstline Worker who will already have an account. You may also want to add extra security to your application's handling of data if it is shared device mode. 
+Detecting Shared Device mode is important for your application. Most applications will need to change its User Experience when their application is on a Shared Device. As an example, your application may have a "Sign-Up" feature that would not make sense to expose to a Firstline Worker who will already have an account. You may also want to add extra security to your application's handling of data if it is shared device mode.
 
-Use `getDeviceInformationWithParameters:completionBlock:` API in the `MSALPublicClientApplication` to determine if an app is running on a device that is in shared-device mode. 
+Use `getDeviceInformationWithParameters:completionBlock:` API in the `MSALPublicClientApplication` to determine if an app is running on a device that is in shared-device mode.
 
-Here's a code snippet that shows how you could use this API. 
+Here's a code snippet that shows how you could use this API.
 
 #### Swift
 
 ```swift
 application.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
-                
-	guard let deviceInfo = deviceInformation else {
-		return
-	}
-                
-	let isSharedDevice = deviceInfo.deviceMode == .shared
-	// Change your app UX if needed
+
+    guard let deviceInfo = deviceInformation else {
+        return
+    }
+
+    let isSharedDevice = deviceInfo.deviceMode == .shared
+    // Change your app UX if needed
 })
 ```
 
@@ -111,19 +112,19 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 [application getDeviceInformationWithParameters:nil
                                 completionBlock:^(MSALDeviceInformation * _Nullable deviceInformation, NSError * _Nullable error)
 {
-	if (!deviceInformation)
-	{
-		return;
-	}
-            
-	BOOL isSharedDevice = deviceInformation.deviceMode == MSALDeviceModeShared;
-	// Change your app UX if needed
+    if (!deviceInformation)
+    {
+        return;
+    }
+
+    BOOL isSharedDevice = deviceInformation.deviceMode == MSALDeviceModeShared;
+    // Change your app UX if needed
 }];
 ```
 
 ### Get the signed in user and determine if a user has changed on the device:
 
-Another very important part of supporting Shared Device mode is determining the state of the user on the device and clearing application data if a user has changed or if there is no user at all on the device. You are responsible for ensuring data does not leak to another user. 
+Another very important part of supporting Shared Device mode is determining the state of the user on the device and clearing application data if a user has changed or if there is no user at all on the device. You are responsible for ensuring data does not leak to another user.
 
 You can use `getCurrentAccountWithParameters:completionBlock:` API to query currently signed in account on the device. Here's an example.
 
@@ -132,11 +133,11 @@ You can use `getCurrentAccountWithParameters:completionBlock:` API to query curr
 ```swift
 let msalParameters = MSALParameters()
 msalParameters.completionBlockQueue = DispatchQueue.main
-                
+
 application.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
-            
-	// currentAccount is the currently signed in account
-	// previousAccount is the previously signed in account if any
+
+    // currentAccount is the currently signed in account
+    // previousAccount is the previously signed in account if any
 })
 ```
 
@@ -145,18 +146,18 @@ application.getCurrentAccount(with: msalParameters, completionBlock: { (currentA
 ```objective-c
 MSALParameters *parameters = [MSALParameters new];
 parameters.completionBlockQueue = dispatch_get_main_queue();
-        
+
 [application getCurrentAccountWithParameters:parameters
                              completionBlock:^(MSALAccount * _Nullable account, MSALAccount * _Nullable previousAccount, NSError * _Nullable error)
 {
-	// currentAccount is the currently signed in account
-	// previousAccount is the previously signed in account if any
+    // currentAccount is the currently signed in account
+    // previousAccount is the previously signed in account if any
 }];
 ```
 
 ### Globally sign in a user:
 
-When device is configured as a shared device, your application can call `acquireTokenWithParameters:completionBlock:` API to sign in the account. Account will be available globally for all eligible apps on the device after first app signs that account in. 
+When device is configured as a shared device, your application can call `acquireTokenWithParameters:completionBlock:` API to sign in the account. Account will be available globally for all eligible apps on the device after first app signs that account in.
 
 #### Objective-C
 
@@ -164,7 +165,7 @@ When device is configured as a shared device, your application can call `acquire
 MSALInteractiveTokenParameters *parameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"api://myapi/scope"] webviewParameters:[self msalTestWebViewParameters]];
 
 parameters.loginHint = self.loginHintTextField.text;
-    
+
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
 
@@ -188,15 +189,15 @@ let account = .... /* account retrieved above */
 
 let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
 signoutParameters.signoutFromBrowser = true // Only needed for Public Preview.
-            
+
 application.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
-                
-	if let error = error {
-		// Signout failed
-		return
-	}
-                
-	// Sign out completed successfully
+
+    if let error = error {
+        // Signout failed
+        return
+    }
+
+    // Sign out completed successfully
 })
 ```
 
@@ -204,19 +205,19 @@ application.signout(with: account, signoutParameters: signoutParameters, complet
 
 ```objective-c
 MSALAccount *account = ... /* account retrieved above */;
-        
+
 MSALSignoutParameters *signoutParameters = [[MSALSignoutParameters alloc] initWithWebviewParameters:webViewParameters];
 signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
-        
+
 [application signoutWithAccount:account signoutParameters:signoutParameters completionBlock:^(BOOL success, NSError * _Nullable error)
 {
-	if (!success)
-	{
-		// Signout failed
-		return;
-	}
-            
-	// Sign out completed successfully
+    if (!success)
+    {
+        // Signout failed
+        return;
+    }
+
+    // Sign out completed successfully
 }];
 ```
 

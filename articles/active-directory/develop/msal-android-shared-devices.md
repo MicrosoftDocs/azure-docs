@@ -1,6 +1,7 @@
 ---
-title: Shared device mode for Android devices | Azure
-description: Learn about shared device mode, which allows firstline workers to share an Android device 
+title: Shared device mode for Android devices
+titleSuffix: Microsoft identity platform
+description: Learn about shared device mode, which allows firstline workers to share an Android device
 services: active-directory
 documentationcenter: dev-center-name
 author: mmacy
@@ -11,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/15/2020
+ms.date: 03/31/2020
 ms.author: marsma
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
@@ -55,7 +56,7 @@ Your app can be built to support running on both personal devices and shared dev
 
 You may also want your app to change its behavior depending on the type of device it is running on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode.
 
-There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL’s application factory, the correct  application object is provided automatically.
+There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL's application factory, the correct  application object is provided automatically.
 
 The following object model illustrates the type of object you may receive and what it means in the context of a shared device:
 

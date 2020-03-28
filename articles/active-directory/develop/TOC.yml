@@ -219,7 +219,7 @@
         href: scenario-mobile-app-configuration.md
       - name: Mobile platforms specific config
         items:
-        - name: Microsoft Enterprise SSO Plug-In for Apple Devices
+        - name: Microsoft Enterprise SSO plug-in for Apple devices
           href: apple-sso-plugin.md
         - name: Shared device mode for Android devices
           href: msal-android-shared-devices.md
@@ -312,14 +312,17 @@
       href: msal-handling-exceptions.md
     - name: Logging
       href: msal-logging.md
-    - name: Shared Devices
+    - name: Shared devices
       items:
-      - name: Overview
+      - name: Overview - shared devices
         href: msal-shared-devices.md
-      - name: Supporting Shared Device Mode for iOS
+        displayName: shared device mode, firstline worker, frontline worker
+      - name: Shared device mode for iOS devices
         href: msal-ios-shared-devices.md
-      - name: Supporting Shared Device Mode for Android
+        displayName: firstline worker, frontline worker
+      - name: Shared device mode for Android devices
         href: msal-android-shared-devices.md
+        displayName: firstline worker, frontline worker
     - name: Single sign-on
       displayName: SSO
       items:
