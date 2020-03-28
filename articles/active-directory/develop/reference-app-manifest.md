@@ -156,12 +156,6 @@ The display name for the app.
 > [!NOTE]
 > This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 
-Example:
-
-```json
-    "displayName": "MyRegisteredApp",
-```
-
 ### errorUrl attribute
 
 | Key | Value type |
@@ -198,8 +192,6 @@ The URL to the application's homepage.
 
 > [!NOTE]
 > This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
-Example: `"https://MyRegisteredApp"`
 
 ### objectId attribute
 
