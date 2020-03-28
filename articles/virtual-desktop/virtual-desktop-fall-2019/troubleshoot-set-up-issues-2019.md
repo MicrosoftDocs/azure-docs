@@ -52,9 +52,9 @@ Example of raw error:
 
 **Cause:** The user who's signed in hasn't been assigned the TenantCreator role in their Azure Active Directory.
 
-**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](./virtual-desktop-fall-201tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
+**Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](tenant-setup-azure-active-directory-2019.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
 
-![Screenshot of TenantCreator role assigned.](media/TenantCreatorRoleAssigned.png)
+![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
 
 ## Creating Windows Virtual Desktop session host VMs
 
@@ -354,7 +354,7 @@ Example of raw error:
 
 **Cause:** The specified Windows Virtual Desktop tenant admin requires Azure Multi-Factor Authentication (MFA) to sign in.
 
-**Fix:** Create a service principal and assign it a role for your Windows Virtual Desktop tenant by following the steps in [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell-2019.md). After verifying that you can sign in to Windows Virtual Desktop with the service principal, rerun the Azure Marketplace offering or the GitHub Azure Resource Manager template, depending on which method you're using. Follow the instructions below to enter the correct parameters for your method.
+**Fix:** Create a service principal and assign it a role for your Windows Virtual Desktop tenant by following the steps in [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md). After verifying that you can sign in to Windows Virtual Desktop with the service principal, rerun the Azure Marketplace offering or the GitHub Azure Resource Manager template, depending on which method you're using. Follow the instructions below to enter the correct parameters for your method.
 
 If you're running the Azure Marketplace offering, provide values for the following parameters to properly authenticate to Windows Virtual Desktop:
 

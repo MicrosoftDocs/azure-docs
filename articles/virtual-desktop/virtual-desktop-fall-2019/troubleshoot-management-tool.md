@@ -13,7 +13,7 @@ manager: lizross
 # Troubleshoot the Windows Virtual Desktop management tool
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../troubleshoot-management-tool.md).
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article describes issues that can occur while deploying the Windows Virtual Desktop management tool and how to fix them.
 
@@ -35,7 +35,7 @@ To fix this:
 1. Make sure the user you created for the Azure Active Directory User Principal Name has the "Contributor" subscription level.
 2. Sign in to <portal.azure.com> with the UPN account to check the account settings and make sure multi-factor authentication isn't on. If it's turned on, turn it off.
 3. Visit the Windows Virtual Desktop Consent page and make sure the server and client apps have consent.
-4. Review the [Deploy a management tool](manage-resources-using-ui-2019.md) tutorial if the issue continues and redeploy the tool.
+4. Review the [Deploy a management tool](manage-resources-using-ui.md) tutorial if the issue continues and redeploy the tool.
 
 ## Error: Job with specified ID already exists
 
@@ -57,4 +57,4 @@ To fix this, deploy the management tool in a different region. Redeploying the t
 
 - Learn about escalation tracks at [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
 - Learn how to report issues with Windows Virtual Desktop tools at [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md).
-- To learn how to deploy the management tool, see [Deploy a management tool](manage-resources-using-ui-2019.md).
+- To learn how to deploy the management tool, see [Deploy a management tool](manage-resources-using-ui.md).

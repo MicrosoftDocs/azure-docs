@@ -56,11 +56,11 @@ After you've assigned users to their app groups, they can connect to a Windows V
 
 ## Next steps
 
-Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
-To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory-2019.md).
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect from Windows 10 or Windows 7](./connect-windows-7-and-10.md)
+- [Connect from Windows 10 or Windows 7](../connect-windows-7-and-10.md)
 - [Connect from a web browser](connect-web-2019.md)
