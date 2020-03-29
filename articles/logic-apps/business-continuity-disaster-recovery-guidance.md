@@ -318,7 +318,7 @@ For this task, in the secondary location, create a watchdog logic app that perfo
 
 1. Call the health-check logic app in the primary location by using the HTTP action, for example:
 
-<a name="enable-secondary"></a>
+<a name="activate-secondary"></a>
 
 ### Activate your secondary instance
 
