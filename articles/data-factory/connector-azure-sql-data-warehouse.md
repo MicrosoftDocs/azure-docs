@@ -700,7 +700,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 * SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads.
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
