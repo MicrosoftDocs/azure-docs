@@ -44,7 +44,7 @@ The Speech service is largely similar to Bing Speech, with the following differe
 | Partial or interim results | :heavy_check_mark: | :heavy_check_mark: | With WebSockets protocol or SDK. |
 | Custom speech models | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Speech subscription. |
 | Custom voice fonts | :heavy_check_mark: | :heavy_check_mark: | Bing Speech requires a separate Custom Voice subscription. |
-| 24-KHz voices | :heavy_minus_sign: | :heavy_check_mark: |
+| 24-kHz voices | :heavy_minus_sign: | :heavy_check_mark: |
 | Speech intent recognition | Requires separate LUIS API call | Integrated (with SDK) | You can use a LUIS key with the Speech service. |
 | Simple intent recognition | :heavy_minus_sign: | :heavy_check_mark: |
 | Batch transcription of long audio files | :heavy_minus_sign: | :heavy_check_mark: |
