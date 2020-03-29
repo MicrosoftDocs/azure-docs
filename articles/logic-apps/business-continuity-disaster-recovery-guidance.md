@@ -101,8 +101,8 @@ You can set up your primary and secondary locations so that your logic app insta
 
 | Primary-secondary role | Description |
 |------------------------|-------------|
-| *Active-active* | The primary and secondary logic app instances in both locations are enabled and actively handle requests by following either of these patterns: <p><p>- *Load balance*: You can have both instances listen to an endpoint and load balance traffic to each instance as necessary. <p>- *Competing consumers*: You can have both instances act as competing consumers so that the instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| *Active-passive* | The primary logic app instance is enabled and actively handles the entire workload, while the secondary instance is passive (disabled or inactive). The secondary waits for a signal that the primary is unavailable or not working due to disruption or failure and takes over the workload as the active instance. |
+| *Active-active* | The primary and secondary logic app instances in both locations actively handle requests by following either of these patterns: <p><p>- *Load balance*: You can have both instances listen to an endpoint and load balance traffic to each instance as necessary. <p>- *Competing consumers*: You can have both instances act as competing consumers so that the instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
+| *Active-passive* | The primary logic app instance actively handles the entire workload, while the secondary instance is passive (disabled or inactive). The secondary waits for a signal that the primary is unavailable or not working due to disruption or failure and takes over the workload as the active instance. |
 | Combination | Some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
@@ -128,7 +128,7 @@ These examples show the active-active setup where both logic app instances activ
 
 ### Active-passive examples
 
-This example shows the active-passive setup where the primary logic app instance is active and enabled in one location, while the secondary instance stays inactive and disable in another location. If the primary experiences a disruption or failure, you can have some kind of operator run a script that enables the secondary to take on the workload.
+This example shows the active-passive setup where the primary logic app instance is active in one location, while the secondary instance remains inactive in another location. If the primary experiences a disruption or failure, you can have an operator run a script that activates the secondary to take on the workload.
 
 !["Active-passive" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-passive-setup.png)
 
@@ -202,7 +202,7 @@ For example, suppose that you have a logic app that needs to run every 10 minute
 
   * For the *active* enabled logic app, set the Recurrence trigger to the same schedule as the passive logic app in the primary location, which is to start at 10 minutes past the hour and repeat every 20 minutes, for example, 9:10 AM, 9:20 AM, and so on.
 
-Now, if a disruptive event happens in the primary location, enable the passive logic app in the alternate location. That way, if finding the failure takes time, this setup limits the number of missed recurrences during that delay.
+Now, if a disruptive event happens in the primary location, activate the passive logic app in the alternate location. That way, if finding the failure takes time, this setup limits the number of missed recurrences during that delay.
 
 <a name="polling-trigger"></a>
 
@@ -213,13 +213,13 @@ To regularly check whether new data for processing is available from a specific 
 * Static data, which describes data that is always available for reading
 * Volatile data, which describes data that is no longer available after reading
 
-To avoid repeatedly reading the same data, your logic app needs to remember which data was previously read. Logic apps track their state either on the client side or on the server side.
+To avoid repeatedly reading the same data, your logic app needs to remember which data was previously read by maintaining state either on the client side or on the server, service, or system side.
 
-* Logic apps track their state on the client side when they run based on their trigger state.
+* Logic apps that work with client-side state use triggers that can maintain state.
 
   For example, a trigger that reads a new message from an email inbox requires that the trigger can remember the most recently read message. That way, the trigger starts the logic app only when the next unread message arrives.
 
-* Logic apps track their state on the server side when they run based a property value or setting that's on the server or system side.
+* Logic apps that work with server, service, or system-side state use property values or settings that are on the server, service, or system side.
 
   For example, a query-based trigger that reads a row from a database requires that the row has an `isRead` column that's set to `FALSE`. Every time that the trigger reads a row, the logic app updates that row by changing the `isRead` column from `FALSE` to `TRUE`.
 
@@ -227,13 +227,13 @@ To avoid repeatedly reading the same data, your logic app needs to remember whic
 
 From a disaster recovery perspective, when you set up your logic app's primary and secondary instances, make sure that you account for these behaviors based on whether your logic app tracks state on the client side or on the server side:
 
-* For a logic app that tracks client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
+* For a logic app that works with client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
 
-  For example, an Office 365 Outlook trigger is a client-side trigger that maintains state. The trigger tracks the timestamp for the most recently read email to avoid reading a duplicate.
+  For example, the Office 365 Outlook trigger maintains client-side state and tracks the timestamp for the most recently read email to avoid reading a duplicate.
 
-* For a logic app that tracks server-side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
+* For a logic app that works with server-side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
 
-  For example, reading from a message queue, such as an Azure Service Bus queue, requires tracking server-side state because the queuing service maintains locks on messages to prevent other clients from reading the same messages.
+  For example, reading from a message queue, such as an Azure Service Bus queue, requires working with server-side state because the queuing service maintains locks on messages to prevent other clients from reading the same messages.
 
   > [!NOTE]
   > If your logic app needs to read messages in a specific order, for example, from a Service Bus queue, 
@@ -255,11 +255,11 @@ The **Request** trigger makes your logic app callable from other apps, services,
 
 * A way that you can manually run user operations or routines to call your logic app, for example, by using a PowerShell script that performs a specific task
 
-From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until some other service or system explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances in these ways:
+From a disaster recovery perspective, the Request trigger is a passive receiver because the logic app doesn't do any work and waits until some other service or system explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances in these ways:
 
-* [Active-active](#roles): Both instances are enabled. The caller or router balances or distributes traffic between those instances.
+* [Active-active](#roles): Both instances actively handle requests or calls. The caller or router balances or distributes traffic between those instances.
 
-* [Active-passive](#roles): Only the primary instance is enabled and handles all the work. The secondary instance is disabled and waits until the primary is disrupted or fails. The caller or router determines when to enable the secondary instance.
+* [Active-passive](#roles): Only the primary instance is active and handles all the work, while the secondary instance waits until the primary experiences disruption or failure. The caller or router determines when to run the secondary instance.
 
 As a recommended architecture, you can use Azure API Management as a proxy for the logic apps that use Request triggers. API Management provides [built-in cross-regional resiliency and the capability to route traffic across multiple endpoints](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
 
@@ -277,7 +277,7 @@ For your disaster recovery strategy to work, your solution needs ways to perform
 
 * [Check the primary instance's availability](#check-primary-availability)
 * [Monitor the primary instance's health](#monitor-primary-health)
-* [Enable the secondary instance](#enable-secondary)
+* [Activate the secondary instance](#activate-secondary)
 
 This section describes one solution that you can use outright or as a foundation for your own design. Here's a high-level visual overview for this solution:
 
@@ -287,7 +287,7 @@ This section describes one solution that you can use outright or as a foundation
 
 ### Check primary instance availability
 
-To determine whether the primary instance is available, running, and able to work, you can create a "health-check" logic app that's in the same location as the primary instance. You can then call this health- check app from an alternate location. If the health-check app successfully responds, the underlying infrastructure for the Azure Logic Apps service in that region is available and working. If the health-check app fails to respond, you can assume that the location is no longer healthy.
+To determine whether the primary instance is available, running, and able to work, you can create a "health-check" logic app that's in the same location as the primary instance. You can then call this health-check app from an alternate location. If the health-check app successfully responds, the underlying infrastructure for the Azure Logic Apps service in that region is available and working. If the health-check app fails to respond, you can assume that the location is no longer healthy.
 
 For this task, create a basic health-check logic app that performs these tasks:
 
@@ -320,9 +320,9 @@ For this task, in the secondary location, create a watchdog logic app that perfo
 
 <a name="enable-secondary"></a>
 
-### Enable your secondary instance
+### Activate your secondary instance
 
-To automatically enable or activate the secondary location, create a logic app that calls the appropriate logic apps in the secondary location. Expand your watchdog app to call this activation logic app after a specific number of failures happen.
+To automatically activate the secondary instance, you can create a logic app that calls the management API such as the Azure Resource Manager connector to activate the appropriate logic apps in the secondary location. You can expand your watchdog app to call this activation logic app after a specific number of failures happen.
 
 <a name="collect-diagnostic-data"></a>
 
