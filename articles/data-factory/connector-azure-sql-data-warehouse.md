@@ -608,7 +608,7 @@ Using COPY statement supports the following configuration:
 2. Format settings are with the following:
 
    1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
-   2. For **ORC**: `compression` can be **no compression**, **zlib**, or **Snappy**.
+   2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
       2. `nullValue` is left as default or set to **empty string** ("").
