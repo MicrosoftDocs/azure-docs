@@ -40,7 +40,7 @@ Use the following steps to enable time to live on a container with no expiration
 To create or enable TTL on a container see,
 
 * [Create a container with TTL using Azure CLI](manage-with-cli.md#create-a-container-with-ttl)
-* [Create a container with TTL using Powershell](manage-with-powershell.md#create-container-unique-key-ttl)
+* [Create a container with TTL using PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## Enable time to live on a container using SDK
 
