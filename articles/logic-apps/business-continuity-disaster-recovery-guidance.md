@@ -132,6 +132,18 @@ This example shows the active-passive setup where the primary logic app instance
 
 !["Active-passive" setup that uses "competing consumers"](./media/business-continuity-disaster-recovery-guidance/active-passive-setup.png)
 
+<a name="active-active-active-passive-examples"></a>
+
+### Combination with active-active and active-passive
+
+This example shows a combined setup where the primary location has both active logic app instances, while the secondary location has active-passive logic app instances. If the primary location experiences a disruption or failure, the active logic app in the secondary location, which is already handling a partial workload, can take over the entire workload.
+
+* In the primary location, an active logic app listens to an Azure Service Bus queue for messages, while another active logic app checks for emails by using a Office 365 Outlook polling trigger.
+
+* In the secondary location, an active logic app works with the logic app in the primary location by listening and competing for messages from the same Service Bus queue. Meanwhile, a passive inactive logic app waits on standby to check for emails when the primary location becomes unavailable but is *disabled* to avoid rereading emails.
+
+!["Active-passive" and "active-passive" combination that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/combo-active-active-active-passive-setup.png)
+
 <a name="state-history"></a>
 
 ## Logic app state and history
@@ -188,7 +200,7 @@ When your logic app starts with a Recurrence trigger, you need to set up your pr
 
 For example, suppose that you have a logic app that needs to run every 10 minutes. You can set up your logic apps and locations so that if the primary location becomes unavailable, the secondary location can take over the work:
 
-!["Active-passive" and "passive-active" combination that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/combo-primary-secondary-setup.png)
+!["Active-passive" and "passive-active" combination that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/combo-active-passive-passive-active-setup.png)
 
 * In the primary location, set up [active-passive roles](#roles) for these logic apps:
 
@@ -298,7 +310,7 @@ For this task, create a basic health-check logic app that performs these tasks:
    > [!IMPORTANT]
    > The health-check logic app must use a Response action so that the app responds synchronously, not asynchronously.
 
-* Optionally, to further determine whether the primary location is healthy, you can factor in the health of any other services that interact with the target logic app in this location. Just expand the health-check logic app to assess the health for these other services too.
+1. Optionally, to further determine whether the primary location is healthy, you can factor in the health of any other services that interact with the target logic app in this location. Just expand the health-check logic app to assess the health for these other services too.
 
 <a name="monitor-primary-health"></a>
 
