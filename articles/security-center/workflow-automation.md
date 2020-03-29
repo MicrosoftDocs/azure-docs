@@ -61,7 +61,10 @@ This article describes the workflow automation feature of Azure Security Center.
     In the Logic App designer the following triggers from the Security Center connectors are supported:
 
     * **When an Azure Security Center Recommendation is created or triggered**
-    * **When an Azure Security Center Alert is created or triggered**
+    * **When an Azure Security Center Alert is created or triggered** 
+    
+    > [!TIP]
+    > You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
     
     > [!NOTE]
     > If you are using the legacy trigger "When a response to an Azure Security Center alert is triggered", your Logic Apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above. 
