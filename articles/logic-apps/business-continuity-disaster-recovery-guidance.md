@@ -88,7 +88,7 @@ The data gateway resource is associated with a location or Azure region, just li
 > ISE-versioned connectors for on-premises data sources, you don't need the data 
 > gateway because ISE connectors provide direct access to the the on-premises resource.
 >
-> If no ISE-versioned connector is available for the resource that you want, 
+> If no ISE-versioned connector is available for the on-premises resource that you want, 
 > your logic app can still create the connection by using a non-ISE connector, 
 > which runs in the global multi-tenant Azure, not your ISE. However, this connection 
 > requires the on-premises data gateway.
@@ -101,8 +101,8 @@ You can set up your primary and secondary locations so that your logic app insta
 
 | Primary-secondary role | Description |
 |------------------------|-------------|
-| *Active-active* | Both logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen at an HTTP endpoint and have traffic load balanced to that instance as necessary. <p>- Or, you can have the second instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| *Active-passive* | The primary logic app instance handles the entire workload, while the secondary instance is passive or inactive. The secondary waits for a signal that the primary is unavailable or not working due to disruption or failure and takes over the workload as the active instance. |
+| *Active-active* | The primary and secondary logic app instances in both locations are enabled and actively handle requests by following either of these patterns: <p><p>- *Load balance*: You can have both instances listen to an endpoint and load balance traffic to each instance as necessary. <p>- *Competing consumers*: You can have both instances act as competing consumers so that the instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
+| *Active-passive* | The primary logic app instance is enabled and actively handles the entire workload, while the secondary instance is passive (disabled or inactive). The secondary waits for a signal that the primary is unavailable or not working due to disruption or failure and takes over the workload as the active instance. |
 | Combination | Some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
@@ -146,7 +146,7 @@ To minimize the number of abandoned in-progress workflow instances, you can choo
 
 * [Fixed routing slip pattern](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
-  This enterprise message pattern that splits a business process into smaller stages. For each stage, you set up a logic app that handles the workload for that stage. To communicate with each other, your logic apps use an asynchronous messaging protocol such as Azure Service Bus queues or topics. When you divide a process into smaller stages, you reduce the number of stages that might get stuck on a failed logic app instance. For more general information about this pattern, see [Enterprise integration patterns - Routing slip](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
+  This enterprise message pattern that splits a business process into smaller stages. For each stage, you set up a logic app that handles the workload for that stage. To communicate with each other, your logic apps use an asynchronous messaging protocol such as Azure Service Bus queues or topics. When you divide a process into smaller stages, you reduce the number of business processes that might get stuck on a failed logic app instance. For more general information about this pattern, see [Enterprise integration patterns - Routing slip](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
   This example shows a routing slip pattern where each logic app represents a stage and uses a Service Bus queue to communicate with the next logic app in the process.
 
@@ -168,7 +168,7 @@ To get more information about your logic app's past workflow executions, you can
 
 ## Trigger type guidance
 
-The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in your disaster recovery strategy. You can use these trigger types in logic apps:
+The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in your disaster recovery strategy. Here are the available trigger types that you can use in logic apps:
 
 * [Recurrence trigger](#recurrence-trigger)
 * [Polling trigger](#polling-trigger)
@@ -184,23 +184,25 @@ The **Recurrence** trigger is independent from any specific service or endpoint,
 * A fixed frequency and interval, such as every 10 minutes
 * A more advanced schedule, such as the last Monday of every month at 5:00 PM
 
-If your logic app starts with a Recurrence trigger, you need to set up the primary and secondary instances as active-passive in their respective locations. To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set up logic apps that use Recurrence triggers either as active-passive or passive-active. In this setup, you split the schedule across locations.
+So, if your logic app starts with a Recurrence trigger, you need to set up the primary and secondary logic app instances with the ]active-passive roles](#roles).
 
-For example, if you have a logic app that needs to run every 10 minutes, set up your logic apps and locations as follows:
+To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set logic app instances that start with Recurrence triggers in a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
 
-* Active-passive
+For example, if you want to have a logic app that must run every 10 minutes, you can set up your logic apps and locations as follows:
 
-  * In the primary location, set the *active* logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
+* In the primary location, set up [active-passive roles](#roles) for these logic apps:
 
-  * In the secondary location, set the *passive* logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour that's set in the other location, for example, 9:10 AM.
+  * On the *active* (enabled) logic app, set the Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
 
-    !["Active-passive" setup that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/active-passive-recurrence-trigger.png)
+  * On the *passive* (disabled) logic app, set the Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
 
-* Passive-active
+    !["Active-passive" setup that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/active-passive-recurrence-primary.png)
 
-  * In the secondary location, set the *active* logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
+* For the reverse configuration in the secondary location, set up [passive-active](#roles) for these logic apps:
 
-  * In the primary location, set the *passive* logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
+  * On the *active* logic app's, set the Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
+
+  * On the *passive* logic app, set the Recurrence trigger to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
 
   When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
 
@@ -259,9 +261,9 @@ The **Request** trigger makes your logic app callable from other apps, services,
 
 From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until some other service or system explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances in these ways:
 
-* [Active-active](#roles): Both instances are enabled and active. The caller or router balances or distributes traffic between those instances.
+* [Active-active](#roles): Both instances are enabled. The caller or router balances or distributes traffic between those instances.
 
-* [Active-passive](#roles): Only the primary instance is enabled and active, handling all the work. The secondary instance is inactive and waits until the primary is disrupted or fails. The caller or router determines when to enable the secondary instance.
+* [Active-passive](#roles): Only the primary instance is enabled and handles all the work. The secondary instance is disabled and waits until the primary is disrupted or fails. The caller or router determines when to enable the secondary instance.
 
 As a recommended architecture, you can use Azure API Management as a proxy for the logic apps that use Request triggers. API Management provides [built-in cross-regional resiliency and the capability to route traffic across multiple endpoints](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
 
