@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 03/29/2020
 ---
 
 # What is one-click ingestion? 
@@ -46,7 +46,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
     
 1. To access the wizard, right-click the *database* or *table* row in left menu of the Azure Data Explorer web UI and select **Ingest new data (preview)**.
 
-    ![Select one-click ingestion in the Web UI](media/ingest-data-one-click/one-click-ingestion-in-web-ui.png)   
+    ![Select one-click ingestion in the Web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
 
 1. The wizard guides you through the following options:
        * Ingest into an [existing table](one-click-ingestion-existing-table.md)
@@ -59,7 +59,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
        
 1. When you have successfully selected the data source, a preview of the data is displayed. You can filter the data so that only files with specific prefixes or file extensions are ingested. For example, you might only want to ingest files with filenames beginning with the word *Europe*, or only files with the extension *.json*. 
 
-1. If you are ingesting data to a specific table, you can map the source columns to the target columns and decide whether or not to include column names.
+1. Click **Edit schema**. If you are ingesting data to a specific table, you can map the source columns to the target columns and decide whether or not to include column names.
 
 1. Start the data ingestion process.
 
