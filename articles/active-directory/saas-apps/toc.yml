@@ -283,6 +283,8 @@
         href: chronicx-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
+      - name: Cisco AnyConnect
+        href: cisco-anyconnect.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
       - name: The Cloud Security Fabric
@@ -896,6 +898,8 @@
         href: logicmonitor-tutorial.md
       - name: LoginRadius
         href: lr-tutorial.md
+      - name: Logz.io - Cloud Observability for Engineers
+        href: logzio-cloud-observability-for-engineers-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Lynda.com
@@ -1388,6 +1392,8 @@
         href: spaceiq-tutorial.md
       - name: Spacio
         href: spacio-tutorial.md
+      - name: SpectrumU
+        href: spectrumu-tutorial.md
       - name: Splashtop
         href: splashtop-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
@@ -1885,5 +1891,7 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+      - name: Zoho One China
+        href: zoho-one-china-tutorial.md
       - name: Zoom
         href: zoom-provisioning-tutorial.md
