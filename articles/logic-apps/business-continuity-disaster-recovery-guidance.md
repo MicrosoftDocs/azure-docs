@@ -233,7 +233,7 @@ From a disaster recovery perspective, when you set up your logic app's primary a
 
 * For a logic app that works with server-side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
 
-  For example, reading from a message queue, such as an Azure Service Bus queue, requires working with server-side state because the queuing service maintains locks on messages to prevent other clients from reading the same messages.
+  For example, reading from a message queue, such as an Azure Service Bus queue, uses server-side state because the queuing service maintains locks on messages to prevent other clients from reading the same messages.
 
   > [!NOTE]
   > If your logic app needs to read messages in a specific order, for example, from a Service Bus queue, 
@@ -259,7 +259,7 @@ From a disaster recovery perspective, the Request trigger is a passive receiver 
 
 * [Active-active](#roles): Both instances actively handle requests or calls. The caller or router balances or distributes traffic between those instances.
 
-* [Active-passive](#roles): Only the primary instance is active and handles all the work, while the secondary instance waits until the primary experiences disruption or failure. The caller or router determines when to run the secondary instance.
+* [Active-passive](#roles): Only the primary instance is active and handles all the work, while the secondary instance waits until the primary experiences disruption or failure. The caller or router determines when to call the secondary instance.
 
 As a recommended architecture, you can use Azure API Management as a proxy for the logic apps that use Request triggers. API Management provides [built-in cross-regional resiliency and the capability to route traffic across multiple endpoints](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
 
@@ -322,7 +322,7 @@ For this task, in the secondary location, create a watchdog logic app that perfo
 
 ### Activate your secondary instance
 
-To automatically activate the secondary instance, you can create a logic app that calls the management API such as the Azure Resource Manager connector to activate the appropriate logic apps in the secondary location. You can expand your watchdog app to call this activation logic app after a specific number of failures happen.
+To automatically activate the secondary instance, you can create a logic app that calls the management API such as the [Azure Resource Manager connector](https://docs.microsoft.com/connectors/arm/) to activate the appropriate logic apps in the secondary location. You can expand your watchdog app to call this activation logic app after a specific number of failures happen.
 
 <a name="collect-diagnostic-data"></a>
 
