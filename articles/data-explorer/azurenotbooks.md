@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/29/2020
 ---
 
 # Use Azure Notebooks to analyze data in Azure Data Explorer
@@ -93,7 +93,7 @@ To create a notebook, select **+ New** and select **Notebook**.
 1. Enter your Kusto query and select **Run**. For example:
 
     ```python
-    query= ".show tables | project DatabaseName, TableName"
+    query= "StormEvents | project State, EventType | take 10"
     response = kc.execute("Samples", query)
     for row in response.primary_results[0]:
         print(", ".join(row))
