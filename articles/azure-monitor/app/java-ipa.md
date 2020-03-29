@@ -79,7 +79,43 @@ For this reason, we are not planning to release an SDK with Application Insights
 Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. We have no plans to remove this support, as it is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until OpenTelemetry API is GA.
 
 ### Sending custom telemetry using Application Insights Java SDK 2.x
-[Working on this - Julia]
+Add applicationinsights-core-2.5.1.jar to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-core</artifactId>
+    <version>2.5.1</version>
+  </dependency>
+```
+Create a TelemetryClient:
+```java
+private static final TelemetryClient telemetryClient = new TelemetryClient();
+```
+and use that for sending custom telemetry.
+
+#### Events
+```java
+telemetryClient.trackEvent("WinGame");
+```
+
+#### Metrics
+```java
+telemetryClient.trackMetric("queueLength", 42.0);
+```
+
+#### Logs
+You can send custom log telemetry via your favorite logging framework.
+Or you can also use Application Insights Java SDK 2.x:
+
+```java
+try {
+      ...
+  } catch (Exception e) {
+      telemetryClient.trackException(e);
+  }
+```
 
 ### Upgrading from Application Insights Java SDK 2.x
-[Working on this - Julia]
+If you are already using Application Insights Java SDK 2.x in your application, there is no need to remove it, as the 3.0 agent will detect it, and capture and correlate any custom telemetry you are sending via the Java SDK 2.x, while suppressing any auto-collection performed by the Java SDK 2.x in order to prevent duplicate capture.
+
+Please note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent. If this functionality is important for you, please reach out to the product team [asw-node-java-pr@microsoft.com](mailto:asw-node-java-pr@microsoft.com). We are still designing the replacement for this functionality in the 3.0 agent, and we want to make sure it will cover your use case(s).
