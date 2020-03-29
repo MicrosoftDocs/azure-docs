@@ -186,23 +186,21 @@ The **Recurrence** trigger is independent from any specific service or endpoint,
 
 So, if your logic app starts with a Recurrence trigger, you need to set up the primary and secondary logic app instances with the ]active-passive roles](#roles).
 
-To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set logic app instances that start with Recurrence triggers in a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
+To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set logic app instances that start with Recurrence triggers in a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations. For example, suppose that you have a logic app that needs to run every 10 minutes. You can set up your logic apps and locations as follows so that if the primary location becomes unavailable, the secondary location can take over the work:
 
-For example, if you want to have a logic app that must run every 10 minutes, you can set up your logic apps and locations as follows:
+!["Active-passive" and "passive-active" combination that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/combo-primary-secondary-setup.png)
 
-* In the primary location, set up [active-passive roles](#roles) for these logic apps:
+* For one configuration, set up [active-passive roles](#roles) for these logic apps:
 
-  * On the *active* (enabled) logic app, set the Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
+  * In the primary location, on the *active* (enabled) logic app, set the Recurrence trigger to a schedule that starts at the top of the hour, such as 9:00 AM, and repeats every 20 minutes.
 
-  * On the *passive* (disabled) logic app, set the Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
+  * In the secondary location, on the *passive* (disabled) logic app, set the Recurrence trigger to same schedule but starting at 10 minutes past the hour, such as 9:10 AM, and repeats every 20 minutes.
 
-    !["Active-passive" setup that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/active-passive-recurrence-primary.png)
+* For the reverse configuration, set up [passive-active](#roles) for these logic apps:
 
-* For the reverse configuration in the secondary location, set up [passive-active](#roles) for these logic apps:
+  * In the secondary location, on the *active* logic app, set the Recurrence trigger to a a schedule that starts at 10 minutes past the hour, such as 9:10 AM, and repeats every 20 minutes.
 
-  * On the *active* logic app's, set the Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
-
-  * On the *passive* logic app, set the Recurrence trigger to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
+  * In the primary location, on the *passive* logic app, set the Recurrence trigger to the same schedule that starts to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
 
   When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
 
