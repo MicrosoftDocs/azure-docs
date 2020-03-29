@@ -283,6 +283,8 @@
         href: chronicx-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
+      - name: Cisco AnyConnect
+        href: cisco-anyconnect.md
       - name: Cisco Cloud
         href: ciscocloud-tutorial.md
       - name: The Cloud Security Fabric
