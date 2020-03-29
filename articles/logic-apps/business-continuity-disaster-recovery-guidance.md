@@ -114,7 +114,7 @@ These examples show the active-active setup where both logic app instances activ
 
 * A "physical" load balancer, such as a piece of hardware that routes traffic
 
-* A "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md), [Azure API Management](../api-management/api-management-key-concepts.md), or a service that supports state tracking such as [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). With API Management, you can specify policies that determine how to load balance incoming traffic.
+* A "soft" load balancer such as [Azure Load Balancer](../load-balancer/load-balancer-overview.md) or [Azure API Management](../api-management/api-management-key-concepts.md). With API Management, you can specify policies that determine how to load balance incoming traffic. Or, you can use a service that supports state tracking, for example, [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
   Although this example primarily shows Azure Load Balancer, you can use the option that best suits your scenario's needs:
 
