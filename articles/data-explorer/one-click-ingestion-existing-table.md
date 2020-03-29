@@ -65,15 +65,23 @@ For information about ingesting data into a new table in Azure Data Explorer, se
         ![Select JSON levels](media/one-click-ingestion-existing-table/json-levels.png)
         * If you select a format other than JSON, you can select the check box **Include column names** to ignore the heading row of the file.
         ![Select Include column names](media/one-click-ingestion-existing-table/non-json-format.png)
+
+        > [!Note]
+        > Tabular formats can ingest column data into only one column in an Azure Data Explorer table. 
+
     * The **Mapping name** is set automatically, but you can edit it.
     * You can select **Map columns** to open the **Map columns** window.
 
-## Copy and paste queries
+## Copy and paste commands
 
-1. Above the **Editor** pane, select the **v** button to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
+1. Above the **Editor** pane, select the **v** button to open the editor. In the editor, you can view and copy the automatic commands generated from your inputs. 
 1. In the table: 
-    * Select new column headers to **Change data type**, **Rename column**, **New column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns, only data sorting is available. 
-    * Double-click the new column name to edit.
+    * Select new column headers to add a **New column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns, only data sorting is available.
+
+    > [!Note]
+    > You can't update the name and datatype for existing tables.
+
+    * Drop commands for existing tables will generate commands that drops only new extents.
 
 [![](media/one-click-ingestion-existing-table/edit-view.png "One-click ingestion edit view")](media/one-click-ingestion-existing-table/edit-view.png#lightbox) 
 
