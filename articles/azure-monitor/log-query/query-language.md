@@ -1,18 +1,12 @@
 ---
 title: Azure Monitor log queries | Microsoft Docs
 description: References to resources for learning how to write log queries in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/11/2019
+author: bwren
 ms.author: bwren
+ms.date: 01/11/2019
+
 ---
 
 # Azure Monitor log queries

@@ -1,15 +1,16 @@
 ---
-title: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Social account claims transformation examples for custom policies
+titleSuffix: Azure AD B2C
+description: Social account claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -17,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C, social account identities are stored in a `userIdentities` attribute of a **alternativeSecurityIdCollection** claim type. Each item in the **alternativeSecurityIdCollection** specifies the issuer (identity provider name, such as facebook.com) and the `issuerUserId`, which is a unique user identifier for the issuer.
+In Azure Active Directory B2C (Azure AD B2C), social account identities are stored in a `userIdentities` attribute of a **alternativeSecurityIdCollection** claim type. Each item in the **alternativeSecurityIdCollection** specifies the issuer (identity provider name, such as facebook.com) and the `issuerUserId`, which is a unique user identifier for the issuer.
 
 ```JSON
 "userIdentities": [{
@@ -34,7 +35,7 @@ This article provides examples for using the social account claims transformatio
 
 ## CreateAlternativeSecurityId
 
-Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. For more information, see [AlternativeSecurityId's schema](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type).
+Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. For more information, see the [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) schema.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -47,7 +48,7 @@ Use this claims transformation to generate a `alternativeSecurityId` ClaimType. 
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="socialIdpUserId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
     <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>

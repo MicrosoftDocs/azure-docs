@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting hybrid Azure Active Directory joined devices - Azure Active Directory
+title: Troubleshooting hybrid Azure Active Directory joined devices
 description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -101,7 +101,7 @@ This field indicates whether the device is registered with Azure AD as a persona
 
 #### AzureAdJoined : YES  
 
-This field indicates whether the device is joined with Azure AD. 
+This field indicates whether the device is joined. The value will be **YES** if the device is either an Azure AD joined device or a hybrid Azure AD joined device.
 If the value is **NO**, the join to Azure AD has not completed yet. 
 
 Proceed to next steps for further troubleshooting.
@@ -110,7 +110,7 @@ Proceed to next steps for further troubleshooting.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 The 'Error Phase' field denotes the phase of the join failure while 'Client ErrorCode' denotes the error code of the Join operation.
 
 ```
@@ -181,7 +181,7 @@ To find the suberror code for the discovery error code, use one of the following
 
 ##### Windows 10 1803 and above
 
-Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output.
+Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 
 ```
 +----------------------------------------------------------------------+
@@ -244,7 +244,7 @@ Applicable only for federated domain accounts.
 Reasons for failure:
 
 - Unable to get an Access token silently for DRS resource.
-   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Common error codes:**
 
@@ -276,7 +276,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
    - Reason: Connection with the auth endpoint was aborted.
    - Resolution: Retry after sometime or try joining from an alternate stable network location.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Reason: The Secure Sockets Layer (SSL) certificate sent by the server could not be validated.
+   - Reason: The Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate sent by the server could not be validated.
    - Resolution: Check the client time skew. Retry after sometime or try joining from an alternate stable network location. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Reason: The attempt to connect to `https://login.microsoftonline.com` failed.
@@ -305,7 +305,7 @@ Find the registration type and look for the error code from the list below.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 'Registration Type' field denotes the type of join performed.
 
 ```
@@ -355,7 +355,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Resolution: Disable TPM on devices with this error. Windows 1809 automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Reason: TPM locked out.
-   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### Network Errors
 
@@ -405,6 +405,9 @@ If the values are **NO**, it could be due:
 - Alternate Login ID
 - HTTP Proxy not found
 
+## Known issues
+- Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality. 
+ 
 ## Next steps
 
 Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)

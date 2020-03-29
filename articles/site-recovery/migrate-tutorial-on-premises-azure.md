@@ -1,11 +1,11 @@
 ---
-title: Migrate on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
+title: Migrate on-premises machines with Azure Site Recovery 
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -27,8 +27,7 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 
 
 > [!TIP]
-> The Azure Migrate service is now offering a preview for a new, agentless experience for migrating VMware VMs to Azure. [Find out more](https://aka.ms/migrateVMs-signup).
-
+> You can now migrate on-premises servers to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-services-overview.md)
 
 ## Before you start
 
@@ -41,7 +40,7 @@ Note that devices exported by paravirtualized drivers aren't supported.
 2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) servers. If you're migrating physical machines, you don't need to prepare anything. Just verify the [support matrix](vmware-physical-azure-support-matrix.md).
 
 
-## Select a replication goal
+## Select a protection goal
 
 Select what you want to replicate, and where you want to replicate to.
 1. Click **Recovery Services vaults** > vault.

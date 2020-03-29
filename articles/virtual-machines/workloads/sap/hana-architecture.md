@@ -3,17 +3,17 @@ title: Architecture of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Architecture of how to deploy SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: juergent
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---

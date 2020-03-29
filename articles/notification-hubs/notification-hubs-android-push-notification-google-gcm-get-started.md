@@ -1,12 +1,12 @@
 ---
-title: Push notifications to Android apps using Azure Notification Hubs and Google Cloud Messaging | Microsoft Docs
+title: Send push notifications to Android using Azure Notification Hubs and Google Cloud Messaging | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to push notifications to Android devices.
 services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
@@ -16,7 +16,9 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging (deprecated)

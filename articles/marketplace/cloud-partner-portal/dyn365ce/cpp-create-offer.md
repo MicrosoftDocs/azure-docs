@@ -1,34 +1,16 @@
 ---
 title: Create a Dynamics 365 for Customer Engagement application offer | Azure Marketplace 
-description: How to create a new Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.
-services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+description: Deprecated this CPP article and pointed to PC article; was "How to create a new Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace."
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: pabutler
+ms.date: 09/30/2019
+ms.author: dsindona
 ---
 
 # Create a Dynamics 365 for Customer Engagement application offer
 
-This section describes how to create and publish a Dynamics 365 for Customer Engagement application offer for the AppSource Marketplace. Every offer appears as its own entity in the marketplace and is composed of the following groupings of assets and supporting services: offer details, package technical information, marketing artifacts, support information, and optional Test Drive specifications. 
+The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports the creation and management of Dynamics 365 Customer Engagement offers. Instead, this functionality has been moved to the Microsoft [Partner Center portal](https://partner.microsoft.com/). For more information, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-## New Offer form
-
-Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Dynamics 365 for Customer Engagement**:
-
-![New offer menu item for Dynamics 365 for Customer Engagement application](./media/new-dyn365ce-menu-item.png)
-
-The **New Offer** form is displayed, showing the initial [**Offer Settings** tab](./cpp-offer-settings-tab.md).
-
-
-## Next steps
-
-The **New Offer** page provides a set of tabs and form fields that you'll use to create a new offer. The following articles explain how to define the asset groups and supporting information for your new offer.
-
-* [Offer Settings tab](./cpp-offer-settings-tab.md)
-* [Technical Info tab](./cpp-technical-info-tab.md)
-* [Test Drive tab](./cpp-testdrive-tab.md)
-* [Storefront Details tab](./cpp-storefront-details-tab.md)
-* [Contacts tab](./cpp-contacts-tab.md)
+Before you create a new Dynamics 365 for Customer Engagement offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) to create your offer.

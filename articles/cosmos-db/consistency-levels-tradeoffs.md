@@ -1,11 +1,11 @@
 ---
-title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
+title: Azure Cosmos DB consistency, availability, and performance tradeoffs 
 description: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
 ---
 
@@ -57,6 +57,10 @@ The table below defines the relationship between consistency model and data dura
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 
 *T* = The time interval *"T"* since the last update.
+
+## Strong consistency and multi-master
+
+Cosmos accounts configured for multi-master cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits for using strong consistency with multi-master as any write into any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single master account.
 
 ## Next steps
 

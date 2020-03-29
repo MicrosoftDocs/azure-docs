@@ -3,10 +3,8 @@ title: Azure Security Center and Azure Virtual Machines with Linux | Microsoft D
 description: This document helps you to understand how Azure Security Center can safeguard you Azure Virtual Machines.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
@@ -43,7 +41,7 @@ To get started with Azure Security Center, you’ll need to know and consider th
 
 * You must have a subscription to Microsoft Azure. See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for more information on Security Center’s free and standard tiers.
 * Plan your Security Center adoption, see [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md) to learn more about planning and operations considerations.
-* For information regarding operating system supportability, see [Azure Security Center frequently asked questions (FAQ)](security-center-faq.md). 
+* For information regarding operating system supportability, see [Azure Security Center frequently asked questions (FAQ)](faq-vms.md). 
 
 ## Set security policy
 Data collection needs to be enabled so that Azure Security Center can gather the information it needs to provide recommendations and alerts that are generated based on the security policy you configure. In the figure below, you can see that **Data collection** has been turned **On**.
@@ -81,7 +79,7 @@ After you enable [security policies](tutorial-security-policy.md) for a subscrip
 ![Security health](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## Manage and respond to security alerts
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-detection-capabilities.md), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
+Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions (like firewall and endpoint protection solutions), to detect real threats and reduce false positives. By leveraging a diverse aggregation of [detection capabilities](security-center-alerts-overview.md#detect-threats), Security Center is able to generate prioritized security alerts to help you quickly investigate the problem and provide recommendations for how to remediate possible attacks.
 
 ![Security alerts](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 
@@ -102,5 +100,5 @@ To learn more about Security Center, see the following:
 
 * [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+* [FAQ - Virtual Machines](faq-vms.md) -- Find frequently asked questions about using the service.
 

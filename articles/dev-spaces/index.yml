@@ -1,57 +1,80 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Dev Spaces
+### YamlMime:Landing
+
+title: Azure Dev Spaces documentation # < 60 chars
+summary: Azure Dev Spaces is an extension to AKS that allows you to easily run and debug your code in the context of a larger application. You can test your code end-to-end, hit breakpoints on code running in the cluster, and share a development cluster between team members without interference.
+
 metadata:
-  title: Azure Dev Spaces Documentation - Quickstarts
-  meta.description: Rapid Kubernetes development with containers and microservices on Azure.
+  title: Azure Dev Spaces documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Dev Spaces is an extension to AKS that allows you to easily run and debug your code in the context of a larger application. You can test your code end-to-end, hit breakpoints on code running in the cluster, and share a development cluster between team members without interference.
   services: azure-dev-spaces
+  ms.service: azure-dev-spaces #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
   author: zr-msft
-  ms.service: azure-dev-spaces
-  ms.topic: landing-page
-  ms.date: 07/08/2019
   ms.author: zarhoads
   manager: gwallace
-abstract:
-  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application by running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared Azure Kubernetes Service (AKS) cluster, as well as by running and debugging containers directly in AKS. Learn how to use Azure Dev Spaces by using these quickstarts.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to use Azure Dev Spaces to collaborate on microservices in AKS:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/common/i_configure-teams.svg
-      text: Develop microservices as part of a team
-      href: quickstart-team-development.md
-  - type: paragraph
-    text: 'Learn how to rapidly iterate and debug for an inner-loop development experience with Azure Dev Spaces:'
-  - type: list
-    style: icon48
-    items:
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Use Visual Studio Code and Java
-      href: quickstart-java.md
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Use Visual Studio Code and .NET Core
-      href: quickstart-netcore.md
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Use Visual Studio Code and Node.js
-      href: quickstart-nodejs.md
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-      text: Use Visual Studio and .NET Core
-      href: quickstart-netcore-visualstudio.md
-  - type: paragraph
-    text: 'Learn how to develop microservices for almost any language by using the Azure CLI with Azure Dev Spaces:'
-  - type: list
-    style: icon48
-    items:
-    - image: 
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Develop by using the Azure CLI
-      href: quickstart-cli.md
+  ms.date: 09/30/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure Dev Spaces
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Dev Spaces?
+            url: about.md
+      - linkListType: concept
+        links:
+          - text: How Azure Dev Spaces works
+            url: how-dev-spaces-works.md
+      - linkListType: how-to-guide
+        links:
+          - text: Installing Azure Dev Spaces
+            url: how-to/install-dev-spaces.md
+
+  # Card
+  - title: Developing and testing microservices
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Run and debug a microservice
+            url: quickstart-netcore.md
+          - text: Collaborate on a set of microservices with a team
+            url: quickstart-team-development.md
+      - linkListType: how-to-guide
+        links:
+          - text: Integrate Dev Spaces in your CI/CD pipeline for better end-to-end testing
+            url: how-to/setup-cicd.md
+
+  # Card
+  - title: Advanced scenarios
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use a custom NuGet feed
+            url: how-to/use-custom-nuget-feed.md
+          - text: Use a private Helm repository
+            url: how-to/use-private-helm-repo.md
+          - text: Interact with Windows containers
+            url: how-to/run-dev-spaces-windows-containers.md
+          - text: Use traefik for custom ingress and HTTPS
+            url: how-to/ingress-https-traefik.md
+          - text: Use NGINX for custom ingress and HTTPS
+            url: how-to/ingress-https-nginx.md
+
+
+  # Card
+  - title: Preview features
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use GitHub Actions with Azure Dev Spaces
+            url: how-to/github-actions.md
+          - text: Connect your development machine to an AKS cluster
+            url: how-to/connect.md
+          - text: Configure your Azure Dev Spaces cluster to use Helm 3
+            url: how-to/helm-3.md

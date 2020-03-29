@@ -48,13 +48,13 @@ At the end of this tutorial, you have two Java console apps:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
-* Java SE 8. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install Java for this tutorial on either Windows or Linux.
-
-* Maven 3. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) describes how to install [Maven](https://maven.apache.org/what-is-maven.html) for this tutorial on either Windows or Linux.
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

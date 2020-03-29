@@ -1,11 +1,11 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
-description: Send Guest OS metrics to the Azure Monitor metric store Cloud Services
+title: Send classic Cloud Services metrics to Azure Monitor metrics database
+description: Describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. 
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -23,11 +23,13 @@ The process that's outlined in this article works only for performance counters 
 
 ## Prerequisites
 
-- You must be a [service administrator or co-administrator](~/articles/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
+- You must be a [service administrator or co-administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md) on your Azure subscription. 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+
+- Your Cloud Service must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
 ## Provision a cloud service and storage account 
 

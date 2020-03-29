@@ -1,11 +1,11 @@
 ---
-title: Network security group event and rule counter Azure diagnostic logs
+title: Diagnostic logging for a network security group
 titlesuffix: Azure Virtual Network
 description: Learn how to enable event and rule counter diagnostic logs for an Azure network security group.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,12 +19,12 @@ ms.author: kumud
 
 A network security group (NSG) includes rules that allow or deny traffic to a virtual network subnet, network interface, or both. When you enable diagnostic logging for an NSG, you can log the following categories of information:
 
-* **Event:** Entries are logged for which NSG rules are applied to VMs, based on MAC address. The status for these rules is collected every 60 seconds.
-* **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
+* **Event:** Entries are logged for which NSG rules are applied to VMs, based on MAC address.
+* **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 60 seconds.
 
 Diagnostic logs are only available for NSGs deployed through the Azure Resource Manager deployment model. You cannot enable diagnostic logging for NSGs deployed through the classic deployment model. For a better understanding of the two models, see [Understanding Azure deployment models](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Diagnostic logging is enabled separately for *each* NSG you want to collect diagnostic data for. If you're interested in operational, or activity, logs instead, see Azure [activity logging](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Diagnostic logging is enabled separately for *each* NSG you want to collect diagnostic data for. If you're interested in operational, or activity, logs instead, see Azure [activity logging](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Enable logging
 
@@ -83,7 +83,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-If you only want to log data for one category or the other, rather than both, add the `-Categories` option to the previous command, followed by *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+If you only want to log data for one category or the other, rather than both, add the `-Categories` option to the previous command, followed by *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
@@ -118,7 +118,7 @@ az monitor diagnostic-settings create \
 
 If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging you can enable logs for.
 
-If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 View and analyze logs. For more information, see [View and analyze logs](#view-and-analyze-logs).
 
@@ -126,8 +126,8 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 Diagnostics data can be:
 - [Written to an Azure Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), for auditing or manual inspection. You can specify the retention time (in days) using resource diagnostic settings.
-- [Streamed to an Event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
-- [Written to Azure Monitor logs](../azure-monitor/platform/diagnostic-logs-stream-log-store.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- [Streamed to an Event hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for ingestion by a third-party service, or custom analytics solution, such as PowerBI.
+- [Written to Azure Monitor logs](../azure-monitor/platform/resource-logs-collect-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Log categories
 
@@ -193,7 +193,7 @@ The rule counter log contains information about each rule applied to resources. 
 
 ## View and analyze logs
 
-To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you send diagnostics data to:
+To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you send diagnostics data to:
 - **Azure Monitor logs**: You can use the [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
 - **Azure Storage account**: Data is written to a PT1H.json file. You can find the:
@@ -202,7 +202,7 @@ To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](.
 
 ## Next steps
 
-- Learn more about [Activity logging](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), previously known as audit or operational logs. Activity logging is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
+- Learn more about [Activity logging](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), previously known as audit or operational logs. Activity logging is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

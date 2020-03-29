@@ -1,15 +1,15 @@
 ---
 title: Scale cluster sizes - Azure HDInsight
-description: Scale an Azure HDInsight cluster elastically to match your workload.
+description: Scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
 author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 02/26/2020
 ---
 
-# Scale HDInsight clusters
+# Scale Azure HDInsight clusters
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This elasticity, allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
 
@@ -28,16 +28,16 @@ Microsoft provides the following utilities to scale clusters:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
-|[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count> |
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --workernode-count \<NewSize>|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count> |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
-![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Azure portal scale cluster option](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Using any of these methods, you can scale your HDInsight cluster up or down within minutes.
 
 > [!IMPORTANT]  
-> * The Aure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
 
 ## Impact of scaling operations
@@ -83,7 +83,7 @@ The impact of changing the number of data nodes varies for each type of cluster 
 
     Here is an example CLI command to rebalance the Storm topology:
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -107,7 +107,7 @@ To see a list of pending and running jobs, you can use the YARN **Resource Manag
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **ResourceManager UI**.
 
-    ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
+    ![Apache Ambari quick links ResourceManager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 
 You may directly access the ResourceManager UI with `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster`.
 
@@ -131,21 +131,21 @@ yarn application -kill "application_1499348398273_0003"
 
 When you scale down a cluster, HDInsight uses Apache Ambari management interfaces to first decommission the extra worker nodes, which replicate their HDFS blocks to other online worker nodes. After that, HDInsight safely scales the cluster down. HDFS goes into safe mode during the scaling operation, and is supposed to come out once the scaling is finished. In some cases, however, HDFS gets stuck in safe mode during a scaling operation because of file block under-replication.
 
-By default, HDFS is configured with a `dfs.replication` setting of 3, which controls how many copies of each file block are available. Each copy of a file block is stored on a different node of the cluster.
+By default, HDFS is configured with a `dfs.replication` setting of 1, which controls how many copies of each file block are available. Each copy of a file block is stored on a different node of the cluster.
 
 When HDFS detects that the expected number of block copies aren't available, HDFS enters safe mode and Ambari generates alerts. If HDFS enters safe mode for a scaling operation, but then cannot exit safe mode because the required number of nodes are not detected for replication, the cluster can become stuck in safe mode.
 
 ### Example errors when safe mode is turned on
 
-```
+```output
 org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
 ```
 
-```
-org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
+```output
+org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 
-You can review the name node logs from the `/var/log/hadoop/hdfs/` folder, near the time when the cluster was scaled, to see when it entered safe mode. The log files are named `Hadoop-hdfs-namenode-hn0-clustername.*`.
+You can review the name node logs from the `/var/log/hadoop/hdfs/` folder, near the time when the cluster was scaled, to see when it entered safe mode. The log files are named `Hadoop-hdfs-namenode-<active-headnode-name>.*`.
 
 The root cause of the previous errors is that Hive depends on temporary files in HDFS while running queries. When HDFS enters safe mode, Hive cannot run queries because it cannot write to HDFS. The temp files in HDFS are located in the local drive mounted to the individual worker node VMs, and replicated amongst other worker nodes at three replicas, minimum.
 
@@ -189,7 +189,7 @@ If Hive has left behind temporary files, then you can manually clean up those fi
     Here is a sample output when files exist:
 
     ```output
-    sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
+    sshuser@scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
     -rw-r--r--   3 hive hdfs         27 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info
@@ -211,6 +211,10 @@ If Hive has left behind temporary files, then you can manually clean up those fi
 If your clusters get stuck in safe mode frequently when scaling down to fewer than three worker nodes, and the previous steps don't work, then you can avoid your cluster going in to safe mode altogether by keeping at least three worker nodes.
 
 Retaining three worker nodes is more costly than scaling down to only one worker node, but it will prevent your cluster from getting stuck in safe mode.
+
+### Scale HDInsight down to one worker node
+
+Even when the cluster is scaled down to 1 node, worker node 0 will still survive. Worker node 0 can never be decommissioned.
 
 #### Run the command to leave safe mode
 

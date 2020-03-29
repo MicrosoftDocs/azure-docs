@@ -1,9 +1,9 @@
 ---
-title: How to integrate Azure Active Directory logs with ArcSight using Azure Monitor  | Microsoft Docs
+title: Integrate logs with ArcSight using Azure Monitor  | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with ArcSight using Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/19/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To use this feature, you need:
 * An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * A configured instance of ArcSight Syslog NG Daemon SmartConnector (SmartConnector) or ArcSight Load Balancer. If the events are sent to ArcSight Load Balancer, they are consequently sent to the SmartConnector by the Load Balancer.
 
-Download and open the [configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). This guide contains the steps you need to install and configure the ArcSight SmartConnector for Azure Monitor. 
+Download and open the [configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). This guide contains the steps you need to install and configure the ArcSight SmartConnector for Azure Monitor. 
 
 ## Integrate Azure AD logs with ArcSight
 
@@ -56,4 +56,4 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 ## Next steps
 
-[Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

@@ -2,11 +2,12 @@
  title: include file
  description: include file
  services: digital-twins
- author: kingdomofends
+ ms.author: alinast
+ author: alinamstanciu
+ manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 08/12/2019
- ms.author: v-adgera
+ ms.date: 02/07/2020
  ms.custom: include file
 ---
 
@@ -21,7 +22,7 @@
 >
 > **Content-Type** and **Content-Disposition** will vary depending on use scenario.
 
-Multipart requests can be made programmatically (through C#), through a REST client, or tool such as [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST client tools may have varying levels of support for complex multipart requests. Configuration settings may also vary slightly from tool to tool. Verify which tool is best suited for your needs.
+Multipart requests can be made programmatically (through C#), through a REST client, or tool such as [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#make-a-multipart-post-request). REST client tools may have varying levels of support for complex multipart requests. Configuration settings may also vary slightly from tool to tool. Verify which tool is best suited for your needs.
 
 > [!IMPORTANT]
 > Multipart requests made to the Azure Digital Twins Management APIs typically have two parts:

@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
 ---
-# Pattern.any entity 
+# Pattern.any entity
 
 Pattern.any is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends.  
 
@@ -19,13 +19,13 @@ Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent
 
 **The entity is a good fit when:**
 
-* The ending of the entity can be confused with the remaining text of the utterance. 
+* The ending of the entity can be confused with the remaining text of the utterance.
 
 ## Usage
 
-Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`. 
+Given a client application that searches for books based on title, the pattern.any extracts the complete title. A template utterance using pattern.any for this book search is `Was {BookTitle} written by an American this year[?]`.
 
-In the following table, each row has two versions of the utterance. The top utterance is how LUIS initially sees the utterance. It isn't clear where the book title begins and ends. The bottom utterance uses a Pattern.any entity to mark the beginning and end of the entity. 
+In the following table, each row has two versions of the utterance. The top utterance is how LUIS initially sees the utterance. It isn't clear where the book title begins and ends. The bottom utterance uses a Pattern.any entity to mark the beginning and end of the entity.
 
 |Utterance with entity in bold|
 |--|
@@ -35,49 +35,71 @@ In the following table, each row has two versions of the utterance. The top utte
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>Was **There's A Wocket In My Pocket!** written by an American this year?|
 ||
 
+
+
 ## Example JSON
 
+Consider the following query:
+
+`where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
+
+With the embedded form name to extract as a Pattern.any:
+
+`Understand your responsibilities as a member of the community`
+
+#### [V2 prediction endpoint response](#tab/V2)
+
 ```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
+"entities": [
+  {
+    "entity": "understand your responsibilities as a member of the community",
+    "type": "FormName",
+    "startIndex": 18,
+    "endIndex": 78,
+    "role": ""
+  }
+```
+
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+This is the JSON if `verbose=false` is set in the query string:
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ]
 }
 ```
 
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "FormName": [
+        "Understand your responsibilities as a member of the community"
+    ],
+    "$instance": {
+        "FormName": [
+            {
+                "type": "FormName",
+                "text": "Understand your responsibilities as a member of the community",
+                "startIndex": 18,
+                "length": 61,
+                "modelTypeId": 7,
+                "modelType": "Pattern.Any Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * *
+
 ## Next steps
 
-In this [tutorial](luis-tutorial-pattern-any.md), use the **Pattern.any** entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.
+In this [tutorial](luis-tutorial-pattern.md), use the **Pattern.any** entity to extract data from utterances where the utterances are well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.

@@ -1,23 +1,14 @@
 ---
-title: Azure CLI Script Sample - Create app and deploy code to staging slot | Microsoft Docs
-description: Azure CLI Script Sample - Create an App Service app and deploy code to a staging slot
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Deploy to staging slot'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to deploy code to a staging slot.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Create an App Service app and deploy code to a staging environment using Azure CLI

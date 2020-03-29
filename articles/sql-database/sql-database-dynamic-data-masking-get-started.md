@@ -1,18 +1,20 @@
 ---
-title: Azure SQL Database dynamic data masking | Microsoft docs
-description: SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users
+title: Dynamic data masking
+description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for SQL Database and Azure Synapse
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/04/2019
+ms.date: 02/06/2020
+tags: azure-synpase
 ---
-# SQL Database dynamic data masking
+# Dynamic data masking for Azure SQL Database and Azure Synapse Analytics
 
 SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
 
@@ -20,9 +22,9 @@ Dynamic data masking helps prevent unauthorized access to sensitive data by enab
 
 For example, a service representative at a call center may identify callers by several digits of their credit card number, but those data items should not be fully exposed to the service representative. A masking rule can be defined that masks all but the last four digits of any credit card number in the result set of any query. As another example, an appropriate data mask can be defined to protect personally identifiable information (PII) data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
-## SQL Database dynamic data masking basics
+## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade.
+You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade. This feature cannot be set by using portal for Azure Synapse (Please use Powershell or REST API)
 
 ### Dynamic data masking permissions
 

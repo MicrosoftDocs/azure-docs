@@ -5,12 +5,13 @@ services: virtual-machines-windows
 author: yashar
 manager: yashar
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 03/27/2020
 ms.author: banders
 
 ---
+# Save costs with Azure Reserved VM Instances
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]

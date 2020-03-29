@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Security Center for Linux VMs in Azure | Microsoft Docs
+title: Tutorial - Use Azure Security Center for Linux VMs in Azure 
 description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -102,7 +101,7 @@ As recommendations are remediated, they are marked as resolved.
 
 ## View detected threats
 
-In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [Azure Security Center detection capabilities](../../security-center/security-center-detection-capabilities.md).
+In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [How does Security Center detect threats?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A **free trial** is available when you move to this higher pricing tier. 
 
@@ -133,5 +132,5 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

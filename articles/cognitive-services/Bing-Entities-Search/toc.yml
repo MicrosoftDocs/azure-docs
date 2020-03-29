@@ -1,5 +1,5 @@
 - name: Bing Entity Search Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   items:
     - name: What is Bing Entity Search?
@@ -7,7 +7,7 @@
     - name: Compare the Bing Search APIs
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: REST API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
     - name: REST API
@@ -26,14 +26,8 @@
         href: quickstarts/ruby.md
     - name: SDK
       items:
-      - name: Using C# 
-        href: quickstarts/entity-sdk-csharp-quickstart.md
-      - name: Using Node.js
-        href: quickstarts/entity-sdk-node-quickstart.md  
-      - name: Using Python
-        href: quickstarts/entity-sdk-python-quickstart.md 
-      - name: Using Java
-        href: quickstarts/entity-sdk-java-quickstart.md
+      - name: Bing Entity Search client libraries
+        href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build a single-page web app
@@ -69,7 +63,7 @@
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-entitysearch/?view=azure-node-latest
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch  
 - name: Resources

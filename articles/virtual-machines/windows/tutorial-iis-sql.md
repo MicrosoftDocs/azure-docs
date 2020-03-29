@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create VMs running an SQL, IIS, .NET stack in Azure| Microsoft Docs
+title: Tutorial - Create VMs running an SQL, IIS, .NET stack in Azure
 description: In this tutorial, you learn how to install the Azure SQL, IIS, .NET stack on a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -9,7 +9,6 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -136,8 +135,8 @@ In this tutorial, you installed a SQL&#92;IIS&#92;.NET stack using Azure PowerSh
 > * Create a VM running SQL Server
 > * Install the SQL Server extension
 
-Advance to the next tutorial to learn how to secure IIS web server with SSL certificates.
+Advance to the next tutorial to learn how to secure IIS web server with TLS/SSL certificates.
 
 > [!div class="nextstepaction"]
-> [Secure IIS web server with SSL certificates](tutorial-secure-web-server.md)
+> [Secure IIS web server with TLS/SSL certificates](tutorial-secure-web-server.md)
 

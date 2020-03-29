@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 11/11/2019
 ms.author: kgremban
 ---
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
@@ -408,6 +408,54 @@ In the `properties` section, this log contains additional information about mess
 | **endpointName** | String | The name of the routing endpoint |
 | **endpointType** | String | The type of the routing endpoint |
 | **parentSpanId** | String | The [span-id](https://w3c.github.io/trace-context/#parent-id) of the parent message, which would be the IoT Hub ingress message trace in this case |
+
+#### Configurations
+
+IoT Hub configuration logs tracks events and error for the Automatic Device Management feature set.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-24T17:21:52Z",
+             "resourceId": "Resource Id",
+             "operationName": "ReadManyConfigurations",
+             "category": "Configurations",
+             "resultType": "",
+             "resultDescription": "",
+             "level": "Information",
+             "durationMs": "17",
+             "properties": "{\"configurationId\":\"\",\"sdkVersion\":\"2018-06-30\",\"messageSize\":\"0\",\"statusCode\":null}",
+             "location": "southcentralus"
+         }
+    ]
+}
+```
+
+### Device Streams (Preview)
+
+The device streams category tracks request-response interactions sent to individual devices.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-19T11:12:04Z",
+             "resourceId": "Resource Id",
+             "operationName": "invoke",
+             "category": "DeviceStreams",
+             "resultType": "",
+             "resultDescription": "",    
+             "level": "Information",
+             "durationMs": "74",
+             "properties": "{\"deviceId\":\"myDevice\",\"moduleId\":\"myModule\",\"sdkVersion\":\"2019-05-01-preview\",\"requestSize\":\"3\",\"responseSize\":\"5\",\"statusCode\":null,\"requestName\":\"myRequest\",\"direction\":\"c2d\"}",
+             "location": "Central US"
+         }
+    ]
+}
+```
 
 ### Read logs from Azure Event Hubs
 

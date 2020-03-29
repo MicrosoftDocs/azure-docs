@@ -1,15 +1,15 @@
 ---
-title: Azure Database for PostgreSQL – Hyperscale (Citus) (preview) performance options
+title: Performance options – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Options for a Hyperscale (Citus) server group, including node compute, storage, and regions.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 2/18/2020
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) (preview) performance options
+# Azure Database for PostgreSQL – Hyperscale (Citus) performance options
 
 ## Compute and storage
  
@@ -26,7 +26,7 @@ node.
  
 |                       | Worker node           | Coordinator node      |
 |-----------------------|-----------------------|-----------------------|
-| Compute, vCores       | 4, 8, 16, 32          | 4, 8, 16, 32          |
+| Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memory per vCore, GiB | 8                     | 4                     |
 | Storage size, TiB     | 0.5, 1, 2             | 0.5, 1, 2             |
 | Storage type          | General purpose (SSD) | General purpose (SSD) |
@@ -35,10 +35,29 @@ node.
 
 ## Regions
 Hyperscale (Citus) server groups are available in the following Azure regions:
-* East US 2
-* South East Asia
-* West Europe
-* West US 2
+
+* Americas:
+	* Canada Central
+	* Central US
+	* East US
+	* East US 2
+	* North Central US
+	* West US 2
+* Asia Pacific:
+	* Australia East
+	* Japan East
+	* Korea Central
+	* Southeast Asia
+* Europe:
+	* North Europe
+	* UK South
+	* West Europe
+
+Some of these regions may not be initially activated on all Azure
+subscriptions. If you want to use a region from the list above and don't see it
+in your subscription, or if you want to use a region not on this list, open a
+[support
+request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Pricing
 For the most up-to-date pricing information, see the service

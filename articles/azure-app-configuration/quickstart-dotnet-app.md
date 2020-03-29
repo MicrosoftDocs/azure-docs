@@ -3,18 +3,12 @@ title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Do
 description: A quickstart for using Azure App Configuration with .NET Framework apps
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
+author: lisaguthrie
 
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: .NET
-ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
+ms.date: 12/17/2019
+ms.author: lcozzens
 
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---
@@ -26,13 +20,13 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -40,22 +34,27 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
     Leave **Label** and **Content Type** empty for now.
 
+7. Select **Apply**.
+
 ## Create a .NET console app
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
-2. In **New Project**, select **Installed** > **Visual C#** > **Windows Desktop**. Select **Console App (.NET Framework)**, and enter a name for your project. Select **.NET Framework 4.7.1** or up, and select **OK**.
+1. In **Create a new project**, filter on the **Console** project type and click on **Console App (.NET Framework)**. Select **Next**.
 
-## Connect to an app configuration store
+1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.7.1** or higher. Select **Create**.
+
+## Connect to an App Configuration store
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. Update the *App.config* file of your project as follows:
+1. Update the *App.config* file of your project as follows:
 
     ```xml
     <configSections>
@@ -75,14 +74,14 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
     </appSettings>
     ```
 
-   The connection string of your app configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+   The connection string of your App Configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
-3. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
+1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -90,15 +89,18 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your app configuration store. If you use the Windows command prompt, run the following command:
+1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
 
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
-2. Restart Visual Studio to allow the change to take effect. Press Ctrl + F5 to build and run the console app.
+    ```
+1. Restart Visual Studio to allow the change to take effect. Press Ctrl + F5 to build and run the console app.
 
 ## Clean up resources
 
@@ -106,7 +108,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with a .NET Framework console app. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with a .NET Framework console app. The value `AppSettings` of `ConfigurationManager` won't change after the application is started. The App Configuration .NET Standard configuration provider library, however can also be used in a .NET Framework app. To learn how to enable your .NET Framework app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)

@@ -1,9 +1,9 @@
 ---
 title: 'Ingest Azure Blobs into Azure Data Explorer'
 description: In this article, you learn how to send storage account data to Azure Data Explorer using an Event Grid subscription.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
@@ -12,6 +12,12 @@ ms.date: 06/03/2019
 ---
 
 # Ingest blobs into Azure Data Explorer by subscribing to Event Grid notifications
+
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-event-grid.md)
+> * [C#](data-connection-event-grid-csharp.md)
+> * [Python](data-connection-event-grid-python.md)
+> * [Azure Resource Manager template](data-connection-event-grid-resource-manager.md)
 
 Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. It offers continuous ingestion (data loading) from blobs written to blob containers. 
 
@@ -45,7 +51,7 @@ In this article, you learn how to set an [Azure Event Grid](/azure/event-grid/ov
     | Endpoint | *test-hub* | The event hub you created. |
     | | |
 
-1. Select the **Additional Features** tab if you want to track files from a specific container. Set the filters for the notifications as follows:
+1. Select the **Filters** tab if you want to track files from a specific container. Set the filters for the notifications as follows:
     * **Subject Begins With** field is the *literal* prefix of the blob container. As the pattern applied is *startswith*, it can span multiple containers. No wildcards are allowed.
      It *must* be set as follows: *`/blobServices/default/containers/`*[container prefix]
     * **Subject Ends With** field is the *literal* suffix of the blob. No wildcards are allowed.
@@ -60,7 +66,7 @@ Create a table in Azure Data Explorer where Event Hubs will send data. Create th
 
 1. Copy the following command into the window and select **Run** to create the table (TestTable) that will receive the ingested data.
 
-    ```Kusto
+    ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
@@ -68,13 +74,13 @@ Create a table in Azure Data Explorer where Event Hubs will send data. Create th
 
 1. Copy the following command into the window and select **Run** to map the incoming JSON data to the column names and data types of the table (TestTable).
 
-    ```Kusto
+    ```kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
 ## Create an Event Grid data connection in Azure Data Explorer
 
-Now connect to the event grid from Azure Data Explorer, so that data flowing into the blob container is streamed to the test table.
+Now connect to the Event Grid from Azure Data Explorer, so that data flowing into the blob container is streamed to the test table. 
 
 1. Select **Notifications** on the toolbar to verify that the event hub deployment was successful.
 
@@ -109,7 +115,7 @@ Now connect to the event grid from Azure Data Explorer, so that data flowing int
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. Supported compression options: Zip and GZip |
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, RAW, and TXT. Supported compression options: Zip and GZip |
     | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**.|
     | | |
     
@@ -121,11 +127,11 @@ We'll work with a small shell script that issues a few basic Azure CLI commands 
 
 Save the data into a file and upload it with this script:
 
-```Json
+```json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
 ```
 
-```bash
+```azurecli
 #!/bin/bash
 ### A simple Azure Storage example script
 
@@ -141,7 +147,7 @@ Save the data into a file and upload it with this script:
     az storage container create --name $container_name
 
     echo "Uploading the file..."
-    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
+    az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name --metadata "rawSizeBytes=1024"
 
     echo "Listing the blobs..."
     az storage blob list --container-name $container_name --output table
@@ -149,12 +155,36 @@ Save the data into a file and upload it with this script:
     echo "Done"
 ```
 
+> [!NOTE]
+> To achieve the best ingestion performance, the *uncompressed* size of the compressed blobs submitted for ingestion must be communicated. Because Event Grid notifications contain only basic details, the size information must be explicitly communicated. The uncompressed size information can be provided by setting the `rawSizeBytes` property on the blob metadata with the *uncompressed* data size in bytes.
+
+### Ingestion properties
+
+You can specify the [Ingestion properties](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#ingestion-properties) of the blob ingestion via the blob metadata.
+
+These properties can be set:
+
+|**Property** | **Property description**|
+|---|---|
+| `rawSizeBytes` | Size of the raw (uncompressed) data. For Avro/ORC/Parquet, this is the size before format-specific compression is applied.|
+| `kustoTable` |  Name of the existing target table. Overrides the `Table` set on the `Data Connection` blade. |
+| `kustoDataFormat` |  Data format. Overrides the `Data format` set on the `Data Connection` blade. |
+| `kustoIngestionMappingReference` |  Name of the existing ingestion mapping to be used. Overrides the `Column mapping` set on the `Data Connection` blade.|
+| `kustoIgnoreFirstRecord` | If set to `true`, Kusto ignores the first row of the blob. Use in tabular format data (CSV, TSV, or similar) to ignore headers. |
+| `kustoExtentTags` | String representing [tags](/azure/kusto/management/extents-overview#extent-tagging) that will be attached to resulting extent. |
+| `kustoCreationTime` |  Overrides [$IngestionTime](/azure/kusto/query/ingestiontimefunction?pivots=azuredataexplorer) for the blob, formatted as a ISO 8601 string. Use for backfilling. |
+
+> [!NOTE]
+> Azure Data Explorer won't delete the blobs post ingestion.
+> Retain the blobs for thrre to five days.
+> Use [Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) to manage blob deletion. 
+
 ## Review the data flow
 
 > [!NOTE]
 > Azure Data Explorer has an aggregation (batching) policy for data ingestion designed to optimize the ingestion process.
 By default, the policy is configured to 5 minutes.
-You’ll be able to alter the policy at a later time if needed. In this article you can expect a latency of a few minutes.
+You'll be able to alter the policy at a later time if needed. In this article you can expect a latency of a few minutes.
 
 1. In the Azure portal, under your event grid, you see the spike in activity while the app is running.
 
@@ -162,14 +192,14 @@ You’ll be able to alter the policy at a later time if needed. In this article 
 
 1. To check how many messages have made it to the database so far, run the following query in your test database.
 
-    ```Kusto
+    ```kusto
     TestTable
     | count
     ```
 
 1. To see the content of the messages, run the following query in your test database.
 
-    ```Kusto
+    ```kusto
     TestTable
     ```
 

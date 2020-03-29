@@ -1,6 +1,6 @@
 ---
-title: 'Azure Database for PostgreSQL – Hyperscale (Citus) (preview) quickstart'
-description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
+title: Create distributed tables - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Quickstart to create and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -11,9 +11,9 @@ ms.date: 05/14/2019
 #Customer intent: As a developer, I want to provision a hyperscale server group so that I can run queries quickly on large datasets.
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) in the Azure portal
+# Quickstart: Create an Azure Database for PostgreSQL - Hyperscale (Citus) in the Azure portal
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) server group using the Azure portal. You'll explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) server group using the Azure portal. You'll explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -84,6 +84,8 @@ We're ready to load data. In psql still, shell out to download the files:
 Next, load the data from the files into the distributed tables:
 
 ```sql
+SET CLIENT_ENCODING TO 'utf8';
+
 \copy github_events from 'events.csv' WITH CSV
 \copy github_users from 'users.csv' WITH CSV
 ```

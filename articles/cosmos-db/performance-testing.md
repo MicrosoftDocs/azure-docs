@@ -84,7 +84,7 @@ The quickest way to get started is to compile and run the .NET sample, as descri
     Press any key to exit...
 
 
-**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection or a set of collections. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step, email askcosmosdb@microsoft.com or file a support ticket from the [Azure portal](https://portal.azure.com).
+**Step 4 (if necessary):** The throughput reported (RU/s) from the tool should be the same or higher than the provisioned throughput of the collection or a set of collections. If it's not, increasing the DegreeOfParallelism in small increments might help you reach the limit. If the throughput from your client app plateaus, start multiple instances of the app on additional client machines. If you need help with this step file a support ticket from the [Azure portal](https://portal.azure.com).
 
 After you have the app running, you can try different [indexing policies](index-policy.md) and [consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 

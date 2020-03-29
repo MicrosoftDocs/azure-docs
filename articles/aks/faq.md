@@ -1,14 +1,9 @@
 ---
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
-services: container-service
-author: mlearned
-manager: jeconnoc
+ms.topic: conceptual
+ms.date: 10/02/2019
 
-ms.service: container-service
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: mlearned
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -29,7 +24,7 @@ Yes, you can deploy an AKS cluster into an existing virtual network by using the
 
 ## Can I limit who has access to the Kubernetes API server?
 
-Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges], which is currently in preview.
+Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges].
 
 ## Can I make the Kubernetes API server accessible only within my virtual network?
 
@@ -37,7 +32,7 @@ Not at this time, but this is planned. You can track progress on the [AKS GitHub
 
 ## Can I have different VM sizes in a single cluster?
 
-Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools], which is currently in preview.
+Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools].
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -51,18 +46,20 @@ For more information about using kured, see [Apply security and kernel updates t
 
 ### Windows Server nodes
 
-For Windows Server nodes (currently in preview in AKS), Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
+For Windows Server nodes (currently in preview in AKS), Windows Update does not automatically run and apply the latest updates. On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the cluster and the Windows Server node pool(s) in your AKS cluster. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Why are two resource groups created with AKS?
 
-Each AKS deployment spans two resource groups:
+AKS builds upon a number of Azure infrastructure resources, including virtual machine scale sets, virtual networks, and managed disks. This enables you to leverage many of the core capabilities of the Azure platform within the managed Kubernetes environment provided by AKS. For example, most Azure virtual machine types can be used directly with AKS and Azure Reservations can be used to receive discounts on those resources automatically.
+
+To enable this architecture, each AKS deployment spans two resource groups:
 
 1. You create the first resource group. This group contains only the Kubernetes service resource. The AKS resource provider automatically creates the second resource group during deployment. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*. For information on how to specify the name of this second resource group, see the next section.
 1. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource whenever the cluster is deleted, so it should only be used for resources which share the cluster's lifecycle.
 
 ## Can I provide my own name for the AKS node resource group?
 
-Yes. By default, AKS will name the node resource group *MC_clustername_resourcegroupname_location*, but you can also provide your own name.
+Yes. By default, AKS will name the node resource group *MC_resourcegroupname_clustername_location*, but you can also provide your own name.
 
 To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster by using the [az aks create][az-aks-create] command, use the *--node-resource-group* parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name by using the *nodeResourceGroup* property.
 
@@ -93,8 +90,6 @@ AKS supports the following [admission controllers][admission-controllers]:
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
-- *DenyEscalatingExec*
-- *AlwaysPullImages*
 
 Currently, you can't modify the list of admission controllers in AKS.
 
@@ -106,11 +101,13 @@ AKS isn't currently natively integrated with Azure Key Vault. However, the [Azur
 
 Yes, Windows Server containers are available in preview. To run Windows Server containers in AKS, you create a node pool that runs Windows Server as the guest OS. Windows Server containers can use only Windows Server 2019. To get started, see [Create an AKS cluster with a Windows Server node pool][aks-windows-cli].
 
-Window Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
+Windows Server support for node pool includes some limitations that are part of the upstream Windows Server in Kubernetes project. For more information on these limitations, see [Windows Server containers in AKS limitations][aks-windows-limitations].
 
 ## Does AKS offer a service-level agreement?
 
-In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Because AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
+In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
+
+It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
 
 ## Why can't I set maxPods below 30?
 
@@ -133,7 +130,7 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 
 ## Can I move/migrate my cluster between Azure tenants?
 
-The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](https://docs.microsoft.com/azure/aks/update-credentials) and then [update aks cluster with new credentials](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](https://docs.microsoft.com/azure/aks/update-credentials) and then [update aks cluster with new credentials](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
 ## Can I move/migrate my cluster between subscriptions?
 
@@ -181,14 +178,12 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 
 ## Can I use custom VM extensions?
 
-No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
-[virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
@@ -199,12 +194,13 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
-
+[aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent

@@ -52,7 +52,7 @@ The following terms are used in this article:
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
 
-| Primary namespace | Secondary namespace | Suppported | 
+| Primary namespace | Secondary namespace | Supported | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Yes | 
 | Standard | Dedicated | Yes | 
@@ -107,13 +107,19 @@ The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/sam
 
 Note the following considerations to keep in mind with this release:
 
-1. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
+1. By design, Event Hubs geo-disaster recovery does not replicate data, and therefore you cannot reuse the old offset value of your primary event hub on your secondary event hub. We recommend restarting your event receiver with one of the following:
+
+- *EventPosition.FromStart()* - If you wish read all data on your secondary event hub.
+- *EventPosition.FromEnd()* - If you wish to read all new data from the time of connection to your secondary event hub.
+- *EventPosition.FromEnqueuedTime(dateTime)* - If you wish to read all data received in your secondary event hub starting from a given date and time.
+
+2. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
  
-2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
+3. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
 
-3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once. 
+4. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once. 
 
-4. Synchronizing entities can take some time, approximately 50-100 entities per minute.
+5. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
 ## Availability Zones 
 
@@ -133,7 +139,11 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 For more information about Event Hubs, visit the following links:
 
-* Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
+- Get started with Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

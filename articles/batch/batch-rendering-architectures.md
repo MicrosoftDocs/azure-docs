@@ -4,8 +4,8 @@ description: Architectures for using Azure Batch and other Azure services to ext
 services: batch
 ms.service: batch
 author: davefellows
-manager: gwallace
-ms.author: lahugh
+manager: evansma
+ms.author: labrenne
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18

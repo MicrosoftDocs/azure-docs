@@ -1,5 +1,6 @@
 ---
-title: Communication Security - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Communication security for the Microsoft Threat Modeling Tool 
+titleSuffix: Azure
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
@@ -99,7 +100,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - Azure |
-| **References**              | [Enable HTTPS for an app in Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **References**              | [Enable HTTPS for an app in Azure App Service](../../app-service/configure-ssl-bindings.md) |
 | **Steps** | By default, Azure already enables HTTPS for every app with a wildcard certificate for the *.azurewebsites.net domain. However, like all wildcard domains, it is not as secure as using a custom domain with own certificate [Refer](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). It is recommended to enable SSL for the custom domain which the deployed app will be accessed through|
 
 ## <a id="appservice-https"></a>Force all traffic to Azure App Service over HTTPS connection
@@ -110,7 +111,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - Azure |
-| **References**              | [Enforce HTTPS on Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
+| **References**              | [Enforce HTTPS on Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Steps** | <p>Though Azure already enables HTTPS for Azure app services with a wildcard certificate for the domain *.azurewebsites.net, it do not enforce HTTPS. Visitors may still access the app using HTTP, which may compromise the app's security and hence HTTPS has to be enforced explicitly. ASP.NET MVC applications should use the [RequireHttps filter](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) that forces an unsecured HTTP request to be re-sent over HTTPS.</p><p>Alternatively, the URL Rewrite module, which is included with Azure App Service can be used to enforce HTTPS. URL Rewrite module enables developers to define rules that are applied to incoming requests before the requests are handed to your application. URL Rewrite rules are defined in a web.config file stored in the root of the application</p>|
 
 ### Example
@@ -133,7 +134,7 @@ The following example contains a basic URL Rewrite rule that forces all incoming
   </system.webServer>
 </configuration>
 ```
-This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com. 
+This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, `HTTP://contoso.com` would be redirected to `HTTPS://contoso.com`. 
 
 ## <a id="http-hsts"></a>Enable HTTP Strict Transport Security (HSTS)
 
@@ -144,7 +145,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [OWASP HTTP Strict Transport Security Cheat Sheet](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Steps** | <p>HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.</p><p>To implement HSTS, the following response header has to be configured for a website globally, either in code or in config. Strict-Transport-Security: max-age=300; includeSubDomains HSTS addresses the following threats:</p><ul><li>User bookmarks or manually types https://example.com and is subject to a man-in-the-middle attacker: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate: HSTS does not allow a user to override the invalid certificate message</li></ul>|
+| **Steps** | <p>HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.</p><p>To implement HSTS, the following response header has to be configured for a website globally, either in code or in config. Strict-Transport-Security: max-age=300; includeSubDomains HSTS addresses the following threats:</p><ul><li>User bookmarks or manually types `https://example.com` and is subject to a man-in-the-middle attacker: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate: HSTS does not allow a user to override the invalid certificate message</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Ensure SQL server connection encryption and certificate validation
 
@@ -286,7 +287,7 @@ namespace CertificatePinningExample
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | NET Framework 3 |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Steps** | The application configuration should ensure that HTTPS is used for all access to sensitive information.<ul><li>**EXPLANATION:** If an application handles sensitive information and does not use message-level encryption, then it should only be allowed to communicate over an encrypted transport channel.</li><li>**RECOMMENDATIONS:** Ensure that HTTP transport is disabled and enable HTTPS transport instead. For example, replace the `<httpTransport/>` with `<httpsTransport/>` tag. Do not rely on a network configuration (firewall) to guarantee that the application can only be accessed over a secure channel. From a philosophical point of view, the application should not depend on the network for its security.</li></ul><p>From a practical point of view, the people responsible for securing the network do not always track the security requirements of the application as they evolve.</p>|
 
 ## <a id="message-protection"></a>WCF: Set Message security Protection level to EncryptAndSign
@@ -298,7 +299,7 @@ namespace CertificatePinningExample
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
 | **References**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Steps** | <ul><li>**EXPLANATION:** When Protection level is set to "none" it will disable message protection. Confidentiality and integrity is achieved with appropriate level of setting.</li><li>**RECOMMENDATIONS:**<ul><li>when `Mode=None` - Disables message protection</li><li>when `Mode=Sign` - Signs but does not encrypt the message; should be used when data integrity is important</li><li>when `Mode=EncryptAndSign` - Signs and encrypts the message</li></ul></li></ul><p>Consider turning off encryption and only signing your message when you just need to validate the integrity of the information without concerns of confidentiality. This may be useful for operations or service contracts in which you need to validate the original sender but no sensitive data is transmitted. When reducing the protection level, be careful that the message does not contain any personally identifiable information (PII).</p>|
+| **Steps** | <ul><li>**EXPLANATION:** When Protection level is set to "none" it will disable message protection. Confidentiality and integrity is achieved with appropriate level of setting.</li><li>**RECOMMENDATIONS:**<ul><li>when `Mode=None` - Disables message protection</li><li>when `Mode=Sign` - Signs but does not encrypt the message; should be used when data integrity is important</li><li>when `Mode=EncryptAndSign` - Signs and encrypts the message</li></ul></li></ul><p>Consider turning off encryption and only signing your message when you just need to validate the integrity of the information without concerns of confidentiality. This may be useful for operations or service contracts in which you need to validate the original sender but no sensitive data is transmitted. When reducing the protection level, be careful that the message does not contain any personal data.</p>|
 
 ### Example
 Configuring the service and the operation to only sign the message is shown in the following examples. Service Contract Example of `ProtectionLevel.Sign`: The following is an example of using ProtectionLevel.Sign at the Service Contract level: 

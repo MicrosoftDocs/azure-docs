@@ -167,7 +167,7 @@ Current VM SKUs that offer necessary compute isolation include specific offering
 The storage supporting these Virtual Machines can be encrypted in one of two ways to support necessary encryption standards.
 
 - Leverage Azure Disk Encryption to encrypt the drives using DM-Crypt (Linux) or BitLocker (Windows):
-  - [Enable Azure Disk Encryption for Linux](../security/azure-security-disk-encryption-linux.md)
+  - [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
   - [Enable Azure Disk Encryption for Windows](../security/azure-security-disk-encryption-windows.md)
 - Leverage Azure Storage Service Encryption for Storage Accounts with your own key to encrypt the storage account that holds the disks:
   - [Storage Service Encryption with Customer Managed Keys](../storage/common/storage-service-encryption-customer-managed-keys.md)
@@ -189,6 +189,16 @@ Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloa
 | **Azure Web Apps** | X | X | X | X | X | X |
 
 ## Integration services
+
+<a name="logic-apps"></a>
+
+### [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
+
+Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Logic Apps** | X | | X | X | | |
 
 ### [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)
 
@@ -227,13 +237,9 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
 
-### [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)
+### Azure Scheduler
 
-Azure Scheduler can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Scheduler** | X | X | X | X | X | X |
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
 ## Media services
 

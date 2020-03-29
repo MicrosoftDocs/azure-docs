@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 01/09/2019
 ms.author: b-juche
 ---
 # Service levels for Azure NetApp Files
@@ -54,3 +54,4 @@ In Example 2 above, a volume from a capacity pool with the Premium storage tier 
 - See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
 - See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) for the calculation of the capacity consumption in a capacity pool 
 - [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+- See [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)

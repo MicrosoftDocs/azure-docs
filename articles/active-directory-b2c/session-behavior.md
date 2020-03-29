@@ -2,27 +2,27 @@
 title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
 description: Configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Configure session behavior in Azure Active Directory B2C
 
-This feature gives you fine-grained control, on a [per-user flow basis](active-directory-b2c-reference-policies.md), of:
+This feature gives you fine-grained control, on a [per-user flow basis](user-flow-overview.md), of:
 
 - Lifetimes of web application sessions managed by Azure AD B2C.
 - Single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant.
 
 These settings are not available for password reset user flows.
 
-Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
+Azure AD B2C supports the [OpenID Connect authentication protocol](openid-connect.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
 
 ## Session behavior properties
 
@@ -45,7 +45,7 @@ The following use cases are enabled using these properties:
 ## Configure the properties
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **User flows (policies)**.
 5. Open the user flow that you previously created.

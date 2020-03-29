@@ -1,5 +1,5 @@
----
-title: Resolving T-SQL differences-migration-Azure SQL Database | Microsoft Docs
+﻿---
+title: Resolving T-SQL differences-migration
 description: Transact-SQL statements that are less than fully supported in Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -32,7 +32,7 @@ The core DDL (data definition language) statements are available, but some DDL s
 
 - CREATE and ALTER DATABASE statements have over three dozen options. The statements include file placement, FILESTREAM, and service broker options that only apply to SQL Server. This may not matter if you create databases before you migrate, but if you are migrating T-SQL code that creates databases you should compare [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) with the SQL Server syntax at [CREATE DATABASE (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) to make sure all the options you use are supported. CREATE DATABASE for Azure SQL Database also has service objective and elastic scale options that apply only to SQL Database.
 - The CREATE and ALTER TABLE statements have FileTable options that cannot be used on SQL Database because FILESTREAM is not supported.
-- CREATE and ALTER login statements are supported but SQL Database does not offer all the options. To make your database more portable, SQL Database encourages using contained database users instead of logins whenever possible. For more information, see [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) and [Controlling and granting database access](sql-database-manage-logins.md).
+- CREATE and ALTER login statements are supported but SQL Database does not offer all the options. To make your database more portable, SQL Database encourages using contained database users instead of logins whenever possible. For more information, see [CREATE/ALTER LOGIN](https://docs.microsoft.com/sql/t-sql/statements/alter-login-transact-sql) and [Manage logins and users](sql-database-manage-logins.md).
 
 ## Transact-SQL syntax not supported in Azure SQL Database
 
@@ -76,7 +76,7 @@ For more information about Transact-SQL grammar, usage, and examples, see [Tran
 
 ### About the "Applies to" tags
 
-The Transact-SQL reference includes articles related to SQL Server versions 2008 to the present. Below the article title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) article indicates that the statement applies to **SQL Server (starting with 2012)**. The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
+The Transact-SQL reference includes articles related to SQL Server versions 2008 to the present. Below the article title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) article indicates that the statement applies to **SQL Server (starting with 2012)**. The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
 In some cases, the general subject of an article can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the article as appropriate. In some cases, the general subject of an article can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the article as appropriate. For example the CREATE TRIGGER article is available in SQL Database. But the **ALL SERVER** option for server-level triggers, indicates that server-level triggers cannot be used in SQL Database. Use database-level triggers instead.
 

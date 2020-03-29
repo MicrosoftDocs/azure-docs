@@ -103,7 +103,7 @@ The configuration model in sync is called [declarative provisioning](concept-azu
 
 Azure AD Connect provides several features that simplify federating with Azure AD using AD FS and managing your federation trust. Azure AD Connect supports AD FS on Windows Server 2012R2 or later.
 
-[Update SSL certificate of AD FS farm](how-to-connect-fed-ssl-update.md) even if you are not using Azure AD Connect to manage your federation trust.
+[Update TLS/SSL certificate of AD FS farm](how-to-connect-fed-ssl-update.md) even if you are not using Azure AD Connect to manage your federation trust.
 
 [Add an AD FS server](how-to-connect-fed-management.md#addadfsserver) to your farm to expand the farm as required.
 
@@ -160,7 +160,8 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 * **Active Directory Domain Services**: This option shows all the AD DS forests that Azure AD Connect Health is currently monitoring. When you select a forest, the blade that opens shows information about that forest. This information includes an overview of essential information, the Domain Controllers dashboard, the Replication Status dashboard, alerts, and monitoring. Read more about the capabilities at [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md).
 * **Configure**: This section includes options to turn the following on or off:
 
-  - **Settings** entry includes basic configurations of your agents. Auto upgrade setting enables automatically update the Azure AD Connect Health agent to the latest version: You will be automatically updated to the latest versions of the Azure AD Connect Health Agent when they become available. This is enabled by default. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only: If this is enabled, Microsoft can see the same data that you see. This information can help with troubleshooting and assistance with issues. This is disabled by default.
+   - The **automatic update** of the Azure AD Connect Health agent to the latest version: the Azure AD Connect Health agent is automatically updated whenever new versions are available. This option is enabled by default.
+   - **Access to data** from the Azure AD directory integrity by Microsoft only for troubleshooting purposes: if this option is enabled, Microsoft can access the same data viewed by the user. This information can be useful for troubleshooting and to provide the necessary assistance. This option is disabled by default
 * **Role based access control (IAM)** is the section to manage the access to Connect Health data in role base. 
 
 ## Next Steps

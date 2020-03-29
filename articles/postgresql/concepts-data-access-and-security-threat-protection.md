@@ -1,8 +1,8 @@
 ---
 title: Advanced Threat Protection - Azure Database for PostgreSQL - Single Server
-description: Advanced Threat Protection detects anomalous database activities indicating potential security threats to the database. 
-author: bolzmj
-ms.author: mbolz
+description: Learn about using Advanced Threat Protection to detect anomalous database activities indicating potential security threats to the database. 
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019

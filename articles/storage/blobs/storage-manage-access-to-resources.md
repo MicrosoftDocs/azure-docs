@@ -1,12 +1,13 @@
 ---
-title: Enable public read access for containers and blobs in Azure Blob storage | Microsoft Docs
+title: Manage public read access for containers and blobs
+titleSuffix: Azure Storage
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 04/30/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ---
@@ -23,22 +24,15 @@ By default, a container and any blobs within it may be accessed only by a user t
 
 You can configure a container with the following permissions:
 
-* **No public read access:** The container and its blobs can be accessed only by the storage account owner. This is the default for all new containers.
-* **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available. Anonymous clients cannot enumerate the blobs within the container.
-* **Public read access for container and its blobs:** All container and blob data can be read by anonymous request. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
-
-You can use the following to set container permissions:
-
-* [Azure portal](https://portal.azure.com)
-* [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
-* Programmatically, by using one of the storage client libraries or the REST API
+- **No public read access:** The container and its blobs can be accessed only by the storage account owner. This is the default for all new containers.
+- **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available. Anonymous clients cannot enumerate the blobs within the container.
+- **Public read access for container and its blobs:** All container and blob data can be read by anonymous request. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
 
 ### Set container public access level in the Azure portal
 
 From the [Azure portal](https://portal.azure.com), you can update the public access level for one or more containers:
 
-1. Navigate to your storage account in the Azure portal.
+1. Navigate to your storage account overview in the Azure portal.
 1. Under **Blob service** on the menu blade, select **Blobs**.
 1. Select the containers for which you want to set the public access level.
 1. Use the **Change access level** button to display the public access settings.
@@ -53,16 +47,28 @@ The following screenshot shows how to change the public access level for the sel
 
 ### Set container public access level with .NET
 
-To set permissions for a container using C# and the Storage Client Library for .NET, first retrieve the container's existing permissions by calling the **GetPermissions** method. Then set the **PublicAccess** property for the **BlobContainerPermissions** object that is returned by the **GetPermissions** method. Finally, call the **SetPermissions** method with the updated permissions.
+To set permissions for a container using the Azure Storage client library for .NET, first retrieve the container's existing permissions by calling one of the following methods:
+
+- [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
+- [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
+
+Next, set the **PublicAccess** property on the [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) object that is returned by the **GetPermissions** method.
+
+Finally, call one of the following methods to update the container's permissions:
+
+- [SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
 
 The following example sets the container's permissions to full public read access. To set permissions to public read access for blobs only, set the **PublicAccess** property to **BlobContainerPublicAccessType.Blob**. To remove all permissions for anonymous users, set the property to **BlobContainerPublicAccessType.Off**.
 
 ```csharp
-public static void SetPublicContainerPermissions(CloudBlobContainer container)
+private static async Task SetPublicContainerPermissions(CloudBlobContainer container)
 {
-    BlobContainerPermissions permissions = container.GetPermissions();
+    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
     permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-    container.SetPermissions(permissions);
+    await container.SetPermissionsAsync(permissions);
+
+    Console.WriteLine("Container {0} - permissions set to {1}", container.Name, permissions.PublicAccess);
 }
 ```
 
@@ -77,13 +83,15 @@ You can create a new service client object for anonymous access by providing the
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob storage endpoint.
-    CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
+    // Create the client object using the Blob storage endpoint for your account.
+    CloudBlobClient blobClient = new CloudBlobClient(
+        new Uri(@"https://storagesamples.blob.core.windows.net"));
 
     // Get a reference to a container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    // Read the container's properties. 
+    // Note this is only possible when the container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
@@ -98,9 +106,11 @@ If you have the URL to a container that is anonymously available, you can use it
 public static void ListBlobsAnonymously()
 {
     // Get a reference to a container that's available for anonymous access.
-    CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
+    CloudBlobContainer container = new CloudBlobContainer(
+        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
 
     // List blobs in the container.
+    // Note this is only possible when the container supports full public read access.
     foreach (IListBlobItem blobItem in container.ListBlobs())
     {
         Console.WriteLine(blobItem.Uri);
@@ -115,45 +125,14 @@ If you have the URL to a blob that is available for anonymous access, you can re
 ```csharp
 public static void DownloadBlobAnonymously()
 {
-    CloudBlockBlob blob = new CloudBlockBlob(new Uri(@"https://storagesample.blob.core.windows.net/sample-container/logfile.txt"));
-    blob.DownloadToFile(@"C:\Temp\logfile.txt", System.IO.FileMode.Create);
+    CloudBlockBlob blob = new CloudBlockBlob(
+        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container/logfile.txt"));
+    blob.DownloadToFile(@"C:\Temp\logfile.txt", FileMode.Create);
 }
 ```
 
-## Features available to anonymous users
-
-The following table shows which operations may be called anonymously when a container is configured for public access.
-
-| REST Operation | Public read access to container | Public read access to blobs only |
-| --- | --- | --- |
-| List Containers | Authorized requests only | Authorized requests only |
-| Create Container | Authorized requests only | Authorized requests only |
-| Get Container Properties | Anonymous requests allowed | Authorized requests only |
-| Get Container Metadata | Anonymous requests allowed | Authorized requests only |
-| Set Container Metadata | Authorized requests only | Authorized requests only |
-| Get Container ACL | Authorized requests only | Authorized requests only |
-| Set Container ACL | Authorized requests only | Authorized requests only |
-| Delete Container | Authorized requests only | Authorized requests only |
-| List Blobs | Anonymous requests allowed | Authorized requests only |
-| Put Blob | Authorized requests only | Authorized requests only |
-| Get Blob | Anonymous requests allowed | Anonymous requests allowed |
-| Get Blob Properties | Anonymous requests allowed | Anonymous requests allowed |
-| Set Blob Properties | Authorized requests only | Authorized requests only |
-| Get Blob Metadata | Anonymous requests allowed | Anonymous requests allowed |
-| Set Blob Metadata | Authorized requests only | Authorized requests only |
-| Put Block | Authorized requests only | Authorized requests only |
-| Get Block List (committed blocks only) | Anonymous requests allowed | Anonymous requests allowed |
-| Get Block List (uncommitted blocks only or all blocks) | Authorized requests only | Authorized requests only |
-| Put Block List | Authorized requests only | Authorized requests only |
-| Delete Blob | Authorized requests only | Authorized requests only |
-| Copy Blob | Authorized requests only | Authorized requests only |
-| Snapshot Blob | Authorized requests only | Authorized requests only |
-| Lease Blob | Authorized requests only | Authorized requests only |
-| Put Page | Authorized requests only | Authorized requests only |
-| Get Page Ranges | Anonymous requests allowed | Anonymous requests allowed |
-| Append Blob | Authorized requests only | Authorized requests only |
-
 ## Next steps
 
-* [Authorization for the Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
-* [Using Shared Access Signatures (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Authorizing access to Azure Storage](../common/storage-auth.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
+- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)

@@ -2,23 +2,17 @@
 title: Microsoft identity platform developer glossary | Azure
 description: A list of terms for commonly used Microsoft identity platform developer concepts and features.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/21/2019
+ms.date: 12/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform developer glossary
@@ -42,7 +36,7 @@ The unique identifier Azure AD issues to an application registration that identi
 
 ## application manifest
 
-A feature provided by the [Azure portal][AZURE-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
+A feature provided by the [Azure portal][AZURE-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][Graph-App-Resource] and [ServicePrincipal][Graph-Sp-Resource] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
 
 ## application object
 
@@ -138,7 +132,7 @@ A [client application](#client-application) gains access to a [resource server](
 
 They also surface during the [consent](#consent) process, giving the administrator or resource owner the opportunity to grant/deny the client access to resources in their tenant.
 
-Permission requests are configured on the **API permissions** page for an application in the [Azure portal][AZURE-portal], by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Admin role). Because a [public client](#client-application) can't securely maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][AAD-Graph-App-Entity].
+Permission requests are configured on the **API permissions** page for an application in the [Azure portal][AZURE-portal], by selecting the desired "Delegated Permissions" and "Application Permissions" (the latter requires membership in the Global Admin role). Because a [public client](#client-application) can't securely maintain credentials, it can only request delegated permissions, while a [confidential client](#client-application) has the ability to request both delegated and application permissions. The client's [application object](#application-object) stores the declared permissions in its [requiredResourceAccess property][Graph-App-Resource].
 
 ## resource owner
 
@@ -148,25 +142,25 @@ As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity c
 
 As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], a server that hosts protected resources, capable of accepting and responding to protected resource requests by [client applications](#client-application) that present an [access token](#access-token). Also known as a protected resource server, or resource application.
 
-A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the Azure AD Graph API which provides access to Azure AD tenant data, and the Office 365 APIs that provide access to data such as mail and calendar. Both of these are also accessible via the [Microsoft Graph API][Microsoft-Graph].
+A resource server exposes APIs and enforces access to its protected resources through [scopes](#scopes) and [roles](#roles), using the OAuth 2.0 Authorization Framework. Examples include the [Microsoft Graph API][Microsoft-Graph] which provides access to Azure AD tenant data, and the Office 365 APIs that provide access to data such as mail and calendar. 
 
-Just like a client application, resource application's identity configuration is established via [registration](#application-registration) in an Azure AD tenant, providing both the application and service principal object. Some Microsoft-provided APIs, such as the Azure AD Graph API, have pre-registered service principals made available in all tenants during provisioning.
+Just like a client application, resource application's identity configuration is established via [registration](#application-registration) in an Azure AD tenant, providing both the application and service principal object. Some Microsoft-provided APIs, such as the Microsoft Graph API, have pre-registered service principals made available in all tenants during provisioning.
 
 ## roles
 
 Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. There are two types: a "user" role implements role-based access control for users/groups that require access to the resource, while an "application" role implements the same for [client applications](#client-application) that require access.
 
-Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][AAD-Graph-Sp-Entity]. The Azure portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
+Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][Graph-Sp-Resource]. The Azure portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
 
-For a detailed discussion of the application roles exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For a step-by-step implementation example, see [Manage access using RBAC and the Azure portal][AAD-RBAC].
+For a detailed discussion of the application roles exposed by the Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For a step-by-step implementation example, see [Manage access using RBAC and the Azure portal][AAD-RBAC].
 
 ## scopes
 
 Like [roles](#roles), scopes provide a way for a [resource server](#resource-server) to govern access to its protected resources. Scopes are used to implement [scope-based][OAuth2-Access-Token-Scopes] access control, for a [client application](#client-application) that has been given delegated access to the resource by its owner.
 
-Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][AAD-Graph-Sp-Entity]. The Azure portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
+Scopes are resource-defined strings (for example "Mail.Read", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [oauth2Permissions property][Graph-Sp-Resource]. The Azure portal is also used to configure client application [delegated permissions](#permissions) to access a scope.
 
-A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Azure AD's Graph API, see [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]. For scopes exposed by Office 365 services, see [Office 365 API permissions reference][O365-Perm-Ref].
+A best practice naming convention, is to use a "resource.operation.constraint" format. For a detailed discussion of the scopes exposed by Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For scopes exposed by Office 365 services, see [Office 365 API permissions reference][O365-Perm-Ref].
 
 ## security token
 
@@ -208,7 +202,7 @@ A type of [client application](#client-application) that downloads code from a w
 
 ## user principal
 
-Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Azure AD Graph [User entity][AAD-Graph-User-Entity] defines the schema for a user object, including user-related properties such as first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user for Single Sign-On, recording [consent](#consent) delegation, making access control decisions, etc.
+Similar to the way a service principal object is used to represent an application instance, a user principal object is another type of security principal, which represents a user. The Microsoft Graph [User resource type][Graph-User-Resource] defines the schema for a user object, including user-related properties such as first and last name, user principal name, directory role membership, etc. This provides the user identity configuration for Azure AD to establish a user principal at run-time. The user principal is used to represent an authenticated user for Single Sign-On, recording [consent](#consent) delegation, making access control decisions, etc.
 
 ## web client
 
@@ -227,10 +221,10 @@ Use the following comments section to provide feedback and help to refine and sh
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
+[Graph-Perm-Scopes]: /graph/permissions-reference
+[Graph-App-Resource]: /graph/api/resources/application
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]:quickstart-create-new-tenant.md

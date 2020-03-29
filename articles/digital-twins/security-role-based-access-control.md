@@ -1,18 +1,18 @@
 ---
-title: 'Understand Azure Digital Twins role-based access control | Microsoft Docs'
-description: Learn authentication in Digital Twins with role-based access control.
-author: lyrana
-manager: alinast
+title: 'Understand role-based access control - Azure Digital Twins | Microsoft Docs'
+description: Learn about role-based access control and managing permissions in Azure Digital Twins.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: lyhughes
+ms.date: 01/15/2020
 ---
 
 # Role-based access control in Azure Digital Twins
 
-Azure Digital Twins enables precise access control to specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called role-based access control (RBAC). RBAC consists of _roles_ and _role assignments_. Roles identify the level of permissions. Role assignments associate a role with a user or device.
+Azure Digital Twins enables precise access control over specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). RBAC consists of _roles_ and _role assignments_. Roles identify the level of permissions. Role assignments associate a role with a user or device.
 
 Using RBAC, permission can be granted to:
 
@@ -44,20 +44,20 @@ A developer might use RBAC to:
 
 ### Role definitions
 
-A role definition is a collection of permissions and other attributes that constitute a role. A role definition lists the allowed operations, which include *CREATE*, *READ*, *UPDATE*, and *DELETE* that any object with that role may perform. It also specifies to which object types permissions apply to.
+A role definition is a collection of permissions and other attributes that constitute a role. A role definition lists the allowed operations, which include *CREATE*, *READ*, *UPDATE*, and *DELETE* that any object with that role may perform. It also specifies to which object types the permissions apply to.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > To retrieve the full definitions for the previous roles, query the system/roles API.
-> Learn more by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#all).
+> Learn more by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#retrieve-all-roles).
 
 ### Object identifier types
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Learn how to grant permissions to your service principal by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#grant).
+> Learn how to grant permissions to your service principal by reading [Creating and managing role assignments](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
 
 The following reference documentation articles describe:
 
@@ -79,3 +79,5 @@ To grant permissions to a recipient, create a role assignment. To revoke permiss
 ## Next steps
 
 - To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
+
+- Read more about [RBAC for Azure](https://docs.microsoft.com/azure/role-based-access-control/).

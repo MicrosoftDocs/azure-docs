@@ -10,11 +10,11 @@ tags: azure-resource-manager
 keywords: 'SAP'
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
 
 ---
@@ -369,7 +369,7 @@ The following items are prefixed with either:
 - **[1]**: Applicable only to node 1 
 - **[2]**: Applicable only to node 2
 
-**[A]** Prerequisites for Pacemaker configuration:
+**[A]** Prerequisite for Pacemaker configuration:
 1. Shut down both database servers with user db2\<sid> with db2stop.
 1. Change the shell environment for db2\<sid> user to */bin/ksh*:
 <pre><code># Install korn shell:
@@ -442,6 +442,11 @@ Daemon Status:
 
 ### Configure Azure Load Balancer
 To configure Azure Load Balancer, we recommend that you use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) and then do the following;
+
+> [!NOTE]
+> The Standard Load Balancer SKU has restrictions accessing public IP addresses from the nodes underneath the Load Balancer. The article [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is describing ways on how to enable those nodes to access public IP addresses
+
+
 
 1. Create a front-end IP pool:
 
@@ -524,11 +529,15 @@ If you performed the installation before you created the Db2 HADR configuration,
 Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Config tool is a graphical tool, you need to have X server installed:
  
 1. Sign in to the primary application server of the J2EE instance and execute:
-	 <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+	
+	<pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+	
 1. In the left frame, choose **security store**.
-1. In the right frame, choose the key jdbc/pool/\<SAPSID>/url.
+1. In the right frame, choose the key `jdbc/pool/\<SAPSID>/url`.
 1. Change the host name in the JDBC URL to the virtual host name.
-	 <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+	
+	<pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+	
 1. Select **Add**.
 1. To save your changes, select the disk icon at the upper left.
 1. Close the configuration tool.

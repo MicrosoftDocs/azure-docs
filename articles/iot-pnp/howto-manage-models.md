@@ -1,13 +1,13 @@
 ---
 title: Manage IoT Plug and Play Preview models in the repository| Microsoft Docs'
 description: How to manage device capability models in the repository using the Azure Certified for IoT portal, the Azure CLI, and Visual Studio code.
-author: YasinMSFT
+author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
-ms.topic: conceptual
-ms.date: 06/12/2019
-ms.author: yahajiza
+ms.topic: how-to
+ms.date: 12/26/2019
+ms.author: philmea
 ---
 
 # Manage models in the repository
@@ -32,11 +32,11 @@ There are two types of model repository for storing device capability models and
 In the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com), you can complete the following tasks:
 
 - [Complete the certification process for your IoT device](./tutorial-certification-test.md).
-- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./quickstart-connect-pnp-device-solution.md).
+- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./quickstart-connect-pnp-device-solution-node.md).
 
 ## Azure CLI
 
-The Azure CLI provides commands for managing device capability models and interfaces in the IoT Plug and Play public and company model repositories.
+The Azure CLI provides commands for managing device capability models and interfaces in the IoT Plug and Play public and company model repositories. For more information, see the [Install and use the Azure IoT extension for Azure CLI](./howto-install-pnp-cli.md) how-to guide.
 
 ## Visual Studio Code
 

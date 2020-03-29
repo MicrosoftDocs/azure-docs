@@ -1,36 +1,29 @@
 ---
-title: Create a Java web app on Windows - Azure App Service
-description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Windows in minutes.
+title: 'QuickStart: Create a Java app on Windows'
+description: Deploy your first Java Hello World to Azure App Service on Windows in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
 keywords: azure, app service, web app, windows, java, maven, quickstart
-services: app-service\web
-documentationcenter: ''
 author: msangapu-msft
-manager: jeconnoc
-editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
-# Quickstart: Create a Java app in App Service
+# Quickstart: Create a Java app on Azure App Service on Windows
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create Java web app on Linux](./containers/quickstart-java.md).
 >
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
 
 > [!NOTE]
 > The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
 >
-![Sample app running in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -62,15 +55,15 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
+        <version>1.9.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
             <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
+            <subscriptionId>SUBSCRIPTION_ID</subscriptionId>
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
             <!-- Java Runtime Stack for App Service on Windows-->
             <runtime>
                 <os>windows</os>
@@ -115,16 +108,27 @@ mvn package azure-webapp:deploy
 
 Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/`.
 
-![Sample app running in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
+> [!div class="nextstepaction"]
+> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)
+
+> [!div class="nextstepaction"]
+> [Learn More about Maven plugins for Azure](https://github.com/microsoft/azure-maven-plugins)

@@ -1,10 +1,9 @@
 ---
-title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
-description: List of Microsoft Azure Service Bus request/response-based operations.
+title: AMQP 1.0 request/response operations in Azure Service Bus
+description: This article defines the list of AMQP request/response-based operations in Microsoft Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: 
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/23/2020
 ms.author: aschhab
 
 ---
@@ -270,13 +269,7 @@ The response message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
-|statusDescription|string|No|Description of the status.|  
-  
-The response message body must consist of an **amqp-value** section containing a map with the following entries:  
-  
-|Key|Value Type|Required|Value Contents|  
-|---------|----------------|--------------|--------------------|  
-|sequence-numbers|array of long|Yes|Sequence number of scheduled messages. Sequence number is used to cancel.|  
+|statusDescription|string|No|Description of the status.|   
   
 ## Session Operations  
   

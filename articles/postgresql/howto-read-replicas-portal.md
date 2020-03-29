@@ -1,19 +1,16 @@
 ---
-title: Manage read replicas for Azure Database for PostgreSQL - Single Server from the Azure portal
+title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas Azure Database for PostgreSQL - Single Server from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 01/24/2020
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 
 ## Prerequisites
@@ -25,6 +22,9 @@ These steps must be used to prepare a master server in the General Purpose or Me
 1. In the Azure portal, select the existing Azure Database for PostgreSQL server to use as a master.
 
 2. On the server sidebar, under **SETTINGS**, select **Replication**.
+
+> [!NOTE] 
+> If you see **Disable replication support** grayed out, the replication settings are already set on your server by default. You can skip the following steps and go to create a read replica. 
 
 3. Select **Enable Replication Support**. 
 
@@ -177,4 +177,4 @@ The **Replica Lag** metric shows the time since the last replayed transaction on
  
 ## Next steps
 * Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
-* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).
+* Learn how to [create and manage read replicas in the Azure CLI and REST API](howto-read-replicas-cli.md).

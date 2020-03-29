@@ -48,7 +48,7 @@ To deploy the security agent, use the following steps:
 
 1. Add running permissions to the **InstallSecurityAgent script** by running `chmod +x InstallSecurityAgent.sh` 
 
-1. Next, run: 
+1. Next, run the following command with **root privileges**: 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>

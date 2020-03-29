@@ -1,12 +1,12 @@
 ---
 title: Virtual machine offer in the Azure Marketplace 
 description: Overview of the process for publishing a VM offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine offer

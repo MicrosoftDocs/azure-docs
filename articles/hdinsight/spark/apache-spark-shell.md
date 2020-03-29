@@ -1,48 +1,96 @@
 ---
 title: Use an Interactive Spark Shell in Azure HDInsight 
 description: An interactive Spark Shell provides a read-execute-print process for running Spark commands one at a time and seeing the results.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/09/2018
-
+ms.custom: hdinsightactive
+ms.date: 02/10/2020
 ---
+
 # Run Apache Spark from the Spark Shell
 
 An interactive [Apache Spark](https://spark.apache.org/) Shell provides a REPL (read-execute-print loop) environment for running Spark commands one at a time and seeing the results. This process is useful for development and debugging. Spark provides one shell for each of its supported languages: Scala, Python, and R.
 
-## Get to an Apache Spark Shell with SSH
-
-Access an Apache Spark Shell on HDInsight by connecting to the primary head node of the cluster using SSH:
-
-     ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
-
-You can get the complete SSH command for your cluster from the Azure portal:
-
-1. Log in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the pane for your HDInsight Spark cluster.
-3. Select Secure Shell (SSH).
-
-    ![HDInsight pane in Azure portal](./media/apache-spark-shell/hdinsight-spark-blade.png)
-
-4. Copy the displayed SSH command and run it in your terminal.
-
-    ![HDInsight SSH pane in Azure portal](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
-
-For details on using SSH to connect to HDInsight, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 ## Run an Apache Spark Shell
 
-Spark provides shells for Scala (spark-shell), Python (pyspark), and R (sparkR). In your SSH session at the head node of your HDInsight cluster, enter one of the following commands:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
-    ./bin/spark-shell
-    ./bin/pyspark
-    ./bin/sparkR
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
-Now you can enter Spark commands in the appropriate language.
+1. Spark provides shells for Scala (spark-shell), and Python (pyspark). In your SSH session, enter *one* of the following commands:
+
+    ```bash
+    spark-shell
+
+    # Optional configurations
+    # spark-shell --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
+    ```
+
+    ```bash
+    pyspark
+
+    # Optional configurations
+    # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
+    ```
+
+    If you intend to use any optional configuration, ensure you first review [OutOfMemoryError exception for Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
+
+1. A few basic example commands. Choose the relevant language:
+
+    ```spark-shell
+    val textFile = spark.read.textFile("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(line => line.contains("apple")).show()
+    ```
+
+    ```pyspark
+    textFile = spark.read.text("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(textFile.value.contains("apple")).show()
+    ```
+
+1. Query a CSV file. Note the language below works for `spark-shell` and `pyspark`.
+
+    ```scala
+    spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
+    ```
+
+1. Query a CSV file and store results in variable:
+
+    ```spark-shell
+    var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
+
+    ```pyspark
+    data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
+
+1. Display results:
+
+    ```spark-shell
+    data.show()
+    data.select($"BuildingID", $"Country").show(10)
+    ```
+
+    ```pyspark
+    data.show()
+    data.select("BuildingID", "Country").show(10)
+    ```
+
+1. Exit
+
+    ```spark-shell
+    :q
+    ```
+
+    ```pyspark
+    exit()
+    ```
 
 ## SparkSession and SparkContext instances
 
@@ -52,7 +100,7 @@ To access the SparkSession instance, enter `spark`. To access the SparkContext i
 
 ## Important shell parameters
 
-The Spark Shell command (`spark-shell`, `pyspark`, or `sparkR`) supports many command-line parameters. To see a full list of parameters, start the Spark Shell with the switch `--help`. Note that some of these parameters may only apply to `spark-submit`, which the Spark Shell wraps.
+The Spark Shell command (`spark-shell`, or `pyspark`) supports many command-line parameters. To see a full list of parameters, start the Spark Shell with the switch `--help`. Some of these parameters may only apply to `spark-submit`, which the Spark Shell wraps.
 
 | switch | description | example |
 | --- | --- | --- |

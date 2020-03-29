@@ -2,11 +2,8 @@
 title: Azure Quickstart - Create an Azure Automation runbook | Microsoft Docs
 description: Learn how to create an Azure Automation runbook
 services: automation
-author: csand-msft
-ms.author: csand
 ms.date: 02/05/2019
 ms.topic: quickstart
-ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
 ---
@@ -29,7 +26,7 @@ First, create a runbook. The sample runbook created in this quickstart outputs `
 
 1. Click **Runbooks** under **PROCESS AUTOMATION**. The list of runbooks is displayed.
 
-1. Click the **Add a runbook** button found at the top of the list. On the **Add Runbook** page, select **Quick Create**.
+1. Click the **Create a runbook** button found at the top of the list
 
 1. Enter "Hello-World" for the runbook **Name**, and select **PowerShell** for **Runbook type**. Click **Create**.
 

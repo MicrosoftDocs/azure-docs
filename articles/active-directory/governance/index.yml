@@ -9,13 +9,13 @@ metadata:
   manager: daveba
   ms.author: ajburnle
   ms.collection: na
-  ms.date: 08/15/2019
+  ms.date: 09/14/2019
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent: 
   # Card
@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is Azure AD Identity Governance?
             url: identity-governance-overview.md
-      - linkListType: learn
+      - linkListType: video
         links:
           - text: Govern access to your resources
             url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
@@ -35,16 +35,16 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure AD entitlement management? (Preview)
+          - text: What is Azure AD entitlement management?
             url: entitlement-management-overview.md
       - linkListType: tutorial
         links:
           - text: Create your first access package that helps users to request access they need
             url: entitlement-management-access-package-first.md
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
-          - text: Edit and manage an existing access package
-            url: entitlement-management-access-package-edit.md
+          - text: Delegation and roles
+            url: entitlement-management-delegate.md
   
   # Card
   - title: Recertify access to groups, apps, and privileged roles

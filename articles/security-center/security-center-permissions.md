@@ -4,8 +4,8 @@ description: This article explains how Azure Security Center uses role-based acc
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 
 ms.assetid:
 ms.service: security-center
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 
@@ -36,17 +36,17 @@ In addition to these roles, there are two specific Security Center roles:
 
 ## Roles and allowed actions
 
-The following table displays roles and allowed actions in Security Center. An X indicates that the action is allowed for that role.
+The following table displays roles and allowed actions in Security Center.
 
-| Role | Edit security policy | Apply security recommendations for a resource | Dismiss alerts and recommendations | View alerts and recommendations |
+| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts and recommendations | View alerts and recommendations |
 |:--- |:---:|:---:|:---:|:---:|
-| Subscription Owner | X | X | X | X |
-| Subscription Contributor | -- | X | X | X |
-| Resource Group Owner | -- | X | -- | X |
-| Resource Group Contributor | -- | X | -- | X |
-| Reader | -- | -- | -- | X |
-| Security Administrator | X | -- | X | X |
-| Security Reader | -- | -- | -- | X |
+| Subscription Owner | ✔ | ✔ | ✔ | ✔ |
+| Subscription Contributor | -- | ✔ | ✔ | ✔ |
+| Resource Group Owner | -- | ✔ | -- | ✔ |
+| Resource Group Contributor | -- | ✔ | -- | ✔ |
+| Reader | -- | -- | -- | ✔ |
+| Security Administrator | ✔ | -- | ✔ | ✔ |
+| Security Reader | -- | -- | -- | ✔ |
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.

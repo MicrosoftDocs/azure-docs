@@ -1,7 +1,7 @@
 ---
 title: "Sending requests to the Bing Autosuggest API"
 titleSuffix: Azure Cognitive Services
-description: Learn how to send requests to Bing Autosuggest API.
+description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. Learn more about sending requests.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme

@@ -1,16 +1,9 @@
 ---
-title: Create App Service environment with Resource Manager template - Azure
-description: Explains how to create an External or ILB Azure App Service environment by using a Resource Manager template
-services: app-service
-documentationcenter: na
+title: Create an ASE with ARM
+description: Learn how to create an external or ILB App Service environment by using an Azure Resource Manager template.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
@@ -40,7 +33,7 @@ To automate your ASE creation:
 
 2. After your ILB ASE is created, an SSL certificate that matches your ILB ASE domain is uploaded.
 
-3. The uploaded SSL certificate is assigned to the ILB ASE as its "default" SSL certificate.  This certificate is used for SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, https://someapp.mycustomrootdomain.com).
+3. The uploaded SSL certificate is assigned to the ILB ASE as its "default" SSL certificate.  This certificate is used for SSL traffic to apps on the ILB ASE when they use the common root domain that's assigned to the ASE (for example, `https://someapp.mycustomrootdomain.com`).
 
 
 ## Create the ASE
@@ -64,7 +57,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 It takes about an hour for the ASE to be created. Then the ASE shows up in the portal in the list of ASEs for the subscription that triggered the deployment.
 
 ## Upload and configure the "default" SSL certificate
-An SSL certificate must be associated with the ASE as the "default" SSL certificate that's used to establish SSL connections to apps. If the ASE's default DNS suffix is *internal-contoso.com*, a connection to https://some-random-app.internal-contoso.com requires an SSL certificate that's valid for **.internal-contoso.com*. 
+An SSL certificate must be associated with the ASE as the "default" SSL certificate that's used to establish SSL connections to apps. If the ASE's default DNS suffix is *internal-contoso.com*, a connection to `https://some-random-app.internal-contoso.com` requires an SSL certificate that's valid for **.internal-contoso.com*. 
 
 Obtain a valid SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes must be configured properly:
 
@@ -149,7 +142,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 It takes roughly 40 minutes per ASE front end to apply the change. For example, for a default-sized ASE that uses two front ends, the template takes around one hour and 20 minutes to complete. While the template is running, the ASE can't scale.  
 
-After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The connections are secured by using the default SSL certificate. The default SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example, https://mycustomapp.internal-contoso.com uses the default SSL certificate for **.internal-contoso.com*.
+After the template finishes, apps on the ILB ASE can be accessed over HTTPS. The connections are secured by using the default SSL certificate. The default SSL certificate is used when apps on the ILB ASE are addressed by using a combination of the application name plus the default host name. For example, `https://mycustomapp.internal-contoso.com` uses the default SSL certificate for **.internal-contoso.com*.
 
 However, just like apps that run on the public multitenant service, developers can configure custom host names for individual apps. They also can configure unique SNI SSL certificate bindings for individual apps.
 
@@ -183,8 +176,8 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../../app-service/web-sites-purchase-ssl-web-site.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
+[ConfigureSSL]: ../../app-service/configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

@@ -16,6 +16,9 @@ This article provides the properties and schema for blob storage events. For an
 
 For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+
 ## List of events for Blob REST APIs
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
@@ -32,17 +35,14 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
 These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs.
 
-> [!NOTE]
-> These events are in public preview and they are available only the **West US 2** and **West Central US** regions.
-
- |Event name|Description|
- |----------|-----------|
- |**Microsoft.Storage.BlobCreated** | Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `CreateFile` and `FlushWithClose` operations that are available in the Azure Data Lake Storage Gen2 REST API. |
- |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, This event is also triggered when clients call the `DeleteFile` operation that is available in the Azure Data Lake Storage Gen2 REST API. |
- |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `RenameFile` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
- |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `CreateDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
- |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `RenameDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
- |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `DeleteDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+|Event name|Description|
+|----------|-----------|
+|**Microsoft.Storage.BlobCreated** | Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `CreateFile` and `FlushWithClose` operations that are available in the Azure Data Lake Storage Gen2 REST API. |
+|**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, This event is also triggered when clients call the `DeleteFile` operation that is available in the Azure Data Lake Storage Gen2 REST API. |
+|**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `RenameFile` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `CreateDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `RenameDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `DeleteDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
 
 > [!NOTE]
 > If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
@@ -68,7 +68,7 @@ This section contains an example of what that data would look like for each blob
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -107,7 +107,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -313,14 +313,10 @@ The data object has the following properties:
 | contentOffset | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | destinationUrl |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | sourceUrl |string | The url of the file that exists prior to the operation. For example, if a file is renamed, the `sourceUrl` contains the url of the original file name prior to the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
-| url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*.
-|
-| recursive| string| `True` to perform the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
+| url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*. |
+| recursive | string | `True` to perform the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | sequencer | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
 | storageDiagnostics | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
-
-|Property|Type|Description|
- |-------------------|------------------------|-----------------------------------------------------------------------|
 
 ## Next steps
 

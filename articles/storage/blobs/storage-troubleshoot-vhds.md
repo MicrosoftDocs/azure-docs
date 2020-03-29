@@ -5,7 +5,8 @@ services: storage
 author: roygara
 
 ms.service: storage
-ms.topic: article
+ms.subservice: blobs
+ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rogarana
 ms.reviewer: wmgries

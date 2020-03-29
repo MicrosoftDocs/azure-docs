@@ -1,12 +1,12 @@
 ---
 title: Configure lead management in Marketo | Azure Marketplace
 description: Configure lead management for Marketo for Azure marketplace customers.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211    
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Configure lead management in Marketo
@@ -50,7 +50,7 @@ This article describes how to set up your Marketo CRM system to process sales le
     **Another way to figure out these values**
 
     - Server ID is found in the URL of your Marketo instance,  for example, "`serverID.marketo.com`".
-    - Get your subscription’s Munching ID by going to your Admin>Munchkin menu in the “Munchkin Account ID” field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
+    - Get your subscription's Munching ID by going to your Admin>Munchkin menu in the "Munchkin Account ID" field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
     - Form ID is the ID of the Embed Code form you created in step 7 to route leads from our marketplace.
 
 ## Configure your offer to send leads to Marketo

@@ -89,9 +89,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Learning at Work Client support team](https://www.learninga-z.com/site/contact/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Learning at Work application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**.
+5. Learning at Work application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**.
 
-	You can update the **nameidentifier** value in Azure AD based on your Organization setup and this value needs to match with the **User ID** in the SABA cloud, for that you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+	You can update the **nameidentifier** value in Azure AD based on your Organization setup and this value needs to match with the **User ID** in the SABA cloud, for that you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Learning at Work test user
 
-In this section, you create a user called B.Simon in Learning at Work. Work with [Learning at Work support team](https://www.learninga-z.com/site/contact/support) to add the users in the Learning at Work platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Learning at Work. Work with [Learning at Work support team](https://www.learninga-z.com/site/contact/support) to add the users in the Learning at Work platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO 
 

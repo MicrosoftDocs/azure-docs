@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 05/08/2019
@@ -19,3 +17,4 @@ The function app settings values can also be read in your code as environment va
 * [Java](../articles/azure-functions/functions-reference-java.md#environment-variables)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#environment-variables)
 * [PowerShell](../articles/azure-functions/functions-reference-powershell.md#environment-variables)
+* [Python](../articles/azure-functions/functions-reference-python.md#environment-variables)

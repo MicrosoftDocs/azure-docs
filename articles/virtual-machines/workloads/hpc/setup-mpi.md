@@ -188,6 +188,7 @@ Host *
     StrictHostKeyChecking no
 EOF
 cat /home/$USER/.ssh/id_rsa.pub >> /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
 chmod 644 /home/$USER/.ssh/config
 ```
 

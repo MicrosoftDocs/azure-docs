@@ -1,13 +1,13 @@
 ---
-title: 'How to create user-defined functions in Azure Digital Twins | Microsoft Docs'
+title: 'How to create user-defined functions - in Azure Digital Twins | Microsoft Docs'
 description: How to create user-defined functions, matchers, and role assignments in Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
+ms.date: 01/17/2020
 ms.custom: seodec18
 ---
 
@@ -41,7 +41,7 @@ Matchers are graph objects that determine what user-defined functions run for a 
 
 The following example matcher evaluates to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function by making an authenticated HTTP POST request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -49,16 +49,18 @@ With JSON body:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 
@@ -74,7 +76,7 @@ Creating a user-defined function involves making a multipart HTTP request to the
 
 After the matchers are created, upload the function snippet with the following authenticated multipart HTTP POST request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -186,15 +188,15 @@ function process(telemetry, executionContext) {
 }
 ```
 
-For a more complex user-defined function code sample, see the [Occupancy quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+For a more complex user-defined function code sample, read the [Occupancy quickstart](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## Create a role assignment
 
-Create a role assignment for the user-defined function to run under. If no role assignment exists for the user-defined function, it won't have the proper permissions to interact with the Management API or have access to perform actions on graph objects. Actions that a user-defined function may perform are specified and defined via role-based access control within the Azure Digital Twins Management APIs. For example, user-defined functions can be limited in scope by specifying certain roles or certain access control paths. For more information, see the [Role-based access control](./security-role-based-access-control.md) documentation.
+Create a role assignment for the user-defined function to run under. If no role assignment exists for the user-defined function, it won't have the proper permissions to interact with the Management API or have access to perform actions on graph objects. Actions that a user-defined function may perform are specified and defined via role-based access control within the Azure Digital Twins Management APIs. For example, user-defined functions can be limited in scope by specifying certain roles or certain access control paths. For more information, read the [Role-based access control](./security-role-based-access-control.md) documentation.
 
-1. [Query the System API](./security-create-manage-role-assignments.md#all) for all roles to get the role ID you want to assign to your user-defined function. Do so by making an authenticated HTTP GET request to:
+1. [Query the System API](./security-create-manage-role-assignments.md#retrieve-all-roles) for all roles to get the role ID you want to assign to your user-defined function. Do so by making an authenticated HTTP GET request to:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Keep the desired role ID. It will be passed as the JSON body attribute **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) below.
@@ -203,7 +205,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH`) by querying your spaces with `fullpath`.
 1. Copy the returned `spacePaths` value. You'll use that below. Make an authenticated HTTP GET request to:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
@@ -213,7 +215,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 
 1. Paste the returned `spacePaths` value into **path** to create a user-defined function role assignment by making an authenticated HTTP POST request to:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     With JSON body:
@@ -231,7 +233,7 @@ Create a role assignment for the user-defined function to run under. If no role 
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | The identifier for the desired role |
     | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the user-defined function you want to use |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | The access control path |
 
 >[!TIP]
@@ -239,7 +241,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 
 ## Send telemetry to be processed
 
-The sensor defined in the spatial intelligence graph sends telemetry. In turn, the telemetry triggers the execution of the user-defined function that was uploaded. The data processor picks up the telemetry. Then an execution plan is created for the invocation of the user-defined function.
+The sensor defined in the spatial intelligence graph sends telemetry. In turn, the telemetry triggers the execution of the user-defined function that was uploaded. The data processor picks up the telemetry. Then, an execution plan is created for the invocation of the user-defined function.
 
 1. Retrieve the matchers for the sensor the reading was generated from.
 1. Depending on what matchers were evaluated successfully, retrieve the associated user-defined functions.

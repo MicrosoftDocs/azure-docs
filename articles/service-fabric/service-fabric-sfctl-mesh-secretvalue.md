@@ -1,20 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl mesh secretvalue | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl mesh secretvalue commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl mesh secretvalue
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for getting and deleting Service Fabric Mesh secretvalue resources.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
 
 # sfctl mesh secretvalue
@@ -26,7 +17,7 @@ Get and delete mesh secretvalue resources.
 | --- | --- |
 | delete | Deletes the specified  value of the named secret resource. |
 | list | List names of all values of the specified secret resource. |
-| show | Retrieve the value of a specified version of a secret resource. |
+| show | Lists the specified value of the secret resource. |
 
 ## sfctl mesh secretvalue delete
 Deletes the specified  value of the named secret resource.
@@ -72,7 +63,7 @@ Gets information about all secret value resources of the specified secret resour
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
 
 ## sfctl mesh secretvalue show
-Retrieve the value of a specified version of a secret resource.
+Lists the specified value of the secret resource.
 
 ### Arguments
 

@@ -1,7 +1,7 @@
 ---
 title: Create an internal Basic Load Balancer - Azure CLI
-titlesuffix: Azure Load Balancer
-description: Learn how to create an internal load balancer using the Azure CLI
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to create an internal load balancer using Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -33,6 +33,7 @@ The following example creates a resource group named *myResourceGroupILB* in the
     --name myResourceGroupILB \
     --location eastus
 ```
+
 ## Create a virtual network
 
 Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
@@ -44,6 +45,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
     --location eastus \
     --subnet-name mySubnet
 ```
+
 ## Create Basic Load Balancer
 
 This section details how you can create and configure the following components of the load balancer:
@@ -65,7 +67,8 @@ Create an internal Load Balancer with [az network lb create](https://docs.micros
     --backend-pool-name myBackEndPool \
     --vnet-name myVnet \
     --subnet mySubnet      
-  ```
+```
+
 ### Create the health probe
 
 A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
@@ -124,7 +127,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
 
- ```azurecli-interactive
+```azurecli-interactive
   az vm availability-set create \
     --resource-group myResourceGroupILB \
     --name myAvailabilitySet
@@ -174,11 +177,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupILB \
@@ -190,6 +193,7 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
     done
 ```
+
 It may take a few minutes for the VMs to get deployed.
 
 ### Create a VM for testing the load balancer
@@ -215,14 +219,15 @@ To get the private IP address of the load balancer, use [az network lb show](/cl
   az network lb show \
     --name myLoadBalancer \
     --resource-group myResourceGroupILB
-``` 
+```
+
 ![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupILB
 ```
 

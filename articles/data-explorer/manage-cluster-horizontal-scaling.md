@@ -1,25 +1,21 @@
 ---
-title: Manage cluster horizontal scaling (scale out) in Azure Data Explorer to accommodate changing demand
+title: 'Manage cluster horizontal scaling (scale out) to match demand in Azure Data Explorer'
 description: This article describes steps to scale out and scale in an Azure Data Explorer cluster based on changing demand.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/14/2019
+ms.date: 12/09/2019
 ---
 
 # Manage cluster horizontal scaling (scale out) in Azure Data Explorer to accommodate changing demand
 
-Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal.
-
-Because demand on a cluster can’t be predicted with absolute accuracy, it's better to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
+Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. Because demand on a cluster can’t be predicted with absolute accuracy, it's better to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
 
 There are two workflows for scaling an Azure Data Explorer cluster: 
-
 * Horizontal scaling, also called scaling in and out.
 * [Vertical scaling](manage-cluster-vertical-scaling.md), also called scaling up and down.
-
 This article explains the horizontal scaling workflow.
 
 ## Configure horizontal scaling
@@ -36,19 +32,48 @@ Manual scale is the default setting during cluster creation. The cluster has a s
 
    ![Manual scale method](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-### Optimized autoscale
+### Optimized autoscale (preview)
 
 Optimized autoscale is the recommended autoscale method. This method optimizes cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled in. This action lowers costs but keeps performance level. If the cluster approaches a state of over-utilization, it will be scaled out to maintain optimal performance. To configure Optimized autoscale:
 
 1. Select **Optimized autoscale**. 
 
-1. Select a minimum instance count and a maximum instance count. The cluster autoscaling ranges between those two numbers, based on load.
+1. Select a minimum instance count and a maximum instance count. The cluster auto-scaling ranges between those two numbers, based on load.
 
 1. Select **Save**.
 
    ![Optimized autoscale method](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
 Optimized autoscale starts working. Its actions are now visible in the Azure activity log of the cluster.
+
+#### Logic of optimized autoscale 
+
+**Scale out**
+
+When your cluster approaches a state of over-utilization, scale out to maintain optimal performance. Scale out will occur when:
+* The number of cluster instances is below the maximum number of instances defined by the user.
+* The cache utilization is high for over an hour.
+* The CPU is high for over an hour.
+* The ingestion utilization is high for over an hour.
+
+> [!NOTE]
+> The scale out logic doesn't currently consider the ingestion utilization metric. If this metric is important for your use case, use [custom autoscale](#custom-autoscale).
+
+**Scale in**
+
+When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated hourly for 6 hours before scale in is performed:
+* The number of instances is above 2 and above the minimum number of instances defined.
+* To ensure that there's no overloading of resources, the following metrics must be verified before scale in is performed: 
+    * Cache utilization isn't high
+    * CPU is below average 
+    * Ingestion utilization is below average 
+    * Streaming ingest utilization (if streaming ingest is used) isn't high
+    * Keep alive events are above a defined minimum, processed properly, and on time.
+    * No query throttling 
+    * Number of failed queries are below a defined minimum.
+
+> [!NOTE]
+> The scale in logic currently requires a 7-day evaluation before implementation of optimized scale in. This evaluation takes place once every 24 hours. If a quick change is needed, use [manual scale](#manual-scale).
 
 ### Custom autoscale
 
@@ -103,5 +128,4 @@ You've now configured horizontal scaling for your Azure Data Explorer cluster. A
 ## Next steps
 
 * [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
-
 * [Manage cluster vertical scaling](manage-cluster-vertical-scaling.md) for appropriate sizing of a cluster.

@@ -1,17 +1,9 @@
 ---
-title: Create ILB ASE Using Azure Resource Manager Templates - App Service | Microsoft Docs
-description: Learn how to create an internal load balancer ASE using Azure Resource Manager templates.
-services: app-service
-documentationcenter: ''
+title: Create ILB ASE v1
+description: Create an App Service environment with an internal load balancer (ILB ASE). This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
-manager: nirma
-editor: ''
 
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
@@ -33,7 +25,7 @@ There are three steps involved in automating creation of an ILB ASE:
 
 1. First the base ASE is created in a virtual network using an internal load balancer address instead of a public VIP.  As part of this step, a root domain name is assigned to the ILB ASE.
 2. Once the ILB ASE is created, an SSL certificate is uploaded.  
-3. The uploaded SSL certificate is explicitly assigned to the ILB ASE as its "default" SSL certificate.  This SSL certificate will be used for SSL traffic to apps on the ILB ASE when the apps are addressed using the common root domain assigned to the ASE (e.g. https://someapp.mycustomrootcomain.com)
+3. The uploaded SSL certificate is explicitly assigned to the ILB ASE as its "default" SSL certificate.  This SSL certificate will be used for SSL traffic to apps on the ILB ASE when the apps are addressed using the common root domain assigned to the ASE (e.g. `https://someapp.mycustomrootcomain.com`)
 
 ## Creating the Base ILB ASE
 An example Azure Resource Manager template, and its associated parameters file, are available on GitHub [here][quickstartilbasecreate].

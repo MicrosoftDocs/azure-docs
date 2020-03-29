@@ -1,12 +1,11 @@
 ---
-title: Outbound authentication - Azure Scheduler 
+title: Outbound authentication
 description: Learn how to set up or remove outbound authentication for Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ---
@@ -14,9 +13,14 @@ ms.date: 08/15/2016
 # Outbound authentication for Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-> is replacing Azure Scheduler, which is being retired. 
-> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
+> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
+> To continue working with the jobs that you set up in Scheduler, please 
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
 Azure Scheduler jobs might have to call services that require authentication, 
 such as other Azure services, Salesforce.com, Facebook, and secure custom websites. 
@@ -415,10 +419,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)

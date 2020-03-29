@@ -1,10 +1,10 @@
 ---
 title: Aliasing in Azure Cosmos DB
-description: Learn about aliasing values in Azure Cosmos DB SQL queries
+description: Learn how to use aliasing in Azure Cosmos DB SQL queries to differentiate two properties with the same name
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 
 ---
@@ -40,6 +40,6 @@ The results are:
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT clause](sql-query-select.md)
 - [FROM clause](sql-query-from.md)

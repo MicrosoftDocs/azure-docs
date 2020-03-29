@@ -1,27 +1,15 @@
 ---
-title: How to Use the JavaScript SDK for Azure Mobile Apps
+title: Use the JavaScript SDK
 description: How to Use v for Azure Mobile Apps
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # How to Use the JavaScript client library for Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-> [!NOTE]
-> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-html-how-to-use-client-library) today.
->
 
 ## Overview
 This guide teaches you to perform common scenarios using the latest [JavaScript SDK for Azure Mobile Apps]. If you are

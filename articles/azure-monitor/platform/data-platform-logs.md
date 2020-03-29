@@ -5,7 +5,7 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -21,7 +21,7 @@ ms.author: bwren
 Logs in Azure Monitor are especially useful for performing complex analysis across data from a variety of sources. This article describes how Logs are structured in Azure Monitor, what you can do with the data, and identifies different data sources that store data in Logs.
 
 > [!NOTE]
-> It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](activity-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [diagnostic log](diagnostic-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and diagnostic logs along with other monitoring data to provide deep analysis across your entire set of resources.
+> It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
 ## What are Azure Monitor Logs?
 
@@ -80,10 +80,10 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 
 | Data | Description |
 |:---|:---|
-| Resource diagnostics | Configure Diagnostic settings to write to diagnostic data, including metrics to a Log Analytics workspace. See [Stream Azure Diagnostic Logs to Log Analytics](diagnostic-logs-stream-log-store.md). |
+| Resource diagnostics | Configure Diagnostic settings to write to diagnostic data, including metrics to a Log Analytics workspace. See [Stream Azure resource logs to Log Analytics](resource-logs-collect-workspace.md). |
 | Monitoring solutions | Monitoring solutions write data they collect to their Log Analytics workspace. See [Data collection details for management solutions in Azure](../insights/solutions-inventory.md) for a list of solutions. See [Monitoring solutions in Azure Monitor](../insights/solutions.md) for details on installing and using solutions. |
-| Metrics | Send platform metrics for Azure Monitor resources to a Log Analytics workspace to retain log data for longer periods and to perform complex analysis with other data types using the [Kusto query language](/azure/kusto/query/). See [Stream Azure Diagnostic Logs to Log Analytics](diagnostic-logs-stream-log-store.md). |
-| Azure table storage | Collect data from Azure storage where some Azure resources write monitoring data. See  [Use Azure blob storage for IIS and Azure table storage for events with Log Analytics](azure-storage-iis-table.md). |
+| Metrics | Send platform metrics for Azure Monitor resources to a Log Analytics workspace to retain log data for longer periods and to perform complex analysis with other data types using the [Kusto query language](/azure/kusto/query/). See [Stream Azure resource logs to Log Analytics](resource-logs-collect-storage.md). |
+| Azure table storage | Collect data from Azure storage where some Azure resources write monitoring data. See  [Use Azure blob storage for IIS and Azure table storage for events with Log Analytics](diagnostics-extension-logs.md). |
 
 ### Virtual Machines
 

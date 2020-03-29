@@ -5,11 +5,11 @@ description: Learn how to troubleshoot Linux virtual machine issues by connectin
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -74,8 +74,8 @@ To create a disk from the snapshot, follow these steps:
     #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
     $diskSize = '128'
     
-    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-    $storageType = 'StandardLRS'
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
     
     #Provide the Azure region (e.g. westus) where Managed Disks will be located.
     #This location should be same as the snapshot location
@@ -177,4 +177,4 @@ Azure portal now supports change the OS disk of the VM. To do this, follow these
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

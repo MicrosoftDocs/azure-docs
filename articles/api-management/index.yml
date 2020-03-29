@@ -1,55 +1,79 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: API Management documentation
+summary: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing back-end services hosted anywhere.
+
 metadata:
-  title: Azure API Management documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
+  title: API Management documentation
+  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing back-end services hosted anywhere.
   services: api-management
-  author: georgewallace
-  manager: gwallace
   ms.service: api-management
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  author: georgewallace
   ms.author: gwallace
-abstract:
-  description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
-sections:
-- title: 5-minute quickstarts
-  items:
-  - type: paragraph
-    text: Create an API Management instance.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Create an instance - Portal
-      href: /azure/api-management/get-started-create-service-instance
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Create an instance - PowerShell
-      href: /azure/api-management/powershell-create-service-instance
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: Learn how to manage API Management.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/api-management/import-and-publish">Import and publish your first API</a>
-    - html: <a href="/azure/api-management/api-management-howto-add-products">Create and publish a product</a>
-    - html: <a href="/azure/api-management/mock-api-responses">Mock API responses</a>
-    - html: <a href="/azure/api-management/transform-api">Transform and protect your API</a>
-    - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitor published APIs</a>
-    - html: <a href="/azure/api-management/api-management-howto-api-inspector">Debug your APIs using request tracing</a>
-    - html: <a href="/azure/api-management/api-management-get-started-revise-api">Use revisions to make non-breaking changes safely</a>
-    - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publish multiple versions of your API</a>
-    - html: <a href="/azure/api-management/api-management-customize-styles">Customize the style of the Developer portal pages</a>
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/api-management/policy-samples">Policy</a>
-    - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>
+  ms.date: 03/08/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About API Management
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is API Management?
+            url: api-management-key-concepts.md
+          - text: Features availability
+            url: api-management-features.md
+
+  # Card (optional)
+  - title: Create an instance
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure portal
+            url: get-started-create-service-instance.md
+          - text: Azure PowerShell
+            url: powershell-create-service-instance.md
+
+  # Card
+  - title: Manage API Management
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1. Import and publish your first API
+            url: import-and-publish.md
+          - text: 2. Create and publish a product
+            url: api-management-howto-add-products.md
+          - text: 3. Mock API responses
+            url: mock-api-responses.md
+          - text: 4. Transform and protect your API
+            url: transform-api.md
+          - text: 5. Monitor published APIs
+            url: api-management-howto-use-azure-monitor.md
+          - text: 6. Debug your APIs using request tracing
+            url: api-management-howto-api-inspector.md
+          - text: 7. Use revisions to make non-breaking changes safely
+            url: api-management-get-started-revise-api.md
+          - text: 8. Publish multiple versions of your API
+            url: api-management-get-started-publish-versions.md
+          - text: 9. Customize the style of the Developer portal pages
+            url: api-management-customize-styles.md
+
+  # Card
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Policy
+            url: policy-samples.md
+          - text: Azure PowerShell
+            url: powershell-samples.md
+
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Basic enterprise integration
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration

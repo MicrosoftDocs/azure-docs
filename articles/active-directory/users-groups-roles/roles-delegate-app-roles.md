@@ -1,17 +1,15 @@
----
-title: Delegate application administrator creation and management permissions - Azure Active Directory | Microsoft Docs
+﻿---
+title: Delegate application admin management perms - Azure AD | Microsoft Docs
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Delegate app registration permissions in Azure Active Directory
 
-This article describes how to use app permissions in custom roles in Azure Active Directory (Azure AD) to address your application management needs. Azure Active Directory (Azure AD) allows you to delegate Application creation and management permissions in the following ways:
+This article describes how to use permissions granted by custom roles in Azure Active Directory (Azure AD) to address your application management needs. In Azure AD, you can delegate Application creation and management permissions in the following ways:
 
 - [Restricting who can create applications](#restrict-who-can-create-applications) and manage the applications they create. By default in Azure AD, all users can register application registrations and manage all aspects of applications they create. This can be restricted to only allow selected people that permission.
 - [Assigning one or more owners to an application](#assign-application-owners). This is a simple way to grant someone the ability to manage all aspects of Azure AD configuration for a specific application.
@@ -38,7 +36,7 @@ By default in Azure AD, all users can register application registrations and man
 ### To disable the default ability to create application registrations or consent to applications
 
 1. Sign in to your Azure AD organization with an account that eligible for the Global administrator role in your Azure AD organization.
-1. When you have obtained sufficient permissions, set one or both of the following:
+1. Set one or both of the following:
 
     - On the [User settings page for your organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set the **Users can register applications** setting to No. This will disable the default ability for users to create application registrations.
     - On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set the **Users can consent to applications accessing company data on their behalf** setting to No. This will disable the default ability for users to consent to applications accessing company data on their behalf.
@@ -61,8 +59,8 @@ In some cases, enterprise applications created from the application gallery incl
 
 1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application administrator or Cloud application administrator for the organization.
 1. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
-1. Select **Owners** to see the list of the owners for the app.
-1. Select **Add** to select one or more owners to add to the app.
+1. Select **Owners** to see the list of the owners for the app.
+1. Select **Add** to select one or more owners to add to the app.
 
 > [!IMPORTANT]
 > Users and service principals can be owners of application registrations. Only users can be owners of enterprise applications. Groups cannot be assigned as owners of either.
@@ -73,7 +71,7 @@ In some cases, enterprise applications created from the application gallery incl
 
 Azure AD has a set of built-in admin roles for granting access to manage configuration in Azure AD for all applications. These roles are the recommended way to grant IT experts access to manage broad application configuration permissions without granting access to manage other parts of Azure AD not related to application configuration.
 
-- Application Administrator: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
+- Application Administrator: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 - Cloud Application Administrator: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
 For more information and to view the description for these roles, see [Available roles](directory-assign-admin-roles.md#available-roles).

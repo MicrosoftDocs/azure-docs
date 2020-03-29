@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
+description: In this tutorial, you will step through a sample app that uses Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll explore a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
 
 This tutorial will show you how to:
 
@@ -52,7 +52,7 @@ After you upload the training images, select the first one on the display. The t
 
 The app is configured to work with specific tag strings. You'll find the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 After you tag an image, go to the right to tag the next one. Close the tagging window when you finish.
 
@@ -68,19 +68,19 @@ After your model is trained, you're ready to integrate it into your app. You'll 
 
 ![The Custom Vision website, showing a Prediction API window that displays a URL address and API key](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copy the image file URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
+Copy the endpoint URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## Examine Custom Vision usage
 
 Open the *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* file to see how the app uses your Custom Vision key and endpoint URL. The **PredictImageContentsAsync** method takes a byte stream of an image file along with a cancellation token (for asynchronous task management), calls the Custom Vision prediction API, and returns the result of the prediction. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 This result takes the form of a **PredictionResult** instance, which itself contains a list of **Prediction** instances. A **Prediction** contains a detected tag and its bounding box location in the image.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the *Source/VisualProvision/Services/Recognition/RecognitionService.cs* file.  
 
@@ -94,7 +94,7 @@ Subscribe to the Computer Vision service to get a key and endpoint URL. For help
 
 Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## Create a service principal
 
@@ -102,7 +102,7 @@ The app requires an Azure service principal account to deploy services to your A
 
 You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -110,7 +110,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Then create your service principal. (This process might take some time to finish.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
@@ -128,7 +128,7 @@ Upon successful completion, you should see the following JSON output, including 
 
 Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## Run the app
 

@@ -1,18 +1,12 @@
 ---
 title: Azure Application Insights Telemetry Data Model - Event Telemetry | Microsoft Docs
 description: Application Insights data model for event telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/25/2017
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Event telemetry: Application Insights data model
 
 You can create event telemetry items (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) to represent an event that occurred in your application. Typically it is a user interaction such as button click or order checkout. It can also be an application life cycle event like initialization or configuration update. 

@@ -1,19 +1,19 @@
 ---
-title: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
+title: High availability of SAP HANA on Azure VMs on SLES | Microsoft Docs
 description: High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: 
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
-ms.author: sedusch
+ms.date: 03/06/2020
+ms.author: radeltch
 
 ---
 # High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
@@ -122,7 +122,7 @@ To deploy the template, follow these steps:
 1. Create a virtual network.
 1. Create an availability set.
    - Set the max update domain.
-1. Create a load balancer (internal).
+1. Create a load balancer (internal). We recommend [standard load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Select the virtual network created in step 2.
 1. Create virtual machine 1.
    - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
@@ -131,64 +131,104 @@ To deploy the template, follow these steps:
    - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
    - Select the availability set created in step 3. 
 1. Add data disks.
-1. Configure the load balancer. First, create a front-end IP pool:
+1. If using standard load balancer, follow these configuration steps:
+   1. First, create a front-end IP pool:
+   
+      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+      1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
+      1. Select **OK**.
+      1. After the new front-end IP pool is created, note the pool IP address.
+   
+   1. Next, create a back-end pool:
+   
+      1. Open the load balancer, select **backend pools**, and select **Add**.
+      1. Enter the name of the new back-end pool (for example, **hana-backend**).
+      1. Select **Virtual Network**.
+      1. Select **Add a virtual machine**.
+      1. Select ** Virtual machine**.
+      1. Select the virtual machines of the SAP HANA cluster and their IP addresses.
+      1. Select **Add**.
+   
+   1. Next, create a health probe:
+   
+      1. Open the load balancer, select **health probes**, and select **Add**.
+      1. Enter the name of the new health probe (for example, **hana-hp**).
+      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+      1. Select **OK**.
+   
+   1. Next, create the load-balancing rules:
+   
+      1. Open the load balancer, select **load balancing rules**, and select **Add**.
+      1. Enter the name of the new load balancer rule (for example, **hana-lb**).
+      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+      1. Select **HA Ports**.
+      1. Increase the **idle timeout** to 30 minutes.
+      1. Make sure to **enable Floating IP**.
+      1. Select **OK**.
 
-   1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-   1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-   1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-   1. Select **OK**.
-   1. After the new front-end IP pool is created, note the pool IP address.
+   > [!Note]
+   > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Next, create a back-end pool:
+1. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
+   1. First, create a front-end IP pool:
+   
+      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+      1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
+      1. Select **OK**.
+      1. After the new front-end IP pool is created, note the pool IP address.
+   
+   1. Next, create a back-end pool:
+   
+      1. Open the load balancer, select **backend pools**, and select **Add**.
+      1. Enter the name of the new back-end pool (for example, **hana-backend**).
+      1. Select **Add a virtual machine**.
+      1. Select the availability set created in step 3.
+      1. Select the virtual machines of the SAP HANA cluster.
+      1. Select **OK**.
+   
+   1. Next, create a health probe:
+   
+      1. Open the load balancer, select **health probes**, and select **Add**.
+      1. Enter the name of the new health probe (for example, **hana-hp**).
+      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+      1. Select **OK**.
+   
+   1. For SAP HANA 1.0, create the load-balancing rules:
+   
+      1. Open the load balancer, select **load balancing rules**, and select **Add**.
+      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
+      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
+      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
+      1. Increase the **idle timeout** to 30 minutes.
+      1. Make sure to **enable Floating IP**.
+      1. Select **OK**.
+      1. Repeat these steps for port 3**03**17.
+   
+   1. For SAP HANA 2.0, create the load-balancing rules for the system database:
+   
+      1. Open the load balancer, select **load balancing rules**, and select **Add**.
+      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
+      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
+      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
+      1. Increase the **idle timeout** to 30 minutes.
+      1. Make sure to **enable Floating IP**.
+      1. Select **OK**.
+      1. Repeat these steps for port 3**03**14.
+   
+   1. For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
+   
+      1. Open the load balancer, select **load balancing rules**, and select **Add**.
+      1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
+      1. Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
+      1. Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
+      1. Increase the **idle timeout** to 30 minutes.
+      1. Make sure to **enable Floating IP**.
+      1. Select **OK**.
+      1. Repeat these steps for ports 3**03**41 and 3**03**42.
 
-   1. Open the load balancer, select **backend pools**, and select **Add**.
-   1. Enter the name of the new back-end pool (for example, **hana-backend**).
-   1. Select **Add a virtual machine**.
-   1. Select the availability set created in step 3.
-   1. Select the virtual machines of the SAP HANA cluster.
-   1. Select **OK**.
-
-1. Next, create a health probe:
-
-   1. Open the load balancer, select **health probes**, and select **Add**.
-   1. Enter the name of the new health probe (for example, **hana-hp**).
-   1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-   1. Select **OK**.
-
-1. For SAP HANA 1.0, create the load-balancing rules:
-
-   1. Open the load balancer, select **load balancing rules**, and select **Add**.
-   1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
-   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-   1. Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
-   1. Increase the **idle timeout** to 30 minutes.
-   1. Make sure to **enable Floating IP**.
-   1. Select **OK**.
-   1. Repeat these steps for port 3**03**17.
-
-1. For SAP HANA 2.0, create the load-balancing rules for the system database:
-
-   1. Open the load balancer, select **load balancing rules**, and select **Add**.
-   1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
-   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-   1. Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
-   1. Increase the **idle timeout** to 30 minutes.
-   1. Make sure to **enable Floating IP**.
-   1. Select **OK**.
-   1. Repeat these steps for port 3**03**14.
-
-1. For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
-
-   1. Open the load balancer, select **load balancing rules**, and select **Add**.
-   1. Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
-   1. Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
-   1. Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
-   1. Increase the **idle timeout** to 30 minutes.
-   1. Make sure to **enable Floating IP**.
-   1. Select **OK**.
-   1. Repeat these steps for ports 3**03**41 and 3**03**42.
-
-For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
+   For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
 > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
@@ -470,6 +510,15 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 
 Next, create the HANA resources:
 
+> [!IMPORTANT]
+> Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+> For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
+> - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+> - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+>
+> Note that the change will require brief downtime.  
+> For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
+
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
 sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
@@ -492,9 +541,7 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> anything \
-  params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \
-  op monitor timeout=20s interval=10 depth=0
+sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b>
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
 
@@ -529,7 +576,7 @@ Make sure that the cluster status is ok and that all of the resources are starte
 #     Slaves: [ hn1-db-1 ]
 # Resource Group: g_ip_HN1_HDB03
 #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-#     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+#     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 </code></pre>
 
 ## Test the cluster setup
@@ -573,7 +620,7 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
      Stopped: [ hn1-db-0 ]
  Resource Group: g_ip_HN1_HDB03
      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
 
 Failed Actions:
 * rsc_SAPHana_HN1_HDB03_start_0 on hn1-db-0 'not running' (7): call=84, status=complete, exitreason='none',
@@ -615,7 +662,7 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
      Slaves: [ hn1-db-0 ]
  Resource Group: g_ip_HN1_HDB03
      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
 </code></pre>
 
 ### Test the Azure fencing agent (not SBD)
@@ -703,7 +750,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
    Run the following commands as <hanasid\>adm on node hn1-db-0:
@@ -730,7 +777,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-0 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
 1. TEST 2: STOP PRIMARY DATABASE ON NODE 2
@@ -744,7 +791,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-0 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
    Run the following commands as <hanasid\>adm on node hn1-db-1:
@@ -771,7 +818,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
 1. TEST 3: CRASH PRIMARY DATABASE ON NODE
@@ -785,7 +832,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
    Run the following commands as <hanasid\>adm on node hn1-db-0:
@@ -812,7 +859,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-0 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
 1. TEST 4: CRASH PRIMARY DATABASE ON NODE 2
@@ -826,7 +873,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-0 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
    Run the following commands as <hanasid\>adm on node hn1-db-1:
@@ -853,7 +900,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
 1. TEST 5: CRASH PRIMARY SITE NODE (NODE 1)
@@ -867,7 +914,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
    Run the following commands as root on node hn1-db-0:
@@ -904,7 +951,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-0 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
 1. TEST 6: CRASH SECONDARY SITE NODE (NODE 2)
@@ -918,7 +965,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-0 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
    Run the following commands as root on node hn1-db-1:
@@ -955,7 +1002,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
 1. TEST 7: STOP THE SECONDARY DATABASE ON NODE 2
@@ -969,7 +1016,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
    Run the following commands as <hanasid\>adm on node hn1-db-1:
@@ -992,7 +1039,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
 1. TEST 8: CRASH THE SECONDARY DATABASE ON NODE 2
@@ -1006,7 +1053,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
    Run the following commands as <hanasid\>adm on node hn1-db-1:
@@ -1029,7 +1076,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
 1. TEST 9: CRASH SECONDARY SITE NODE (NODE 2) RUNNING SECONDARY HANA DATABASE
@@ -1043,7 +1090,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
    Run the following commands as root on node hn1-db-1:
@@ -1076,7 +1123,7 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
       Slaves: [ hn1-db-1 ]
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
-      rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
 ## Next steps
@@ -1084,4 +1131,4 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
+

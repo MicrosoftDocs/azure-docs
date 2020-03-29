@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop Preview environment - Azure
-description: The basic elements of a Windows Virtual Desktop Preview environment.
+title: Windows Virtual Desktop environment - Azure
+description: The basic elements of a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -8,10 +8,11 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
+manager: lizross
 ---
-# Windows Virtual Desktop Preview environment
+# Windows Virtual Desktop environment
 
-Windows Virtual Desktop Preview is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
+Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 
 ## Tenants
 
@@ -52,9 +53,9 @@ After you've assigned users to their app groups, they can connect to a Windows V
 
 ## Next steps
 
-Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
+Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md).
+To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 

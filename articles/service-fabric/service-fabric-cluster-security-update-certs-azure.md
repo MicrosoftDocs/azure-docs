@@ -1,26 +1,14 @@
 ---
-title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
+title: Manage certificates in an Azure Service Fabric cluster 
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/13/2018
-ms.author: atsenthi
-
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
 It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates and be familiar with the [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
 
-Azure Service Fabrics SDK's default certificate load behavior, is to deploy and use a defined certificate with an expiring date furthest into the future; regardless of their primary or secondary configuration definition. Falling back to the classic behavior is a non recommended advanced action, and requires setting the "UseSecondaryIfNewer" setting parameter value to false within your Fabric.Code configuration.
+Azure Service Fabrics SDK's default certificate load behavior is to deploy and use the defined certificate with expiry date furthest into the future; regardless of their primary or secondary configuration definition. Falling back to the classic behavior is a not recommended advanced action, and requires setting the "UseSecondaryIfNewer" setting parameter value to false within your `Fabric.Code` configuration.
 
 Service fabric lets you specify two cluster certificates, a primary and a secondary, when you configure certificate security during cluster creation, in addition to client certificates. Refer to [creating an azure cluster via portal](service-fabric-cluster-creation-via-portal.md) or [creating an azure cluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) for details on setting them up at create time. If you specify only one cluster certificate at create time, then that is used as the primary certificate. After cluster creation, you can add a new certificate as a secondary.
 
@@ -36,7 +24,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 Secondary cluster certificate cannot be added through the Azure portal, use Azure powershell. The process is outlined later in this document.
 
 ## Remove a cluster certificate using the portal
-For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate. The certificate deployed with the furthest into the future expiring date will be in use, and removing it will make your cluster stop functioning; ensure to only remove the certificate that is expired, or a unused certificate that expires the soonest.
+For a secure cluster, you will always need at least one valid (not revoked and not expired) certificate. The certificate deployed with the furthest into the future expiring date will be in use, and removing it will make your cluster stop functioning; ensure to only remove the certificate that is expired, or an unused certificate that expires the soonest.
 
 To remove an unused cluster security certificate, Navigate to the Security section and select the 'Delete' option from the context menu on the unused certificate.
 
@@ -49,13 +37,13 @@ If your intent is to remove the certificate that is marked primary, then you wil
 These steps assume that you are familiar with how Resource Manager works and have deployed at least one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
 > [!NOTE]
-> If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample). 
 > 
 > 
 
 ### Edit your Resource Manager template
 
-For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains all the edits we will be making. the sample is available at [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains all the edits we will be making. the sample is available at [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample).
 
 **Make sure to follow all the steps**
 
@@ -174,7 +162,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 > 
 
 ### Edit your template file to reflect the new parameters you added above
-If you are using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you can start to make changes in The sample 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 
+If you are using the sample from the [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample) to follow along, you can start to make changes in The sample 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 
 
 Edit your Resource Manager Template parameter File, add the two new parameters for secCertificateThumbprint and secCertificateUrlValue. 
 
@@ -283,6 +271,10 @@ you can specify any number of client certificates. Each addition/deletion result
 ### Deletion of Client Certificates - Admin or Read-Only using the portal
 
 To remove a secondary certificate from being used for cluster security, Navigate to the Security section and select the 'Delete' option from the context menu on the specific certificate.
+
+## Adding application certificates to a virtual machine scale set
+
+To deploy a certificate you use for your applications to your cluster, see [this sample Powershell script](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## Next steps
 Read these articles for more information on cluster management:

@@ -2,12 +2,8 @@
 title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions in Azure Automation
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
 ---
 # Onboard Update Management, Change Tracking, and Inventory solutions
@@ -20,7 +16,7 @@ Sign in to Azure at https://portal.azure.com
 
 ## Enable solutions
 
-Navigate to your Automation account and select either **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**.
+Navigate to your Automation account and select either **Inventory** or **Change tracking** under **Configuration Management**.
 
 Choose the Log Analytics workspace and Automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
@@ -33,17 +29,17 @@ Choose the Log Analytics workspace and Automation account and click **Enable** t
 
 The Change Tracking and Inventory solution provides the ability to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solution on a virtual machine.
 
-When the change tracking and inventory solution onboarding notification completes, click on **Update Management** under **CONFIGURATION MANAGEMENT**.
+When the change tracking and inventory solution onboarding notification completes, select **Update management** under **Update management**.
 
-The Update Management solution allows you to manage updates and patches for your Azure Windows VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM. This action enabled the solution for your VM.
+The Update Management solution allows you to manage updates and patches for your Azure and hybrid VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to them.
 
-Select **Update management** under **UPDATE MANAGEMENT**. The Log Analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update management solution. The solution takes up to 15 minutes to enable.
+On the enable solution page, the Log Analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update Management solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard update solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
 ## Scope Configuration
 
-Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**. Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
+Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **Related resources**, select **Workspace**. Then in the workspace under **Workspace data sources**, select **Scope Configurations**.
 
 If the selected workspace doesn't have the Update Management or Change Tracking solutions yet, the following scope configurations are created:
 
@@ -57,7 +53,7 @@ If the selected workspace already has the solution, the solution isn't re-deploy
 
 When a computer is added to the Update Management or the Change Tracking and Inventory solutions, they're added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
 
-Navigate to your Automation account and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
+Navigate to your Log Analytics workspace and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
 
 |Name     |Category  |Alias  |
 |---------|---------|---------|
@@ -70,7 +66,7 @@ Select either saved search to view the query used to populate the group. The fol
 
 ## Onboard Azure VMs
 
-From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
+From your Automation account select **Inventory** or **Change tracking** under **Configuration Management**, or **Update management** under **Update management**.
 
 Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation Account. On the **Enable Update Management** page, click **Enable**. This action adds the selected VMs to the computer group saved search for the solution.
 
@@ -78,13 +74,13 @@ Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machine
 
 ## Onboard a non-Azure machine
 
-Machines not in Azure need to be added manually. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
+Machines not in Azure need to be added manually. From your Automation account select **Inventory** or **Change tracking** under **Configuration Management**, or **Update management** under **Update management**.
 
 Click **Add non-Azure machine**. This action opens up a new browser window with the [instructions on how to install and configure the Microsoft Monitoring Agent on the machine](../azure-monitor/platform/log-analytics-agent.md) so the machine can begin reporting to the solution. If you're onboarding a machine that currently managed by System Center Operations Manager, a new agent isn't required, the workspace information is entered into the existing agent.
 
 ## Onboard machines in the workspace
 
-Manually installed machines or machines already reporting to your workspace must to be added to Azure Automation for the solution to be enabled. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
+Manually installed machines or machines already reporting to your workspace must to be added to Azure Automation for the solution to be enabled. From your Automation account select **Inventory** or **Change tracking** under **Configuration Management**, or **Update management** under **Update management**.
 
 Select **Manage machines**. This action opens up the **Manage Machines** page. This page allows you to enable the solution on a select set of machines, all available machines, or enable the solution for all current machines and enable it on all future machines. The **Manage machines** button may be greyed out if you previously chose the option **Enable on all available and future machines**.
 
@@ -102,7 +98,7 @@ You can add the Scope Configurations back by adding the initial saved searches b
 
 ### Selected machines
 
-To enable the solution for one or more machines, select **Enable on selected machines** and click **add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
+To enable the solution for one or more machines, select **Enable on selected machines** and click **Add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
 
 ## Unlink workspace
 
@@ -131,9 +127,9 @@ After you remove these solutions, you can complete the following steps to unlink
 
 If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
-* Update schedules - Each will have names that match the update deployments you created)
+* Update schedules - Each will have names that match the update deployments you created.
 
-* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Hybrid worker groups created for the solution -  Each will be named similarly to machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 If you used the Start and Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
 
@@ -142,6 +138,13 @@ If you used the Start and Stop VMs during off-hours solution, optionally you may
 * Variables
 
 Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+
+## Clean up resources
+
+To remove a VM from Update Management:
+
+* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
+* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 

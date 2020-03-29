@@ -1,10 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure SQL Database - Scalability
+title: Scalability
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database - Scalability
-  meta.description: Learn how to scale your Azure SQL Database.
+  description: Learn how Azure SQL Database lets you easily scale your database by adding more compute power (scale-up) or adding more database units (scale-out).
   services: sql-database
   ms.subservice: scale-out
   author: jovanpop-msft
@@ -15,7 +14,7 @@ metadata:
   ms.devlang:
   ms.topic: overview
   ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
 
 - items:

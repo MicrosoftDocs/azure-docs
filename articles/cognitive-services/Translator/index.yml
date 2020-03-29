@@ -1,114 +1,108 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Translator Text Documentation
+### YamlMime:Landing
+
+title: Translator Text documentation
+summary: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API, which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or Microsoft Speech Services. 
 metadata:
-  title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
-  description: Learn how to use Translator Text to translate text in multiple languages.
+  title: Translator Text documentation - quickstarts, tutorials, API reference
+  titleSuffix: Azure Cognitive Services
+  description: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API, which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or Microsoft Speech Services.
   services: cognitive-services
-  author: swmachan
+  author: erhopf
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 06/04/2019
-  ms.author: swmachan
-abstract:
-  description: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Speech Services</a>. For the list of supported languages, both for neural and statistical machine translation, see <a href="languages.md">Supported languages</a>.
+  ms.date: 10/14/2019
+  ms.author: erhopf
 
-sections:
-- items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/cognitive-services/translator/translator-info-overview
-          html: <p>Learn about the Translator Text API</p>
-          image:
-            src: ../media/index/i_overview.svg
-          title: What is Translator Text API?
-        - href: /azure/cognitive-services/translator/custom-translator/overview
-          html: <p>Learn about Custom Translator</p>
-          image:
-            src: ../media/index/i_overview.svg
-          title: What is Custom Translator?
-        - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-          html: <p>Learn how to get started with Custom Translator</p>
-          image:
-            src: ../media/index/i_get-started.svg
-          title: Custom Translator quickstart
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Get started using the Translator Text API:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_csharp.svg
-      title: C#
-    - image:
-        src: media/index/logo_java.svg
-      title: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/logo_go.svg
-      title: Go
-    rows:
-    - title: Translate text
-      values:
-      - href: quickstart-translate?pivots=programming-language-csharp
-      - href: quickstart-translate?pivots=programming-language-java
-      - href: quickstart-translate?pivots=programming-language-nodejs
-      - href: quickstart-translate?pivots=programming-language-python
-      - href: quickstart-translate?pivots=programming-language-go
-    - title: Convert text from one script to another
-      values:
-      - href: quickstart-transliterate?pivots=programming-language-csharp
-      - href: quickstart-transliterate?pivots=programming-language-java
-      - href: quickstart-transliterate?pivots=programming-language-nodejs
-      - href: quickstart-transliterate?pivots=programming-language-python
-      - href: quickstart-transliterate?pivots=programming-language-go
-    - title: Detect text language
-      values:
-      - href: quickstart-detect?pivots=programming-language-csharp
-      - href: quickstart-detect?pivots=programming-language-java
-      - href: quickstart-detect?pivots=programming-language-nodejs
-      - href: quickstart-detect?pivots=programming-language-python
-      - href: quickstart-detect?pivots=programming-language-go
-    - title: Get alternate translations and usage
-      values:
-      - href: quickstart-dictionary?pivots=programming-language-csharp
-      - href: quickstart-dictionary?pivots=programming-language-java
-      - href: quickstart-dictionary?pivots=programming-language-nodejs
-      - href: quickstart-dictionary?pivots=programming-language-python
-      - href: quickstart-dictionary?pivots=programming-language-go
-    - title: Determine sentence length
-      values:
-      - href: quickstart-sentences?pivots=programming-language-csharp
-      - href: quickstart-sentences?pivots=programming-language-java
-      - href: quickstart-sentences?pivots=programming-language-nodejs
-      - href: quickstart-sentences?pivots=programming-language-python
-      - href: quickstart-sentences?pivots=programming-language-go
-    - title: Get a full list of supported languages
-      values:
-      - href: quickstart-languages?pivots=programming-language-csharp
-      - href: quickstart-languages?pivots=programming-language-java
-      - href: quickstart-languages?pivots=programming-language-nodejs
-      - href: quickstart-languages?pivots=programming-language-python
-      - href: quickstart-languages?pivots=programming-language-go
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: "Learn how to develop applications using the Translator Text API:"
-  - type: paragraph
-    text: <li><a href="tutorial-wpf-translation-csharp.md">Create a WPF app for Translator Text, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Create a Flask translation app, Python</a></li>
-- title: Reference
-  items:
-  - type: paragraph
-    text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: Translator
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Translator Text API
+            url: translator-info-overview.md
+          - text: Custom Translator
+            url: translator-info-overview.md
+          - text: Pricing
+            url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+          - text: Compliance
+            url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+          - text: Create a subscription
+            url: translator-text-how-to-signup.md
+          - text: FAQ
+            url: https://www.microsoft.com/translator/faq.aspx
+  - title: Translator Text API
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Translate text
+            url: quickstart-translate.md
+          - text: Transliterate text
+            url: quickstart-transliterate.md
+          - text: Language detection
+            url: quickstart-detect.md
+          - text: Dictionary lookup
+            url: quickstart-dictionary.md
+          - text: Determine sentence length
+            url: quickstart-sentences.md
+          - text: List supported languages
+            url: quickstart-languages.md
+      - linkListType: tutorial
+        links:
+          - text: Create a WPF translation app, C#
+            url: tutorial-wpf-translation-csharp.md
+          - text: Create a flask translation app, REST
+            url: tutorial-build-flask-app-translation-synthesis.md
+      - linkListType: reference
+        links:
+          - text: Translator Text API reference (v3)
+            url: reference/v3-0-reference.md
+          - text: Request limits
+            url: request-limits.md
+          - text: Language and region support
+            url: language-support.md
+
+  - title: Custom Translator
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Build and deploy a custom model
+            url: custom-translator/quickstart-build-deploy-custom-model.md
+      - linkListType: get-started
+        links:
+          - text: Create a project
+            url: custom-translator/how-to-create-project.md
+          - text: Manage your projects
+            url: custom-translator/how-to-search-edit-delete-projects.md
+          - text: Upload documents
+            url: custom-translator/how-to-upload-document.md
+          - text: Train your model
+            url: custom-translator/how-to-train-model.md
+      - linkListType: learn
+        links:
+          - text: Workspaces and projects
+            url: custom-translator/workspace-and-project.md
+          - text: Parallel documents
+            url: custom-translator/what-are-parallel-documents.md
+          - text: Dictionary
+            url: custom-translator/what-is-dictionary.md
+          - text: Supported document formats
+            url: custom-translator/document-formats-naming-convention.md
+      - linkListType: reference
+        links:
+          - text: Language support
+            url: language-support.md
+          - text: Glossary
+            url: custom-translator/glossary.md
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Samples on GitHub
+            url: https://aka.ms/TranslatorGitHub
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-translator

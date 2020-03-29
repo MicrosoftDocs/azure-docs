@@ -1,6 +1,6 @@
 ---
 title: Create content keys with REST | Microsoft Docs
-description: Learn how to create content keys that provide secure access to Assets.
+description: This article demonstrates how to create content keys that provide secure access to assets.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -86,7 +86,7 @@ Request:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 
@@ -118,7 +118,7 @@ Request:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -185,7 +185,7 @@ Request
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -235,7 +235,7 @@ Request:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 

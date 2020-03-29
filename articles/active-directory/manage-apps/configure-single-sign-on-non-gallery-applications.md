@@ -21,7 +21,7 @@ When you [add a gallery app](add-gallery-app.md) or a [non-gallery web app](add-
 > [!NOTE]
 > Adding a gallery app? Find step-by-step setup instructions in the [list of SaaS app tutorials](../saas-apps/tutorial-list.md)
 
-To configure SAML single sign-on for a non-gallery application without writing code, you need to have a subscription or Azure AD Premium and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+To configure SAML single sign-on for a non-gallery application without writing code, you need to have a subscription along with an Azure AD Premium license and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Before you begin
 
@@ -47,8 +47,8 @@ If the application hasn't been added to your Azure AD tenant, see [Add a non-gal
 
     | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
     |:--|:--|:--|:--|
-    | **Identifier (Entity ID)** | Required for some apps | Required for some apps | Uniquely identifies the application. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application. *You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application.* |
-    | **Reply URL** | Optional | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. You can use the additional reply URL fields to specify multiple reply URLs. For example, you might need additional reply URLs for multiple subdomains. Or, for testing purposes you can specify multiple reply URLs (local host and public URLs) at one time. |
+    | **Identifier (Entity ID)** | Required for some apps | Required for some apps | Uniquely identifies the application. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application. Enter a URL that uses the following pattern: 'https://<subdomain>.contoso.com' *You can find this value as the **Issuer** element in the **AuthnRequest** (SAML request) sent by the application.* |
+    | **Reply URL** | Required | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. You can use the additional reply URL fields to specify multiple reply URLs. For example, you might need additional reply URLs for multiple subdomains. Or, for testing purposes you can specify multiple reply URLs (local host and public URLs) at one time. |
     | **Sign-on URL** | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD performs IdP-initiated sign-on when a user launches the application from Office 365, the Azure AD Access Panel, or the Azure AD SSO URL.|
     | **Relay State** | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application. However, some applications use this field differently. For more information, ask the application vendor.
     | **Logout URL** | Optional | Optional | Used to send the SAML Logout responses back to the application.
@@ -65,11 +65,11 @@ When a user authenticates to the application, Azure AD issues the application a 
 
 2. Verify the **Name Identifier Value**. The default value is *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-3. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Save the changes when you're done. 
+3. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Save the changes when you're done. 
  
 4. To configure group claims, select the **Edit** icon for the **Groups returned in claim** field. For details, see [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Save the changes when you're done. 
+5. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Save the changes when you're done. 
 
 6. Select **Save**. The new claim appears in the table.
 
@@ -145,7 +145,7 @@ If an error message appears, complete the following steps:
 
 1. Copy and paste the specifics into the **What does the error look like?** box.
 
-    ![Get resolution guidance](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Get resolution guidance](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
 2. Select **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
 
@@ -153,9 +153,9 @@ If an error message appears, complete the following steps:
 
 4. Run the test again until it completes successfully.
 
-For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 ## Next steps
 
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
-- [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)
+- [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

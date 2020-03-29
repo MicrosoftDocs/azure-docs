@@ -1,12 +1,11 @@
 ---
 title: Webhook actions for log alerts in Azure alerts
 description: This article describes how to create a log alert rule by using the Log Analytics workspace or Application Insights, how the alert pushes data as an HTTP webhook, and the details of the different customizations that are possible.
-author: msvijayn
+author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
 ms.subservice: alerts
 ---
 
@@ -14,7 +13,7 @@ ms.subservice: alerts
 When a [log alert is created in Azure](alerts-log.md), you have the option of [configuring it by using action groups](action-groups.md) to perform one or more actions. This article describes the different webhook actions that are available and shows how to configure a custom JSON-based webhook.
 
 > [!NOTE]
-> You also can use the [common alert schema](https://aka.ms/commonAlertSchemaDocs) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+> You also can use the [common alert schema](https://aka.ms/commonAlertSchemaDocs) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.Please note that the common alert schema does not honour the custom JSON option for log alerts. It defers to the common alert schema payload if that is selected irrespective of the customization you might have done at the alert rule level. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
 
 ## Webhook actions
 

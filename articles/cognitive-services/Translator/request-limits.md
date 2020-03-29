@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 03/17/2020
 ms.author: swmachan
 ---
 
@@ -18,7 +18,7 @@ This article provides throttling limits for the Translator Text API. Services in
 
 ## Character and array limits per request
 
-Each Translate request is limited to 5,000 characters. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
+Each translate request is limited to 5,000 characters, across all the target languages you are translating to. For example, sending a translate request of 1,500 characters to translate to 3 different languages results in a request size of 1,500x3 = 4,500 characters, which satisfies the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
 The following table lists array element and character limits for each operation of the Translator Text API.
 
@@ -27,7 +27,7 @@ The following table lists array element and character limits for each operation 
 | Translate | 5,000	| 100	| 5,000 |
 | Transliterate | 5,000	| 10	| 5,000 |
 | Detect | 10,000 |	100 |	50,000 |
-| BreakSentence | 10,000	| 100 |	5,0000 |
+| BreakSentence | 10,000	| 100 |	50,000 |
 | Dictionary Lookup| 100 |	10	| 1,000 |
 | Dictionary Examples | 100 for text and 100 for translation (200 total)| 10|	2,000 |
 
@@ -53,7 +53,7 @@ These limits are restricted to Microsoft's standard translation models. Custom t
 
 ## Latency
 
-The Translator Text API has a maximum latency of 15 seconds using standard models. Translation using custom models has a maximum latency of 25 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 milliseconds to 300 milliseconds. Response times will vary based on the size of the request and language pair. If you don’t receive a translation or an [error response](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) within that timeframe, you should check your network connection and retry.
+The Translator Text API has a maximum latency of 15 seconds using standard models and 120 seconds when using custom models. Typically, responses *for text within 100 characters* are returned in 150 milliseconds to 300 milliseconds. The custom translator models have similar latency characteristics on sustained request rate and may have a higher latency when your request rate is intermittent. Response times will vary based on the size of the request and language pair. If you don’t receive a translation or an [error response](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) within that timeframe, please check your code, your network connection and retry. 
 
 ## Sentence length limits
 

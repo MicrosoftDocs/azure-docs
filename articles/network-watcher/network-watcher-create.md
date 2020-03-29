@@ -3,10 +3,7 @@ title: Create an Azure Network Watcher instance | Microsoft Docs
 description: Learn how to enable Network Watcher in an Azure region.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
+author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -14,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Create an Azure Network Watcher instance
@@ -99,6 +96,26 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## Delete a Network Watcher in the portal
+
+Navigate to **All Services** > **Networking** > **Network Watcher**.
+
+Select the overview tab, if you're not already there. Use the dropdown to select the subscription you want to disable network watcher in.
+Expand the list of regions for your chosen subscription by clicking on the arrow. For any given, use the 3 dots on the right to access the context menu.
+Click on "Disable network watcher" to start disabling. You will be asked to confirm this step. Click Yes to continue.
+On the portal, you will have to do this individually for every region in every subscription.
+
+
+## Delete a Network Watcher with PowerShell
+
+To delete an instance of Network Watcher, run the following example:
+
+```powershell
+New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
+```
+
 ## Next steps
 
 Now that you have an instance of Network Watcher, learn about the features available:
@@ -110,5 +127,3 @@ Now that you have an instance of Network Watcher, learn about the features avail
 * [Security group view](network-watcher-security-group-view-overview.md)
 * [NSG flow logging](network-watcher-nsg-flow-logging-overview.md)
 * [Virtual Network Gateway troubleshooting](network-watcher-troubleshoot-overview.md)
-
-Once a Network Watcher instance is, you can enable packet capture within virtual machines. To learn how, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)

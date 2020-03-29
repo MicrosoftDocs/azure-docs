@@ -1,6 +1,6 @@
 ---
-title: How to use Service Bus topics with PHP | Microsoft Docs
-description: Learn how to use Service Bus topics with PHP in Azure.
+title: How to use Azure Service Bus topics with PHP
+description: In this tutorial, you learn how to use Azure Service Bus topics and subscriptions from a PHP application. 
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,16 +12,16 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
-# How to use Service Bus topics and subscriptions with PHP
+# Quickstart: How to use Service Bus topics and subscriptions with PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include:
+This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). The scenarios covered include:
 
 - Creating topics and subscriptions 
 - Creating subscription filters 
@@ -37,7 +37,7 @@ This article shows you how to use Service Bus topics and subscriptions. The samp
     > You will create a **topic** and a **subscription** to the topic by using **PHP** in this quickstart. 
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) from within your code. You can use any development tools to create your application, or Notepad.
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](https://php.net/openssl) installed and enabled.

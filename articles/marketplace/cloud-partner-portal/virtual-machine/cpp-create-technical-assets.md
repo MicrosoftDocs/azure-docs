@@ -1,12 +1,12 @@
 ---
 title: Create technical assets for a virtual machine offer for the Azure Marketplace 
 description: Explains how to create the technical assets for a virtual machine offer in the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create technical assets for a virtual machine offer
