@@ -46,7 +46,7 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
     
 1. To access the wizard, right-click the *database* or *table* row in left menu of the Azure Data Explorer web UI and select **Ingest new data (preview)**.
 
-    ![Select one-click ingestion in the Web UI](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
+    ![Select one-click ingestion in the Web UI](media/ingest-data-one-click/one-click-ingestion-in-web-ui.png)   
 
 1. The wizard guides you through the following options:
        * Ingest into an [existing table](one-click-ingestion-existing-table.md)
