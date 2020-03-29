@@ -184,27 +184,25 @@ The **Recurrence** trigger is independent from any specific service or endpoint,
 * A fixed frequency and interval, such as every 10 minutes
 * A more advanced schedule, such as the last Monday of every month at 5:00 PM
 
-So, if your logic app starts with a Recurrence trigger, you need to set up the primary and secondary logic app instances with the ]active-passive roles](#roles).
+When your logic app starts with a Recurrence trigger, you need to set up your primary and secondary logic app instances with the [active-passive roles](#roles). To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set up your logic app instances with a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
 
-To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set logic app instances that start with Recurrence triggers in a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations. For example, suppose that you have a logic app that needs to run every 10 minutes. You can set up your logic apps and locations as follows so that if the primary location becomes unavailable, the secondary location can take over the work:
+For example, suppose that you have a logic app that needs to run every 10 minutes. You can set up your logic apps and locations so that if the primary location becomes unavailable, the secondary location can take over the work:
 
 !["Active-passive" and "passive-active" combination that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/combo-primary-secondary-setup.png)
 
-* For one configuration, set up [active-passive roles](#roles) for these logic apps:
+* In the primary location, set up [active-passive roles](#roles) for these logic apps:
 
-  * In the primary location, on the *active* (enabled) logic app, set the Recurrence trigger to a schedule that starts at the top of the hour, such as 9:00 AM, and repeats every 20 minutes.
+  * For the *active* enabled logic app, set the Recurrence trigger to start at the top of the hour and repeat every 20 minutes, for example, 9:00 AM, 9:20 AM, and so on.
 
-  * In the secondary location, on the *passive* (disabled) logic app, set the Recurrence trigger to same schedule but starting at 10 minutes past the hour, such as 9:10 AM, and repeats every 20 minutes.
+  * For the *passive* disabled logic app, set the Recurrence trigger to same schedule but start at 10 minutes past the hour and repeat every 20 minutes, for example, 9:10 AM, 9:30 AM, and so on.
 
-* For the reverse configuration, set up [passive-active](#roles) for these logic apps:
+* In the secondary location, set up [passive-active](#roles) for these logic apps:
 
-  * In the secondary location, on the *active* logic app, set the Recurrence trigger to a a schedule that starts at 10 minutes past the hour, such as 9:10 AM, and repeats every 20 minutes.
+  * For the *passive* disabled logic app, set the Recurrence trigger to the same schedule as the active logic app in the primary location, which is at the top of hour and repeat every 20 minutes, for example, 9:00 AM, 9:10 AM, and so on.
 
-  * In the primary location, on the *passive* logic app, set the Recurrence trigger to the same schedule that starts to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
+  * For the *active* enabled logic app, set the Recurrence trigger to the same schedule as the passive logic app in the primary location, which is to start at 10 minutes past the hour and repeat every 20 minutes, for example, 9:10 AM, 9:20 AM, and so on.
 
-  When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
-
-  !["Passive-active" setup that uses Recurrence triggers](./media/business-continuity-disaster-recovery-guidance/passive-active-recurrence-trigger.png)
+Now, if a disruptive event happens in the primary location, enable the passive logic app in the alternate location. That way, if finding the failure takes time, this setup limits the number of missed recurrences during that delay.
 
 <a name="polling-trigger"></a>
 
