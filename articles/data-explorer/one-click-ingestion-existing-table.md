@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 03/29/2020
 ---
 
 # Use one-click ingestion to ingest data to an existing table in Azure Data Explorer
@@ -69,7 +69,7 @@ For information about ingesting data into a new table in Azure Data Explorer, se
         > [!Note]
         > Tabular formats can ingest column data into only one column in an Azure Data Explorer table. 
 
-    * The **Mapping name** is set automatically, but you can edit it.
+    * New mappings are set automatically, but you can change it to use an existing one. 
     * You can select **Map columns** to open the **Map columns** window.
 
 ## Copy and paste commands
@@ -78,10 +78,10 @@ For information about ingesting data into a new table in Azure Data Explorer, se
 1. In the table: 
     * Select new column headers to add a **New column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns, only data sorting is available.
 
-    > [!Note]
-    > You can't update the name and datatype for existing tables.
+        > [!Note]
+        > You can't update the name and datatype for existing tables.
 
-    * Drop commands for existing tables will generate commands that drops only new extents.
+    * Drop commands will only revert the changes that were made by his ingestion flow (new extents and columns). Nothing else will be dropped.
 
 [![](media/one-click-ingestion-existing-table/edit-view.png "One-click ingestion edit view")](media/one-click-ingestion-existing-table/edit-view.png#lightbox) 
 

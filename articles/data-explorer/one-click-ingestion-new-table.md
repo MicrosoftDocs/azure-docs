@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 03/29/2020
 ---
 
 # Use one-click ingestion to ingest data to a new table in Azure Data Explorer
@@ -34,12 +34,12 @@ For information about ingesting data into an existing table in Azure Data Explor
        ![One-click ingestion from storage](media/one-click-ingestion-new-table/from-storage-blob.png)
       * **from file** - select **Browse** to locate the file, or drag the file into the field.
       ![One-click ingestion from file](media/one-click-ingestion-new-table/from-file.png)
-      * **from container** - in the **Link to storage** field, add the [SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) of the container, and enter the sample size
+      * **from container** - in the **Link to storage** field, add the [SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) of the container, and optionally enter the sample size
       ![One-click ingestion from container](media/one-click-ingestion-new-table/from-container.png)
       A sample of the data appears. If you want to, you can filter it to show only files that begin end with specific characters. When you adjust the filters, the preview automatically updates.
       For example, you can filter for all files that begin with the word *data* and end with a *.csv.gz* extension.
       ![One-click ingestion filter](media/one-click-ingestion-new-table/from-container-with-filter.png)
-1. Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob.
+1. Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob. By looking at the name of the source, the service automatically identifies if it is compressed or not.
 
 ## Edit the schema
 
@@ -64,8 +64,22 @@ For information about ingesting data into an existing table in Azure Data Explor
 
 1. Above the **Editor** pane, select the **v** button to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
 1. In the table: 
-    * Select new column headers to **Change data type**, **Rename column**, **New column**, **Delete column**, **Sort ascending**, or **Sort descending**. On existing columns, only data sorting is available. 
     * Double-click the new column name to edit.
+    * Select new column headers and do any of the following:
+    
+|Action         |Description                                  |
+|-----------------|-------------------------------------------|
+|Change data type |Change the data type from the one automatically selected by the service to one of the other [supported data types](#edit-the-schema)|
+|Rename column    |Change the column name |
+|New column       |Add a new column|
+|Delete column    |Delete the selected column|
+|Sort ascending   |Sort the table by the selected column in ascending order (existing columns only)|
+|Sort descending  |Sort the table by the selected column in descending order (existing columns only) |
+
+> [!Note]
+> For tabular formats, each column can be ingested into one column in Azure Data Explorer.
+> You can create new columns from different JSON levels.
+
 [![](media/one-click-ingestion-new-table/edit-view.png "One-click ingestion edit view")](media/one-click-ingestion-new-table/edit-view.png#lightbox) 
 
 ## Start ingestion
@@ -93,9 +107,12 @@ Select **Start ingestion** to create a table and mapping and to begin data inges
 
 Continuous ingestion enables you to create an event grid that listens to the source container. Any new blob that meets the criteria of the the pre-defined parameters (prefix, suffix, and so on) will be automatically ingested into the destination table.
 
-1. Select **Continuous ingestion** to open the Azure portal. The data connection page opens with the pre-defined parameters already selected (source container, tables, and mappings).
+> [!Note]
+> Continuous ingestion is only relevant when ingesting from a container.
 
-1. Select **Create** to create an event grid that will listen for any changes to the source container.
+1. Select **Continuous ingestion** to open the Azure portal. The data connection page opens with the event grid data connector opened and with source and target parameters already entered (source container, tables, and mappings).
+
+1. Select **Create** to create a data connection which will listen for any changes in that container container. 
 
 ## Next steps
 

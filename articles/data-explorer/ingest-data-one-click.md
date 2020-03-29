@@ -57,14 +57,15 @@ The one-click ingestion wizard guides you through the one-click ingestion proces
               * A container
        * Enter the sample size, from 1 to 10,000 rows (from container only)
        
-1. When you have successfully selected the data source, a preview of the data is displayed. You can filter the data so that only files with specific prefixes or file extensions are ingested. For example, you might only want to ingest files with filenames beginning with the word *Europe*, or only files with the extension *.json*. 
+1. When you have successfully selected the data source, a preview of the data is displayed. 
+    If you are ingesting data from a container, you can filter the data so that only files with specific prefixes or file extensions are ingested. For example, you might only want to ingest files with filenames beginning with the word *Europe*, or only files with the extension *.json*. 
 
 1. Click **Edit schema**. If you are ingesting data into a specific table, you can map the source columns to the target columns and decide whether or not to include column names.
 
 1. Start the data ingestion process.
 
 > [!Note]
-> If your data source is a container, note that Azure Data Explorer's data ingestion aggregation (batching) policy is designed to optimize the ingestion process. By default, the policy is configured to 5 minutes or 500 MB of data, so you may experience latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options.
+> If your data source is a container, note that Azure Data Explorer's data ingestion aggregation (batching) policy is designed to optimize the ingestion process. By default, the policy is configured to 5 minutes or 500 MB of data, so you may experience latency. See [batching policy](/azure/kusto/concepts/batchingpolicy) for aggregation options. When ingesting data from other sources, the ingestion will take immediate effect.
 
 ## Next steps
 
