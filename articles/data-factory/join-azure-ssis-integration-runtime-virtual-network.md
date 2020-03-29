@@ -124,7 +124,7 @@ As you choose a subnet:
 
 If you want to bring your own static public IP addresses for Azure-SSIS IR while joining it to a virtual network, make sure they meet the following requirements:
 
-- Exactly two unused ones that are not already associated with other Azure resources should be provided. The extra one will be used when we periodically upgrade your Azure-SSIS IR. It is suggested that you do not share public IP addresses among your Azure-SSIS IRs.
+- Exactly two unused ones that are not already associated with other Azure resources should be provided. The extra one will be used when we periodically upgrade your Azure-SSIS IR. Note that one public IP address cannot be shared among your active Azure-SSIS IRs.
 
 - They should both be static ones of standard type. Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for more details.
 
@@ -223,12 +223,18 @@ else
 For firewall appliance to allow outbound traffic, you need to allow outbound to below ports same as requirement in NSG outbound rules.
 -   Port 443 with destination as Azure Cloud services.
 
-    If you use Azure Firewall, you can specify network rule with AzureCloud Service Tag. Or if you using on-premise firewall, you can either simply allow destination as all for port 443 or allow below FQDNs based on the type of your Azure environment:
+    If you use Azure Firewall, you can specify network rule with AzureCloud Service Tag. For firewall of the other types, you can either simply allow destination as all for port 443 or allow below FQDNs based on the type of your Azure environment:
     | Azure Environment | Endpoints                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>*.frontend.clouddatahub.net</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul> |
-    | Azure Government  | <ul><li>*.frontend.datamovement.azure.us</li><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China 21Vianet     | <ul><li>*.frontend.datamovement.azure.cn</li><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis-prod.core.chinacloudapi.cn</li></ul>
+    | Azure Public      | <ul><li>\*.frontend.clouddatahub.net</li><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li><li>\*.azurecr.io</li><li>\*.servicebus.windows.net</li></ul> |
+    | Azure Government  | <ul><li>\*.frontend.datamovement.azure.us</li><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li><li>\*.azurecr.us</li><li>*.servicebus.usgovcloudapi.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>\*.frontend.datamovement.azure.cn</li><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis-prod.core.chinacloudapi.cn</li><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li><li>\*.azurecr.cn</li><li>\*.servicebus.chinacloudapi.cn</li></ul>
+
+    For the last four FQDNs, you can also choose to enable the following service endpoints for your virtual network so that network traffic to these endpoints goes through Azure backbone network instead of being routed to your firewall appliance:
+    -  Microsoft.Storage
+    -  Microsoft.ContainerRegistry
+    -  Microsoft.EventHub
+
 
 -   Port 80 with destination as CRL download sites.
 
