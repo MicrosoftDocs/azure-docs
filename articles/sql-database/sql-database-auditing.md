@@ -34,7 +34,13 @@ You can use SQL database auditing to:
 
 > [!IMPORTANT]
 > - Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
-   
+
+#### Auditing limitations
+
+- **Premium storage** is currently **not supported**.
+- **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
+- Enabling auditing on a paused **Azure SQL Data Warehouse** is not supported. To enable auditing, resume the Data Warehouse.
+
 ## <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
 
 An auditing policy can be defined for a specific database or as a default server policy:
@@ -52,12 +58,6 @@ An auditing policy can be defined for a specific database or as a default server
    >
    > Otherwise, we recommended that you enable only server-level blob auditing and leave the database-level auditing disabled for all databases.
 
-#### Auditing limitations
-
-- **Premium storage** is currently **not supported**.
-- **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
-- Enabling auditing on a paused **Azure SQL Data Warehouse** is not supported. To enable auditing, resume the Data Warehouse.
-
 ## <a id="setup-auditing"></a>Set up auditing for your server
 
 The default auditing policy includes all actions and the following set of action groups, which will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
@@ -66,7 +66,7 @@ The default auditing policy includes all actions and the following set of action
   - SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
   - FAILED_DATABASE_AUTHENTICATION_GROUP
   
-You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#subheading-7) section.
+You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#manage-auditing) section.
 
 Azure SQL Database Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
 The following section describes the configuration of auditing using the Azure portal.
