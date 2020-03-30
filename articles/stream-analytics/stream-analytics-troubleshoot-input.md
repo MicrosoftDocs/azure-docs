@@ -6,69 +6,60 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2020
 ms.custom: seodec18
 ---
 
 # Troubleshoot input connections
 
-This page describes common issues with input connections and how to troubleshoot them.
+This article describes common issues with Azure Stream Analytics input connections, how to troubleshoot input issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Input events not received by job 
-1.  Test your connectivity. Verify connectivity to inputs and outputs by using the **Test Connection** button for each input and output.
+
+1.  Test your input and output connectivity. Verify connectivity to inputs and outputs by using the **Test Connection** button for each input and output.
 
 2.  Examine your input data.
 
-    1. To verify that input data is flowing into Event Hub, use [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) to connect to Azure Event Hub (if Event Hub input is used).
-        
     1. Use the [**Sample Data**](stream-analytics-sample-data-input.md) button for each input. Download the input sample data.
         
-    1. Inspect the sample data to understand the shape of the data--that is, the schema and [data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspect the sample data to understand the schema and [data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    
+    1. Check [Event Hub metrics](../event-hubs/event-hubs-metrics-azure-monitor.md) to ensure events are being sent. Message metrics should be greater than zero if Event Hubs is receiving messages.
 
 3.  Ensure that you have selected a time range in the input preview. Choose **Select time range**, and then enter a sample duration before testing your query.
 
 ## Malformed input events causes deserialization errors 
-Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages. For example, a malformed message could be caused by a missing parenthesis or a brace in a JSON object, or an incorrect timestamp format in the time field. 
+
+Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages. For example, a malformed message could be caused by a missing parenthesis, or brace, in a JSON object or an incorrect timestamp format in the time field. 
  
-When a Stream Analytics job receives a malformed message from an input, it drops the message and notifies you with a warning. A warning symbol is shown on the **Inputs** tile of your Stream Analytics job. This warning sign exists as long as the job is in running state:
+When a Stream Analytics job receives a malformed message from an input, it drops the message and notifies you with a warning. A warning symbol is shown on the **Inputs** tile of your Stream Analytics job. The following warning symbol exists as long as the job is in running state:
 
 ![Azure Stream Analytics inputs tile](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Enable the diagnostics logs to view the details of the warning. For malformed input events, the execution logs contain an entry with the message that looks like: 
-```
-Could not deserialize the input event(s) from resource <blob URI> as json.
-```
+Enable diagnostics logs to view the details of the error and the message (payload) that caused the error. There are multiple reasons why deserialization errors can occur. For more information regarding specific deserialization errors, see [Input data errors](data-errors.md#input-data-errors). If diagnostic logs are not enabled, a brief notification will be available in the Azure portal.
 
-### What caused the deserialization error
-You can take the following steps to analyze the input events in detail to get a clear understanding of what caused the deserialization error. You can then fix the event source to generate events in the right format to prevent you from hitting this issue again.
+![Input details warning notification](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
-1. Navigate to the input tile and click on the warning symbols to see the list of issues.
+In cases where the message payload is greater than 32 KB or is in binary format, run the CheckMalformedEvents.cs code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID, offset, and prints the data that's located in that offset. 
 
-2. The input details tile displays a list of warnings with details about each issue. The example warning message below includes the partition, offset, and sequence numbers where there is malformed JSON data. 
+## Job exceeds maximum Event Hub receivers
 
-   ![Stream Analytics warning message with offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
-   
-3. To find the JSON data with the incorrect format, run the CheckMalformedEvents.cs code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID, offset, and prints the data that's located in that offset. 
-
-4. Once you read the data, you can analyze and correct the serialization format.
-
-5. You can also [read events from an IoT Hub with the Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
-
-## Job exceeds maximum Event Hub Receivers
-A best practice for using Event Hubs is to use multiple consumer groups to ensure job scalability. The number of readers in the Stream Analytics job for a specific input affects the number of readers in a single consumer group. The precise number of receivers is based on internal implementation details for the scale-out topology logic and is not exposed externally. The number of readers can change when a job is started or during job upgrades.
+A best practice for using Event Hubs is to use multiple consumer groups for job scalability. The number of readers in the Stream Analytics job for a specific input affects the number of readers in a single consumer group. The precise number of receivers is based on internal implementation details for the scale-out topology logic and is not exposed externally. The number of readers can change when a job is started or during job upgrades.
 
 The error shown when the number of receivers exceeds the maximum is:
+
 `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > When the number of readers changes during a job upgrade, transient warnings are written to audit logs. Stream Analytics jobs automatically recover from these transient issues.
 
 ### Add a consumer group in Event Hubs
+
 To add a new consumer group in your Event Hubs instance, follow these steps:
 
 1. Sign in to the Azure portal.
 
-2. Locate your Event Hubs.
+2. Locate your Event Hub.
 
 3. Select **Event Hubs** under the **Entities** heading.
 
@@ -80,8 +71,7 @@ To add a new consumer group in your Event Hubs instance, follow these steps:
 
    ![Add a consumer group in Event Hubs](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
-7. When you created the input in the Stream Analytics job to point to the Event Hub, you specified the consumer group there. $Default is used when none is specified. Once you create a new consumer group, edit the Event Hub input in the Stream Analytics job and specify the name of the new consumer group.
-
+7. When you created the input in the Stream Analytics job to point to the Event Hub, you specified the consumer group there. **$Default** is used when none is specified. Once you create a new consumer group, edit the Event Hub input in the Stream Analytics job and specify the name of the new consumer group.
 
 ## Readers per partition exceeds Event Hubs limit
 
@@ -90,7 +80,9 @@ If your streaming query syntax references the same input Event Hub resource mult
 Scenarios in which the number of readers per partition exceeds the Event Hubs limit of five include the following:
 
 * Multiple SELECT statements: If you use multiple SELECT statements that refer to **same** event hub input, each SELECT statement causes a new receiver to be created.
+
 * UNION: When you use a UNION, it's possible to have multiple inputs that refer to the **same** event hub and consumer group.
+
 * SELF JOIN: When you use a SELF JOIN operation, it's possible to refer to the **same** event hub multiple times.
 
 The following best practices can help mitigate scenarios in which the number of readers per partition exceeds the Event Hubs limit of five.
