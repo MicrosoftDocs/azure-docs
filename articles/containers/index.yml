@@ -7,64 +7,28 @@ metadata:
    description: Learn how to use Azure container services to manage and develop cloud-based container applications.
    ms.topic: hub-page
 
-productDirectory:
+highlightedContent:
   items:
-  - title: Azure Kubernetes Service (AKS) 
-    imageSrc: https://static.docs.com/ui/media/product/azure/kubernetes-services.svg
-    links:
-      - url: https://docs.microsoft.com/azure/aks/
-        text: Simplify the deployment, management, and operations of Kubernetes
-  - title: Azure Dev Spaces
-    imageSrc: https://docs.microsoft.com/azure/media/index/azuredevspacecontroller_50x.svg
-    links:
-      - url: https://docs.microsoft.com/azure/dev-spaces/
-        text: Test and iteratively develop your applications in Azure AKS
-  - title: App Service
-    imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
-    links:
-      - url: https://docs.microsoft.com/azure/app-service/
-        text: Quickly create powerful cloud apps for web and mobile
-  - title: Container Instances
-    imageSrc: https://static.docs.com/ui/media/product/azure/container-instances.svg
-    links:
-      - url: https://docs.microsoft.com/azure/container-instances/
-        text: Easily run containers on Azure without managing servers
-  - title: Batch
-    imageSrc: https://static.docs.com/ui/media/product/azure/batch-accounts.svg
-    links:
-      - url: https://docs.microsoft.com/azure/batch/
-        text: Cloud-scale job scheduling and compute management
-  - title: Service Fabric
-    imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
-    links:
-      - url: https://docs.microsoft.com/azure/service-fabric/
-        text: Develop microservices and orchestrate containers on Windows or Linux
-  - title: Container Registry
-    imageSrc: https://static.docs.com/ui/media/product/azure/container-registry.svg
-    links:
-      - url: https://docs.microsoft.com/azure/container-registry/
-        text: Store and manage container images across all types of Azure deployments
-  - title: Azure Red Hat OpenShift
-    imageSrc: https://static.docs.com/ui/media/product/azure/openshift.svg
-    links:
-      - url: https://docs.microsoft.com/azure/openshift/
-        text: Fully managed OpenShift service, jointly operated with Red Hat
-  - title: Functions
-    imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
-    links:
-      - url: https://docs.microsoft.com/azure/azure-functions/
-        text: Accelerate and simplify application development with serverless architecture
+    - itemType: whats-new
+      title: What's new in Azure containers?
+      url: https://azure.microsoft.com/updates/?category=containers
+    - itemType: concept
+      title: A microservices approach to applications
+      url: azure/service-fabric/service-fabric-overview-microservices
+    - itemType: concept
+      title: Kubernetes basics
+      url: /azure/aks/concepts-clusters-workloads
 
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Azure Kubernetes Service
+    - title: Deploy Kubernetes on Azure
       links:
         - url: /azure/aks/intro-kubernetes
           itemType: overview
-          text: Intro to AKS
+          text: What is Azure Kubernetes Service?
         - url: /azure/aks/tutorial-kubernetes-prepare-app
           itemType: tutorial
           text: Prepare an application for AKS
@@ -76,7 +40,7 @@ conceptualContent:
         url: /azure/aks/ 
         text: See more
     # Card
-    - title: Azure Dev Spaces
+    - title: Test and develop AKS applications
       links:
         - url: /azure/dev-spaces/about
           itemType: overview
@@ -92,7 +56,7 @@ conceptualContent:
         url: /azure/dev-spaces/ 
         text: See more
     # Card
-    - title: App Service 
+    - title: Create cloud apps for web and mobile
       links:
         - url: /azure/app-service/overview
           itemType: overview
@@ -117,7 +81,7 @@ conceptualContent:
         url: /azure/app-service/ 
         text: See more
     # Card
-    - title: Container Instances
+    - title: Run containers on Azure
       links:
         - url: /azure/container-instances/container-instances-overview
           itemType: overview
@@ -136,7 +100,7 @@ conceptualContent:
         url: /azure/container-instances/ 
         text: See more
     # Card
-    - title: Batch
+    - title: Job scheduling and compute management
       links:
         - url: /azure/batch/batch-technical-overview
           itemType: overview
@@ -152,7 +116,7 @@ conceptualContent:
         url: /azure/batch/ 
         text: See more
     # Card
-    - title: Service Fabric
+    - title: Microservice development and container orchestration
       links:
         - url: /azure/service-fabric/service-fabric-overview
           itemType: overview
@@ -168,7 +132,7 @@ conceptualContent:
         url: /azure/service-fabric/ 
         text: See more
     # Card
-    - title: Container Registry
+    - title: Store and manage container images
       links:
         - url: /azure/container-registry/container-registry-intro
           itemType: overview
@@ -184,7 +148,7 @@ conceptualContent:
         url: /azure/container-registry/ 
         text: See more
     # Card
-    - title: Azure Red Hat OpenShift
+    - title: Managed OpenShift service
       links:
         - url: /azure/openshift/intro-openshift
           itemType: overview
@@ -200,7 +164,7 @@ conceptualContent:
         url: /azure/openshift/ 
         text: See more
     # Card
-    - title: Functions
+    - title: Serverless application development
       links:
         - url: /azure/azure-functions/functions-overview
           itemType: overview
