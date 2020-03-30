@@ -133,7 +133,7 @@ Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](ap
 
 ### Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint server?
 
-The [SharePoint mobile app](https://docs.microsoft.com/en-us/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
+The [SharePoint mobile app](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
 
 ## Active Directory Federation Services (AD FS) publishing 
 
