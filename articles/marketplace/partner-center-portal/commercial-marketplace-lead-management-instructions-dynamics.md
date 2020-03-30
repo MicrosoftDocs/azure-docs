@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
 ---
 
@@ -184,6 +184,10 @@ When you are ready to configure the lead management information for your offer i
 7. If you selected Office 365, provide the **User name** (example: `contoso@contoso.onmicrosoft.com`), and Password (example: `P@ssw0rd`).
 
     ![Connection details - User name](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with semicolon.
+9. Select **OK**.
+
 
 >[!Note]
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.

@@ -5,11 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
 ---
 
 # Configure lead management for Salesforce
+
+>[!Note]
+>Marketplace does not support pick list fields (pre-populated values for fields) such as values for the Country field. Please ensure there are no pick list set up on fields before proceeding. There are other options for you to receive leads such as configuring an [https endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) or an [Azure table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) to receive leads.
 
 This article describes how to setup your Salesforce system to process sales leads from your marketplace offer.
 
@@ -54,7 +57,11 @@ When you are ready to configure the lead management information for your offer i
 
 1. On the Connection details pop-up window, select **Salesforce** for the **Lead Destination** and paste in the `oid` from web-to-lead form you created by following earlier steps into the **Organization identifier** field.
 
-1. Select **Save**. 
+1. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with semicolon.
+
+1. Select **Ok**.
+
+To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
 
     >[!Note]
     >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.

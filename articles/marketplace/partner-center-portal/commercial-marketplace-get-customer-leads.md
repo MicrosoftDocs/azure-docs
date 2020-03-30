@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
 ---
 
@@ -155,6 +155,10 @@ Due to PII (Private Identifiable Information) policies, we cannot share lead inf
 Lead gen data is low (<1 GB for almost all publishers). The cost will depend on number of leads received, if 1,000 leads are received in a month, it costs around 50 cents. For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 If your question is still not answered, contact Support through aka.ms/marketplacepublishersupport, then select **'offer creation'** → **your type of offer** → **'lead management configuration.'** 
+
+### I am receiving email notifications when new customer leads are received. How can I configure who to receive these emails?
+
+Access your offer in Partner Center and navigate to the **Offer setup** page -> **Lead Management** -> **Edit**. Update the email addresses under the **Contact email** field.
 
 ## Next steps
 
