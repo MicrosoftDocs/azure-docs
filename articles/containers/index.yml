@@ -68,9 +68,9 @@ conceptualContent:
         - url: /azure/aks/tutorial-kubernetes-prepare-app
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: /azure/aks/tutorial-kubernetes-deploy-cluster
+        - url: /azure/aks/kubernetes-walkthrough 
           itemType: tutorial
-          text: Deploy an AKS Cluster
+          text: Create an AKS cluster (CLI)
       # footerLink (optional)
       footerLink:
         url: /azure/aks/ 
@@ -84,9 +84,9 @@ conceptualContent:
         - url: /azure/dev-spaces/how-to/setup-cicd
           itemType: tutorial
           text: Integrate Spaces in your CI/CD pipeline for end to end testing
-        - url: /azure/aks/tutorial-kubernetes-deploy-cluster
-          itemType: tutorial
-          text: Deploy an AKS Cluster
+        - url: /azure/dev-spaces/quickstart-team-development
+          itemType: quickstart
+          text: Collaborate on a set of microservices with a team
       # footerLink (optional)
       footerLink:
         url: /azure/dev-spaces/ 
@@ -176,9 +176,9 @@ conceptualContent:
         - url: /azure/container-registry/container-registry-get-started-azure-cli
           itemType: get-started
           text: Create a private container registry using Azure CLI
-        - url: /azure/container-registry/container-registry-get-started-azure-clin
-          itemType: tutorial
-          text: Automate container image builds and maintenance with ACR Tasks
+        - url: /azure/container-registry/container-registry-quick-task-cli
+          itemType: get-started
+          text: Build, push, and run image using Azure CLI
       # footerLink (optional)
       footerLink:
         url: /azure/container-registry/ 
