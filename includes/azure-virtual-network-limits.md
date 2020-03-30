@@ -16,7 +16,7 @@ The following limits apply only for networking resources managed through **Azure
 > [!NOTE]
 > We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
-| Resource | Default/maximum limit | 
+| Resource | Limit | 
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
@@ -60,7 +60,7 @@ The following limits apply only for networking resources managed through Azure R
 
 **Standard Load Balancer**
 
-| Resource                                | Default/maximum limit         |
+| Resource                                | Limit         |
 |-----------------------------------------|-------------------------------|
 | Load balancers                          | 1,000                         |
 | Rules per resource                      | 1,500                         |
@@ -74,7 +74,7 @@ The following limits apply only for networking resources managed through Azure R
 
 **Basic Load Balancer**
 
-| Resource                                | Default/maximum limit        |
+| Resource                                | Limit        |
 |-----------------------------------------|------------------------------|
 | Load balancers                          | 1,000                        |
 | Rules per resource                      | 250                          |

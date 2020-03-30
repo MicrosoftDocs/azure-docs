@@ -265,6 +265,8 @@
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
     items:
+    - name: Troubleshoot intermittent outbound connection errors
+      href: troubleshoot-intermittent-outbound-connection-errors.md
     - name: Troubleshoot with Visual Studio
       href: troubleshoot-dotnet-visual-studio.md
     - name: Troubleshoot Node.js app
