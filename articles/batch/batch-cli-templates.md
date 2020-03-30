@@ -28,7 +28,7 @@ are not developers. With only CLI commands, you can create a pool, upload input 
 associated tasks, and download the resulting output data. No additional code is
 required. Run the CLI commands directly or integrate them into scripts.
 
-Batch templates build on the [existing Batch support in the Azure
+Batch templates build on the [existing Batch support in the [Azure
 CLI](batch-cli-get-started.md#json-files-for-resource-creation) for JSON files to specify property values when creating pools,
 jobs, tasks, and other items. Batch templates add the following capabilities:
 
