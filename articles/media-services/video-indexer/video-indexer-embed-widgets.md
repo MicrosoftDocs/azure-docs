@@ -65,7 +65,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
     After you select the **Embed** button, you can select the widget that you want to embed in your app.
 4. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
-5. Copy the embed code (appears in **Copy the embeded code** in the **Share & Embed** dialog).
+5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
 
 > [!NOTE]
