@@ -34,17 +34,18 @@ After you start the streaming of sensor data, you can begin the process of getti
 
 Follow the below steps to  generate the above information:
 
->[!NOTE] These steps are required to be completed on Azure to access the Azure subscription where FarmBeats is deployed.
+> [!NOTE] These steps are required to be completed on Azure to access the Azure
+> subscription where FarmBeats is deployed.
 
 1. Sign in to https://portal.azure.com/.
 
-2. **If you are on FarmBeats version 1.2.7 or later, skip steps 2a, 2b and 2c, and go to step 3.** You can check FarmBeats version by selecting the **Settings** icon on the top-right corner of the FarmBeats UI.
+2. **If you are on FarmBeats version 1.2.7 or later, skip steps a, b and c, and go to step 3.** You can check FarmBeats version by selecting the **Settings** icon on the top-right corner of the FarmBeats UI.
 
-2a. Go to **Azure Active Directory** > **App Registrations**
+      a.  Go to **Azure Active Directory** > **App Registrations**
 
-2b. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats datahub.
+      b. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats datahub.
 
-2c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This will give access to the Azure CLI (Cloud Shell) to perform the below steps:
+      c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This will give access to the Azure CLI (Cloud Shell) to perform the below steps:
 
 3. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
@@ -91,13 +92,13 @@ Now you have the following information generated from the previous section.
 
 You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, Teralytic or Pessl Instruments (Metos.at) go to the corresponding pages as mentioned below:
 
-[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
+1. [Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
 
-[Teralytic](https://app.teralytic.com/)
+2. [Teralytic](https://app.teralytic.com/)
 
-[Pessl Instruments](https://ng.fieldclimate.com/user-api-services)
+3. [Pessl Instruments](https://ng.fieldclimate.com/user-api-services)
 
- The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
+The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
 
 ## View devices and sensors
 
@@ -144,6 +145,7 @@ After the sensor data is flowing in, you can assign it to the farm where you dep
     ![Associate Devices window](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
 6. To associate each device to a different farm, select the drop-down arrow in the **Assign to Farm** column, and select a farm for each device row.
+
 7. Select **Assign** to complete the device assignment.
 
 ### Visualize sensor data
