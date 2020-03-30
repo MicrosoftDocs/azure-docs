@@ -11,9 +11,9 @@ ms.date: 03/30/2020
 
 # Language extensions (Preview)
 
-Language extensions (plugins) feature allows the user to run a user-defined-function (UDF) using a relevant script. The script gets tabular data as its input, and is expected to produce tabular output. The plugin's runtime is hosted in a sandbox, an isolated and secure environment, running on the cluster's nodes.
+Language extensions (plugins) feature allows the user to run a user-defined-function (UDF) using a relevant script. The script gets tabular data as its input, and is expected to produce tabular output. The plugin's runtime is hosted in a sandbox, an isolated, and secure environment, running on the cluster's nodes.
 
-Azure Data Explorer language extensions which currently supported are Python and R.
+Azure Data Explorer language extensions that currently supported are Python and R.
 
 ## Prerequisites
 
@@ -53,6 +53,6 @@ Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin)
 ## Limitations
 
 * Language extensions feature doesn't support [Disk encryption](manage-cluster-security). 
-* Language extensions runtime sandbox allocate disk space even if no query runs the scope of the relevant language.
-* Enabling language extension process can take a fex minutes. During that time your cluster will be suspended.
+* Language extensions runtime sandbox allocate disk space even if no query runs on scope of the relevant language.
+* Enabling language extension process can take a few minutes. During that time, your cluster will be suspended.
 
