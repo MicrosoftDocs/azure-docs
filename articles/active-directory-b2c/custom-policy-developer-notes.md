@@ -63,7 +63,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
 | OAuth2 authorization code with PKCE |  |  | X | Mobile applicaions only  |
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
-| [OAuth2 resource owner password credentials](ropc-custom?tabs=applications.md) |  | X |  |  |
+| [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
 | [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | POST and Redirect bindings. |
 | OAuth1 |  |  |  | Not supported. |
