@@ -608,7 +608,7 @@ Using COPY statement supports the following configuration:
 2. Format settings are with the following:
 
    1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
-   2. For **ORC**: `compression` can be **no compression**, **zlib**, or **Snappy**.
+   2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
       2. `nullValue` is left as default or set to **empty string** ("").
@@ -700,7 +700,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 * SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads.
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
