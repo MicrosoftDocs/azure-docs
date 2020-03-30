@@ -75,8 +75,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inbound | No | Yes |  
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Outbound | No | No |
-| **DataFactory**  | Azure Data Factory | Outbound | No | No |
-| **DataFactoryManagement** | Management traffic for Azure Data Factory. | Inbound | No | No |
+| **DataFactory**  | Azure Data Factory | Both | No | No |
+| **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
 | **ElasticAFD** | Elastic Azure Front Door. | Both | No | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
