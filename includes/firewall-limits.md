@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Data throughput |30 Gbps<sup>1</sup> |
 |Rules|10,000. All rule types combined.|
