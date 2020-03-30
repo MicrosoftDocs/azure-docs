@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/27/2020
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -115,7 +115,8 @@ An *access package* is a bundle of resources that a team or project needs and is
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles.png)
 
 >[!NOTE]
-> The member role is not available for assignment to [dynamic groups](../users-groups-roles/groups-create-rule.md).
+> When using [dynamic groups](../users-groups-roles/groups-create-rule.md) you will not see any other roles available besides owner. This is by design.
+> ![Scenario overview](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
 
 12. Click **Next** to open the **Requests** tab.
 
