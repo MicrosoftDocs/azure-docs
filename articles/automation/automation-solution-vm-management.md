@@ -172,54 +172,7 @@ Selecting the solution displays the **Start-Stop-VM[workspace]** solution page. 
 
 From here, you can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and pre-defined log search queries. Switch to the log analytics advanced portal to search based on your search queries.
 
-## Configure email notifications
 
-To change email notifications after the solution is deployed, modify action group that was created during deployment.  
-
-> [!NOTE]
-> Subscriptions in the Azure Government Cloud do not support the email functionality of this solution.
-
-In the Azure portal, navigate to Monitor -> Action groups. Select the action group titled **StartStop_VM_Notication**.
-
-![Automation Update Management solution page](media/automation-solution-vm-management/azure-monitor.png)
-
-On the **StartStop_VM_Notification** page, click **Edit details** under **Details**. This opens the **Email/SMS/Push/Voice** page. Update the email address and click **OK** to save your changes.
-
-![Automation Update Management solution page](media/automation-solution-vm-management/change-email.png)
-
-Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
-
-The following is an example email that is sent when the solution shuts down virtual machines.
-
-![Automation Update Management solution page](media/automation-solution-vm-management/email.png)
-
-## <a name="add-exclude-vms"></a>Add/Exclude VMs
-
-The solution provides the ability to add VMs to be targeted by the solution or specifically exclude machines from the solution.
-
-### Add a VM
-
-There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
-
-* Each of the parent [runbooks](#runbooks) of the solution has a **VMList** parameter. You can pass a comma-separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
-
-* To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
-
-### Exclude a VM
-
-To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma-separated list of specific VMs to exclude from the Start/Stop solution. This list is limited to 140 VMs. If you add more than 140 VMs to this comma-separated list, VMs that are set to be excluded may be inadvertently started or stopped.
-
-## Modify the startup and shutdown schedules
-
-Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md). There needs to be a separate schedule to start and to stop VMs.
-
-Configuring the solution to just stop VMs at a certain time is supported. In this scenario you just create a **Stop** schedule and no corresponding **Start** scheduled. To do this, you need to:
-
-1. Ensure you have added the resource groups for the VMs to shut down in the **External_Stop_ResourceGroupNames** variable.
-2. Create your own schedule for the time you want to shut down the VMs.
-3. Navigate to the **ScheduledStartStop_Parent** runbook and click **Schedule**. This allows you to select the schedule you created in the preceding step.
-4. Select **Parameters and run settings** and set the ACTION parameter to "Stop".
-5. Click **OK** to save your changes.
 
 ## Update the solution
 

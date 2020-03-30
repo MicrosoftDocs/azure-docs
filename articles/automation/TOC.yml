@@ -62,7 +62,7 @@
       - name: Enable solution
         href: automation-solution-vm-management-enable.md
       - name: Configure solution
-        href: automation-solution-vm-management.config.md
+        href: automation-solution-vm-management-config.md
       - name: Analyze data with log queries
         href: automation-solution-vm-management-logs.md
     - name: Manage runbooks

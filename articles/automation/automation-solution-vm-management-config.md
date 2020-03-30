@@ -23,7 +23,7 @@ This article describes how to successfully configure the solution to support the
 
 * [Exclude a VM](#exclude-a-vm)
 
-* [Modify the startup and shutdown schedules](modify-the-startup-and-shutdown-schedules)
+* [Modify the startup and shutdown schedules](#modify-the-startup-and-shutdown-schedules)
 
 ## <a name="schedule"></a>Scenario 1: Start/Stop VMs on a schedule
 
@@ -121,7 +121,7 @@ To target the auto stop action against all VMs in a resource group/a number of r
 
 To Target the auto stop action to a list of VMs
 
-1. Create a new [Schedule](schedules.md#creating-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma separated list of VM names to the **VMList** parameter.
+1. Create a new [Schedule](shared-resources/schedules.md#creating-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma separated list of VM names to the **VMList** parameter.
 
 2. [Optional step] If you wish to exclude some VMs from the auto shutdown, you can add a comma separated list of VM names to the **External_ExcludeVMNames** variable.
 
@@ -154,7 +154,7 @@ The solution provides the ability to add VMs to be targeted by the solution or s
 
 There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
 
-* Each of the parent [runbooks](#runbooks) of the solution has a **VMList** parameter. You can pass a comma-separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
+* Each of the parent [runbooks](automation-solution-vm-management.md#runbooks) of the solution has a **VMList** parameter. You can pass a comma-separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
 
 * To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
 
