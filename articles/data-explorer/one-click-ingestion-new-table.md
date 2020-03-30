@@ -29,35 +29,23 @@ For information about ingesting data into an existing table in Azure Data Explor
     1. Select **Create new table** and enter a name for the new table. You can use alphanumeric, hyphens and underscores. Special characters aren't supported.
     ![Create a new table](media/one-click-ingestion-new-table/create-new-table.png) 
     
-    1. For **Ingestion type**, select one of the following options:
-       * **from storage** - in the **Link to storage** field, add the URL of the storage account. Use [Blob SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) for private storage accounts. 
-       ![One-click ingestion from storage](media/one-click-ingestion-new-table/from-storage-blob.png)
-      * **from file** - select **Browse** to locate the file, or drag the file into the field.
-      ![One-click ingestion from file](media/one-click-ingestion-new-table/from-file.png)
-      * **from container** - in the **Link to storage** field, add the [SAS URL](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) of the container, and optionally enter the sample size
-      ![One-click ingestion from container](media/one-click-ingestion-new-table/from-container.png)
-      A sample of the data appears. If you want to, you can filter it to show only files that begin end with specific characters. When you adjust the filters, the preview automatically updates.
-      For example, you can filter for all files that begin with the word *data* and end with a *.csv.gz* extension.
-      ![One-click ingestion filter](media/one-click-ingestion-new-table/from-container-with-filter.png)
+    [!INCLUDE [data-explorer-data-explorer-one-click-ingestion-types](../../includes/data-explorer-data-explorer-one-click-ingestion-types.md)]
+
 1. Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob. By looking at the name of the source, the service automatically identifies if it is compressed or not.
 
 ## Edit the schema
 
 1. In the **Schema** tab:
-    1. Select a **Data format**:
-        * JSON
-        * CSV
-        * TSV
-        * SCSV
-        * SOHSV
-        * TSVE
-        * PSV
+    [!INCLUDE [data-explorer-data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-data-explorer-one-click-ingestion-edit-schema.md)]   
 
-        * If you select  **JSON**, you must also select **JSON levels**, from 1 to 10. The levels affect the table column data depiction.
         ![Select JSON levels](media/one-click-ingestion-new-table/json-levels.png)
+
         * If you select a format other than JSON, you can select the check box **Include column names** to ignore the heading row of the file.
+
         ![Select Include column names](media/one-click-ingestion-new-table/non-json-format.png)
+        
     1. In the **Mapping name** field, enter a mapping name. You can use alphanumeric characters and underscores. Spaces, special characters, and hyphens aren't supported.
+    
     ![Table mapping name](media/one-click-ingestion-new-table/table-mapping.png)
 
 ## Copy and paste queries
@@ -93,15 +81,7 @@ Select **Start ingestion** to create a table and mapping and to begin data inges
  
     ![One-click data ingestion complete](media/one-click-ingestion-new-table/one-click-data-ingestion-complete.png)
 
-1. Select the **v** button to open the query. Copy to the Web UI to edit the query.
-
-1. In the right-hand menu, select **Quick queries** and **Tools**: 
-
-    * **Quick queries** includes links to the Web UI with example queries.
-    * **Tools** includes a link to **Drop commands** on the Web UI, which enable you to troubleshoot issues by running the relevant `.drop` commands.
-
-    > [!TIP]
-    > You might lose data when you use `.drop` commands. Use them carefully.
+[!INCLUDE [data-explorer-data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-data-explorer-one-click-ingestion-query-data.md)]
 
 **Continuous ingestion**
 
