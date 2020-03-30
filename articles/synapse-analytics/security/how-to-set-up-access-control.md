@@ -40,7 +40,7 @@ This document uses standard names to simplify the instructions. Replace them wit
 
 ## STEP 1: Set up security groups
 
-Create and populate three security groups for your workspace.
+Create and populate three security groups for your workspace:
 
 - **WS1\_WSAdmins** – for users who need complete control over the workspace
 - **WS1\_SparkAdmins** – for those users who need complete control over the Spark aspects of the workspace
@@ -50,7 +50,7 @@ Create and populate three security groups for your workspace.
 
 ## STEP 2: Prepare your Data Lake Storage Gen2 account
 
-- Identify this information about your storage
+Identify this information about your storage:
   - The ADLSGEN2 account to use for your workspace. This document calls it STG1.  STG1 is considered the "primary" storage account for your workspace.
   - The container inside WS1 that your Synapse workspace will use by default. This document calls it CNT1.  This container is used for:
     - Storing the backing data files for Spark tables
@@ -63,7 +63,7 @@ Create and populate three security groups for your workspace.
 
 ## STEP 3: Create and configure your Synapse Workspace
 
-- In the Azure portal, create a Synapse workspace
+In the Azure portal, create a Synapse workspace:
   - Name the workspace WS1
   - Choose STG1 for the Storage account
   - Choose CNT1 for the container that is being used as the "filesystem".
@@ -75,7 +75,7 @@ Create and populate three security groups for your workspace.
 
 ## STEP 4: Configuring Data Lake Storage Gen2 for use by Synapse workspace
 
-The synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
+The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
 
 - Open the Azure portal
 - Locate STG1
@@ -97,14 +97,13 @@ The configuration is finished.
 
 Now, to manage access for users, you can add and remove users to the three security groups.
 
-Although you can manually assign users to Synapse roles, if you do so it won't configure things consistently. Instead, only add or remove users to the security groups.
+Although you can manually assign users to Synapse roles, if you do, it won't configure things consistently. Instead, only add or remove users to the security groups.
 
 ## STEP 7: Verify access for users in the roles
 
-Now, ask users in each role to follow the steps below.
+Users in each role need to complete the following steps:
 
-- Some steps will deliberately not be allowed depending on the role.
-- Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
+
 
 |   | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
@@ -115,7 +114,12 @@ Now, ask users in each role to follow the steps below.
 | 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
 | 6 | Create a SQL Pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
 
-[1] Note, to create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
+> [!NOTE]
+> [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
+
+> [!TIP]
+> - Some steps will deliberately not be allowed depending on the role. 
+> - Keep in mind that some tasks may fail if the security was not fully configured. These tasks are noted in the table.
 
 ## STEP 8: Network Security
 
@@ -127,7 +131,7 @@ Your workspace is now fully configured and secured.
 
 ## How roles interact with Synapse Studio
 
-Synapse Studio will behave differently based on what roles a user is in. Some items may be hidden or disabled if a user not assigned to roles that given enough access. The table below summarizes the effect on Synapse Studio.
+Synapse Studio will behave differently based on user roles. Some items may be hidden or disabled if a user isn't assigned to roles that give the appropriate access. The following table summarizes the effect on Synapse Studio.
 
 | Task | Workspace Admins | Spark admins | SQL admins |
 | --- | --- | --- | --- |
@@ -155,9 +159,9 @@ Synapse Studio will behave differently based on what roles a user is in. Some it
 | Manage Hub / Access Control (assign users to Synapse workspace roles) | YES | NO | NO |
 | Manage Hub / Integration runtimes | YES | YES | YES |
 
-[1] Access to data in containers depends on the access control in ADLSGen2
-
-[2] SQL OD tables and Spark tables store their data in ADLSGen2 and access requires the appropriate permissions on ADLSGen2.
+> [!NOTE]
+> [1] Access to data in containers depends on the access control in ADLSGen2
+> [2] SQL OD tables and Spark tables store their data in ADLSGen2 and access requires the appropriate permissions on ADLSGen2.
 
 ## Next steps
 
