@@ -54,7 +54,7 @@ landingContent:
      linkLists:
      -  linkListType: concept
         links:
-        - text: Protocol
+        - text: Supported Protocols
           url: iot-hub-devguide-protocols.md
         - text: TLS Support
           url: iot-hub-tls-support.md 
@@ -64,7 +64,7 @@ landingContent:
           url: iot-hub-understand-ip-address.md
         - text: AMQP
           url: iot-hub-amqp-support.md
-        - text: Custom gateway
+        - text: Protocol gateway
           url: iot-hub-protocol-gateway.md
  -   title: Route device data to another service
      linkLists:
@@ -80,21 +80,7 @@ landingContent:
           url: tutorial-routing-config-message-routing-rm-template.md
         - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
- - title: Learn about IoT Security
-   linkLists:
-     - linkListType: concept
-       links:
-         - text: Control access to IoT Hub
-           url: iot-hub-devguide-security.md
-         - text: Security recommendations for IoT deployment
-           url: ../iot-fundamentals/security-recommendations.md
-         - text: Security Best practices
-           url: ../iot-fundamentals/iot-security-best-practices.md
-         - text: Security Architecture
-           url: ../iot-fundamentals/iot-security-architecture.md
-         - text: Secure your IoT deployment
-           url: ../iot-fundamentals/iot-security-deployment.md            
- - title: Create and use security certificates
+ - title: IoT Security and using security certificates
    linkLists:
      - linkListType: concept
        links:
@@ -104,11 +90,13 @@ landingContent:
            url: iot-hub-security-x509-get-started.md
          - text: X.509 CA cert security concepts
            url: iot-hub-x509ca-concept.md
+         - text: Control access to IoT Hub
+           url: iot-hub-devguide-security.md
  -   title: Use IoT Hub Tools
      linkLists:
      -  linkListType: how-to-guide
         links:
-        - text: using IoT Tools for VS Code
+        - text: Using IoT Tools for VS Code
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
           url: ../iot-pnp/howto-install-iot-explorer.md
