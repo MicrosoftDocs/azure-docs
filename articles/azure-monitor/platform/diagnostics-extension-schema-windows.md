@@ -1,7 +1,6 @@
 ---
 title: Windows diagnostics extension schema
 description: Configuration schema reference for Windows diagnostics extension (WAD) in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
@@ -503,7 +502,7 @@ The *PublicConfig* and *PrivateConfig* are separated because in most JSON usage 
 ```
 
 > [!NOTE]
-> The public config Azure Monitor sink definition has two properties, *PrincipalId* and *Secret*. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for other resources.
+> The private config Azure Monitor sink definition has two properties, *PrincipalId* and *Secret*. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for other resources.
 
 
 ```json

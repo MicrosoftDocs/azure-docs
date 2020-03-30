@@ -55,9 +55,11 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 
 ## Supported HSMs
 
-|HSM vendor name|Supported HSM models|More information|
-|---|---|---|
-|Thales|SafeNet Luna HSM 7 family with firmware version 7.3 or later| [SafeNet Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Vendor name|Vendor Type|Supported HSM models|More information|
+|---|---|---|---|
+|Thales|Manufacturer|SafeNet Luna HSM 7 family with firmware version 7.3 or later| [SafeNet Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
+|Fortanix|HSM as a Service|Self-Defending Key Management Service (SDKMS)|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+
 
 > [!NOTE]
 > To import HSM-protected keys from the nCipher nShield family of HSMs, use the [legacy BYOK procedure](hsm-protected-keys-legacy.md).
@@ -87,6 +89,9 @@ The KEK must be:
 - Generated in the same key vault where you intend to import the target key
 - Created with allowed key operations set to `import`
 
+> [!NOTE]
+> The KEK must have 'import' as the only allowed key operation. 'import' is mutually exclusive with all other key operations.
+
 Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
@@ -112,7 +117,7 @@ Transfer the BYOK file to your connected computer.
 > [!NOTE] 
 > Importing RSA 1,024-bit keys is not supported. Currently, importing an Elliptic Curve (EC) key is not supported.
 > 
-> **Known issue**: Importing an RSA 4K target key from SafeNet Luna HSMs fails. When the issue is resolved, this article will be updated.
+> **Known issue**: Importing an RSA 4K target key from SafeNet Luna HSMs is only supported with firmware 7.4.0 or newer.
 
 ### Step 4: Transfer your key to Azure Key Vault
 

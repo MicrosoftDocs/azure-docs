@@ -104,7 +104,7 @@ The following table summarizes the file fields to fill in:
 **IP address** | No | Server address.
 **Cores** | Yes | Number of processor cores allocated to the server.
 **Memory** | Yes | Total RAM, in MB, allocated to the server.
-**OS name** | Yes | Server operating system.
+**OS name** | Yes | Server operating system. <br/> Operating system names that match or contain the names in [this](#supported-operating-system-names) list are recognized by the assessment.
 **OS version** | No | Server operating system version.
 **Number of disks** | No | Not needed if individual disk details are provided.
 **Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to eight disks.
@@ -137,7 +137,6 @@ The following table summarizes the file fields to fill in:
 **Business owner** | No | Business unit owner.
 **Business application name** | No | Name of the application to which the app belongs.
 **Location** | No | Datacenter in which the server is located.
-**Server decommission date** | No | Decommission date of physical server or of the underlying physical server of the virtual server.
 
 ### Add operating systems
 

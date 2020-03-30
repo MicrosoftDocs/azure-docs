@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights override default SDK endpoints
 description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/26/2019
 
 ---
@@ -186,6 +182,10 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
     );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
+
+### Python
+
+For guidance on modifying the ingestion endpoint for the opencensus-python SDK consult the [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
 
 ## Regions that require endpoint modification
 

@@ -107,7 +107,7 @@ Services for building and operating applications:
 
 - Azure HDInsight for processing big data
 
-- Azure Scheduler
+- Azure Logic Apps for integration and orchestration workflows
 
 - Azure Media Services
 

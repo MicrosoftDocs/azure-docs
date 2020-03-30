@@ -54,7 +54,7 @@ cluster.
 * When you want to isolate different parts of the storage for reasons of security, or to simplify
 administration.
 
-For a 48-node cluster, we recommend 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When you have multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
+For better performance, use only one container per storage account.
 
 ## Choose a cluster type
 

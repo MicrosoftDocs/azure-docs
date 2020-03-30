@@ -2,11 +2,9 @@
 title:  Azure Monitor platform metrics exportable via Diagnostic Settings
 description: List of metrics available for each resource type with Azure Monitor.
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: reference
 ms.date: 02/10/2020
-author: rboucher
-ms.author: robb
 ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings

@@ -1,5 +1,6 @@
 ---
-title: Configuration Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Configuration management for the Microsoft Threat Modeling Tool 
+titleSuffix: Azure
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na

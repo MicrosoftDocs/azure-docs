@@ -1,11 +1,7 @@
 ---
 title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
 
 ---

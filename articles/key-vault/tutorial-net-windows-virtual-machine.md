@@ -6,6 +6,7 @@ author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
@@ -31,13 +32,13 @@ The tutorial shows you how to:
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## About Managed Service Identity
 
@@ -114,7 +115,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -154,9 +155,9 @@ dotnet run
 
 ### Install the packages
 
- From the console window, install the .NET packages required for this quickstart:
+From the console window, install the .NET packages required for this quickstart:
 
- ```console
+```console
 dotnet add package System.IO;
 dotnet add package System.Net;
 dotnet add package System.Text;

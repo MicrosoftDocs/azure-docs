@@ -27,37 +27,61 @@ The Azure Maps Web SDK comes prebuilt with many accessibility features such as:
 Full accessibility conformance details for all Microsoft products can be found [here](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Search for "Azure Maps web" to find the document specifically for the Azure Maps Web SDK. 
 
 ## Navigating the map
+
 There are several different ways in which the map can be zoomed, panned, rotated, and pitched. The following details all the different ways to navigate the map.
 
 **Zoom the map**
+
 - Using a mouse, double-click the map to zoom in one level.
 - Using a mouse, scroll the wheel to zoom the map.
 - Using a touch screen, touch the map with two fingers and pinch together to zoom out or spread the fingers apart to zoom in.
 - Using a touch screen, double tap the map to zoom in one level.
-- With the map focused, use the Plus sign (`+`) or *Equals sign (`=`) to zoom in one level.
+- With the map focused, use the Plus sign (`+`) or Equals sign (`=`) to zoom in one level.
 - With the map focused, use the Minus sign, Hyphen (`-`), or Underscore (`_`) to zoom out one level.
 - Using the zoom control with a mouse, touch or keyboard tab/enter keys.
 - Press and hold the `Shift` button and press the left mouse button down on the map and drag to draw out an area to zoom the map into.
 
 **Pan the map**
+
 - Using a mouse, press down with the left mouse button on the map and drag in any direction.
 - Using a touch screen, touch the map and drag in any direction.
 - With the map focused, use the arrow keys to move the map.
 
 **Rotate the map**
+
 - Using a mouse, press down with the right mouse button on the map and drag left or right. 
 - Using a touch screen, touch the map with two fingers and rotate.
 - With the map focused, use the shift key and the left or right arrow keys.
 - Using the rotation control with a mouse, touch or keyboard tab/enter keys.
 
 **Pitch the map**
+
 - Using the mouse, press down with the right mouse button on the map and drag up or down. 
 - Using a touch screen, touch the map with two fingers and drag them up or down together.
 - With the map focused, use the shift key plus the up or down arrow keys. 
 - Using the pitch control with a mouse, touch or keyboard tab/enter keys.
 
-**Change the map style**
-Not all developers want all possible map styles to be available in their application. The developer can programmatically set and change the map style. If the developer displays the style picker control of the map, then the user may change the map style using the mouse, a touch, or the keyboard with the tab or enter key. The developer can specify which map styles they want to make available in the map style picker control. 
+## Change the Map Style
+
+Not all developers want all possible map styles to be available in their application. If the developer displays the style picker control of the map, then the user may change the map style using the mouse, a touch, or the keyboard with the tab or enter key. The developer can specify which map styles they want to make available in the map style picker control. Also, the developer can programmatically set and change the map style.
+
+**Use high contrast**
+
+- When the map control is loaded, it checks to see if high contrast is enabled and the browser supports it.
+- The map control does not monitor the high contrast mode of the device. If the device mode changes, the map will not. Thus, the user will need to reload the map by refreshing the page.
+- When high contrast is detected the map style will automatically switch to high contrast, and all built-in controls will use a high contrast style. For example, ZoomControl, PitchControl, CompassControl, StyleControl, and other built-in controls, will use a high contrast style.
+- There are two type of high contrast, light and dark. If the type of high contrast can be detected by the map controls, then the behavior of the map will adjust accordingly. If light, then the grayscale_light map style will be loaded. If the type can’t be detected or is dark, then the high_contrast_dark style will be loaded.
+- If creating custom controls, it's useful to know if the built in controls are using a high contrast style. Developers can add a css class on the map container div to check. The css classes that would be added are `high-contrast-dark` and `high-contrast-light`. To check using JavaScript, use:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+or, use:
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
 
 ## Keyboard shortcuts
 

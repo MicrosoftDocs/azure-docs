@@ -6,10 +6,9 @@ services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph 
-ms.date: 11/04/2019
+author: dphansen
+ms.author: davidph
+ms.date: 03/26/2020
 ---
 
 # Deploy and make predictions with an ONNX model in SQL Database Edge Preview
@@ -27,8 +26,8 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 * Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
 
     1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
-    1. Click **Manage Packages** and under **Add New**, search for **sklearn**, and install the scikit-learn package. 
-    1. Also, install the **onnxmltools**, **onnxruntime**, **skl2onnx**, and **sqlalchemy** packages.
+    1. Click **Manage Packages** and under **Add New**, search for **scikit-learn**, and install the scikit-learn package. 
+    1. Also, install the **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc**, and **sqlalchemy** packages.
     
 * For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
 
@@ -56,7 +55,6 @@ x = df.drop(['MEDV'], axis = 1)
 
 # y is what we are trying to predict - the median value
 y = df.iloc[:,-1]
-
 
 # Split the data frame into features and target
 x_train = df.drop(['MEDV'], axis = 1)

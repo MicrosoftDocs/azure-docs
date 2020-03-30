@@ -20,6 +20,10 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Not Supported
 
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |

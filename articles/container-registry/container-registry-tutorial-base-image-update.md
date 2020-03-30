@@ -49,7 +49,9 @@ If you haven't already done so, complete the following tutorials before proceedi
 
 Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
 
-```azurecli-interactive
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
@@ -95,7 +97,7 @@ az acr task create \
 
 This task is similar to the task created in the [previous tutorial](container-registry-tutorial-build-task.md). It instructs ACR Tasks to trigger an image build when commits are pushed to the repository specified by `--context`. While the Dockerfile used to build the image in the previous tutorial specifies a public base image (`FROM node:9-alpine`), the Dockerfile in this task, [Dockerfile-app][dockerfile-app], specifies a base image in the same registry:
 
-```Dockerfile
+```dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
@@ -147,9 +149,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 If you completed the previous tutorial (and didn't delete the registry), you should see output similar to the following. Take note of the number of task runs, and the latest RUN ID, so you can compare the output after you update the base image in the next section.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK            PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 --------  --------------  ----------  ---------  ----------  --------------------  ----------
 da6       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T23:07:22Z  00:00:38
@@ -164,7 +164,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 
 Here you simulate a framework patch in the base image. Edit **Dockerfile-base**, and add an "a" after the version number defined in `NODE_VERSION`:
 
-```Dockerfile
+```dockerfile
 ENV NODE_VERSION 9.11.2a
 ```
 
@@ -186,9 +186,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Output is similar to the following. The TRIGGER for the last-executed build should be "Image Update", indicating that the task was kicked off by your quick task of the base image.
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------
 da8       taskhelloworld  Linux       Succeeded  Image Update  2018-09-17T23:11:50Z  00:00:33

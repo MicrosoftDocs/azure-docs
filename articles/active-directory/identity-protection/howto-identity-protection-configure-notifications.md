@@ -24,9 +24,6 @@ Azure AD Identity Protection sends two types of automated notification emails to
 
 This article provides you with an overview of both notification emails.
 
->[!NOTE]
->Email notifications are available only in the public cloud and are not currently available in the US Government cloud.
-
 ## Users at risk detected email
 
 In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](../reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.

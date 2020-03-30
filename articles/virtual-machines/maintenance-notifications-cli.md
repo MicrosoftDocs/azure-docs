@@ -32,6 +32,7 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 
 ## Classic deployments
 
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 

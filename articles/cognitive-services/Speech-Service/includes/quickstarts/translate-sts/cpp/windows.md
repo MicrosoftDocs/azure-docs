@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows)
 
 ## Add sample code
 

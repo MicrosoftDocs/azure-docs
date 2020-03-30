@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
+manager: lizross
 ---
 # Connect with the macOS client
 

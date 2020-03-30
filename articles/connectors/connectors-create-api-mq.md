@@ -65,7 +65,7 @@ If you don't already have an MQ connection when you add an MQ action, you're pro
 
    1. From the **Connection Gateway** list, select the Azure gateway resource that you want to use.
 
-1. When you're done, select **Create**. 
+1. When you're done, select **Create**.
 
 <a name="connection-problems"></a>
 

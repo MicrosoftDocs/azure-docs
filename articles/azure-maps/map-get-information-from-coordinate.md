@@ -1,7 +1,7 @@
 ---
 title: Show information about a coordinate on a map | Microsoft Azure Maps
 description: Learn how to display information about an address on the map when a user selects a coordinate.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -50,6 +50,9 @@ The third block of code adds an event listener for mouse clicks. Upon a mouse cl
 The change of cursor, the popup object, and the click event are all created in the map's [load event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). This code structure ensures the map fully loads before retrieving the coordinates information.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
 
 Learn more about the classes and methods used in this article:
 

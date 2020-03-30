@@ -43,6 +43,10 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
