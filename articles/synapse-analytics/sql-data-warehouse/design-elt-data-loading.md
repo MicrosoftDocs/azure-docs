@@ -15,7 +15,9 @@ ms.custom: azure-synapse
 
 # Data loading strategies for data warehousing
 
-Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. SQL pools in Azure Synapse Analytics have a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Utilizing an Extract, Load, and Transform (ELT) process can take advantage of MPP and eliminate resources needed to transform the data prior to loading. While SQL pools support many loading methods including popular SQL Server options such as BCP and the SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
+Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. Synapse SQL pool, within Azure Synapse Analytics, has a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Using an Extract, Load, and Transform (ELT) process leverages MPP and eliminates the resources needed for data transformation prior to loading. 
+
+While SQL pool supports many loading methods, including popular SQL Server options such as BCP and the SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
 
 > [!NOTE]  
 > The COPY statement is currently in public preview. To provide feedback, send email to the following distribution list: sqldwcopypreview@service.microsoft.com.
@@ -49,7 +51,7 @@ Getting data out of your source system depends on the storage location.  The goa
 
 ### PolyBase and COPY external file formats
 
-With PolyBase and the COPY statement, you can load data from UTF-8 and UTF-16 encoded delimited text or CSV files. In addition to delimited text or CSV files, it loads from the Hadoop file formats such as ORC and Parquet. PolyBase and the COPY statement can also load data from Gzip and Snappy compressed files. Extended ASCII, fixed-width format, and nested formats such as WinZip or XML are not supported. If you are exporting from SQL Server, you can use the [bcp command-line tool](/sql/tools/bcp-utility?view=azure-sqldw-latest) to export the data into delimited text files. 
+With PolyBase and the COPY statement, you can load data from UTF-8 and UTF-16 encoded delimited text or CSV files. In addition to delimited text or CSV files, it loads from the Hadoop file formats such as ORC and Parquet. PolyBase and the COPY statement can also load data from Gzip and Snappy compressed files. Extended ASCII, fixed-width format, and nested formats such as WinZip or XML aren't supported. If you're exporting from SQL Server, you can use the [bcp command-line tool](/sql/tools/bcp-utility?view=azure-sqldw-latest) to export the data into delimited text files. 
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 
@@ -57,8 +59,8 @@ To land the data in Azure storage, you can move it to [Azure Blob storage](../..
 
 Tools and services you can use to move data to Azure Storage:
 
-- [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections do not route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
-- [AZCopy utility](../../storage/common/storage-choose-data-transfer-solution.md) moves data to Azure Storage over the public internet. This works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it is acceptable. 
+- [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections don't route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
+- [AZCopy utility](../../storage/common/storage-choose-data-transfer-solution.md) moves data to Azure Storage over the public internet. This method works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it's acceptable. 
 - [Azure Data Factory (ADF)](../../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL Analytics, see [Loading data for SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md).
 
 
@@ -70,7 +72,7 @@ You might need to prepare and clean the data in your storage account before load
 
 If you are using PolyBase, you need to define external tables in your data warehouse before loading. External tables are not required by the COPY statement. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the data warehouse. 
 
-Defining external tables involves specifying the data source, the format of the text files, and the table definitions. T-SQL syntax topics that you will need are:
+Defining external tables involves specifying the data source, the format of the text files, and the table definitions. T-SQL syntax reference articles that you will need are:
 - [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest)
@@ -111,7 +113,7 @@ To format the text files:
 
 - If your data is coming from a non-relational source, you need to transform it into rows and columns. Whether the data is from a relational or non-relational source, the data must be transformed to align with the column definitions for the table into which you plan to load the data. 
 - Format data in the text file to align with the columns and data types in the destination table. Misalignment between data types in the external text files and the data warehouse table causes rows to be rejected during the load.
-- Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that is not found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
+- Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that isn't found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
 ## 4. Load the data using PolyBase or the COPY statement
