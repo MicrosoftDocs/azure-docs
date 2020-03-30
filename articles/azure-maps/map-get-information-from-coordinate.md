@@ -51,6 +51,9 @@ The change of cursor, the popup object, and the click event are all created in t
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
+
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
