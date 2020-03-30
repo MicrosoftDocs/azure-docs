@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 services: azure-monitor
 
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/30/2020
 ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
@@ -44,7 +44,7 @@ The table contains the following columns.
 > The table below may have a horizontal scroll bar at the bottom. If you believe you are missing information, check to see that the scroll bar is all the way to the left.  
 
 
-| Exportable via Diagnostic Settings?  | Emits NULLs |  ResourceType  |  Metric  |  MetricDisplayName  |  Unit  |  AggregationType | 
+| Exportable via Diagnostic Settings?  | Already emit NULLs |  ResourceType  |  Metric  |  MetricDisplayName  |  Unit  |  AggregationType | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | ****Yes****  | No |  Microsoft.AnalysisServices/servers  |  CleanerCurrentPrice  |  Memory: Cleaner Current Price  |  Count  |  Average | 
 | ****Yes****  | No |  Microsoft.AnalysisServices/servers  |  CleanerMemoryNonshrinkable  |  Memory: Cleaner Memory nonshrinkable  |  Bytes  |  Average | 
