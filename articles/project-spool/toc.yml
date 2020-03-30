@@ -20,6 +20,7 @@
   - name: About Project Spool
     href: overview.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Add SMS To Your Web App
     href: tutorials/add-sms-to-your-web-app.md
@@ -42,6 +43,7 @@
   - name: TODO
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Concepts
+  expanded: true
   items:
   - name: Communications Technologies
     items: 
