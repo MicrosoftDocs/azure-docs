@@ -58,10 +58,8 @@ Follow the below steps to  generate the above information:
 
 5. Go to your home directory.
 
-   ```azurepowershell-interactive 
-
+    ```azurepowershell-interactive 
     cd  
-
     ```
 
 6. Run the following command. This will download a script to your home directory.
