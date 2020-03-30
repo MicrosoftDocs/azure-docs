@@ -72,9 +72,9 @@ Generate a new Angular application using the following npm commands:
 
 ```Bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI) 
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
-npm install msal@beta @azure/msal-angular@beta   # Install MSAL and MSAL Angular in your application
+npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a the home, profile page)
 ```
 
@@ -250,7 +250,7 @@ getProfile() {
 ```
 
 ### acquireTokenSilent, acquireTokenPopup, acquireTokenRedirect
-MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the Interceptor instead for Angular apps, as shown in the previous section. 
+MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`. However, we recommend using the Interceptor instead for Angular apps, as shown in the previous section.
 
 #### Get a user token silently
 
@@ -314,8 +314,8 @@ logout() {
 }
 ```
 
-#### Add UI 
-Checkout the [sample application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) for a simple example of how to add UI using the Angular Material component library. 
+#### Add UI
+Checkout the [sample application](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) for a simple example of how to add UI using the Angular Material component library.
 
 ## Test your code
 
@@ -339,9 +339,9 @@ The first time that you sign in to your application, you're prompted to grant it
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Calendars.Read* scope in order to list the user’s calendars.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Calendars.Read* scope in order to list the user's calendars.
 
-To access the user’s calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call.
+To access the user's calendars in the context of an application, add the *Calendars.Read* delegated permission to the application registration information. Then, add the *Calendars.Read* scope to the `acquireTokenSilent` call.
 
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.
@@ -358,8 +358,3 @@ Browse the MSAL repo for documentation, FAQ, issues, and more:
 
 > [!div class="nextstepaction"]
 > [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -55,7 +55,7 @@ For more information on the configurable options, see [Initializing application 
 # [Angular](#tab/angular)
 
 ```javascript
-// In app.module.ts
+// App.module.ts
 import { MsalModule } from '@azure/msal-angular';
 
 @NgModule({

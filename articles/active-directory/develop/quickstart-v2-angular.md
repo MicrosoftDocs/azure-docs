@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
 
-#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my Angular app can sign in users of personal accounts, work accounts, and school accounts.
+#Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my Angular app can sign in users of personal Microsoft accounts, and work and school accounts.
 ---
 
 # Quickstart: Sign in users and get an access token in an Angular SPA
@@ -85,13 +85,13 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 >        cacheLocation: 'localStorage',
 >        storeAuthStateInCookie: isIE, // set to true for IE 11
 >    },
->}, 
+>},
 > //... )
 >```
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="portal"]
 > > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 
 
 > [!div renderon="docs"]
@@ -111,10 +111,10 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 
 For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
->[!div class="sxs-lookup" renderon="portal"] 
->#### Step 3: Run the project 
+>[!div class="sxs-lookup" renderon="portal"]
+>#### Step 3: Run the project
 
->[!div renderon="docs"] 
+>[!div renderon="docs"]
 >#### Step 4: Run the project
 
 * If you're using Node.js:
@@ -143,8 +143,3 @@ After the browser loads the application, select **Login**. The first time you si
 > Go to the [Angular Tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular) to learn how to sign in a user and acquire tokens.
 
 Browse the [MSAL repo](https://github.com/AzureAD/microsoft-authentication-library-for-js) for documentation, FAQ, issues, and more.
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey:
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
