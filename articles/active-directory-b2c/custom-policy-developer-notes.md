@@ -55,7 +55,21 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 Custom policy/Identity Experience Framework capabilities are under constant and rapid development. The following table is an index of features and component availability.
 
-### Identity providers
+
+### Protocols and authorization flows
+
+| Feature | Development | Preview | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
+| OAuth2 authorization code with PKCE |  |  | X | Mobile applicaions only  |
+| [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
+| [OAuth2 resource owner password credentials](ropc-custom?tabs=applications.md) |  | X |  |  |
+| [OIDC Connect](openid-connect.md) |  |  | X |  |
+| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | POST and Redirect bindings. |
+| OAuth1 |  |  |  | Not supported. |
+| WSFED | X |  |  |  |
+
+### Identify providers federation 
 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
@@ -65,15 +79,6 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
-### Relying party applications
-
-| Feature | Development | Preview | GA | Notes |
-|-------- | :-----------: | :-------: | :--: | ----- |
-| OAuth1 |  |  |  | Not supported. |
-| [OAuth2](add-web-application.md) |  |  | X |  |
-| [OIDC Connect](tutorial-register-applications.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md) |  |X  |  |  |
-| WSFED | X |  |  |  |
 
 ### REST API integration
 
@@ -83,7 +88,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [REST API with client certificate auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
 | [REST API with OAuth2 bearer auth](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
-### Component Support
+### Component support
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
