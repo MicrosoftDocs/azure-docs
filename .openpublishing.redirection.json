@@ -20245,6 +20245,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/deploy-appliance.md",
+      "redirect_url": "migrate-appliance-architecture",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/troubleshooting-general.md",
       "redirect_url": "troubleshoot-general",
       "redirect_document_id": false
