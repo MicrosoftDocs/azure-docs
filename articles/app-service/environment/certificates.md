@@ -51,7 +51,7 @@ When creating a self signed cert, you will need to ensure the subject name has t
 Apps that are hosted in an ASE can use the app-centric certificate features that are available in the multi-tenant App Service. Those features include:  
 
 - SNI certificates 
-- IP-based TLS, which is only supported with an External ASE.  An ILB ASE does not support IP-based TLS.
+- IP-based SSL, which is only supported with an External ASE.  An ILB ASE does not support IP-based SSL.
 - KeyVault hosted certificates 
 
 The instructions for uploading and managing those certificates are available in [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
