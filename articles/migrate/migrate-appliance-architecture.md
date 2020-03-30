@@ -36,7 +36,7 @@ The appliance has a number of components.
 
 ## Appliance deployment
 
-- The Azure Migrate appliance can be set up using a template (Hyper-V or VMware only) or a PowerShell script installer. [Learn more](deploy-appliance.md#deployment-options) about the options. 
+- The Azure Migrate appliance can be set up using a template for [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [VMware](how-to-set-up-appliance-vmware.md) or a using a PowerShell script installer for [VMware/Hyper-V](deploy-appliance-script.md), and for [physical servers](how-to-set-up-appliance-physical.md). 
 - Appliance support requirements and deployment prerequisites are summarized in the [appliance support matrix](migrate-appliance.md).
 
 
@@ -47,7 +47,7 @@ During appliance setup, you register the appliance with Azure Migrate.During set
 **Action** | **Details** | **Permissions**
 --- | --- | ---
 **Register source providers** | These resources providers are registered in the subscription you choose during appliance setup: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault.<br/><br/> Registering a resource provider configures your subscription to work with the resource provider. | To register the resource providers, you need a Contributor or Owner role on the subscription.
-**Create Azure AD app-communication** | Azure Migrate creates an Azure Active Directory (Azure AD) app for communication (authentication and authorization) between the agents running on the appliance, and their respective services running on Azure.<br/><br/> This app does not have privileges to make Azure resource manager calls, or RBAC access on any resource. | You need [these permissions](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) for Azure Migrate to create the app.
+**Create Azure AD app-communication** | Azure Migrate creates an Azure Active Directory (Azure AD) app for communication (authentication and authorization) between the agents running on the appliance, and their respective services running on Azure.<br/><br/> This app does not have privileges to make Azure Resource Manager calls, or RBAC access on any resource. | You need [these permissions](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) for Azure Migrate to create the app.
 **Create Azure AD apps-Key vault** | This app is created only for agentless migration of VMware VMs to Azure.<br/><br/> It's used exclusively to access the key vault created in the user's subscription for agentless migration.<br/><br/> It has RBAC access on the Azure key vault (created in customer's tenant), when discovery is initiated from the appliance. | You need [these permissions](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) for Azure Migrate to create the app.
 
 

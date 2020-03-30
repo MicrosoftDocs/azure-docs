@@ -2,7 +2,7 @@
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/29/2020
 ---
 
 # Support matrix for VMware assessment 
@@ -53,7 +53,7 @@ In addition to discovering machines, Azure Migrate: Server Assessment can discov
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for VMware is deployed using an OVA template, imported into vCenter Server. 
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
