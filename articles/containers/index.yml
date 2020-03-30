@@ -81,9 +81,9 @@ conceptualContent:
         - url: /azure/dev-spaces/about
           itemType: overview
           text: What is Azure Dev Spaces?
-        - url: /azure/dev-spaces/how-to/setup-cicd
-          itemType: tutorial
-          text: Integrate Spaces in your CI/CD pipeline for end to end testing
+        - url: /azure/dev-spaces/quickstart-netcore
+          itemType: quickstart
+          text: Run and debug a microservice
         - url: /azure/dev-spaces/quickstart-team-development
           itemType: quickstart
           text: Collaborate on a set of microservices with a team
