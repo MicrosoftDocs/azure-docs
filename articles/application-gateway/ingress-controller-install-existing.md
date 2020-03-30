@@ -87,13 +87,13 @@ important. The resource group required in the command below is *not* the one ref
 the resource group of the `aks-agentpool` virtual machines. Typically that resource group starts with `MC_` and contains
  the name of your AKS. For instance: `MC_resourceGroup_aksABCD_westus`
 
-    ```bash
+    ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
 1. For the role assignment commands below we need to obtain `principalId` for the newly created identity:
 
-    ```bash
+    ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
@@ -102,7 +102,7 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
 
     Get the list of Application Gateway IDs in your subscription with: `az network application-gateway list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Contributor \
         --assignee <principalId> \
@@ -112,7 +112,7 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
 1. Give the identity `Reader` access to the Application Gateway resource group. The resource group ID would look like:
 `/subscriptions/A/resourceGroups/B`. You can get all resource groups with: `az group list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Reader \
         --assignee <principalId> \
@@ -125,7 +125,7 @@ It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 1. Create an Active Directory Service Principal and encode with base64. The base64 encoding is required for the JSON
 blob to be saved to Kubernetes.
 
-```bash
+```azurecli
 az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
 ```
 

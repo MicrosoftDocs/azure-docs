@@ -801,6 +801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
+      "redirect_url": "/azure/machine-learning/samples-notebooks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -1968,6 +1973,26 @@
     {
       "source_path": "articles/cognitive-services/Bing-News-Search/news-sdk-python-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-news-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quickstarts/sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -4013,6 +4038,11 @@
     {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-template-reference",
       "redirect_document_id": false
     },
     {
@@ -6211,14 +6241,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-basic-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
       "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
       "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/rest-api-claims-exchange-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
@@ -7047,6 +7092,11 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-covid-guidelines.md",
+      "redirect_url": "/azure/application-gateway/high-traffic-support",
       "redirect_document_id": false
     },
     {
@@ -12497,6 +12547,11 @@
     {
       "source_path": "articles/blockchain-workbench/index.md",
       "redirect_url": "/azure/blockchain/workbench",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/service/connect-truffle.md",
+      "redirect_url": "/azure/blockchain/service/connect-vscode",
       "redirect_document_id": false
     },
     {
@@ -20190,6 +20245,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/deploy-appliance.md",
+      "redirect_url": "migrate-appliance-architecture",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/troubleshooting-general.md",
       "redirect_url": "troubleshoot-general",
       "redirect_document_id": false
@@ -26595,6 +26655,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/nva-working-remotely-support.md",
+      "redirect_url": "/azure/vpn-gateway/nva-work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/working-remotely-support.md",
+      "redirect_url": "/azure/expressroute/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/bastion/working-remotely-support.md",
+      "redirect_url": "/azure/bastion/work-remotely-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
       "redirect_document_id": false
@@ -29666,6 +29741,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-virtual-machine.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-install-endpoint-protection.md",
+      "redirect_url": "/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-linux-virtual-machine.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-container-recommendations.md",
+      "redirect_url": "/azure/security-center/container-security",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
       "redirect_document_id": false
@@ -31836,11 +31931,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/security/azure-ad-choose-authn.md",
-      "redirect_url": "/azure/security/fundamentals/choose-ad-authn",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/authentication/howto-authentication-passwordless-enable.md",
       "redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
       "redirect_document_id": true
@@ -33057,47 +33147,47 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/Bing-Image-Search/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Custom-Search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Entities-Search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-entities-search/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/bing-local-business-search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-local-business-search/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-News-Search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-spell-check/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/bing-visual-search/index.yml",
-      "redirect_url": "/azure/cognitive-services/Bing-Web-Search",
+      "redirect_url": "/azure/cognitive-services/bing-visual-search/overview",
       "redirect_document_id": false
     },
     {
@@ -38822,8 +38912,8 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/sdk.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/quick-start.md",
@@ -38857,22 +38947,22 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-java-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-java-quickstart",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-python-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-python-quickstart",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-node-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-node-quickstart",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_url": "/azure/cognitive-services/bing-video-search/quickstarts/client-libraries?pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
@@ -42341,6 +42431,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/diagnostic-settings-legacy.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-collect",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -43742,6 +43837,11 @@
     },
     {
       "source_path": "articles/cognitive-services/Acoustics/sample-walkthrough.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/index.md",
       "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
       "redirect_document_id": false
     },
@@ -47341,6 +47441,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/security/fundamentals/ad-passwordless.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-authentication-passwordless",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
@@ -49276,6 +49381,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cost-management-billing/reservations/monthly-payments-reservations.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepare-buy-reservation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/billing/billing-prepay-app-service-isolated-stamp.md",
       "redirect_url": "/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp",
       "redirect_document_id": true
@@ -50222,6 +50332,11 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-best-practices-development.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices-development",
+      "redirect_document_id": true
+    },
+    {
         "source_path": "articles/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md",
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations",
         "redirect_document_id": true
@@ -50320,6 +50435,45 @@
         "source_path": "articles/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu.md",
         "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-android.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=android"
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
+    },
+    {
+      "source_path": "articles/security/fundamentals/choose-ad-authn.md",
+      "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/app/opencensus-go.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
+    },
+    {
+      "source_path": "articles/load-balancer/use-existing-lb-vmss-cli.md",
+      "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-paas-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-technical-overview"
     }
   ]
 }

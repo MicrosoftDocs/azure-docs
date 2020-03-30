@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-thirteen
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Automatic language detection for speech to text
@@ -20,7 +20,7 @@ Automatic language detection is used to determine the most likely match for audi
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
 > [!IMPORTANT]
-> This feature is only available for the Speech SDK for C#, C++ and Java.
+> This feature is only available for the Speech SDK for C#, C++, Java and Python.
 
 ## Automatic language detection with the Speech SDK
 
@@ -97,6 +97,22 @@ result.close();
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+```Python
+auto_detect_source_language_config = \
+        speechsdk.languageconfig.AutoDetectSourceLanguageConfig(languages=["en-US", "de-DE"])
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, 
+        auto_detect_source_language_config=auto_detect_source_language_config, 
+        audio_config=audio_config)
+result = speech_recognizer.recognize_once()
+auto_detect_source_language_result = speechsdk.AutoDetectSourceLanguageResult(result)
+detected_language = auto_detect_source_language_result.language
+```
+
+::: zone-end
+
 ## Use a custom model for automatic language detection
 
 In addition to language detection using Speech service models, you can specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
@@ -146,6 +162,17 @@ sourceLanguageConfigs.add(
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
     AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(
         sourceLanguageConfigs);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+ en_language_config = speechsdk.languageconfig.SourceLanguageConfig("en-US")
+ fr_language_config = speechsdk.languageconfig.SourceLanguageConfig("fr-FR", "The Endpoint Id for custom model of fr-FR")
+ auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
+        sourceLanguageConfigs=[en_language_config, fr_language_config])
 ```
 
 ::: zone-end

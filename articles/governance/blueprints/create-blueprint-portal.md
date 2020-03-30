@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint in the portal"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and assign a blueprint in the portal
@@ -9,7 +9,8 @@ ms.topic: quickstart
 When you learn how to create and assign blueprints, you can define common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy,
 security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization. These tasks include:
+tasks related to creating, publishing, and assigning a blueprint within your organization. These
+tasks include:
 
 ## Prerequisites
 
@@ -32,12 +33,15 @@ Manager template and role assignment on the new resource group.
 
    ![Create a blueprint from the Blueprint definitions page](./media/create-blueprint-portal/create-blueprint-button.png)
 
+1. Select **Start with blank blueprint** from the card at the top of the built-in blueprints list.
+
 1. Provide a **Blueprint name** such as **MyBlueprint**. (Use up to 48 letters and numbers,
    but no spaces or special characters). Leave **Blueprint description** blank
    for now.
 
-1. In the **Definition location** box, select the ellipsis on the right, select the [management group](../management-groups/overview.md)
-   or subscription where you want to save the blueprint, and choose **Select**.
+1. In the **Definition location** box, select the ellipsis on the right, select the
+   [management group](../management-groups/overview.md) or subscription where you want to save the
+   blueprint, and choose **Select**.
 
 1. Verify that the information is correct. The **Blueprint name** and **Definition location** fields
    can't be changed later. Then select **Next : Artifacts** at the bottom of the page or the
