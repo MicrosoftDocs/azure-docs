@@ -1513,6 +1513,10 @@ This section will describe Azure Resource Manager templates for three scenarios 
 - Monitoring all virtual machines (in one Azure region) in a subscription.
 - Monitoring a list of virtual machines (in one Azure region) in a subscription.
 
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
+
 ### Static threshold alert on all virtual machines in one or more resource groups
 
 This template will create a static threshold metric alert rule that monitors Percentage CPU for all virtual machines (in one Azure region) in one or more resource groups.

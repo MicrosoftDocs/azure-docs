@@ -68,7 +68,7 @@
   - name: Advanced
     items:
     - name: Utilize template reference
-      href: template-tutorial-create-encrypted-storage-accounts.md
+      href: template-tutorial-use-template-reference.md
     - name: Create multiple instances
       displayName: iteration,copy
       href: template-tutorial-create-multiple-instances.md
