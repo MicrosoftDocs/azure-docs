@@ -6,7 +6,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: victorh
 ---
 
@@ -22,9 +22,9 @@ In this quickstart, you use a Resource Manager template to create an Azure Web A
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a web application firewall
+## Create a Web Application Firewall
 
-This template creates a simple web application firewall v2 on Azure Applicaton Gateway. This includes a public IP frontend IP address, HTTP settings, a rule with a basic listener on port 80, and a backend pool.
+This template creates a simple Web Application Firewall v2 on Azure Application Gateway. This includes a public IP frontend IP address, HTTP settings, a rule with a basic listener on port 80, and a backend pool. A WAF policy with a custom rule is created to block traffic to the backend pool based on an IP address match type.
 
 ### Review the template
 
@@ -37,6 +37,7 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/applicationgateways**](/azure/templates/microsoft.network/applicationgateways)
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses) : one for the application gateway, and two for the virtual machines.
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies**](/azure/templates/microsoft.network/ApplicationGatewayWebApplicationFirewallPolicies)
 
 
 ### Deploy the template
@@ -50,11 +51,19 @@ Deploy Resource Manager template to Azure:
 2. Select or create your resource group.
 3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
 
-## Review deployed resources
+## Validate the deployment
 
-After deployment completes, go to your resource group and select the application gateway.
+Although IIS isn't required to create the application gateway, it's installed on the backend servers to verify if Azure successfully created a WAF v2 on the application gateway. 
 
-Examine the items under **Settings**. If you want, you can deploy some virtual machines and add them to the backend pool.
+Use IIS to test the application gateway:
+
+1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
+2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
+3. Check the response. A **403 Forbidden** response verifies that the WAF was successfully created and is blocking connections with the backend pool.
+4. Change the custom rule to **Allow traffic**.
+
+
+   Refresh the browser multiple times and you should see connections to both myVM1 and myVM2.
 
 ## Clean up resources
 
