@@ -1,7 +1,7 @@
 ---
-title: Shared device mode for Android devices
+title: Shared device mode for iOS devices
 titleSuffix: Microsoft identity platform
-description: Learn about shared device mode, which allows Firstline Workers to share an Android device
+description: Learn how to enable shared device mode to allow Firstline Workers to share an iOS device
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev
 ---
 
 # Supporting Shared Device Mode for iOS
@@ -23,9 +23,9 @@ ms.custom: aaddev, identityplatformtop40
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Firstline Workers, such as retail associates, flight crew members, and field service Workers, often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
+Firstline Workers like retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users begin sharing their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
-Shared device mode allows you to configure an iOS 13 or higher device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they are finished with their shift or task, they can sign out of the device and it will be immediately ready for the next employee to use.
+Shared device mode allows you to configure an iOS 13 or higher device so that it can be more easily and securely shared by multiple employees. Employees can sign in and access customer information quickly. When they are finished with their shift or task, they can sign out of the device and it'll immediately be ready for the next employee.
 
 Shared device mode also provides Microsoft identity backed management of the device.
 
