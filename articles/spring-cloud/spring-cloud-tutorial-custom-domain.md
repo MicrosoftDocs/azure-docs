@@ -88,7 +88,7 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 * [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Use Azure Key Vault with an Azure web app in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-create-vault-azure-web-app)
-* [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](spring-cloud\spring-cloud-github-actions-key-vault.md)
+* [Authenticate Azure Spring Cloud with Key Vault in GitHub Actions](spring-cloud-github-actions-key-vault.md)
 * [Import a certificate](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 * [Manage storage account keys with Key Vault and the Azure CLI](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys)
