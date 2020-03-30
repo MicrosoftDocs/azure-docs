@@ -447,7 +447,7 @@ To provision an Azure AD-based contained database user (other than the server ad
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 
-The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.
+The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools. 
 
 ### Active Directory integrated authentication
 
