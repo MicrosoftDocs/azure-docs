@@ -51,7 +51,7 @@ You can also upload folders and files, including notebooks, with the tools at th
 
 ### Clone samples
 
-Your workspace contains a **Samples** folder with notebooks designed to help you explore the SDK and serve as models for your own machine learning projects.  You can clone these notebooks into your own folder on your workspace storage container.  
+Your workspace contains a **Samples** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.  You can clone these notebooks into your own folder on your workspace storage container.  
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
