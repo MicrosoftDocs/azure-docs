@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 03/18/2020
 ms.author: juliako
 ---
 
@@ -56,6 +56,21 @@ For details, see [feature gaps with respect to v2 APIs](media-services-v2-vs-v3.
 For details, see [Moving a Media Services account between subscriptions](media-services-account-concept.md).
 
 ## Live streaming 
+
+### How to stop the live stream after the broadcast is done?
+
+You can approach it from a client side or a server side.
+
+#### Client side
+
+Your web application should prompt the user if they want to end the broadcast if they are closing the browser. This is a browser event that your web application can handle.
+
+#### Server side
+
+You can monitor live events by subscribing to Event Grid events. For more information, see the [eventgrid event schema](media-services-event-schemas.md#live-event-types).
+
+* You can either [subscribe](reacting-to-media-services-events.md) to the stream level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) and monitor that no reconnections come in for a while to stop and delete your live event.
+* Or, you can [subscribe](reacting-to-media-services-events.md) to the track level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have incoming bitrate dropping to 0; or the last timestamp is no longer increasing, then you can also safely shut down the live event. The heartbeat events come in at every 20 seconds for every track so it could be a little bit verbose.
 
 ###  How to insert breaks/videos and image slates during live stream?
 

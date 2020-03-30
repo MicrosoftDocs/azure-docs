@@ -42,9 +42,9 @@ To migrate to Gen2, we recommend the following approach.
 
 3. Review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
-4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md). If you're interesting in using any of these features, review [current level of support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-feature-support).
+4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md). If you're interesting in using any of these features, review [current level of support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features).
 
-5. Review the current state of [Azure ecosystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that Gen2 supports any services that your solutions depend upon.
+5. Review the current state of [Azure ecosystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access) to ensure that Gen2 supports any services that your solutions depend upon.
 
 ### Step 2: Prepare to migrate
 
