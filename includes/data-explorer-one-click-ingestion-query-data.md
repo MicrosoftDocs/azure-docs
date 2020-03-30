@@ -5,6 +5,7 @@ ms.topic: include
 ms.date: 30/03/2020
 ms.author: orspodek
 ---
+
 1. Select the **v** button to open the query. Copy to the Web UI to edit the query.
 
 1. In the right-hand menu, select **Quick queries** and **Tools**: 

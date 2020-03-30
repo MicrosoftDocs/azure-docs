@@ -11,7 +11,9 @@ ms.date: 03/29/2020
 
 # Use one-click ingestion to ingest data to an existing table in Azure Data Explorer
 
-One-click ingestion enables you to quickly ingest a new table in JSON, CSV, and other formats. Using the Azure Data Explorer Web UI, you can ingest data from storage, from a local file, or from a container. This document describes using the intuitive one-click wizard to ingest your data into an existing table. You can then edit the table and run queries with the Azure Data Explorer Web UI.
+One-click ingestion enables you to quickly ingest a new table in JSON, CSV, and other formats. Using the Azure Data Explorer Web UI, you can ingest data from storage, from a local file, or from a container. 
+
+This document describes using the intuitive one-click wizard to ingest JSON data into an existing table. You can then edit the table and run queries with the Azure Data Explorer Web UI.
 
 One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you. 
 
@@ -39,7 +41,9 @@ For information about ingesting data into a new table in Azure Data Explorer, se
 1. The **Map columns** dialog opens and you can map source data columns to target table columns. 
     * In the **Source columns** fields, enter column names to map with the **Target columns**.
     * To delete a mapping, select the trash can icon.
+
     ![Map columns window](media/one-click-ingestion-existing-table/map-columns.png)
+
 1. Select **Update**.
 1. In the **Schema** tab:
     1. Select **Compression type**, and then select either **Uncompressed** or **GZip**.
@@ -72,6 +76,7 @@ For information about ingesting data into a new table in Azure Data Explorer, se
 ## Start ingestion
 
 Select **Start ingestion** to create a table and mapping and to begin data ingestion.
+
 ![Start ingestion](media/one-click-ingestion-existing-table/start-ingestion.png)
 
 ## Query data

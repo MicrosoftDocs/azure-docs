@@ -5,6 +5,7 @@ ms.topic: include
 ms.date: 30/03/2020
 ms.author: orspodek
 ---
+
 1. Select **Data format**:
     * JSON
     * CSV
