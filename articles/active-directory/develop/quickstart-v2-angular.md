@@ -89,7 +89,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > //... )
 >```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > Enter_the_Supported_Account_Info_Here
 
