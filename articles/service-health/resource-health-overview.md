@@ -71,7 +71,7 @@ If you think that the current health status is incorrect, you can tell us by sel
 
 ## History information
 
-You can access 14 days of history in the **Health history** section of Resource Health.
+You can access up to 30 days of history in the **Health history** section of Resource Health.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
 

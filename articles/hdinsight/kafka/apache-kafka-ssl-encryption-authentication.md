@@ -147,7 +147,13 @@ To complete the configuration modification, do the following steps:
 
 1. Go to Ambari configuration UI and verify that the new properties show up under **Advanced kafka-env** and the **kafka-env template** property.
 
+    For HDI version 3.6:
+
     ![Editing kafka-env template property in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+
+    For HDI version 4.0:
+
+     ![Editing kafka-env template property in Ambari four](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)   
 
 1. Restart all Kafka brokers.
 1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093.
