@@ -303,10 +303,6 @@
       - name: Telemetry correlation
         href: app/correlation.md
         displayname: correlation headers, w3c, distributed tracing, tracing
-      - name: Local forwarder
-        href: app/opencensus-local-forwarder.md
-      - name: Go
-        href: app/opencensus-go.md
     - name: Live Metric stream
       displayname: live, quickpulse, quick pulse, live metrics
       href: app/live-stream.md
@@ -488,9 +484,17 @@
       - name: Overview
         displayName: Platform logs, Resource logs, Activity log
         href: platform/platform-logs-overview.md 
-      - name: View Activity log
-        displayName: Platform logs
-        href: platform/activity-log-view.md
+      - name: Activity log
+        items:
+        - name: View in Azure portal
+          displayName: Platform logs, Activity log
+          href: platform/activity-log-view.md
+        - name: Collect and analyze
+          displayName: Platform logs, Activity log
+          href: platform/activity-log-collect.md
+        - name: Export (legacy)
+          displayname: Activity log
+          href: platform/activity-log-export.md
       - name: Send to destinations
         items:
         - name: Log Analytics workspace
@@ -502,20 +506,6 @@
         - name: Event Hubs
           displayname: Resource logs, Activity log, Platform logs
           href: platform/resource-logs-stream-event-hubs.md
-      - name: Legacy Activity log collection
-        items:
-        - name: Overview
-          displayName: Resource logs
-          href: platform/diagnostic-settings-legacy.md
-        - name: Collect and analyze
-          displayname: Activity log
-          href: platform/activity-log-collect.md
-        - name: Collect across tenants
-          displayname: Activity log
-          href: platform/activity-log-collect-tenants.md
-        - name: Export 
-          displayname: Activity log
-          href: platform/activity-log-export.md
     - name: Diagnostic settings
       items: 
       - name: Create diagnostic setting
@@ -658,10 +648,12 @@
         href: insights/vminsights-maps.md
       - name: Monitor performance
         href: insights/vminsights-performance.md
-      - name: Using workbooks
-        href: insights/vminsights-workbooks.md
       - name: Analyze data with log queries
         href: insights/vminsights-log-search.md
+      - name: Visualize data with workbooks
+        href: insights/vminsights-workbooks.md
+      - name: Create alert rules
+        href: insights/vminsights-alerts.md
       - name: Upgrade Dependency agent
         href: insights/vminsights-dependency-agent-maintenance.md
       - name: Disable monitoring
@@ -706,6 +698,8 @@
         href: insights/container-insights-analyze.md
       - name: Monitor health
         href: insights/container-insights-health.md
+      - name: Monitor GPU performance
+        href: insights/container-insights-gpu-monitoring.md
       - name: View live data
         items:
         - name: Live Data (preview) overview

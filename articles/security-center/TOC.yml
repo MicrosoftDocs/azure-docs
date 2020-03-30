@@ -170,8 +170,6 @@
       href: security-center-apply-disk-encryption.md
     - name: Apply system updates
       href: security-center-apply-system-updates.md
-    - name: Install Endpoint Protection
-      href: security-center-install-endpoint-protection.md
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Alert confidence score
