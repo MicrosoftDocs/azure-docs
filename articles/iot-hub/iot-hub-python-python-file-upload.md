@@ -22,7 +22,7 @@ This article shows how to use the [file upload capabilities of IoT Hub](iot-hub-
 
 The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
-At the end of this tutorial you run the Python console app:
+At the end of this tutorial, you run the Python console app:
 
 * **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
@@ -52,7 +52,7 @@ In this section, you create the device app to upload a file to IoT hub.
     pip install azure.storage.blob
     ```
 
-1. Create a test file that you will upload to blob storage.
+1. Create a test file that you'll upload to blob storage.
 
 1. Using a text editor, create a **FileUpload.py** file in your working folder.
 
@@ -161,9 +161,9 @@ In this section, you create the device app to upload a file to IoT hub.
         #loop.close()
     ```
 
-    This code creates an asynchronous **IoTHubDeviceClient** and uses the the following APIs to manage the file upload with your IoT hub:
+    This code creates an asynchronous **IoTHubDeviceClient** and uses the following APIs to manage the file upload with your IoT hub:
 
-    * **get_storage_info_for_blob** gets information from your IoT hub about the linked Storage Account you created previously. This includes the hostname, container name, blob name and a SAS token. This information is passed to the **store_blob** function (in the previous step), so the **BlobClient** in that function can authenticate with Azure storage. The **get_storage_info_for_blob** method also returns a correlation_id, which is used in the **notify_blob_upload_status** method. The correlation_id is IoT Hub's way of marking which blob you are working on.
+    * **get_storage_info_for_blob** gets information from your IoT hub about the linked Storage Account you created previously. This information includes the hostname, container name, blob name, and a SAS token. The storage info is passed to the **store_blob** function (created in the previous step), so the **BlobClient** in that function can authenticate with Azure storage. The **get_storage_info_for_blob** method also returns a correlation_id, which is used in the **notify_blob_upload_status** method. The correlation_id is IoT Hub's way of marking which blob you're working on.
 
     * **notify_blob_upload_status** notifies IoT Hub of the status of your blob storage operation. You pass it the correlation_id obtained by the **get_storage_info_for_blob** method. It's used by IoT Hub to notify any service that might be listening for a notification on the status of the file upload task.
 
@@ -171,7 +171,7 @@ In this section, you create the device app to upload a file to IoT hub.
 
 ## Run the application
 
-Now you are ready to run the application.
+Now you're ready to run the application.
 
 1. At a command prompt in your working folder, run the following command:
 
