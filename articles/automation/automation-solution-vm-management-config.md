@@ -180,6 +180,6 @@ Configuring the solution to just stop VMs at a certain time is supported. In thi
 
 ## Next steps
 
-* To learn how to troubleshoot Start/Stop VMs during off-hours, see [Troubleshooting Start/Stop VMs](troubleshoot/start-stop-vm.md).
+* To learn how to troubleshoot Start/Stop VMs during off-hours, see [Troubleshooting Start/Stop VMs](troubleshoot/start-stop-vm.md).
 
-* [Review](automation-solution-vm-management-logs.md) the Automation records written to Azure Monitor Logs and the example log search queries to analyze the status of Automation runbook jobs from Start/Stop VMs.
+* [Review](automation-solution-vm-management-logs.md) the Automation records written to Azure Monitor Logs and the example log search queries to analyze the status of Automation runbook jobs from Start/Stop VMs.

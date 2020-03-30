@@ -156,9 +156,13 @@ You should not enable all schedules, because this might create overlapping sched
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of _Stop_ every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see the Runbooks section. Enable the related schedule, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the Sequenced_Parent runbook with a parameter of _Start_ every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and asset variables, see the Runbooks section. Enable the related schedule, **Sequenced-StopVM**.|
 
+## Enable the solution
+
+To begin using the solution, perform the steps in the [Enable Start/Stop VMs solution](automation-solution-vm-management-enable.md).
+
 ## Viewing the solution
 
-To access the solution, there are two methods:
+You can access the solution after you have enabled it from one of the following ways:
 
 * From your Automation account, select **Start/Stop VM** under **Related Resources**. On the **Start/Stop VM** page, select **Manage the solution** from the right-hand side of the page, under the section **Manage Start/Stop VM Solutions**.
 
