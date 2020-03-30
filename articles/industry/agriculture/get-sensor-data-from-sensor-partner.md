@@ -34,7 +34,8 @@ After you start the streaming of sensor data, you can begin the process of getti
 
 Follow the below steps to  generate the above information:
 
-> [!NOTE] These steps are required to be completed on Azure to access the Azure
+> [!NOTE]
+> These steps are required to be completed on Azure to access the Azure
 > subscription where FarmBeats is deployed.
 
 1. Sign in to https://portal.azure.com/.
