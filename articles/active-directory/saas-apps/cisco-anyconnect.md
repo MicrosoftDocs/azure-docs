@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -95,6 +95,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Cisco AnyConnect** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> If you would like to on board multiple TGTs of the server then you need to add multiple instance of the Cisco AnyConnect application from the gallery. Also you can choose to upload your own certificate in Azure AD for all these application instances. That way you can have same certificate for the applications but you can configure different Identifier and Reply URL for every application.
 
 ### Create an Azure AD test user
 
