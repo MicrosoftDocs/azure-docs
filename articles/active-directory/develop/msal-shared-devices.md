@@ -3,18 +3,16 @@ title: Shared device mode overview
 titleSuffix: Microsoft identity platform
 description: Learn about shared device mode to enable device sharing for your Firstline Workers.
 services: active-directory
-documentationcenter: dev-center-name
 author: brandwe
 manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/31/2020
 ms.author: brandwe
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev
 ---
 

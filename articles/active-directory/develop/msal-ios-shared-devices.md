@@ -3,24 +3,20 @@ title: Shared device mode for Android devices
 titleSuffix: Microsoft identity platform
 description: Learn about shared device mode, which allows Firstline Workers to share an Android device
 services: active-directory
-documentationcenter: dev-center-name
 author: brandwe
 manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/31/2020
 ms.author: brandwe
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ---
 
 # Supporting Shared Device Mode for iOS
-
-## Overview
 
 > [!NOTE]
 > This feature is in public preview.
