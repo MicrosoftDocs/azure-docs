@@ -31,6 +31,17 @@
 ### Docs Weekly Digest
 
 
+#### 3/26:
+
+- **Done**
+  - Lots of meetings with primitive owners to capture and implement feedback on scaffolding + toc + process + tools
+
+- **Planned**
+  - Migrate existing doc drafts out of code repos and into docs repo
+  - Continue refining + socializing the docs process 
+  - Continue improving our scaffolding + content
+
+
 #### 3/19:
 
 - **Done**
@@ -41,6 +52,9 @@
 - **Planned**
   - socialize / improve upon our docs contribution process
   - socialize / improve upon our reference docs automation process
+
+
+#### 3/12:
 
 
 - **Done**

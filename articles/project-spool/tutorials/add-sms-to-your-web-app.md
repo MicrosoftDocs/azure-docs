@@ -33,6 +33,9 @@ ms.service: azure-project-spool
 - TODOs:
   - Find related gold standard docs
   - Editorial Pass
+  - Test links
+  - Add context
+  - Remove relative links
   
 <br>
 <br>
