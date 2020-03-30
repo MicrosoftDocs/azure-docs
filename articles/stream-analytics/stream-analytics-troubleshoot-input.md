@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Troubleshoot input connections
 
-This article describes common issues with Azure Stream Analytics input connections, how to troubleshoot input issues, and how to correct the issues. Many troublshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnosic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common issues with Azure Stream Analytics input connections, how to troubleshoot input issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Input events not received by job 
 
