@@ -7,9 +7,9 @@ ms.date: 03/23/2020
 
 # Support matrix for Hyper-V assessment
 
-This article summarizes prerequisites and support requirements for assessing Hyper-V VMs in preparation for migration to Azure. If you want to migrate Hyper-V VMs to Azure, review the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
+This article summarizes prerequisites and support requirements when you assess Hyper-V VMs for migration to Azure, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate Hyper-V VMs to Azure, review the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
 
-You assess Hyper-V VMs with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
+To set up Hyper-V VM assessment, you create an Azure Migrate project, and add the Azure Migrate:Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After discovery is complete, you gather discovered machines into groups, and run an assessment for a group.
 
 
 ## Limitations
