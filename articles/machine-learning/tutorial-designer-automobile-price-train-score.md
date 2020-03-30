@@ -265,7 +265,7 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
 ## Submit the pipeline
 
-Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a pipeline run at any point while building pipelines in the designer. You can do this to check your work as you go to verify your pipeline works as expected.
+Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a valid pipeline run at any point, which can be used to review changes to your pipeline during development.
 
 1. At the top of the canvas, select **Submit**.
 
@@ -278,7 +278,7 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
     1. Select **Submit**.
     
-    You can view run status and details at the top right of the canvas.
+    You can view run status and details at the top right of the canvas. If this is your first time using a compute target, it may take up to 10 minutes for your pipeline to finish running. The default compute settings have 0 minimum nodes, which means that compute instances are deallocated when idle. This saves money, but may require additional startup time for new jobs.
 
 ### View scored labels
 
