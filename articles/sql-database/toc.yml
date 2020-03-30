@@ -61,9 +61,6 @@
 
 - name: Concepts
   items:
-  - name: Common features documentation
-    href: sql-database-paas-index.yml
-
   - name: Feature comparison
     href: sql-database-features.md
 

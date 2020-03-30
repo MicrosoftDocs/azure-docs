@@ -8,7 +8,7 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags:
 keywords:
 ms.service: multiple
@@ -20,6 +20,9 @@ This article shows how to set up [Micro Focus Enterprise Server 4.0](https://www
 [Micro Focus Enterprise Developer 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) on Azure.
 
 A common workload on Azure is a development and test environment. This scenario is common because it's so cost-effective and easy to deploy and tear down. With Enterprise Server, Micro Focus has created one of the largest mainframe rehosting platforms available. You can run z/OS workloads on a less expensive x86 platform on Azure using either Windows or Linux virtual machines (VMs).
+
+> [!NOTE]
+> Coming soon: Instructions for setting up [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) on Azure VMs.
 
 This setup uses Azure VMs running the Windows Server 2016 image from the Azure Marketplace with Microsoft SQL Server 2017 already installed. This setup also applies to Azure Stack.
 
