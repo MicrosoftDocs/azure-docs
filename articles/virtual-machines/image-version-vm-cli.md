@@ -59,7 +59,7 @@ az sig image-version create \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --target-regions "westcentralus" "southcentralus=1" "eastus2=1=standard_zrs" \
+   --target-regions "westcentralus" "southcentralus=1" "eastus=1=standard_zrs" \
    --replica-count 2 \
    --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
 ```

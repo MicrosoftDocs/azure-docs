@@ -32,7 +32,6 @@ Create the VM using [az vm create](/cli/azure/vm#az-vm-create) by supplying th i
 az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
     --name myVM \
-	--os-type Linux \
     --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"
 ```
 
