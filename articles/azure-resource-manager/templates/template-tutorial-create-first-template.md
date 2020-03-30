@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy template
 description: Create your first Azure Resource Manager template. In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 
@@ -30,7 +30,7 @@ Templates are JSON files. To create templates, you need a good JSON editor. We r
 
 ### Command-line deployment
 
-You also need either Azure PowerShell or Azure CLI to deploy the template. For the installation instructions, see:
+You also need either Azure PowerShell or Azure CLI to deploy the template. If you use Azure CLI, you must have the latest version. For the installation instructions, see:
 
 - [Install Azure PowerShell](/powershell/azure/install-az-ps)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
@@ -123,10 +123,12 @@ $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
@@ -149,6 +151,9 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 ![Azure CLI deployment provisioning state](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Verify deployment
 

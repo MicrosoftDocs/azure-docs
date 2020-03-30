@@ -86,7 +86,7 @@ To install the Microsoft Monitoring Agent:
 
 1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
 
-1. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
+1. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it's not set.
 
    ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
@@ -190,7 +190,7 @@ When you click one of the VMs running docker, you'll see the details page with i
 
 Security Center scans your Docker configurations and gives you visibility into misconfigurations by providing a list of all failed rules that were assessed. Security Center provides guidelines to help you resolve these issues quickly and save time. Security Center continuously assesses the Docker configurations and provides you with their latest state.
 
-![container tab](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![container tab](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## Next steps
