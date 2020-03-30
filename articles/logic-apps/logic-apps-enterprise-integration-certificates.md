@@ -1,6 +1,6 @@
 ---
 title: Secure B2B messages with certificates
-description: Add certificates to secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
+description: Add certificates to help secure B2B messages in Azure Logic Apps with the Enterprise Integration Pack 
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,17 +10,12 @@ ms.topic: article
 ms.date: 08/17/2018
 ---
 
-# Secure B2B messages with certificates
+# Improve security for B2B messages by using certificates
 
-When you need to keep B2B communication confidential, 
-you can secure B2B communication for your enterprise integration apps, 
-specifically logic apps, by adding certificates to your integration account. 
-Certificates are digital documents that check the identities for 
-the participants in electronic communications and help you 
-secure communication in these ways:
+When you need to keep B2B communication confidential, you can increase security for B2B communication in your enterprise integration apps, specifically logic apps, by adding certificates to your integration account. Certificates are digital documents that check the identities for the participants in electronic communications and help you secure communication in these ways:
 
 * Encrypt message content.
-* Digitally sign messages. 
+* Digitally sign messages.
 
 You can use these certificates in your enterprise integration apps:
 

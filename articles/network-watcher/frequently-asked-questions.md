@@ -72,8 +72,11 @@ The Packet Capture, Connection Troubleshoot and Connection Monitor features need
 ### What are resource limits on Network Watcher?
 See the [Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
 
-### Why is only one instance of Network Watcher allowed per region?
+### Why is only one instance of Network Watcher allowed per region? 
 Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+
+### How can I manage the Network Watcher Resource? 
+The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers do no need to manage it. Operations like move are not supported on the resource. However, [the resource can be deleted](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
 ## NSG Flow Logs
 

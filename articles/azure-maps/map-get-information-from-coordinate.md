@@ -1,7 +1,7 @@
 ---
 title: Show information about a coordinate on a map | Microsoft Azure Maps
 description: Learn how to display information about an address on the map when a user selects a coordinate.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom: codepen
 
 This article shows how to make a reverse address search that shows the address of a clicked popup location.
 
-There are two ways to make a reverse address search. One way is to query the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module. The other way is to utilize the [Fetch API](https://fetch.spec.whatwg.org/) to make a request to the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to find an address. Both ways are surveyed below.
+There are two ways to make a reverse address search. One way is to query the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) through a service module. The other way is to use the [Fetch API](https://fetch.spec.whatwg.org/) to make a request to the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to find an address. Both ways are surveyed below.
 
 ## Make a reverse search request via service module
 
@@ -32,7 +32,7 @@ The fourth block of code adds a mouse click [event listener](https://docs.micros
 
 The fifth block of code sets up the HTML popup content to display the response address for the clicked coordinate position.
 
-The change of cursor, a popup object, and the click event are all created in the map's [load event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure map loads fully before the coordinates information is retrieved.
+The change of cursor, the popup object, and the click event are all created in the map's [load event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). This code structure ensures map fully loads before retrieving the coordinates information.
 
 ## Make a reverse search request via Fetch API
 
@@ -47,9 +47,12 @@ The second block of code updates the style of the mouse cursor to a pointer. It 
 
 The third block of code adds an event listener for mouse clicks. Upon a mouse click, it uses the [Fetch API](https://fetch.spec.whatwg.org/) to query the [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) for the clicked coordinates address. For a successful response, it collects the address for the clicked location. It defines the popup content and position using the [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) function of the popup class.
 
-The change of cursor, a popup object, and the click event are all created in the map's [load event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure map loads fully before coordinates information is retrieved.
+The change of cursor, the popup object, and the click event are all created in the map's [load event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). This code structure ensures the map fully loads before retrieving the coordinates information.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
 
 Learn more about the classes and methods used in this article:
 

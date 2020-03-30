@@ -33,7 +33,6 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 
 For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md). This article provides information and examples on authentication, including using service principals and automated workflows.
 
-
 ### Authentication for web service deployment
 
 Azure Machine Learning supports two forms of authentication for web services: key and token. Each web service can enable only one form of authentication at a time.
@@ -73,6 +72,9 @@ The following table lists some of the major Azure Machine Learning operations an
 
 If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
 
+> [!WARNING]
+> Azure Machine Learning is not currently supported with Azure Active Directory business-to-business collaboration.
+
 ### Securing compute targets and data
 
 Owners and contributors can use all compute targets and data stores that are attached to the workspace.  
@@ -107,6 +109,7 @@ For more information, see [How to run experiments and inference in a virtual net
 > [!IMPORTANT]
 > If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. This controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments.
 
+For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### Azure Blob storage
 
@@ -123,9 +126,6 @@ For information on regenerating the access keys, see [Regenerate storage access 
 Azure Machine Learning stores metrics and metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
 
 To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, you can create a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. 
-
-> [!NOTE]
-> This feature is currently available only in US East, US West 2, US South Central.
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
@@ -184,13 +184,15 @@ The OS disk for each compute node stored in Azure Storage is encrypted with Micr
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk is encrypted by default for workspaces with the `hbi_workspace` parameter set to `TRUE`. This environment is short-lived only for the duration of your run, and encryption support is limited to system-managed keys only.
 
-For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+#### Azure Databricks
+
+Azure Databricks can be used in Azure Machine Learning pipelines. By default, the Databricks File System (DBFS) used by Azure Databricks is encrypted using a Microsoft-managed key. To configure Azure Databricks to use customer-managed keys, see [Configure customer-managed keys on default (root) DBFS](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### Encryption in transit
 
-You can use SSL to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
+You can use TLS to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
 
-For more information, see [Use SSL to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 
@@ -210,7 +212,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft’s standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
 
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us.
+Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
 You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, CLI, REST APIs, or Azure Resource Manager templates.
 
@@ -328,7 +330,7 @@ Here are the details:
 
 ## Next steps
 
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-use-parallel-run-step.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)

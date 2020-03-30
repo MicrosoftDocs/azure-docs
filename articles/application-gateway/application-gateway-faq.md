@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/24/2020
 ms.author: victorh
 ---
 
@@ -61,6 +61,8 @@ See the [order of listener processing](https://docs.microsoft.com/azure/applicat
 
 If you're using a public IP address as an endpoint, you'll find the IP and DNS information on the public IP address resource. Or find it in the portal, on the overview page for the application gateway. If you're using internal IP addresses, find the information on the overview page.
 
+For the v2 SKU, open the public IP resource and select **Configuration**. The **DNS name label (optional)** field is available to configure the DNS name.
+
 ### What are the settings for Keep-Alive timeout and TCP idle timeout?
 
 *Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open in case of no activity. 
@@ -88,6 +90,10 @@ See [Application Gateway subnet size considerations](https://docs.microsoft.com/
 Yes. In addition to multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
 
 A single subnet can't support both Standard_v2 and Standard Application Gateway together.
+
+### Does Application Gateway v2 support user-defined routes (UDR)?
+
+Yes, but only specific scenarios. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
 
 ### Does Application Gateway support x-forwarded-for headers?
 
@@ -125,7 +131,7 @@ No. Instances are distributed across upgrade domains and fault domains.
 
 ### Does Application Gateway support connection draining?
 
-Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](overview.md#connection-draining).
+Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](features.md#connection-draining).
 
 ### Can I change instance size from medium to large without disruption?
 
@@ -342,11 +348,11 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 Application Gateway provides three logs: 
 
-* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. The access log is collected every 300 seconds. It contains one record per application gateway.
+* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. It contains one record per application gateway.
 * **ApplicationGatewayPerformanceLog**: The performance log captures performance information for each application gateway. Information includes the throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count.
 * **ApplicationGatewayFirewallLog**: For application gateways that you configure with WAF, the firewall log contains requests that are logged through either detection mode or prevention mode.
 
-For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+All logs are collected every 60 seconds. For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
 ### How do I know if my backend pool members are healthy?
 
@@ -383,28 +389,31 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 
 ### How do I use Application Gateway V2 with only private frontend IP address?
 
-Application Gateway V2 currently does not support only private IP mode. It supports the following combinations
+Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
 * Private IP and Public IP
 * Public IP only
 
 But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
 1. Create an Application Gateway with both public and private frontend IP address
-2. Do not create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
+2. Don't create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
 3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
     
     a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
     
-    b. Allow traffic from Source as **AzureLoadBalancer** service tag and Destination and destination port as **Any**
+    b. Allow traffic from Source as **AzureLoadBalancer** service tag and destination port as **Any**
     
-    c. Deny all inbound traffic from Source as **Internet** service tag and Destination and destination port as **Any**. Give this rule the *least priority* in the inbound rules
+    c. Deny all inbound traffic from Source as **Internet** service tag and destination port as **Any**. Give this rule the *least priority* in the inbound rules
     
-    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address is not blocked
+    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address isn't blocked
     
-    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, etc.
+    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, and so on.
 
 Sample NSG configuration for private IP only access:
 ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
 
+### Does Application Gateway affinity cookie support SameSite attribute?
+Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
+To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
 
 ## Next steps
 

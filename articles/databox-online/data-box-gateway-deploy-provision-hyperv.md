@@ -15,13 +15,14 @@ ms.author: alkohli
 
 ## Overview
 
-This tutorial describes how to provision a Data Box Gateway on a host system running Hyper-V on Windows Server 2016, Windows Server 2012 R2, or Windows Server 2012. 
+This tutorial describes how to provision a Data Box Gateway on a host system running Hyper-V on Windows Server 2016, Windows Server 2012 R2, or Windows Server 2012.
 
 You need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Ensure host meets minimum device requirements
 > * Provision a virtual device in hypervisor
 > * Start the virtual device and get the IP address
@@ -41,7 +42,7 @@ Before you begin, make sure that:
 
   > [!IMPORTANT]
   > The software running on the Data Box Gateway may only be used with the Data Box Gateway resource.
- 
+
 ### For the Data Box Gateway virtual device
 
 Before you deploy a device, make sure that:
@@ -50,7 +51,7 @@ Before you deploy a device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM. 
+  * At least 8 GB of RAM.
   * One network interface.
   * A 250 GB OS disk.
   * A 2 TB virtual disk for data.
@@ -61,7 +62,6 @@ Before you begin:
 
 - Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
-
 
 ## Check the host system
 
@@ -123,18 +123,17 @@ Perform the following steps to provision a device in your hypervisor.
 14. On the **Hard drive** page, select the **Virtual hard disk** option and click **New**. The **New Virtual Hard Disk Wizard** starts.
 
     ![New Virtual Hard Disk Wizard](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
-1. On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
-2. On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**.
-   
-17. On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). **Fixed size** disk would work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. 
+15. On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
+16. On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**.
+17. On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). **Fixed size** disk would work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**.
 
     ![Choose Disk Type page](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. On the **Specify Name and Location** page, provide a **name** as well as **location** (you can browse to one) for the data disk. Click **Next**.
 
     ![Specify Name and Location page](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more). 
+19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more).
     
-    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. You can however expand the disk by adding a data disk. Click **Next**.
+    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Expansion of data disk is not supported. Click **Next**.
 
     ![Configure Disk page](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. On the **Summary** page, review the details of your virtual data disk and if satisfied, click **Finish** to create the disk. The wizard closes and a virtual hard disk is added to your machine.
@@ -190,5 +189,3 @@ Advance to the next tutorial to learn how to connect, set up, and activate your 
 
 > [!div class="nextstepaction"]
 > [Connect and set up your Data Box Gateway](./data-box-gateway-deploy-connect-setup-activate.md)
-
-

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -44,7 +44,7 @@ Blob storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby).
+Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby).
 
 For more information about Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
@@ -82,7 +82,7 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
 For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
@@ -116,11 +116,9 @@ The Azure Storage client libraries provide methods for encrypting data from the 
 
 ## Redundancy
 
-In order to ensure that your data is durable, Azure Storage replicates multiple copies of your data. When you set up your storage account, you select a redundancy option.
+In order to ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-For more information about disaster recovery, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## Transferring data to and from Azure Storage
 
@@ -139,7 +137,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [Azure Storage client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Azure Storage client library for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage)
+- [Azure Storage client library for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)

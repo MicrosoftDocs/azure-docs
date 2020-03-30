@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
 ---
 
@@ -43,7 +43,7 @@ The article shows how to upload and index your videos with these options:
 
     If it is a private URL, the access token need to be provided in the request.
 - The URL has to point to a valid media file and not to a webpage, such as a link to the `www.youtube.com` page.
-- You can upload up to 60 movies per minute.
+- In a paid account you can upload up to 50 movies per minute, and in a trial account up to 5 movies per minute.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
@@ -119,6 +119,10 @@ Use this parameter if raw or external recordings contain background noise. This 
 - `VideoOnly` - Index and extract insights using video only (ignoring audio)
 - `Default` – Index and extract insights using both audio and video
 - `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+
+> [!NOTE]
+> Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
+If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.
 
 Price depends on the selected indexing option.  
 
@@ -344,6 +348,7 @@ The status codes listed in the following table may be returned by the Upload ope
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
 |400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
+|429||Trial accounts are allowed 5 uploads per minute. Paid accounts are allowed 50 uploads per minute.|
 
 ## Next steps
 

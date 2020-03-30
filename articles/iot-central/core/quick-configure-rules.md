@@ -3,7 +3,7 @@ title: Quickstart - Configure rules and actions in Azure IoT Central
 description: This quickstart shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -29,7 +29,7 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
 1. Enter **Environmental temperature** as the rule name.
 
-1. In the **Target devices** section, select **MXChip IoT DevKit** as the device template. This option filters the devices the rule applies to by device template type. You can add more filter criteria selecting **+ Filter**.
+1. In the **Target devices** section, select **MXChip IoT DevKit** as the device template. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
 
 1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a condition based on temperature telemetry:
 

@@ -25,8 +25,6 @@ ms.author: diberry
 
 ## Change model programmatically
 
-Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
-
 1. Create a new file named `predict.go`. Add the following code:
 
     ```go

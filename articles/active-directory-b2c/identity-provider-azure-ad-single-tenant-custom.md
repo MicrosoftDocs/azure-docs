@@ -3,14 +3,14 @@ title: Set up sign-in with an Azure AD account by using custom policies
 titleSuffix: Azure AD B2C
 description: Set up sign in with an Azure Active Directory account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: marsma
+ms.date: 02/11/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -46,6 +46,19 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Select **Certificates & secrets**, and then select **New client secret**.
 1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
+## Configuring optional claims
+
+If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
+1. From the **Manage** section, select **App registrations**.
+1. Select the application you want to configure optional claims for in the list.
+1. From the **Manage** section, select **Token configuration (preview)**.
+1. Select **Add optional claim**.
+1. Select the token type you want to configure.
+1. Select the optional claims to add.
+1. Click **Add**.
+
 ## Create a policy key
 
 You need to store the application key that you created in your Azure AD B2C tenant.
@@ -69,23 +82,20 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 1. Open the *TrustFrameworkExtensions.xml* file.
 2. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
 3. Add a new **ClaimsProvider** as follows:
-
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>Contoso</Domain>
       <DisplayName>Login using Contoso</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
+        <TechnicalProfile Id="OIDC-Contoso">
           <DisplayName>Contoso Employee</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
-            <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -121,12 +131,11 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 
 To get a token from the Azure AD endpoint, you need to define the protocols that Azure AD B2C should use to communicate with Azure AD. This is done inside the **TechnicalProfile** element of  **ClaimsProvider**.
 
-1. Update the ID of the **TechnicalProfile** element. This ID is used to refer to this technical profile from other parts of the policy.
+1. Update the ID of the **TechnicalProfile** element. This ID is used to refer to this technical profile from other parts of the policy, for example `OIDC-Contoso`.
 1. Update the value for **DisplayName**. This value will be displayed on the sign-in button on your sign-in screen.
 1. Update the value for **Description**.
 1. Azure AD uses the OpenID Connect protocol, so make sure that the value for **Protocol** is `OpenIdConnect`.
-1. Set value of the **METADATA** to `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, where `your-AD-tenant-name` is your Azure AD tenant name. For example, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Open your browser and go to the **METADATA** URL that you just updated, look for the **issuer** object, and then copy and paste the value into the value for **ProviderName** in the XML file.
+1. Set value of the **METADATA** to `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, where `tenant-name` is your Azure AD tenant name. For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Set **client_id** to the application ID from the application registration.
 1. Under **CryptographicKeys**, update the value of **StorageReferenceId** to the name of the policy key that you created earlier. For example, `B2C_1A_ContosoAppSecret`.
 
@@ -167,10 +176,10 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `ContosoProfile`.
+    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `OIDC-Contoso`.
 
 1. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 

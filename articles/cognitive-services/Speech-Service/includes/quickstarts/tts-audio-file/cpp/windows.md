@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows)
 
 ## Add sample code
 
@@ -30,7 +29,7 @@ Before you get started, make sure to:
    ```C++
 
     // Creates an instance of a speech config with specified subscription key and service region.
-    // Replace with your own subscription key and service region (e.g., "westus").
+    // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
     // Creates a speech synthesizer using file as audio output.

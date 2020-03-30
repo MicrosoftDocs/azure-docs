@@ -1,6 +1,6 @@
 ---
 title: Add a Symbol layer to a map | Microsoft Azure Maps
-description: In this article, you will learn about how to use the Symbol layer to customize and add symbols on a map using the Microsoft Azure Maps Web SDK.
+description: In this article, you'll learn about how to use the Symbol layer to customize a symbol, and add symbols on a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -13,7 +13,9 @@ ms.custom: codepen
 
 # Add a symbol layer to a map
 
-A symbol connected to a data source, and used to render an icon and/or a text at a given point. Symbol layers are rendered using WebGL and are used to render large collections of points on the map. Compared to HTML marker, the symbol layer renders a large number of point data on the map, with better performance. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
+Connect a symbol to a data source, and use it to render an icon or a text at a given point. 
+
+Symbol layers are rendered using WebGL. Use a symbol layer to render large collections of points on the map. Compared to HTML marker, the symbol layer renders a large number of point data on the map, with better performance. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
 
 > [!TIP]
 > Symbol layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want, you can include MultiPoint features as well.
@@ -28,7 +30,9 @@ The maps image sprite manager loads custom images used by the symbol layer. It s
 
 ## Add a symbol layer
 
-Before you can add a symbol layer to the map, you need to do a couple of steps. First, create a data source and add it to the map. A symbol layer can then be created and passed in the data source to retrieve the data from the data source. Finally, data needs to be added into the data source so that there's something to be rendered. The following code shows the code that should be added to the map after it has loaded. The code renders a single point on the map using a symbol layer. 
+Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered. 
+
+The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer. 
 
 ```javascript
 //Create a data source and add it to the map.

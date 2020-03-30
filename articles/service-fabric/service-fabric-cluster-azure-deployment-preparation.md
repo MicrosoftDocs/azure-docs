@@ -72,7 +72,6 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
         "virtualMachineProfile": {
             "storageProfile": {
                 "osDisk": {
-                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
                         "caching": "ReadOnly",
                         "createOption": "FromImage",
                         "diffDiskSettings": {

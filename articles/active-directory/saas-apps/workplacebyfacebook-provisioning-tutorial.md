@@ -48,7 +48,7 @@ We have locked down the admin credentials section for existing Workplace custome
 
  
 #### When will these changes happen?
-All new instances of Workplace will already be using the new integration / authorization method. Existing integrations will be migrated gradually in February. The migration will be completed for all tenants by the end of the Month. 
+All new instances of Workplace will already be using the new integration / authorization method. Existing integrations will be migrated gradually by May. The workplace team has provided an extension on the deadline from Feb-28 to May-1. 
 
 ## Capabilities supported
 > [!div class="checklist"]

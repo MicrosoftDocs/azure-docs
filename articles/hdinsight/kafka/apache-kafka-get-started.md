@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.custom: mvc
+ms.date: 02/24/2020
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
 # Quickstart: Create Apache Kafka cluster in Azure HDInsight using Azure portal
 
-Apache Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
+[Apache Kafka](./apache-kafka-introduction.md) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
 
-In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Apache Kafka.
+In this quickstart, you learn how to create an Apache Kafka cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Apache Kafka. For in depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For additional information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -29,29 +29,31 @@ An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) u
 
 ## Create an Apache Kafka cluster
 
-To create an Apache Kafka on HDInsight cluster, use the following steps:
+To create an Apache Kafka cluster on HDInsight, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. From the left menu, navigate to **+ Create a resource** > **Analytics** > **HDInsight**.
+1. From the top menu, select **+ Create a resource**.
 
-    ![Azure portal create resource HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+    ![Azure portal create resource HDInsight](./media/apache-kafka-get-started/azure-portal-create-resource.png)
 
-1. Under **Basics**, enter or select the following values:
+1. Select **Analytics** > **Azure HDInsight** to go to the **Create HDInsight cluster** page.
+
+1. From **the Basics** tab, provide the following information:
 
     |Property  |Description  |
     |---------|---------|
-    |Subscription    |  Select your Azure subscription. |
+    |Subscription    |  From the drop-down list, select the Azure subscription that's used for the cluster. |
     |Resource group     | Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. |
-    |Cluster name   | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters including letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
-    |Location    | Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. |
-    |Cluster type| Select **Select cluster type**. Then select **Kafka** as the cluster type.|
+    |Cluster name   | Enter a globally unique name. The name can consist of up to 59 characters including letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
+    |Region    | From the drop-down list, select a region where the cluster is created.  Choose a region closer to you for better performance. |
+    |Cluster type| Select **Select cluster type** to open a list. From the list, select **Kafka** as the cluster type.|
     |Version|The default version for the cluster type will be specified. Select from the drop-down list if you wish to specify a different version.|
     |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
     |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
     |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
 
-   ![Azure portal create cluster basics](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
+   ![Azure portal create cluster basics](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
     Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
 
@@ -72,7 +74,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
     Select the **Security + networking** tab.
 
-1. For this quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Bring your own key for Apache Kafka on Azure HDInsight](apache-kafka-byok.md)
+1. For this quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
@@ -96,15 +98,13 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 ## Connect to the cluster
 
-1. To connect to the primary head node of the Apache Kafka cluster, use the following command. Replace `sshuser` with the SSH user name. Replace `mykafka` with the name of your Apache Kafkacluster.
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
-    ```bash
-    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. When you first connect to the cluster, your SSH client may display a warning that the authenticity of the host can't be established. When prompted type __yes__, and then press __Enter__ to add the host to your SSH client's trusted server list.
-
-3. When prompted, enter the password for the SSH user.
+1. When prompted, enter the password for the SSH user.
 
     Once connected, you see information similar to the following text:
 
@@ -151,6 +151,7 @@ In this section, you get the host information from the Apache Ambari REST API on
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
     > [!Note]  
     > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.
 
@@ -291,9 +292,7 @@ To remove the resource group using the Azure portal:
 3. Select __Delete resource group__, and then confirm.
 
 > [!WARNING]  
-> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
->
-> Deleting an Apache  Kafka on HDInsight cluster deletes any data stored in Kafka.
+> Deleting an Apache Kafka cluster on HDInsight deletes any data stored in Kafka.
 
 ## Next steps
 

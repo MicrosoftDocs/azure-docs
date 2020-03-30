@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Route electric vehicles by using Azure Notebooks (Python)
 
-Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. With these APIs, developers, enterprises, and ISVs can create location-aware apps, IoT, mobility, logistics, and asset tracking solutions. 
+Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. These APIs enable developers, enterprises, and ISVs to develop location-aware apps, IoT, mobility, logistics, and asset tracking solutions. 
 
 The Azure Maps REST APIs can be called from languages such as Python and R to enable geospatial data analysis and machine learning scenarios. Azure Maps offers a robust set of [routing APIs](https://docs.microsoft.com/rest/api/maps/route) that allow users to calculate routes between several data points. The calculations are based on various conditions, such as vehicle type or reachable area. 
 
@@ -69,7 +69,7 @@ To follow along with this tutorial, you need to create an Azure notebook project
 
 1. After the upload has finished successfully, your file is displayed on your project page. Double-click on the file to open it as a Jupyter notebook.
 
-To help you better understand the functionality that's implemented in the notebook file, run the code in the notebook one cell at a time. You can run the code in each cell by selecting the **Run** button at the top of the notebook app.
+Try to understand the functionality that's implemented in the notebook file. Run the code, in the notebook file, one cell at a time. You can run the code in each cell by selecting the **Run** button at the top of the notebook app.
 
   ![The Run button](./media/tutorial-ev-routing/run.png)
 
@@ -151,7 +151,7 @@ boundsData = {
 
 After you've determined the reachable range (isochrone) for the electric vehicle, you can search for charging stations within that range. 
 
-The following script calls the Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). It searches for electric vehicle charging stations within the boundaries of the car's maximum reachable range, and then parses the response to an array of reachable locations.
+The following script calls the Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). It searches for charging stations for electric vehicle, within the boundaries of the car's maximum reachable range. Then, the script parses the response to an array of reachable locations.
 
 To search for electric vehicle charging stations within the reachable range, run the following script:
 

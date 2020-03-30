@@ -1,33 +1,32 @@
 ---
-title: Analyze Azure costs with the Power BI template app
-description: This article explains how to install and use the Azure Cost Management Power BI Template app.
-keywords:
+title: Analyze Azure costs with the Power BI App
+description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ---
 
-# Analyze cost with the Azure Cost Management Power BI template app for Enterprise Agreements (EA)
+# Analyze cost with the Azure Cost Management Power BI App for Enterprise Agreements (EA)
 
-This article explains how to install and use the Azure Cost Management Power BI Template app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
+This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You download the template app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+You download the app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
 
-The Azure Cost Management template app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 ## Prerequisites
 
-- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the Power BI template app
+- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the app
 - To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account
 
 ## Installation steps
 
 To install the app:
 
-1. Open [Azure Cost Management Power BI Template app](https://aka.ms/costmgmt/ACMApp).
+1. Open [Azure Cost Management Power BI App](https://aka.ms/costmgmt/ACMApp).
 2. On the Power BI AppSource page, select **Get it now**.
 3. Select **Continue** to agree to the terms of use and privacy policy.
 4. In the **Install this Power BI app** box, select **Install**.
@@ -38,7 +37,7 @@ To install the app:
   ![Get started with your new app - Connect](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
   ![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. The next dialog connects to Azure and gets data required for reserved instance recommendations. Leave the default values as configured and select **Sign in**.  
+10. The next dialog connects to Azure and gets data required for reserved instance recommendations. *Leave the default values as configured* and select **Sign in**.  
   ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Select **Sign in** to authenticate with your EA enrollment. This step also starts a data refresh action in Power BI.  
   ![Connect to EA enrollment](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -49,24 +48,24 @@ To install the app:
 
 After the data refresh is complete, select the Azure Cost Management App to view the pre-created reports.
 
-## Reports available with the template app
+## Reports available with the app
 
-The following reports are available in the Azure Cost Management Power BI template app.
+The following reports are available in the app.
 
 **Getting Started** - Provides useful links to documentation and links to provide feedback.
+
+**Account overview** - The report shows a monthly summary of information, including:
+
+- Charges against credits
+- New purchases
+- Azure Marketplace charges
+- Overages and total charges
 
 **Usage by Subscriptions and Resource Groups** - Provides a cost over time view and charts showing cost by subscription and resource group.
 
 **Usage by Services** - Provides a view over time of usage by MeterCategory. You can track your usage data and drill into any anomalies to understand usage spikes or dips.
 
 **Top 5 Usage drivers** - The report shows a filtered cost summarization by the top 5 MeterCategory and corresponding MeterName.
-
-**Usage Summary Overview** - The report shows a monthly summary of information, including:
-
-- Charges against credits
-- New purchases
-- Azure Marketplace charges
-- Overages and total charges
 
 **Windows Server AHB Usage** - The report shows the number virtual machines that have Azure Hybrid Benefit enabled. It also shows a count of cores/vCPUs used by the virtual machines.
 
@@ -120,13 +119,57 @@ For details about how to use the report, see the [VM RI Coverage (shared recomme
 
 **Price sheet** - The report shows a detailed list of prices specific to a Billing account or EA enrollment.
 
+## Troubleshoot problems
+
+If you're having issues with the Power BI app, the following troubleshooting information might help.
+
+### BudgetAmount error
+
+You might get an error stating:
+
+```
+Something went wrong
+There was an error when processing the data in the dataset.
+Please try again later or contact support. If you contact support, please provide these details.
+Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
+```
+
+#### Cause
+
+This error occurs because of a bug with the underlying metadata. The issue happens because there's no budget available under **Cost Management > Budget** in the Azure portal. The bug fix is in the process of getting deployed to the Power BI Desktop and Power BI service. 
+
+#### Solution
+
+- Until the bug is fixed, you can work around the problem by adding a test budget in the Azure portal at the billing account/EA enrollment level. The test budget unblocks connecting with Power BI. For more information about creating a budget, see [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md).
+
+
+### Invalid credentials for AzureBlob error
+
+You might get an error stating:
+
+```
+Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
+```
+
+#### Cause
+
+This error occurs if you change the authentication method for the AutoFitComboMeter blob connection.
+
+#### Solution
+
+1. Connect to your data.
+1. After you enter your EA enrollment and number of months, make sure that you leave the default value of **Anonymous** for Authentication method and **None** for the Privacy level setting.  
+  ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+1. On the next page, set **OAuth2** for the Authentication method and **None** set for Privacy level. Then, sign in to authenticate with your enrollment. This step also starts a Power BI data refresh.
+
+
 ## Data reference
 
-The following information summarizes the data available through the Power BI template app. There's also links to APIs that give in-depth details for data fields and values.
+The following information summarizes the data available through the app. There's also links to APIs that give in-depth details for data fields and values.
 
 | **Table reference** | **Description** |
 | --- | --- |
-| **AutoFitComboMeter** | Data included in the template app to normalize the RI recommendation and usage to the smallest size in the instance family group. |
+| **AutoFitComboMeter** | Data included in the app to normalize the RI recommendation and usage to the smallest size in the instance family group. |
 | [**Balance summary**](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary#response) | Summary of the balance for Enterprise Agreements. |
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budget details to view actual costs or usage against existing budget targets. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Applicable meter rates for the provided billing profile or EA enrollment. |

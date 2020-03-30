@@ -19,18 +19,20 @@
       href: connect-metamask.md
     - name: Using Geth
       href: connect-geth.md
-    - name: Using Truffle
-      href: connect-truffle.md
 - name: Tutorials
   items:
-  - name: Use smart contracts
+  - name: Create smart contracts
     href: send-transaction.md
+  - name: Publish data using Data Manager
+    href: data-manager-cosmosdb.md
 - name: Concepts
   items:
   - name: Consortium
     href: consortium.md
   - name: Data access and security
     href: data-security.md
+  - name: Data manager overview
+    href: data-manager.md
   - name: Develop
     href: develop.md
   - name: Limits
@@ -41,6 +43,10 @@
   items:
   - name: Configure Azure AD access
     href: configure-aad.md
+  - name: Configure Data Manager - Portal
+    href: data-manager-portal.md
+  - name: Configure Data Manager - CLI
+    href: data-manager-cli.md
   - name: Configure transaction nodes
     href: configure-transaction-nodes.md
   - name: Manage using Azure CLI
@@ -51,16 +57,6 @@
     href: ethereum-logic-app.md
   - name: Monitor Azure Blockchain Service
     href: monitor-azure-blockchain-service.md
-- name: Blockchain Data Manager
-  items:
-  - name: Data manager overview
-    href: data-manager.md
-  - name: Configure Data Manager - Portal
-    href: data-manager-portal.md
-  - name: Configure Data Manager - CLI
-    href: data-manager-cli.md
-  - name: Publish data to Cosmos DB
-    href: data-manager-cosmosdb.md
 - name: Resources
   items:
   - name: Azure Blockchain dev kit

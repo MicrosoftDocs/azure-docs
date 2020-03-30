@@ -136,7 +136,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
-| Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ## Dictionary
 

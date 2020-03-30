@@ -17,7 +17,7 @@ the creation of complex configurations while allowing the underlying composite r
 (parameterized configurations) to be individually managed and built.
 
 Azure Automation enables the [import and compilation of composite
-resources](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+resources](automation-dsc-compile.md).
 Once composite resources have been
 imported into your Automation account, you are able to use the **Compose configuration** experience
 in the **State Configuration (DSC)** page.

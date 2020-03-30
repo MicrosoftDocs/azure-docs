@@ -1,8 +1,8 @@
 ---
 title: React to map events by using Event Grid | Microsoft Azure Maps
 description: In this article, you will learn how to react to Microsoft Azure Maps events by using Event Grid.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 02/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # React to Azure Maps events by using Event Grid 
 
-Azure Maps integrates with Azure Event Grid, so that users can send event notifications to other services and trigger downstream processes. The purpose of this article is to help you configure your business applications to listen to Azure Maps events. This service allows you to react to critical events in a reliable, scalable, and secure manner. For example, users can build an application to update a database, create a ticket, and deliver an email notification, every time a device enters a geofence.
+Azure Maps integrates with Azure Event Grid, so that users can send event notifications to other services and trigger downstream processes. The purpose of this article is to help you configure your business applications to listen to Azure Maps events. This allows users to react to critical events in a reliable, scalable, and secure manner. For example, users can build an application to update a database, create a ticket, and deliver an email notification, every time a device enters a geofence.
 
 Azure Event Grid is a fully managed event routing service, which uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) and [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). It can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -27,8 +27,8 @@ Event grid uses [event subscriptions](https://docs.microsoft.com/azure/event-gri
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Raised when coordinates received have moved from outside of a given geofence to within |
-| Microsoft.Maps.GeofenceExited | Raised when coordinates received have moved from within a given geofence to outside |
+| Microsoft.Maps.GeofenceEntered | Raised when received coordinates have moved from outside of a given geofence to within |
+| Microsoft.Maps.GeofenceExited | Raised when received coordinates have moved from within a given geofence to outside |
 | Microsoft.Maps.GeofenceResult | Raised every time a geofencing query returns a result, regardless of the state |
 
 ## Event schema
@@ -75,9 +75,9 @@ The following example shows the schema for GeofenceResult:
 
 Applications that handle Azure Maps geofence events should follow a few recommended practices:
 
-* Multiple subscriptions can be configured to route events to the same event handler. It's important not to assume that events are from a particular source. Always check the message topic to ensure that it comes from the source that you expect.
-* Messages can arrive out of order or after a delay. Use the `X-Correlation-id` field in the response header to understand if your information about objects is up to date.
-* When Get and POST Geofence API is called with mode parameter set to `EnterAndExit`, an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.
+* Configure multiple subscriptions to route events to the same event handler. It's important not to assume that events are from a particular source. Always check the message topic to ensure that the message came from the source that you expect.
+* Use the `X-Correlation-id` field in the response header to understand if your information about objects is up to date. Messages can arrive out of order or after a delay.
+* When a GET or a POST request in the Geofence API is called with the mode parameter set to `EnterAndExit`, then an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.
 
 ## Next steps
 

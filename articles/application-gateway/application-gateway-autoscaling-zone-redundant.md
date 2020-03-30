@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 03/24/2020
 ms.author: victorh
 ---
 
@@ -21,8 +21,8 @@ The new v2 SKU includes the following enhancements:
   Zone redundancy is available only where Azure Zones are available. In other regions, all other features are supported. For more information, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address for domain name routing to App Services via the application gateway.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](rewrite-http-headers.md)
-- **Key Vault Integration (preview)**: Application Gateway v2 supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
-- **Azure Kubernetes Service Ingress Controller (preview)**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see the [documentation page](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
+- **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md).
 - **Performance enhancements**: The v2 SKU offers up to 5X better SSL offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
@@ -164,7 +164,7 @@ The following table compares the features available with each SKU.
 |--|--|
 |Authentication certificate|Not supported.<br>For more information, see [Overview of end to end SSL with Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported|
-|User Defined Route (UDR) on Application Gateway subnet|Not supported|
+|User-Defined Route (UDR) on Application Gateway subnet|Supported (specific scenarios). In preview.<br> For more information about supported scenarios, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |Billing|Billing scheduled to start on July 1, 2019.|

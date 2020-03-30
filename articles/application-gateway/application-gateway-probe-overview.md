@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
 ---
 
@@ -59,7 +59,7 @@ Once the match criteria is specified, it can be attached to probe configuration 
 | Probe URL |http://127.0.0.1:\<port\>/ |URL path |
 | Interval |30 |The amount of time in seconds to wait before the next health probe is sent.|
 | Time-out |30 |The amount of time in seconds the application gateway waits for a probe response before marking the probe as unhealthy. If a probe returns as healthy, the corresponding backend is immediately marked as healthy.|
-| Unhealthy threshold |3 |Governs how many probes to send in case there's a failure of the regular health probe. These additional health probes are sent in quick succession to determine the health of the backend quickly and don't wait for the probe interval. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
+| Unhealthy threshold |3 |Governs how many probes to send in case there's a failure of the regular health probe. These additional health probes are sent in quick succession to determine the health of the backend quickly and don't wait for the probe interval. This behaivor is only v1 SKU. In the case of v2 SKU, the health probes wait the interval. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 > [!NOTE]
 > The port is the same port as the back-end HTTP settings.
@@ -96,9 +96,11 @@ The following table provides definitions for the properties of a custom health p
 
 ## NSG considerations
 
-If there's a network security group (NSG) on an application gateway subnet, port ranges 65503-65534 must be opened on the application gateway subnet for inbound traffic. These ports are required for the backend health API to work.
+You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication.
 
-Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the AzureLoadBalancer tag must be allowed.
+Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the **AzureLoadBalancer** tag must be allowed.
+
+For more information, see [Application Gateway configuration overview](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
 
 ## Next steps
 After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.

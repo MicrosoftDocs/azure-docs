@@ -9,10 +9,12 @@
   items:
   - name: Enable self-service password reset
     href: tutorial-enable-sspr.md
-  - name: Enable MFA for Applications
-    href: tutorial-mfa-applications.md
-  - name: Enable SSPR on-premises integration
-    href: tutorial-enable-writeback.md
+  - name: Enable Azure Multi-Factor Authentication
+    href: tutorial-enable-azure-mfa.md
+  - name: Enable password writeback to on-premises
+    href: tutorial-enable-sspr-writeback.md
+  - name: Configure custom banned password lists
+    href: tutorial-configure-custom-password-protection.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -64,17 +66,15 @@
   items:
   - name: Self-service password reset
     items:
-    - name: Deploy self-service password reset
+    - name: Deployment guide
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
-    - name: Enable password writeback
-      href: howto-sspr-writeback.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
-    - name: Deploy cloud-based MFA
+    - name: Deployment guide
       href: howto-mfa-getstarted.md
     - name: Per user MFA
       href: howto-mfa-userstates.md
@@ -110,32 +110,32 @@
       href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
-    - name: Configure the banned password list
-      href: howto-password-ban-bad-configure.md
-    - name: On-premises integration
-      items:
-      - name: Deploy Azure AD password protection
-        href: howto-password-ban-bad-on-premises-deploy.md
-      - name: Configure Azure AD password protection
-        href: howto-password-ban-bad-on-premises-operations.md
-      - name: Monitor Azure AD password protection
-        href: howto-password-ban-bad-on-premises-monitor.md
-      - name: Troubleshoot Azure AD password protection
-        href: howto-password-ban-bad-on-premises-troubleshoot.md
-      - name: Frequently asked questions
-        href: howto-password-ban-bad-on-premises-faq.md
-      - name: On-premises agent version history
-        href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Plan and deploy on-premises
+      href: howto-password-ban-bad-on-premises-deploy.md
+    - name: Enable and configure on-premises
+      href: howto-password-ban-bad-on-premises-operations.md
+    - name: Monitor on-premises deployments
+      href: howto-password-ban-bad-on-premises-monitor.md
+    - name: Troubleshoot on-premises deployments
+      href: howto-password-ban-bad-on-premises-troubleshoot.md
+    - name: On-premises FAQs
+      href: howto-password-ban-bad-on-premises-faq.md
+    - name: On-premises agent version history
+      href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Passwordless
     items: 
       - name: Deploying passwordless
         href: howto-authentication-passwordless-deployment.md
-      - name: Passwordless security keys
-        href: howto-authentication-passwordless-security-key.md
-      - name: Passwordless Windows 10
-        href: howto-authentication-passwordless-security-key-windows.md
+      - name: Passwordless FIDO2 security keys
+        items:
+          - name: Enable FIDO2 security keys for your tenant
+            href: howto-authentication-passwordless-security-key.md
+          - name: Sign in to Windows 10 devices
+            href: howto-authentication-passwordless-security-key-windows.md
+          - name: SSO to on-premises resources
+            href: howto-authentication-passwordless-security-key-on-premises.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business

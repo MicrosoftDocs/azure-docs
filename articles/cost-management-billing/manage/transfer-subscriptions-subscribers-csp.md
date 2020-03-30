@@ -1,7 +1,6 @@
 ---
 title: Transfer Azure subscriptions between subscribers and CSPs
 description: Learn how you can transfer Azure subscriptions between subscribers and CSPs.
-services: billing
 author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
@@ -28,7 +27,7 @@ To transfer any other Azure subscriptions to a CSP partner, the subscriber needs
 1. Ensure that the source and target CSP subscriptions are in the same Azure Active Directory (Azure AD) tenant.  
     You can't change the Azure AD tenant for an Azure CSP subscription. Instead, you must add or associate the source subscription to the CSP Azure AD tenant. For more information, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     > [!IMPORTANT]
-    > - When you associate a subscription to a different Azure AD directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access. 
+    > - When you associate a subscription to a different Azure AD directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
     > - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 1. The user account that you use to do the transfer must have [RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
 1. Before you begin, [validate](/rest/api/resources/resources/validatemoveresources) that all Azure resources can move from the source subscription to the destination subscription.  

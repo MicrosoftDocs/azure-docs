@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/30/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -19,10 +19,7 @@ ms.subservice:
 # Manage usage and costs with Azure Monitor Logs
 
 > [!NOTE]
-> This article describes how to understand and control your costs for Azure Monitor Logs. A related article, [Monitoring usage and estimated costs](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.
-
-> [!NOTE]
-> All prices and costs shown in this article are for example purposes only. 
+> This article describes how to understand and control your costs for Azure Monitor Logs. A related article, [Monitoring usage and estimated costs](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. All prices and costs shown in this article are for example purposes only. 
 
 Azure Monitor Logs is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  While this may be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected, it is also dependent on the plan selected, and how long you chose to store data generated from your connected sources.  
 
@@ -85,7 +82,9 @@ You can also [set the pricing tier via Azure Resource Manager](https://docs.micr
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention of up to 2 years. 
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is aggregated at the workspace level. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. 
 
 Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back. 
 
@@ -96,7 +95,7 @@ More details of pricing tier limitations are available [here](https://docs.micro
 
 ## Change the data retention period
 
-The following steps describe how to configure how long log data is kept by in your workspace.
+The following steps describe how to configure how long log data is kept by in your workspace. Data retention can be configured from 30 to 730 days (2 years) for all workspaces unless they are using the legacy Free pricing tier. 
 
 ### Default retention
 
@@ -107,14 +106,14 @@ To set the default retention for your workspace,
 3. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.
 
     ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
-	
+    
 The retention can also be [set via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via Azure Resource Manager. 
 
 Two data types -- `Usage` and `AzureActivity` -- are retained for 90 days by default, and there is no charge for for this 90 day retention. These data types are also free from data ingestion charges. 
 
 ### Retention by data type
 
-It is also possible to specify different retention settings for individual data types. Each data type is a sub-resource of the workspace. For instance the SecurityEvent table can be addressed in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) as:
+It is also possible to specify different retention settings for individual data types from 30 to 730 days (except for workspaces in the legacy Free pricing tier). Each data type is a sub-resource of the workspace. For instance the SecurityEvent table can be addressed in [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) as:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -137,12 +136,14 @@ To set the retention of a particular data type (in this example SecurityEvent) t
 ```JSON
     PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
     {
-	    "properties": 
-		{
-		    "retentionInDays": 730
+        "properties": 
+        {
+            "retentionInDays": 730
         }
     }
 ```
+
+Valid values for `retentionInDays` are from 30 through 730.
 
 The `Usage` and `AzureActivity` data types cannot be set with custom retention. They will take on the maximum of the default workspace retention or 90 days. 
 
@@ -152,24 +153,21 @@ A great tool to connect directly to Azure Resource Manager to set retention by d
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
 ```
 
-> [!NOTE]
+> [!TIP]
 > Setting retention on individual data types can be used to reduce your costs for data retention.  For data collected starting in October 2019 (when this feature was released), reducing the retention for some data types can  reduce your  retention cost over time.  For data collected earlier, setting a lower retention for an individual type will not affect your retention costs.  
 
 ## Manage your maximum daily data volume
 
 You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace.  
 
-When the daily limit is reached, the collection of billable data types stops for the rest of the day. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
+Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. (Latency inherent in applying the daily cap can mean that the cap is not applied as precisely the specified daily cap level.) A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
-> [!NOTE]
+> [!WARNING]
 > The daily cap does not stop the collection of data from Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 
-
-> [!NOTE]
-> Latency inherent in applying the daily cap can mean that the cap is not applied as precisely the specified daily cap level. 
 
 ### Identify what daily data limit to define
 
-Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
+Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won�t be able to monitor your resources after the limit is reached. 
 
 ### Set the Daily Cap
 
@@ -177,7 +175,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-3. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.
+3. Daily cap is **OFF** by default � click **ON** to enable it, and then set the data volume limit in GB/day.
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -205,127 +203,145 @@ Once alert is defined and the limit is reached, an alert is triggered and perfor
 
 Higher usage is caused by one, or both of:
 - More nodes than expected sending data to Log Analytics workspace
-- More data than expected being sent to Log Analytics workspace
+- More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution)
 
 ## Understanding nodes sending data
 
-To understand the number of computers reporting heartbeats each day in the last month, use
+To understand the number of nodes reporting heartbeats from the agent each day in the last month, use
 
 ```kusto
-Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
+Heartbeat 
+| where TimeGenerated > startofday(ago(31d))
+| summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-
-To get a list of computers which will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes which are sending **billed data types** (some data types are free). 
-To do this, use the `_IsBillable` [property](log-standard-properties.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the list of computers with billed data:
+The get a count of nodes sending data in the last 24 hours use the query: 
 
 ```kusto
 union withsource = tt * 
-| where _IsBillable == true 
+| where TimeGenerated > ago(24h)
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodes = dcount(computerName)
+```
+
+To get a list of nodes sending any data (and the amount of data sent by each) the follow query can be used:
+
+```kusto
+union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-The count of billable nodes seen can be estimated as: 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName)
-```
-
-> [!NOTE]
+> [!TIP]
 > Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
-
-A more accurate calculation of what will actually be billed is to get the count of computers per hour that are sending billed data types. 
-(For workspaces in the legacy Per Node pricing tier, Log Analytics calculates the number of nodes which need to be billed on an hourly basis.) 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
-```
 
 ## Understanding ingested data volume
 
-On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. The query used to generate this is
+On the **Usage and Estimated Costs** page, the *Data ingestion per solution* chart shows the total volume of data sent and how much is being sent by each solution. This allows you to determine trends such as whether the overall data usage (or usage by a particular solution) is growing, remaining steady or decreasing. 
+
+### Data volume for specific events
+
+To look at the size of ingested data for a particular set of events, you can query the specific table (in this example `Event`) and then restrict the query to the events of interest (in this example event ID 5145 or 5156):
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+Event
+| where TimeGenerated > startofday(ago(31d)) and TimeGenerated < startofday(now()) 
+| where EventID == 5145 or EventID == 5156
+| where _IsBillable == true
+| summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
+``` 
+
+Note that the clause `where IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. 
+
+### Data volume by solution
+
+The query used to view the billable data volume by solution over the last month (excluding the last partial day) is:
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-Note that the clause "where IsBillable = true" filters out data types from certain solutions for which there is no ingestion charge. 
+The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal will look back beyond the default 24 hours. When using the Usage data type, `StartTime` and `EndTime` represent the time buckets for which results are presented. 
 
-You can drill in further to see data trends for specific data types, for example if you want to study the data due to IIS logs:
+### Data volume by type
+
+You can drill in further to see data trends for by data type:
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
+```
+
+Or to see a table by solution and type for the last month,
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
 
 ### Data volume by computer
 
-To see the **size** of billable events ingested per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
+The `Usage` data type does not include information at the completer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies whether the ingested data will incur charges.
 
-To see the count of **billable** events ingested per computer, use 
+To see the **count** of billable events ingested per computer, use 
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount=count() by computerName  | sort by eventCount nulls last
-```
-
-If you want to see counts for billable data types are sending data to a specific computer, use:
-
-```kusto
-union withsource = tt *
-| where Computer == "computer name"
-| where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last
+| summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
 
 ### Data volume by Azure resource, resource group, or subscription
 
-For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the _ResourceId [property](log-standard-properties.md#_resourceid), which provides the full path to the resource:
+For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](log-standard-properties.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-For data from nodes hosted in Azure you can get the **size** of billable events ingested __per Azure subscription__, parse the `_ResourceId` property as:
+For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, parse the `_ResourceId` property as:
 
 ```kusto
 union withsource = tt * 
+| where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
 Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resource group. 
 
-
-> [!NOTE]
+> [!WARNING]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
 > These are **Computer** as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**.
 
@@ -361,6 +377,20 @@ Some suggestions for reducing the volume of logs collected include:
 | Syslog                     | Change [syslog configuration](data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
 | AzureDiagnostics           | Change resource log collection to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
 | Solution data from computers that don't need the solution | Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers. |
+
+### Getting nodes as billed in the Per Node pricing tier
+
+To get a list of computers which will be billed as nodes if the workspace is in the legacy Per Node pricing tier, look for nodes which are sending **billed data types** (some data types are free). 
+To do this, use the `_IsBillable` [property](log-standard-properties.md#_isbillable) and use the leftmost field of the fully qualified domain name. This returns the count of computers with billed 
+data per hour (which is the granularity at which nodes are counted and billed):
+
+```kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ### Getting Security and Automation node counts
 

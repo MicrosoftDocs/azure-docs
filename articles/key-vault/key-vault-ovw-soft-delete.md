@@ -1,6 +1,8 @@
 ---
 title: Azure Key Vault soft delete | Microsoft Docs
+description: Soft-delete in Azure Key Vault allows you to recover deleted key vaults and key vault objects, such as keys, secrets, and certificates.
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
@@ -29,15 +31,13 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 ### Soft-delete behavior
 
-With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period (90 days), while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
+When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default). The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion.
 
-Soft-delete is now on by default for newly created key vaults. It can be disabled through the [Azure CLI](key-vault-soft-delete-cli.md) or [Azure Powershell](key-vault-soft-delete-powershell.md).
+When creating a new key vault, soft-delete is on by default. You can create a key vault without soft-delete through the [Azure CLI](key-vault-soft-delete-cli.md) or [Azure Powershell](key-vault-soft-delete-powershell.md). Once soft-delete is enabled on a key vault it cannot be disabled
 
-The default retention period is 90 days, but it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. 
+The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 
-Once soft-delete has been set on a key vault it cannot be disabled, and the retention policy interval cannot be changed. 
-
-You cannot reuse the name of a key vault that has been soft-deleted until the retention period has passed. 
+You cannot reuse the name of a key vault that has been soft-deleted until the retention period has passed.
 
 ### Purge protection 
 

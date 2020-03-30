@@ -1,7 +1,7 @@
 ---
 title: Show route directions on a map | Microsoft Azure Maps
 description: In this article, you'll learn how to display directions between two locations on a map using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -38,7 +38,7 @@ The sixth block of code queries the Azure Maps routing service, which is part of
 
 The last block of code sets the bounds of the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
-The route query, data source, symbol, line layers, and the camera bounds are created and set inside the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). This code structure ensures that the results are displayed only after the map fully loads.
+The route query, data source, symbol, line layers, and camera bounds are created inside the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). This code structure ensures the results are displayed only after the map fully loads.
 
 ## Query the route via Fetch API
 
@@ -49,7 +49,7 @@ In the code above, the first block of code constructs a map object and sets the 
 
 The second block of code creates and adds a [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object to the map.
 
-The third code block creates the start and destination points for the route and adds them to the data source. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
+The third code block creates the start and destination points for the route. Then, it adds them to the data source. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
 A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders line objects wrapped in the  [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as lines on the map. The fourth block of code creates and adds a line layer to the map. See properties of a line layer at [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
@@ -59,9 +59,12 @@ The next code block creates `SouthWest` and `NorthEast` points from the start an
 
 The last block of code uses the [Fetch API](https://fetch.spec.whatwg.org/) to make a search request to the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). The response is then parsed. If the response was successful, the latitude and longitude information is used to create an array a line by connecting those points. The line data is then added to data source to render the route on the map. You can see [add a line on the map](map-add-line-layer.md) for instructions.
 
-The route query, data source, symbol, line layers, and the camera bounds are created and set inside the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Again, we want to ensure that results are displayed after the map loads fully.
+The route query, data source, symbol, line layers, and camera bounds are created inside the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Again, we want to ensure that results are displayed after the map loads fully.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
 
 Learn more about the classes and methods used in this article:
 

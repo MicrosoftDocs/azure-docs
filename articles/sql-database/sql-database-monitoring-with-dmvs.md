@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 12/19/2018
+ms.date: 03/10/2020
 ---
 # Monitoring performance Azure SQL Database using dynamic management views
 
@@ -22,7 +22,7 @@ SQL Database partially supports three categories of dynamic management views:
 - Execution-related dynamic management views.
 - Transaction-related dynamic management views.
 
-For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) in SQL Server Books Online. 
+For detailed information on dynamic management views, see [Dynamic Management Views and Functions (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) in SQL Server Books Online.
 
 ## Permissions
 
@@ -34,6 +34,17 @@ GRANT VIEW DATABASE STATE TO database_user;
 ```
 
 In an instance of on-premises SQL Server, dynamic management views return server state information. In SQL Database, they return information regarding your current logical database only.
+
+This article contains a collection of DMV queries that you can execute using SQL Server Management Studio or Azure Data Studio to detect the following types of query performance issues:
+
+- [Identifying queries related to excessive CPU consumption](#identify-cpu-performance-issues)
+- [PAGELATCH_* and WRITE_LOG waits related to IO bottlenecks](#identify-io-performance-issues)
+- [PAGELATCH_* waits caused bytTempDB contention](#identify-tempdb-performance-issues)
+- [RESOURCE_SEMAHPORE waits caused by memory grant waiting issues](#identify-memory-grant-wait-performance-issues)
+- [Identifying database and object sizes](#calculating-database-and-objects-sizes)
+- [Retrieving information about active sessions](#monitoring-connections)
+- [Retrieve system-wide and database resource usage information](#monitor-resource-use)
+- [Retrieving query performance information](#monitoring-query-performance)
 
 ## Identify CPU performance issues
 
@@ -50,11 +61,11 @@ Use the following query to identify top query hashes:
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
 SELECT TOP 10 GETDATE() runtime, *
-FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
-     FROM(SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
+FROM (SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
+    FROM (SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
           FROM sys.dm_exec_requests AS req
-               CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
-     GROUP BY query_hash) AS t
+                CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
+    GROUP BY query_hash) AS t
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
@@ -66,14 +77,14 @@ Use the following query to identify these queries:
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
 SELECT TOP 10 req.session_id, req.start_time, cpu_time 'cpu_time_ms', OBJECT_NAME(ST.objectid, ST.dbid) 'ObjectName', SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1), CHAR(10), ' '), CHAR(13), ' '), 1, 512) AS statement_text
 FROM sys.dm_exec_requests AS req
-     CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
+    CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
 ORDER BY cpu_time DESC;
 GO
 ```
 
 ### The CPU issue occurred in the past
 
-If the issue occurred in the past and you want to do root cause analysis, use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Users with database access can use T-SQL to query Query Store data.  Query Store default configurations use a granularity of 1 hour.  Use the following query to look at activity for high CPU consuming queries. This query returns the top 15 CPU consuming queries.  Remember to change `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+If the issue occurred in the past and you want to do root cause analysis, use [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Users with database access can use T-SQL to query Query Store data. Query Store default configurations use a granularity of 1 hour. Use the following query to look at activity for high CPU consuming queries. This query returns the top 15 CPU consuming queries. Remember to change `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -535,7 +546,7 @@ The following graph shows the CPU resource use for a Premium database with the P
 
 ![SQL database resource use](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-From the data, this database currently has a peak CPU load of just over 50 percent CPU use relative to the P2 compute size (midday on Tuesday). If CPU is the dominant factor in the application’s resource profile, then you might decide that P2 is the right compute size to guarantee that the workload always fits. If you expect an application to grow over time, it's a good idea to have an extra resource buffer so that the application doesn't ever reach the performance-level limit. If you increase the compute size, you can help avoid customer-visible errors that might occur when a database doesn't have enough power to process requests effectively, especially in latency-sensitive environments. An example is a database that supports an application that paints webpages based on the results of database calls.
+From the data, this database currently has a peak CPU load of just over 50 percent CPU use relative to the P2 compute size (midday on Tuesday). If CPU is the dominant factor in the application's resource profile, then you might decide that P2 is the right compute size to guarantee that the workload always fits. If you expect an application to grow over time, it's a good idea to have an extra resource buffer so that the application doesn't ever reach the performance-level limit. If you increase the compute size, you can help avoid customer-visible errors that might occur when a database doesn't have enough power to process requests effectively, especially in latency-sensitive environments. An example is a database that supports an application that paints webpages based on the results of database calls.
 
 Other application types might interpret the same graph differently. For example, if an application tries to process payroll data each day and has the same chart, this kind of "batch job" model might do fine at a P1 compute size. The P1 compute size has 100 DTUs compared to 200 DTUs at the P2 compute size. The P1 compute size provides half the performance of the P2 compute size. So, 50 percent of CPU use in P2 equals 100 percent CPU use in P1. If the application does not have timeouts, it might not matter if a job takes 2 hours or 2.5 hours to finish, if it gets done today. An application in this category probably can use a P1 compute size. You can take advantage of the fact that there are periods of time during the day when resource use is lower, so that any "big peak" might spill over into one of the troughs later in the day. The P1 compute size might be good for that kind of application (and save money), as long as the jobs can finish on time each day.
 
@@ -557,7 +568,7 @@ ORDER BY start_time DESC
 
 The next example shows you different ways that you can use the **sys.resource_stats** catalog view to get information about how your SQL database uses resources:
 
-1. To look at the past week’s resource use for the database userdb1, you can run this query:
+1. To look at the past week's resource use for the database userdb1, you can run this query:
 
     ```sql
     SELECT *
@@ -629,25 +640,25 @@ For elastic pools, you can monitor individual databases in the pool with the tec
 
 To see the number of concurrent requests, run this Transact-SQL query on your SQL database:
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R;
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R;
+```
 
 To analyze the workload of an on-premises SQL Server database, modify this query to filter on the specific database you want to analyze. For example, if you have an on-premises database named MyDatabase, this Transact-SQL query returns the count of concurrent requests in that database:
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
-    INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase';
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R
+INNER JOIN sys.databases D ON D.database_id = R.database_id
+AND D.name = 'MyDatabase';
+```
 
 This is just a snapshot at a single point in time. To get a better understanding of your workload and concurrent request requirements, you'll need to collect many samples over time.
 
 ### Maximum concurrent logins
 
-You can analyze your user and application patterns to get an idea of the frequency of logins. You also can run real-world loads in a test environment to make sure that you're not hitting this or other limits we discuss in this article. There isn’t a single query or dynamic management view (DMV) that can show you concurrent login counts or history.
+You can analyze your user and application patterns to get an idea of the frequency of logins. You also can run real-world loads in a test environment to make sure that you're not hitting this or other limits we discuss in this article. There isn't a single query or dynamic management view (DMV) that can show you concurrent login counts or history.
 
 If multiple clients use the same connection string, the service authenticates each login. If 10 users simultaneously connect to a database by using the same username and password, there would be 10 concurrent logins. This limit applies only to the duration of the login and authentication. If the same 10 users connect to the database sequentially, the number of concurrent logins would never be greater than 1.
 
@@ -658,18 +669,22 @@ If multiple clients use the same connection string, the service authenticates ea
 
 To see the number of current active sessions, run this Transact-SQL query on your SQL database:
 
-    SELECT COUNT(*) AS [Sessions]
-    FROM sys.dm_exec_connections
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections
+```
 
 If you're analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure SQL Database.
 
-    SELECT COUNT(*)  AS [Sessions]
-    FROM sys.dm_exec_connections C
-    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-    WHERE D.name = 'MyDatabase'
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections C
+INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+WHERE D.name = 'MyDatabase'
+```
 
-Again, these queries return a point-in-time count. If you collect multiple samples over time, you’ll have the best understanding of your session use.
+Again, these queries return a point-in-time count. If you collect multiple samples over time, you'll have the best understanding of your session use.
 
 For SQL Database analysis, you can get historical statistics on sessions by querying the [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) view and reviewing the **active_session_count** column.
 
@@ -681,22 +696,22 @@ Slow or long running queries can consume significant system resources. This sect
 
 The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
 
-    ```sql
-    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-       SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-       MIN(query_stats.statement_text) AS "Statement Text"
-    FROM
-       (SELECT QS.*,
+```sql
+SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+     MIN(query_stats.statement_text) AS "Statement Text"
+FROM
+    (SELECT QS.*,
         SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-        ((CASE statement_end_offset
-           WHEN -1 THEN DATALENGTH(ST.text)
-           ELSE QS.statement_end_offset END
-           - QS.statement_start_offset)/2) + 1) AS statement_text
-    FROM sys.dm_exec_query_stats AS QS
-    CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-    GROUP BY query_stats.query_hash
-    ORDER BY 2 DESC;
-    ```
+            ((CASE statement_end_offset
+                WHEN -1 THEN DATALENGTH(ST.text)
+                ELSE QS.statement_end_offset END
+            - QS.statement_start_offset)/2) + 1) AS statement_text
+FROM sys.dm_exec_query_stats AS QS
+CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+GROUP BY query_stats.query_hash
+ORDER BY 2 DESC;
+```
 
 ### Monitoring blocked queries
 
@@ -706,25 +721,25 @@ Slow or long-running queries can contribute to excessive resource consumption an
 
 An inefficient query plan also may increase CPU consumption. The following example uses the [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) view to determine which query uses the most cumulative CPU.
 
-    ```sql
-    SELECT
-       highest_cpu_queries.plan_handle,
-       highest_cpu_queries.total_worker_time,
-       q.dbid,
-       q.objectid,
-       q.number,
-       q.encrypted,
-       q.[text]
-    FROM
-       (SELECT TOP 50
+```sql
+SELECT
+    highest_cpu_queries.plan_handle,
+    highest_cpu_queries.total_worker_time,
+    q.dbid,
+    q.objectid,
+    q.number,
+    q.encrypted,
+    q.[text]
+FROM
+    (SELECT TOP 50
         qs.plan_handle,
         qs.total_worker_time
     FROM
         sys.dm_exec_query_stats qs
-    ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
-    CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
-    ORDER BY highest_cpu_queries.total_worker_time DESC;
-    ```
+ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
+CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
+ORDER BY highest_cpu_queries.total_worker_time DESC;
+```
 
 ## See also
 

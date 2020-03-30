@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Find route to a location | Microsoft Azure Maps'
 description: This tutorial shows you how to render route to a location (point of interest) on a map using Microsoft Azure Maps Routing Service.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps

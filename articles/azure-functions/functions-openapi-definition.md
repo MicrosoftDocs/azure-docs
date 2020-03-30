@@ -40,7 +40,7 @@ The function then calculates how much a repair will cost, and how much revenue t
 
 1. Select **More templates...**, then select **Finish and view templates**
 
-1. Select HTTP trigger, type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
+1. Select HTTP trigger, type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook-trigger.md#http-auth)**, and then select **Create**.  
 
     ![Create HTTP function for OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 

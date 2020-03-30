@@ -38,7 +38,7 @@ You cannot change the usage model (per enabled user or per authentication) after
 
 If you purchased enough licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
 
-If your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider. Reactivating the MFA Servers to link them to the MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications stop working for all users until they reactivate the mobile app.
+If your MFA provider is not linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the MFA Provider.
 
 ### Removing an authentication provider
 

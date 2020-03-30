@@ -73,12 +73,13 @@ To fix an issue with your account, file a [support request](https://ms.portal.az
 
 ## <a id="try-cosmos-db"></a>Try Azure Cosmos DB subscriptions
 
-You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
+You can now enjoy a time-limited Azure Cosmos DB experience without a subscription, free of charge and commitments. To sign up for a Try Azure Cosmos DB subscription, go to [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) and use any personal Microsoft account (MSA). This subscription is separate from the [Azure Free Trial](https://azure.microsoft.com/free/), and can be used along with an Azure Free Trial or an Azure paid subscription.
 
 Try Azure Cosmos DB subscriptions appear in the Azure portal next other subscriptions associated with your user ID.
 
 The following conditions apply to Try Azure Cosmos DB subscriptions:
 
+* Account access can be granted to personal Microsoft accounts (MSA). Avoid using Active Directory (AAD) accounts or accounts belonging to corporate AAD Tenants, they might have limitations in place that could block access granting.
 * One [throughput provisioned container](./set-throughput.md#set-throughput-on-a-container) per subscription for SQL, Gremlin API, and Table accounts.
 * Up to three [throughput provisioned collections](./set-throughput.md#set-throughput-on-a-container) per subscription for MongoDB accounts.
 * One [throughput provisioned database](./set-throughput.md#set-throughput-on-a-database) per subscription. Throughput provisioned databases can contain any number of containers inside.
@@ -397,7 +398,7 @@ You can add as many regions as you want for the account and control where it can
 
 ### Is the Table API enabled for backups?
 
-Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).
+Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ### Does the Table API index all attributes of an entity by default?
 
@@ -755,7 +756,7 @@ At present Azure Cosmos DB has an optimized experience for cloud environment wit
 ### Does Cassandra API provide full backups?
 
 Azure Cosmos DB provides two free full backups taken at four hours interval today across all APIs. This ensures you don't need to set up a backup schedule and other things.
-If you want to modify retention and frequency, send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md) article.
+If you want to modify retention and frequency, send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) article.
 
 ### How does the Cassandra API account handle failover if a region goes down?
 

@@ -175,4 +175,4 @@ First, Azure AD verifies if Brita's user type is `All guests`. Since, this is tr
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
 * [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](howto-v1-debug-saml-sso-issues.md)
+* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

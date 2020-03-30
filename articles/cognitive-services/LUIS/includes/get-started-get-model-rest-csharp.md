@@ -16,7 +16,7 @@ ms.author: diberry
 * Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
-* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [.NET Core 3.1](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
@@ -24,8 +24,6 @@ ms.author: diberry
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## Change model programmatically
-
-Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application.
 
 1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`.
 

@@ -11,8 +11,7 @@ ms.author: dapine
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?pivots=programmming-language-cpp)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
 > * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 

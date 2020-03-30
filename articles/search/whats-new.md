@@ -7,8 +7,8 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 01/30/2020
+ms.topic: overview
+ms.date: 03/24/2020
 ---
 # What's new in Azure Cognitive Search
 
@@ -22,6 +22,12 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ## Feature announcements
 
+### March 2020
+
++ [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing.
+
++ New stable [Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) is now available. 
+
 ### February 2020
 
 + [PII Detection (preview)](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
@@ -34,7 +40,7 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 + Private access to a search service is available through two mechanisms, both currently in preview:
 
-  + You can restrict access to specific IP addresses by using the Management REST API  `api-version=2019-10-01-Preview` to create the service. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). This preview feature is available in selected regions. For more information, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + You can restrict access to specific IP addresses by using the Management REST API  `api-version=2019-10-01-Preview` to create the service. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. For more information, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Currently available through a limited-access preview, you can provision an Azure Search service that supports Azure Private Endpoint for connections from clients on the same virtual network. For more information, see [Create a Private Endpoint for a secure connection](service-create-private-endpoint.md).
 

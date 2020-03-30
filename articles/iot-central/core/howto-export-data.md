@@ -5,14 +5,12 @@ services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 01/30/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: corywink
 ---
 
-# Export your Azure IoT Central data
-
-
+# Export IoT data to destinations in Azure
 
 *This topic applies to administrators.*
 

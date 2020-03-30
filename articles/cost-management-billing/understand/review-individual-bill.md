@@ -2,14 +2,11 @@
 title: Review your individual Azure bill
 description: Learn how to understand your bill and resource usage and to verify charges for your individual Azure subscription.
 author: bandersmsft
-manager: dougeby
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2019
+ms.date: 02/13/2020
 ms.author: banders
 ---
 

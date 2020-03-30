@@ -6,7 +6,7 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/11/2020
 ms.author: cynthn
 ---
 
@@ -21,7 +21,6 @@ The amount of available capacity can vary based on size, region, time of day, an
 > This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
 
 ## Pricing
 

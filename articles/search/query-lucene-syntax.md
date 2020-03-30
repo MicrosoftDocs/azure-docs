@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -25,6 +25,9 @@ translation.priority.mt:
 # Lucene query syntax in Azure Cognitive Search
 
 You can write queries against Azure Cognitive Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Cognitive Search through `$filter` expressions. 
+
+> [!NOTE]
+> The full Lucene syntax is used for query expressions passed in the **search** parameter of the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
 
 ## How to invoke full parsing
 

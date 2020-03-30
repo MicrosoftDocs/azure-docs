@@ -32,7 +32,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
 - Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../windows/chef-automation.md).
+- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../../chef/chef-automation.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
@@ -349,7 +349,7 @@ Each VM extension may have troubleshooting steps specific to the extension. For 
 
 The following troubleshooting steps apply to all VM extensions.
 
-1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
 2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 

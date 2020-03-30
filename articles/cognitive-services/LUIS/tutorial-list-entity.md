@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: List entity - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/12/2020
 #Customer intent: As a new user, I want to understand how and why to use the list entity.
 ---
 
@@ -38,7 +30,7 @@ A list entity is a good choice for this type of data when:
 
 * The data values are a known set.
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
+* The text in the utterance is a case-insensitive match with a synonym or the canonical name. LUIS doesn't use the list beyond the match. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
 > [!CAUTION]
 > If you are not sure if you want a list entity or a machine-learned entity with a phrase list as a descriptor, the best and most flexible practice is to use a machine-learned entity with a phrase list as a descriptor. This method allows LUIS to learn and extend the values of the data to extract.

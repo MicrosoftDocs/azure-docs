@@ -152,8 +152,8 @@ This is a sample of a typical SAML token.
 
 ## Related content
 
-* See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
-* For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md). 
-* Add [custom and optional claims](active-directory-optional-claims.md) to the tokens for your application.
+* See the [Policy resource](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta), to learn more about managing token lifetime policy using the Microsoft Graph API.
+* For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
+* Add [custom and optional claims](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to the tokens for your application.
 * Use [Single Sign On (SSO) with SAML](single-sign-on-saml-protocol.md).
 * Use the [Azure Single Sign Out SAML Protocol](single-sign-out-saml-protocol.md)
