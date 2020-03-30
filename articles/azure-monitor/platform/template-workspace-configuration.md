@@ -141,7 +141,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
     }
     ```
 
-    >[!Information]
+    >[!INFORMATION]
     >For capacity reservation settings, use these properties under "sku":
     >"name": "CapacityReservation",
     >"capacityReservationLevel": 100
