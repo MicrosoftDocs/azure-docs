@@ -84,7 +84,7 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 ### Creating a restored/replica server
 
   *  [Create a restore server](howto-restore-server-cli.md) 
-  *  [Create a replica server](howto-read-replica-cli.md) 
+  *  [Create a read replica server](howto-read-replicas-cli.md) 
 
 ### Once the server is restored, revalidate data encryption the restored server
 
