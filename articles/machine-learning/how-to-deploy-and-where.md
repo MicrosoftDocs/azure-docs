@@ -904,7 +904,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-NOTE: Models which support predict_proba will use that method by default. To override this to use predict you can modify the POST header as below:
+NOTE: Models which support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
 ```python
 import json
 
