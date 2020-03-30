@@ -348,11 +348,11 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 Application Gateway provides three logs: 
 
-* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. The access log is collected every 300 seconds. It contains one record per application gateway.
+* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. It contains one record per application gateway.
 * **ApplicationGatewayPerformanceLog**: The performance log captures performance information for each application gateway. Information includes the throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count.
 * **ApplicationGatewayFirewallLog**: For application gateways that you configure with WAF, the firewall log contains requests that are logged through either detection mode or prevention mode.
 
-For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+All logs are collected every 60 seconds. For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
 ### How do I know if my backend pool members are healthy?
 

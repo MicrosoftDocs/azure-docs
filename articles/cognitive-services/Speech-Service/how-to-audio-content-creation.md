@@ -76,7 +76,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>

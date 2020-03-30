@@ -404,7 +404,7 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: Identity Experience Framework release notes
+  - name: IEF release notes
     href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md
