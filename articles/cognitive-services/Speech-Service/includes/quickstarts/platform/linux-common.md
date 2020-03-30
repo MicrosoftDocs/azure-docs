@@ -1,3 +1,17 @@
+---
+title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech service'
+titleSuffix: Azure Cognitive Services
+description: Use this guide to set up your platform on Linux with the Speech service SDK.
+services: cognitive-services
+author: glecaros
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.date: 03/30/2020
+ms.author: gelecaro
+---
+
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Linux
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
@@ -73,5 +87,3 @@ Download and install the SDK as follows:
    The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
 
    [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]
-
-You can now move on to [Next steps](#next-steps) below.

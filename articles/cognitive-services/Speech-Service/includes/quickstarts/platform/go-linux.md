@@ -15,3 +15,7 @@ where to find the libs:
    ```sh
    export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib:$LD_LIBRARY_PATH"
    ```
+
+## Next steps
+
+[!INCLUDE [windows](../quickstart-list.md)]
