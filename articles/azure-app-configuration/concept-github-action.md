@@ -11,10 +11,10 @@ ms.service: azure-app-configuration
 ---
 # Sync your App Configuration instance using GitHub Actions
 
-Teams that want to continue using their existing source control practices can use GitHub Actions to automatically sync their GitHub repository with their App Configuration store. This allows you to make changes to your config files as you normally would, while getting App Configuration benefits like:
-•	Centralized configuration outside of your code
-•	Updating configuration without redeploying your entire app
-•	Integration with services like Azure App Service and Functions. 
+Teams that want to continue using their existing source control practices can use GitHub Actions to automatically sync their GitHub repository with their App Configuration store. This allows you to make changes to your config files as you normally would, while getting App Configuration benefits like: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•	Centralized configuration outside of your code <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•	Updating configuration without redeploying your entire app <br>
+&nbsp;&nbsp;&nbsp;&nbsp;•	Integration with services like Azure App Service and Functions. 
 
 A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) defines an automated process in a GitHub repository. The *Azure App Configuration Sync* Action triggers updates to an App Configuration instance when changes are made to the source repository. It uses a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
 

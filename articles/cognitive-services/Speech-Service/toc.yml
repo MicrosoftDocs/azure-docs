@@ -56,7 +56,7 @@
     - name: Customization
       items:
         - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-data.md
+          href: how-to-custom-speech-test-and-train.md
         - name: Inspect Custom Speech data
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy

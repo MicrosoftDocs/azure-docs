@@ -34,19 +34,17 @@ After you start the streaming of sensor data, you can begin the process of getti
 
 You can generate the above information by following these steps: (Please note these steps are required to be done on Azure so you will need access to the Azure subscription where FarmBeats is deployed)
 
-1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
+1. Sign in to https://portal.azure.com/.
 
-2. Sign in to https://portal.azure.com/.
+2. **If you are on FarmBeats version 1.2.7 or later, please skip steps 2a, 2b and 2c, and go to step 3.**. You can check FarmBeats version by clicking on the Settings icon on the top-right side of the FarmBeats UI.
 
-3. **If you are on FarmBeats version 1.2.7 or later, please skip steps 3a, 3b and 3c, and go to step 4.**. You can check FarmBeats version by clicking on the Settings icon on the top-right side of the FarmBeats UI.
+2a. Go to Azure Active Directory -> App Registrations
 
-3a. Go to Azure Active Directory -> App Registrations
+2b. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats data hub.
 
-3b. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats data hub.
+2c. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
 
-3c. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
-
-4. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
+3. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
     ![Azure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
@@ -54,11 +52,21 @@ You can generate the above information by following these steps: (Please note th
 
     ![PowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-6. Upload the file from step 1 in your Cloud Shell instance.
+6. Go to your home directory.
 
-    ![Upload toolbar button](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+   ```azurepowershell-interactive 
 
-7. Go to the directory where the file was uploaded. By default, files get uploaded to the home directory under the username.
+    cd  
+
+    ```
+
+7. Run the following command. This will download a script to your home directory.
+
+    ```azurepowershell-interactive 
+
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1 
+
+    ```
 
 8. Run the following script. The script asks for the Tenant ID which can be obtained from Azure Active Directory -> Overview page.
 
@@ -79,9 +87,13 @@ Now you have the following information generated from the previous section.
  - Client secret
  - Tenant ID
  
-You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, please go to the below page:
+You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, Teralytic or Pessl Instruments (Metos.at) please go to the corresponding pages as mentioned below:
 
 [Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
+
+[Teralytic](https://app.teralytic.com/)
+
+[Pessl Instruments](https://ng.fieldclimate.com/user-api-services)
 
  The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
 
