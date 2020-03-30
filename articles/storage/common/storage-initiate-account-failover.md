@@ -96,7 +96,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 To use Azure CLI to initiate an account failover, execute the following commands:
 
-```cli
+```azurecli
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```

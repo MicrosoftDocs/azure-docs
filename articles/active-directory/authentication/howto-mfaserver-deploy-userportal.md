@@ -66,7 +66,7 @@ To deploy the user portal, follow these steps:
    > [!NOTE]
    > This TLS/SSL Certificate is usually a publicly signed TLS/SSL Certificate.
 
-4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
+4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.
 
 ![MFA Server User Portal installation](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,7 +105,7 @@ Installing the user portal on a server other than the Azure Multi-Factor Authent
     * Find the value **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** and change this placeholder URL to the Web Service SDK URL we installed in step 2.
     * Save the Web.Config file and close Notepad.
 
-6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
+6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.
 
 If you have questions about configuring a TLS/SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 

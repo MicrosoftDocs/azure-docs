@@ -60,11 +60,11 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -115,7 +115,7 @@ While you're deleting a device, you might encounter one of the following common 
 
     > [!NOTE]
     > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the **Delete sensor** section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
-    
+
     > Partners do not have access to delete a device or sensor. Only Admins have access to do the same.
 
 
@@ -223,6 +223,13 @@ Try either of the following:
    For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
 
 2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
+
+### Soil Moisture map has white areas 
+
+**Issue**: The Soil Moisture map was generated, but the map has mostly white areas.
+
+**Corrective action**: This issue can occur if the satellite indices generated for the time for which the map was requested has NDVI values that is less than 0.3. For more information, please visit [Technical Guide from Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
+1. Rerun the job for a different date range and check to see if the NDVI values in the satellite indices are more than 0.3
 
 ## Collect logs manually
 
@@ -338,4 +345,4 @@ Try either of the following:
 
 ## Next steps
 
-If you're still facing FarmBeats issues, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats).
+If you're still facing FarmBeats issues, contact our [Support Forum](https://aka.ms/farmbeatssupport).

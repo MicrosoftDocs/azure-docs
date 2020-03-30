@@ -8,13 +8,13 @@
     href: whats-new.md
   - name: Common questions
     items:
-    - name: Questions about Azure Migrate
+    - name: General
       href: resources-faq.md
-    - name: Questions about Azure Migrate appliance
+    - name: Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Questions about discovery/assessment/dependency analysis
+    - name: Server Assessment tool/dependency analysis
       href: common-questions-discovery-assessment.md
-    - name: Questions about Server Migration
+    - name: Server Migration tool
       href: common-questions-server-migration.md
 - name: Tutorials
   items:
@@ -74,6 +74,8 @@
       href: migrate-appliance.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
+  - name: Azure Migrate appliance architecture
+    href: migrate-appliance-architecture.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
   - name: VMware agent-based migration architecture
@@ -92,12 +94,18 @@
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
     href: how-to-assess.md
-  - name: Deploy a VMware appliance
-    href: how-to-set-up-appliance-vmware.md
-  - name: Deploy a physical server appliance
-    href: how-to-set-up-appliance-physical.md
-  - name: Deploy a Hyper-V appliance
-    href: how-to-set-up-appliance-hyper-v.md
+  - name: Deploy Azure Migrate appliance
+    items:
+    - name: Deploy appliance for VMware (OVA)
+      href: how-to-set-up-appliance-vmware.md
+    - name: Deploy appliance for Hyper-V (VHD)
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: Deploy appliance for VMware/Hyper-V (script)
+      href: deploy-appliance-script.md
+    - name: Deploy appliance for physical servers
+      href: how-to-set-up-appliance-physical.md
+  - name: Limit discovery scope for VMware VMs
+    href: set-discovery-scope.md
   - name: Discover applications/roles/features
     href: how-to-discover-applications.md
   - name: Group machines for assessment
