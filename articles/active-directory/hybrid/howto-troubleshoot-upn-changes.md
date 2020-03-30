@@ -105,7 +105,7 @@ Create a defined procedure for changing UPNs on individual users as part of norm
 
 The following sections detail potential known issues and workarounds when UPNs are changed.
 
-## App provisioning known issues and workarounds
+## user provisioning known issues and workarounds
 
 [Software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) and Line of Business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications that use [Just in Time provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) to create a user profile when users sign in to the app for the first time can be affected by UPN changes.
 
@@ -228,10 +228,10 @@ The user needs to select the drop-down menu on the account enabled for Phone sig
 ## Security Key (FIDO2) known issues and workarounds
 
 **Known issues** <br>
-Users are not able to sign in to Windows Azure AD Join or Hybrid Join devices using a security key enrolled before the UPN change.
+When multiple users are registered on the same key, the sign in screen shows an account selection page where the old UPN is displayed. Sign ins using Security Keys are not affected by UPN changes.  
 
 **Workaround**<br>
-Users must [reset the security key and re-register](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
+To remove references to old UPNs, users must [reset the security key and re-register](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
 
 ## OneDrive known issues and workarounds
 

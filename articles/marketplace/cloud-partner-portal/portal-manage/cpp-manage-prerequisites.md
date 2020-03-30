@@ -1,13 +1,12 @@
 ---
 title: Prerequisites for managing accounts on the Cloud Partner Portal | Azure Marketplace 
 description: Deprecated CPP article, pointed to PC article; was "Prerequisites for managing Azure Marketplace accounts on the Cloud Partner Portal."
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center 
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Prerequisites for managing accounts on the Cloud Partner Portal
