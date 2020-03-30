@@ -454,7 +454,7 @@ The following procedures show you how to connect to a SQL database with an Azure
 
 Use this method if you are logged into Windows using your Azure Active Directory credentials from a federated domain, or a managed domain that is configured for seamless single sign-on for pass-through and password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
 
-1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.
+1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Azure Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.
 
     ![Select AD Integrated Authentication][11]
 
@@ -468,7 +468,7 @@ Use this method when connecting with an Azure AD principal name using the Azure 
 
 Use this method to authenticate to SQL DB or MI with Azure AD cloud-only identity users, or those who use Azure AD hybrid identities. This method supports users who want to use their Windows credential, but their local machine is not joined with the domain (for example, using remote access). In this case, a Windows user can indicate their domain account and password, and can authenticate to SQL DB, MI, or Azure Synapse.
 
-1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Password**.
+1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Azure Active Directory - Password**.
 
 2. In the **User name** box, type your Azure Active Directory user name in the format **username\@domain.com**. User names must be an account from Azure Active Directory or an account from a managed or federated domain with Azure Active Directory.
 
