@@ -127,7 +127,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-		  "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -141,16 +141,15 @@ For capacity reservation, you define a selected capacity reservation for ingesti
     }
     ```
 
-> [Information]
-> for capacity reservation settings, use these properties under "sku":
-
->   "name": "CapacityReservation",
-
->   "capacityReservationLevel": 100
-
+    >[Information]
+    >for capacity reservation settings, use these properties under "sku":
+    >"name": "CapacityReservation",
+    >"capacityReservationLevel": 100
 
 2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
+
 4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command. The workspace name must be globally unique across all Azure subscriptions.
 
    * For PowerShell use the following commands from the folder containing the template:
@@ -274,7 +273,7 @@ The following template sample illustrates how to:
     "metadata": {
       "description": "The custom log name"
       }
-	 }
+     }
     },
     "variables": {
       "Updates": {
