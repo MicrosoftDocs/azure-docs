@@ -83,3 +83,4 @@ After all settings are validated, the solution is deployed to your subscription.
 
 ## Next steps
 
+Now that you have the solution enabled, you can [configure](automation-solution-vm-management-config.md) it to support your VM management requirements. 

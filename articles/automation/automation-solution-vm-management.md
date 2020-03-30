@@ -19,8 +19,6 @@ This solution provides a decentralized low-cost automation option for users who 
 - Schedule VMs to start and stop in ascending order by [using Azure Tags](automation-solution-vm-management-config.md#tags) (not supported for classic VMs).
 - Autostop VMs based on [low CPU usage](automation-solution-vm-management-config.md#cpuutil).
 
-Select the link for each scenario to review the configuration steps required to customize the solution to support it.
-
 The following are limitations with the current solution:
 
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.

@@ -11,9 +11,9 @@ ms.topic: conceptual
 
 With the Start/Stop VMs during off hours solution, you can:
 
-- Schedule VMs to start and stop.
-- Schedule VMs to start and stop in ascending order by using Azure Tags (not supported for classic VMs).
-- Autostop VMs based on low CPU usage.
+- [Schedule VMs to start and stop](#schedule).
+- Schedule VMs to start and stop in ascending order by [using Azure Tags](#tags) (not supported for classic VMs).
+- Auto stop VMs based on [low CPU usage](#cpuutil).
 
 This article describes how to successfully configure the solution to support these scenarios. You can also learn how to perform other common configuration settings for the solution, such as:
 
