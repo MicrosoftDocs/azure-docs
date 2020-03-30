@@ -193,10 +193,10 @@ NetCore config.json:
 ```
 
 
-# [Java 2.5.X SDK](#tab/java)
+# [Java](#tab/java)
 
 
-Java Explicitly Set:
+Java (v2.5.x) Explicitly Set:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
