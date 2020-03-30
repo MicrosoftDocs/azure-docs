@@ -184,6 +184,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
 
+## Microsoft.ServiceFabric/clusters
+|Executed Checks|
+|---|
+|<ul><li>Is the Service Fabric cluster up and running?</li><li>Can the Service Fabric cluster be managed through Azure Resource Manager?</li></ul>|
+
 ## Microsoft.SQL/managedInstances/databases
 |Executed Checks|
 |---|

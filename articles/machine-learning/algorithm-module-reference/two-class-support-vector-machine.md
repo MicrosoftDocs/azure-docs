@@ -64,7 +64,7 @@ For this model type, it is recommended that you normalize the dataset before usi
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
   
-10. Run the pipeline.
+10. Submit the pipeline.
 
 ## Results
 

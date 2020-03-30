@@ -39,7 +39,7 @@ To confirm that the inactivity timeout policy is set correctly, select **Notific
 The setting takes effect for new sessions. It won’t apply immediately to any users who are already signed in.
 
 > [!NOTE]
-> If an admin has configured a directory-level timeout setting, users can override the policy and set their own inactive sign-out duration. However, the user must choose a time interval that is less than what is set at the directory level.
+> If a Global Administrator has configured a directory-level timeout setting, users can override the policy and set their own inactive sign-out duration. However, the user must choose a time interval that is less than what is set at the directory level by the Global Administrator.
 >
 
 ## Next steps

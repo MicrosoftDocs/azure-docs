@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/05/2020
+ms.date: 03/16/2020
 ---
 
 # Deploy a model using a custom Docker base image
@@ -90,6 +90,8 @@ If you've already trained or deployed models using Azure Machine Learning, a con
     ```
 
     Follow the prompts to authenticate to the subscription.
+
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 2. Use the following command to list the container registry for the workspace. Replace `<myworkspace>` with your Azure Machine Learning workspace name. Replace `<resourcegroup>` with the Azure resource group that contains your workspace:
 
@@ -272,18 +274,49 @@ For more information on customizing your Python environment, see [Create and man
 > [!IMPORTANT]
 > Currently the Machine Learning CLI can use images from the Azure Container Registry for your workspace or publicly accessible repositories. It cannot use images from standalone private registries.
 
-When deploying a model using the Machine Learning CLI, you provide an inference configuration file that references the custom image. The following JSON document demonstrates how to reference an image in a public container registry:
+Before deploying a model using the Machine Learning CLI, create an [environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) that uses the custom image. Then create an inference configuration file that references the environment. You can also define the environment directly in the inference configuration file. The following JSON document demonstrates how to reference an image in a public container registry. In this example, the environment is defined inline:
 
 ```json
 {
-   "entryScript": "score.py",
-   "runtime": "python",
-   "condaFile": "infenv.yml",
-   "extraDockerfileSteps": null,
-   "sourceDirectory": null,
-   "enableGpu": false,
-   "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
-   "baseImageRegistry": "mcr.microsoft.com"
+    "entryScript": "score.py",
+    "environment": {
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
+        },
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [
+                    "conda-forge"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    {
+                        "pip": [
+                            "azureml-defaults",
+                            "azureml-telemetry",
+                            "scikit-learn",
+                            "inference-schema[numpy-support]"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
+        "version": "1"
+    }
 }
 ```
 

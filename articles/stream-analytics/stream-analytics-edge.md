@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
 ---
 
@@ -150,7 +150,7 @@ However the following features are not yet supported for edge jobs:
 * The following  SQL operators:
     * PARTITION BY
     * GetMetadataPropertyValue
-
+* Late arrival policy
 
 ### Runtime and hardware requirements
 To run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 

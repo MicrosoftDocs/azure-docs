@@ -130,6 +130,7 @@ Create a health probe with [az network lb probe create](https://docs.microsoft.c
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
 ```
+
 ### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. 
@@ -336,6 +337,7 @@ Create virtual machine *dsVM0* as follows:
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Create virtual machine *dsVM1* as follows:
 
 ```azurecli

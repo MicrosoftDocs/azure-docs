@@ -119,7 +119,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >Here is the command to update the extension. Run this in your Cloud Shell instance.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## Enable the diagnostic logs 

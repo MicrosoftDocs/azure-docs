@@ -76,6 +76,9 @@ This article answers common questions about Azure Files features and functionali
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
     The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
 
+  **Does Azure Files support file locking?**  
+    Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -206,6 +209,11 @@ This article answers common questions about Azure Files features and functionali
 
     Yes, you can enable Azure AD DS or AD authentication on a file share managed by Azure file sync. Changes to the directory/file NTFS ACLs on local file servers will be tiered to Azure Files and vice-versa.
 
+* <a id="ad-aad-smb-files"></a>
+**How can I check if I have enabled AD authentication on my storage account and the AD domain information?**
+
+    You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
+    
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
 

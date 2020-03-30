@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/09/2020
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
@@ -18,11 +18,14 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-In this quickstart, you register an application using the **App registrations** experience in the Azure portal. Your app is integrated with the Microsoft identity platform. Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform. Integration provides secure sign-in and authorization for such services.
+In this quickstart, you register an application using the **App registrations** experience in the Azure portal. 
+
+Your app is integrated with the Microsoft identity platform by registering it with an Azure Active Directory tenant. Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform. Integration provides secure sign-in and authorization for such services.
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An [Azure AD tentant](quickstart-create-new-tenant.md).
 
 ## Register a new application using the Azure portal
 
@@ -56,9 +59,7 @@ Azure AD assigns a unique application, or client, ID to your app. The portal ope
 
 ## Next steps
 
-Advance to the next article to learn how to access web APIs.
-> [!div class="nextstepaction"]
-> [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
+* To access web APIs, see [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
 
 * To learn about the permissions, see [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md).
 

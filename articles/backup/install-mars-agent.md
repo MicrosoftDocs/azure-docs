@@ -95,6 +95,10 @@ For more information, see [ExpressRoute routing requirements](https://docs.micro
 
 All of the preceding URLs and IP addresses use the HTTPS protocol on port 443.
 
+### Private Endpoints
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+
 ## Download the MARS agent
 
 Download the MARS agent so that you can install it on the machines that you want to back up.

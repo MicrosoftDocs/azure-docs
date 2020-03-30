@@ -1,14 +1,12 @@
 ---
 title: Publishing checklist for AppSource | Azure Marketplace
 description: Publishing checklist for AppSource.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
+ms.author: dsindona
 ---
 
 # Publishing Checklist for AppSource  

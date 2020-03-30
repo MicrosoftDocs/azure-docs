@@ -16,7 +16,7 @@ ms.author: allensu
 
 ---
 # Load Balancer components and limitations
-Azure Load Balancer contains several key components for it's operation.  These components can be configured in your subscription via the Azure portal, Azure CLI, or Azure PowerShell.  
+Azure Load Balancer contains several key components for its operation.  These components can be configured in your subscription via the Azure portal, Azure CLI, or Azure PowerShell.  
 
 ## Load Balancer components
 
@@ -45,8 +45,11 @@ Basic Load Balancers have limited scope (availability set) can only scale up to 
 * **Load-balancing rules**: Load-Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
 * **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
 * **Outbound rules**: An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard Load Balancer to be translated to the frontend.
-Basic Load Balancer does not support Outbound Rules.
-![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+
+  Basic Load Balancer does not support Outbound Rules.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Transport protocols**: Load Balancer doesn't support ICMP; ICMP pings to a public-facing load balancer will time out. To ping your public-facing load balancer, use TCP Ping
 
 ## <a name = "load-balancer-concepts"></a>Load Balancer concepts
 
@@ -83,9 +86,9 @@ The following image displays the hash-based distribution:
   * Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
   * Easier access control list (ACL) management. ACLs expressed as front-end IPs don't change as services scale up or down or get redeployed. Translating outbound connections to a smaller number of IP addresses than machines reduces the burden of implementing safe recipient lists.
 
-  Standard Load Balancer utilizes a [robust, scalable, and predictable SNAT algorithm](load-balancer-outbound-connections.md#snat).These are the key tenets to remember when working with Standard Load Balancer:
+  Standard Load Balancer utilizes a [robust, scalable, and predictable SNAT algorithm](load-balancer-outbound-connections.md#snat). These are the key tenets to remember when working with Standard Load Balancer:
 
-    - load-balancing rules infer how SNAT is programmed. Load balancing rules are protocol specific. SNAT is protocol specific and configuration should reflect this rather than create a side effect.
+    - load-balancing rules infer how SNAT is programmed. Load balancing rules are protocol-specific. SNAT is protocol-specific and configuration should reflect this rather than create a side effect.
 
     - **Multiple frontends**
     When multiple frontends are available, all frontends are used and each frontend multiplies the number of available SNAT ports. If you want more SNAT ports because you are expecting or are already experiencing a high demand for outbound connections, you can also add incremental SNAT port inventory by configuring additional frontends, rules, and backend pools to the same virtual machine resources.
@@ -94,13 +97,13 @@ The following image displays the hash-based distribution:
     You can choose and control if you do not wish for a particular frontend to be used for outbound connections. If you want to constrain outbound connections to only originate from a specific frontend IP address, you can optionally disable outbound SNAT on the rule that expresses the outbound mapping.
 
     - **Control outbound connectivity**
-    outbound scenarios are explicit and outbound connectivity does not exist until it has been specified. Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
+    outbound scenarios are explicit and outbound connectivity does not exist until it has been specified. Standard Load Balancer exists within the context of the virtual network.  A virtual network is an isolated, private network.  Unless an association with a public IP address exists, public connectivity is not allowed.  You can reach [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) because they are inside of and local to your virtual network.  If you want to establish outbound connectivity to a destination outside of your virtual network, you have two options:
         - assign a Standard SKU public IP address as an Instance-Level Public IP address to the virtual machine resource or
         - place the virtual machine resource in the backend pool of a public Standard Load Balancer.
 
         Both will allow outbound connectivity from the virtual network to outside of the virtual network. 
 
-        If you _only_ have an internal Standard Load Balancer associated with the backend pool in which your virtual machine resource is located, your virtual machine can only reach virtual network resources and [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).  You can follow the steps described in the preceding paragraph to create outbound connectivity.
+        If you _only_ have an internal Standard Load Balancer associated with the backend pool in which your virtual machine resource is located, your virtual machine can only reach virtual network resources and [Virtual Network Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).  You can follow the steps described in the preceding paragraph to create outbound connectivity.
 
         Outbound connectivity of a virtual machine resource not associated with Standard SKUs remains as before.
 

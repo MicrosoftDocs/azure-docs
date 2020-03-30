@@ -8,17 +8,26 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
+manager: lizross
 ---
 # Linux support
 
-You can use the Linux SDK for Windows Virtual Desktop to build a standalone Windows Virtual Desktop client. You can also use it to enable Windows Virtual Desktop support on your client application. This quick guide will explain what the Linux SDK is and how to start using it.
+Partners can use the Linux SDK for Windows Virtual Desktop to build a standalone Windows Virtual Desktop client. You can also use it to enable Windows Virtual Desktop support on your client application. This quick guide will explain what the Linux SDK is and how to start using it.
+
+## Connect with your Linux device
+
+The following partners have approved Windows Virtual Desktop clients for Linux devices.
+
+|Partner|Partner documentation|Partner support|
+|:------|:--------------------|:--------------|
+|![IGEL logo](./media/partners/igel.png)|[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
 
 ## What is the Linux SDK?
 
 You can use the SDK APIs to retrieve resource feeds, connect to desktop or remote application sessions, and use many of the redirections that our first-party clients support.
 
 > [!NOTE]
-> The SDK is currently in development. We'll update this document with instructions to access the SDK when it is available.
+> The SDK is currently in development. We'll update this document with instructions to access the SDK when it is generally available.
 
 ### Supported Linux distributions
 

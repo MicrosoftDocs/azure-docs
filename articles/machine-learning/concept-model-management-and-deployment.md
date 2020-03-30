@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author:  jordane
-ms.date: 02/21/2020
+ms.date: 03/17/2020
 ms.custom: seodec18
 ---
 
@@ -172,7 +172,11 @@ The [Azure Machine Learning extension](https://marketplace.visualstudio.com/item
 * Enables workspace selection when defining a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+For more information on using Azure Pipelines with Azure Machine Learning, see the following links:
+
+* [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) 
+* [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+* [Azure Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository.
 
 You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
 
