@@ -89,12 +89,12 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
-| [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
-| Azure Email subsystem for email verification |  |  | X |  |
+| [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
+| Azure email subsystem for email verification |  |  | X |  |
+| [Third party email service providers](custom-email.md) |  |X  |  |  |
 | [Multi-language support](localization.md)|  |  | X |  |
 | [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
-| [Third party email service providers](custom-email.md) |  |X  |  |  |
 | [Display controls](display-controls.md) |  |X  |  |  |
 
 
