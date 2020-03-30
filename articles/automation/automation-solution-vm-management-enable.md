@@ -55,7 +55,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
 10. Finally, on the **Add Solution** page, select **Configuration**. The **Parameters** page appears.
 
-   ![Parameters page for solution](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
+    ![Parameters page for solution](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    Here, you're prompted to:
   
