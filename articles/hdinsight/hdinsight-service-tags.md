@@ -106,15 +106,15 @@ For example, if your cluster is created in the `East US 2` region, you'll need t
 
 #### Group 2
 
-Clusters in the regions of China North and China East need to allow two service tags: `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
+Clusters in the regions of *China North* and *China East* need to allow two service tags: `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
 
 #### Group 3
 
-Clusters in the regions of US Gov Iowa and US Gov Virginia need to allow two service tags: `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
+Clusters in the regions of *US Gov Iowa* and *US Gov Virginia* need to allow two service tags: `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
 
 #### Group 4
 
-Clusters in the regions of Germany Central and Germany Northeast need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNortheast`.
+Clusters in the regions of *Germany Central* and *Germany Northeast* need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNortheast`.
 
 ## Next steps
 
