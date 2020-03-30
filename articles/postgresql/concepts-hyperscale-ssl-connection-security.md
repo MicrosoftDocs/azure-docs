@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 03/30/2020
 ---
 # Configure TLS in Azure Database for PostgreSQL - Hyperscale (Citus)
 Client application connections to the Hyperscale (Citus) coordinator node require Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL). Enforcing TLS connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application.
