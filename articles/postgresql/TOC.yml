@@ -269,6 +269,9 @@
       items:
       - name: Azure portal
         href: howto-data-encryption-portal.md
+      items:
+      - name: Azure CLI
+        href: howto-data-encryption-cli.md
     - name: Restart server
       items:
       - name: Azure portal
