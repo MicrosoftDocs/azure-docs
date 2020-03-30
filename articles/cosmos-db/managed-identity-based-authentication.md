@@ -1,5 +1,5 @@
 ---
-title: How to use a system-assigned managed identity to access Azure Cosmos DB data.
+title: How to use a system-assigned managed identity to access Azure Cosmos DB data
 description: Learn how to configure an Azure AD system-assigned managed identity to access keys from Azure Cosmos DB. msi, managed service identity, aad, azure active directory, identity
 author: j-patrick
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# How to use a system-assigned managed identity to access Azure Cosmos DB data.
+# How to use a system-assigned managed identity to access Azure Cosmos DB data
 
 In this article you will set up a **robust, key rotation agnostic,** solution to access Azure Cosmos DB keys by leveraging [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses an Azure Function. However, you can achieve this solution by using any service that supports managed identities. 
 
@@ -25,16 +25,18 @@ In this step, you'll assign a system-assigned managed identity to your Azure Fun
 1. In the [Azure portal](https://portal.azure.com/), open the **Azure Function** pane and navigate to your function app. 
 
 1. Open the **Platform features** > **Identity** tab: 
-![Identity Tab](./media/managed-identity-based-authentication/identity-tab-selection.png)
+
+   ![Identity Tab](./media/managed-identity-based-authentication/identity-tab-selection.png)
 
 1. On the **Identity** tab, turn **On** the **System Identity** status. Be sure to select **Save**, and confirm that you want to turn on the system identity. At the end the **System Identity** pane should look as follows:  
-![System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
-## Grant the managed identity access to your Azure Cosmos account
+   ![System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+
+## Grant the managed identity access to your Azure Cosmos DB account
 
 In this step, you'll assign a role to the Azure Function's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you will use the following two roles:
 
-|**Built-in role**  |**Description**  |
+|Built-in role  |Description  |
 |---------|---------|
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts. Allows retrieval of read/write keys. |
 |[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
@@ -47,20 +49,21 @@ In this step, you'll assign a role to the Azure Function's system-assigned manag
 
 For your scenario, you will read the temperature, then write back that data to a container in Azure Cosmos DB. Because you have to write the data, you will use the **DocumentDB Account Contributor** role. 
 
-1. Sign in to the Azure portal and navigate to your Azure Cosmos account. Open the **Access Management (IAM) Pane**, and then the **Role Assignments** tab:
-![IAM Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+1. Sign in to the Azure portal and navigate to your Azure Cosmos DB account. Open the **Access Management (IAM) Pane**, and then the **Role Assignments** tab:
+
+   ![IAM Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
 
 1. Select the **+ Add** button, then **add role assignment**.
 
 1. The **Add Role Assignment** panel opens to the right:
 
-     ![Add Role](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   ![Add Role](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
-     * **Role** - Select **DocumentDB Account Contributor**
-     * **Assign access to** - Under the Select **System-assigned managed identity** subsection, select  **Function App**.
-    * **Select** - The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In our case I select the **SummaryService** function app: 
+   * **Role** - Select **DocumentDB Account Contributor**
+   * **Assign access to** - Under the Select **System-assigned managed identity** subsection, select  **Function App**.
+   * **Select** - The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In our case I select the **SummaryService** function app: 
 
-        ![Select Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      ![Select Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
 1. After the function app's identity is selected click **Save**.
 
@@ -68,12 +71,13 @@ For your scenario, you will read the temperature, then write back that data to a
 
 Now we have a function app that has a system-assigned managed identity. That identity is given the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature, then save this to Cosmos DB.
 
-This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos account keys.
+This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos DB account keys.
 
 > [!IMPORTANT] 
 > If you want to [assign the **Cosmos DB Account Reader**](#grant-the-managed-identity-access-to-your-azure-cosmos-account) role, you will need to use the read only [List Keys api](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will only populate the read only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
+
 ```csharp 
 namespace SummarizationService 
 {
@@ -88,6 +92,7 @@ namespace SummarizationService
 ```
 
 The example also uses a simple document called "TemperatureRecord", which is defined as follows:
+
 ```csharp
 using System;
 
@@ -185,7 +190,8 @@ namespace Monitor
     }
 }
 ```
-You are now ready to [deploy your Azure Function.](../azure-functions/functions-create-first-function-vs-code.md) 
+
+You are now ready to [deploy your Azure Function](../azure-functions/functions-create-first-function-vs-code.md).
 
 ## Next steps
 
