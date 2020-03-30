@@ -14,7 +14,7 @@ This article describes how to set up Data-in Replication in Azure Database for M
 
 To create a replica in the Azure Database for MySQL service, Data-in Replication synchronizes data from a master MySQL server on-premises, in virtual machines (VMs), or in cloud database services.
 
-Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication prior to performing the steps in this article.
+Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
 ## Create a MySQL server to be used as replica
 

@@ -14,7 +14,7 @@ This article describes how to set up Data-in Replication in Azure Database for M
 
 To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
 
-Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication prior to performing the steps in this article.
+Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
 > [!NOTE]
 > If your master server is version 10.2 or newer, we recommend that you set up Data-in Replication by using [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
@@ -112,7 +112,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Set the master server to read-only mode.
+5. Set the master server to read-only mode.
 
    Before you dump a database, the server must be placed in read-only mode. While in read-only mode, the master can't process any write transactions. To help avoid business impact, schedule the read-only window during an off-peak time.
 
@@ -121,7 +121,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    SET GLOBAL read_only = ON;
    ```
 
-5. Get the current binary log file name and offset.
+6. Get the current binary log file name and offset.
 
    To determine the current binary log file name and offset, run the command [`show master status`](https://mariadb.com/kb/en/library/show-master-status/).
     
@@ -134,7 +134,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    Note the binary file name, because it'll be used in later steps.
    
-6. Get the GTID position (optional, needed for replication with GTID).
+7. Get the GTID position (optional, needed for replication with GTID).
 
    Run the function [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) to get the GTID position for the corresponding binlog file name and offset.
   
