@@ -35,7 +35,7 @@ You can enable diagnostic logs for control plane operations by using the Azure p
 
 You can also store the logs in a storage account or stream to an event hub. This article shows how to send logs to log analytics and then query them. After you enable, it takes a few minutes for the diagnostic logs to take effect. All the control plane operations performed after that point can be tracked. The following screenshot shows how to enable control plane logs:
 
-![Enable control plane requests logging](./media/audit-control-plane-logs/enable-control-plane-requests-logging.png)
+![Enable control plane requests logging](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
 
 ## View the control plane operations
 
@@ -62,7 +62,7 @@ The following screenshots capture logs when throughput of a Cassandra table is u
 
 If you want to debug further, you can identify a specific operation in the **Activity log** by using the Activity ID or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows ho to use the activity ID and find the operations associated with it in the Activity log:
 
-![Use the activity ID and find the operations](./media/audit-control-plane-logs/find-operations-with-activityid.png)
+![Use the activity ID and find the operations](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
 
 ## Next steps
 
