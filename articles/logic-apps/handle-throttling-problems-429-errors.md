@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/07/2020
 ---
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
