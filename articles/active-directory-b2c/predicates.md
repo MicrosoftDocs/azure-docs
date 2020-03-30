@@ -41,7 +41,7 @@ The **Predicate** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate. Other elements can use this identifier in the policy. |
-| Method | Yes | The method type to use for validation. Possible values: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, or **IsDateRange**.  |
+| Method | Yes | The method type to use for validation. Possible values: [IsLengthRange](#IsLengthRange), [MatchesRegex](#MatchesRegex), [IncludesCharacters](#IncludesCharacters), or [IsDateRange](#IsDateRange).  |
 | HelpText | No | An error message for users if the check fails. This string can be localized using the [language customization](localization.md) |
 
 The **Predicate** element contains the following elements:
@@ -65,17 +65,17 @@ The **Parameter** element contains the following attributes:
 
 ### Predicate methods
 
-### IsLengthRange
+#### IsLengthRange
 
-The **IsLengthRange** value checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. The Predicate element supports the following parameters:
+The IsLengthRange method checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. The predicate element supports the following parameters:
 
 | Parameter | Required | Description |
 | ------- | ----------- | ----------- |
-| Maximum | Yes | The minimum number of characters that must be entered. |
-| Minimum | Yes | The maximum number of characters that can be entered. |
+| Maximum | Yes | The maximum number of characters that can be entered. |
+| Minimum | Yes | The minimum number of characters that must be entered. |
 
 
-The following example shows a `IsLengthRange` method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
+The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -85,6 +85,14 @@ The following example shows a `IsLengthRange` method with the parameters `Minimu
   </Parameters>
 </Predicate>
 ```
+
+#### MatchesRegex
+
+The MatchesRegex method checks whether a string claim value matches a regular expression. The predicate element supports the following parameters:
+
+| Parameter | Required | Description |
+| ------- | ----------- | ----------- |
+| RegularExpression | Yes | The regular expression pattern to match. |
 
 The following example shows a `MatchesRegex` method with the parameter `RegularExpression` that specifies a regular expression:
 
@@ -96,6 +104,14 @@ The following example shows a `MatchesRegex` method with the parameter `RegularE
 </Predicate>
 ```
 
+#### IncludesCharacters
+
+The IncludesCharacters method checks whether a string claim value contains a character set. The predicate element supports the following parameters:
+
+| Parameter | Required | Description |
+| ------- | ----------- | ----------- |
+| CharacterSet | Yes | The set of characters that can be entered. For example, lowercase characters  `a-z`, uppercase characters `A-Z`, digits `0-9`, or a list of symbols, such as `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`. |
+
 The following example shows a `IncludesCharacters` method with the parameter `CharacterSet` that specifies the set of characters:
 
 ```XML
@@ -106,7 +122,16 @@ The following example shows a `IncludesCharacters` method with the parameter `Ch
 </Predicate>
 ```
 
-The following example shows a `IsDateRange` method with the parameters `Minimum` and `Maximum` that specify the date range with a format of `yyyy-MM-dd` and `Today`.
+#### IsDateRange
+
+The IsDateRange method checks whether a date claim value is between a range of minimum and maximum parameters specified. The predicate element supports the following parameters:
+
+| Parameter | Required | Description |
+| ------- | ----------- | ----------- |
+| Maximum | Yes | The largest possible date that can be entered. The format of the date follows `yyyy-mm-dd` convention, or `Today`. |
+| Minimum | Yes | The smallest possible date that can be entered. The format of the date follows `yyyy-mm-dd` convention, or `Today`.|
+
+The following example shows a `IsDateRange` method with the parameters `Minimum` and `Maximum` that specify the date range with a format of `yyyy-mm-dd` and `Today`.
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -396,3 +421,7 @@ In your claim type, add **PredicateValidationReference** element and specify the
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
  ```
+
+## Next steps
+
+- Learn how to [Configure password complexity using custom policies in Azure Active Directory B2C](custom-policy-password-complexity.md) using predicate validations.
