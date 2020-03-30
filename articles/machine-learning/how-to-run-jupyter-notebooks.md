@@ -85,7 +85,7 @@ Copy and paste the URL to share a notebook or file.  Only other users of the wor
 
 ## Edit a notebook
 
-To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit. *@@ Will users first need to do something to enable edit mode?*
+To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit. 
 
 When a compute instance running is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
 
@@ -109,6 +109,8 @@ To run an experiment from a Notebook, you first connect to a running [compute in
 2. Name the Compute and choose a **Virtual Machine Size**. 
 3. Select **Create**.
 4. The compute instance is connected to the Notebook automatically and you can now run your cells.
+
+Only you can see and use the compute instances you create.  
 
 ### View logs and output
 
