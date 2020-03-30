@@ -52,7 +52,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup should be retained. Unit is days. Range is 7-35. 
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
 location | westus | The Azure location for the server.
-ssl-enforcement | Enabled | Whether TLS should be enabled or not for this server. Allowed values: Enabled, Disabled.
+ssl-enforcement | Enabled | Whether TLS/SSL should be enabled or not for this server. Allowed values: Enabled, Disabled.
 storage-size | 51200 | The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120MB and increases in 1024MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits. 
 version | 9.6 | The PostgreSQL major version.
 admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
