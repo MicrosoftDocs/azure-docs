@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -55,33 +55,48 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 Custom policy/Identity Experience Framework capabilities are under constant and rapid development. The following table is an index of features and component availability.
 
-### Identity Providers, Tokens, Protocols
+### Identity providers
 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| IDP-OpenIDConnect |  |  | X | For example, Google+.  |
-| IDP-OAUTH2 |  |  | X | For example, Facebook.  |
-| IDP-OAUTH1 (twitter) |  | X |  | For example, Twitter. |
-| IDP-OAUTH1 (ex-twitter) |  |  |  | Not supported |
-| IDP-SAML |  |   | X | For example, Salesforce, ADFS. |
-| IDP-WSFED | X |  |  |  |
-| Relying Party OAUTH1 |  |  |  | Not supported. |
-| Relying Party OAUTH2 |  |  | X |  |
-| Relying Party OIDC |  |  | X |  |
+| [OpenIDConnect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
+| [OAUTH2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
+| [OAUTH1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
+| [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| WSFED identity Provider| X |  |  |  |
+
+### Relying party applications
+
+| Feature | Development | Preview | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| OAUTH1 relying party |  |  |  | Not supported. |
+| OAUTH2 relying party |  |  | X |  |
+| OIDC relying party |  |  | X |  |
 | Relying Party SAML |  |X  |  |  |
 | Relying Party WSFED | X |  |  |  |
-| REST API with basic and certificate auth |  |  | X | For example, Azure Logic Apps. |
+
+### REST API integration
+
+| Feature | Development | Preview | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [REST API with basic auth](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [REST API with client certificate auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [REST API with OAuth2 bearer auth](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
 
 ### Component Support
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Azure Multi Factor Authentication |  |  | X |  |
-| Azure Active Directory as local directory |  |  | X |  |
+| [Phone factor Authentication](phone-factor-technical-profile.md) |  |  | X |  |
+| [Azure MFA Authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
+| [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | Azure Email subsystem for email verification |  |  | X |  |
-| Multi-language support|  |  | X |  |
-| Predicate Validations |  |  | X | For example, password complexity. |
-| Using third party email service providers |  |X  |  |  |
+| [Multi-language support](localization.md)|  |  | X |  |
+| [Predicate Validations](predicates.md) |  |  | X | For example, password complexity. |
+| Using [third party email service providers](custom-email.md) |  |X  |  |  |
+| [Display controls](display-controls.md) |  |X  |  |  |
+
 
 ### Content Definition
 
@@ -107,16 +122,16 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Query string parameter login_hint |  |  | X | Available as claim, can be passed to IDP. |
 | Insert JSON into UserJourney via client_assertion | X |  |  | Will be deprecated. |
 | Insert JSON into UserJourney as id_token_hint |  | X |  | Go-forward approach to pass JSON. |
-| Pass IDP TOKEN to the application |  | X |  | For example, from Facebook to app. |
+| [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
 
 ### Session Management
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| SSO Session Provider |  |  | X |  |
-| External Login Session Provider |  |  | X |  |
-| SAML SSO  Session Provider |  |  | X |  |
-| Default SSO Session Provider |  |  | X |  |
+| [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
+| [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
+
 
 ### Security
 
@@ -124,16 +139,19 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Policy Keys- Generate, Manual, Upload |  |  | X |  |
 | Policy Keys- RSA/Cert, Secrets |  |  | X |  |
-| Policy upload |  |  | X |  |
+
 
 ### Developer interface
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
-| Application Insights UserJourney Logs |  | X |  | Used for troubleshooting during development.  |
-| Application Insights Event Logs (via orchestration steps) |  | X |  | Used to monitor user flows in production. |
+| Policy upload |  |  | X |  |
+| [Application Insights user journey logs](troubleshoot-with-application-insights.md) |  | X |  | Used for troubleshooting during development.  |
+| [Application Insights event logs(application-insights-technical-profile.md) |  | X |  | Used to monitor user flows in production. |
+
 
 ## Next steps
 
-Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).
+- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md)
+- Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).
