@@ -76,7 +76,7 @@ In `experimentation/Diabetes Ridge Regression Training.ipynb`, complete the foll
 
     Move the code under the heading *Training Model on Training Set* into the `train_model` function and modify it to return the `reg_model` object. Remove the `args` dictionary, the values will come from the `args` parameter.
 
-1. Create a function called `get_model_metrics` which takes parameters `reg_model` and `data`, and evaluates the model then returns a dictionary of metrics for the trained model.
+1. Create a function called `get_model_metrics`, which takes parameters `reg_model` and `data`, and evaluates the model then returns a dictionary of metrics for the trained model.
 
     Move the code under the *Validate Model on Validation Set* heading into the `get_model_metrics` function and modify it to return the `metrics` object.
 
@@ -164,7 +164,7 @@ def main():
     joblib.dump(value=reg, filename=model_name)
 ```
 
-At this stage there should be no code remaining in the notebook that is not in a function, other than import statements in the first cell.
+At this stage, there should be no code remaining in the notebook that isn't in a function, other than import statements in the first cell.
 
 Add a statement that calls the `main` function.
 
@@ -470,7 +470,7 @@ def init():
 
 ## Create unit tests for each Python file
 
-Fourth, unit tests need to be created for each Python file, which protects code against functional regressions and makes it easier to maintain. In this section, you'll be creating unit tests for the functions in `train.py`.
+Fourth, create unit tests for your Python functions. Unit tests protect code against functional regressions and make it easier to maintain. In this section, you'll be creating unit tests for the functions in `train.py`.
 
 `train.py` contains multiple functions, but we'll only create a single unit test for the `train_model` function using the Pytest framework in this tutorial. Pytest isn't the only Python unit testing framework, but it's one of the most commonly used. For more information, visit [Pytest](https://pytest.org).
 
@@ -480,8 +480,7 @@ A unit test usually contains three main actions:
 - Act on an object
 - Assert what is expected
 
-The unit test will call `train_model` with some hard coded data and arguments, and validate that `train_model` acted as expected by using the resulting trained model to make a prediction and comparing that prediction to an expected value.  
-If this test starts failing it could mean that the parameters are no longer being applied  correctly, or that the correct object is no longer being returned.
+The unit test will call `train_model` with some hard-coded data and arguments, and validate that `train_model` acted as expected by using the resulting trained model to make a prediction and comparing that prediction to an expected value.
 
 ```python
 import numpy as np
