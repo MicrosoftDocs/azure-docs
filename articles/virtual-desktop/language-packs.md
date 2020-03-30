@@ -12,207 +12,171 @@ manager: lizross
 ---
 # Install language packs on Windows 10 Multi-session VMs
 
-The following documentation highlights the general steps to prepare an image that supports multiple language packs on Virtual Machines (VMs) running Windows 10 multi-session and how to change the display language as a standard user.
+When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Multi-session VM image to support as many languages as you need. This article will tell you how to install language packs and how users can change the display language.
 
-For more information on how to deploy a VM in Azure, please visit [this documentation](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone).
+Learn more about deploy a VM in Azure at [Create a Windows virtual machine in an availability zone with the Azure portal](/virtual-machines/windows/create-portal-availability-zone).
 
 ## install a language pack
 
 - Make sure you are signed in as an Administrator
 
-- Ensure you have installed all the latest Windows updates as well as latest Windows Store updates.
+1. Sign in as an admin.
+2. Make sure you've installed all the latest Windows and Windows Store updates.
+3. Go to **Settings** > **Time & Language** > **Region**.
+4. Under **Country or region**, select your preferred country or region from the drop-down menu.
+    In this example, we're going to select **France**, as shown in the following screenshot:
 
-- Then navigate to **Settings** > **Time & Language** and click the Region tab on the left menu
+    ![](media/a4420d1da60b751573e20da3d4306bbe.png)
 
-- Select your preferred country or region from the dropdown menu under Country
-    or region.
-
-    -   For the sake of this example, we are selecting France
-
-![](media/a4420d1da60b751573e20da3d4306bbe.png)
-
-- Then click on the Language tab on the left menu. Click "Add a language" and choose the language that you would like installed from the list. Then click "Next"
-
-- When you are prompted with the Install language features window, be sure to check off the first option "Install language pack and set as my Windows display language". Then click "Install"
+5. After that, select **Language**, then select **Add a language**. Choose the language you want to install from the list, then select **Next**.
+6. When the **Install language features** window opens, select the check box labeled **Install language pack and set as my Windows display language**.
+7. Select **Install**.
 
     >[!NOTE]
-    >you may also add multiple languages by clicking "Add a language" and selecting a language from the list again. Repeat this process necessary
-    >
-    >only one language can be set as your Windows display language at a time
+    >To add multiple languages at once, select **Add a language**, then repeat the process to add a language in steps 5 and 6. Repeat this process for each language you want to install. However, you can only set one language as your display language at a time.
 
-   For this example, we will install the French and Dutch languages and set French as our display language
+    The following example images show how you would install the French and Dutch language packs, then set French as the display language.
 
-![](media/17f8f692abb8a97575243572065a890b.png)
+    ![](media/17f8f692abb8a97575243572065a890b.png)
 
-![](media/1281d418798528ff7b5f1e5b5aaff7b0.png)
+    ![](media/1281d418798528ff7b5f1e5b5aaff7b0.png)
 
-![](media/0377fd907747017608b4f822d5ed0e20.png)
+    ![](media/0377fd907747017608b4f822d5ed0e20.png)
 
-- After waiting several minutes for the installation of your language packs, you should see them in the list of languages underneath "Add a language"
+8. After your language packs have installed, you should see the names of your language packs appear in the list of languages.
 
 ![](media/e1e98f818b103a0961ab529b73558866.png)
 
 ![](media/7e4fc0fe551faf296a5ab9c45ccdab1d.png)
 
-- You may be prompted with a window requesting you to sign out of your session. When you sign back in, you will see the language change on your desktop
+1. Depending on how your system is configured, a window may appear that asks you to sign out of your session. Sign out, then sign in again. Your display language should now be the language you selected.
 
-- Once you sign back in, navigate to Control Panel -\> Clock and Region -\> Region
+10. Go to **Control Panel** > **Clock and Region** > **Region**.
 
-- When the Region window is displayed, click on the Administration tab and click "Copy Settings"
+11. When the **Region** window opens, select the **Administration** tab, then select **Copy settings**.
 
-- Ensure that you check off both "Welcome screen and system accounts" and "New user accounts". Then click "OK"
+12. Select the check boxes labeled **Welcome screen and system accounts** and **New user accounts**.
+13. Select **OK**.
+14. A window will open and tell you to restart your session. Select **Restart now**.
 
-- You will be prompted with a window telling you to restart, so click "Restart now"
+   ![](media/6c20941b9a73579a37a2fbbfbb730a73.png)
 
-![](media/6c20941b9a73579a37a2fbbfbb730a73.png)
+   ![](media/652a8ff39875e3aa1845c64259207572.png)
 
-![](media/652a8ff39875e3aa1845c64259207572.png)
+15. After you've signed back in, go back to **Control Panel** > **Clock and Region** > **Region**.
 
-- When you resume your session, navigate back to Control Panel > Clock and Region > Region as you did above
+16. Select the **Administration** tab.
 
-- When presented with the Region window once again, select the Administration tab
+17. Select **Change system locale...**
 
-- This time, click "Change system locale..."
+18. In the drop-down menu under *Current system locale**, select your desired locale language. After that, select **OK**.
 
-- Select your preferred language from the dropdown under "Current system locale:" Then click "OK"
-
-- You will be prompted with a window telling you to restart, so click "Restart now"
+19. Select **Restart now** to restart your session once again.
 
 ![](media/9ed02275a56cbd8e8554c15a5395b5b7.png)
 
 ![](media/30b3c16c8d54cf5245bff6a8af5fdd55.png)
 
-- Log into your session once again
-
-- Ensure that you have completed all the Windows updates and that you have installed all the Windows Store updates
-
-- When checking for Windows Updates, you should see a screen displaying a green check mark indicating that Windows is up to date. If you don't, please install the updates, restart your machine if necessary, and launch your session before continuing to the next steps
+You've finished installing your languages! Before you continue, check one more time that you have the latest versions of Windows and Windows store installed.
 
 ![](media/f217a4b6c6ba5cbb851594906b2cbaa8.png)
 
-Sysprep
--------
+## Sysprep
 
--   Now it is time to sysprep the machine. Search for PowerShell in the Start
-    Menu. Right click on Windows PowerShell and select "Run as Administrator"
+Next, you need to sysprep your machine.
 
--   Your PowerShell window should be displayed.
+1. Open PowerShell as an Administrator.
+2. Navigate to:
+   
+    ```powershell
+    cd Windows\System32\Sysprep
+    ```
 
--   Navigate to the appropriate directory by inputting cd
-    \\Windows\\System32\\Sysprep into PowerShell
+3. Next, run the following cmdlet:
+    
+    ```powershell
+    .\sysprep.exe
+    ```
 
--   Then run the command .\\sysprep.exe to execute the sysprep
+    ![](media/87f895d6b911a2c19edc25c91199b8af.png)
 
-![](media/87f895d6b911a2c19edc25c91199b8af.png)
+4. The System Preparation Tool window will open. Select the check box labelled **Generalize**, then go to Shutdown Options and select **Shut down** from the drop-down menu.
 
--   You will be prompted with the System Preparation Tool window
+   ![](media/4bf550f4d5bbc27941454ead589dda56.png)
 
--   Be sure to check the box next to "Generalize" and select "Shut down" from
-    the Shutdown Options dropdown
+5. If you encoutner a sysprep error, open **File Exploer**, open **Drive C**, then go to **Windows** > **System32 Sysprep** > **Panther**, then open the **setuperr** file.
 
-![](media/4bf550f4d5bbc27941454ead589dda56.png)
+   ![](media/bb893522cc0d51833a2373949b6a3ff3.png)
 
--   You may encounter a sysprep error such as the one below:
+   The error will indicate that the specific language package needs to be uninstalled. Copy the language package name to your clipboard.
 
-![](media/bb893522cc0d51833a2373949b6a3ff3.png)
+   ![](media/478e39c07755e30a7ad48a4371bf05ef.png)
 
--   To solve this error, open the File Explorer and navigate to Windows C: -\>
-    Windows -\> System32 Sysprep -\> Panther and open the "setuperr" file
+   ![](media/7854af0c510c7a65557b76783a67e2b6.png)
 
--   The error will indicate that the specific language package needs to be
-    uninstalled. Copy the language package name to your clipboard
+6. Open a new PowerShell window and run the following cmdlet to remove the language package that's causing the error:
 
-![](media/478e39c07755e30a7ad48a4371bf05ef.png)
+   ```powershell
+   Remove-AppxPackage <package name>
+   ```
 
-![](media/7854af0c510c7a65557b76783a67e2b6.png)
+- After it uninstalls, rerun the same command, as shown below, to ensure it has been removed.
 
--   Open a new PowerShell window and run the command "Remove-AppxPackage
-    **InsertPackageNameHere"** to remove the language package
-
--   After it uninstalls, rerun the same command, as shown below, to ensure it
-    has been removed.
-
-    -   Note: you will know it has been removed successfully if you receive an
-        error when trying to remove it a second time
+    >[!NOTE]
+    >you will know it has been removed successfully if you receive an error when trying to remove it a second time
 
 ![](media/2f7899399e83bc5e2b24be927cce67f5.png)
 
--   Now it's time to rerun the sysprep
-
--   Reopen a PowerShell and navigate to the appropriate directory by inputting
-    cd \\Windows\\System32\\Sysprep
-
--   Then run the command .\\sysprep.exe to execute the sysprep
-
--   You will be prompted with the System Preparation Tool window again
-
--   Be sure to check the box next to "Generalize" and select "Shut down" from
-    the Shutdown Options dropdown
+10. After the language pack is removed, run sysprep again.
 
 ![](media/4bf550f4d5bbc27941454ead589dda56.png)
 
--   **Success**! This time, you should be able to successfully execute a sysprep
-
--   Allow your system to process this for a few minutes. As the VM shuts down,
-    your remote session will be disconnected
+>[!NOTE]
+>The syprep process will take a few minutes to finish. As the VM shuts down, your remote session will disconnect.
 
 ![](media/cd0af89f9fbcd7575f2e5ec19a6c17cc.png)
 
-Capture the image
------------------
+## Capture the image
 
--   Navigate to your Azure portal and select the Virtual Machine you have just
-    run a sysprep on
+- Navigate to your Azure portal and select the Virtual Machine you have just run a sysprep on
 
--   Capture the image of this machine by clicking "Capture" on the horizontal
-    menu
+- Capture the image of this machine by clicking "Capture" on the horizontal menu
 
 ![](media/b5e8a8d3c761a1fbe57b9a2abe4279d1.png)
 
 You will be taken to a panel that prompts you to create an image
 
--   Enter a name for your image and assign it to the resource group of your
-    choosing
+- Enter a name for your image and assign it to the resource group of your choosing
 
--   Then click "Create"
+- Then click "Create"
 
 ![](media/f7c76a0278da109f224bc8544029cd76.png)
 
--   Once you wait for it to be validated, you will see a message, like the
-    snippet below, in your notification center, indicating that you have
-    successfully created the image
+- Once you wait for it to be validated, you will see a message, like the snippet below, in your notification center, indicating that you have successfully created the image
 
 ![](media/5b81105c0987de8b3e727958cdc37b87.png)
 
--   Once you have reached this stage, you can now deploy a new VM in Azure with
-    the image that you just created
+- Once you have reached this stage, you can now deploy a new VM in Azure with the image that you just created
 
--   Ensure that when you are completing the process to [deploy a VM in
-    Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-portal-availability-zone),
-    you select the image that was just created from this sysprep
+- Ensure that when you are completing the process to [deploy a VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-portal-availability-zone), you select the image that was just created from this sysprep
 
-Change a language as a standard user
+### Change a language as a standard user
 
-Note: this example illustrates a non-admin user changing the language from
-English to French
+>[!NOTE]
+>This example illustrates a non-admin user changing the language from English to French
 
--   Assuming you are currently logged into your session as a non-admin user,
-    navigate to the Language Settings panel by searching for "Language" in the
-    Start Menu
+- Assuming you are currently logged into your session as a non-admin user, navigate to the Language Settings panel by searching for "Language" in the Start Menu
 
--   Then choose the language you want to change the Windows display language to,
-    from the dropdown
+- Then choose the language you want to change the Windows display language to, from the dropdown
 
--   You should see a message informing you the language you chose "Will be
-    display language after next sign in"
+- You should see a message informing you the language you chose "Will be display language after next sign in"
 
 ![](media/2432a1e23920fdc4c8d0bc12e33b0331.png)
 
 ![](media/97280a9b1be0a2a1a8b3300e13230c0e.png)
 
--   Once you log out and log into your session again, the welcome screen and
-    your desktop should be presented in the language you chose
+- Once you log out and log into your session again, the welcome screen and your desktop should be presented in the language you chose
 
 ![](media/398538c33df81c8fdbdfa97eec20e889.jpg)
 
--   **Success**! You have changed the language as a non-admin
+- **Success**! You have changed the language as a non-admin
