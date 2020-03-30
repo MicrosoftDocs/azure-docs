@@ -15,18 +15,14 @@ ms.custom: seodec18
 This article describes common issues with Azure Stream Analytics output connections, how to troubleshoot output issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Output not produced by job
+
 1.  Verify connectivity to outputs by using the **Test Connection** button for each output.
 
 2.  Look at [**Monitoring Metrics**](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
-
    * If Input Events are greater than 0, the job is able to read input data. If Input Events are not greater than 0, then there is an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) to learn how to troubleshoot input connection issues.
-   
    * If Data Conversion Errors are greater than 0 and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
-   
    * If Runtime Errors are greater than 0, your job can receive data but it's generating errors while processing the query. To find the errors, go to the [Audit Logs](../azure-resource-manager/management/view-activity-logs.md) and filter on *Failed* status.
-   
    * If InputEvents is greater than 0 and OutputEvents equals 0, one of the following is true:
-   
       * Query processing resulted in zero output events.
       * Events or fields might be malformed, resulting in zero output after query processing.
       * The job was unable to push data to the output sink for connectivity or authentication reasons.
@@ -80,6 +76,7 @@ Note the following observations when configuring IGNORE_DUP_KEY for several type
 
 * You cannot set IGNORE_DUP_KEY on a primary key or a unique constraint that uses ALTER INDEX, you need to drop and recreate the index.  
 * You can set the IGNORE_DUP_KEY option using ALTER INDEX for a unique index, which is different from PRIMARY KEY/UNIQUE constraint and created using CREATE INDEX or INDEX definition.  
+
 * IGNORE_DUP_KEY doesn’t apply to column store indexes because you can’t enforce uniqueness on such indexes.  
 
 ## Column names are lower-cased by Azure Stream Analytics
