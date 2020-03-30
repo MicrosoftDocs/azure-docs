@@ -32,7 +32,7 @@ In this step, you'll assign a system-assigned managed identity to your Azure Fun
 
    ![System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
-## Grant the managed identity access to your Azure Cosmos DB account
+## Grant the managed identity access to your Azure Cosmos account
 
 In this step, you'll assign a role to the Azure Function's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you will use the following two roles:
 
