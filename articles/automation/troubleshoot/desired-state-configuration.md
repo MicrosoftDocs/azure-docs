@@ -109,6 +109,8 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#re-registering-a-node).
 
+This issue could also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#configuration-of-private-networks). 
+
 ### Resolution
 
 Follow the steps listed below to re-register the failing DSC node.
