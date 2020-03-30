@@ -2,7 +2,7 @@
 title: Tutorial - add parameters to template
 description: Add parameters to your Azure Resource Manager template to make it reusable.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -50,6 +50,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
 az deployment group create \
