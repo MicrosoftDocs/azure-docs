@@ -12,7 +12,7 @@ ms.custom:
 
 ---
 
-# Azure VMware Solution by Virtustream networking and interconnectivity concepts
+# Azure VMware Solution networking and interconnectivity concepts
 
 Network interconnectivity between your Azure VMware Solution (AVS) by Virtustream private clouds and on-premises environments or VNets in Azure enable you to access and use your private cloud. A few key networking and interconnectivity concepts that establish the basis of interconnectivity are described in this article.
 
