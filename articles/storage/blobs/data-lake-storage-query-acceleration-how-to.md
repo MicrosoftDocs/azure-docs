@@ -108,7 +108,7 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-csv</artifactId>
     <version>1.8</version>
-</dependency>
+   </dependency>
    <!-- Local dependencies -->
    <dependency>
        <groupId>com.azure</groupId>
