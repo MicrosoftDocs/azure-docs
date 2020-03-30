@@ -193,7 +193,7 @@ Virtual networks and subnets are regional and not zonal aligned. A VM must be in
 
 *Figure: Virtual Network NAT not compatible with zone-spanning subnet*
 
-Virtual Network NAT is unable to provide a zonal promise with a zone-spanning subnet.  NAT doesn't support zone-redundancy and does not replicate flow state across zones. Use zone-isolation instead.
+Virtual Network NAT is unable to provide a zonal promise with a zone-spanning subnet.  NAT doesn't support zone-redundancy and doesn't replicate flow state across zones. Use zone-isolation instead.
 
 >[!NOTE]
 >The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
