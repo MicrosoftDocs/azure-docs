@@ -26,32 +26,6 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Prerequisites
 
-### Register the service
-
-<<<<<<< HEAD
-=======
-Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure CLI:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-After the registration is complete, run the following command:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
-
-### Create a Standard Load Balancer
->>>>>>> 6352aac246ed4de6b245b4392aed3dd84096cb74
 This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## Create IPv6 addresses
