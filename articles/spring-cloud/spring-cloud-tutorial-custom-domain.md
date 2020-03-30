@@ -25,7 +25,11 @@ The procedure to import the certificate requires a PEM or PFX to be on disk and 
 Upload your certificate to key vault, then import it to Azure Spring Cloud. 
 Go to your service instance, from the left navigation of your app, select **TLS/SSL settings** then **Import Key Vault Certificate**.
 
-![Import certificate](./media/custom-dns-tutorial/github-actions/import-certificate.png)
+![Import certificate](media/custom-dns-tutorial/github-actions/import-certificate.png)
+
+When you have successfully imported your certificate, you'll see it on the list of **Private Key Certificates**.
+
+![Private key certificate](media/custom-dns-tutorial/github-actions/key-certificates.png)
 
 ## Create application
 Build application in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
