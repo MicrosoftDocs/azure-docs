@@ -13,7 +13,8 @@ ms.custom: mvc
 
 Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
 
-> [!NOTE] This document is scoped to Linux agents in AKS only.
+> [!Note]
+> This document is scoped to Linux agents in AKS only.
 
 AKS clusters are deployed on host virtual machines, which run a security optimized OS which is utilized for containers running on AKS. This host OS is based on an **Ubuntu 16.04.LTS** image with additional security hardening and optimizations applied (see Security hardening details).
 
