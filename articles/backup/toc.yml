@@ -166,10 +166,10 @@
       href: backup-azure-manage-mars.md
   - name: Azure File share backup
     items:
+    - name: Overview
+      href: azure-file-share-backup-overview.md
     - name: From the Azure portal
       items:
-      - name: Overview
-        href: azure-file-share-backup-overview.md
       - name: Backup
         href: backup-afs.md
       - name: Restore

@@ -4041,6 +4041,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-template-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/azure-resource-manager-security-controls.md",
       "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-security-controls",
       "redirect_document_id": false
@@ -6236,14 +6241,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-basic-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md",
       "redirect_url": "/azure/active-directory-b2c/secure-rest-api-dotnet-certificate-auth",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-custom-rest-api-netfw.md",
       "redirect_url": "/azure/active-directory-b2c/rest-api-claims-exchange-dotnet",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/rest-api-claims-exchange-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/secure-rest-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-android.md",
@@ -20222,6 +20242,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/deploy-appliance.md",
+      "redirect_url": "migrate-appliance-architecture",
       "redirect_document_id": false
     },
     {
@@ -49331,6 +49356,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cost-management-billing/reservations/monthly-payments-reservations.md",
+      "redirect_url": "/azure/cost-management-billing/reservations/prepare-buy-reservation",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/billing/billing-prepay-app-service-isolated-stamp.md",
       "redirect_url": "/azure/cost-management-billing/reservations/prepay-app-service-isolated-stamp",
       "redirect_document_id": true
@@ -50389,21 +50419,21 @@
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
     },
-	{
+    {
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
       "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
-	  "redirect_document_id": true
+      "redirect_document_id": true
     },
-	{
-	  "source_path": "articles/azure-monitor/app/opencensus-go.md",
+    {
+      "source_path": "articles/azure-monitor/app/opencensus-go.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
-	},
-	{
-	  "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
+    },
+    {
+      "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
-	},
+    },
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
@@ -50411,6 +50441,10 @@
     {
       "source_path": "articles/load-balancer/use-existing-lb-vmss-cli.md",
       "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train"
     }
   ]
 }

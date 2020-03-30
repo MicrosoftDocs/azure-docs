@@ -6,7 +6,6 @@ documentationcenter: .net
 author: spelluru
 manager: timlt
 editor: ''
-
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -16,7 +15,6 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: spelluru
-
 ---
 # Quickstart: Create a Service Bus namespace and a queue using an Azure Resource Manager template
 
@@ -66,6 +64,7 @@ To run the deployment automatically, click the following button:
 ## Next steps
 
 See the following topic that shows how to create an authorization rule for the namespace/queue:
+
 [Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template](service-bus-resource-manager-namespace-auth-rule.md)
 
 Learn how to manage these resources by viewing these articles:

@@ -1,6 +1,6 @@
 ---
 title: Use managed identities in Azure Kubernetes Service
-description: Learn how to use managed identities in Azure Kubernetes Service (AKS) 
+description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 author: saudas
 manager: saudas
@@ -18,7 +18,7 @@ Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernet
 AKS creates two managed identities:
 
 - **System-assigned managed identity**: The identity that the Kubernetes cloud provider uses to create Azure resources on behalf of the user. The life cycle of the system-assigned identity is tied to that of the cluster. The identity is deleted when the cluster is deleted.
-- **User-assigned managed identity**: The identity that's used for authorization in the cluster. For example, the user-assigned identity is used to authorize AKS to use access control records (ACRs), or to authorize the kubelet to get metadata from Azure.
+- **User-assigned managed identity**: The identity that's used for authorization in the cluster. For example, the user-assigned identity is used to authorize AKS to use Azure Container Registries (ACRs), or to authorize the kubelet to get metadata from Azure.
 
 Add-ons also authenticate using a managed identity. For each add-on, a managed identity is created by AKS and lasts for the life of the add-on. For creating and using your own VNet, static IP address, or attached Azure disk where the resources are outside of the MC_* resource group, use the PrincipalID of the cluster to perform a role assignment. For more information on role assignment, see [Delegate access to other Azure resources](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 
