@@ -38,7 +38,7 @@ This article shows you how to use PowerShell to create and manage directories, f
     
    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Install the latest **PowershellGet** module. Then, close and reopen the Powershell console.
+2. Install the latest **PowershellGet** module. Then, close and reopen the PowerShell console.
 
    ```powershell
    install-Module PowerShellGet –Repository PSGallery –Force 
