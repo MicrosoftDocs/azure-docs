@@ -172,7 +172,7 @@ Content-type: application/json
     "type": "systemAssigned"
     },
   "sku": {
-    "name": "capacityReservationLevel",
+    "name": "capacityReservation",
     "Capacity": 1000
     },
   "properties": {
@@ -186,13 +186,6 @@ The identity is assigned to the *Cluster* resource at creation time.
 **Response**
 
 202 Accepted. This is a standard Resource Manager response for asynchronous operations.
-
-If you what to delete the *Cluster* resource for any reason -- for example, create it with a different name or clusterType, use this REST API:
-
-```rst
-DELETE
-https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
-```
 
 ### Azure Monitor data-store (ADX cluster) provisioning
 
@@ -215,7 +208,7 @@ Authorization: Bearer <token>
     "principalId": "principal-id"
     },
   "sku": {
-    "name": "capacityReservationLevel",
+    "name": "capacityReservation",
     "capacity": 1000,
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
@@ -272,7 +265,7 @@ Content-type: application/json
      "type": "systemAssigned" 
      },
    "sku": {
-     "name": "capacityReservationLevel",
+     "name": "capacityReservation",
      "capacity": 1000
      },
    "properties": {
@@ -297,7 +290,7 @@ Content-type: application/json
     "principalId": "principle-id"
     },
   "sku": {
-    "name": "capacityReservationLevel",
+    "name": "capacityReservation",
     "capacity": 1000,
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
@@ -590,7 +583,7 @@ Identity is assigned to the *Cluster* resource at creation time.
     "principalId": "principle-id"
   },
   "sku": {
-    "name": "capacityReservationLevel",
+    "name": "capacityReservation",
     "Capacity": 1000
     },
   "properties": {
@@ -634,7 +627,7 @@ Authorization: Bearer <token>
     "principalId": "principal-id"
     },
   "sku": {
-    "name": "capacityReservationLevel",
+    "name": "capacityReservation",
     "capacity": 1000,
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
