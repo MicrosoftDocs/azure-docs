@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 03/31/2020
 ms.custom: seodec18
 ---
 
 # Troubleshoot Azure Stream Analytics outputs
 
-This article describes common issues with Azure Stream Analytics output connections, how to troubleshoot output issues, and how to correct the issues. Many troublshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnosic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common issues with Azure Stream Analytics output connections, how to troubleshoot output issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Output not produced by job
 1.  Verify connectivity to outputs by using the **Test Connection** button for each output.
@@ -22,10 +22,11 @@ This article describes common issues with Azure Stream Analytics output connecti
    * If Input Events are greater than 0, the job is able to read input data. If Input Events are not greater than 0, then there is an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) to learn how to troubleshoot input connection issues.
    
    * If Data Conversion Errors are greater than 0 and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
-
+   
    * If Runtime Errors are greater than 0, your job can receive data but it's generating errors while processing the query. To find the errors, go to the [Audit Logs](../azure-resource-manager/management/view-activity-logs.md) and filter on *Failed* status.
    
-   * If InputEvents is greather than 0 and OutputEvents equals 0, one of the following is true:
+   * If InputEvents is greater than 0 and OutputEvents equals 0, one of the following is true:
+   
       * Query processing resulted in zero output events.
       * Events or fields might be malformed, resulting in zero output after query processing.
       * The job was unable to push data to the output sink for connectivity or authentication reasons.
