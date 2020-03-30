@@ -50441,6 +50441,10 @@
     {
       "source_path": "articles/load-balancer/use-existing-lb-vmss-cli.md",
       "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-paas-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-technical-overview"
     }
   ]
 }
