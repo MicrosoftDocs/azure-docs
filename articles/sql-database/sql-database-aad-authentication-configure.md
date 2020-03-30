@@ -33,9 +33,8 @@ Azure AD authentication supports the following authentication methods:
     - Azure AD pass-through authentication
   - Federated authentication
 
-For more information on Azure AD authentication methods, and which one to choose see, the articles:
+For more information on Azure AD authentication methods, and which one to choose see, the article:
 - [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../active-directory/hybrid/choose-ad-authn.md)
-- [Choose the right sign-in option to connect to Azure AD & Office 365](https://docs.microsoft.com/archive/blogs/samueld/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365)
 
 For more information on Azure AD hybrid identities, the setup, and synchronization, see the following articles:
 

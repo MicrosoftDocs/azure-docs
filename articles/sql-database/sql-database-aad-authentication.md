@@ -33,9 +33,8 @@ With Azure AD authentication, you can centrally manage the identities of databas
   - Azure AD hybrid identities that support:
     - Cloud authentication with two options coupled with seamless single sign-on (SSO): **Pass-through** authentication and **password hash** authentication
     - Federated authentication
-  - For more information on Azure AD authentication methods and which one to choose, see the following articles:
+  - For more information on Azure AD authentication methods and which one to choose, see the following article:
     - [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../active-directory/hybrid/choose-ad-authn.md)
-    - [Choose the right sign-in option to connect to Azure AD & Office 365](https://docs.microsoft.com/archive/blogs/samueld/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365)
 - Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and Azure Synapse](sql-database-ssms-mfa-authentication.md)
 - Azure AD supports similar connections from SQL Server Data Tools (SSDT) that use Active Directory Interactive Authentication. For more information, see 
 [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory)
