@@ -18,8 +18,8 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Enable kdump service
-This document describes the details on how to enable Kdump service on HANA Large Instances
+# Enable Kdump service
+This document describes the details on how to enable Kdump service on HANA Large Instances(Type I and Type II)
 
 ## Pre-requisites
 - Kdump stores kernel core dumps under /var, so the partition /var is on must have enough available disk space for the vmcore files.
@@ -55,4 +55,4 @@ echo c > /proc/sysrq-trigger
 ```
 - After the system reboots successfully, check the `/var/crash directory` for kernel crash logs.
 - If the `/var/crash` has directory with current date, then the Kdump is successfully enabled.
-- If not then raise a complain using the method describe above. 
+- If not, then raise a complain using the method describe above. 
