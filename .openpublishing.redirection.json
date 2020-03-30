@@ -50470,6 +50470,10 @@
     {
       "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-paas-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-technical-overview"
     }
   ]
 }
