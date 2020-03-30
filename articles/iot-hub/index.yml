@@ -29,7 +29,7 @@ landingContent:
         url: iot-hub-node-node-device-management-get-started.md
       - text: Configuring devices
         url: iot-hub-configuration-best-practices.md
- - title: Using Device Twins 
+ - title: Synchronize Device State
    linkLists:
      - linkListType: how-to-guide
        links:
