@@ -904,6 +904,24 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+NOTE: Models which support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
 NOTE: These dependencies are included in the prebuilt sklearn inference container:
 
 ```yaml
