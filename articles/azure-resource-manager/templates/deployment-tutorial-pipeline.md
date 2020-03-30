@@ -244,4 +244,4 @@ Congratulations, you've finished this Resource Manager template deployment tutor
 You're ready to jump into more advanced concepts about templates. The next tutorial goes into more detail about using template reference documentation to help with defining resources to deploy.
 
 > [!div class="nextstepaction"]
-> [Utilize template reference](./template-tutorial-create-encrypted-storage-accounts.md)
+> [Utilize template reference](./template-tutorial-use-template-reference.md)
