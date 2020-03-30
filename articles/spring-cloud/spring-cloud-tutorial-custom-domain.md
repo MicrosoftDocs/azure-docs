@@ -31,7 +31,8 @@ When you have successfully imported your certificate, you'll see it on the list 
 
 ![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
 
-> [!IMPORTANT] To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in **Add SSL Binding**.
+>[!IMPORTANT] 
+> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in **Add SSL Binding**.
 
 ## Add Custom Domain
 You can use a CNAME record to map a custom DNS name to Azure Spring Cloud. We don't support the A record as the IP may change. 
@@ -59,7 +60,8 @@ One app can have multiple domains, but one domain can only map to one app. When 
 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
 
-> [!NOTE] A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser.
+>[!NOTE]
+> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser.
 
 ## Add SSL binding
 In the custom domain table, select **Add ssl binding** as shown in the previous figure.  
