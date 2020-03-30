@@ -4,7 +4,7 @@ description: This article describes some common issues that can occur with an Az
 author: bandersmsft
 ms.author: banders
 ms.date: 03/03/2020
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
 ---
