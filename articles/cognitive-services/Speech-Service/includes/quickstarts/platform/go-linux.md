@@ -9,7 +9,7 @@
    export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
    ```
 
-1. Additionally, to be able to run applications including the SDK, we need to tell the OS
+1. Additionally, to run applications including the SDK, we need to tell the OS
 where to find the libs:
 
    ```sh
