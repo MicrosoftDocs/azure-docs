@@ -16,7 +16,7 @@ Azure CycleCloud can be installed on Azure resources using an Azure Resource Man
     * *user*: The subnet for creating user logins
 2. Provisions a VM in the *cycle* subnet and installs Azure CycleCloud on it.
 
-The recommended method of installing CycleCloud is via the CycleCloud Marketplace Image. Please follow the [CycleCloud Marketplace Installation Quickstart](../qs-install-marketplace.md). CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](../qs-install-manual.md).
+The recommended method of installing CycleCloud is via the CycleCloud Marketplace Image. Please follow the [CycleCloud Marketplace Installation Quickstart](../qs-install-marketplace.md). CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](install-manual.md).
 
 ## Prerequisites
 
@@ -129,5 +129,5 @@ You should now have a running CycleCloud application that allows you to create a
 ## Further Reading
 
 * [Run CycleCloud using a Marketplace VM](../qs-install-marketplace.md)
-* [Install CycleCloud manually](../qs-install-manual.md)
+* [Install CycleCloud manually](install-manual.md)
 * [Explore CycleCloud features with the tutorial](../tutorials/create-cluster.md)

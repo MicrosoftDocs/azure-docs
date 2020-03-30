@@ -10,7 +10,7 @@ ms.author: adjohnso
 
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute workloads. In this quickstart, you will install CycleCloud on Azure resources using the Marketplace image. 
 
-The CycleCloud Marketplace image is the recommended way of installing CycleCloud and it is the easiest way to quickly get a working version of CycleCloud that will allow you to start and scale clusters. CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](qs-install-manual.md)
+The CycleCloud Marketplace image is the recommended way of installing CycleCloud and it is the easiest way to quickly get a working version of CycleCloud that will allow you to start and scale clusters. CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](./how-to/install-manual.md)
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ You should now have a running CycleCloud application that allows you to create a
 
 ## Further Reading
 
-* [Install CycleCloud manually](./qs-install-manual.md)
+* [Install CycleCloud manually](./how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/create-cluster.md)
 * [Use Managed Identities for account](./how-to/managed-identities.md)
 * [Use Service Principals for account](./how-to/service-principals.md)
