@@ -1,22 +1,14 @@
 ---
 title: "Tutorial: Contextual data with roles - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/30/2020
 #Customer intent: As a new user, I want to understand how and why to use roles on an entity.
 ---
 
 # Tutorial: Extract contextually related data from an utterance
 
-In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.
+In this tutorial, find related pieces of data based on context. For example, origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.
 
 A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns.
 
@@ -45,24 +37,26 @@ A role should be used when the entity data to extract:
 
 ## Create a new app
 
-1. Sign in to the preview LUIS portal with the URL of [https://preview.luis.ai](https://preview.luis.ai).
+1. Sign in to the [LUIS **preview** portal](https://preview.luis.ai).
 
-1. Select **Create new app**, enter the name `HumanResources` and keep the default culture, **English**. Leave the description empty.
-
-1. Select **Done**.
+1. Select **+ New app for conversation**, enter the name `HumanResources` and keep the default culture, **English**. Leave the description and prediction resource empty. Select **Done**.
 
 ## Create an intent to move employees between cities
 
+An intent is used to classify user utterances based on the user's intention, determined from the natural language text.
+
+In order to classify an utterance, the intent needs examples of user utterances that should be classified with this intent.
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Select **Create new intent**.
+1. Select **+ Create**.
 
 1. Enter `MoveEmployeeToCity` in the pop-up dialog box then select **Done**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of create new intent dialog with](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
-1. Add example utterances to the intent.
+1. Add several example utterances to this intent that you expect a user to ask.
 
     |Example utterances|
     |--|
@@ -81,18 +75,18 @@ A role should be used when the entity data to extract:
 
 ## Add prebuilt entity geographyV2
 
-The prebuilt entity, geographyV2, extracts location information, including city names. Since the utterances have two city names, relating to each other in context, use roles to extract that context.
+The prebuilt entity, **geographyV2**, extracts location information, including city names. Since the utterances have two city names, relating to each other in context, use roles to extract that context.
 
 1. Select **Entities** from the left-side navigation.
 
-1. Select **Add prebuilt entity**, then select `geo` in the search bar to filter the prebuilt entities.
+1. Select **+ Add prebuilt entity**, then enter `geo` in the search bar to filter the prebuilt entities.
 
     > [!div class="mx-imgBorder"]
     > ![Add geographyV2 prebuilt entity to app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 
 1. Select the checkbox and select **Done**.
 1. In the **Entities** list, select the **geographyV2** to open the new entity.
-1. Add two roles, `Origin`, and `Destination`.
+1. To add a role, select Add two roles, `Origin`, and `Destination`.
 
     > [!div class="mx-imgBorder"]
     > ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
