@@ -36,13 +36,13 @@ For available service tiers and their characteristics, see [technical difference
 
 **Where can I find known issues and bugs?**
 
-For bugs and known issues see [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
+For bugs and known issues see [known issues](sql-database-release-notes.md#known-issues).
 
 ## New features
 
 **Where can I find latest features and the features in public preview?**
 
-For new and preview features see [release notes](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+For new and preview features see [release notes](sql-database-release-notes.md?tabs=managed-instance).
 
 ## Deployment times 
 
