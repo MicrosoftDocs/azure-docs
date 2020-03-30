@@ -816,6 +816,8 @@
     items:
     - name: Use Apache Storm to write to storage
       href: ./storm/apache-storm-write-data-lake-store.md
+    - name: Apache Kafka and Apache Storm (Java)
+      href: ./hdinsight-apache-storm-with-kafka.md
   - name: How to
     items:
     - name: Migrate Storm to Spark
@@ -836,10 +838,6 @@
           href: ./storm/apache-storm-example-topology.md
       - name: Streaming pipelines
         items:
-        - name: Apache Kafka and Apache Storm (Java)
-          href: ./hdinsight-apache-storm-with-kafka.md
-        - name: Event Hub, Storage, and Data Lake Storage (Java)
-          href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
         - name: Event Hub and Apache Storm (C# & Java)
           href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
     - name: Manage
