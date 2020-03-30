@@ -87,7 +87,7 @@
     - name: Connect to a Node
       href: ./how-to/connect-to-node.md
     - name: Terminate a Cluster
-      href: ./how-to/end-cluster.md
+      href: ./how-to/terminate-cluster.md
     - name: Prevent Node Termination
       href: ./how-to/keep-alive.md
     - name: Grant User Access

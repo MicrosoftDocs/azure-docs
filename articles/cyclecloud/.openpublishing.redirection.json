@@ -57,7 +57,7 @@
         },
         {
             "source_path": "end-cluster.md",
-            "redirect_url": "how-to/end-cluster.md",
+            "redirect_url": "how-to/terminate-cluster.md",
             "redirect_document_id": true
         },
         {
