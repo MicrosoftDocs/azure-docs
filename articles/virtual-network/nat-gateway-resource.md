@@ -253,11 +253,9 @@ Once a SNAT port releases, it's available for use by any virtual machine on subn
 
 ### Scaling
 
-NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.
+NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.  You can use public IP address resources or public IP prefix resources or both to create SNAT port inventory for the NAT to use.
 
-SNAT maps multiple private addresses to one public address and uses multiple public IPs to scale.
-
-A NAT gateway resource will use 64,000 ports (SNAT ports) of a public IP address.  These SNAT ports become the available inventory for the private to public flow mapping. And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
+SNAT maps multiple private addresses to one or more public IP addresses. These public IP addresses can be provided as public IP address resources or public IP prefix resources or both.  A NAT gateway resource will use 64,000 ports (SNAT ports) per configured IP address for this translation.  If a public IP prefix resource is provided, each IP address within the prefix is provides ports to the SNAT port inventory. These SNAT ports become the available inventory for the private to public flow mapping. And adding more IP addresses increases the available inventory SNAT ports. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
 
 NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.
 
