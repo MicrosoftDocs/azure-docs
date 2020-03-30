@@ -36,11 +36,11 @@ However, since DISA advertises a default route out the ExpressRoute circuit, the
 You will need to create new routes in the UDR for the management addresses in order to keep the ASE healthy. For Azure Government ranges see [App Service Environment management addresses](https://docs.microsoft.com/azure/app-service/environment/management-addresses
 )
 
-Rule 1: 23.97.29.209 --> Internet
-Rule 2: 23.97.0.17 --> Internet 
-Rule 3: 23.97.16.184 --> Internet 
-Rule 4: 13.72.180.105 --> Internet
-Rule 5: 13.72.53.37 --> Internet
+* Rule 1: 23.97.29.209 --> Internet
+* Rule 2: 23.97.0.17 --> Internet 
+* Rule 3: 23.97.16.184 --> Internet 
+* Rule 4: 13.72.180.105 --> Internet
+* Rule 5: 13.72.53.37 --> Internet
 
 Make sure the UDR is applied to the subnet your ASE is deployed to. 
 
@@ -56,11 +56,12 @@ The images below describe the default NSG rules created during the ASE creation.
 
 ### Service Endpoints 
 
-Depending what storage you are using you will be required to enable Service Endpoints for SQL and Azure Storage to access them without going back down to the DISA BCAP. You also need to enable EventHub Service Endpoint for ASE logs. 
+Depending what storage you are using you will be required to enable Service Endpoints for SQL and Azure Storage to access them without going back down to the DISA BCAP. You also need to enable EventHub Service Endpoint for ASE logs.
+[Service Endpoints](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#service-endpoints)
 
 ## FAQs
 
-* Some configuration changes may take some time to take effect.  Allow for several hours for changes to routing, NSGs, ASE Health, etc. to propagate and take effect, or optionally you can reboot the ASE. 
+Some configuration changes may take some time to take effect.  Allow for several hours for changes to routing, NSGs, ASE Health, etc. to propagate and take effect, or optionally you can reboot the ASE. 
 
 ## Resource manager template sample
 
