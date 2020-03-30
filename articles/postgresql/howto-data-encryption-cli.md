@@ -77,7 +77,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 
     Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
 
-## Restore or create a replica of the server
+## Restore or replica of the server
 
 After Azure Database for PostgreSQL Single server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through a replica (local/cross-region) operation. So for an encrypted PostgreSQL Single server server, you can use the following steps to create an encrypted restored server.
 
@@ -97,7 +97,7 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 ### Get the Key used
 
     ```azurecli-interactive
-    az postgres server key show --name  <server name>  -g <resource_group> --kid <key url>
+    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
     Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
