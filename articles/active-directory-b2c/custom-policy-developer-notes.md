@@ -63,7 +63,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
 | [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
-| WSFED identity Provider| X |  |  |  |
+| WSFED| X |  |  |  |
 
 ### Relying party applications
 
@@ -94,7 +94,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Azure Email subsystem for email verification |  |  | X |  |
 | [Multi-language support](localization.md)|  |  | X |  |
 | [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
-| Using [third party email service providers](custom-email.md) |  |X  |  |  |
+| [Third party email service providers](custom-email.md) |  |X  |  |  |
 | [Display controls](display-controls.md) |  |X  |  |  |
 
 
