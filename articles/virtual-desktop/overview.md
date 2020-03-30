@@ -120,7 +120,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 
 * [Windows Desktop](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (Preview)](connect-android.md)
 

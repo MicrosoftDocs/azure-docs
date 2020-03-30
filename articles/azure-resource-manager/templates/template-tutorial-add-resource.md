@@ -2,12 +2,12 @@
 title: Tutorial - Add resource to template
 description: Describes the steps to create your first Azure Resource Manager template. You learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Add a resource to your Resource Manager template
+# Tutorial: Add a resource to your ARM template
 
 In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create a blank template and deploy it. Now, you're ready to deploy an actual resource. In this tutorial, you add a storage account. It takes about **9 minutes** to complete this tutorial.
 
@@ -32,7 +32,7 @@ Guessing a unique name for a storage account isn't easy and doesn't work well fo
 
 ## Resource properties
 
-You may be wondering how to find the properties to use for each resource type. You can use the [Resource Manager template reference](/azure/templates/) to find the resource types you want to deploy.
+You may be wondering how to find the properties to use for each resource type. You can use the [ARM template reference](/azure/templates/) to find the resource types you want to deploy.
 
 Every resource you deploy has at least the following three properties:
 
@@ -66,6 +66,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
 az deployment group create \

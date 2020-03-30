@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Back up Azure virtual machines at scale
+title: Tutorial - Back up multiple Azure virtual machines
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
 ms.date: 01/31/2019
 ms.topic: tutorial

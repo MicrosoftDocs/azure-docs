@@ -46,6 +46,9 @@ The following steps explain how to add the dynamic package for monitoring your c
 
 1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for **Azure CIS 1.1.0 (New)** and dynamic packages for other compliance standards such as **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020**, **UKO and UK NHS**, and **Canada PBMM**.
     
+    > [!TIP]
+    > Only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
+
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
 
 

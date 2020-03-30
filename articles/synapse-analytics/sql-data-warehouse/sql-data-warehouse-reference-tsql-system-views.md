@@ -1,12 +1,12 @@
 ---
 title: System views
 description: Links to the documentation for system views supported in SQL Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: query
+ms.subservice: 
 ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
