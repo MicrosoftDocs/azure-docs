@@ -61,15 +61,17 @@ Your device needs to be configured to support shared device mode. It have iOS 13
     - **Type**: Redirect
     - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
     - **Team ID**: SGGM6D27TK
-    - **URLs**: https://login.microsoftonline.com (this list will be expanded for the private preview to include other Microsoft clouds)
-    Additional Data to configure:mobile
+    - **URLs**: https://login.microsoftonline.com
+    - Additional Data to configure:
       - Key: sharedDeviceMode
       - Type: Boolean
       - Value: True
 
     For more information about configuring with Intune, see the [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
 
-1. Next, configure your MDM to push Microsoft Authenticator app to your device through an MDM profile. You will need to set the following configuration options to turn on the Shared Device mode.
+1. Next, configure your MDM to push the Microsoft Authenticator app to your device through an MDM profile.
+
+    Set the following configuration options to turn on Shared Device mode:
 
     - Configuration 1:
       - Key: sharedDeviceMode
