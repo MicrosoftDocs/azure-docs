@@ -231,6 +231,14 @@ To resolve this issue, delete the peering from both virtual networks, and then r
 
 To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
 
+### The remote virtual network lacks a gateway
+
+This issue occurs when you peer vnets from different tenants and want to configure `Use Remote Gateways` afterwards. It is a limitation in Azure Portal that cannot validate presence of Vnet gateway in the other tenant's vnet.
+There are two ways to resolve the issue:
+
+ * Destroy the peerings and activate the `Use Remote Gateways` option during new peering creation
+ * Enable the `Use Remote Gateways` through PowerShell or CLI
+
 ## Next steps
 
 * [Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
