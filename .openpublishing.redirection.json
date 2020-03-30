@@ -29746,6 +29746,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-install-endpoint-protection.md",
+      "redirect_url": "/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-linux-virtual-machine.md",
       "redirect_url": "/azure/security-center/security-center-intro",
       "redirect_document_id": false
