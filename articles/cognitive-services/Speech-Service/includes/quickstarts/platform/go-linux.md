@@ -18,4 +18,4 @@ where to find the libs:
 
 ## Next steps
 
-[!INCLUDE [windows](../quickstart-list.md)]
+[!INCLUDE [windows](../quickstart-list-go.md)]
