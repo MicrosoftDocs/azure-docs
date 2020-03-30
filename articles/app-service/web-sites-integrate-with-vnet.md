@@ -11,9 +11,9 @@ ms.custom: seodec18
 ---
 # Integrate your app with an Azure virtual network
 
-This article describes the Azure App Service virtual network (VNet) Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview], you can place many of your Azure resources in a non-internet-routable network.
+This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview], you can place many of your Azure resources in a non-internet-routable network.
 
-The Azure App Service has two variations:
+Azure App Service has two variations:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
