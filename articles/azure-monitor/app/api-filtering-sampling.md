@@ -376,6 +376,14 @@ You can add as many initializers as you like, and they are called in the order t
 
 Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported,make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
+> [!NOTE]
+> You can modify the `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
+
+```python
+def callback_function(envelope):
+	envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+```
+
 ```python
 # Example for log exporter
 import logging

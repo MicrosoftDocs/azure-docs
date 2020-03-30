@@ -73,7 +73,7 @@ From Security Center, you can configure a JIT policy and request access to a VM 
 1. Click **Save**.
 
 > [!NOTE]
->When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic” rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups and Azure Firewall.
+>When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new "deny all inbound traffic" rules. If there are no existing rules on the selected ports, then the new "deny all inbound traffic" rules take top priority in the Network Security Groups and Azure Firewall.
 
 
 ## Request JIT access via Security Center
@@ -84,7 +84,7 @@ To request access to a VM via Security Center:
 
 1. Under **Virtual Machine**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
 
-    - The icon in the **Connection Details** column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
+    - The icon in the **Connection Details** column indicates whether JIT is enabled on the NSG or FW. If it's enabled on both, only the Firewall icon appears.
 
     - The **Connection Details** column provides the information required to connect the VM, and its open ports.
 
@@ -173,7 +173,7 @@ In the Azure portal, when you try to connect to a VM, Azure checks to see if you
 
   Access is requested with the following default parameters:
 
-  - **source IP**: ‘Any’ (*) (cannot be changed)
+  - **source IP**: 'Any' (*) (cannot be changed)
   - **time range**: Three hours (cannot be changed) <!--Isn't this set in the policy-->
   - **port number** RDP port 3389 for Windows / port 22 for Linux (can be changed)
 
@@ -198,14 +198,14 @@ To use the just-in-time VM access solution via PowerShell, use the official Azur
 
 The following example sets a just-in-time VM access policy on a specific VM, and sets the following:
 
-1.	Close ports 22 and 3389.
+1.    Close ports 22 and 3389.
 
-2.	Set a maximum time window of 3 hours for each so they can be opened per approved request.
-3.	Allows the user who is requesting access to control the source IP addresses and allows the user to establish a successful session upon an approved just-in-time access request.
+2.    Set a maximum time window of 3 hours for each so they can be opened per approved request.
+3.    Allows the user who is requesting access to control the source IP addresses and allows the user to establish a successful session upon an approved just-in-time access request.
 
 Run the following in PowerShell to accomplish this:
 
-1.	Assign a variable that holds the just-in-time VM access policy for a VM:
+1.    Assign a variable that holds the just-in-time VM access policy for a VM:
 
         $JitPolicy = (@{
          id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
@@ -220,12 +220,12 @@ Run the following in PowerShell to accomplish this:
              allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
 
-2.	Insert the VM just-in-time VM access policy to an array:
-	
+2.    Insert the VM just-in-time VM access policy to an array:
+    
         $JitPolicyArr=@($JitPolicy)
 
-3.	Configure the just-in-time VM access policy on the selected VM:
-	
+3.    Configure the just-in-time VM access policy on the selected VM:
+    
         Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### Request access to a VM via PowerShell
@@ -233,7 +233,7 @@ Run the following in PowerShell to accomplish this:
 In the following example, you can see a just-in-time VM access request to a specific VM in which port 22 is requested to be opened for a specific IP address and for a specific amount of time:
 
 Run the following in PowerShell:
-1.	Configure the VM request access properties
+1.    Configure the VM request access properties
 
         $JitPolicyVm1 = (@{
           id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
@@ -241,10 +241,10 @@ Run the following in PowerShell:
            number=22;
            endTimeUtc="2018-09-17T17:00:00.3658798Z";
            allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-2.	Insert the VM access request parameters in an array:
+2.    Insert the VM access request parameters in an array:
 
         $JitPolicyArr=@($JitPolicyVm1)
-3.	Send the request access (use the resource ID you got in step 1)
+3.    Send the request access (use the resource ID you got in step 1)
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
@@ -267,6 +267,7 @@ In this article, you learned how just-in-time VM access in Security Center helps
 
 To learn more about Security Center, see the following:
 
+- The Microsoft Learn module [Protect your servers and VMs from brute-force and malware attacks with Azure Security Center](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
 - [Setting security policies](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
