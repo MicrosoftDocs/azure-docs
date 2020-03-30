@@ -51,9 +51,13 @@ For the failover strategy, your logic apps and locations must meet these require
 
 * If you use ISEs, [make sure that they are scaled out or have enough capacity](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) to handle the load.
 
+#### Example: Multi-tenant Azure
+
 This example shows primary and secondary logic app instances, which are deployed to separate regions in the global multi-tenant Azure for this scenario. A single [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) defines both logic app instances and the dependent resources required by those logic apps. Separate parameter files specify the configuration values to use for each deployment location:
 
 ![Primary and secondary logic app instances in separate locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
+
+#### Example: Integration service environment
 
 This example shows the previous primary and secondary logic app instances but deployed to separate ISEs. A single Resource Manager template defines both logic app instances, the dependent resources required by those logic apps, and the ISEs as the deployment locations. Separate parameter files define the configuration values to use for deployment in each location:
 
