@@ -21,26 +21,27 @@ With Azure Backup, which includes virtual machine backup and SQL and SAP HANA in
 
 Azure Backup enables you to manage fine-grained access using [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
-* Azure Backup provides three built-in roles to control backup management operations:
-  * Backup Contributor - to create and manage backups, except deleting Recovery Services vault and giving access to others
-  * Backup Operator - everything a contributor does except removing backup and managing backup policies
-  * Backup Reader - permissions to view all backup management operations
+Azure Backup provides three built-in roles to control backup management operations:
 
-    [Learn more about Role-Based Access control to manage Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+* Backup Contributor - to create and manage backups, except deleting Recovery Services vault and giving access to others
+* Backup Operator - everything a contributor does except removing backup and managing backup policies
+* Backup Reader - permissions to view all backup management operations
 
-* Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. [Learn more about security controls for Azure Backup](https://docs.microsoft.com/azure/backup/backup-security-controls).
+Learn more about [Role-Based Access control to manage Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+
+Azure Backup has several security controls built into the service to prevent, detect, and respond to security vulnerabilities. Learn more about [security controls for Azure Backup](https://docs.microsoft.com/azure/backup/backup-security-controls).
 
 ## Encryption of data in transit and at rest
 
 Encryption protects your data and helps you to meet your organizational security and compliance commitments. Within Azure, data in transit between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.
 
-* Backup data is automatically encrypted using Microsoft-managed keys. You also can encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
+* Backup data is automatically encrypted using Microsoft-managed keys. You can also encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
 
 * Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). [Learn more about encrypted Azure VMs and Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-## Protection of backup data from accidental or malicious deletes
+## Protection of backup data from unintentional deletes
 
-Azure Backup provides security features to help protect backup data even after deletion. One such feature is soft delete. With soft delete, if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
+Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
 
 ## Monitoring and alerts of suspicious activity
 
