@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Scheduler documentation
-summary: Create, schedule, and run automated jobs in the cloud, such as recurring application actions and routine maintenance. Azure Logic Apps is replacing Azure Scheduler, which is being retired. To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible.
+title: Azure Scheduler documentation
+summary: Azure Logic Apps is replacing Azure Scheduler, which is being retired. To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible.
 
 metadata:
-  title: Scheduler documentation
-  description: Create, schedule, and run automated jobs in the cloud, such as recurring application actions and routine maintenance.
+  title: Azure Scheduler documentation
+  description: Create, schedule, and run automated jobs in the cloud, such as recurring application actions and routine maintenance. Azure Logic Apps is replacing Azure Scheduler, which is being retired. To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible.
   services: scheduler
   ms.service: scheduler
   ms.topic: landing-page
@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: What is Azure Scheduler?
             url: scheduler-intro.md
+          - text: What is Azure Logic Apps?
+            url: ../logic-apps/logic-apps-overview.md
       - linkListType: get-started
         links:
           - text: Migrate Azure Scheduler jobs to Azure Logic Apps
@@ -31,5 +33,5 @@ landingContent:
         links:
           - text: REST API
             url: https://docs.microsoft.com/rest/api/scheduler/
-          - text: Azure Scheduler PowerShell cmdlets
+          - text: PowerShell
             url: scheduler-powershell-reference.md
