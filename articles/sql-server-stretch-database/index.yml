@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure SQL Server Stretch Database documentation
-summary: Learn how to use SQL Server Stretch Database to migrate cold data securely to Azure without changing queries or applications. Tutorials and other documentation.
+summary: Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. You can set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
 
 metadata:
   title: Azure SQL Server Stretch Database documentation
-  description: Learn how to use SQL Server Stretch Database to migrate cold data securely to Azure without changing queries or applications. Tutorials and other documentation.
+  description: Learn how to use SQL Server Stretch Database to migrate cold data transparently and securely to the Azure cloud. You can set up cost-effective availability for databases with infrequently used data without requiring changes to existing queries or applications.
   services: sql-server-stretch-database
   ms.service: sql-server-stretch-database
   ms.topic: landing-page
@@ -17,7 +17,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure SQL Server Stretch Database
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: Azure SQL Server Stretch Database video
             url: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Identify databases and tables for Stretch Database with Data Migration Assistant
             url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
