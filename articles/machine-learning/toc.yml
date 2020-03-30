@@ -355,6 +355,7 @@
     - name: Trigger a pipeline
       href: how-to-trigger-published-pipeline.md
     - name: Debug & troubleshoot pipelines
+      displayName: designer
       href: how-to-debug-pipelines.md
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
