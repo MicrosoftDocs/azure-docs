@@ -7,7 +7,7 @@ ms.author: ccompy
 ---
 
 * The multitenant systems that support the full range of pricing plans except Isolated.
-* The App Service Environment, which deploys into your virtual network (VNet) and supports Isolated pricing plan apps.
+* The App Service Environment, which deploys into your virtual network and supports Isolated pricing plan apps.
 
 The VNet Integration feature is used in multitenant apps. If your app is in [App Service Environment][ASEintro], then it's already in a virtual network and doesn't require use of the VNet Integration feature to reach resources in the same virtual network. For more information on all of the networking features, see [App Service networking features][Networkingfeatures].
 
@@ -26,7 +26,7 @@ There are some things that VNet Integration doesn't support, like:
 
 * Mounting a drive.
 * Active Directory integration.
-* NetBios.
+* NetBIOS.
 
 Gateway-required VNet Integration provides access to resources only in the target virtual network or in networks connected to the target virtual network with peering or VPNs. Gateway-required VNet Integration doesn't enable access to resources available across Azure ExpressRoute connections or works with service endpoints.
 
