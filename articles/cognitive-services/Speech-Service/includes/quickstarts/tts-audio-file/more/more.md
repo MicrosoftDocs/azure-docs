@@ -20,7 +20,7 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 | Python | [To a speaker][4-speaker] | [Windows, Linux, macOS][python] |
 | Swift | [iOS to speaker][swift-iOS-qck], [macOS to speaker][swift-macOS-qck] | [iOS][swift-iOS], [macOS][swift-macOS] |
 
-[1-speaker]: ~/articles/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-csharp
+[1-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-csharp
 
 [dotnet]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet
 [netcore]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnetcore
@@ -28,13 +28,13 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [unity]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/unity
 [xamarin]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin
 
-[2-speaker]: ~/articles/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-cpp
+[2-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-cpp
 
 [cpp-windows]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows
 [cpp-linux]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/linux
 [cpp-mac]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/macos
 
-[3-speaker]: ~/articles/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-java
+[3-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-java
 
 [java-android]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android
 [java-jre]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre
@@ -47,7 +47,7 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [obj-iOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios
 [obj-macOS]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos
 
-[4-speaker]: ~/articles/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-python
+[4-speaker]: ../../../../quickstarts/text-to-speech.md?pivots=programming-language-python
 
 [python]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python
 
