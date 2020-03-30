@@ -21,25 +21,25 @@ You can use the next tool to test for TCP connectivity to a host and port combin
 
 The **tcpping** utility tells you if you can reach a specific host and port. It can show success only if there's an application listening at the host and port combination, and there's network access from your app to the specified host and port.
 
-#### Debug access to VNet-hosted resources
+#### Debug access to virtual network-hosted resources
 A number of things can prevent your app from reaching a specific host and port. Most of the time it's one of these things:
 
 * **A firewall is in the way.** If you have a firewall in the way, you hit the TCP timeout. The TCP timeout is 21 seconds in this case. Use the **tcpping** tool to test connectivity. TCP timeouts can be caused by many things beyond firewalls, but start there.
-* **DNS isn't accessible.** The DNS timeout is 3 seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. You can't use nslookup, because that doesn't use the DNS your VNet is configured with. If inaccessible, you could have a firewall or NSG blocking access to DNS or it could be down.
+* **DNS isn't accessible.** The DNS timeout is 3 seconds per DNS server. If you have two DNS servers, the timeout is 6 seconds. Use nameresolver to see if DNS is working. You can't use nslookup, because that doesn't use the DNS your virtual network is configured with. If inaccessible, you could have a firewall or NSG blocking access to DNS or it could be down.
 
 If those items don't answer your problems, look first for things like:
 
 **Regional VNet Integration**
 * Is your destination a non-RFC1918 address and you don't have WEBSITE_VNET_ROUTE_ALL set to 1?
 * Is there an NSG blocking egress from your integration subnet?
-* If you're going across Azure ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, check your routes.
+* If you're going across Azure ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
 * Do you have enough permissions to set delegation on the integration subnet? During regional VNet Integration configuration, your integration subnet is delegated to Microsoft.Web. The VNet Integration UI delegates the subnet to Microsoft.Web automatically. If your account doesn't have sufficient networking permissions to set delegation, you'll need someone who can set attributes on your integration subnet to delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set the delegation for Microsoft.Web.
 
 **Gateway-required VNet Integration**
 * Is the point-to-site address range in the RFC 1918 ranges (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255)?
 * Does the gateway show as being up in the portal? If your gateway is down, then bring it back up.
-* Do certificates show as being in sync, or do you suspect that the network configuration was changed?  If your certificates are out of sync or you suspect that a change was made to your VNet configuration that wasn't synced with your ASPs, select **Sync Network**.
-* If you're going across a VPN, is the on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your VNet but not on-premises, check your routes.
+* Do certificates show as being in sync, or do you suspect that the network configuration was changed?  If your certificates are out of sync or you suspect that a change was made to your virtual network configuration that wasn't synced with your ASPs, select **Sync Network**.
+* If you're going across a VPN, is the on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
 * Are you trying to use a coexistence gateway that supports both point to site and ExpressRoute? Coexistence gateways aren't supported with VNet Integration.
 
 Debugging networking issues is a challenge because you can't see what's blocking access to a specific host:port combination. Some causes include:
@@ -55,7 +55,7 @@ You don't know what address your app actually uses. It could be any address in t
 
 Additional debug steps include:
 
-* Connect to a VM in your VNet and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **test-netconnection**. The syntax is:
+* Connect to a VM in your virtual network and attempt to reach your resource host:port from there. To test for TCP access, use the PowerShell command **test-netconnection**. The syntax is:
 
       test-netconnection hostname [optional: -Port]
 
@@ -63,9 +63,9 @@ Additional debug steps include:
 
 #### On-premises resources ####
 
-If your app can't reach a resource on-premises, check if you can reach the resource from your VNet. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
+If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
 
-If your VNet-hosted VM can reach your on-premises system but your app can't, the cause is likely one of the following reasons:
+If your virtual network-hosted VM can reach your on-premises system but your app can't, the cause is likely one of the following reasons:
 
 * Your routes aren't configured with your subnet or point-to-site address ranges in your on-premises gateway.
 * Your network security groups are blocking access for your point-to-site IP range.
