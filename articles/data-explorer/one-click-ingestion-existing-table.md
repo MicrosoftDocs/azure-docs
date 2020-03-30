@@ -32,7 +32,7 @@ For information about ingesting data into a new table in Azure Data Explorer, se
     > [!TIP]
     > If you select **Ingest new data (Preview)** on a *table* row, the selected table name will appear in the **Project Details**.
 
-[!INCLUDE [data-explorer-data-explorer-one-click-ingestion-types](../../includes/data-explorer-data-explorer-one-click-ingestion-types.md)]
+[!INCLUDE [data-explorer-one-click-ingestion-types](../../includes/data-explorer-one-click-ingestion-types.md)]
     
 Select **Edit schema** to view and edit your table column configuration.
 
@@ -48,7 +48,7 @@ Select **Edit schema** to view and edit your table column configuration.
 1. In the **Schema** tab:
     1. Select **Compression type**, and then select either **Uncompressed** or **GZip**.
 
-    [!INCLUDE [data-explorer-data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-data-explorer-one-click-ingestion-edit-schema.md)]
+    [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]
 
     ![Select JSON levels](media/one-click-ingestion-existing-table/json-levels.png)
 
@@ -86,7 +86,7 @@ In the **Data ingestion completed** window, all three steps will be marked with 
  
     ![One-click data ingestion complete](media/one-click-ingestion-existing-table/one-click-data-ingestion-complete.png)
 
-[!INCLUDE [data-explorer-data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-data-explorer-one-click-ingestion-query-data.md)]
+[!INCLUDE [data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-one-click-ingestion-query-data.md)]
 
 ## Next steps
 

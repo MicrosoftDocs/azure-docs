@@ -32,7 +32,7 @@ Select **Create new table** and enter a name for the new table. You can use alph
 
 ![Create a new table](media/one-click-ingestion-new-table/create-new-table.png) 
 
-[!INCLUDE [data-explorer-data-explorer-one-click-ingestion-types](../../includes/data-explorer-data-explorer-one-click-ingestion-types.md)]
+[!INCLUDE [data-explorer-one-click-ingestion-types](../../includes/data-explorer-one-click-ingestion-types.md)]
 
 Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob. By looking at the name of the source, the service automatically identifies if it is compressed or not.
 
@@ -42,7 +42,7 @@ Select **Edit schema** to view and edit your table column configuration. The sys
 
     1. Select **Data format**:
 
-    [!INCLUDE [data-explorer-data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-data-explorer-one-click-ingestion-edit-schema.md)]   
+    [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]   
 
     ![Select JSON levels](media/one-click-ingestion-new-table/json-levels.png)
 
@@ -87,7 +87,7 @@ In the **Data ingestion completed** window, all three steps will be marked with 
  
     ![One-click data ingestion complete](media/one-click-ingestion-new-table/one-click-data-ingestion-complete.png)
 
-[!INCLUDE [data-explorer-data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-data-explorer-one-click-ingestion-query-data.md)]
+[!INCLUDE [data-explorer-one-click-ingestion-query-data](../../includes/data-explorer-one-click-ingestion-query-data.md)]
 
 **Continuous ingestion**
 
