@@ -25,40 +25,63 @@ The procedure to import the certificate requires a PEM or PFX to be on disk and 
 Upload your certificate to key vault, then import it to Azure Spring Cloud. 
 Go to your service instance, from the left navigation of your app, select **TLS/SSL settings** then **Import Key Vault Certificate**.
 
-![Import certificate](media/custom-dns-tutorial/github-actions/import-certificate.png)
+![Import certificate](./media/custom-dns-tutorial/import-certificate.png)
 
 When you have successfully imported your certificate, you'll see it on the list of **Private Key Certificates**.
 
-![Private key certificate](media/custom-dns-tutorial/github-actions/key-certificates.png)
+![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
 
-## Create application
-Build application in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
+> [!IMPORTANT] To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in **Add SSL Binding**.
 
-## Configure application to use the certificate
+## Add Custom Domain
+You can use a CNAME record to map a custom DNS name to Azure Spring Cloud. We don't support the A record as the IP may change. 
 
-Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to key vault to retrieve them. Managed identities for Azure resources overview helps to solve this problem by giving Azure services an automatically managed identity in Azure Active Directory (AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including key vault, without having to display credentials in your code.
+### Create the CNAME record
+Go to your DNS provider and add a CNAME record to map your domain to the <service_name>.azuremicroservices.io, where <service_name> is the name of your Azure Spring Cloud instance. We support wildcard domain and sub domain. 
+After you add the CNAME, the DNS records page will look like the following example: 
 
-In the Azure CLI, to create the identity for this application, run the assign-identity command:
+![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
-```azurecli
-az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
-```
-Replace <YourAppName> with the name of the published app on Azure.
+## Map your custom domain to Azure Spring Cloud app
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
 
-Make a note of the *PrincipalId* when you publish the application to Azure. The output of the command in the step should be in the following format:
-```json
-{
-  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "type": "SystemAssigned"
-}
-```
-The command in this CLI procedure is the equivalent of going to the Azure portal and switching the Identity/System assigned setting to *On* in the web application properties.
+Go to application page, select **Custom Domain**, then **Add Custom Domain**. 
 
-## Add SSL binding 
-In the custom domain table, select **Add ssl binding**.
+![Custom domain](./media/custom-dns-tutorial/custom-domain.png)
 
-## Test the secure web app
+1. Type the fully qualified domain name that you added a CNAME record for, such as www.contoso.com. Make sure that Hostname record type is set to CNAME (<service_name>.azuremicroservices.io)
+1. Select Validate to enable the **Add** button.
+1. Select **Add**.
+
+![Add custom domain](./media/custom-dns-tutorial/add-custom-domain.png)
+
+One app can have multiple domains, but one domain can only map to one app. When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
+
+![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
+
+[!NOTE] A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser.
+
+## Add SSL binding
+In the custom domain table, select **Add ssl binding** as shown in the previous figure.  
+1. Select certificate or import a new one.
+1. Click **Save**.
+
+![Add SSL binding](./media/custom-dns-tutorial/add-ssl-binding.png)
+
+After you successfully add SSL binding, the domain state will be secure. 
+
+![Add SSL binding](./media/custom-dns-tutorial/secured-domain-state.png)
+
+## Enforce HTTPS
+By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
+
+In your app page, in the left navigation, select **Custom Domain**. Then, in **HTTPS Only**, select *True*.
+
+![Add SSL binding](./media/custom-dns-tutorial/enforce-http.png)
+
+When the operation is complete, navigate to any of the HTTP URLs that point to your app. For example:
+* http://contoso.com
+* http://www.contoso.com
 
 ## See also
 * [Secure a web server on a Windows virtual machine in Azure with TLS/SSL certificates stored in Key Vault](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-secure-web-server)
