@@ -7,10 +7,10 @@ ms.date: 03/23/2020
 
 # Support matrix for physical server assessment 
 
-This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate physical servers to Azure, review the [migration support matrix](migrate-support-matrix-physical-migration.md).
+This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate physical servers to Azure, review the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
 
-To access physical servers, you create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After discovery is complete, you gather discovered machines into groups, and run an assessment for a group.
+To assess physical servers, you create an Azure Migrate project, and add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After discovery is complete, you gather discovered machines into groups, and run an assessment for a group.
 
 
 ## Limitations
