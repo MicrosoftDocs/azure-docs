@@ -4042,7 +4042,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md",
-      "redirect_url": "articles/azure-resource-manager/templates/template-tutorial-use-template-reference",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-template-reference",
       "redirect_document_id": false
     },
     {
@@ -29741,6 +29741,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-virtual-machine.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-install-endpoint-protection.md",
+      "redirect_url": "/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-linux-virtual-machine.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-container-recommendations.md",
+      "redirect_url": "/azure/security-center/container-security",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
       "redirect_document_id": false
@@ -42411,6 +42431,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/diagnostic-settings-legacy.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-collect",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -50419,21 +50444,21 @@
       "source_path": "articles/cognitive-services/speech-service/quickstart-voice-assistant-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-java&tabs=jre"
     },
-	{
+    {
       "source_path": "articles/security/fundamentals/choose-ad-authn.md",
       "redirect_url": "/azure/active-directory/hybrid/choose-ad-authn",
-	  "redirect_document_id": true
+      "redirect_document_id": true
     },
-	{
-	  "source_path": "articles/azure-monitor/app/opencensus-go.md",
+    {
+      "source_path": "articles/azure-monitor/app/opencensus-go.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
-	},
-	{
-	  "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
+    },
+    {
+      "source_path": "articles/azure-monitor/app/opencensus-local-forwarder.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
-	},
+    },
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-voice-assistant-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-csharp&tabs=uwp"
@@ -50441,6 +50466,10 @@
     {
       "source_path": "articles/load-balancer/use-existing-lb-vmss-cli.md",
       "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli"
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-custom-speech-test-data.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-test-and-train"
     }
   ]
 }
