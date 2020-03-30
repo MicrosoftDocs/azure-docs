@@ -139,6 +139,7 @@ Ensure that your directory has at least as many Azure AD Premium P2 licenses as 
 - Member users who **can** request an access package.
 - Member and guest users who request an access package.
 - Member and guest users who approve requests for an access package.
+- Member and guest users who have a direct assignment to an access package.
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 
