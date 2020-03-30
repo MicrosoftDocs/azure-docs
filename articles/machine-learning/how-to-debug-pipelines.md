@@ -133,8 +133,8 @@ For pipelines created in the designer, you can find the **log files** on either 
 When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each module.
 
 1. Select any module in the authoring canvas.
-1. In the right pane of the module, go to the  **Outputs+logs** tab.
-1. Select the log file `70_driver_log.txt`
+1. In the right pane of the module, go to the  **Outputs + logs** tab.
+1. Select the log file `70_driver_log.txt`.
 
     ![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
@@ -145,8 +145,8 @@ You can also find the log files of specific runs in the pipeline run detail page
 1. Select a pipeline run created in the designer.
     ![Pipeline run page](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Select any module in the preview pane.
-1. In the right pane of the module, go to the  **Outputs+logs** tab.
-1. Select the log file `70_driver_log.txt`
+1. In the right pane of the module, go to the  **Outputs + logs** tab.
+1. Select the log file `70_driver_log.txt`.
 
 ## Debug and troubleshoot in Application Insights
 For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
