@@ -41,7 +41,7 @@ The **Predicate** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate. Other elements can use this identifier in the policy. |
-| Method | Yes | The method type to use for validation. Possible values: [IsLengthRange](predicates.md#IsLengthRange), [MatchesRegex](predicates.md#MatchesRegex), [IncludesCharacters](predicates.md#IncludesCharacters), or [IsDateRange](predicates.md#IsDateRange).  |
+| Method | Yes | The method type to use for validation. Possible values: [IsLengthRange](predicates.md#islengthrange), [MatchesRegex](predicates.md#matchesregex), [IncludesCharacters](predicates.md#includescharacters), or [IsDateRange](predicates.md#isdaterange).  |
 | HelpText | No | An error message for users if the check fails. This string can be localized using the [language customization](localization.md) |
 
 The **Predicate** element contains the following elements:
