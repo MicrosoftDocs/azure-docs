@@ -146,7 +146,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
     >"name": "CapacityReservation",
     >"capacityReservationLevel": 100
 
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
 

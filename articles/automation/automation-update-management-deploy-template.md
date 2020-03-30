@@ -229,7 +229,7 @@ The following parameters in the template are set with a default value for the Lo
     }
     ```
 
-2. Edit the template to meet your requirements.
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values.
 
 3. Save this file as deployUMSolutiontemplate.json to a local folder.
 
