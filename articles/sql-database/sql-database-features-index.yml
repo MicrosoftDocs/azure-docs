@@ -3,7 +3,7 @@ documentType: LandingData
 title: Features
 metadata:
   title: Azure SQL Database - Features
-  meta.description: Learn about the features in Azure SQL Database.
+  description: Discover database features in Azure SQL Database that let you perform more powerful operations and implement advanced scenarios.
   services: sql-database
   author: jovanpop-msft
   manager: craigg
@@ -12,7 +12,7 @@ metadata:
   ms.devlang:
   ms.topic: overview
   ms.date: 02/06/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
 
 - items:
