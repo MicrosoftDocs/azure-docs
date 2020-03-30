@@ -51,7 +51,7 @@
   - name: Scale session hosts automatically
     href: set-up-scaling-script.md
   - name: Customize feed
-    href: customize-feed-for-virtual-desktop-users-2019.md
+    href: customize-feed-virtual-desktop-users-2019.md
   - name: Deploy the management tool
     items:
       - name: Azure Resource Manager template

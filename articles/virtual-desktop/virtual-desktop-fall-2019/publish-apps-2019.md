@@ -46,6 +46,6 @@ New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname
 
 ## Next steps
 
-- Learn about how to configure feeds to organize how apps are displayed for users at [Customize feed for Windows Virtual Desktop users](customize-feed-for-virtual-desktop-users-2019.md).
+- Learn about how to configure feeds to organize how apps are displayed for users at [Customize feed for Windows Virtual Desktop users](customize-feed-virtual-desktop-users-2019.md).
 - Learn about the MSIX app attach feature at [Set up MSIX app attach](../app-attach.md).
 
