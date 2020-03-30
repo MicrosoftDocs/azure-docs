@@ -200,7 +200,10 @@ When you are ready to configure the lead management information for your offer i
 1. Navigate to the **Offer setup** page for your offer.
 2. Select **Connect** under the Lead Management section.
 3. On the Connection details pop-up window, select **HTTPS Endpoint** for the **Lead Destination** and paste in the HTTP POST URL from the flow you created by following earlier steps into the **HTTPS endpoint URL** field.
-4. Select **Save**. 
+4. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
+5. Select **OK**.
+
+To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
 
 >[!Note] 
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
