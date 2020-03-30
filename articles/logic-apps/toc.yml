@@ -37,8 +37,10 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure Virtual Networks
+  - name: Access to Azure virtual networks
     href: connect-virtual-network-vnet-isolated-environment-overview.md
+  - name: Business continuity and disaster recovery
+    href: business-continuity-disaster-recovery-guidance.md
 - name: How-to guides
   items:
   - name: Develop
