@@ -1482,6 +1482,8 @@
         href: thousandeyes-tutorial.md
       - name: TicketManager
         href: ticketmanager-tutorial.md
+      - name: TickitLMS Learn
+        href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
       - name: TigerText Secure Messenger
@@ -1650,6 +1652,8 @@
         href: zoho-mail-tutorial.md
       - name: Zoho One
         href: zohoone-tutorial.md
+      - name: Zoho One China
+        href: zoho-one-china-tutorial.md        
       - name: Zoom
         href: zoom-tutorial.md
       - name: Zscaler
@@ -1878,7 +1882,9 @@
       - name: Zapier
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
-        href: zendesk-provisioning-tutorial.md      
+        href: zendesk-provisioning-tutorial.md
+      - name: Zoom
+        href: zoom-provisioning-tutorial.md              
       - name: Zscaler
         href: zscaler-provisioning-tutorial.md
       - name: Zscaler Beta
@@ -1893,7 +1899,3 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-      - name: Zoho One China
-        href: zoho-one-china-tutorial.md
-      - name: Zoom
-        href: zoom-provisioning-tutorial.md
