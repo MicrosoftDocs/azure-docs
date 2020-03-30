@@ -14,7 +14,7 @@ highlightedContent:
       url: https://azure.microsoft.com/updates/?category=containers
     - itemType: concept
       title: A microservices approach to applications
-      url: azure/service-fabric/service-fabric-overview-microservices
+      url: /azure/service-fabric/service-fabric-overview-microservices
     - itemType: concept
       title: Kubernetes basics
       url: /azure/aks/concepts-clusters-workloads
