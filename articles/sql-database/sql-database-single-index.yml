@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Find documentation about Azure SQL single databases, database servers, and elastic pools
-summary: Find quickstarts, tutorials, and samples for Azure SQL Database single databases, elastic pools, and database servers.
+summary: Find concepts, quickstarts, tutorials, and samples for Azure SQL Database single databases, elastic pools, and database servers.
 
 metadata:
   title: Documentation
@@ -9,11 +9,9 @@ metadata:
   services: sql-database
   ms.service: sql-database
   ms.subservice: single-database
-  ms.tgt_pltfrm: na
-  ms.devlang:
   ms.topic: landing-page
-  author: jovanpop-msft
-  ms.author: jovanpop
+  author: stevestein
+  ms.author: sstein
   ms.reviewer: carlrab
   ms.date: 03/30/2020
 
@@ -26,7 +24,7 @@ landingContent:
   # Card 
   - title: Single Database
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: What is SQL Database?
             url: sql-database-technical-overview.md
@@ -36,22 +34,12 @@ landingContent:
             url: sql-database-purchase-models.md
           - text: Service tiers
             url: sql-database-service-tiers-general-purpose-business-critical.md
-      - linkListType: concept
-        links:
-          - text: Scalability
-            url: sql-database-scalability-index.yml
-          - text: Platform as a Service
-            url: sql-database-paas-index.yml
-          - text: Advanced security
-            url: sql-database-security-overview.md
-
-
 
 
   # Card 
   - title: Elastic pools
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: Elastic pools
             url: sql-database-elastic-pool.md
@@ -64,7 +52,7 @@ landingContent:
   # Card 
   - title: SQL Database server
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: SQL Database servers
             url: sql-database-servers.md
@@ -77,12 +65,12 @@ landingContent:
   # Card 
   - title: Advanced security
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: Security capabilities
             url: sql-database-security-overview.md
           - text: Security best practices
-            url: sql-database-security-best-practices.md
+            url: sql-database-security-best-practice.md
           - text: Logins, user accounts, roles, and permissions
             url: sql-database-manage-logins.md
           - text: Azure Active Directory
@@ -92,7 +80,7 @@ landingContent:
   # Card 
   - title: Scalability
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
           - text: Dynamically scale up or down
             url: sql-database-scale-resources.md
