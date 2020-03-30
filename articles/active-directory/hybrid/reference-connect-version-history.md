@@ -108,10 +108,10 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - Prevent misconfiguration of  group filtering by domain and OU filters. Group filtering will show an error when the domain/OU of the entered group is already filtered out and keep the user from moving forward until the issue is resolved.
 - Users can no longer create a connector for Active Directory Domain Services or Windows Azure Active Directory in the Synchronization Service Manager UI.
 - Fixed accessibility of custom UI controls in the Synchronization Service Manager.
-- Enabled six federation management tasks for all sign-in methods in Azure AD Connect.  (Previously, only the “Update AD FS SSL certificate” task was available for all sign-ins.)
+- Enabled six federation management tasks for all sign-in methods in Azure AD Connect.  (Previously, only the “Update AD FS TLS/SSL certificate” task was available for all sign-ins.)
 - Added a warning when changing the sign-in method from federation to PHS or PTA that all Azure AD domains and users will be converted to managed authentication.
 - Removed token-signing certificates from the “Reset Azure AD and AD FS trust” task and added a separate sub-task to update these certificates.
-- Added a new federation management task called “Manage certificates” which has sub-tasks to update the SSL or token-signing certificates for the AD FS farm.
+- Added a new federation management task called “Manage certificates” which has sub-tasks to update the TLS or token-signing certificates for the AD FS farm.
 - Added a new federation management sub-task called “Specify primary server” which allows administrators to specify a new primary server for the AD FS farm.
 - Added a new federation management task called “Manage servers” which has sub-tasks to deploy an AD FS server, deploy a Web Application Proxy server, and specify primary server.
 - Added a new federation management task called “View federation configuration” that displays the current AD FS settings.  (Because of this addition, AD FS settings have been removed from the “Review your solution” page.)
@@ -1009,7 +1009,7 @@ Azure AD Connect sync
 * Destination folder for storing Azure AD Connect installation and setup logs has been moved from %localappdata%\AADConnect to %programdata%\AADConnect to improve accessibility to the log files.
 
 AD FS management
-* Added support for updating AD FS Farm SSL Certificate.
+* Added support for updating AD FS Farm TLS/SSL Certificate.
 * Added support for managing AD FS 2016.
 * You can now specify existing gMSA (Group Managed Service Account) during AD FS installation.
 * You can now configure SHA-256 as the signature hash algorithm for Azure AD relying party trust.
