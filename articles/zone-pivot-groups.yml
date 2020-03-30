@@ -63,6 +63,8 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+  - id: programming-language-go
+    title: Go
 - id: programming-languages-set-four
   title: Programming languages
   prompt: Choose a programming language
@@ -182,9 +184,9 @@ groups:
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-powershell
-    title: PowerShell 
+    title: PowerShell
   - id: programming-language-python
-    title: Python 
+    title: Python
   - id: programming-language-typescript
     title: TypeScript
 - id: programming-languages-text-analytics
