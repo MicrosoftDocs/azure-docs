@@ -15,7 +15,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 ## Prerequisites for Azure CLI
 
 * You must have an Azure subscription and be an administrator on that subscription.
-* In Azure Key Vault, create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete enabled on the key vault.
+* In Azure Key Vault, create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
 
     ```azurecli-interactive
     az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
@@ -69,7 +69,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 
 ## Set data encryption for Azure Database for PostgreSQL Single server
 
-1. Enabling Data encryption for the Azure Database for PostgreSQL Single server using the key created in the Azure Key Vault and the Key created.
+1. Enable Data encryption for the Azure Database for PostgreSQL Single server using the key created in the Azure Key Vault.
 
     ```azurecli-interactive
     az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
@@ -77,7 +77,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 
     Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
 
-## Restore or replica of the server
+## Using Data encryption for restore or replica servers
 
 After Azure Database for PostgreSQL Single server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through a replica (local/cross-region) operation. So for an encrypted PostgreSQL Single server server, you can use the following steps to create an encrypted restored server.
 
@@ -127,7 +127,7 @@ This Azure Resource Manager template creates an Azure Database for PostgreSQL Si
 ### For an existing server
 Additionally, you can use Azure Resource Manager templates to enable data encryption on your existing Azure Database for PostgreSQL Single servers.
 
-* Pass the URI of the Azure Key Vault key that you copied earlier under the `keyVaultKeyUri` property in the properties object.
+* Pass the Resource ID of the Azure Key Vault key that you copied earlier under the `Uri` property in the properties object.
 
 * Use *2020-01-01-preview* as the API version.
 
