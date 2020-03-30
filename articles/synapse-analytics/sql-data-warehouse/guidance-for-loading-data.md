@@ -1,6 +1,6 @@
 ---
-title: Data loading best practices
-description: Recommendations and performance optimizations for loading data into SQL Analytics
+title: Data loading best practices for Synapse SQL pool.
+description: Recommendations and performance optimizations for loading data using Synapse SQL pool.
 services: synapse-analytics
 author: kevinvngo 
 manager: craigg
@@ -13,17 +13,17 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Best practices for loading data for data warehousing
+# Best practices for loading data using Synapse SQL pool.
 
-Recommendations and performance optimizations for loading data
+In this article, you'll learn recommendations and performance optimizations for loading data using SQL pool.
 
 ## Preparing data in Azure Storage
 
-To minimize latency, co-locate your storage layer and your data warehouse.
+To minimize latency, colocate your storage layer and your SQL pool.
 
 When exporting data into an ORC File Format, you might get Java out-of-memory errors when there are large text columns. To work around this limitation, export only a subset of the columns.
 
-PolyBase cannot load rows that have more than 1,000,000 bytes of data. When you put data into the text files in Azure Blob storage or Azure Data Lake Store, they must have fewer than 1,000,000 bytes of data. This byte limitation is true regardless of the table schema.
+PolyBase can't load rows that have more than 1,000,000 bytes of data. When you put data into the text files in Azure Blob storage or Azure Data Lake Store, they must have fewer than 1,000,000 bytes of data. This byte limitation is true regardless of the table schema.
 
 All file formats have different performance characteristics. For the fastest load, use compressed delimited text files. The difference between UTF-8 and UTF-16 performance is minimal.
 
@@ -31,7 +31,7 @@ Split large compressed files into smaller compressed files.
 
 ## Running loads with enough compute
 
-For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
+For fastest loading speed, run only one load job at a time. If that isn't feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
@@ -44,7 +44,7 @@ This example creates a loading user for the staticrc20 resource class. The first
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connect to the data warehouse and create a user. The following code assumes you are connected to the database called mySampleDataWarehouse. It shows how to create a user called LoaderRC20, give the user control permission on a database. It then adds the user as a member of the staticrc20 database role.  
+Connect to the SQL pool and create a user. The following code assumes you're connected to the database called mySampleDataWarehouse. It shows how to create a user called LoaderRC20 and gives the user control permission on a database. Then, it adds the user as a member of the staticrc20 database role.  
 
 ```sql
    -- Connect to the database
@@ -59,7 +59,7 @@ Run loads under static rather than dynamic resource classes. Using the static re
 
 ## Allowing multiple users to load
 
-There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
+There's often a need to have multiple users load data into a SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
@@ -68,13 +68,13 @@ For example, consider database schemas, schema_A for dept A, and schema_B for de
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A and user_B are now locked out from the other dept’s schema.
+User_A and user_B are now locked out from the other dept's schema.
 
 ## Loading to a staging table
 
-To achieve the fastest loading speed for moving data into a data warehouse table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option. 
+To achieve the fastest loading speed for moving data into a SQL pool table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option. 
 
-Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production data warehouse table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
+Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
 
 ## Loading to a columnstore index
 
@@ -84,7 +84,7 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SQLBulkCopy API or BCP
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL Data Warehouse. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
+As mentioned before, loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP), you should consider increasing batch size for better throughput. A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
 
 ## Handling loading failures
 
@@ -100,7 +100,7 @@ If you have thousands or more single inserts throughout the day, batch the inser
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data. Creating statistics can be done manually or you can enable [auto-create statistics](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
 
 For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 

@@ -1,6 +1,6 @@
 ---
 title: Instead of ETL, design ELT 
-description: Implement flexible data loading strategies for SQL Analytics within Azure Synapse Analytics
+description: Implement flexible data loading strategies for Synapse SQL pool within Azure Synapse Analytics
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -13,11 +13,15 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Data loading strategies for data warehousing
+# Data loading strategies for Synapse SQL pool
 
-Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. Synapse SQL pool, within Azure Synapse Analytics, has a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Using an Extract, Load, and Transform (ELT) process leverages MPP and eliminates the resources needed for data transformation prior to loading. 
+Traditional SMP SQL pools use an Extract, Transform, and Load (ETL) process for loading data. Synapse SQL pool, within Azure Synapse Analytics, has a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. 
 
-While SQL pool supports many loading methods, including popular SQL Server options such as BCP and the SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
+Using an Extract, Load, and Transform (ELT) process leverages MPP and eliminates the resources needed for data transformation prior to loading. 
+
+While SQL pool supports many loading methods, including popular SQL Server options such as BCP and the SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). 
+
+With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
 
 > [!NOTE]  
 > The COPY statement is currently in public preview. To provide feedback, send email to the following distribution list: sqldwcopypreview@service.microsoft.com.
@@ -28,7 +32,7 @@ While SQL pool supports many loading methods, including popular SQL Server optio
 
 ## What is ELT?
 
-Extract, Load, and Transform (ELT) is a process by which data is extracted from a source system, loaded into a data warehouse, and then transformed. 
+Extract, Load, and Transform (ELT) is a process by which data is extracted from a source system, loaded into a SQL pool, and then transformed. 
 
 The basic steps for implementing ELT are:
 
@@ -51,7 +55,9 @@ Getting data out of your source system depends on the storage location.  The goa
 
 ### PolyBase and COPY external file formats
 
-With PolyBase and the COPY statement, you can load data from UTF-8 and UTF-16 encoded delimited text or CSV files. In addition to delimited text or CSV files, it loads from the Hadoop file formats such as ORC and Parquet. PolyBase and the COPY statement can also load data from Gzip and Snappy compressed files. Extended ASCII, fixed-width format, and nested formats such as WinZip or XML aren't supported. If you're exporting from SQL Server, you can use the [bcp command-line tool](/sql/tools/bcp-utility?view=azure-sqldw-latest) to export the data into delimited text files. 
+With PolyBase and the COPY statement, you can load data from UTF-8 and UTF-16 encoded delimited text or CSV files. In addition to delimited text or CSV files, it loads from the Hadoop file formats such as ORC and Parquet. PolyBase and the COPY statement can also load data from Gzip and Snappy compressed files. 
+
+Extended ASCII, fixed-width format, and nested formats such as WinZip or XML aren't supported. If you're exporting from SQL Server, you can use the [bcp command-line tool](/sql/tools/bcp-utility?view=azure-sqldw-latest) to export the data into delimited text files. 
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 
@@ -70,7 +76,9 @@ You might need to prepare and clean the data in your storage account before load
 
 ### Define external tables
 
-If you are using PolyBase, you need to define external tables in your data warehouse before loading. External tables are not required by the COPY statement. PolyBase uses external tables to define and access the data in Azure Storage. An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the data warehouse. 
+If you are using PolyBase, you need to define external tables in your SQL pool before loading. External tables are not required by the COPY statement. PolyBase uses external tables to define and access the data in Azure Storage. 
+
+An external table is similar to a database view. The external table contains the table schema and points to data that is stored outside the SQL pool. 
 
 Defining external tables involves specifying the data source, the format of the text files, and the table definitions. T-SQL syntax reference articles that you will need are:
 - [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest)
@@ -112,26 +120,31 @@ If you are using PolyBase, the external objects defined need to align the rows o
 To format the text files:
 
 - If your data is coming from a non-relational source, you need to transform it into rows and columns. Whether the data is from a relational or non-relational source, the data must be transformed to align with the column definitions for the table into which you plan to load the data. 
-- Format data in the text file to align with the columns and data types in the destination table. Misalignment between data types in the external text files and the data warehouse table causes rows to be rejected during the load.
+- Format data in the text file to align with the columns and data types in the destination table. Misalignment between data types in the external text files and the SQL pool table causes rows to be rejected during the load.
 - Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that isn't found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
 ## 4. Load the data using PolyBase or the COPY statement
 
-It is best practice to load data into a staging table. Staging tables allow you to handle errors without interfering with the production tables. A staging table also gives you the opportunity to use the SQL pool MPP for data transformations before inserting the data into production tables. The table will need to be pre-created when loading into a staging table with COPY.
+It is best practice to load data into a staging table. Staging tables allow you to handle errors without interfering with the production tables. A staging table also gives you the opportunity to use the SQL pool MPP for data transformations before inserting the data into production tables. 
+
+The table will need to be pre-created when loading into a staging table with COPY.
 
 ### Options for loading with PolyBase and COPY statement
 
 To load data with PolyBase, you can use any of these loading options:
 
 - [PolyBase with T-SQL](load-data-from-azure-blob-storage-using-polybase.md) works well when your data is in Azure Blob storage or Azure Data Lake Store. It gives you the most control over the loading process, but also requires you to define external data objects. The other methods define these objects behind the scenes as you map source tables to destination tables.  To orchestrate T-SQL loads, you can use Azure Data Factory, SSIS, or Azure functions. 
-- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination. 
+- [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) works well when your source data is in SQL Server, either SQL Server on-premises or in the cloud. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new SQL pool destination. 
 - [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md) is another orchestration tool.  It defines a pipeline and schedules jobs. 
 - [PolyBase with Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfers data from a table to a Databricks dataframe and/or writes data from a Databricks dataframe to a table using PolyBase.
 
 ### Other loading options
 
-In addition to PolyBase and the COPY statement, you can use [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to the database without going through Azure Blob storage, and is intended only for small loads. Note, the load performance of these options is slower than PolyBase and the COPY statement. 
+In addition to PolyBase and the COPY statement, you can use [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to the database without going through Azure Blob storage, and is intended only for small loads. 
+
+> [!NOTE]
+> Note, the load performance of these options is slower than PolyBase and the COPY statement. 
 
 
 ## 5. Transform the data
