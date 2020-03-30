@@ -154,7 +154,7 @@ To create the Azure Data Explorer linked service, do the following steps:
 
     ![The New linked service pane](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. In the **New Linked Service (Azure Data Explorer)** pane, do the following steps:
+1. In the **New Linked Service (Azure Data Explorer)** pane, do the following steps :
 
     ![The Azure Data Explorer New Linked Service pane](media/data-factory-load-data/adx-new-linked-service.png)
 
