@@ -9,47 +9,23 @@ ms.author: brendm
 
 ---
 # Map an existing custom DNS name to Azure Spring Cloud
-This example imports a certificate from a third-party provider to the key vault and then applies the certificate to a domain.
+This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL). 
 
-Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL), certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Windows virtual machines (VMs) in Azure. 
+Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Windows virtual machines (VMs) in Azure. 
 
 ## Prerequisites
 * An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart-launch-app-portal.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
-*  A private certificate from a third-party provider. The certificate must match the domain.
-
-## Create key vault
-[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an service that safeguards cryptographic keys and secrets used by cloud applications and services. It is the storage of choice for Azure Spring Cloud certificates.
-
-1. From the Azure portal menu, or from the Home page, click **Create a resource**.
-1. In the search box, enter *Key Vault*.
-1. From the results list, choose *Key Vault*.
-1. On the Key Vault section, click **Create**.
-1. On the **Create key vault** section provide the following information: 
-* Name: A unique name
-* Subscription: Choose a subscription
-* Under Resource Group, choose **Create new** and enter a resource group name.
-* In the **Location** pull-down menu, choose a location.
-* Leave the other options to their defaults.
-
-After providing the information above, click **Create**.
-
-Take note of the two properties listed below:
-* Vault Name: In the example, this is Contoso-Vault2. You will use this name for other steps.
-* Vault URI: Applications that use your vault through its REST API must use this URI.
-
-At this point, your Azure account is the only one authorized to perform operations on this new vault.
+* A private certificate from a third-party provider. The certificate must match the domain.
+* [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ## Import certificate 
-Import certificate – requires a PEM or PFX to be on disk and have a private key.  
+The procedure to import the certificate requires a PEM or PFX to be on disk and have a private key. 
 
-Upload your certificate to key vault, then import it to Azure Spring Cloud. For information about importing a certificate, see .
+Upload your certificate to key vault, then import it to Azure Spring Cloud. 
+Go to your service instance, from the left navigation of your app, select **TLS/SSL settings** then **Import Key Vault Certificate**.
 
-* You must specify: vault name and certificate name (policy is optional)
-* PEM/PFX files contains attributes that KV can parse and use to populate the certificate policy. If a certificate policy is already specified, key vault will try to match data from PFX/PEM file.
-* Once the import is final, subsequent operations will use new policy with new versions.
-* If there are no further operations, the first thing the Key Vault does is send an expiration notice.
-* The user can edit the policy, which is functional at the time of import, but where no information was specified at import, such as  no issuer information, it will use default information.
+![Import certificate](./media/custom-dns-tutorial/github-actions/import-certificate.png)
 
 ## Create application
 Build application in the [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
