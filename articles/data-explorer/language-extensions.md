@@ -52,7 +52,7 @@ Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin)
 
 ## Limitations
 
-* Language extensions feature doesn't support [Disk encryption](manage-cluster-security). 
+* Language extensions feature doesn't support [Disk encryption](manage-cluster-security.md). 
 * Language extensions runtime sandbox allocate disk space even if no query runs on scope of the relevant language.
 * Enabling language extension process can take a few minutes. During that time, your cluster will be suspended.
 
