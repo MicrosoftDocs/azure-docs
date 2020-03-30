@@ -114,9 +114,9 @@ An *access package* is a bundle of resources that a team or project needs and is
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles.png)
 
->[!NOTE]
-> When using [dynamic groups](../users-groups-roles/groups-create-rule.md) you will not see any other roles available besides owner. This is by design.
-> ![Scenario overview](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    >[!NOTE]
+    > When using [dynamic groups](../users-groups-roles/groups-create-rule.md) you will not see any other roles available besides owner. This is by design.
+    > ![Scenario overview](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
 
 12. Click **Next** to open the **Requests** tab.
 
