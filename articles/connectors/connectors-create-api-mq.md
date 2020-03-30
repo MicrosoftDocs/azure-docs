@@ -77,7 +77,7 @@ When your logic app tries connecting to your on-premises MQ server, you might ge
 
 * If you're using the MQ connector directly in Azure, the MQ server needs to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
 
-* If you're using the on-premises data gateway, you can use a self-signed certificate, preferably issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/).
+* If you're using the on-premises data gateway, try to use a certificate that's issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) when possible. However, if this option isn't possible, you could use a self-signed certificate, which is isn't issued by a trusted [certificate authority](https://www.ssl.com/faqs/what-is-a-certificate-authority/) and is considered less secure.
 
   To install the server's self-signed certificate, you can use the **Windows Certification Manager** (certmgr.msc) tool. For this scenario, on your local computer where the on-premises data gateway service is running, you need to install the certificate in your **Local Computer** certificates store at the **Trusted Root Certification Authorities** level.
 
