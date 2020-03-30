@@ -54,6 +54,8 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
+    If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0 which means that the designer must allocate resources after being idle for some time. Repeated submits will take less time since the compute resources are already allocated. Future runs will take significantly less time because the designer will use cached results for each module unless you specify otherwise with the **Regenerate output** option. 
+
 1. Select **Deploy**.
 
 ## Create an inferencing cluster

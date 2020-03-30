@@ -278,7 +278,9 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
     1. Select **Submit**.
     
-    You can view run status and details at the top right of the canvas. If this is your first time using a compute target, it may take up to 10 minutes for your pipeline to finish running. The default compute settings have 0 minimum nodes, which means that compute instances are deallocated when idle. This saves money, but may require additional startup time for new jobs.
+    You can view run status and details at the top right of the canvas.
+    
+    If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0 which means that the designer must allocate resources after being idle for some time. Repeated submits will take less time since the compute resources are already allocated. Future runs will take significantly less time because the designer will use cached results for each module unless you specify otherwise with the **Regenerate output** option. 
 
 ### View scored labels
 
