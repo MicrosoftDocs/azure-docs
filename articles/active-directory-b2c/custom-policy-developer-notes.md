@@ -59,9 +59,9 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| [OpenIDConnect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
-| [OAUTH2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
-| [OAUTH1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
+| [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
 | [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED identity Provider| X |  |  |  |
 
@@ -69,11 +69,11 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| OAUTH1 relying party |  |  |  | Not supported. |
-| OAUTH2 relying party |  |  | X |  |
-| OIDC relying party |  |  | X |  |
-| Relying Party SAML |  |X  |  |  |
-| Relying Party WSFED | X |  |  |  |
+| OAuth1 |  |  |  | Not supported. |
+| [OAuth2](add-web-application.md) |  |  | X |  |
+| [OIDC Connect](tutorial-register-applications.md) |  |  | X |  |
+| [SAML2](connect-with-saml-service-providers.md) |  |X  |  |  |
+| WSFED | X |  |  |  |
 
 ### REST API integration
 
@@ -87,41 +87,35 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [Phone factor Authentication](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA Authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
+| [Azure MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | Azure Email subsystem for email verification |  |  | X |  |
 | [Multi-language support](localization.md)|  |  | X |  |
-| [Predicate Validations](predicates.md) |  |  | X | For example, password complexity. |
+| [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
 | Using [third party email service providers](custom-email.md) |  |X  |  |  |
 | [Display controls](display-controls.md) |  |X  |  |  |
 
 
-### Content Definition
+### Page layout versions
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Error page, api.error |  |  | X |  |
-| IDP selection page, api.idpselections |  |  | X |  |
-| IDP selection for signup, api.idpselections.signup |  |  | X |  |
-| Forgot Password, api.localaccountpasswordreset |  |  | X |  |
-| Local Account Sign-in, api.localaccountsignin |  |  | X |  |
-| Local Account Sign-up, api.localaccountsignup |  |  | X |  |
-| MFA page, api.phonefactor |  |  | X |  |
-| Self-asserted social account sign-up, api.selfasserted |  |  | X |  |
-| Self-asserted profile update, api.selfasserted.profileupdate |  |  | X |  |
-| Unified signup or sign-in page, api.signuporsignin, with parameter "disableSignup" |  |  | X |  |
-| JavaScript / Page layout |  | X |  |  |
+| [2.0.0](page-layout.md#200) |  | X |  |  |
+| [1.2.0](page-layout.md#120) |  | X |  |  |
+| [1.1.0](page-layout.md#110) |  |  | X |  |
+| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [JavaScript support](javascript-samples.md) |  | X |  |  |
 
 ### App-IEF integration
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Query string parameter domain_hint |  |  | X | Available as claim, can be passed to IDP. |
-| Query string parameter login_hint |  |  | X | Available as claim, can be passed to IDP. |
-| Insert JSON into UserJourney via client_assertion | X |  |  | Will be deprecated. |
-| Insert JSON into UserJourney as id_token_hint |  | X |  | Go-forward approach to pass JSON. |
+| Query string parameter `domain_hint` |  |  | X | Available as claim, can be passed to IDP. |
+| Query string parameter `login_hint` |  |  | X | Available as claim, can be passed to IDP. |
+| Insert JSON into user journey via `client_assertion` | X |  |  | Will be deprecated. |
+| Insert JSON into user journey as `id_token_hint` |  | X |  | Go-forward approach to pass JSON. |
 | [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
 
 ### Session Management
