@@ -130,7 +130,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### Lifecycle management policies
 
-- Lifecycle management policies aren't yet supported in premium-performance block blob storage accounts. 
+- Lifecycle management policies aren't yet supported in premium block blob storage accounts. 
 
 - Data can't be moved from the premium tier to lower tiers. 
 
