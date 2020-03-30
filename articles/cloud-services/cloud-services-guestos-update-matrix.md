@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/13/2020
+ms.date: 3/26/2020
 ms.author: raiye
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -111,11 +111,12 @@ The September Guest OS has released.
 >5. Change the OS Family to 6 and build a package
 >6. Deploy the package to Azure using the Azure portal or Visual Studio
 >
+>Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn [more].
 
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.16_202001-01  |  March 5, 2020  |  Post 6.17  |  
+|  WA-GUEST-OS-6.16_202002-01  |  March 5, 2020  |  Post 6.18  |  
 |  WA-GUEST-OS-6.15_202001-01  |  January 24, 2020  |  Post 6.17  |  
 |~~WA-GUEST-OS-6.14_201912-01~~| January 8, 2020 | March 5, 2020 |  
 |~~WA-GUEST-OS-6.13_201911-01~~| December 5, 2019 | January 24, 2020 |  
@@ -144,7 +145,7 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.40_202002-01  |  March 5, 2020  |  Post 5.41  |  
+|  WA-GUEST-OS-5.40_202002-01  |  March 5, 2020  |  Post 5.42  |  
 |  WA-GUEST-OS-5.39_202001-01  |  January 24, 2020  |  Post 5.41  |  
 |~~WA-GUEST-OS-5.38_201912-01~~| January 8, 2020 | March 5, 2020 |  
 |~~WA-GUEST-OS-5.37_201911-01~~| December 5, 2019 | January 24, 2020 |  
@@ -170,7 +171,7 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.75_202002-01  |  March 5, 2020  |  Post 4.76  |  
+|  WA-GUEST-OS-4.75_202002-01  |  March 5, 2020  |  Post 4.77  |  
 |  WA-GUEST-OS-4.74_202001-01  |  January 24, 2020  |  Post 4.76  |  
 |~~WA-GUEST-OS-4.73_201912-01~~| January 8, 2020 | March 5, 2020 |  
 |~~WA-GUEST-OS-4.72_201911-01~~| December 5, 2019 | January 24, 2020 |  
@@ -196,7 +197,7 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.82_202002-01  |  March 5, 2020  |  Post 3.83  |  
+|  WA-GUEST-OS-3.82_202002-01  |  March 5, 2020  |  Post 3.84  |  
 |  WA-GUEST-OS-3.81_202001-01  |  January 24, 2020  |  Post 3.83  |  
 |~~WA-GUEST-OS-3.80_201912-01~~| January 8, 2020 | March 5, 2020 |  
 |~~WA-GUEST-OS-3.79_201911-01~~| December 5, 2019 | January 24, 2020 |  
@@ -319,3 +320,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
+[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

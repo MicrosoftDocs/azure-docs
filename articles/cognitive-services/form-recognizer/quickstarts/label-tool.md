@@ -46,7 +46,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    Install Docker on your machine by following the appropriate instructions for your operating system: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux](https://docs.docker.com/install/).
+   * [Linux](https://docs.docker.com/install/)
 
 1. Get the sample labeling tool container with the `docker pull` command.
     ```
