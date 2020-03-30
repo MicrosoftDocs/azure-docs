@@ -296,8 +296,6 @@
 
   - name: Scalability
     items:
-    - name: Scalability documentation
-      href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
     - name: Read Scale-Out
