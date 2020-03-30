@@ -172,11 +172,9 @@ Selecting the solution displays the **Start-Stop-VM[workspace]** solution page. 
 
 From here, you can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and pre-defined log search queries. Switch to the log analytics advanced portal to search based on your search queries.
 
-
-
 ## Update the solution
 
-If you have deployed a previous version of this solution, you must first delete it from your account before deploying an updated release. Follow the steps to [remove the solution](#remove-the-solution) and then follow the steps above to [deploy the solution](#deploy-the-solution).
+If you have deployed a previous version of this solution, you must first delete it from your account before deploying an updated release. Follow the steps to [remove the solution](#remove-the-solution) and then follow the steps to [deploy the solution](automation-solution-vm-management-enable.md).
 
 ## Remove the solution
 
