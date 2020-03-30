@@ -123,8 +123,7 @@ $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile `
-  -Debug
+  -TemplateFile $templateFile 
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -136,8 +135,7 @@ templateFile="{provide-the-path-to-the-template-file}"
 az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
-  --template-file $templateFile \
-  --debug
+  --template-file $templateFile
 ```
 
 ---
