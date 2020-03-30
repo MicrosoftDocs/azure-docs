@@ -183,17 +183,24 @@ If you decide you no longer need to use the solution, you can delete it from the
 To delete the solution, perform the following steps:
 
 1. From your Automation account, under **Related resources**, select **Linked workspace**.
-1. Select **Go to workspace**.
-1. Under **General**, select **Solutions**. 
-1. On the **Solutions** page, select the solution **Start-Stop-VM[Workspace]**. On the **VMManagementSolution[Workspace]** page, from the menu, select **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
-1. In the **Delete Solution** window, confirm that  you want to delete the solution.
-1. While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu. You are returned to the **Solutions** page after the process to remove the solution starts.
+
+2. Select **Go to workspace**.
+
+3. Under **General**, select **Solutions**. 
+
+4. On the **Solutions** page, select the solution **Start-Stop-VM[Workspace]**. On the **VMManagementSolution[Workspace]** page, from the menu, select **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
+
+5. In the **Delete Solution** window, confirm that  you want to delete the solution.
+
+6. While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu. You are returned to the **Solutions** page after the process to remove the solution starts.
 
 The Automation account and Log Analytics workspace are not deleted as part of this process. If you do not want to retain the Log Analytics workspace, you need to manually delete it. This can be accomplished from the Azure portal:
 
 1. In Azure portal, search for and select **Log Analytics workspaces**.
-1. On the **Log Analytics workspaces** page, select the workspace.
-1. Select **Delete** from the menu on the workspace settings page.
+
+2. On the **Log Analytics workspaces** page, select the workspace.
+
+3. Select **Delete** from the menu on the workspace settings page.
 
 If you do not want to retain the Azure Automation account components, you can manually delete each. For the list of runbooks, variables, and schedules created by the solution, see the [Solution components](#solution-components).
 
