@@ -12,6 +12,12 @@ manager: lizross
 ---
 # Tutorial: Create a host pool by using the Azure Marketplace
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 In this tutorial, you'll learn how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
@@ -27,7 +33,7 @@ The tasks in this tutorial include:
 
 ## Prerequisites
 
-* A tenant in Virtual Desktop. A previous [tutorial](tenant-setup-azure-active-directory.md) creates a tenant.
+* A tenant in Virtual Desktop. A previous [tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) creates a tenant.
 * [Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
 
 Once you have this module, run the following cmdlet to sign in to your account:
@@ -104,7 +110,7 @@ For the **Windows Virtual Desktop tenant information** tab:
 1. For **Windows Virtual Desktop tenant name**, enter the name of the tenant where you'll be creating this host pool.
 1. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. Enter the UPN or Service principal and a password.
 
-   If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**.
+   If you completed the [Create service principals and role assignments with PowerShell tutorial](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md), select **Service principal**.
 
 1. For **Service principal**, for **Azure AD tenant ID**, enter the tenant admin account for the Azure AD instance that contains the service principal. Only service principals with a password credential are supported.
 1. Select **Next: Review + create**.

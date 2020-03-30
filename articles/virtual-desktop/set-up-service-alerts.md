@@ -12,6 +12,12 @@ manager: lizross
 ---
 # Tutorial: Set up service alerts
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/set-up-service-alerts-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 You can use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. Azure Service Health can notify you with different types of alerts (for example, email or SMS), help you understand the effect of an issue, and keep you updated as the issue resolves. Azure Service Health can also help you mitigate downtime, and prepare for planned maintenance and changes that could affect the availability of your resources.
 
 In this tutorial, you'll learn how to:
@@ -23,8 +29,8 @@ To learn more about Azure Service Health, see the [Azure Health Documentation](h
 
 ## Prerequisites
 
-- [Tutorial: Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
-- [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
+- [Tutorial: Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)
+- [Tutorial: Create service principals and role assignments with PowerShell](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 
 ## Create service alerts

@@ -12,6 +12,12 @@ manager: lizross
 ---
 # Windows Virtual Desktop environment
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 
 ## Tenants
@@ -55,7 +61,7 @@ After you've assigned users to their app groups, they can connect to a Windows V
 
 Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 

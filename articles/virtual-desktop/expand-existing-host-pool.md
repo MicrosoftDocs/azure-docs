@@ -12,6 +12,12 @@ manager: lizross
 ---
 # Expand an existing host pool with new session hosts
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 
 This article will tell you how you can expand an existing host pool with new session hosts.
@@ -21,7 +27,7 @@ This article will tell you how you can expand an existing host pool with new ses
 Before you start, make sure you've created a host pool and session host virtual machines (VMs) using one of the following methods:
 
 - [Azure Marketplace offering](./create-host-pools-azure-marketplace.md)
-- [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md)
+- [GitHub Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Create a host pool with PowerShell](./create-host-pools-powershell.md)
 
 You'll also need the following information from when you first created the host pool and session host VMs:
@@ -37,7 +43,7 @@ The next three sections are three methods you can use to expand the host pool. Y
 
 ## Redeploy from Azure
 
-If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md), you can redeploy the same template from the Azure portal. Redeploying the template automatically reenters all the information you entered into the original template except for passwords.
+If you've already created a host pool and session host VMs using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md) or [GitHub Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md), you can redeploy the same template from the Azure portal. Redeploying the template automatically reenters all the information you entered into the original template except for passwords.
 
 Here's how to redeploy the Azure Resource Manager template to expand a host pool:
 
@@ -116,7 +122,7 @@ All parameter values in this section should match what you provided when you fir
 
 ## Run the GitHub Azure Resource Manager template
 
-Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
 
 ## Next steps
 
