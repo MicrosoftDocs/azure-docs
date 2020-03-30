@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -41,7 +41,7 @@ The **Predicate** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate. Other elements can use this identifier in the policy. |
-| Method | Yes | The method type to use for validation. Possible values: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, or **IsDateRange**. The **IsLengthRange** value checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. The **MatchesRegex** value checks whether a string claim value matches a regular expression. The **IncludesCharacters** value checks whether a string claim value contains a character set. The **IsDateRange** value checks whether a date claim value is between a range of minimum and maximum parameters specified. |
+| Method | Yes | The method type to use for validation. Possible values: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, or **IsDateRange**.  |
 | HelpText | No | An error message for users if the check fails. This string can be localized using the [language customization](localization.md) |
 
 The **Predicate** element contains the following elements:
@@ -62,6 +62,18 @@ The **Parameter** element contains the following attributes:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | The identifier of the parameter. |
+
+### Predicate methods
+
+### IsLengthRange
+
+The **IsLengthRange** value checks whether the length of a string claim value is within the range of minimum and maximum parameters specified. The Predicate element supports the following parameters:
+
+| Parameter | Required | Description |
+| ------- | ----------- | ----------- |
+| Maximum | Yes | The minimum number of characters that must be entered. |
+| Minimum | Yes | The maximum number of characters that can be entered. |
+
 
 The following example shows a `IsLengthRange` method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
