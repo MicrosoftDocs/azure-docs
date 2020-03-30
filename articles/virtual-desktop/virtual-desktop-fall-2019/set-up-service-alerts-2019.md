@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
