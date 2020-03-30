@@ -59,7 +59,7 @@ One app can have multiple domains, but one domain can only map to one app. When 
 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
 
-[!NOTE] A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser.
+> [!NOTE] A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser.
 
 ## Add SSL binding
 In the custom domain table, select **Add ssl binding** as shown in the previous figure.  
