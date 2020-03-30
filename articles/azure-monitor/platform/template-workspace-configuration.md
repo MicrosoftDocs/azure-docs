@@ -193,7 +193,7 @@ The following template sample illustrates how to:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -302,7 +302,7 @@ The following template sample illustrates how to:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -601,7 +601,7 @@ The following template sample illustrates how to:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },
