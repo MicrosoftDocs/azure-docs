@@ -14,8 +14,6 @@ ms.subservice: disks
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](disks-use-storage-explorer-managed-disks.md)
-
 ## Prerequisites
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
@@ -24,6 +22,8 @@ If you'd prefer to upload disks through a GUI, you can do so using Azure Storage
 - Or, a managed disk in Azure, if you intend to perform a copy action.
 
 ## Getting started
+
+If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](disks-use-storage-explorer-managed-disks.md)
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
