@@ -168,7 +168,7 @@ CLI support is available for regional VNet Integration. To access the following 
         Commands:
             list : List the virtual network integrations used in an appservice plan.
 
-For gateway-required VNet Integration, you can integrate App Service with an Azure Virtual Network by using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+For gateway-required VNet Integration, you can integrate App Service with an Azure virtual network by using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure virtual network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 
 <!--Image references-->
