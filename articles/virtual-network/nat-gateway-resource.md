@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 03/30/2020
 ms.author: allensu
 ---
 
@@ -35,7 +35,7 @@ Configuring and using NAT gateway is intentionally made simple:
 NAT gateway resource:
 - Create regional or zonal (zone-isolated) NAT gateway resource,
 - Assign IP addresses,
-- Modify TCP idle timeout (optional).
+- If necessary, modify TCP idle timeout (optional).  Review [timers](#timers) <ins>before</ins> you change the default.
 
 Virtual network:
 - Configure virtual network subnet to use a NAT gateway.
@@ -180,21 +180,23 @@ Even without availability zones, NAT is resilient and can survive multiple infra
   <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with availability zones">
 </p>
 
-*Figure: Virtual Network NAT with availability zones*
+*Figure: Virtual Network NAT with zone isolation*
 
 A zone-isolated NAT gateway requires IP addresses to match the zone of the NAT gateway. NAT gateway resources with IP addresses from a different zone or without a zone are unsupported.
 
 Virtual networks and subnets are regional and not zonal aligned. A VM must be in the same zone as NAT gateway for a zonal promise of outbound connections. Zone isolation is created by creating a zonal "stack" per availability zone. A zonal promise won't exist when crossing zones of a zonal NAT gateway or using a regional NAT gateway with zonal VMs.
 
-When you deploy virtual machine scale sets to use with NAT, you deploy a zonal scale set on its own subnet and attach the matching zone NAT gateway to that subnet. If you use zone-spanning scale sets (a scale set in two or more zones), NAT won't provide a zonal promise.  NAT doesn't support zone-redundancy.  Only regional or zone-isolation is supported.
 
 <p align="center">
   <img src="media/nat-overview/az-directions2.svg" width="425" title="zone-spanning Virtual Network NAT">
 </p>
 
-*Figure: Zone-spanning Virtual Network NAT*
+*Figure: Virtual Network NAT not compatible with zone-spanning subnet*
 
-The zones property isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
+Virtual Network NAT is unable to provide a zonal promise with a zone-spanning subnet.  NAT doesn't support zone-redundancy and doesn't replicate flow state across zones. Use zone-isolation instead.
+
+>[!NOTE]
+>The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
 
 >[!NOTE] 
 >IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
@@ -251,11 +253,9 @@ Once a SNAT port releases, it's available for use by any virtual machine on subn
 
 ### Scaling
 
-NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.
+NAT needs sufficient SNAT port inventory for the complete outbound scenario. Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. Sufficient inventory needs to exist to address the peak outbound flow for all subnets attached to a NAT gateway resource.  You can use public IP addresses or public IP prefixes or both to create SNAT port inventory for usage by the NAT.
 
-SNAT maps multiple private addresses to one public address and uses multiple public IPs to scale.
-
-A NAT gateway resource will use 64,000 ports (SNAT ports) of a public IP address.  These SNAT ports become the available inventory for the private to public flow mapping. And adding more public IP addresses increases the available inventory SNAT ports. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
+SNAT maps private addresses to one or more public IP addresses. These public IP addresses can be provided as public IP address resources or public IP prefix resources or both.  A NAT gateway resource will use 64,000 ports (SNAT ports) per configured IP address for this translation.  If a public IP prefix resource is provided, each IP address within the prefix is provided ports to the SNAT port inventory. These SNAT ports become the available inventory for the private to public flow mapping. And adding more IP addresses increases the available inventory SNAT ports. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports.  TCP and UDP are separate SNAT port inventories and unrelated.
 
 NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.
 
@@ -264,6 +264,9 @@ NAT gateway resources opportunistically reuse source ports. For scaling purposes
 NAT gateway resources interact with IP and IP transport headers of UDP and TCP flows and are agnostic to application layer payloads.  Other IP protocols aren't supported.
 
 ### Timers
+
+>[!IMPORTANT]
+>Long idle timers can unnecessarily increase likelihood of SNAT exhaustion. The longer of a timer you specify, the longer NAT will hold on to SNAT ports until they eventually idle timeout. If your flows are idle timed out, they will fail eventually anyway and unnecessarily consume SNAT port inventory.  Flows that fails at 2 hours would have failed at the default 4 minutes as well. Increasing the idle timeout is a last resort option that should be used sparingly. If a flow never does go idle, it will not be impacted by these timers.
 
 TCP idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
@@ -290,7 +293,7 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 ## Feedback
 
-We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
+We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## Next steps
 
@@ -310,9 +313,9 @@ We want to know how we can improve the service. Propose and vote on what we shou
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
-
 * Learn about [availability zones](../availability-zones/az-overview.md).
 * Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 * Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 
 
