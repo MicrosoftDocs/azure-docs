@@ -16,7 +16,7 @@ highlightedContent:
       title: A microservices approach to applications
       url: /azure/service-fabric/service-fabric-overview-microservices
     - itemType: concept
-      title: Kubernetes basics
+      title: Understanding Kubernetes
       url: /azure/aks/concepts-clusters-workloads
 
 # conceptualContent section (optional)
