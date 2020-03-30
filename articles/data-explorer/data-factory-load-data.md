@@ -56,7 +56,7 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
    | **Name** | In the box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For rules about naming Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
    | **Subscription** | In the drop-down list, select the Azure subscription in which to create the data factory. |
    | **Resource Group** | Select **Create new**, and then enter the name of a new resource group. If you already have a resource group, select **Use existing**. |
-   | **Version** | In the drop-down list, select **V2**. |	
+   | **Version** | In the drop-down list, select **V2**. |    
    | **Location** | In the drop-down list, select the location for the data factory. Only supported locations are displayed in the list. The data stores that are used by the data factory can exist in other locations or regions. |
 
 1. Select **Create**.
@@ -138,6 +138,9 @@ You can load your data in either of the following ways:
 ### Copy data into Azure Data Explorer (destination)
 
 The new Azure Data Explorer linked service is created to copy the data into the Azure Data Explorer destination table (sink) that's specified in this section.
+
+> [!NOTE]
+> If you'd like to use any of the [ingest from query commands](/azure/kusto/management/data-ingestion/ingest-from-query), such as .set-or-replace, then you can use the [Use Azure Data Factory command activity to run Azure Data Explorer control commands](data-factory-command-activity.md) activity in ADF. This activity can be used for executing and control command. 
 
 #### Create the Azure Data Explorer linked service
 
