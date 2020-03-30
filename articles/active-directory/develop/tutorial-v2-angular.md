@@ -1,5 +1,5 @@
 ---
-title: Angular single-page app tutorial
+title: Angular single-page app tutorial - Microsoft identity platform | Azure
 description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint
 services: active-directory
 documentationcenter: dev-center-name
@@ -90,89 +90,90 @@ Follow the instructions to [register a single-page application](https://docs.mic
 
 1. In the *src/app* folder, edit *app.module.ts* and add the `MSALModule` to `imports` as well as the `isIE` const as shown below:
 
-```javascript
-const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MsalModule.forRoot({
-      auth: {
-        clientId: 'Enter_the_Application_Id_here', // This is your client ID
-        authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant id
-        redirectUri: 'Enter_the_Redirect_Uri_Here'// This is your redirect URI
-      },
-      cache: {
-        cacheLocation: 'localStorage',
-        storeAuthStateInCookie: isIE, // set to true for IE 11
-      },
-    }, {
-      popUp: !isIE,
-      consentScopes: [
-        'user.read',
-        'openid',
-        'profile',
+    ```javascript
+    const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+    @NgModule({
+      declarations: [
+        AppComponent
       ],
-      unprotectedResources: [],
-      protectedResourceMap: [
-        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MsalModule.forRoot({
+          auth: {
+            clientId: 'Enter_the_Application_Id_here', // This is your client ID
+            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant id
+            redirectUri: 'Enter_the_Redirect_Uri_Here'// This is your redirect URI
+          },
+          cache: {
+            cacheLocation: 'localStorage',
+            storeAuthStateInCookie: isIE, // set to true for IE 11
+          },
+        }, {
+          popUp: !isIE,
+          consentScopes: [
+            'user.read',
+            'openid',
+            'profile',
+          ],
+          unprotectedResources: [],
+          protectedResourceMap: [
+            ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+          ],
+          extraQueryParameters: {}
+        })
       ],
-      extraQueryParameters: {}
+      providers: [],
+      bootstrap: [AppComponent]
     })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-```
+    ```
 
-Replace these values as such:
+    Replace these values as such:
 
-|Value name|About|
-|---------|---------|
-|Enter_the_Application_Id_Here|In the **Overview** page of your application registration, this is your **Application (client) ID** |
-|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter https://login.microsoftonline.com. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
-|Enter_the_Tenant_Info_Here| Set to one of the following options: 1) If your application supports *accounts in this organizational directory*, replace this value with the **Directory (Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*). 2) If your application supports *accounts in any organizational directory*, replace this value with **organizations**. 3) If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. 4) To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
-|Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`|
+    |Value name|About|
+    |---------|---------|
+    |Enter_the_Application_Id_Here|In the **Overview** page of your application registration, this is your **Application (client) ID** |
+    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter https://login.microsoftonline.com. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Tenant_Info_Here| Set to one of the following options: 1) If your application supports *accounts in this organizational directory*, replace this value with the **Directory (Tenant) ID** or **Tenant name** (for example, *contoso.microsoft.com*). 2) If your application supports *accounts in any organizational directory*, replace this value with **organizations**. 3) If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. 4) To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
+    |Enter_the_Redirect_Uri_Here|Replace with `http://localhost:4200`|
 
-For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
+    For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
 2. In the same file, add the following import to the top of the file:
-```javascript
-import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
-```
 
-### Import modules
-Add the following import statements to the top of `src/app/app.component.ts`
-```javascript
-import { MsalService } from '@azure/msal-angular';
-import { Component, OnInit } from '@angular/core';
-```
-## Sign in a user
+    ```javascript
+    import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+    ```
 
-Add the following code to `AppComponent` to sign in a user:
+    ### Import modules
+    Add the following import statements to the top of `src/app/app.component.ts`
+    ```javascript
+    import { MsalService } from '@azure/msal-angular';
+    import { Component, OnInit } from '@angular/core';
+    ```
+    ## Sign in a user
 
-```javascript
-export class AppComponent implements OnInit {
-    constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+    Add the following code to `AppComponent` to sign in a user:
 
-    login() {
-        const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+    ```javascript
+    export class AppComponent implements OnInit {
+        constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
 
-        if (isIE) {
-          this.authService.loginRedirect({
-            extraScopesToConsent: ["user.read", "openid", "profile"]
-          });
-        } else {
-          this.authService.loginPopup({
-            extraScopesToConsent: ["user.read", "openid", "profile"]
-          });
+        login() {
+            const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+
+            if (isIE) {
+              this.authService.loginRedirect({
+                extraScopesToConsent: ["user.read", "openid", "profile"]
+              });
+            } else {
+              this.authService.loginPopup({
+                extraScopesToConsent: ["user.read", "openid", "profile"]
+              });
+            }
         }
     }
-}
-```
+    ```
 
 > [!TIP]
 > We recommend using `loginRedirect` for Internet Explorer users.
