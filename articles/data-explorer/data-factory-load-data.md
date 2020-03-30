@@ -75,7 +75,7 @@ You can load data from many types of [data stores](/azure/data-factory/copy-acti
 
 You can load your data in either of the following ways:
 
-* In the Azure Data Factory user interface, in the left pane, select the **Author** icon, as shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* In the Azure Data Factory user interface, in the left pane, select the **Author** icon. This is shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 * In the Azure Data Factory Copy Data tool, as shown in [Use the Copy Data tool to copy data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### Copy data from Amazon S3 (source)
@@ -154,13 +154,13 @@ To create the Azure Data Explorer linked service, do the following steps:
 
     ![The New linked service pane](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. In the **New Linked Service (Azure Data Explorer)** pane, do the following steps :
+1. In the **New Linked Service (Azure Data Explorer)** pane, do the following steps:
 
     ![The Azure Data Explorer New Linked Service pane](media/data-factory-load-data/adx-new-linked-service.png)
 
    a. In the **Name** box, enter a name for the Azure Data Explorer linked service.
 
-   b. Under **Account selection method**, do one of the following: 
+   b. Under **Account selection method**, choose one of the following options: 
 
     * Select **From Azure subscription** and then, in the drop-down lists, select your **Azure subscription** and your **Cluster**. 
 
@@ -186,7 +186,7 @@ To create the Azure Data Explorer linked service, do the following steps:
 
 #### Configure the Azure Data Explorer data connection
 
-After you've created the linked service connection, the **Destination data store** pane opens, and the connection you created is available for use. To configure the connection, do the following;
+After you've created the linked service connection, the **Destination data store** pane opens, and the connection you created is available for use. To configure the connection, do the following steps:
 
 1. Select **Next**.
 
@@ -214,7 +214,7 @@ After you've created the linked service connection, the **Destination data store
 
     ![The destination dataset "Column mapping" pane](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. In the **Settings** pane, do the following:
+1. In the **Settings** pane, do the following steps:
 
     a. Under **Fault tolerance settings**, enter the relevant settings.
 
