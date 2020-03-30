@@ -13,6 +13,13 @@ One of the most important steps you can take to protect your data is to have a r
 
 Backup of Azure VMs requires movement of data from your virtual machine's disk to the Recovery Services vault. However, all the required communication and data transfer happens only on the Azure backbone network without needing to access your virtual network. Therefore, backup of Azure VMs placed inside secured networks doesn't require you to allow access to any IPs or FQDNs.
 
+## Private Endpoints for Azure backup
+
+You can now use [Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to back up your data securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault, so you do not need to expose your virtual networks to any public IPs. Private Endpoints can be used for backing up and restoring your SQL and SAP HANA databases that run inside your Azure VMs. It can also be used for your on-premises servers using the MARS agent.
+
+>[!NOTE]
+> This feature is currently in limited availability. Please fill out [this survey](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUQk5EQ1QxRzVOWDNDS1Y1Q0xLTkdLQ0U0RC4u) and email us at azbackupnetsec@microsoft.com if you are interested in using Private Endpoints for Azure Backup. The ability to use this feature is subject to approval from the Azure Backup service.
+
 ## Separation between guest and Azure storage
 
 With Azure Backup, which includes virtual machine backup and SQL and SAP HANA in VM backup, the backup data is stored in Azure storage and the guest has no direct access to backup storage or its contents.  With virtual machine backup, the backup snapshot creation and storage is done by Azure fabric where the guest has no involvement other than quiescing the workload for application consistent backups.  With SQL and SAP HANA, the backup extension gets temporary access to write to specific blobs.  In this way, even in a compromised environment, existing backups can't be tampered with or deleted by the guest.
