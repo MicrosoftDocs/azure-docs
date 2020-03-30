@@ -121,7 +121,7 @@ You can load your data in either of the following ways:
 
    ![Source data store created connection](media/data-factory-load-data/source-data-store-created-connection.png)
 
-1. In the **Choose the input file or folder** pane, do the following:
+1. In the **Choose the input file or folder** pane, do the following steps:
 
     a. Browse to the file or folder that you want to copy, and then select it.
 
@@ -140,11 +140,11 @@ You can load your data in either of the following ways:
 The new Azure Data Explorer linked service is created to copy the data into the Azure Data Explorer destination table (sink) that's specified in this section.
 
 > [!NOTE]
-> If you'd like to use any of the [ingest from query commands](/azure/kusto/management/data-ingestion/ingest-from-query), such as .set-or-replace, then you can use the [Use Azure Data Factory command activity to run Azure Data Explorer control commands](data-factory-command-activity.md) activity in ADF. This activity can be used for executing and control command. 
+> To use any of the [ingest from query commands](/azure/kusto/management/data-ingestion/ingest-from-query), such as .set-or-replace, you can use the [Use Azure Data Factory command activity to run Azure Data Explorer control commands](data-factory-command-activity.md) activity in ADF. This activity can be used for both executing and control commands. 
 
 #### Create the Azure Data Explorer linked service
 
-To create the Azure Data Explorer linked service, do the following;
+To create the Azure Data Explorer linked service, do the following steps:
 
 1. To use an existing data store connection or specify a new data store, in the **Destination data store** pane, select **Create new connection**.
 
@@ -154,7 +154,7 @@ To create the Azure Data Explorer linked service, do the following;
 
     ![The New linked service pane](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. In the **New Linked Service (Azure Data Explorer)** pane, do the following:
+1. In the **New Linked Service (Azure Data Explorer)** pane, do the following steps:
 
     ![The Azure Data Explorer New Linked Service pane](media/data-factory-load-data/adx-new-linked-service.png)
 
