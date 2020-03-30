@@ -91,6 +91,17 @@ MoviesYear aggregate(
             ) ~> AvgComedyRatingByYear
 ```
 
+![Aggregate data flow script](media/data-flow/aggdfs1.png "Aggregate data flow script")
+
+```MoviesYear```: Derived Column defining year and title columns
+```AvgComedyRatingByYear```: Aggregate transformation for average rating of comedies grouped by year
+```avgrating```: Name of new column being created to hold the aggregated value
+
+```
+MoviesYear aggregate(groupBy(year),
+	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
+```
+
 ## Next steps
 
 * Define window-based aggregation using the [Window transformation](data-flow-window.md)
