@@ -11,6 +11,19 @@ ms.topic: overview
 ms.service: azure-project-spool
 
 ---
+
+- **Discussion**:
+  - This is where we relate Spool to other offerings.
+  - Our conceptual model needs to match existing WebRTC conceptual docs offered by mozilla / webrtc.org. Ours will just be articulated in terms of Microsoft Azure / Spool - including data channels, lifetime management, etc.
+
+- Gold Standard Docs:
+  - https://webrtc.org/getting-started/overview
+  - https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
+
+
+---
+
+
 # Project Spool overview
 
 Project Spool allows you to easily add calling and messaging to your apps without worrying about real-time communications infrastructure. 

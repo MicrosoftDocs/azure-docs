@@ -40,7 +40,7 @@ Preparation instructions: TODO
 
 **Customer intent**: Utilize Spool Client and Server C# SDKs.
 
-**Golden standard**: TODO
+**Golden standard**: [Microsoft.ML](https://docs.microsoft.com/en-us/dotnet/api/microsoft.ml?view=ml-dotnet)
 
 **Preparation instructions**: Instructions are detailed [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/documenting-api?branch=master). In summary:
 
@@ -56,7 +56,7 @@ Preparation instructions: TODO
 
 Customer intent: Utilize Spool Client and Server JS SDKs
 
-Golden standard: TODO
+Golden standard: [Azure Storage](https://docs.microsoft.com/en-us/javascript/api/@azure/storage-blob/?view=azure-node-latest)
 
 Preparation instructions: Instructions are detailed [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/js-ts/documenting-api?branch=master). In summary:
 - For Javascript, [JSDoc conventions](https://jsdoc.app/) are used.
@@ -82,33 +82,15 @@ Golden standard: TODO
 Preparation instructions: TODO
 
 
-### Outstanding Risks / Concerns
 
-- We may have some unique reference docs needs that may not be addressed by existing processes. (What are those needs?)
-- How can we ensure that the pipelines across all platforms (from "raw material handoff" to "hosted reference docs") are fully tested well before we need our docs to be published?
+### FAQ
 
+**Q:** How do we deliver SDKs to Robert's team?
 
+**A:** For non-released SDKs, we suggest using an unauthenticated (very important) MyGet feed for .NET and a NPM feed for JS/TS.
 
-### Mick's Notes
+~
 
-Step 1 on [this page](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/road-to-docs?branch=master) tells us how to prepare our code for handoff to Robert's team. 
+**Q:** Would it be possible to send you partially-completed SDKs to "flush the pipes" – whereby partial reference docs are generated and dropped into Spool's private repository?
 
- - For JS, it looks like [TypeDoc](http://typedoc.org/guides/doccomments/) conventions are used ([source](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/js-ts/documenting-api?branch=master)).
- - For C#, the instructions are documented [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/documenting-api?branch=master).
-
-Once the code is prepared, we'll send Robert an email with the following:
-
-- Our prepared **packages' locations** (myget / nuget / npm / etc)
-  - *For our **C# SDKs**, I believe that's Microsoft.Azure.Spool.Client and Microsoft.Azure.Spool.Server on myget: https://www.myget.org/F/spool-sdk/auth/d2d18e05-8424-467c-9b5b-9194847fcf64/api/v3/index.json*
-  - *For our **JS SDKs**, I believe that's:*
-    - "@azure/spool-auth": "https://www.myget.org/F/spool-sdk/auth/de20e499-3c4d-4204-bada-c209d6b770b6/npm/@azure/spool-auth/-/0.1.4.tgz",
-    - "@azure/spool-client": "https://www.myget.org/F/spool-sdk/auth/de20e499-3c4d-4204-bada-c209d6b770b6/npm/@azure/spool-client/-/0.1.4.tgz",
-    - "@azure/spool-server": "https://www.myget.org/F/spool-sdk/auth/de20e499-3c4d-4204-bada-c209d6b770b6/npm/@azure/spool-server/-/0.1.4.tgz",
-- Our **privacy needs** (can this reference documentation's metadata be exposed to the public? Does it need to be completely locked down from public consumption?)
-  - *I think we need full privacy with the intent to publish the morning of Build, is that right?* 
-- Your **target repository's location**
-  - *That would be this fork for now - https://github.com/mikben/azure-docs-pr/tree/release-project-spool*
-
-Robert will then loop back with any clarifying questions before passing the baton off to the vendor team who will generate our docs.
-
-Every team's set of needs is unique, which means that we have a lot of processes available to us. These processes have been documented in several locations ([dev.azure](https://dev.azure.com/azure-sdk/internal/_wiki/wikis/internal.wiki/10/Welcome-and-Onboarding), [azure.github](https://azure.github.io/azure-sdk-for-net/), [github/azure](https://github.com/Azure/adx-documentation-pr/wiki), [review.docs](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/?branch=master)).
+**A:** Yes, we can start working with incomplete content, as long as its available in a feed. This is actually a great way to train your team on how to trigger new doc builds and manage the configuration yourself.

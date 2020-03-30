@@ -1,21 +1,19 @@
 ---
-title: Add Persistent Chat To Your App
+title: Patterns and Practices
 description: TODO
-author: mikben    
+author: mikben
 manager: jken
 services: azure-project-spool
 
 ms.author: mikben
-ms.date: 03/10/2020
-ms.topic: overview
+ms.date: 03/18/2020
+ms.topic: conceptual
 ms.service: azure-project-spool
 
 ---
 
-#### Temporary:
-
 -  Customer intent statements: 
-   - I'm building an app that allows users to chat. I want to leverage Spool's signaling, storage, and UI components to make this easy.
+   - I want to know what development patterns and practices I should keep in mind as I leverage Spool.
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -24,12 +22,15 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - {shawn} Disambiguation needed RE RTC / chat apis
+  - What are the recommended patterns and practices?
 
 - TODOs:
   - Draft initial content
 
 
-# Add Persistent Chat to Your App
+
+# Patterns and Practices
 
 TODO
+
+

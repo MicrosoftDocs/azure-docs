@@ -22,7 +22,12 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - TODO
+  - Are signaling primitives being developed by Azure?
+  - Signaling feels like an overloaded term. What exactly does it mean in the context of Spool?
+  - Signaling is used for everything - without it there is no solution - so it will be exposed to the customer. But the way that it's exposed is TBD.
+  - Timing and scope are still TBD here.
+  - Does signaling offer any value beyond facilitating other Spool features?
+
 
 - TODOs:
   - Draft initial content

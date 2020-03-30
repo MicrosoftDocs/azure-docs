@@ -1,5 +1,5 @@
 ---
-title: Add Signaling To Your App
+title: Add 2-Factor Authentication To Your App
 description: TODO
 author: mikben    
 manager: jken
@@ -15,7 +15,7 @@ ms.service: azure-project-spool
 #### Temporary:
 
 -  Customer intent statements: 
-   - I need to send messages from one client to other clients and/or my server. I'd like to use Spool to make this easy. I don't need persistent storage - just transient signaling. I'll handle the processing and storage.
+   - I want to know how to add 2FA to my app using Spool
 
 - Resources: 
   - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
@@ -24,14 +24,12 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - Is this an actual scenario?
-  - {Bala} - It may not be... signaling is everywhere. You don't add it, you leverage it.
-  - Do we need this doc?
+  - TODO
 
 - TODOs:
   - Draft initial content
 
 
-# Add Signaling to Your App
+# Add 2FA to your app
 
 TODO

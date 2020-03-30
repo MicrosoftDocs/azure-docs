@@ -21,14 +21,14 @@
     href: overview.md
 - name: Tutorials
   items:
-  - name: Add SMS To Your App
-    href: tutorials/add-sms-to-your-app.md
+  - name: Add SMS To Your Web App
+    href: tutorials/add-sms-to-your-web-app.md
   - name: Add Calling To Your App
     href: tutorials/add-calling-to-your-app.md  
   - name: Add Signaling To Your App
     href: tutorials/add-signaling-to-your-app.md
-  - name: Add Persistent Chat To Your App
-    href: tutorials/add-persistent-chat-to-your-app.md
+  - name: Add Chat To Your App
+    href: tutorials/add-chat-to-your-app.md
   - name: Add Network Traversal To Your App
     href: tutorials/add-network-traversal-to-your-app.md
   - name: Add Video To Your UWP App
@@ -53,8 +53,12 @@
         href: concepts/PSTN.md
       - name: Signaling
         href: concepts/Signaling.md
+  - name: SDKs
+    href: concepts/sdk.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
+  - name: Patterns and Practices
+    href: concepts/patterns-practices.md
   - name: Calling
     href: concepts/calling.md
   - name: Chat
