@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 01/28/2020
+ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -14,7 +14,9 @@ There is also a [Visual Studio Code-based version](functions-create-first-functi
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
-[!INCLUDE [functions-cli-verify-prereqs-venv](../../includes/functions-cli-verify-prereqs-venv.md)]
+[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
+
+[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
 ## Create a local function project
 

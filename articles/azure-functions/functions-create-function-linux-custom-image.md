@@ -1,7 +1,7 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
@@ -35,7 +35,11 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 + A [Docker ID](https://hub.docker.com/signup)
 
-[!INCLUDE [functions-cli-verify-prereqs-venv](../../includes/functions-cli-verify-prereqs-venv.md)]
+[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
+
++ Run `docker login` to sign in to Docker. This command fails if Docker is not running, in which case start docker and retry the command.
+
+[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
 ## Create and test the local functions project
 
