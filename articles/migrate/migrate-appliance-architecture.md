@@ -43,7 +43,7 @@ The appliance has a number of components.
 ## Appliance registration
 
 During appliance setup, you register the appliance with Azure Migrate, and the actions summarized in the table occur.
-c
+
 **Action** | **Details** | **Permissions**
 --- | --- | ---
 **Register source providers** | These resources providers are registered in the subscription you choose during appliance setup: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault.<br/><br/> Registering a resource provider configures your subscription to work with the resource provider. | To register the resource providers, you need a Contributor or Owner role on the subscription.
