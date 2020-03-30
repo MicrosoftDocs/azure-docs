@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 30/03/2020
+ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
 
