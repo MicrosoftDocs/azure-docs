@@ -8,7 +8,7 @@ ms.date: 03/23/2020
 
 # Azure Migrate appliance architecture
 
-This article describes the Azure Migrate appliance architecture and processes. The Azure Migrate appliance is a lightweight appliance that's deployed on premises, to discover VMs and physical servers that you want to assess for migration to Azure. 
+This article describes the Azure Migrate appliance architecture and processes. The Azure Migrate appliance is a lightweight appliance that's deployed on premises, to discover VMs and physical servers for migration to Azure. 
 
 ## Deployment scenarios
 
@@ -16,10 +16,10 @@ The Azure Migrate appliance is used in the following scenarios.
 
 **Scenario** | **Tool** | **Used for** 
 --- | --- | ---
-**VMware VM assessment** | Azure Migrate: Server Assessment | Discover VMware VMs.<br/><br/> Discover machine apps and dependencies.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
-**VMware VM migration (agentless)** | Azure Migrate: Server Migration | Discover VMware VMs<br/><br/>  Replicate VMware VMs with [agentless migration](server-migrate-overview.md).
-**Hyper-V VM assessment** | Azure Migrate: Server Assessment | Discover Hyper-V VMs.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
-**Physical machine** |  Azure Migrate: Server Assessment |  Discover physical servers.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
+**VMware VM assessment** | Azure Migrate:Server Assessment | Discover VMware VMs.<br/><br/> Discover machine apps and dependencies.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
+**VMware VM migration (agentless)** | Azure Migrate:Server Migration | Discover VMware VMs<br/><br/>  Replicate VMware VMs with [agentless migration](server-migrate-overview.md).
+**Hyper-V VM assessment** | Azure Migrate:Server Assessment | Discover Hyper-V VMs.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
+**Physical machine** |  Azure Migrate:Server Assessment |  Discover physical servers.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
 
 ## Appliance components
 
@@ -36,14 +36,14 @@ The appliance has a number of components.
 
 ## Appliance deployment
 
-- The Azure Migrate appliance can be set up using a template for [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [VMware](how-to-set-up-appliance-vmware.md) or a using a PowerShell script installer for [VMware/Hyper-V](deploy-appliance-script.md), and for [physical servers](how-to-set-up-appliance-physical.md). 
+- The Azure Migrate appliance can be set up using a template for [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [VMware](how-to-set-up-appliance-vmware.md) or using a PowerShell script installer for [VMware/Hyper-V](deploy-appliance-script.md), and for [physical servers](how-to-set-up-appliance-physical.md). 
 - Appliance support requirements and deployment prerequisites are summarized in the [appliance support matrix](migrate-appliance.md).
 
 
 ## Appliance registration
 
-During appliance setup, you register the appliance with Azure Migrate.During setup and registration the actions summarized in the table occur.
-
+During appliance setup, you register the appliance with Azure Migrate, and the actions summarized in the table occur.
+c
 **Action** | **Details** | **Permissions**
 --- | --- | ---
 **Register source providers** | These resources providers are registered in the subscription you choose during appliance setup: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault.<br/><br/> Registering a resource provider configures your subscription to work with the resource provider. | To register the resource providers, you need a Contributor or Owner role on the subscription.
@@ -54,7 +54,7 @@ During appliance setup, you register the appliance with Azure Migrate.During set
 
 ## Collected data
 
-Data collected by the client for all deployment scenarios is captured fully in the [appliance support matrix](migrate-appliance.md).
+Data collected by the client for all deployment scenarios is summarized in the [appliance support matrix](migrate-appliance.md).
 
 ## Discovery and collection process
 
