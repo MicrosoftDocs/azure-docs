@@ -43,7 +43,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 * The key must have the following attributes to use as a customer-managed key:
   * No expiration date
   * Not disabled
-  * Able to perform get, wrap key, unwrap key operations
+  * Perform **get**, **wrap**, **unwrap** operations
 
 ## Set the right permissions for key operations
 
@@ -75,7 +75,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
     az mysql server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url :  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
 
 ## Restore or create a replica of the server
 
@@ -86,7 +86,7 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
   *  [Create a restore server](howto-restore-server-cli.md) 
   *  [Create a replica server](howto-read-replica-cli.md) 
 
-### Once the server is restored re-validate data encryption the restored server
+### Once the server is restored, revalidate data encryption the restored server
 
     ```azurecli-interactive
     az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
@@ -100,7 +100,7 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url :  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
 
 ### List the Key used
 
@@ -123,7 +123,7 @@ Apart from the Azure portal, you can also enable data encryption on your Azure D
 Use one of the pre-created Azure Resource Manager templates to provision the server with data encryption enabled:
 [Example with Data encryption](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption)
 
-This Azure Resource Manager template creates a Azure Database for MySQL server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
+This Azure Resource Manager template creates an Azure Database for MySQL server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
 
 ### For an existing server
 Additionally, you can use Azure Resource Manager templates to enable data encryption on your existing Azure Database for MySQL servers.
