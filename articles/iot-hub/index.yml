@@ -80,18 +80,6 @@ landingContent:
           url: tutorial-routing-config-message-routing-rm-template.md
         - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
- - title: IoT Security and using security certificates
-   linkLists:
-     - linkListType: concept
-       links:
-         - text: Device Authentication using X.509 CA verts
-           url: iot-hub-x509ca-overview.md
-         - text: X.509 security with IoT Hub
-           url: iot-hub-security-x509-get-started.md
-         - text: X.509 CA cert security concepts
-           url: iot-hub-x509ca-concept.md
-         - text: Control access to IoT Hub
-           url: iot-hub-devguide-security.md
  -   title: Use IoT Hub Tools
      linkLists:
      -  linkListType: how-to-guide
@@ -100,3 +88,15 @@ landingContent:
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
           url: ../iot-pnp/howto-install-iot-explorer.md
+ - title: Using IoT Security certificates
+   linkLists:
+     - linkListType: concept
+       links:
+         - text: Control access to IoT Hub
+           url: iot-hub-devguide-security.md
+         - text: Device Authentication using X.509 CA certs
+           url: iot-hub-x509ca-overview.md
+         - text: X.509 security with IoT Hub
+           url: iot-hub-security-x509-get-started.md
+         - text: X.509 CA cert security concepts
+           url: iot-hub-x509ca-concept.md
