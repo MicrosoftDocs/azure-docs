@@ -5,6 +5,7 @@ ms.topic: include
 ms.date: 30/03/2020
 ms.author: orspodek
 ---
+## Query data
 
 1. Select the **v** button to open the query. Copy to the Web UI to edit the query.
 

@@ -11,7 +11,9 @@ ms.date: 03/29/2020
 
 # Use one-click ingestion to ingest data to a new table in Azure Data Explorer
 
-One-click ingestion enables you to quickly ingest a new table in JSON, CSV, and other formats. Using the Azure Data Explorer Web UI, you can ingest data from storage, from a local file, or from a container. This document describes using the intuitive one-click wizard to ingest your data into a new table. You can then edit the table and run queries with the Azure Data Explorer Web UI.
+One-click ingestion enables you to quickly ingest a new table in JSON, CSV, and other formats. Using the Azure Data Explorer Web UI, you can ingest data from storage, from a local file, or from a container. 
+
+This document describes using the intuitive one-click wizard to ingest CSV data from a container into a new table. You can then edit the table and run queries with the Azure Data Explorer Web UI.
 
 One-click ingestion is particularly useful when ingesting data for the first time, or when your data's schema is unfamiliar to you. 
 
@@ -24,23 +26,27 @@ For information about ingesting data into an existing table in Azure Data Explor
 
     ![Select one-click ingestion in the Web UI](media/one-click-ingestion-new-table/one-click-ingestion-in-web-ui.png)   
  
-1. In the **Ingest new data (Preview)** window, the **Source** tab is automatically selected. Complete the **Project Details**:
+1. In the **Ingest new data (Preview)** window, the **Source** tab is automatically selected. 
 
-    1. Select **Create new table** and enter a name for the new table. You can use alphanumeric, hyphens and underscores. Special characters aren't supported.
-    ![Create a new table](media/one-click-ingestion-new-table/create-new-table.png) 
-    
-    [!INCLUDE [data-explorer-data-explorer-one-click-ingestion-types](../../includes/data-explorer-data-explorer-one-click-ingestion-types.md)]
+Select **Create new table** and enter a name for the new table. You can use alphanumeric, hyphens and underscores. Special characters aren't supported.
 
-1. Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob. By looking at the name of the source, the service automatically identifies if it is compressed or not.
+![Create a new table](media/one-click-ingestion-new-table/create-new-table.png) 
+
+[!INCLUDE [data-explorer-data-explorer-one-click-ingestion-types](../../includes/data-explorer-data-explorer-one-click-ingestion-types.md)]
+
+Select **Edit schema** to view and edit your table column configuration. The system will select one of the blobs at random and the schema will be generated based on that blob. By looking at the name of the source, the service automatically identifies if it is compressed or not.
 
 ## Edit the schema
 
 1. In the **Schema** tab:
+
+    1. Select **Data format**:
+
     [!INCLUDE [data-explorer-data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-data-explorer-one-click-ingestion-edit-schema.md)]   
 
-        ![Select JSON levels](media/one-click-ingestion-new-table/json-levels.png)
+    ![Select JSON levels](media/one-click-ingestion-new-table/json-levels.png)
 
-        * If you select a format other than JSON, you can select the check box **Include column names** to ignore the heading row of the file.
+    * If you select a format other than JSON, you can select the check box **Include column names** to ignore the heading row of the file.
 
         ![Select Include column names](media/one-click-ingestion-new-table/non-json-format.png)
         
@@ -75,9 +81,9 @@ For information about ingesting data into an existing table in Azure Data Explor
 Select **Start ingestion** to create a table and mapping and to begin data ingestion.
 ![Start ingestion](media/one-click-ingestion-new-table/start-ingestion.png)
 
-## Query data
+## Data ingestion completed
 
-1. In the **Data ingestion completed** window, all three steps will be marked with green check marks if data ingestion finishes successfully.
+In the **Data ingestion completed** window, all three steps will be marked with green check marks if data ingestion finishes successfully.
  
     ![One-click data ingestion complete](media/one-click-ingestion-new-table/one-click-data-ingestion-complete.png)
 
