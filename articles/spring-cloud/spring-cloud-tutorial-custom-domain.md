@@ -23,9 +23,9 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 The procedure to import a certificate requires the PEM or PFX encoded file to be on disk and you must have the private key. 
 
 To upload your certificate to key vault and import it to Azure Spring Cloud:
-* Go to your service instance. 
-* From the left navigation pane of your app, select **TLS/SSL settings**.
-* Then click **Import Key Vault Certificate**.
+1. Go to your service instance. 
+1. From the left navigation pane of your app, select **TLS/SSL settings**.
+1. Then click **Import Key Vault Certificate**.
 
 ![Import certificate](./media/custom-dns-tutorial/import-certificate.png)
 
