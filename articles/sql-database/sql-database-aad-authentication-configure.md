@@ -458,7 +458,7 @@ Use this method if you are logged into Windows using your Azure Active Directory
 
     ![Select AD Integrated Authentication][11]
 
-2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (The **AD domain name or tenant ID**" option is only supported for **Universal with MFA connection** options, otherwise it is greyed out.)  
+2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x. 
 
     ![Select the database name][13]
 
@@ -522,7 +522,7 @@ Learn more about Azure AD authentication methods using the demo code samples ava
 
 ## Azure AD token
 
-This authentication method allows middle-tier services to connect to Azure SQL Database or Azure Synapse by obtaining a token from Azure Active Directory (AAD). It enables sophisticated scenarios including certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
+This authentication method allows middle-tier services to obtain [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) to connect to Azure SQL Database or Azure Synapse by obtaining a token from Azure Active Directory (AAD). This method enables various application scenarios including service identities, service principals, and applications using certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
 
 1. Register your application with Azure Active Directory and get the client ID for your code.
 2. Create a database user representing the application. (Completed earlier in step 6.)
