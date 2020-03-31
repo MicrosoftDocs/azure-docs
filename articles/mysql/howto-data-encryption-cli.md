@@ -15,7 +15,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 ## Prerequisites for Azure CLI
 
 * You must have an Azure subscription and be an administrator on that subscription.
-* In Azure Key Vault, create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
+* Create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
 
     ```azurecli-interactive
     az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
@@ -49,13 +49,13 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 
 1. There are two ways of getting the managed identity for your Azure Database for MySQL.
 
-    ### Create an Azure Database for MySQL server with a managed identity.
+    ### Create an new Azure Database for MySQL server with a managed identity.
 
     ```azurecli-interactive
     az mysql server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
     ```
 
-    ### Update the Azure Database for MySQL server to get a managed identity.
+    ### Update an existing the Azure Database for MySQL server to get a managed identity.
 
     ```azurecli-interactive
     az mysql server update --name  <server name>  -g <resource_group> --assign-identity
