@@ -127,8 +127,6 @@ If you already have a service with the dependencies installed in your environmen
 
 1. In **Advanced Settings**, select **Enable Application Insights diagnostics and data collection**.
 
-   You can also select **Enable AppInsights diagnostics** to track the health of your service.
-
 1. Select **Update** to apply the changes.
 
 ## Disable data collection
