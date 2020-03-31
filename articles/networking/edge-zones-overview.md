@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 03/31/2020
 ms.author: ganesr
 
 ---
@@ -166,4 +166,4 @@ SD-WAN on Private Edge Zones lets you move away from capex-centric model, to a S
 For more information, reach out to the following teams:
 
 * [Edge Zones team](https://aka.ms/EdgeZones)
-* [Private Edge Zones team - for Partners](https://aka.ms/EdgeZonesPartner)
+* [Private Edge Zones team - to become a Partner](https://aka.ms/EdgeZonesPartner)
