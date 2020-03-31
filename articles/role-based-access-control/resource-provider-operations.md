@@ -8330,7 +8330,7 @@ Azure service: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 ## Microsoft.Scheduler
 
-Azure service: [Scheduler](../scheduler/index.md)
+Azure service: [Scheduler](../scheduler/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
