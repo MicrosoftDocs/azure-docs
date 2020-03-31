@@ -141,6 +141,9 @@
         - name: Use virtual networks
           displayName: vnet, blob
           href: how-to-enable-virtual-network.md
+        - name: Use Private Link
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
         - name: Use Azure AD identity in AKS deployments
@@ -355,6 +358,7 @@
     - name: Trigger a pipeline
       href: how-to-trigger-published-pipeline.md
     - name: Debug & troubleshoot pipelines
+      displayName: designer
       href: how-to-debug-pipelines.md
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
