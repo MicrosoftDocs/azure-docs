@@ -16,14 +16,14 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ---
 
-# Supporting Shared Device Mode for iOS
+# Supporting shared device mode for iOS
 
 > [!NOTE]
 > This feature is in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Firstline Workers like retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
+Firstline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
 Shared device mode allows you to configure an iOS 13 or higher device so that it can be more easily and securely shared by multiple employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device and it's immediately ready for use by the next employee.
 
@@ -45,14 +45,14 @@ To create a shared device mode app, developers and cloud device admins work toge
 
     When this feature launches for production workloads, this step will be unnecessary as Microsoft Intune will be able to join the device to your organization as part of the initial setup. Support for additional MDMs is planned.
 
-The following sections help you update your application to support Shared Device Mode.
+The following sections help you update your application to support shared device mode.
 
-## Use Intune to enable Shared Device Mode and the SSO extension
+## Use Intune to enable shared device mode and the SSO extension
 
 > [!NOTE]
 > The following step is required only during public preview.
 >
-> In the future, Intune will include the ability to turn on the Microsoft Enterprise SSO plug-in for Apple devices and enable Shared Device Mode. The following steps are required only for this Public Preview.
+> In the future, Intune will include the ability to turn on the Microsoft Enterprise SSO plug-in for Apple devices and enable shared device mode. The following steps are required only for this Public Preview.
 
 Your device needs to be configured to support shared device mode. It have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
 
@@ -78,13 +78,13 @@ Your device needs to be configured to support shared device mode. It have iOS 13
       - Type: Boolean
       - Value: True
 
-## Modify your iOS application to support Shared Device Mode
+## Modify your iOS application to support shared device mode
 
 Your users depend on you to ensure their data isn't leaked to another user. The following sections provide helpful signals to indicate to your application that a change has occurred and should be handled.
 
 You are responsible for checking the state of the user on the device every time your app is used, and then clearing the previous user's data. This includes if it is reloaded from the background in multi-tasking.
 
-On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We highly recommend you and your company conduct a security review process after updating your app to support Shared Device mode.
+On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We highly recommend you and your company conduct a security review process after updating your app to support shared device mode.
 
 ### Detect shared device mode
 
@@ -126,7 +126,7 @@ application.getDeviceInformation(with: nil, completionBlock: { (deviceInformatio
 
 ### Get the signed-in user and determine if a user has changed on the device
 
-Another important part of supporting Shared Device Mode is determining the state of the user on the device and clearing application data if a user has changed or if there is no user at all on the device. You are responsible for ensuring data isn't leaked to another user.
+Another important part of supporting shared device mode is determining the state of the user on the device and clearing application data if a user has changed or if there is no user at all on the device. You are responsible for ensuring data isn't leaked to another user.
 
 You can use `getCurrentAccountWithParameters:completionBlock:` API to query the currently signed-in account on the device.
 
