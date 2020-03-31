@@ -23,6 +23,7 @@ This article provides steps to resolve issues where Windows Update (KB) generate
 ## Symptoms
 
 When using [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the Windows Update (KB) in progress is displayed, but fails with error code: 'C01A001D'.
+
 ![unresponsive Windows Update](./media/unresponsive-vm-apply-windows-update/unresponsive_windows_update.png)
 
 ## Cause
@@ -33,10 +34,10 @@ This happens because a core file can't be created on the file system. Based on t
 
 ### Process overview
 
-1. [Create and access a repair VM](#Create-and-access-a-repair-VM).
-2. [Free up space on the hard disk](#Free-up-space-on-the-hard-disk).
-3. [Recommended: Before you rebuilding the VM, enable serial console and memory dump collection](#Recommended-Before-rebuilding-the-VM-enable-serial-console-and-memory-dump-collection).
-4. [Rebuild the VM](#Rebuild-the-VM).
+1. [Create and access a repair VM](#create-and-access-a-repair-VM).
+2. [Free up space on the hard disk](#free-up-space-on-the-hard-disk).
+3. [Recommended: Before you rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-VM-enable-serial-console-and-memory-dump-collection).
+4. [Rebuild the VM](#rebuild-the-VM).
 
 > [!NOTE]
 > When this error occurs, the Guest OS isn't operational. You must troubleshoot in offline mode to resolve this issue.
