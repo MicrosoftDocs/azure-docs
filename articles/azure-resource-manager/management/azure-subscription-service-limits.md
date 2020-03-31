@@ -239,7 +239,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Media Services limits
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
 
 ## Mobile Services limits
 
