@@ -18,9 +18,8 @@ tags: azure-synapse
 
 Column-Level Security allows customers to control access to table columns based on the user's execution context or group membership.
 
-
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) became available for Azure Synapse. 
+Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) became available for Azure Synapse. 
 
 Column-level security simplifies the design and coding of security in your application, allowing you to restrict column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time data access is attempted from any tier. This restriction makes your security more reliable and robust by reducing the surface area of your overall security system. In addition, column-level security also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
 

@@ -53,7 +53,7 @@ Azure Active Directory benefits include:
 * Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Uses contained database users to authenticate identities at the database level.
 * Supports token-based authentication for applications connecting to SQL pool.
-* Supports Multi-Factor authentication through Active Directory Universal Authentication for various tools including [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
+* Supports Multi-Factor authentication through Active Directory Universal Authentication for various tools including [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 > [!NOTE]
 > Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), specifically the Additional considerations.
