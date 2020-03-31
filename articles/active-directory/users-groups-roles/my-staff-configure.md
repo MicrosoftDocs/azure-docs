@@ -27,7 +27,7 @@ My Staff is based on administrative units (AUs), which are a container of resour
 
 ## How to enable My Staff
 
-Once you have configured AUs, you can enable your users to access My Staff. Regardless of who is enabled to use My Staff, only users who have been assigned an administrative role will be able to access My Staff. To enable My Staff, complete the following steps:
+Once you have configured AUs, you can apply this scope to your users who access My Staff. Only users who are assigned an administrative role can access My Staff. To enable My Staff, complete the following steps:
 
 1. Sign into the Azure portal as a User administrator.
 2. Browse to **Azure Active Directory** > **User settings** > **User feature previews** > **Manage user feature preview settings**.
@@ -35,18 +35,18 @@ Once you have configured AUs, you can enable your users to access My Staff. Rega
 
 ## Using My Staff
 
-When a user goes to My Staff, they are shown a list of locations (administrative units) over which they have administrative permissions. If an administrator's permissions do not have an AU scope, they will see all AUs in the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the members of that AU, and then select a user to open their profile.
+When a user goes to My Staff, they are shown a list of locations (administrative units) over which they have administrative permissions. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
 
 ## Licenses
 
-Each user that's enabled in the text message authentication method policy must be licensed, even if it's not assigned to them. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
+Each user who's enabled in the text message authentication method policy must be licensed, even if they don't use that authentication. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
 
 - Azure AD Premium P1 or P2
 - Microsoft 365 F1 or F3
 
 ## Reset a user's password
 
-To reset a user's password, you must be assigned one of the following roles:
+The following roles have permission to reset a user's password:
 
 - Authentication administrator
 - Privileged authentication administrator
@@ -56,8 +56,8 @@ To reset a user's password, you must be assigned one of the following roles:
 
 From **My Staff**, open a user's profile. Select **Reset password**.
 
-- If the user is cloud-only, you will be shown a temporary password that you can give to the user.
-- If the user is synced from on-premises Active Directory, you are prompted to enter a password that meets your on-premises AD policies. You can then give that password to the user.
+- If the user is cloud-only, you can see a temporary password that you can give to the user.
+- If the user is synced from on-premises Active Directory, you can enter a password that meets your on-premises AD policies. You can then give that password to the user.
 
 ![Password reset progress indicator and success notification](media/my-staff-configure/reset-password.png)
 
