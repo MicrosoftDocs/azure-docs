@@ -4,7 +4,7 @@ description: Azure Security Baseline for API Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 03/31/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -536,7 +536,7 @@ Understand Azure AD risk detections: https://docs.microsoft.com/azure/active-dir
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/855).
 
-**Guidance**: Implement Azure API Management access restriction policies. Use the ip-filter policy to filter (allow/deny) calls from specific IP addresses and/or address ranges. In addition, use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Implement Azure API Management access restriction policies. Use the IP-filter policy to filter (allow/deny) calls from specific IP addresses and/or address ranges. In addition, use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
 Understand Azure API Management access restriction policies: https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies
 

@@ -4,7 +4,7 @@ description: Azure Security Baseline for App Service
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 03/31/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -95,7 +95,7 @@ Understand Azure Application Gateway (WAF): https://docs.microsoft.com/azure/app
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4440).
 
-**Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your Azure App Service web apps to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
+**Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your Azure App Service web apps to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused public IP addresses.
 
 In addition, deploy your Azure App Service app to an Azure App Service Environment (ASE) and configure a front-end gateway, such as Azure Web Application Firewall, to authenticate all incoming requests and filter out malicious traffic. Azure Web Application Firewall can help secure your Azure App Service web apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks.
 
@@ -196,7 +196,7 @@ For more information about using service tags: https://docs.microsoft.com/azure/
 
 - Latest TLS version should be used in your Web App
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -399,7 +399,7 @@ How to integrate your App Service Environment with the Azure Application Gateway
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4457).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -984,7 +984,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 
 **Responsibility**: Not applicable
 
-### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
+### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4495).
@@ -1057,7 +1057,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4499).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1083,7 +1083,7 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4501).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1109,7 +1109,7 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4503).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1133,7 +1133,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4505).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1157,7 +1157,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/4507).
 
-**Guidance**: Not applicable; this guideline is intended for compute resources.
+**Guidance**: Not applicable; this guideline is intended for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
