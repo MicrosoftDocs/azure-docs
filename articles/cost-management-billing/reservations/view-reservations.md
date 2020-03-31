@@ -32,9 +32,9 @@ To view a reservation as an Owner or Reader,
 ## Get reservations and utilization using APIs, PowerShell, CLI
 
 Get list of all reservations using following resources
--[API: Reservation Order - List](/rest/api/reserved-vm-instances/reservationorder/list)
--[PowerShell: Reservation Order - List](/powershell/module/azurerm.reservations/get-azurermreservationorder)
--[CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
+- [API: Reservation Order - List](/rest/api/reserved-vm-instances/reservationorder/list)
+- [PowerShell: Reservation Order - List](/powershell/module/azurerm.reservations/get-azurermreservationorder)
+- [CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
 
 You can also get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API. 
 
