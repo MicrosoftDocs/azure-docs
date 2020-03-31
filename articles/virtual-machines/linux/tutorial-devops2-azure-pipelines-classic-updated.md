@@ -77,7 +77,7 @@ Here is the step-by-step walkthrough.
 
 ### [TODO] Add Image
 
-5. Like in Rolling Deployments, you can now navigate to the pipeline and further customize it based on your requirements. 
+5. Like in **Rolling Deployments** section, you click on  **Edit** release pipeline in Azure DevOps, to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _canary_. The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that canary deployment is stable, he can resume the pipeline run which will then run the third phase that deploys to VMs tagged as _prod_.
 
 ### [TODO] Add Image
 
@@ -94,11 +94,14 @@ Here is the step-by-step walkthrough.
 
 ### [TODO] Add Image
 
-5. Like in **Rolling Deployments**, you can now navigate to the pipeline and further customize it based on your requirements. 
-6. Note that this strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step you have atleast one VM tagged as blue.
-
+5. Like in **Rolling Deployments** section, you click on  **Edit** release pipeline in Azure DevOps, to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _green_ (standby VMs) . The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that deployment is stable, he can now redirect the traffic to _green_ VMs and resume the pipeline run which will then swap tags of _blue_ and _green_ VMs. This makes sure that the VMs that have older application version are tagged as _green_ and are deployed to in the next pipeline run.
 
 ### [TODO] Add Image
+
+6. Note that this deployment strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step, you have atleast one VM tagged as _blue_.
+
+
+
 
 
  
