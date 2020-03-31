@@ -66,7 +66,7 @@ If you can't find an answer to your problem with the search box on Stack Overflo
 
 ## Stay informed
 
-Staying informed about features in a new release or news on the Azure blog can help you find the difference between a progeramming error, a service bug, or a feature not yet available in Cognitive Services.
+Staying informed about features in a new release or news on the Azure blog can help you find the difference between a programming error, a service bug, or a feature not yet available in Cognitive Services.
 
 ### Release notes
 
