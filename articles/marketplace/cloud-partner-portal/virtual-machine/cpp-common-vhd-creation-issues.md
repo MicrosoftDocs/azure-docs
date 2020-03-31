@@ -7,7 +7,6 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.reviewer: v-divte; v-miclar
 ---
 
 # Common issues during VHD creation (FAQ)

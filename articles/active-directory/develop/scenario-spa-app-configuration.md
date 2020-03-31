@@ -24,12 +24,12 @@ Learn how to configure the code for your single-page application (SPA).
 
 ## MSAL libraries that support implicit flow
 
-The Microsoft identity platform provides the following Microsoft Authentication Library (MSAL) libraries to support implicit flow by using industry-recommended security practices:  
+The Microsoft identity platform provides the following Microsoft Authentication Library (MSAL) libraries to support implicit flow by using industry-recommended security practices:
 
 | MSAL library | Description |
 |--------------|--------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
-| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper of the core MSAL.js library to simplify use in single-page apps that are built through the Angular framework. This library is in preview and has [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) with certain Angular versions and browsers. |
+| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper of the core MSAL.js library to simplify use in single-page apps that are built through the Angular framework. |
 
 ## Application code configuration
 
@@ -55,16 +55,20 @@ For more information on the configurable options, see [Initializing application 
 # [Angular](#tab/angular)
 
 ```javascript
-//In app.module.ts
+// App.module.ts
 import { MsalModule } from '@azure/msal-angular';
 
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id'
-            })]
-         })
+    imports: [
+        MsalModule.forRoot({
+            auth: {
+                clientId: 'your_app_id'
+            }
+        })
+    ]
+})
 
-  export class AppModule { }
+export class AppModule { }
 ```
 
 ---

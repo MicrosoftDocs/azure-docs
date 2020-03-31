@@ -24,7 +24,7 @@ If you do not use the downloaded quick start server project, you will need the p
 
 ## Register your app for push notifications
 
-You need to submit your app to the Microsoft Store, then configure your server project to integrate with [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send push.
+You need to submit your app to the Microsoft Store, then configure your server project to integrate with [Windows Push Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send push.
 
 1. In Visual Studio Solution Explorer, right-click the UWP app project, click **Store** > **Associate App with the Store...**.
 
