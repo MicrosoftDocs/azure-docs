@@ -1,0 +1,77 @@
+---
+title: Migrate on-premises SSIS jobs to Azure Data Factory  
+description: This article describes how to migrate SQL Server Integration Services (SSIS) jobs to Azure Data Factory pipelines/activities/triggers by using SQL Server Management Studio.
+services: data-factory
+documentationcenter: ''
+author: chugugrace
+ms.author: chugu
+ms.reviewer: 
+manager: 
+ms.service: data-factory
+ms.workload: data-services
+
+ms.topic: conceptual
+ms.date: 4/7/2020
+---
+# Migrate on-premises SSIS jobs to Azure Data Factory
+
+When [migrating on-premises SQL Server Integration Services (SSIS) workloads to SSIS in ADF](scenario-ssis-migration-overview.md), after SSIS packages are migrated, you can do batch migration of SQL Server Agent jobs with job step type of SQL Server Integration Services Package or Transact-SQL Script (T-SQL) to Azure Data Factory (ADF) pipelines/activities/schedule triggers via SQL Server Management Studio (SSMS) **SSIS Job Migration Wizard**.
+
+In general, for selected SQL agent jobs with applicable job step types, **SSIS Job Migration Wizard** can:
+
+- map on-premises SSIS package location to where the packages are migrated to, which are accessible by SSIS in ADF.
+    > [!NOTE]
+    > Package location of File System is supported only.
+- migrate applicable jobs with applicable job steps to corresponding ADF resources as below:
+
+|SQL Agent job object  |ADF resource  |Notes|
+|---------|---------|---------|
+|SQL Agent job|pipeline     |Name of the pipeline will be *Generated for \<job name>*. <br> <br> Built-in agent jobs are not applicable: <li> SSIS Server Maintenance Job <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
+|SSIS job step|Execute SSIS package activity|<li> Name of the activity will be \<step name>. <li> Proxy account used in job step will be migrated as Windows authentication of this activity. <li> *Execution options* except *Use 32-bit runtime* defined in job step will be ignored in migration. <li> *Verification* defined in job step will be ignored in migration.|
+|T-SQL job step|Stored Procedure activity|Name of the activity will be *\<step name>*.|
+|schedule      |schedule trigger        |Name of the schedule trigger wil be *Generated for \<schedule name>*. <br> <br> Below options in SQL Agent job schedule will be ignored in migration: <li> Second-level interval. <li> *Start automatically when SQL Server Agent starts* <li> *Start whenever the CPUs become idle* <li> *weekday* and *weekend day* <time zone> <br> Below are the differences after SQL Agent job schedule is migrated to ADF schedule trigger: <li> ADF Schedule Trigger subsequent run is independent of the execution state of the antecedent triggered run. <li> ADF Schedule Trigger recurrence configuration differs from Daily frequency in SQL agent job.|
+
+- generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. For more information about ADF Resource Manager templates, see [Microsoft.DataFactory resource types](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
+
+## Prerequisites
+
+The feature described in this article requires SQL Server Management Studio version 18.5 or higher. To get the latest version of SSMS, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
+
+## Migrate SSIS jobs to ADF
+
+1. In SSMS, in Object Explorer, select SQL Server Agent, select Jobs, then right-click and select **Migrate SSIS Jobs to ADF**.
+![menu](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-menu.png)
+
+1. *Sign In Azure, select Azure Subscription, Data Factory, and Integration Runtime. Azure Storage is optional, which is used in the package location mapping step if SSIS jobs to be migrated have SSIS File System packages.
+![menu](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step1.png)
+
+1. Map the paths of SSIS packages and configuration files in SSIS jobs to destination paths where migrated pipelines can access. In this mapping step, you can:
+
+    - Select a source folder, then **Add Mapping**.
+    - Update source folder path. Valid paths are folder paths or parent folder paths of packages.
+    - Update destination folder path. Default is relative path to the default Storage account, which is selected in step 1.
+    - Delete a selected mapping via **Delete Mapping**.
+![step2](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step2.png)
+![step2-1](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step2-1.png)
+
+1. Select applicable jobs to migrate, and configure the settings of corresponding *Executed SSIS Package activity*.
+
+    - *Default Setting*, applies to all selected steps by default. For more information of each property, see *Settings tab* for the [Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md) when package location is *File System (Package)*.
+    ![step3-1](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step3-1.png)
+    - *Step Setting*, configure setting for a selected step.
+        
+        **Apply Default Setting**: default is selected. Unselect to configure setting for selected step only.  
+        For more information of other properties, see *Settings tab* for the [Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md) when package location is *File System (Package)*.
+    ![step3-2](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step3-2.png)
+
+1. Select the output path for the ARM templates of the migrated ADF pipelines, and option of **Deploy ARM templates to your data factory**:
+    - Default is unselected. You can deploy generated ARM templates later manually.
+    - Select to deploy generated ARM templates to data factory directly.
+    ![step4](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step4.png)
+
+1. Migrate, then check results.
+![step5](media/how-to-migrate-ssis-job-ssms/migrate-ssis-job-step5.png)
+
+## Next steps
+
+[Run and monitor pipeline](how-to-invoke-ssis-package-ssis-activity.md)
