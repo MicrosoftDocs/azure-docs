@@ -636,8 +636,6 @@
         items:
         - name: What is MongoDB API in Cosmos DB?
           href: mongodb-introduction.md
-        - name: Wire protocol support (3.6)
-          href: mongodb-feature-support-36.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -683,6 +681,8 @@
           href: tutorial-global-distribution-mongodb.md
       - name: Concepts
         items:
+        - name: Wire protocol support (3.6)
+          href: mongodb-feature-support-36.md
         - name: Wire protocol support (3.2)
           href: mongodb-feature-support.md
       - name: How-to guides
