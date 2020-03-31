@@ -40,10 +40,11 @@ Before making requests to the REST proxy endpoint, the client application should
 1. Register an application with Azure AD. The client applications that you write to interact with the Kafka REST proxy will use this application's ID and secret to authenticate to Azure.
 1. Create an Azure AD security group and add the application that you have registered with Azure AD to the security group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Validate the group is of type "Security".
-Validate that application is member of Group.
-![Security Group](./media/rest-proxy/rest-proxy-securitygroup.png)
-![Application is member of group](./media/rest-proxy/rest-proxy-memberofgroup.png)
+Validate the group is of type "Security"
+![Security Group](./media/rest-proxy/rest-proxy-group.PNG)
+
+Validate that application is member of Group
+![Validate Membership](./media/rest-proxy/rest-proxy-membergroup.PNG)
 
 ## Create a Kafka cluster with REST proxy enabled
 
