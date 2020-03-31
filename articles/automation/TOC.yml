@@ -22,6 +22,8 @@
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Use Azure AD in Azure Automation to authenticate to Azure
+      href: automation-use-azure-ad.md
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
     - name: Automate onboarding of Automation Services
@@ -31,6 +33,11 @@
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
+    - name: Troubleshoot
+      items:  
+        - name: Automation account troubleshooting
+          href: troubleshoot/automation-account.md
+          displayName: troubleshoot
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
@@ -305,11 +312,11 @@
 - name: Manage Shared Resources
   items:
     - name: Certificates
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Connections
       href: automation-connections.md
     - name: Credentials
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: PowerShell modules
       items: 
       - name: Modules
@@ -319,9 +326,9 @@
       - name: Update Azure PowerShell modules
         href: automation-update-azure-modules.md
     - name: Schedules
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: Variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Troubleshoot Shared Resources

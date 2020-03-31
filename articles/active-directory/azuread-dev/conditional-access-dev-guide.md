@@ -13,6 +13,7 @@ ms.subservice: azuread-dev
 ms.custom: aaddev 
 ms.topic: conceptual
 ms.workload: identity
+ROBOTS: NOINDEX
 ---
 
 # Developer guidance for Azure Active Directory Conditional Access
@@ -156,7 +157,7 @@ When an app needs an access token to call a Web API, it attempts an `acquireToke
 
 ![Single-page app using ADAL flow diagram](./media/conditional-access-dev-guide/spa-using-adal-scenario.png)
 
-Let's walk through an example with our Conditional Access scenario. The end user just landed on the site and doesn’t have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the Conditional Access policy.
+Let's walk through an example with our Conditional Access scenario. The end user just landed on the site and doesn't have a session. We perform a `login()` call, get an ID token without multi-factor authentication. Then the user hits a button that requires the app to request data from a web API. The app tries to do an `acquireToken()` call but fails since the user has not performed multi-factor authentication yet and needs to comply with the Conditional Access policy.
 
 Azure AD sends back the following HTTP response:
 

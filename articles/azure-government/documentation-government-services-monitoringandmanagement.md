@@ -174,6 +174,9 @@ The resources currently supported in the second generation alerts experience are
 - Microsoft.Web/sites
 - Microsoft.Web/sites/slots
 
+> [!NOTE]
+> Creating multi-resource metric alert rules on Virtual Machines is **currently not supported**. This article will be updated as soon as this functionality becomes available.
+
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
 When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
@@ -186,10 +189,8 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
-## Application Insights
 
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. As soon as this functionality becomes available this article will be updated.
+## Application Insights
 
 This section describes the supplemental configuration that is required to use Application Insights in Azure Government. To learn more about Azure Monitor and Application Insights checkout the [full documentation](https://docs.microsoft.com/azure/azure-monitor/overview).
 
@@ -468,7 +469,7 @@ The following Azure Monitor logs features behave differently in Azure Government
 For more information, see [Azure Monitor logs public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Scheduler
-For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md).
+For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.yml).
 
 ## Azure portal
 The Azure Government portal can be accessed [here](https://portal.azure.us).

@@ -90,6 +90,8 @@ To update Azure Machine Learning to use the new key, use the following steps:
         az login
         ```
 
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
         ```azurecli-interactive

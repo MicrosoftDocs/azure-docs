@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
+manager: lizross
 ---
 # Windows Virtual Desktop service connections
 
@@ -46,11 +47,11 @@ If the host status is `NoHeartBeat`, that means the VM isn't responding and the 
 ```powershell
 SessionHostName          LastHeartBeat     AllowNewSession    Status 
 ---------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True 	Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True 	Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True 	NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True 	NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True 	NoHeartBeat 
+WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
+WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
 ```
 
 There are a few things you can do to fix the NoHeartBeat status.

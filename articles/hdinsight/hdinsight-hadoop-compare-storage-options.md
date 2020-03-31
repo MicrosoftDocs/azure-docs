@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -41,7 +41,6 @@ You can create a cluster using different combinations of services for primary an
 |---|---|---|---|
 | 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen2 | No |
-| 3.6 & 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
@@ -49,6 +48,7 @@ You can create a cluster using different combinations of services for primary an
 | 3.6 | Data Lake Storage Gen1 | General Purpose V1 , General Purpose V2, BlobStorage(Block Blobs) | Yes |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Any | No |
+| 4.0 | General Purpose V1 , General Purpose V2 | Data Lake Storage Gen1 | No |
 
 *=This could be one or multiple Data Lake Storage Gen2 accounts, as long as they are all setup to use the same managed identity for cluster access.
 

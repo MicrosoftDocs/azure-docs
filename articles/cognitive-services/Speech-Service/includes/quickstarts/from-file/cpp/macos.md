@@ -1,14 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech from an audio file, C++ (macOS) - Speech service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: erhopf
+ms.date: 03/10/2020
+ms.author: dapine
 ---
 
 ## Prerequisites
