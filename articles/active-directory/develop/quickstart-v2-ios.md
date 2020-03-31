@@ -114,7 +114,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > 1. Build & run the app!
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 >
 > 1. Extract the zip file and open the project in XCode.

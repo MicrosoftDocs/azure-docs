@@ -153,6 +153,8 @@
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md  
+    - name: Apply disk encryption
+      href: security-center-apply-disk-encryption.md
   - name: Apply cloud defenses
     items:
     - name: Manage just-in-time access
@@ -166,14 +168,10 @@
       
   - name: Archive
     items:
-    - name: Apply disk encryption
-      href: security-center-apply-disk-encryption.md
     - name: Apply system updates
       href: security-center-apply-system-updates.md
     - name: Threat reports
       href: security-center-threat-report.md
-    - name: Alert confidence score
-      href: security-center-confidence-score.md
     - name: Investigation
       href: security-center-investigation.md
     - name: Manage investigation user data
