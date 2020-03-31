@@ -322,8 +322,6 @@
 
   - name: Database features
     items:
-    - name: Database feature documentation
-      href: sql-database-features-index.yml
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
