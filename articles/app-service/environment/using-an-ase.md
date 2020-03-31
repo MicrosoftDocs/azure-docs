@@ -13,10 +13,10 @@ ms.custom: seodec18
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
-- **Front ends**: Where HTTP or HTTPS terminates in an App Service Environment.
-- **Workers**: The resources that host your apps.
-- **Database**: Holds information that defines the environment.
-- **Storage**: Used to host the customer-published apps.
+- **Front ends**: Where HTTP or HTTPS terminates in an App Service Environment
+- **Workers**: The resources that host your apps
+- **Database**: Holds information that defines the environment
+- **Storage**: Used to host the customer-published apps
 
 You can deploy an ASE with an external or internal virtual IP (VIP) for app access. A deployment with an external VIP is commonly called an *External ASE*. A deployment with an internal VIP is called an *ILB ASE* because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
@@ -127,9 +127,9 @@ To configure DNS with your ILB ASE:
     create a zone in &ltASE name&gt.appserviceenvironment.net named scm
     create an A record in the scm zone that points * to the ILB IP address
 
-The DNS settings for your the ASE default domain do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&ltASE name&gt.appserviceenvironment.net*. 
+The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&ltASE name&gt.appserviceenvironment.net*. 
 
-The zone named <ASE name>.appserviceenvironment.net is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also very disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named <ASE name>.appserviceenvironment.net is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
 
 ## Publishing
 
@@ -143,7 +143,7 @@ In an ASE, as with the multitenant App Service, you can publish by these methods
 
 With an External ASE, these publishing options all work the same way. For more information, see [Deployment in Azure App Service][AppDeploy].
 
-Publishing is significantly different with an ILB ASE, for which the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don't have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you must configure DNS for the apps in the system. That requirement includes the SCM endpoint. If the endpoints aren't defined properly, you can't publish. Your IDEs must also have network access to the ILB to publish directly to it.
+With an ILB ASE, the publishing endpoints are only available through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don't have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you must configure DNS for the apps in the system. That requirement includes the SCM endpoint. If the endpoints aren't defined properly, you can't publish. Your IDEs must also have network access to the ILB to publish directly to it.
 
 Without additional changes, internet-based CI systems like GitHub and Azure DevOps don't work with an ILB ASE because the publishing endpoint isn't internet accessible. You can enable publishing to an ILB ASE from Azure DevOps by installing a self-hosted release agent in the virtual network that contains the ILB ASE. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
@@ -184,12 +184,12 @@ If you integrate with Log Analytics, you can see the logs by selecting **Logs** 
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view and manage log alerts using Azure Monitor][logalerts]. In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor][logalerts]. In brief:
 
 * Open the Alerts page in your ASE portal
 * Select **New alert rule**
 * Select your Resource to be your Log Analytics workspace
-* Set your condition with a custom log search to use a query like, "AppServiceEnvironmentPlatformLogs | where ResultDescription contains "has begun scaling" or whatever you want. Set the threshhold as appropriate. 
+* Set your condition with a custom log search to use a query like, "AppServiceEnvironmentPlatformLogs | where ResultDescription contains "has begun scaling" or whatever you want. Set the threshold as appropriate. 
 * Add or create an action group as desired. The action group is where you define the response to the alert such as sending an email or an SMS message
 * Name your alert and save it.
 
