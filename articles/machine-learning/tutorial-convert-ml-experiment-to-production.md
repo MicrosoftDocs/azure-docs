@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 - Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/generate)
 and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks. These notebooks are used as an example of converting from experimentation to production. You can find these notebooks at [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
-- Install nbconvert. Follow only the installation instructions under section __Installing nbconvert__ on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
+- Install `nbconvert`. Follow only the installation instructions under section __Installing nbconvert__ on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
 
 ## Remove all nonessential code
 
@@ -342,13 +342,13 @@ Third, related functions need to be merged into Python files to better help code
 
 ### Create Python file for the Diabetes Ridge Regression Training notebook
 
-Convert your notebook to an executable script by running the following statement in a command prompt, which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Training.ipynb`:
+Convert your notebook to an executable script by running the following statement in a command prompt, which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
 ```
 
-Once the notebook has been converted to `train.py`, remove any unwanted the comments. Replace the call to `main()` at the end of the file with a conditional invocation
+Once the notebook has been converted to `train.py`, remove any unwanted comments. Replace the call to `main()` at the end of the file with a conditional invocation like the following code:
 
 ```python
 if __name__ == '__main__':
@@ -430,13 +430,13 @@ The `train_aml.py` file found in the `diabetes_regression/training` directory in
 
 ### Create Python file for the Diabetes Ridge Regression Scoring notebook
 
-Covert your notebook to an executable script by running the following statement in a command prompt that which uses the nbconvert package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
+Covert your notebook to an executable script by running the following statement in a command prompt that which uses the `nbconvert` package and the path of `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
 ```
 
-Once the notebook has been converted to `score.py`, remove all the comments. Your `score.py` file should look like the following code:
+Once the notebook has been converted to `score.py`, remove any unwanted comments. Your `score.py` file should look like the following code:
 
 ```python
 import json
@@ -463,7 +463,7 @@ prediction = run(test_row, request_header)
 print("Test result: ", prediction)
 ```
 
-The `train_model` function needs modification to instantiate a global variable model so that it's visible throughout the script. Add the following statement at the beginning of the `init` function:
+The `model` variable needs to be global so that it's visible throughout the script. Add the following statement at the beginning of the `init` function:
 
 ```python
 global model
@@ -511,7 +511,7 @@ def test_train_model():
 
     # Assert
     preds = reg_model.predict([[1], [2]])
-    np.testing.assert_equal(preds, [9.93939393939394, 9.03030303030303])
+    np.testing.assert_almost_equal(preds, [9.93939393939394, 9.03030303030303])
 ```
 
 ## Next steps
