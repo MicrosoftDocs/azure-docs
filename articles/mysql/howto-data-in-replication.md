@@ -10,11 +10,11 @@ ms.date: 3/27/2020
 
 # How to configure Azure Database for MySQL Data-in Replication
 
-In this article, you will learn how to set up Data-in Replication in the Azure Database for MySQL service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MySQL server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MySQL service. 
+This article describes how to set up Data-in Replication in Azure Database for MySQL by configuring the master and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
-This article assumes that you have at least some prior experience with MySQL servers and databases.
+To create a replica in the Azure Database for MySQL service, Data-in Replication synchronizes data from a master MySQL server on-premises, in virtual machines (VMs), or in cloud database services.
 
-Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication prior to performing the steps in this article.
+Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
 ## Create a MySQL server to be used as replica
 
@@ -42,7 +42,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    For example, ensure the master server allows both inbound and outbound traffic on port 3306 and that the master server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
-   Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal 
+   Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
 
 2. Turn on binary logging
 
