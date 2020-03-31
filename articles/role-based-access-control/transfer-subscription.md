@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/24/2020
+ms.date: 03/31/2020
 ms.author: rolyon
 ---
 
@@ -36,7 +36,7 @@ Depending on your situation, the following table lists the impact of transferrin
 | You are using  | Impact of a transfer  | What you can do  |
 | --------- | --------- | --------- |
 | Role assignments for any of the following: **Service Principal**, **SQL Azure**, **Managed Identity** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | Currently, there is not a procedure for this scenario. You must investigate the impact of these role assignment deletions. |
-| Role assignments for the following: **Key Vault** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. |You must manually re-create the custom role definitions and role assignments in the destination directory. |
+| Role assignments for the following: **Key Vault** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | You must manually re-create the custom role definitions and role assignments in the destination directory. |
 | Role assignments for any of the following: **User**, **Group** | All role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | Before initiating the transfer, follow the instructions in this article to transfer your role assignments to the destination directory. |
 | Custom roles | All custom role definitions and role assignments are permanently deleted from the source directory and will not be transferred to the destination directory. | You must manually re-create the custom role definitions and role assignments in the destination directory. |
 
@@ -50,7 +50,8 @@ The following table lists the artifacts that will get transferred when you follo
 | Role assignments for users | Yes |
 | Role assignments for groups | Yes |
 | Role assignments for service principals | No |
-| Role assignments for SQL Azure | Yes |
+| Role assignments for Azure SQL Databases with Azure AD authentication | No |
+| Role assignments for Key Vault | No |
 | Role assignments for managed identities | Yes |
 | Role assignments for applications | Yes |
 | Custom role definitions | Yes |
@@ -77,7 +78,7 @@ If you have role assignments in the source directory that aren't needed, you sho
 
 1. Delete any role assignments that you no longer need or do not want to transfer.
 
-## Step 2: Inventory artifacts in the source directory
+## Step 2: Inventory role assignments in the source directory
 
 1. If you have multiple subscriptions, select the subscription you want to transfer by using [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) and [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
@@ -94,7 +95,7 @@ If you have role assignments in the source directory that aren't needed, you sho
     Get-AzRoleAssignment | Export-Csv "RoleAssignments.csv"
     ```
 
-1. List of Azure SQL Databases with Azure AD authentication.
+## Step 3: Inventory custom roles in the source directory
 
 1. List the custom roles. 
 
@@ -102,9 +103,24 @@ If you have role assignments in the source directory that aren't needed, you sho
     Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
-1. List Key Vault access policies.
+1. Review the `AssignableScopes` for each custom role to see which roles reference the subscription or resource group.
 
-## Step 3: Determine object mappings
+    ```azurepowershell
+    Get-AzRoleDefinition <role_name> | ConvertTo-Json
+    ```
+
+1. Save each custom role that references the subscription as a separate JSON file.
+
+## Step 4: Inventory other artifacts in the source directory
+
+> [!IMPORTANT]
+> There are other artifacts that have a dependency on a subscription or a particular directory. This article lists the known Azure resources that depend on your subscription. Because resource types in Azure are constantly evolving, this article cannot list all dependencies. 
+
+1. Determine if you are using Azure SQL Databases with Azure AD authentication.
+
+1. Determine if you are using Key Vault access policies.
+
+## Step 5: Determine object mappings
 
 1. Based on the list of role assignments, determine which of the following objects will be needed in the destination directory:
 
@@ -113,36 +129,30 @@ If you have role assignments in the source directory that aren't needed, you sho
 - User-assigned managed identities
 - System-assigned managed identities
 
-## Step 4: Create objects in destination directory
+1. In the target directory, verify you have the objects that you will need.
 
-1. In the target directory, create the objects that you will need:
-
-- Users
-- Groups
-- User-assigned managed identities
-- System-assigned managed identities
-
-## Step 5: Create custom roles in destination directory
-
-1. In the target directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
-
-## Step 6: Update Key Vault
-
+1. If necessary, in the target directory, create the objects you will need.
 
 ## Step 6: Transfer billing ownership of the subscription
 
 In this step, you transfer the billing ownership of the subscription from the source directory to the destination directory.
 
-> [!IMPORTANT]
->
-> When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. Be sure you complete the previous steps before performing this step.
+> [!WARNING]
+> When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer billing ownership of the subscriptions. Be sure you complete the previous steps before performing this step.
 
 1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 1. Once you finish transferring ownership, return back to this article to restore the role assignments in the destination directory.
 
-## Step 5: Create role assignments in destination directory
+## Step 7: Create custom roles in destination directory
 
+1. In the target directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+
+## Step 8: Create role assignments in destination directory
+
+1. In the target directory, create the role assignments that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+
+## Step 9: Create other artifacts in the source directory
 
 
 ## Next steps
