@@ -65,7 +65,7 @@ Reserved instances provide a way for you to save money with Azure. With reservat
 
 Each metric affects how data is shown for your reservation charges.
 
-**Actual cost** - Shows the purchase as it appears on your bill. For example, if you bought a one-year reservation for $1200 in January, cost analysis shows a $1200 cost in the month of January for the reservation. It doesn't show a reservation cost for other months of the year. If you group your actual costs by VM, then a VM that received the reservation benefit for a given month would have $0 cost for the month.
+**Actual cost** - Shows the purchase as it appears on your bill. For example, if you bought a one-year reservation for $1200 in January, cost analysis shows a $1200 cost in the month of January for the reservation. It doesn't show a reservation cost for other months of the year. If you group your actual costs by VM, then a VM that received the reservation benefit for a given month would have zero cost for the month.
 
 **Amortized cost** - Shows a reservation purchase split as an amortized cost over the duration of the reservation term. Using the same example above, cost analysis shows a $100 cost for each month throughout the year, if you purchased a one-year reservation for $1200 in January. If you group costs by VM in this example, you'd see cost attributed to each VM that received the reservation benefit.
 
@@ -95,7 +95,7 @@ To identify how much cost is currently being wasted each month for your reservat
 1. Set the time period to the current year or your reservation term.
 1. Set the chart type to **Column (stacked)**.
 1. Group charges by **Charge Type**.
-1. Review the results for **unusedreservation** values.
+1. Review the results for `unusedreservation` values.
 
 ![Example showing reservation use](./media/cost-analysis-common-uses/view-reservation-cost.png)
 
