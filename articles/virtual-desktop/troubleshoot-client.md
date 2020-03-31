@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/20/2020
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -16,7 +16,7 @@ This article describes common issues with the Remote Desktop client and how to f
 
 ## Remote Desktop client for Windows 7 or Windows 10 stops responding or cannot be opened
 
-Starting with version 1.2.789, you can reset the user data from the About page or using a command.
+Starting with version 1.2.790, you can reset the user data from the About page or using a command.
 
 Use the following command to remove your user data, restore default settings and unsubscribe from all Workspaces.
 
