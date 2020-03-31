@@ -31,7 +31,7 @@ To upload your certificate to key vault:
 1. Under **Password** enter the private key for your certificate.
 1. Click **Create**.
 
-![Import certificate](./media/custom-dns-tutorial/import-certificate-a.png)
+![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
 To import certificate to Azure Spring Cloud:
 1. Go to your service instance. 
