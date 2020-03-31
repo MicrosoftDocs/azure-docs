@@ -9,7 +9,9 @@ ms.topic: conceptual
 
 # Enable Azure Start/Stop VMs solution
 
-Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
+Perform the following steps to add the Start/Stop VMs during off-hours solution to a new or existing Automation account and linked Log Analytics workspace. After completing the onboarding process, configure the variables to customize the solution.
+
+## Enable solution
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 
@@ -83,4 +85,4 @@ After all settings are validated, the solution is deployed to your subscription.
 
 ## Next steps
 
-Now that you have the solution enabled, you can [configure](automation-solution-vm-management-config.md) it to support your VM management requirements. 
+Now that you have the solution enabled, you can [configure](automation-solution-vm-management-config.md) it to support your VM management requirements.
