@@ -15,9 +15,9 @@ Similarly, service types can be removed from an application as part of an upgrad
 
 ## Avoid connection drops during stateless service planned downtime (preview)
 
-For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint being removed after it goes down.
+For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint is removed after the instance goes down, which results in forced connection closures.
 
-To avoid this, configure the *RequestDrain* (preview) feature by adding a replica *instance close delay duration* in the service configuration. This ensures the endpoint advertised by the stateless instance is removed *before* the delay timer starts for closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by callback function, so they can re-resolve the endpoint and avoid sending new requests to the instance going down.
+To avoid this, configure the *RequestDrain* (preview) feature by adding an *instance close delay duration* in the service configuration to allow drain while receiving requests from other services within the cluster and are using Reverse Proxy or using resolve API with notification model for updating endpoints. This ensures that the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down.
 
 ### Service configuration
 
@@ -45,24 +45,8 @@ There are several ways to configure the delay on the service side.
 
 ### Client configuration
 
-To receive notification when an endpoint has changed, clients can register a callback (`ServiceManager_ServiceNotificationFilterMatched`) like this: 
-
-```csharp
-    var filterDescription = new ServiceNotificationFilterDescription
-    {
-        Name = new Uri(serviceName),
-        MatchNamePrefix = true
-    };
-    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
-    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
-
-private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
-{
-      // Resolve service to get a new endpoint list
-}
-```
-
-The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore as they will go down soon.
+To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore, as they will go down soon.
 
 ### Optional upgrade overrides
 
@@ -75,6 +59,17 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 ```
 
 The delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a delay of `0` in order to skip any preconfigured upgrade delays.
+
+> [!NOTE]
+> The setting to drain requests is not honored for requests from Azure Load balancer. 
+> The setting are not honored if the calling service uses complaint based resolve.
+>
+>
+
+> [!NOTE]
+> This feature can be configured in existing services using Update-ServiceFabricService cmdlet as mentioned above, when the cluster code version is 7.1.XXX or above.
+>
+>
 
 ## Manual upgrade mode
 
