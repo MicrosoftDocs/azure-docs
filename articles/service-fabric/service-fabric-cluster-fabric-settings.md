@@ -50,10 +50,10 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, default is 0|Static|The MinReplicaSetSize for BackupRestoreService |
-|PlacementConstraints|string, default is	""|Static|	The PlacementConstraints for BackupRestore service |
-|SecretEncryptionCertThumbprint|string, default is	""|Dynamic|Thumbprint of the Secret encryption X509 certificate |
-|SecretEncryptionCertX509StoreName|string, default is	"My"|	Dynamic|	This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
-|TargetReplicaSetSize|int, default is	0|Static| The TargetReplicaSetSize for BackupRestoreService |
+|PlacementConstraints|string, default is    ""|Static|    The PlacementConstraints for BackupRestore service |
+|SecretEncryptionCertThumbprint|string, default is    ""|Dynamic|Thumbprint of the Secret encryption X509 certificate |
+|SecretEncryptionCertX509StoreName|string, default is    "My"|    Dynamic|    This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
+|TargetReplicaSetSize|int, default is    0|Static| The TargetReplicaSetSize for BackupRestoreService |
 
 ## ClusterManager
 
@@ -142,8 +142,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, default is 0|Static|The MinReplicaSetSize for EventStore service |
-|PlacementConstraints|string, default is	""|Static|	The PlacementConstraints for EventStore service |
-|TargetReplicaSetSize|int, default is	0|Static| The TargetReplicaSetSize for EventStore service |
+|PlacementConstraints|string, default is    ""|Static|    The PlacementConstraints for EventStore service |
+|TargetReplicaSetSize|int, default is    0|Static| The TargetReplicaSetSize for EventStore service |
 
 ## FabricClient
 
@@ -265,7 +265,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CommonNameNtlmPasswordSecret|SecureString, default is Common::SecureString("")| Static|The password secret which used as seed to generated same password when using NTLM authentication |
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, default is Common::TimeSpan::FromMinutes(5)|Dynamic|Specify timespan in seconds. The time interval between checking of disk space for reporting health event when disk is close to out of space. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, default is Common::TimeSpan::FromMinutes(15)|Dynamic|Specify timespan in seconds. The time interval between checking of disk space for reporting health event when there is enough space on disk. |
-|EnableImageStoreHealthReporting |bool, default is TRUE	|Static|Config to determine whether file store service should report its health. |
+|EnableImageStoreHealthReporting |bool, default is TRUE    |Static|Config to determine whether file store service should report its health. |
 |FreeDiskSpaceNotificationSizeInKB|int64, default is 25\*1024 |Dynamic|The size of free disk space below which health warning may occur. Minimum value of this config and FreeDiskSpaceNotificationThresholdPercentage config are used to determine sending of the health warning. |
 |FreeDiskSpaceNotificationThresholdPercentage|double, default is 0.02 |Dynamic|The percentage of free disk space below which health warning may occur. Minimum value of this config and FreeDiskSpaceNotificationInMB config are used to determine sending of health warning. |
 |GenerateV1CommonNameAccount| bool, default is TRUE|Static|Specifies whether to generate an account with user name V1 generation algorithm. Starting with Service Fabric version 6.1; an account with v2 generation is always created. The V1 account is necessary for upgrades from/to versions that do not support V2 generation (prior to 6.1).|
@@ -335,7 +335,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CreateFabricRuntimeTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. The timeout value for the sync FabricCreateRuntime call |
 |DefaultContainerRepositoryAccountName|string, default is ""|Static|Default credentials used instead of credentials specified in ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|string, default is ""|Static|Default password credentials used instead of credentials specified in ApplicationManifest.xml|
-|DefaultContainerRepositoryPasswordType|string, default is ""|Static|When not empty string, the value can be “Encrypted” or “SecretsStoreRef”.|
+|DefaultContainerRepositoryPasswordType|string, default is ""|Static|When not empty string, the value can be "Encrypted" or "SecretsStoreRef".|
 |DefaultDnsSearchSuffixEmpty|bool, default is FALSE|Static|By default the service name is appended to the SF DNS name for container services. This feature stops this behavior so that nothing is appended to the SF DNS name by default in the resolution pathway.|
 |DeploymentMaxFailureCount|int, default is 20| Dynamic|Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.| 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
@@ -563,8 +563,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |TraceCRMReasons |Bool, default is true |Dynamic|Specifies whether to trace reasons for CRM issued movements to the operational events channel. |
 |UpgradeDomainConstraintPriority | Int, default is 1| Dynamic|Determines the priority of upgrade domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |UseMoveCostReports | Bool, default is false | Dynamic|Instructs the LB to ignore the cost element of the scoring function; resulting potentially large number of moves for better balanced placement. |
-|UseSeparateSecondaryLoad | Bool, default is true | Dynamic|Setting which determines if use different secondary load. |
-|UseSeparateSecondaryMoveCost|Bool, default is FALSE | Dynamic|Setting which determines if PLB should use different move cost for secondary on each node If UseSeparateSecondaryMoveCost is turned off: - Reported move cost for secondary on one node will result in overwritting move cost for each secondary (on all other nodes) If UseSeparateSecondaryMoveCost is turned on: - Reported move cost for secondary on one node will take effect only on that secondary (no effect on secondaries on other nodes) - If replica crash happens - new replica is created with default move cost specified on service level - If PLB moves existing replica - move cost goes with it |
+|UseSeparateSecondaryLoad | Bool, default is true | Dynamic|Setting which determines if separate load should be used for secondary replicas. |
+|UseSeparateSecondaryMoveCost | Bool, default is false | Dynamic|Setting which determines if separate move cost should be used for secondary replicas. |
 |ValidatePlacementConstraint | Bool, default is true |Dynamic| Specifies whether or not the PlacementConstraint expression for a service is validated when a service's ServiceDescription is updated. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, default is TRUE |Dynamic|Specifies whether or not the PlacementConstraint expression for a service is evaluated for primary preference on failover. |
 |VerboseHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of times a replica has to go unplaced before a health warning is reported for it (if verbose health reporting is enabled). |
@@ -686,7 +686,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for admin client operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of admin client certificates must be in the list. |
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of "Name" and "Value" pair. Each "Name" is of subject common name or DnsName of X509 certificates authorized for admin client operations. For a given "Name", "Value" is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of admin client certificates must be in the list. |
 
 ## Security/ClientAccess
 
@@ -801,7 +801,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for client operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of client certificates must be in the list.|
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of "Name" and "Value" pair. Each "Name" is of subject common name or DnsName of X509 certificates authorized for client operations. For a given "Name", "Value" is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of client certificates must be in the list.|
 
 ## Security/ClusterCertificateIssuerStores
 
@@ -813,7 +813,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for cluster operations. For a given “Name”,“Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of cluster certificates must be in the list.|
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of "Name" and "Value" pair. Each "Name" is of subject common name or DnsName of X509 certificates authorized for cluster operations. For a given "Name","Value" is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of cluster certificates must be in the list.|
 
 ## Security/ServerCertificateIssuerStores
 
@@ -825,7 +825,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of “Name” and “Value” pair. Each “Name” is of subject common name or DnsName of X509 certificates authorized for server operations. For a given “Name”, “Value” is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of server certificates must be in the list.|
+|PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of "Name" and "Value" pair. Each "Name" is of subject common name or DnsName of X509 certificates authorized for server operations. For a given "Name", "Value" is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of server certificates must be in the list.|
 
 ## Setup
 
