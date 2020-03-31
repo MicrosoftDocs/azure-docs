@@ -6,8 +6,6 @@ ms.date: 03/31/2020
 ms.author: juliako
 ---
 
-# Quotas and limitations in Azure Media Services 
-
 This article describes quotas and limitations in Azure Media Services v3.
 
 | Resource | Default Limit | 
