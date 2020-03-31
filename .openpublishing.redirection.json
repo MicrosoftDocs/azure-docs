@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
-      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-network/create-virtual-network-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
       "redirect_document_id": false
@@ -276,8 +271,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-load-data.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-train-chainer.md",
+      "redirect_url": "azure/machine-learning/how-to-train-ml-models",
       "redirect_document_id": false
     },
     {
@@ -50484,6 +50484,14 @@
     {
       "source_path": "articles/sql-database/sql-database-paas-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-technical-overview"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-scalability-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-scale-resources"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-features-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-features"
     }
   ]
 }

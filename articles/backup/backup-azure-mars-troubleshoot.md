@@ -128,6 +128,13 @@ Set-ExecutionPolicy Unrestricted
 > [!TIP]
 > To ensure changes are applied consistently, restart the server after performing the preceding steps.
 
+## Resource not provisioned in service stamp
+
+Error | Possible causes | Recommended actions
+--- | --- | ---
+The current operation failed due to an internal service error "Resource not provisioned in service stamp". Please retry the operation after some time. (ID: 230006) | The protected server was renamed. | <li> Rename the server back to the original name as registered with the vault. <br> <li> Re-register the server to the vault with the new name.
+
+
 ## Troubleshoot restore problems
 
 Azure Backup might not successfully mount the recovery volume, even after several minutes. And you might receive error messages during the process. To begin recovering normally, take these steps:
