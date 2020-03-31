@@ -50474,6 +50474,14 @@
     {
       "source_path": "articles/sql-database/sql-database-paas-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-technical-overview"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-scalability-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-scale-resources"
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-features-index.yml",
+      "redirect_url": "/azure/sql-database/sql-database-features"
     }
   ]
 }
