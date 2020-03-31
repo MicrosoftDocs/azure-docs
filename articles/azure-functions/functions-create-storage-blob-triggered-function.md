@@ -21,7 +21,9 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-   ![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
+You've successfully created your new function app.
+
+![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
 Next, you create a function in the new function app.
 
