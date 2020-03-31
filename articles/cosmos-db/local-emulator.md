@@ -100,7 +100,7 @@ As with the Azure Cosmos DB, the Azure Cosmos Emulator supports only secure comm
 
 You can run the emulator on a local network. To enable network access, specify the `/AllowNetworkAccess` option at the [command-line](#command-line-syntax), which also requires that you specify `/Key=key_string` or `/KeyFile=file_name`. You can use `/GenKeyFile=file_name` to generate a file with a random key upfront. Then you can pass that to `/KeyFile=file_name` or `/Key=contents_of_file`.
 
-To enable network access for the first time the user should shut down the emulator and delete the emulator’s data directory (%LOCALAPPDATA%\CosmosDBEmulator).
+To enable network access for the first time the user should shut down the emulator and delete the emulator's data directory (%LOCALAPPDATA%\CosmosDBEmulator).
 
 ## Developing with the emulator
 
@@ -125,7 +125,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### Table API
 
-Once you have the Azure Cosmos Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start emulator from command prompt as an administrator with “/EnableTableEndpoint”. Next run the following code to connect to the table API account:
+Once you have the Azure Cosmos Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](table-storage-how-to-use-dotnet.md) to interact with the emulator. Start emulator from command prompt as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -144,7 +144,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### Cassandra API
 
-Start emulator from an administrator command prompt with “/EnableCassandraEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
+Start emulator from an administrator command prompt with "/EnableCassandraEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
 * [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
@@ -174,11 +174,11 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 ### Gremlin API
 
-Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Start emulator from an administrator command prompt with "/EnableGremlinEndpoint". Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * [Install apache-tinkerpop-gremlin-console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
-* In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+* In the emulator's Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
 * Run the following commands in a regular command prompt window:
 
@@ -408,7 +408,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 .\importcert.ps1
 ```
 
-Closing the interactive shell once the emulator has been started will shut down the emulator’s container.
+Closing the interactive shell once the emulator has been started will shut down the emulator's container.
 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
@@ -440,7 +440,7 @@ Finally, we need to import the Emulator CA certificate into the Linux or Mac env
 
 If you are working on Linux, .NET relays on OpenSSL to do the validation:
 
-1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key). 
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX is available when choosing to export the private key). 
 
 1. Copy that PFX file into your Linux environment.
 
@@ -466,7 +466,7 @@ If you are working on Linux, .NET relays on OpenSSL to do the validation:
 
 Use the following steps if you are working on Mac:
 
-1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-ssl-certificate) (PFX is available when choosing to export the private key).
+1. [Export the certificate in PFX format](./local-emulator-export-ssl-certificates.md#how-to-export-the-azure-cosmos-db-tlsssl-certificate) (PFX is available when choosing to export the private key).
 
 1. Copy that PFX file into your Mac environment.
 

@@ -16,8 +16,8 @@
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
-- name: Release Notes
-  items:
+  - name: Release notes
+    items:
     - name: Recent Release
       href: release-notes-10-0-10106-0.md  
     - name: Gen2 region upgrade schedule
@@ -211,6 +211,8 @@
     items:
     - name: Dynamic SQL
       href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Read committed snapshot isolation 
+      href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Group by options
       href: sql-data-warehouse-develop-group-by-options.md
     - name: Labels
