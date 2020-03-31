@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
 
 ---
@@ -35,6 +35,8 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 
 ## Configure at the time of lab account creation
 During the new lab account creation, you can pick an existing virtual network that shows in the **Peer virtual network** dropdown list on the **Advanced** tab. The selected virtual network is connected(peered) to labs created under the lab account. All the virtual machines in labs that are created after the making this change would have access to the resources on the peered virtual network. 
+
+There is also a provision to provide **Address range** of virtual machines for the labs. If the address range is provided, all the virtual machines in the labs under the lab account will be created in that address range. The address range should be in CIDR notation (e.g. 10.20.0.0/20) and not overlap with any existing address ranges. When providing an address range, it is important to think about the number of virtual machines that will be created in the labs and provide an address range to accommodate that. For a given range, the number of labs it can accomodate will be shown.
 
 ![Select VNet to peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
