@@ -89,7 +89,7 @@ Loading to the staging table takes longer, but the second step of inserting the 
 
 Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. 
 
-When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This scenario, in turn, effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class. 
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. 
@@ -98,7 +98,7 @@ When there is memory pressure, the columnstore index might not be able to achiev
 > If you load too few rows, they might all route to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SqLBulkCopy API or bcp
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) or [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15), you should consider increasing batch size for better throughput. 
+Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) or [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15), you should consider increasing batch size for better throughput. 
 
 > [!TIP]
 > A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
@@ -107,9 +107,14 @@ As mentioned before, loading with PolyBase will provide the highest throughput w
 
 A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. 
 
-A data record is considered dirty if the data types and number of columns do not match the column definitions of the external table, or if the data doesn't conform to the specified external file format. 
+A data record is considered to be dirty if it meets one of the following conditions:
 
-To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+- The data types and number of columns do not match the column definitions of the external table.
+- The data doesn't conform to the specified external file format. 
+
+To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. 
+
+If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
 
 ## Inserting data into a production table
 
@@ -119,7 +124,7 @@ If you have thousands or more single inserts throughout the day, batch the inser
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data. Creating statistics can be done manually or you can enable [auto-create statistics](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data. Creating statistics can be done manually or you can enable [AUTO_CREATE_STATISTICS](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic).
 
 For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 

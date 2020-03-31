@@ -25,7 +25,9 @@ This article describes guidance and best practices as you develop your SQL pool 
 For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md) article. 
 
 ## Maintain statistics
-SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up-to-date. 
+SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
+
+We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up to date. 
 
 If you find it is taking too long to update all of your statistics, you may want to try to be more selective about which columns need frequent statistics updates. For example, you might want to update date columns, where new values may be added, daily. 
 
@@ -41,7 +43,7 @@ Round Robin tables may perform sufficiently for some workloads, but in most case
 
 For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query, which means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.  
 
-When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  See the articles that follow for further details on improving performance by selecting a distribution column and how to define a distributed table in the WITH clause of your CREATE TABLES statement.
+When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  The articles that follow give further details on improving performance by selecting a distribution column and how to define a distributed table in the WITH clause of your CREATE TABLES statement.
 
 See also [Table overview](sql-data-warehouse-tables-overview.md), [Table distribution](sql-data-warehouse-tables-distribute.md), [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md), and [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
 
@@ -60,7 +62,7 @@ See also [Table partitioning](sql-data-warehouse-tables-partition.md).
 ## Minimize transaction sizes
 INSERT, UPDATE, and DELETE statements run in a transaction and when they fail they must be rolled back.  To minimize the potential for a long rollback, minimize transaction sizes whenever possible.  This can be done by dividing INSERT, UPDATE, and DELETE statements into parts.  
 
-For example, if you have an INSERT, which you expect to take 1 hour, if possible, break up the INSERT into four parts, which will each run in 15 minutes.  Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE or INSERT to empty tables, to reduce rollback risk.  
+For example, if you have an INSERT, which you expect to take 1 hour, if possible, break up the INSERT into four parts, which will each run in 15 minutes.  Leverage special Minimal Logging cases, like CTAS, TRUNCATE, DROP TABLE, or INSERT to empty tables, to reduce rollback risk.  
 
 Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly and then switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  
 
@@ -83,7 +85,7 @@ Clustered columnstore indexes are one of the most efficient ways you can store y
 
 When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Segment quality can be measured by number of rows in a compressed Row Group.  
 
-See the [Causes of poor columnstore index quality](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) in the [Table indexes](sql-data-warehouse-tables-index.md) article for step by step instructions on detecting and improving segment quality for clustered columnstore tables.  
+See the [Causes of poor columnstore index quality](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality) in the [Table indexes](sql-data-warehouse-tables-index.md) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) means you want to assign a larger resource class to your loading user.
 
@@ -107,6 +109,6 @@ The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/hom
 
 If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
-Please use the [Azure Synapse Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
+Use the [Azure Synapse Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page to make feature requests.  Adding your requests or up-voting other requests really helps us prioritize features.
 
 
