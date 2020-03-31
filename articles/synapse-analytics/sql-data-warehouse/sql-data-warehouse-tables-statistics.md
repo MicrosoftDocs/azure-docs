@@ -66,7 +66,7 @@ The table_name is the name of the table that contains the statistics to display.
 
 ## Updating statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn't generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
 The following are recommendations updating statistics:
 
@@ -121,11 +121,11 @@ It is often a good idea to extend your data-loading process to ensure that stati
 
 The following guiding principles are provided for updating your statistics during the load process:
 
-* Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
-* Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-* Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
-* Consider updating static distribution columns less frequently.
-* Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
+- Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
+- Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
+- Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+- Consider updating static distribution columns less frequently.
+- Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 

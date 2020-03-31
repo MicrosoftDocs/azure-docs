@@ -14,10 +14,11 @@ ms.custom: seo-lt-2019
 ---
 
 # Using labels to instrument queries in Azure SQL Data Warehouse
+
 Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
 
-
 ## What are labels?
+
 SQL Data Warehouse supports a concept called query labels. Before going into any depth, let's look at an example:
 
 ```sql
@@ -41,11 +42,8 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> It is essential to put square brackets or double quotes around the word label when querying. Label is a reserved word and causes an error when it is not delimited. 
-> 
-> 
+> It is essential to put square brackets or double quotes around the word label when querying. Label is a reserved word and causes an error when it is not delimited.
 
 ## Next steps
+
 For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
-
-

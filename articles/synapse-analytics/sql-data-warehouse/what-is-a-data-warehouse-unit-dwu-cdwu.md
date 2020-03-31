@@ -51,7 +51,7 @@ CREATE DATABASE mySQLDW
 
 ## Capacity limits
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## How many data warehouse units do I need
 
@@ -167,7 +167,7 @@ To check the status of DWU changes:
     FROM      sys.databases
     ;
     ```
-    
+
 1. Submit the following query to check status of operation
 
     ```sql
@@ -177,7 +177,7 @@ To check the status of DWU changes:
     AND       major_resource_id = 'MySQLDW'
     ;
     ```
-    
+
 This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ## The scaling workflow
