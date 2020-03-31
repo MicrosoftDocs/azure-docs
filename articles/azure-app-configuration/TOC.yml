@@ -92,6 +92,8 @@
   items:
     - name: Enable a feature for a subset of users
       href: howto-feature-filters-aspnet-core.md
+    - name: Use labels for per-environment configuration
+      href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
@@ -118,7 +120,7 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
-        - name: REST
+        - name: REST API
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management
       items:
@@ -126,6 +128,10 @@
           href: https://go.microsoft.com/fwlink/?linkid=2091700
         - name: .NET Core filter library
           href: https://go.microsoft.com/fwlink/?linkid=2091601
+    - name: Config store management
+      items:
+        - name: REST API
+          href: https://docs.microsoft.com/rest/api/appconfiguration/
 - name: Resources
   items:
     - name: Pricing

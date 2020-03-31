@@ -106,7 +106,7 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 Event Hubs provides a Kafka endpoint that can be used by your existing Apache Kafka based applications. A configuration change is all that is required to have the PaaS Kafka experience. It provides an alternative to running your own Kafka cluster. Event Hubs supports Apache Kafka 1.0 and newer client versions and works with your existing Kafka applications, tools, and frameworks. For more information, see [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### What configuration changes need to be done for my existing application to talk to Event Hubs?
-To connect to a Kafka-enabled Event Hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Kafka-enabled Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
+To connect to an event hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 request.timeout.ms=60000
@@ -124,8 +124,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 Note: If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
 
-### What is the message/event size for Kafka-enabled Event Hubs?
-The maximum message size allowed for Kafka-enabled Event Hubs is 1 MB.
+### What is the message/event size for Event Hubs?
+The maximum message size allowed for Event Hubs is 1 MB.
 
 ## Throughput units
 

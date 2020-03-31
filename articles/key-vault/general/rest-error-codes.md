@@ -96,7 +96,7 @@ It is important that all of the values be properly identified in the token in or
 
 ### Troubleshooting 401
 
-401s should be investigated from the point of token generation, before the request is made to the key vault. Generally code is being used to request the token. Once the token is received, it is passed into the Key Vault request. If the code is running locally, you can use Fiddler to capture the request/response to https://login.microsoftonline.com. A request looks like this:
+401s should be investigated from the point of token generation, before the request is made to the key vault. Generally code is being used to request the token. Once the token is received, it is passed into the Key Vault request. If the code is running locally, you can use Fiddler to capture the request/response to `https://login.microsoftonline.com`. A request looks like this:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
