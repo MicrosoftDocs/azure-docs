@@ -52,19 +52,17 @@ The following table shows the limits on the media reserved units S1, S2, and S3.
 
 Any Job record in your account older than 90 days will be automatically deleted, even if the total number of records is below the maximum quota. 
 
-
 ### Live streaming
 
 | Resource | Default Limit | 
 | --- | --- | 
-| Live Events per Media Services account |5|
-| Live Outputs per Live Event |3 <sup>(4)</sup> |
+| Live Events <sup>(4)</sup> per Media Services account |5|
+| Live Outputs per Live Event |3 <sup>(5)</sup> |
 | Max Live Output duration | 25 hours |
 
-<sup>4</sup> Live Outputs start on creation and stop when deleted.
+<sup>4</sup> For detailed information about Live Event limitation, see [Live Event types comparison and limitations](../articles/media-services/latest/live-event-types-comparison.md).
 
-> [!NOTE]
-> For more detailed information, see [Live Event types comparison and limitations](../articles/media-services/latest/live-event-types-comparison.md)
+<sup>5</sup> Live Outputs start on creation and stop when deleted.
 
 ### Delivery/streaming limitations
 
@@ -72,12 +70,12 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | --- | --- | 
 | Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
 | Dynamic Manifest Filters|100|
-| Streaming Policies | 100 <sup>(5)</sup> |
-| Unique Streaming Locators associated with an Asset at one time | 100<sup>(6)</sup> (fixed) |
+| Streaming Policies | 100 <sup>(6)</sup> |
+| Unique Streaming Locators associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
 
-<sup>5</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
+<sup>6</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
 
-<sup>6</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
+<sup>7</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
 ### Protection
 
