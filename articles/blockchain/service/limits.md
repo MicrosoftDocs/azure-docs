@@ -50,7 +50,7 @@ Decreasing ledger and log storage size is not supported.
 
 * **Members removed from the consortium cannot be added again**
 
-    Rather, they must be reinvited to join the consortium and create a new member. Their existing member resource are not deleted to preserve historical transactions.
+    Rather, they must be reinvited to join the consortium and create a new member. Their existing member resources are not deleted to preserve historical transactions.
 
 * **All members in a consortium must be using the same ledger version**
 
