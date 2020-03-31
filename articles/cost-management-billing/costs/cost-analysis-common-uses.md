@@ -21,7 +21,7 @@ Viewing costs by an Azure service can help you to better understand the parts of
 1. Select **Cost by service** and then group by **Service tier**.
 1. Change the view to **Table**.
 
-![Cost breakdown by Azure service](./media/cost-analysis-common-uses/breakdown-by-service.png)
+[![Cost breakdown by Azure service](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
 
 ## View cost breakdown by Azure resource
 
@@ -31,7 +31,7 @@ Your services are built with Azure resources. Reviewing costs based on resources
 1. Select **Cost by resource**.
 1. Change the view to **Table**.
 
-![View cost breakdown by Azure resource](./media/cost-analysis-common-uses/cost-by-resource.png)
+[![View cost breakdown by Azure resource](./media/cost-analysis-common-uses/cost-by-resource.png)](./media/cost-analysis-common-uses/cost-by-resource.png#lightbox)
 
 ## View cost breakdown by selected dimensions
 
@@ -39,10 +39,10 @@ Dimensions allow you to organize your costs based on various metadata values sho
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select the **Group by** filter.  
-    ![Select a Group by item](./media/cost-analysis-common-uses/group-by.png)
+    [![Select a Group by item](./media/cost-analysis-common-uses/group-by.png)](./media/cost-analysis-common-uses/group-by.png#lightbox)
 1. Optionally, you save the view for later use.
 1. Click a pie chart below the graph to view more detailed data.  
-    ![View cost breakdown by selected dimensions](./media/cost-analysis-common-uses/drill-down.png)
+    [![View cost breakdown by selected dimensions](./media/cost-analysis-common-uses/drill-down.png)](./media/cost-analysis-common-uses/drill-down.png#lightbox)
 
 ## View costs per day or by month
 
@@ -51,7 +51,7 @@ Looking at daily and monthly costs can help you to better understand if there's 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Set the **Granularity** to **Monthly** or **Daily**.
 
-![View costs per day](./media/cost-analysis-common-uses/daily-granularity.png)
+[![View costs per day](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
 
 ## View your reservation charges
 
@@ -97,7 +97,7 @@ To identify how much cost is currently being wasted each month for your reservat
 1. Group charges by **Charge Type**.
 1. Review the results for `unusedreservation` values.
 
-![Example showing reservation use](./media/cost-analysis-common-uses/view-reservation-cost.png)
+[![Example showing reservation use](./media/cost-analysis-common-uses/view-reservation-cost.png)](./media/cost-analysis-common-uses/view-reservation-cost.png#lightbox)
 
 ### View utilization in Reservations
 
@@ -112,7 +112,7 @@ Support for tags applies to usage reported *after* the tag was applied to the re
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select **Group by** for your tag.
 
-![View costs for a specific tag](./media/cost-analysis-common-uses/tag.png)
+[![View costs for a specific tag](./media/cost-analysis-common-uses/tag.png)](./media/cost-analysis-common-uses/tag.png#lightbox)
 
 ## Download your usage details
 
@@ -120,7 +120,7 @@ Your usage details report file, in CSV format, provides a breakdown of all the c
 
 1. In the Azure portal, navigate to the **Usage and Charges** tab for a billing account or subscription. For example: **Cost Management + Billing** > **Billing** > **Usage + charges**.
 1. Select the line item to download from and then click the download symbol.  
-    ![Download usage and charges](./media/cost-analysis-common-uses/download1.png)
+    [![Download usage and charges](./media/cost-analysis-common-uses/download1.png)](./media/cost-analysis-common-uses/download1.png#lightbox)
 1.  Select the usage file to download.  
     ![Choose a usage file to download](./media/cost-analysis-common-uses/download2.png)
 
@@ -133,9 +133,9 @@ Costs are only shown for your active enrollment. If you transferred an enrollmen
 
 1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
 1. Click **Breakdown** for the current month and view your monetary commitment burn down.  
-    ![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)
+    [![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Click the **Usage and Charges** tab and view the prior month's breakdown in the chosen timespan.  
-    ![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)
+    [![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)
 
 ## View enrollment monthly cost by term
 
@@ -147,7 +147,7 @@ Use a graphical view of your enrollment's monthly costs to understand the cost t
 
 You can group by and filter your data for a more detailed analysis.
 
-![Monthly enrollment cost by term](./media/cost-analysis-common-uses/enrollment-term1.png)
+[![Monthly enrollment cost by term](./media/cost-analysis-common-uses/enrollment-term1.png)](./media/cost-analysis-common-uses/enrollment-term1.png#lightbox)
 
 ## View EA enrollment accumulated costs
 
@@ -156,7 +156,7 @@ View the net accumulated charges over time to understand overall expenditures fo
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select your enrollment and then view your current accumulated costs.
 
-![Enrollment accumulated costs](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+[![Enrollment accumulated costs](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)](./media/cost-analysis-common-uses/cost-analysis-enrollment.png#lightbox)
 
 ## Next steps
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
