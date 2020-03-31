@@ -29741,6 +29741,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-confidence-score.md",
+      "redirect_url": "/azure/security-center/security-center-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-virtual-machine.md",
       "redirect_url": "/azure/security-center/security-center-intro",
       "redirect_document_id": false
