@@ -171,8 +171,6 @@ This utterance is not the same as any of the labeled utterances so it is a good 
 
     The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
 
-## Clean up resources
-
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information

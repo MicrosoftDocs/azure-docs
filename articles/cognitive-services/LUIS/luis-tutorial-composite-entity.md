@@ -173,8 +173,6 @@ To train the app, select **Train**. Training applies the changes, such as the ne
 
    This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.
 
-## Clean up resources
-
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## Related information
