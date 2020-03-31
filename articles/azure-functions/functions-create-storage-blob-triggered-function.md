@@ -74,15 +74,21 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 1. Back in the Azure portal, browse to your function expand the **Logs** at the bottom of the page and make sure that log streaming isn't paused.
 
-1. In Storage Explorer, expand your storage account, **Blob Containers**, and **samples-workitems**. Click **Upload** and then **Upload files...**.
+1. In a separate browser window, go to your resource group in the Azure portal, and select the storage account.
+
+1. Select **Containers**, and then select the **samples-workitems** container.
+
+    ![Go to your samples-workitems container in the Azure portal.](./media/functions-create-storage-blob-triggered-function/functions-storage-container.png)
+
+1. Select **Upload**, and then select the folder icon to choose a file to upload.
 
     ![Upload a file to the blob container.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
-1. In the **Upload files** dialog box, click the **Files** field. Browse to a file on your local computer, such as an image file, select it and click **Open** and then **Upload**.
+1. Browse to a file on your local computer, such as an image file, choose the file. Select **Open** and then **Upload**.
 
 1. Go back to your function logs and verify that the blob has been read.
 
-   ![View message in the logs.](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
+   ![View message in the logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
     >[!NOTE]
     > When your function app runs in the default Consumption plan, there may be a delay of up to several minutes between the blob being added or updated and the function being triggered. If you need low latency in your blob triggered functions, consider running your function app in an App Service plan.
