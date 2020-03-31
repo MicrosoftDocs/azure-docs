@@ -1,5 +1,5 @@
 ---
-title: Create & manage resources in entitlement management - Azure AD
+title: Create & manage a catalog of resources in entitlement management - Azure AD
 description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
