@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 03/31/2020
 ms.author: allensu
 ---
 
@@ -177,25 +177,27 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 #### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with availability zones">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
 </p>
 
 *Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
 
 Even without availability zones, NAT is resilient and can survive multiple infrastructure component failures.  Availability zones build on this resiliency with zone isolation scenarios for NAT.
 
-Virtual networks and their subnets are regional constructs.  Subnets are not aligned with a zone.
+Virtual networks and their subnets are regional constructs.  Subnets aren't restricted to a zone.
 
-A zonal promise for zone isolation exists when a virtual machine instance using a NAT gateway resource is in the same zone as the NAT gateway resource and its public IP addresses. The pattern you want to use for zone isolation is creating a "zonal stack" per availability zone.  This "zonal stack" consists of virtual machine instances, NAT gateway resources, public IP address and/or prefix resources on a subnet that is assumed to be serving only the same zone.   The control plane operations and data plane are then constrained to the specified zone. 
+A zonal promise for zone isolation exists when a virtual machine instance using a NAT gateway resource is in the same zone as the NAT gateway resource and its public IP addresses. The pattern you want to use for zone isolation is creating a "zonal stack" per availability zone.  This "zonal stack" consists of virtual machine instances, NAT gateway resources, public IP address and/or prefix resources on a subnet that is assumed to be serving only the same zone.   The control plane operations and data plane are then aligned with and constrained to the specified zone. 
 
 Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Outbound traffic from virtual machines in the same zone will fail because of zone isolation.  
+
+#### Integrating inbound endpoints
 
 If your scenario requires inbound endpoints, you have two options:
 
 | Option | Pattern | Example | Pro | Con |
 |---|---|---|---|---|
-| (1) | **Align** the inbound endpoints with the respective zonal stacks you're creating for outbound. | Create a standard load balancer with zonal frontend. | Same health model and failure mode for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
-| (2) | **Overlay** the zonal stacks with a cross-zone inbound endpoint. | Create a standard load balancer with zone-redundant frontend. | Single IP address for inbound endpoint. | Varying health model and failure modes for inbound and outbound.  More complex to operate. |
+| (1) | **Align** the inbound endpoints with the respective **zonal stacks** you're creating for outbound. | Create a standard load balancer with zonal frontend. | Same health model and failure mode for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
+| (2) | **Overlay** the zonal stacks with a **cross-zone** inbound endpoint. | Create a standard load balancer with zone-redundant frontend. | Single IP address for inbound endpoint. | Varying health model and failure modes for inbound and outbound.  More complex to operate. |
 
 >[!NOTE]
 > A zone-isolated NAT gateway requires IP addresses to match the zone of the NAT gateway. NAT gateway resources with IP addresses from a different zone or without a zone aren't allowed.
@@ -203,7 +205,7 @@ If your scenario requires inbound endpoints, you have two options:
 #### Cross-zone outbound scenarios not supported
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="zone-spanning Virtual Network NAT">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
 </p>
 
 *Figure: Virtual Network NAT not compatible with zone-spanning subnet*
