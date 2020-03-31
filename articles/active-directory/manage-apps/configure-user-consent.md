@@ -172,7 +172,7 @@ This can be done using the same steps as shown above for [configuring group owne
 3. Substitute one of the following in step 5:
 
     ```powershell
-    # Disable bisk based step-up consent entirely
+    # Disable risk-based step-up consent entirely
     $riskBasedConsentEnabledValue.Value = "False"
     ```
 
