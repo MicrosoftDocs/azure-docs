@@ -118,8 +118,19 @@ You can use bootstrap in Resource Manager template:
     }
 }
 ```
-
 ![Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+
+Sample Resource Manager template snippet to switch configuration in spark2-defaults to periodically clean up event logs from storage.  
+
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
 
 ## See also
 
