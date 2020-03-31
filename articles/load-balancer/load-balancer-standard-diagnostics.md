@@ -68,7 +68,7 @@ For API guidance for retrieving multi-dimensional metric definitions and values,
 
 ### Configure alerts for multi-dimensional metrics ###
 
-Azure Standard Load Balancer supports easily configurable alerts for multi dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
+Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
 
 To configure alerts:
 1. Go to the alert sub-blade for the load balancer
