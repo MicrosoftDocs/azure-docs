@@ -100,7 +100,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 ## Best practices for using Mongoose with Cosmos DB
 
-For every model you create, Mongoose creates a new collection. This is best addressed using the [Database Level Throughput option](https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput#set-throughput-on-a-database), which was previously discussed. To use  a single collection, you need to use Mongoose [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
+For every model you create, Mongoose creates a new collection. This is best addressed using the [Database Level Throughput option](set-throughput.md#set-throughput-on-a-database), which was previously discussed. To use  a single collection, you need to use Mongoose [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
 
 You can store the various data models in the same collection and then use a filter clause at query time to pull down only the data needed. Let's walk through each of the models.
 
