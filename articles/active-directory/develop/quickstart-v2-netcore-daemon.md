@@ -79,7 +79,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
     
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
