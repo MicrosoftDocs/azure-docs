@@ -76,16 +76,6 @@ landingContent:
             url: access-data-body-frame.md
 
   # Card
-  - title: Visualize and record
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Visualize device data streams
-            url: azure-kinect-viewer.md
-          - text: Record data streams
-            url: azure-kinect-recorder.md
-
-  # Card
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -94,3 +84,7 @@ landingContent:
             url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
           - text: Body tracking SDK API
             url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+          - text: Vision Services
+            url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
+          - text: Speech Services
+            url: https://docs.microsoft.com/azure/cognitive-services/speech-service/
