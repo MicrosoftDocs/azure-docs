@@ -115,7 +115,7 @@ A Remote Desktop Gateway is a policy-based RDP proxy service that enforces secur
 In general, helping to secure administrator workstations for use with the cloud is similar to the practices used for any workstation on-premises—for example, minimized build and restrictive permissions. Some unique aspects of cloud management are more akin to remote or out-of-band enterprise management. These include the use and auditing of credentials, security-enhanced remote access, and threat detection and response.
 
 ### Authentication
-You can use Azure logon restrictions to constrain source IP addresses for accessing administrative tools and audit access requests. To help Azure identify management clients (workstations and/or applications), you can configure both SMAPI (via customer-developed tools such as Windows PowerShell cmdlets) and the Azure portal to require client-side management certificates to be installed, in addition to SSL certificates. We also recommend that administrator access require multi-factor authentication.
+You can use Azure logon restrictions to constrain source IP addresses for accessing administrative tools and audit access requests. To help Azure identify management clients (workstations and/or applications), you can configure both SMAPI (via customer-developed tools such as Windows PowerShell cmdlets) and the Azure portal to require client-side management certificates to be installed, in addition to TLS/SSL certificates. We also recommend that administrator access require multi-factor authentication.
 
 Some applications or services that you deploy into Azure may have their own authentication mechanisms for both end-user and administrator access, whereas others take full advantage of Azure AD. Depending on whether you are federating credentials via Active Directory Federation Services (AD FS), using directory synchronization or maintaining user accounts solely in the cloud, using [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (part of Azure AD Premium) helps you manage identity lifecycles between the resources.
 
@@ -184,7 +184,7 @@ Don't assume that because a workstation has been locked down that other common s
 
 | Don't | Do |
 | --- | --- |
-| Don't email credentials for administrator access or other secrets (for example, SSL or management certificates) |Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
+| Don't email credentials for administrator access or other secrets (for example, TLS/SSL or management certificates) |Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
 | - | Proactively manage your management certificate life cycles. |
 | Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). |Establish security management principles and system hardening policies, and apply them to your development environment. |
 | - | Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. |

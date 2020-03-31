@@ -97,7 +97,7 @@ The following table lists the STRIDE threats and gives some example mitigations 
 | Threat | Security property | Potential Azure platform mitigations |
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
-| Tampering | Integrity | Validate SSL certificates. |
+| Tampering | Integrity | Validate TLS/SSL certificates. |
 | Repudiation | Non-repudiation | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring). |
 | Information disclosure | Confidentiality | Encrypt sensitive data at rest by using [service certificates](/rest/api/appservice/certificates). |
 | Denial of service | Availability | Monitor performance metrics for potential denial-of-service conditions. Implement connection filters. |
