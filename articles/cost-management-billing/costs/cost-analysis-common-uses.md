@@ -3,7 +3,7 @@ title: Common cost analysis uses in Azure Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -46,12 +46,62 @@ Dimensions allow you to organize your costs based on various metadata values sho
 
 ## View costs per day or by month
 
-Looking at daily and monthly costs can help you to better understand if there’s a time of the week or year where your costs are higher. If you have more customer traffic in a holiday period, does that lead to a corresponding increase in your Azure costs? Is Friday a more costly day than Monday?
+Looking at daily and monthly costs can help you to better understand if there's a time of the week or year where your costs are higher. If you have more customer traffic in a holiday period, does that lead to a corresponding increase in your Azure costs? Is Friday a more costly day than Monday?
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Set the **Granularity** to **Monthly** or **Daily**.
 
 ![View costs per day](./media/cost-analysis-common-uses/daily-granularity.png)
+
+## View your reservation charges
+
+Reserved instances provide a way for you to save money with Azure. With reservations, you spend money up front for a given number of resources over time. Cost analysis shows the charges as they appear on your bill. The charges are shown as actual costs or amortized over the course of your reservation period.
+
+1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Add a filter for **Pricing Model: Reservation**.
+1. Under **Scope** and next to the cost shown, click the down arrow symbol, select either **Actual cost** or **Amortized cost** metric.
+
+![Select a cost metric](./media/cost-analysis-common-uses/metric-cost.png)
+
+Each metric affects how data is shown for your reservation charges.
+
+**Actual cost** - Shows the purchase as it appears on your bill. For example, if you bought a one-year reservation for $1200 in January, cost analysis shows a $1200 cost in the month of January for the reservation. It doesn't show a reservation cost for other months of the year. If you group your actual costs by VM, then a VM that received the reservation benefit for a given month would have zero cost for the month.
+
+**Amortized cost** - Shows a reservation purchase split as an amortized cost over the duration of the reservation term. Using the same example above, cost analysis shows a $100 cost for each month throughout the year, if you purchased a one-year reservation for $1200 in January. If you group costs by VM in this example, you'd see cost attributed to each VM that received the reservation benefit.
+
+## View your Spot VM charges
+
+Spot VMs can provide large cost savings for workloads that can handle interruptions. Workloads are run on unused Azure capacity. Since they can be evicted at any time, Spot VMs get a significant discount. Use the following steps to view your Spot VM charges.
+
+1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+2. Add a filter for **Pricing Model: Spot**.
+
+![Example showing Spot VM filter](./media/cost-analysis-common-uses/spot-vm-filter.png)
+
+The Pricing Model dimension is also used to view on demand and reservation charges.
+
+## View your reservation utilization
+
+After you buy a reservation, it's important to track its utilization so that you get what you paid for. For example, if you bought 10 VMs for a year and only use five of them, then essentially half of the purchase is wasted. There are two different ways to assess your utilization:
+
+### View unused RI costs in cost analysis
+
+To identify how much cost is currently being wasted each month for your reservation purchase, follow the steps below.
+
+1. In the Azure portal, navigate to cost analysis for the scope where your reservation is applied. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Add a filter for **Pricing Model: Reservation**.
+1. Select the **Amortized Cost** view.
+1. Set the granularity to **Monthly**.
+1. Set the time period to the current year or your reservation term.
+1. Set the chart type to **Column (stacked)**.
+1. Group charges by **Charge Type**.
+1. Review the results for `unusedreservation` values.
+
+![Example showing reservation use](./media/cost-analysis-common-uses/view-reservation-cost.png)
+
+### View utilization in Reservations
+
+For detailed instructions, see [Optimize reservation use](../reservations/manage-reserved-vm-instance.md#optimize-reservation-use).
 
 ## View costs for a specific tag
 
@@ -84,12 +134,12 @@ Costs are only shown for your active enrollment. If you transferred an enrollmen
 1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
 1. Click **Breakdown** for the current month and view your monetary commitment burn down.  
     ![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)
-1.  Click the **Usage and Charges** tab and view the prior month’s breakdown in the chosen timespan.  
+1.  Click the **Usage and Charges** tab and view the prior month's breakdown in the chosen timespan.  
     ![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)
 
 ## View enrollment monthly cost by term
 
-Use a graphical view of your enrollment’s monthly costs to understand the cost trends and invoiced amounts for a given period.
+Use a graphical view of your enrollment's monthly costs to understand the cost trends and invoiced amounts for a given period.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select your enrollment and set the enrollment term.

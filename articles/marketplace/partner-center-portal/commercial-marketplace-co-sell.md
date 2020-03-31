@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 03/31/2020
 ---
 
 # Co-sell option in Partner Center
@@ -17,11 +17,11 @@ The co-sell option in Partner Center is currently available for some offer types
 
 | **Offer Type** | **Co-sell Page available in Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Software as a Service  (SaaS) |     General availability around Feb. 2020      |
+| Software as a Service  (SaaS) |     General availability around April 2020     |
 | Dynamics 365 for Customer Engagement & PowerApps      |     Available now      |
 | Dynamics 365 for Operations     |     Available now       |
-| Dynamics 365 Business Central      |  General availability around Feb. 2020     |
-| Azure Application     |     General availability around Feb. 2020     |
+| Dynamics 365 Business Central      |  General availability around April 2020    |
+| Azure Application     |     General availability around April 2020     |
 | Azure Virtual Machine      |     To be announced       |
 | Azure Container     |     To be announced       |
 | Consulting Service      |     To be announced       |
