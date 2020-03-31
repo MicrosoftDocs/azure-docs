@@ -104,7 +104,7 @@ To resolve this problem, start the VM in emergency mode by using the serial cons
 ### Using Single User Mode
 
 1. Connect to [the serial console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
-2. Use serial console to take single user mode [single user mode](https://docs.microsoft.com/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time#RH6x)
+2. Use serial console to take single user mode [single user mode](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
 3. Once the vm has booted into single user mode. Use your favorite text editor to open the fstab file. 
 
    ```

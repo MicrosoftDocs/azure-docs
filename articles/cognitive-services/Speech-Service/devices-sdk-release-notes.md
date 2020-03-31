@@ -54,7 +54,7 @@ The following sections list changes in the most recent releases.
 **Breaking changes**
 
 - Due to the new keyword technology all keywords must be re-created at our improved keyword portal. To fully remove old keywords from the device uninstall the old app.
-  - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
+  - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
 ## Speech Devices SDK 1.4.0: 2019-Apr release
 
