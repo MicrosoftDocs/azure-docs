@@ -4,9 +4,7 @@ description: Learn how to configure Azure Active Directory authentication as an 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
-ms.custom: seodec18
-ms.custom: fasttrack-edit
-
+ms.custom: seodec18, fasttrack-edit
 ---
 
 # Configure your App Service app to use Azure AD login

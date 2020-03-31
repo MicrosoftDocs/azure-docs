@@ -10,11 +10,11 @@ ms.author: jgao
 
 ---
 
-# Tutorial: Create and deploy your first Azure Resource Manager template
+# Tutorial: Create and deploy your first ARM template
 
-This tutorial introduces you to Azure Resource Manager templates. It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to Azure Resource Manager (ARM) templates. It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
-This tutorial is the first of a series. As you progress through the series, you modify the starting template step-by-step until you've explored all of the core parts of a Resource Manager template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
+This tutorial is the first of a series. As you progress through the series, you modify the starting template step-by-step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
 
 If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [Azure Resource Manager templates](overview.md).
 
@@ -26,7 +26,7 @@ Let's start by making sure you have the tools you need to create and deploy temp
 
 ### Editor
 
-Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
 
 ### Command-line deployment
 

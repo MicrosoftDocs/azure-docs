@@ -1,13 +1,12 @@
 ---
 title: Azure Application offer prerequisites | Azure Marketplace 
 description: The prerequisites for publishing an Azure application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application prerequisites

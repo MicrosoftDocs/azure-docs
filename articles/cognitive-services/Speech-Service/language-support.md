@@ -13,7 +13,7 @@ ms.author: dapine
 ms.custom: seodec18
 ---
 
-# Language and region support for the Speech service
+# Language and voice support for the Speech service
 
 Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
 

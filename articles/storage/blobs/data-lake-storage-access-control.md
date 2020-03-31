@@ -177,7 +177,7 @@ The owning group can be changed by:
 
 The following pseudocode represents the access check algorithm for storage accounts.
 
-```
+```console
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -256,7 +256,7 @@ The umask value used by Azure Data Lake Storage Gen2 effectively means that the 
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
-```
+```console
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
     for entry in parent.acls :
@@ -318,10 +318,11 @@ When you define ACLs for service principals, it's important to use the Object ID
 
 To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
 
+```azurecli
+az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 ```
-$ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>
-```
+
+OID will be displayed.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
