@@ -132,7 +132,7 @@ The following table lists the variables created in your Automation account. Only
 |External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces. This is limited to 140 VMs. If you add more than 140 VMs to this comma-separated list, VMs that are set to be excluded may be inadvertently started or stopped.|
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
-|External_WaitTimeForVMRetrySeconds ||
+|External_WaitTimeForVMRetrySeconds |The wait time in seconds for the actions to be performed on the VMs for the Sequenced start/stop runbook.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
 |Internal_AutoSnooze_ARM_WebhookURI | Specifies Webhook URI called for the AutoStop scenario.|
 |Internal_AutoSnooze_WebhookUri | Specifies Webhook URI called for the AutoStop scenario.|
