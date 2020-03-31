@@ -135,11 +135,6 @@ To drop a replication slot called `test_slot` using SQL:
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
-To drop a replication slot called `test_slot` using pg_recvlogical:
-```bash
-pg_recvlogical -h myserver.postgres.database.azure.com -U myuser@myserver -d postgres --slot test_slot --drop-slot 
-```
-
 > [!IMPORTANT]
 > If you stop using logical decoding, change azure.replication_support back to `replica` or `off`. The WAL details retained by `logical` are more verbose, and should be disabled when logical decoding is not in use. 
 
