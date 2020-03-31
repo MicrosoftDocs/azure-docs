@@ -1,6 +1,6 @@
 ---
 title: Azure AD Domain Services for Cloud Solution Providers | Microsoft Docs
-description: Learn how to enable and manage Azure Active Directory Domain Services manager domains for Azure Cloud Solution Providers
+description: Learn how to enable and manage Azure Active Directory Domain Services managed domains for Azure Cloud Solution Providers
 services: active-directory-ds
 author: iainfoulds
 
@@ -33,11 +33,11 @@ For more information, see the [Azure CSP overview](https://docs.microsoft.com/az
 
 ## Benefits of using Azure AD DS in an Azure CSP subscription
 
-Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory Domain Services. Over the decades, many applications have been built to work against AD using these capabilities. Many independent software vendors (ISVs) have built and deployed applications at their customers' premises. These applications are hard to support since you often need require access to the different environments where the applications are deployed. With Azure CSP subscriptions, you have a simpler alternative with the scale and flexibility of Azure.
+Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory Domain Services. Over the decades, many applications have been built to work against AD using these capabilities. Many independent software vendors (ISVs) have built and deployed applications at their customers' premises. These applications are hard to support since you often require access to the different environments where the applications are deployed. With Azure CSP subscriptions, you have a simpler alternative with the scale and flexibility of Azure.
 
-Azure AD DS supports Azure CSP subscriptions. You can deploy your application in an Azure CSP subscription tied to your customer's Azure AD tenant. As a result, your employees (support staff) can manage, administer, and service the VMs on which your application is deployed using your organization's corporate credentials. 
+Azure AD DS supports Azure CSP subscriptions. You can deploy your application in an Azure CSP subscription tied to your customer's Azure AD tenant. As a result, your employees (support staff) can manage, administer, and service the VMs on which your application is deployed using your organization's corporate credentials.
 
-You can also deply an Azure AD DS managed domain in your customer's Azure AD tenant. Your application is then connected to your customer's managed domain. Capabilities within your application that rely on Kerberos / NTLM, LDAP, or the [System.DirectoryServices API](/dotnet/api/system.directoryservices) work seamlessly against your customer's domain. End customers benefit from consuming your application as a service, without needing to worry about maintaining the infrastructure the application is deployed on.
+You can also deploy an Azure AD DS managed domain in your customer's Azure AD tenant. Your application is then connected to your customer's managed domain. Capabilities within your application that rely on Kerberos / NTLM, LDAP, or the [System.DirectoryServices API](/dotnet/api/system.directoryservices) work seamlessly against your customer's domain. End customers benefit from consuming your application as a service, without needing to worry about maintaining the infrastructure the application is deployed on.
 
 All billing for Azure resources you consume in that subscription, including Azure AD DS, is charged back to you. You maintain full control over the relationship with the customer when it comes to sales, billing, technical support etc. With the flexibility of the Azure CSP platform, a small team of support agents can service many such customers who have instances of your application deployed.
 
@@ -54,11 +54,13 @@ In this deployment model, Azure AD DS is enabled within a virtual network that b
 
 ![Direct deployment model](./media/csp/csp_direct_deployment_model.png)
 
-In this deployment model, the CSP provider's admin agents can administer identities for the customer. These admin agents have the ability to provision new users, groups, add applications within the customer's Azure AD tenant etc. This deployment model may be suited for smaller organizations that don't have a dedicated identity administrator or prefer for the CSP partner to administer identities on their behalf.
+In this deployment model, the CSP provider's admin agents can administer identities for the customer. These admin agents can perform tasks like provision new users or groups, or add applications within the customer's Azure AD tenant.
+
+This deployment model may be suited for smaller organizations that don't have a dedicated identity administrator or prefer for the CSP partner to administer identities on their behalf.
 
 ### Peered deployment model
 
-In this deployment model, Azure AD DS is enabled within a virtual network belonging to the customer - a direct Azure subscription paid for by the customer. The CSP partner can then deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering.
+In this deployment model, Azure AD DS is enabled within a virtual network belonging to the customer - a direct Azure subscription paid for by the customer. The CSP partner can deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering.
 
 With this deployment, the workloads or applications deployed by the CSP partner in the Azure CSP subscription can connect to the customer's managed domain provisioned in the customer's direct Azure subscription.
 
@@ -66,7 +68,7 @@ With this deployment, the workloads or applications deployed by the CSP partner 
 
 This deployment model provides a separation of privileges and enables the CSP partner's helpdesk agents to administer the Azure subscription and deploy and manage resources within it. However, the CSP partner's helpdesk agents don't need to have global administrator privileges on the customer's Azure AD directory. The customer's identity administrators can continue to manage identities for their organization.
 
-This deployment model may be suited to scenarios where an ISV provides a hosted version of their on-premises application, which also needs to connect to the customer's AD.
+This deployment model may be suited to scenarios where an ISV provides a hosted version of their on-premises application, which also needs to connect to the customer's Azure AD.
 
 ## Administer Azure AD DS in CSP subscriptions
 
@@ -89,4 +91,4 @@ The following important considerations apply when administering a managed domain
 
 ## Next steps
 
-To get started, [enroll in the Azure CSP program](partner-center/enrolling-in-the-csp-program). You can then enable Azure AD Domain Services using [the Azure portal](tutorial-create-instance.md) or [Azure PowerShell](powershell-create-instance.md).
+To get started, [enroll in the Azure CSP program](/partner-center/enrolling-in-the-csp-program). You can then enable Azure AD Domain Services using [the Azure portal](tutorial-create-instance.md) or [Azure PowerShell](powershell-create-instance.md).
