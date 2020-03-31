@@ -20,17 +20,14 @@ Azure Security Center recommends that you apply disk encryption if you have Wind
 
 Disk Encryption uses the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux. These features provide OS and data encryption to help protect and safeguard your data and meet your organizational security and compliance commitments. Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk encryption keys and secrets in your Key Vault subscription, while ensuring that all data in the VM disks are encrypted at rest in your [Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 
-> [!NOTE]
-> Azure Disk Encryption is supported on the following Windows server operating systems - Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. Disk encryption is supported on the following Linux server operating systems - Ubuntu, CentOS, SUSE, and SUSE Linux Enterprise Server (SLES).
->
->
+For the list of supported versions of Windows and Linux, see [Supported VMs and operating systems](../virtual-machines/windows/disk-encryption-overview.md#supported-vms-and-operating-systems) in the Azure Disk Encryption documentation.
 
 ## Implement the recommendation
-1. In the **Recommendations** blade, select **Apply disk encryption**.
-2. In the **Apply disk encryption** blade, you see a list of VMs for which Disk Encryption is recommended.
+1. In the **Recommendations** page, select **Disk encryption should be applied on virtual machines**.
+2. From the **Unhealthy resources**, select a VM for which Disk Encryption is recommended.
 3. Follow the instructions to apply encryption to these VMs.
 
-![][1]
+![][./media/security-center-apply-disk-encryption/apply-disk-encryption.png]
 
 To encrypt Azure Virtual Machines that have been identified by Security Center as needing encryption, we recommend the following steps:
 
@@ -55,6 +52,3 @@ To learn more about Security Center, see the following:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
-
-<!--Image references-->
-[1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
