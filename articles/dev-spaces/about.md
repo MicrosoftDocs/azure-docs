@@ -1,14 +1,15 @@
 ---
-title: "Introduction to Azure Dev Spaces"
+title: "What is Azure Dev Spaces?"
 services: azure-dev-spaces
 ms.date: 05/07/2019
 ms.topic: "overview"
 description: "Learn how Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service clusters"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, kubectl, k8s"
 manager: gwallace
+#Customer intent: As a developer, I want understand what Azure Dev Spaces is so that I can use it.
 ---
 
-# Introduction to Azure Dev Spaces
+# What is Azure Dev Spaces?
 
 Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service (AKS) clusters. Azure Dev Spaces also allows you to debug and test all the components of your application in AKS with minimal development machine setup, without replicating or mocking up dependencies.
 
@@ -37,11 +38,7 @@ Azure Dev Spaces is supported only by AKS clusters in [some regions][supported-r
 
 ## Next steps
 
-Learn more about rapid, iterative development for teams with Azure Dev Spaces with the team development quickstart.
-
-> [!div class="nextstepaction"]
-> [Team Development quickstart](quickstart-team-development.md)
-
+Learn more about rapid, iterative development for teams with Azure Dev Spaces with the [team development quickstart][team-development-quickstart].
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
