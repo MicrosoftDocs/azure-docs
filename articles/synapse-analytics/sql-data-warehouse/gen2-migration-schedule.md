@@ -1,13 +1,13 @@
 ---
 title: Migrate your SQL pool to Gen2 
 description: Instructions for migrating an existing SQL pool to Gen2 and the migration schedule by region.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: article
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse

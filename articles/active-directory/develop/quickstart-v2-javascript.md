@@ -103,7 +103,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >

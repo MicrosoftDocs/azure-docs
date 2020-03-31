@@ -314,7 +314,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added the option for controlling degree of parallelism for cross partition queries.
-* Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
+* Added the option for disabling TLS verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Fixed the continuation token bug for single partition collection. GitHub issue #107.
 * Fixed the executeStoredProcedure bug in handling 0 as single param. GitHub issue #155.
@@ -324,7 +324,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Minor code cleanup.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
+* Disabling TLS verification when using the SDK to target the emulator(hostname=localhost).
 * Added support for enabling script logging during stored procedure execution.
 
 ### <a name="1.10.0"/>1.10.0</a>

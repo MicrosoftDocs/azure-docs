@@ -93,6 +93,7 @@ Cloud Shell persists files through both of the following methods:
 
 ### Use the `clouddrive` command
 In Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
+
 ![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
 ### List `clouddrive`
