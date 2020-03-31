@@ -44,7 +44,7 @@ AKS clusters with Windows node pools must use the Azure CNI (advanced) networkin
 
 ## Can I change the max. # of pods per node?
 
-It is currently a requirement to be set to a maximum of 30 pods to ensure the reliability of your clusters.
+Yes. For the implications and options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
 ## How do patch my Windows nodes?
 
@@ -111,3 +111,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
+[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

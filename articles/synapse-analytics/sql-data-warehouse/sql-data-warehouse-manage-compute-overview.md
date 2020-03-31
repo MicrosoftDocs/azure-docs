@@ -1,12 +1,12 @@
 ---
 title: Manage compute resource for SQL pool
 description: Learn about performance scale out capabilities in an Azure Synapse Analytics SQL pool. Scale out by adjusting DWUs, or lower costs by pausing the data warehouse.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
