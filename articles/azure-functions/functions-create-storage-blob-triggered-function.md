@@ -1,15 +1,15 @@
 ---
 title: Create a function in Azure triggered by Blob storage 
-description: Use Azure Functions to create a serverless function that is invoked by items added to Azure Blob storage.
+description: Use Azure Functions to create a serverless function that is invoked by items added to a Blob storage container.
 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ---
-# Create a function triggered by Azure Blob storage
+# Create an Azure function that's triggered by Blob storage
 
-Learn how to create a function triggered when files are uploaded to or updated in Azure Blob storage.
+Learn how to create a function triggered when files are uploaded to or updated in a Blob storage container.
 
 ![View message in the logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
