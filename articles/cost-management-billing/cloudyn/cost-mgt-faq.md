@@ -4,7 +4,7 @@ description: This article provides answers to some of the common questions about
 author: bandersmsft
 ms.author: banders
 ms.date: 03/12/2020
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18

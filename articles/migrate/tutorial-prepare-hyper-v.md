@@ -2,7 +2,7 @@
 title: Prepare Hyper-V VMs for assessment/migration with Azure Migrate 
 description: Learn how to prepare for assessment/migration of Hyper-V VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 03/31/2020
 ms.custom: mvc
 ---
 
@@ -90,8 +90,9 @@ You can prepare Hyper-V for VM assessment manually, or using a configuration scr
 - Set up PowerShell remoting on each host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.
 - Delegate credentials if VM disks are located on remote SMB shares.
 - Set up an account that the appliance will use to discover VMs on Hyper-V hosts.
-- Set up Hyper-V Integration Services on each VM you want to discover and assess.
+- Set up Hyper-V Integration Services on each VM you want to discover and assess. The default settings when you enable Integration Services are sufficient for Azure Migrate.
 
+    ![Enable Integration Services](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## Prepare with a script
@@ -107,7 +108,7 @@ The script does the following:
 - Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.
 - Enables the WinRM service, and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection).
 - Enables PowerShell remoting on the host.
-- Checks that the Hyper-V integration service is enabled on all VMs managed by the host.
+- Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host.
 - Enables CredSSP on the host if needed.
 
 Run the script as follows:
