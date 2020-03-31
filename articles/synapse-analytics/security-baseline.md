@@ -4,7 +4,7 @@ description: Azure Security Baseline for Synapse Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -649,7 +649,11 @@ Understand Azure SQL Encryption in Transit: https://docs.microsoft.com/azure/sql
 
 Data Discovery &amp; Classification is part of the Advanced Data Security offering, which is a unified package for advanced SQL security capabilities. Data discovery &amp; classification can be accessed and managed via the central SQL ADS portal.
 
+Additionally, you can set up a dynamic data masking (DDM) policy in the Azure portal. The DDM recommendations engine flags certain fields from your database as potentially sensitive fields which may be good candidates for masking.
+
 How to use data discovery and classification for Azure SQL Server: https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification
+
+Understand dynamic data masking for Azure Synapse Analytics: https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started
 
 **Azure Security Center monitoring**: Yes
 
@@ -1240,7 +1244,13 @@ How to restore an existing SQL pool: https://docs.microsoft.com/azure/synapse-an
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5515).
 
-**Guidance**: Enable soft delete in Azure Key Vault to protect keys against accidental or malicious deletion.
+**Guidance**: In Azure SQL Database, you can configure a single or a pooled database with a long-term backup retention policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. Data in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
+
+By default, data in a storage account is encrypted with Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you are managing your own keys with Key Vault, ensure soft-delete is enabled.
+
+Manage Azure SQL Database long-term backup retention: https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure
+
+Azure Storage encryption for data at rest: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
 How to enable soft delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 

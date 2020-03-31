@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Application Gateway
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -577,7 +577,7 @@ How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5027).
 
-**Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
 How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
@@ -673,15 +673,15 @@ How to configure end-to-end TLS by using Azure Application Gateway: https://docs
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5033).
 
-**Guidance**: Currently not available; data identification, classification, and loss prevention features are not yet available for Azure Application Gateway.
+**Guidance**: Not applicable, Azure Application Gateway does not store customer data at rest.
 
-Microsoft manages the underlying infrastructure for Azure Backup and has implemented strict controls to prevent the loss or exposure of customer data.
+Microsoft manages the underlying infrastructure for Azure Application Gateway and has implemented strict controls to prevent the loss or exposure of customer data.
 
 Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Currently not available
+**Responsibility**: Not applicable
 
 ### 4.6: Use Azure RBAC to control access to resources
 
@@ -740,9 +740,9 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5038).
 
-**Guidance**: Currently not available; vulnerability assessment in Azure Security Center is not yet available for Azure Backup.
+**Guidance**: Currently not available; vulnerability assessment in Azure Security Center is not yet available for Azure Application Gateway.
 
-Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Backup to reduce service configuration related vulnerabilities.
+Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Applicatio Gateway to reduce service configuration related vulnerabilities.
 
 Feature coverage (including vulnerability assessment) for Azure PaaS Services: https://docs.microsoft.com/azure/security-center/features-paas
 
@@ -777,9 +777,9 @@ Feature coverage (including vulnerability assessment) for Azure PaaS Services: h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5041).
 
-**Guidance**: Not yet available; vulnerability assessment in Azure Security Center is not yet available for Azure Backup.
+**Guidance**: Not yet available; vulnerability assessment in Azure Security Center is not yet available for Azure Application Gateway.
 
-Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Backup to reduce service configuration related vulnerabilities.
+Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Application Gateway to reduce service configuration related vulnerabilities.
 
 Feature coverage (including vulnerability assessment) for Azure PaaS Services: https://docs.microsoft.com/azure/security-center/features-paas
 
@@ -792,9 +792,9 @@ Feature coverage (including vulnerability assessment) for Azure PaaS Services: h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/5042).
 
-**Guidance**: Not yet available; vulnerability assessment in Azure Security Center is not yet available for Azure Backup.
+**Guidance**: Not yet available; vulnerability assessment in Azure Security Center is not yet available for Azure Application Gateway.
 
-Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Backup to reduce service configuration related vulnerabilities.
+Underlying platform scanned and patched by Microsoft. Review security controls available for Azure Application Gateway to reduce service configuration related vulnerabilities.
 
 Feature coverage (including vulnerability assessment) for Azure PaaS Services: https://docs.microsoft.com/azure/security-center/features-paas
 

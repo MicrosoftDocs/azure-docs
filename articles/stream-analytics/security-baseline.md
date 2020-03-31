@@ -4,7 +4,7 @@ description: Azure Security Baseline for Stream Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -88,7 +88,8 @@ Threat detection for the Azure service layer in Azure Security Center: https://d
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2902).
 
-**Guidance**: Use Azure Security Center Integrated Threat Intelligence to detects unusual or potentially harmful operations in your Azure subscription environment.
+**Guidance**: Use Azure Security Center Integrated Threat Intelligence to detect unusual or potentially harmful operations in your Azure subscription environment.
+
 Threat detection for the Azure service layer in Azure Security Center: https://docs.microsoft.com/azure/security-center/threat-protection
 
 **Azure Security Center monitoring**: Yes
@@ -272,7 +273,7 @@ https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnosti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2915).
 
-**Guidance**: Not applicable; Data Lake Analytics does not process or produce anti-malware related logs.
+**Guidance**: Not applicable; Stream Analytics does not process or produce anti-malware related logs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -297,7 +298,7 @@ Gather insights about your DNS infrastructure with the DNS Analytics Preview sol
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2917).
 
-**Guidance**: Not applicable; benchmark is intended for compute resources.
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -373,7 +374,7 @@ Understand SSO with Azure AD: https://docs.microsoft.com/azure/active-directory/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2922).
 
-**Guidance**: Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure Security Center Identity and access management recommendations to help protect your Stream Analytics resources.
+**Guidance**: Enable Azure Active Directory multi-factor authentication (MFA) and follow Azure Security Center Identity and access management recommendations to help protect your Stream Analytics resources.
 
 How to enable MFA in Azure:
 
@@ -381,7 +382,7 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 How to monitor identity and access within Azure Security Center:
 
-https://docs.microsoft.com/azure/security-center/security-center-identity-access 
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center monitoring**: Yes
 
