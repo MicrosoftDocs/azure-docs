@@ -48,7 +48,7 @@ The InputClaims element must contain following claims. You can also map the name
 |  Data Type| Required | Description |
 | --------- | -------- | ----------- | 
 | string| Yes | A unique identifier of the user. The claim name, or PartnerClaimType must be set to `UserId`.|
-| string| Yes | List of claim types that store a phone number. If the input claims' value are empty, Azure AD B2C asks the user to type and verify a phone number.  Otherwise, Azure AD B2C presents the phone number, asking the user to verify it. In case of multiple input claims, the user is asked to choose and verify one of them.    |
+| string| Yes | List of claim types. Each claim contains one phone number. If any of the input claims don't contain a phone number, the user is asked to enroll a new phone number, by typing and verifying the phone number. The validated phone number is return as an output claim. If one of the input claims contains a phone number, the phone number is presented to the user asking to verify it.  If multiple input claims contain a phone number, the user is asked to choose and verify one of the phone numbers. |
 
 
 The following example demonstrates using multiple phone numbers. For more information, see [sample policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
