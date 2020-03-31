@@ -14,7 +14,7 @@ ms.author: dsindona
 This article describes how to set up your Salesforce system to process sales leads from your commercial marketplace offer.
 
 > [!Note]
-> Marketplace does not support pre-populated lists, such as a list of values for the **Country** field. Make sure there are no lists set up before you continue. Alternatively, you can configure an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
+> Marketplace does not support pre-populated lists, such as a list of values for the **Country** field. Make sure there are no lists set up before you continue. Alternatively, you can configure an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
 
 ## Set up your Salesforce system
 
