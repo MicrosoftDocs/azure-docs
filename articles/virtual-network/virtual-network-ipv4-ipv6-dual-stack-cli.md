@@ -21,7 +21,10 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application with
 
 To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer using Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 65a0ababa1a16cf76af39f63094bcd9011d714d7
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -29,7 +32,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 65a0ababa1a16cf76af39f63094bcd9011d714d7
 ## Create a resource group
 
 Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *DsResourceGroup01* in the *eastus* location:
@@ -362,6 +368,10 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 
   ![IPv6 dual stack virtual network in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 65a0ababa1a16cf76af39f63094bcd9011d714d7
 
 
 ## Clean up resources
