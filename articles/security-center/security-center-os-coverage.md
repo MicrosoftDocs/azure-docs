@@ -41,7 +41,7 @@ Also ensure your Log Analytics agent is [properly configured to send data to Azu
 
 ## Managed virtual machine services <a name="virtual-machine"></a>
 
-Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. These virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according the supported [Windows/Linux operating systems](#os-windows), listed above.
+Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. These virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according the supported operating systems, listed above.
 
 ## Cloud Services <a name="cloud-services"></a>
 
