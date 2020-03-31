@@ -138,45 +138,36 @@ Next, you need to sysprep your machine.
 
 ## Capture the image
 
-- Navigate to your Azure portal and select the Virtual Machine you have just run a sysprep on
+Next, you'll need to capture an image of your properly configured machine so that other users can use it in their deployments.
 
-- Capture the image of this machine by clicking "Capture" on the horizontal menu
+To capture an image:
+
+1. Go to the Azure portal and select the name of the machine you just ran sysprep on.
+
+2. Select **Capture** to start creating an image of the machine, as shown in the following screenshot.
 
 ![](media/b5e8a8d3c761a1fbe57b9a2abe4279d1.png)
 
-You will be taken to a panel that prompts you to create an image
+3. Enter a name for your image and assign it to the resource group of your choosing.
 
-- Enter a name for your image and assign it to the resource group of your choosing
-
-- Then click "Create"
+4. Select *Create*.
 
 ![](media/f7c76a0278da109f224bc8544029cd76.png)
 
-- Once you wait for it to be validated, you will see a message, like the snippet below, in your notification center, indicating that you have successfully created the image
+5. Wait a few minutes for the capture process to finish. When the image is ready, you should see a message in the Notifications Center letting you know the image was captured.
 
 ![](media/5b81105c0987de8b3e727958cdc37b87.png)
 
-- Once you have reached this stage, you can now deploy a new VM in Azure with the image that you just created
+You can now deploy a VM with your new image. When you deploy your VM, make sure to follow the instructions in [Create a Windows virtual machine in an availability zone with the Azure portal](/virtual-machines/windows/create-portal-availability-zone).
 
-- Ensure that when you are completing the process to [deploy a VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-portal-availability-zone), you select the image that was just created from this sysprep
+### How to change display language for users
 
-### Change a language as a standard user
+If you're a standard, non-admin user who's running a VM created with an image like the one in the previous section, you can change your display language.
 
->[!NOTE]
->This example illustrates a non-admin user changing the language from English to French
+Here's how to change your display language:
 
-- Assuming you are currently logged into your session as a non-admin user, navigate to the Language Settings panel by searching for "Language" in the Start Menu
+1. Go to **Language Settings**. If you don't know where that is, you can enter **Language** into the search bar in your Start Menu.
 
-- Then choose the language you want to change the Windows display language to, from the dropdown
+2. In the Windows display language drop-down menu, select the language you want to use as your display language.
 
-- You should see a message informing you the language you chose "Will be display language after next sign in"
-
-![](media/2432a1e23920fdc4c8d0bc12e33b0331.png)
-
-![](media/97280a9b1be0a2a1a8b3300e13230c0e.png)
-
-- Once you log out and log into your session again, the welcome screen and your desktop should be presented in the language you chose
-
-![](media/398538c33df81c8fdbdfa97eec20e889.jpg)
-
-- **Success**! You have changed the language as a non-admin
+3. Sign out of your session, then sign back in. The display language should now be the one you selected in step 2.
