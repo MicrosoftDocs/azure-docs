@@ -109,7 +109,7 @@ You must have an account admin role on a subscription or a support plan to opt i
     [![Screenshot that shows billing profile list](./media/download-azure-invoice/cmb-email-invoice.png)](./media/download-azure-invoice/cmb-email-invoice-zoomed-in.png#lightbox)
 1. Select **Opt in** and accept the terms.  
     ![Screenshot that shows the opt-in flow step 2](./media/download-azure-invoice/invoice-article-step02.png)
-1. The invoice is sent to your preferred communication email address. You can update the email address in the [contact info of your billing account](https://https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
+1. The invoice is sent to your preferred communication email address. You can update the email address in the [contact info of your billing account](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/Properties).  
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice/invoice-article-step03-verify-email.png)
 
 ## Share your MOSP invoices with others by email
