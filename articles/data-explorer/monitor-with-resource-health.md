@@ -6,10 +6,10 @@ ms.author: orspodek
 ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 03/31/2020
 
 ---
-# Monitor Azure Data Explorer using Resource Health
+# Monitor Azure Data Explorer using Resource Health (Preview)
 
 [Resource Health](/azure/service-health/resource-health-overview) for Azure Data Explorer informs you of the health of your Azure Data Explorer resource and provides actionable recommendations to troubleshoot problems. Resource health is updated every 1-2 minutes and reports the current and past health of your resources. 
 
@@ -62,3 +62,4 @@ In **Resource Health** pane > **Health history**, access up to four weeks of res
 
 * [Configuring Resource Health alerts](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
 * [Tutorial: Ingest and query monitoring data in Azure Data Explorer](ingest-data-no-code.md)
+* [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
