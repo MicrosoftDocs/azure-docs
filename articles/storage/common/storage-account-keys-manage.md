@@ -30,8 +30,6 @@ Microsoft recommends using Azure Key Vault to manage and rotate your access keys
 - [Manage storage account keys with Azure Key Vault and PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
 - [Manage storage account keys with Azure Key Vault and the Azure CLI](../../key-vault/key-vault-ovw-storage-keys.md)
 
-To view or read an account's access keys, the user must either be a Service Administrator, or must be assigned an RBAC role that includes the **Microsoft.Storage/storageAccounts/listkeys/action**. Some built-in RBAC roles that include this action are the **Owner**, **Contributor**, and **Storage Account Key Operator Service Role** roles. For more information about the Service Administrator role, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md). For detailed information about built-in roles for Azure Storage, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
-
 ## Manually rotate access keys
 
 Microsoft recommends that you rotate your access keys periodically to help keep your storage account secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
