@@ -11,27 +11,19 @@ This section describes quotas and limitations in Azure Media Services.
 > [!NOTE]
 > For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
+### General limitations
+
 | Resource | Default Limit | 
 | --- | --- | 
 | Media Services accounts in a single subscription | 25 (fixed) |
+
+### Assets and storage limitations
+
+| Resource | Default Limit | 
+| --- | --- | 
 | Assets per Media Services account | 1,000,000|
-| Dynamic Manifest Filters|100|
-| Job inputs per Job | 50  (fixed)|
-| Job outputs per Job | 20 (fixed) |
-| Transform outputs in a Transform | 20 (fixed) |
-| Files per job input|10 (fixed)|
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
-| Jobs per Media Services account | 500,000 <sup>(2)</sup> (fixed)|
-| Live Events per Media Services account |5|
-| Live Outputs per Live Event |3 <sup>(3)</sup> |
-| Max Live Output duration | 25 hours |
-| Storage accounts | 100<sup>(4)</sup> (fixed) |
-| Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
-| Streaming Policies | 100 <sup>(5)</sup> |
-| Transforms per Media Services account | 100  (fixed)|
-| Unique Streaming Locators associated with an Asset at one time | 100<sup>(6)</sup> (fixed) |
-| Options per Content Key Policy |30 | 
-| Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
+| Storage accounts | 100<sup>(2)</sup> (fixed) |
 
 <sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. Additional limits apply in Media Services based on the VM sizes that are used by the service. The size limit applies to the files that you upload and also the files that get generated as a result of Media Services processing (encoding or analyzing). If your source file is larger than 260-GB, your Job will likely fail. 
 
@@ -43,17 +35,56 @@ The following table shows the limits on the media reserved units S1, S2, and S3.
 |S2    | 60|
 |S3    |260|
 
-<sup>2</sup> This number includes queued, finished, active, and canceled Jobs. It does not include deleted Jobs. 
+<sup>2</sup> The storage accounts must be from the same Azure subscription.
+
+### Jobs (encoding & analyzing) limitations
+
+| Resource | Default Limit | 
+| --- | --- | 
+| Jobs per Media Services account | 500,000 <sup>(3)</sup> (fixed)|
+| Job inputs per Job | 50  (fixed)|
+| Job outputs per Job | 20 (fixed) |
+| Transforms per Media Services account | 100  (fixed)|
+| Transform outputs in a Transform | 20 (fixed) |
+| Files per job input|10 (fixed)|
+
+<sup>3</sup> This number includes queued, finished, active, and canceled Jobs. It does not include deleted Jobs. 
 
 Any Job record in your account older than 90 days will be automatically deleted, even if the total number of records is below the maximum quota. 
 
-<sup>3</sup> Live Outputs start on creation and stop when deleted.
 
-<sup>4</sup> The storage accounts must be from the same Azure subscription.
+### Live streaming
+
+| Resource | Default Limit | 
+| --- | --- | 
+| Live Events per Media Services account |5|
+| Live Outputs per Live Event |3 <sup>(4)</sup> |
+| Max Live Output duration | 25 hours |
+
+<sup>4</sup> Live Outputs start on creation and stop when deleted.
+
+> [!NOTE]
+> For more detailed information, see [Live Event types comparison and limitations](../articles/media-services/latest/live-event-types-comparison.md)
+
+### Delivery/streaming limitations
+
+| Resource | Default Limit | 
+| --- | --- | 
+| Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
+| Dynamic Manifest Filters|100|
+| Streaming Policies | 100 <sup>(5)</sup> |
+| Unique Streaming Locators associated with an Asset at one time | 100<sup>(6)</sup> (fixed) |
 
 <sup>5</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
 
 <sup>6</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
+
+### Protection
+
+| Resource | Default Limit | 
+| --- | --- | 
+| Options per Content Key Policy |30 | 
+| Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
 
 ### Support ticket
 
