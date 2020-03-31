@@ -27,7 +27,7 @@ The [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL clause agg
 
 ## Rollup and grouping sets options
 
-The simplest option here is to use UNION ALL instead to perform the rollup rather than relying on the explicit syntax. The result is exactly the same.
+The simplest option here is to use UNION ALL to perform the rollup rather than relying on the explicit syntax. The result is exactly the same.
 
 The following example using the GROUP BY statement with the ROLLUP option:
 ```sql
@@ -79,11 +79,11 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 To replace GROUPING SETS, the sample principle applies. You only need to create UNION ALL sections for the aggregation levels you want to see.
 
 ## Cube options
-It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
+It's possible to create a GROUP BY WITH CUBE using the UNION ALL approach. The problem is that the code can quickly become cumbersome and unwieldy. To mitigate this issue, you can use this more advanced approach.
 
 Using the previous example, the first step is to define the 'cube' that defines all the levels of aggregation that we want to create. 
 
-It is important to take note of the CROSS JOIN of the two derived tables. This generates all the levels for us. The rest of the code is there for formatting:
+Take note of the CROSS JOIN of the two derived tables since this generates all the levels for us. The rest of the code is there for formatting:
 
 ```sql
 CREATE TABLE #Cube
@@ -141,7 +141,7 @@ WITH
 ;
 ```
 
-The third step is to loop over our cube of columns performing the aggregation. The query will run once for every row in the #Cube temporary table and store the results in the #Results temp table:
+The third step is to loop over our cube of columns performing the aggregation. The query will run once for every row in the #Cube temporary table. The results are stored in the #Results temp table:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
