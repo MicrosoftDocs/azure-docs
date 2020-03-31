@@ -107,10 +107,10 @@ All parent runbooks include the _WhatIf_ parameter. When set to **True**, _WhatI
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True or False  | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> VMList: Comma-separated list of VMs. For example, _vm1, vm2, vm3_.<br> *WhatIf* validates the runbook logic without executing.|
 |AutoStop_Disable | none | Disables AutoStop alerts and default schedule.|
 |AutoStop_VM_Child | WebHookData | Called from the parent runbook. Alert rules call this runbook to stop the VM.|
-|AutoStop_VM_Child_ARM | WebHookData | |
+|AutoStop_VM_Child_ARM | WebHookData |Called from the parent runbook. Alert rules call this runbook to stop the classic VM.  |
 |ScheduledStartStop_Base_Classic | |
 |ScheduledStartStop_Child | VMName <br> Action: Start or Stop <br> ResourceGroupName | Called from the parent runbook. Executes a start or stop action for the scheduled stop.|
-|ScheduledStartStop_Child_Classic | |
+|ScheduledStartStop_Child_Classic |Called from the parent runbook. Executes a start or stop action for the scheduled stop for classic VMs. |
 |ScheduledStartStop_Parent | Action: Start or Stop <br>VMList <br> WhatIf: True or False | This setting affects all VMs in the subscription. Edit the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** to only execute on these targeted resource groups. You can also exclude specific VMs by updating the **External_ExcludeVMNames** variable.<br> VMList: Comma-separated list of VMs. For example, _vm1, vm2, vm3_.<br> _WhatIf_ validates the runbook logic without executing.|
 |SequencedStartStop_Parent | Action: Start or Stop <br> WhatIf: True or False<br>VMList| Create tags named **sequencestart** and **sequencestop** on each VM for which you want to sequence start/stop activity. These tag names are case-sensitive. The value of the tag should be a positive integer (1, 2, 3) that corresponds to the order in which you want to start or stop. <br> VMList: Comma-separated list of VMs. For example, _vm1, vm2, vm3_. <br> _WhatIf_ validates the runbook logic without executing. <br> **Note**: VMs must be within resource groups defined as External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. They must have the appropriate tags for actions to take effect.|
 
@@ -134,7 +134,7 @@ The following table lists the variables created in your Automation account. Only
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
 |External_WaitTimeForVMRetrySeconds |The wait time in seconds for the actions to be performed on the VMs for the Sequenced start/stop runbook.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
-|Internal_AutoSnooze_ARM_WebhookURI | Specifies Webhook URI called for the AutoStop scenario.|
+|Internal_AutoSnooze_ARM_WebhookURI | Specifies Webhook URI called for the AutoStop scenario for classic VMs.|
 |Internal_AutoSnooze_WebhookUri | Specifies Webhook URI called for the AutoStop scenario.|
 |Internal_AzureSubscriptionId | Specifies the Azure Subscription ID.|
 |Internal_ResourceGroupName | Specifies the Automation account resource group name.|
