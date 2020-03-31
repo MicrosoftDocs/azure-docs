@@ -1,5 +1,5 @@
-- name: Scheduler Documentation
-  href: index.md
+- name: Azure Scheduler documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Scheduler?

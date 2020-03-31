@@ -14,10 +14,8 @@
       href: determine-reservation-purchase.md
   - name: Buy reservations
     items:
-    - name: Prepare to buy an Azure reservation
+    - name: Buy an Azure reservation
       href: prepare-buy-reservation.md
-    - name: Buy a reservation with monthly payments
-      href: monthly-payments-reservations.md
     - name: App Service
       href: prepay-app-service-isolated-stamp.md
     - name: Azure Cache for Redis reservation
