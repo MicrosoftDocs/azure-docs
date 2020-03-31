@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/28/2019
+ms.date: 03/30/2019
 
 ---
 
@@ -151,6 +151,21 @@ Heartbeat
 
 > [!NOTE]
 > This indicator presents only CPU from the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
+
+### Avoid full XML and JSON parsing when string parsing works
+Full parsing of an XML or JSON object may consume high CPU and memory resources. In many cases, when only one or two parameters are needed and the XML or JSON objects are simple, it is easier to parse them as strings using the [parse operator](/azure/kusto/query/parseoperator) or other [text parsing techniques](/azure/azure-monitor/log-query/parse-text). The performance boost will be more significant as the number of records in the XML or JSON object increases. It is essential when the number of records reaches tens of millions.
+
+For example, the following query will return exactly the same results as the queries above without performing full XML parsing. Note that it makes some assumptions on the XML file structure such as that FilePath element comes after FileHash and none of them has attributes. 
+
+```Kusto
+//even more efficient
+SecurityEvent
+| where EventID == 8002 //Only this event have FileHash
+| where EventData !has "%SYSTEM32" //Early removal of unwanted records
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
+```
 
 
 ## Data used for processed query
