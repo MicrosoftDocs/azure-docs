@@ -106,7 +106,7 @@ Here's the form of the path:
 Where
 
 * `blobCreationTimeUtc` is the time when blob was created in the internal staging storage
-* `blobDeliveryTimeUtc` is the the time when blob is copied to the export destination storage
+* `blobDeliveryTimeUtc` is the time when blob is copied to the export destination storage
 
 ## <a name="format"></a> Data format
 * Each blob is a text file that contains multiple '\n'-separated rows. It contains the telemetry processed over a time period of roughly half a minute.

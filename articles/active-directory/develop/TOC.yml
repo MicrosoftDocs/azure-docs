@@ -26,6 +26,8 @@
   - name: Single-page apps
     displayName: SPA
     items:
+    - name: Angular
+      href: quickstart-v2-angular.md
     - name: JavaScript
       href: quickstart-v2-javascript.md
   - name: Web apps
@@ -69,6 +71,8 @@
   - name: Single-page apps
     displayName: SPA
     items:
+    - name: Angular
+      href: tutorial-v2-angular.md
     - name: JavaScript
       href: tutorial-v2-javascript-spa.md
   - name: Web apps

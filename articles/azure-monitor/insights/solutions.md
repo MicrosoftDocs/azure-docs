@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
+ms.date: 03/30/2020
 
 ---
 
@@ -79,11 +79,7 @@ All monitoring solutions require a [Log Analytics workspace](../platform/manage-
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
 * To be linked, the Log Analytics workspace and Automation account must be in the same resource group and region. The exception is a workspace in East US region and Automation account in East US 2.
 
-### Create a link between a Log Analytics workspace and Automation account
-How you specify the Log Analytics workspace and Automation account depends on the installation method for your solution.
-
-* When you install a solution through the Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
-* For solutions outside of the Azure Marketplace, you must link the Log Analytics workspace and Automation account before installing the solution. You can do this by selecting any solution in the Azure Marketplace and selecting the Log Analytics workspace and Automation account. You don't have to actually install the solution because the link is created as soon as the Log Analytics workspace and Automation account are selected. Once the link is created, then you can use that Log Analytics workspace and Automation account for any solution.
+When you install a solution through the Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
 
 ### Verify the link between a Log Analytics workspace and Automation account
 You can verify the link between a Log Analytics workspace and an Automation account using the following procedure.
