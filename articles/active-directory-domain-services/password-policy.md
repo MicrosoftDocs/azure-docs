@@ -101,20 +101,20 @@ To create a custom password policy, you use the Active Directory Administrative 
     * Settings like password complexity, age, or expiration time only to users manually created in an Azure AD DS managed domain.
     * Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
 
-    ![Create a custom fine-grained password policy](./media/how-to/custom-fgpp.png)
+    ![Create a custom fine-grained password policy](./media/password-policy/custom-fgpp.png)
 
 1. Uncheck **Protect from accidental deletion**. If this option is selected, you can't save the FGPP.
 1. In the **Directly Applies To** section, select the **Add** button. In the **Select Users or Groups** dialog, select the **Locations** button.
 
-    ![Select the users and groups to apply the password policy to](./media/how-to/fgpp-applies-to.png)
+    ![Select the users and groups to apply the password policy to](./media/password-policy/fgpp-applies-to.png)
 
 1. Password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *aaddscontoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
-    ![Select the OU that the group belongs to](./media/how-to/fgpp-container.png)
+    ![Select the OU that the group belongs to](./media/password-policy/fgpp-container.png)
 
 1. Type the name of the group you wish to apply the policy to, then select **Check Names** to validate that the group exists.
 
-    ![Search for and select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Search for and select the group to apply FGPP](./media/password-policy/fgpp-apply-group.png)
 
 1. With the name of the group you selected now displayed in **Directly Applies To** section, select **OK** to save your custom password policy.
 
