@@ -77,5 +77,5 @@ An organization's device administrators are able to deploy their devices and you
 
 We support iOS and Android platforms for shared device mode. Review the documentation below for your platform to begin supporting Firstline Workers in your applications.
 
-* [Supporting shared device mode for iOS](/msal-ios-shared-devices.md)
+* [Supporting shared device mode for iOS](msal-ios-shared-devices.md)
 * [Supporting shared device mode for Android](msal-android-shared-devices.md)

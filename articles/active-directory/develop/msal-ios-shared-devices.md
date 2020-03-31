@@ -173,14 +173,16 @@ parameters.loginHint = self.loginHintTextField.text;
 
 ### Globally sign out a user
 
-The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It does not clear the data from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
+The following code removes the signed-in account and clears cached tokens from not only the app, but also from the device that's in shared device mode. It does not, however, clear the *data* from your application. You must clear the data from your application, as well as clear any cached data your application may be displaying to the user.
 
 #### Clear browser state
 
-In this public preview version, the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It does not clear state on the Safari browser. We recommend you manually clear browser session to ensure no traces of user state are left behind. You can use the optional `signoutFromBrowser` property shown below to clear any cookies. This will cause the browser to briefly launch on the device. Microsoft plans to resolve this issue prior to general availability (GA) of this feature.
+In this public preview version, the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It does not clear state on the Safari browser. We recommend you manually clear browser session to ensure no traces of user state are left behind. You can use the optional `signoutFromBrowser` property shown below to clear any cookies. This will cause the browser to briefly launch on the device.
+
+Microsoft plans to resolve this issue prior to general availability (GA) of this feature.
 
 > [!TIP]
-> In a future version this feature, the Microsoft Enterprise SSO plug-in for Apple devices will automatically add credentials to and remove them from the Safari browser on the shared device. Upon release of this feature, we recommend you rely on this to clear your browser state.
+> In a future release of this feature, the Microsoft Enterprise SSO plug-in for Apple devices will automatically add credentials to and remove them from the Safari browser on the shared device. When released, this documentation will be updated to include a recommendation that you rely on the new functionality to clear the browser state.
 
 #### Swift
 
