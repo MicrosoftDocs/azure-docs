@@ -33,7 +33,9 @@ To download the **deployer.log** file, do the following:
 **Corrective action**:
 
 1. Go to your FarmBeats Datahub resource group.   
+
 2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
+
 3. Do either of the following:   
    - If there are *no incoming messages*, contact your device partner.  
    - If there are *incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
@@ -47,6 +49,7 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 **Corrective action**:
 
 1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, follow the [steps here](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+
 2. Ensure that you have used the correct Telemetry message format:
 
 ```json
@@ -78,9 +81,12 @@ To understand how to download logs, go to the ["Collect logs manually"](#collect
 
 1. In Datahub Swagger, go to the Partner API.
 2. Select **Get** > **Try it out** > **Execute**.
-3. Note the partner ID of the sensor partner you're interested in.
-4. Go back to the Partner API, and select **Get/\<ID>**.
-5. Specify the partner ID from step 3, and then select **Execute**.
+
+> [!NOTE]
+> The partner ID of the sensor partner you're interested in.
+
+3. Go back to the Partner API, and select **Get/\<ID>**.
+4. Specify the partner ID from step 3, and then select **Execute**.
 
    The API response should have the Event Hubs connection string.
 
