@@ -14,7 +14,11 @@ ms.date: 03/31/2020
 ms.author: juliako
 ---
 
-# Azure Media Services  quotas and limitations
+# Azure Media Services quotas and limitations
+
+## Overview
+
+This article lists some of the most common Microsoft Azure Media Services limits, which are also sometimes called quotas.
 
 [!INCLUDE [media-servieces-limits-quotas-constraints](../../../includes/media-servieces-limits-quotas-constraints.md)]
 
