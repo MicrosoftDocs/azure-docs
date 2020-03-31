@@ -40,7 +40,7 @@ Azure Pipelines provides a complete, fully featured set of CI/CD automation tool
 
 **Configure CI/CD on Virtual Machines**
 
-Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine update. Based on your requirements, you can choose any one of deployment strategies, viz, Rolling, Canary, Blue-Green or can further customize them. Once deployed, Deployment history views within Deployment groups provides traceability from VM to the pipeline and then to the commit. 
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine update. Based on your requirements, you can choose any one of out-of-box deployment strategies, viz, _Rolling_, _Canary_, _Blue-Green_ or can further customize them. Once deployed, Deployment History views within Deployment Groups provides traceability from VM to the pipeline and then to the commit. 
  
 **Rolling Deployments**: A rolling deployment replaces instances of the previous version of an application with instances of the new version of the application on a fixed set of machines (rolling set) in each iteration. Let’s walkthrough how you can configure a rolling update to virtual machines.  
 You can configure rolling updates to your “**virtual machines**” within the Azure portal using continuous delivery option. 
@@ -52,9 +52,9 @@ Here is the step-by-step walkthrough.
 3. In the configuration panel, click on “Azure DevOps Organization” to select an existing account or create one. Then select the project under which you would like to configure the pipeline.  
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azdevops-project.png) 
 4. A deployment group is a logical set of deployment target machines that represent the physical environments; for example, "Dev", "Test", "UAT", and "Production". You can create a new deployment group or select an existing deployment group. 
-5. Select the build pipeline which publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time. 
-6. Select the deployment strategy of your choice. In this case, lets select _Rolling_.
-7. Optionally, you can tag the machine with the role. For example, ‘web’, ‘db’ etc. This way the you can target VMs that have specific role only.
+5. Select the build pipeline which publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time.
+6. Select the deployment strategy of your choice. In this case, lets select 'Rolling'.
+7. Optionally, you can tag the machine with the role. For example, ‘web’, ‘db’ etc. This helps you   target VMs that have specific role only.
 8. Click **OK** on the dialog to configure the continuous delivery pipeline. 
 9. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.  
    ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-pipeline.png)
@@ -71,24 +71,36 @@ Here is the step-by-step walkthrough.
 You can configure canary deployments to your “**virtual machines**” with the Azure portal using continuous delivery option. 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
-2. Follow the steps 2-5 in the previous section to add multiple VMs to the deployment group. 
-3. Add a custom tag to the VMs that are to be part of canary deployments. For example, “canary”.
-4. Once the pipeline is configured for the VMs, click on the pipeline, launch Azure DevOps organization, **Edit** the pipeline, and navigate to the **dev** stage. Add tag to the filter “canary”. 
-5. Add another deployment group phase, configure the phase with the tags to target remaining VMs in the deployment group.  
-6. Optionally, configure a manual validation step that can promote/reject the canary deployments. 
-   ![AzDevOps_Canary](media/tutorial-devops-azure-pipelines-classic/azdevops-canary-deploy.png)
+2. Follow the steps 2-8 under the **Rolling Deployments** section to add multiple VMs to the deployment group. For deployment strategy dropdown, select 'Canary'.
+3. Add a 'canary' tag to the VMs that are to be part of canary deployments and a 'prod' tag to the VMs that are part of deployments after canary deployment in successful.
+4. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.
+
+### [TODO] Add Image
+
+5. Like in Rolling Deployments, you can now navigate to the pipeline and further customize it based on your requirements. 
+
+### [TODO] Add Image
+
+
 
 **Blue-Green** reduces deployment downtime by having identical standby environment. At any time one of the environments is live. As you prepare for a new release, you do your final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
 You can configure Blue-Green deployments to your “**virtual machines**” from the Azure portal using the continuous delivery option. 
 
-Here is the step-by-step walkthrough. 
+Here is the step-by-step walkthrough.
 
 1. Sign in to your Azure portal and navigate to a Virtual Machine 
-2. Follow the steps 2-5 under the **Rolling updates** section to add multiple VMs to the deployment group. Add a custom tag to the VMs that are to be part of blue-green deployments. For example, “blue” or “green” for the VMs that are for the stand-by role. 
-3. Once the pipeline is configured for the VMs, click on the pipeline, launch Azure DevOps organization, **Edit** the pipeline, navigate to the **dev** stage. Add tag to the filter “green”. 
-4. Add an agent-less phase, configure the phase with manual validation step and an invoke-REST api step to swap the tags. 
-   ![AzDevOps_BlueGreen](media/tutorial-devops-azure-pipelines-classic/azdevops-blue-green-deploy.png)
- 
+2. Follow the steps 2-8 under the **Rolling Deployments** section to add multiple VMs to the deployment group. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for standby role, then you should tag it as "green".
+4. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.
+
+### [TODO] Add Image
+
+5. Like in **Rolling Deployments**, you can now navigate to the pipeline and further customize it based on your requirements. 
+6. Note that this strategy requires that there must be atleast one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intevention step you have atleast one VM tagged as blue.
+
+
+### [TODO] Add Image
+
+
  
 ## Azure DevOps project 
 Get started with Azure more easily than ever.
