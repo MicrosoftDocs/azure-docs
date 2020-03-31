@@ -34,7 +34,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
 </div>
 
-For faster results, perform a search to relevant sites such as [Stack Overflow](https://stackoverflow.com/), [Microsoft docs](https://docs.microsoft.com/en-us/azure/cognitive-services/), or [GitHub code samples](https://github.com/azure-samples). Use the `site:` query notation in your [favorite search engine](https://bing.com), for example:
+For faster results, perform a search to relevant sites such as [Stack Overflow](https://stackoverflow.com/), [Microsoft docs](https://docs.microsoft.com/azure/cognitive-services/), or [GitHub code samples](https://github.com/azure-samples). Use the `site:` query notation in your [favorite search engine](https://bing.com), for example:
 
 ```
 {search keywords} site:stackoverflow.com
