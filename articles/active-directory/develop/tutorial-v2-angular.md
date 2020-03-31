@@ -1,5 +1,6 @@
 ---
-title: Angular single-page app tutorial - Microsoft identity platform | Azure
+title: Angular single-page app tutorial - Azure
+titleSuffix: Microsoft identity platform
 description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint
 services: active-directory
 documentationcenter: dev-center-name
@@ -269,6 +270,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 Where `scopes` contains scopes being requested to be returned in the access token for the API.
 
 For example:
@@ -276,20 +278,19 @@ For example:
 * `["user.read"]` for Microsoft Graph
 * `["<Application ID URL>/scope"]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`)
 
+#### Get a user token interactively
 
-  #### Get a user token interactively
+Sometimes you need the user to interact with the Microsoft identity platform endpoint. For example:
 
-  Sometimes you need the user to interact with the Microsoft identity platform endpoint. For example:
+* Users might need to reenter their credentials because their password has expired.
+* Your application is requesting access to additional resource scopes that the user needs to consent to.
+* Two-factor authentication is required.
 
-  * Users might need to reenter their credentials because their password has expired.
-  * Your application is requesting access to additional resource scopes that the user needs to consent to.
-  * Two-factor authentication is required.
+The recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-  The recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
+Calling `acquireTokenPopup` results in a popup sign-in window. Alternatively, `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint. In that window, users need to confirm their credentials, give consent to the required resource, or complete two-factor authentication.
 
-  Calling `acquireTokenPopup` results in a popup sign-in window. Alternatively, `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint. In that window, users need to confirm their credentials, give consent to the required resource, or complete two-factor authentication.
-
-  ```javascript
+```javascript
   const requestObj = {
       scopes: ["user.read"]
   };
@@ -300,10 +301,10 @@ For example:
   }).catch(function (error) {
       console.log(error);
   });
-  ```
+```
 
-  > [!NOTE]
-  > This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of popup windows by Internet Explorer.
+> [!NOTE]
+> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of popup windows by Internet Explorer.
 
 ## Log out
 
