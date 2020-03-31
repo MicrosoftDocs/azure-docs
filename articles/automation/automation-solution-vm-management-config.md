@@ -95,7 +95,7 @@ By default, the solution is pre-configured to evaluate the percentage CPU metric
 
 * **External_AutoStop_TimeWindow**
 
-You can enable either targeting the action against a subscription and resource group, or targeting a specific list of VMs.
+You can enable and target the action against a subscription and resource group, or target a specific list of VMs.
 
 When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the targeted subscription, resource group(s) and VMs exist. If the VMs exist, it then calls the **AutoStop_CreateAlert_Child** runbook for each verified VM by the parent runbook. This child runbook performs the following:
 
@@ -103,7 +103,7 @@ When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the t
 
 * Triggers the **AutoStop_VM_Child** runbook for a particular VM should the CPU drop below the configured threshold for the specified time interval. This runbook then attempts to stop the VM.
 
-To target the auto stop action against all VMs in a subscription.
+### To target the auto stop action against all VMs in a subscription
 
 1. Ensure the **External_Stop_ResourceGroupNames** variable is empty or set to * (wildcard).
 
@@ -111,7 +111,7 @@ To target the auto stop action against all VMs in a subscription.
 
 3. Enable the **Schedule_AutoStop_CreateAlert_Parent** schedule to run to create the required Stop VM metric alert rules for all of the VMs in your subscription. Running this on a schedule will allow you to create new metric alert rules  as new VMs are added to the subscription.
 
-To target the auto stop action against all VMs in a resource group/a number of resource groups.
+### To target the auto stop action against all VMs in a resource group/multiple resource groups
 
 1. Add a common separated list of resource group names to the **External_Stop_ResourceGroupNames** variable.
 
@@ -119,7 +119,7 @@ To target the auto stop action against all VMs in a resource group/a number of r
 
 3. Enable the **Schedule_AutoStop_CreateAlert_Parent** schedule to run to create the required **Stop VM metric** alert rules for all of the VMs in your resource groups. Running this on a schedule allows you to create new metric alert rules as new VMs are added to the resource group(s).
 
-To Target the auto stop action to a list of VMs
+### To Target the auto stop action to a list of VMs
 
 1. Create a new [Schedule](shared-resources/schedules.md#creating-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma separated list of VM names to the **VMList** parameter.
 
