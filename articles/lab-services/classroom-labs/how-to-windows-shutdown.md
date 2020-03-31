@@ -26,9 +26,9 @@ Even with these cost controls, there are situations where a Windows VM may unexp
   
     When a student connects to their VM using RDP, they may inadvertently leave the RDP window open.  As long as the RDP window remains open, the **automatic shutdown on disconnect** setting will never take effect since it is only triggered after the RDP session is disconnected.
 
-- **Windows shutdown is used to turn off the VM**
+- **Windows shutdown command is used to turn off the VM**
   
-    A student may use Windows shutdown button, or other shutdown mechanisms provided within Windows, to turn off the VM instead of using [Azure Lab Services' stop button](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  When this happens, from the perspective of Azure Lab Services, the VM is still running.
+    A student may use Windows shutdown button, or other shutdown mechanisms provided within Windows, to turn off the VM instead of using [Azure Lab Services' stop button](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  When this happens, from the perspective of Azure Lab Services, the VM is still being used.
     
 To help you prevent these situations from happening, this guide provides steps to automatically shutdown an idle Windows VM and remove the Windows shutdown command from the **Start** menu.  
 
@@ -54,7 +54,7 @@ To set the RDP session idle time limit, you can connect to the template VM and e
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 900000
+$maxIdleTime = 15 * 60 * 90
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
@@ -105,4 +105,4 @@ Or, you can choose to follow these manual steps using the template VM:
     ![Shutdown command](../media/how-to-windows-shutdown/start-menu.png)
 
 ## Next steps
-See the article on how to prepare a Windows template VM: [Guide to setting up a Windows template machine in Azure Lab ddServices](how-to-prepare-windows-template.md)
+See the article on how to prepare a Windows template VM: [Guide to setting up a Windows template machine in Azure Lab Services](how-to-prepare-windows-template.md)
