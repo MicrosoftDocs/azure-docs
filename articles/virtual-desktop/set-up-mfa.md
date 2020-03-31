@@ -24,8 +24,9 @@ While remembering credentials is convenient, it can also make deployments on Ent
 Before you start, make sure you have the following things:
 
 - Users assigned one of the following licenses:
-  - Enterprise Mobility and Security E5
-  - Azure Active Directory Premium P2
+  - Microsoft 365 E3 or E5
+  - Azure Active Directory Premium P1 or P2
+  - Enterprise Mobility + Security (EM+S) E3 / E5
 - An Azure Active Directory group with your users assigned as group members
 
 ## Opt in to the Conditional Access policy
