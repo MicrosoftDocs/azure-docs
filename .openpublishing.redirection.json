@@ -276,8 +276,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-load-data.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
+      "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-train-chainer.md",
+      "redirect_url": "azure/machine-learning/how-to-train-ml-models",
       "redirect_document_id": false
     },
     {
