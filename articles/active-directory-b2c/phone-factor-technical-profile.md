@@ -45,14 +45,11 @@ The following example shows a phone factor technical profile for enrollment and 
 
 The InputClaims element must contain following claims. You can also map the name of your claim to the name defined in the phone factor technical profile. 
 
-```XML
-<InputClaims>
-  <!--A unique identifier of the user. The partner claim type must be set to `UserId`. -->
-  <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
-  <!--A claim that contains the phone number. If the claim is empty, Azure AD B2C asks the user to enroll a new phone number. Otherwise, it asks the user to verify the phone number. -->
-  <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
-</InputClaims>
-```
+|  Data Type| Required | Description |
+| --------- | -------- | ----------- | 
+| string| Yes | A unique identifier of the user. The claim name, or PartnerClaimType must be set to `UserId`.|
+| string| Yes | List of claim types that store a phone number. If the input claims' value are empty, Azure AD B2C asks the user to type and verify a phone number.  Otherwise, Azure AD B2C presents the phone number, asking the user to verify it. In case of multiple input claims, the user is asked to choose and verify one of them.    |
+
 
 The following example demonstrates using multiple phone numbers. For more information, see [sample policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
@@ -70,14 +67,10 @@ The InputClaimsTransformations element may contain a collection of InputClaimsTr
 
 The OutputClaims element contains a list of claims returned by the phone factor technical profile.
 
-```xml
-<OutputClaims>
-  <!-- The verified phone number. The partner claim type must be set to `Verified.OfficePhone`. -->
-  <OutputClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" PartnerClaimType="Verified.OfficePhone" />
-  <!-- Indicates whether the new phone number has been entered by the user. The partner claim type must be set to `newPhoneNumberEntered`. -->
-  <OutputClaim ClaimTypeReferenceId="newPhoneNumberEntered" PartnerClaimType="newPhoneNumberEntered" />
-</OutputClaims>
-```
+|  Data Type| Required | Description |
+|  -------- | ----------- |----------- |
+| boolean | Yes | Indicates whether the new phone number has been entered by the user. The claim name, or PartnerClaimType must be set to `newPhoneNumberEntered`|
+| string| Yes | The verified phone number. The claim name, or PartnerClaimType must be set to `Verified.OfficePhone`.|
 
 The OutputClaimsTransformations element may contain a collection of OutputClaimsTransformation elements that are used to modify the output claims or generate new ones.
 
@@ -92,6 +85,8 @@ The **CryptographicKeys** element is not used.
 | --------- | -------- | ----------- |
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | ManualPhoneNumberEntryAllowed| No | Specify whether or not a user is allowed to manually enter a phone number. Possible values: `true` or `false` (default).|
+| setting.authenticationMode | No | The method to validate the phone number. Possible values: `sms`, `phone` or `mixed` (default).|
+| setting.autodial| No| Specify whether the technical profile should auto dial or auto send an SMS. Possible values: `true` or `false` (default). Auto dial requires the `setting.authenticationMode` metadata be set to `sms`, or `phone`. The input claims collection must have a single phone number. |
 
 ### UI elements
 
