@@ -1,5 +1,5 @@
----
-title: Azure Government Databases | Microsoft Docs
+---                                   
+title: Azure Government Databases | Microsoft Docs        
 description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
@@ -41,7 +41,7 @@ The following information identifies the Azure Government boundary for Azure SQL
 For details on this service and how to use it, see [Azure SQL Data Warehouse documentation](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 ## SQL Server Stretch Database
-For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database/index.md)
+For details on this service and how to use it, see [Azure SQL Server Stretch Database documentation](../sql-server-stretch-database/index.yml)
 
 ## Azure Cosmos DB
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
