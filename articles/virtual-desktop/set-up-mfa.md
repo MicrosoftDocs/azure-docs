@@ -13,22 +13,20 @@ manager: lizross
 
 # Set up Azure Multi-Factor Authentication
 
-The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client.
+The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
 When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure Active Directory (AD) Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
-
-![A screenshot of the credentials window where you enter your password. A check box labeled "Remember me" is underneath the password field.](media/credentials-window.png)
 
 While remembering credentials is convenient, it can also make deployments on Enterprise scenarios or personal devices less secure. To protect your users, you'll need to make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials. This article will show you how to configure the Conditional Access policy for Windows Virtual Desktop to enable this setting.
 
 ## Prerequisites
 
-Before you start, make sure you have these things:
+Before you start, make sure you have the following things:
 
-- One of the following licenses:
+- Users assigned one of the following licenses:
   - Enterprise Mobility and Security E5
   - Azure Active Directory Premium P2
-- Create Azure Active Directory group and make your users group members
+- An Azure Active Directory group with your users assigned as group members
 
 ## Opt in to the Conditional Access policy
 
@@ -62,7 +60,7 @@ Before you start, make sure you have these things:
 
 ## Create an allow list of trusted IP addresses
 
-Now that you've set up your Selective Access policy, you can configure how Azure MFA enforces your policy based on your company's public IP address. You can configure your policy so that users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted IP, they'll get the MFA prompt again.
+Now that you've set up your Conditional Access policy, you can configure how Azure MFA enforces your policy based on your company's public IP address. You can configure your policy so that users working in trusted locations can access your Windows Virtual Desktop environment without MFA. However, when they switch to a network outside of a trusted IP, they'll get the MFA prompt again.
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
@@ -77,7 +75,7 @@ To set up an allow list for trusted IPs:
 
 ![A screenshot of the multi-factor authentication page.](media/mfa-page.png)
 
-3. Go back to the Selective Access rule page.
+3. Go back to the Conditional Access rule page.
 
 4. Select **MFA Trusted IPs**.
 
@@ -94,7 +92,7 @@ To set up an allow list for trusted IPs:
    ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
 
     >[!NOTE]
-    >If some of your users in your organization run the Windows Client from an Azure AD Domain Joined-compliant computer account that's managed by InTune and don't want to enforce MFA for those users, you should also select **Require device to be marked as compliant**.
+    >If you have MDM-enrolled devices in your organization and don't want them to show the MFA prompt, you can also select **Require device to be marked as compliant**.
 
 9. Select **Session**.
 
