@@ -14,7 +14,7 @@ ms.date: 03/26/2020
 ---
 # Known issues and troubleshooting Azure Machine Learning
 
-This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
+This article helps you find and correct errors or failures you may encounter when using Azure Machine Learning.
 
 ## Diagnostic logs
 
@@ -34,8 +34,6 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
 ## Installation and import
-
-Issues with installing the Python SDK or importing packages.
 
 * **Error message: Cannot uninstall 'PyYAML'**
 
@@ -93,16 +91,12 @@ Issues with installing the Python SDK or importing packages.
 
 ## Create and manage workspaces
 
-Issues with a Machine Learning workspace.
-
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 * **Azure portal**: If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
 
 ## Set up your environment
-
-Known issues with using Azure Machine Learning Compute (AmlCompute).
 
 * **Trouble creating AmlCompute**: There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
 
@@ -130,8 +124,6 @@ These are known issues for Azure Machine Learning Datasets.
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
 ### Data labeling projects issues
-
-Known issues with labeling projects.
 
 
 |Issue  |Resolution  |
