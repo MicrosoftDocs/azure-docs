@@ -14,7 +14,7 @@ ms.topic: quickstart
 
 # Quickstart: Manage blobs with JavaScript v12 SDK in a browser
 
-In this quickstart, you learn to manage blobs by using JavaScript in a browser. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
+In this quickstart, you learn to manage blobs by using JavaScript in a browser. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload and list blobs, and you'll create and delete containers.
 
 [API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (bundling)](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
@@ -23,10 +23,10 @@ In this quickstart, you learn to manage blobs by using JavaScript in a browser. 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
-- A local web server. This article uses [Node.js](https://nodejs.org) to open a basic server.
-- [Visual Studio Code](https://code.visualstudio.com).
+- [An Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [An Azure Storage account](../common/storage-account-create.md)
+- [Node.js](https://nodejs.org) to open a local web server
+- [Visual Studio Code](https://code.visualstudio.com)
 - A VS Code extension for browser debugging, such as [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
 
@@ -65,9 +65,9 @@ You can create a SAS using the Azure CLI through the Azure cloud shell, or with 
 
 | Parameter      |Description  | Placeholder |
 |----------------|-------------|-------------|
-| *expiry*       | The expiration date of the access token in YYYY-MM-DD format. Enter tomorrow's date for use with this quickstart. | *FUTURE_DATE* |
-| *account-name* | The storage account name. Use the name set aside in an earlier step. | *YOUR_STORAGE_ACCOUNT_NAME* |
-| *account-key*  | The storage account key. Use the key set aside in an earlier step. | *YOUR_STORAGE_ACCOUNT_KEY* |
+| *expiry*       | The expiration date of the access token in YYYY-MM-DD format. Enter tomorrow's date for use with this quickstart. | <*YYYY-MM-DD*> |
+| *account-name* | The storage account name. Use the name set aside in an earlier step. | <*YOUR_STORAGE_ACCOUNT_NAME*> |
+| *account-key*  | The storage account key. Use the key set aside in an earlier step. | <*YOUR_STORAGE_ACCOUNT_KEY*> |
 
 Use the following CLI command, with actual values for each placeholder, to generate a SAS that you can use in your JavaScript code.
 
@@ -76,9 +76,9 @@ az storage account generate-sas \
   --permissions racwdl \
   --resource-types sco \
   --services b \
-  --expiry FUTURE_DATE \
-  --account-name YOUR_STORAGE_ACCOUNT_NAME \
-  --account-key YOUR_STORAGE_ACCOUNT_KEY
+  --expiry <YYYY-MM-DD> \
+  --account-name <YOUR_STORAGE_ACCOUNT_NAME> \
+  --account-key <YOUR_STORAGE_ACCOUNT_KEY>
 ```
 
 You may find the series of values after each parameter a bit cryptic. These parameter values are taken from the first letter of their respective permission. The following table explains where the values come from:
@@ -126,7 +126,7 @@ First, create a new folder named *azure-blobs-javascript* and open it in VS Code
 
 ### Configure the debugger
 
-To set up the debugger extension in VS Code, select **Debug > Add Configuration...**, then select **Chrome** or **Edge**, depending on which extension you installed in the Prerequisites section earlier. This action creates a *launch.json* file and opens it in the editor.
+To set up the debugger extension in VS Code, select **Run > Add Configuration...**, then select **Chrome** or **Edge**, depending on which extension you installed in the [Prerequisites](#prerequisites) section earlier. This action creates a *launch.json* file and opens it in the editor.
 
 Next, modify the *launch.json* file so that the `url` value includes `/index.html` as shown:
 
@@ -141,11 +141,12 @@ Next, modify the *launch.json* file so that the `url` value includes `/index.htm
             "type": "edge",
             "request": "launch",
             "name": "Launch Edge against localhost",
-            "url": "http://localhost:8080",
+            "url": "http://localhost:8080/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
-}```
+}
+```
 
 This configuration tells VS Code which browser to launch and which URL to load.
 
@@ -161,21 +162,24 @@ This command will install the *http-server* package and launch the server, makin
 
 ### Start debugging
 
-To launch *index.html* in the browser with the VS Code debugger attached, select **Debug > Start Debugging** or press F5 in VS Code.
+To launch *index.html* in the browser with the VS Code debugger attached, select **Run > Start Debugging** or press F5 in VS Code.
 
 The UI displayed doesn't do anything yet, but you'll add JavaScript code in the following section to implement each function shown. You can then set breakpoints and interact with the debugger when it's paused on your code.
 
-When you make changes to *index.html*, be sure to reload the page to see the changes in the browser. In VS Code, you can also select **Debug > Restart Debugging** or press CTRL + SHIFT + F5.
+When you make changes to *index.html*, be sure to reload the page to see the changes in the browser. In VS Code, you can also select **Run > Restart Debugging** or press CTRL + SHIFT + F5.
 
 ### Add the blob storage client library
 
-To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. This process takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers.
+To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. Bundling takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers.
 
-See [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md). After you've completed the steps to create a bundle, include the bundle in the *index.html* page via a script tag:
+Follow the process in [Bundling Azure SDK libraries for a browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md). After you've completed the steps to create your bundle, include the bundle in the *index.html* page via a script tag:
 
 ```html
 <script src="./dist/main.js"></script>
 ```
+
+Each time you make an update to the JavaScript code, run the command to recreate the bundle. This will incorporate your updates. See the [Run and test the web application](#run-and-test-the-web-application) section for more information.
+
 ## Object model
 
 Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
