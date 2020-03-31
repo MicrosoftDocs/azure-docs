@@ -19,7 +19,7 @@ Traditional SMP SQL pools use an Extract, Transform, and Load (ETL) process for 
 
 Using an Extract, Load, and Transform (ELT) process leverages MPP and eliminates the resources needed for data transformation prior to loading. 
 
-While SQL pool supports many loading methods, including popular SQL Server options such as BCP and the SQL BulkCopy API, the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). 
+While SQL pool supports many loading methods, including popular SQL Server options such as [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) and the [SqlBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx), the fastest and most scalable way to load data is through PolyBase external tables and the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview). 
 
 With PolyBase and the COPY statement, you can access external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language. For the most flexibility when loading, we recommend using the COPY statement.
 
@@ -67,7 +67,7 @@ Tools and services you can use to move data to Azure Storage:
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service enhances network throughput, performance, and predictability. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. ExpressRoute connections don't route data through the public internet. The connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the public internet.
 - [AZCopy utility](../../storage/common/storage-choose-data-transfer-solution.md) moves data to Azure Storage over the public internet. This method works if your data sizes are less than 10 TB. To perform loads on a regular basis with AZCopy, test the network speed to see if it's acceptable. 
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL Analytics, see [Loading data for SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md) has a gateway that you can install on your local server. Then you can create a pipeline to move data from your local server up to Azure Storage. To use Data Factory with SQL pool, see [Loading data for Synapse SQL pool](../../data-factory/load-azure-sql-data-warehouse.md).
 
 
 ## 3. Prepare the data for loading
@@ -141,7 +141,7 @@ To load data with PolyBase, you can use any of these loading options:
 
 ### Other loading options
 
-In addition to PolyBase and the COPY statement, you can use [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) or the [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to the database without going through Azure Blob storage, and is intended only for small loads. 
+In addition to PolyBase and the COPY statement, you can use [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) or the [SqlBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp loads directly to the database without going through Azure Blob storage, and is intended only for small loads. 
 
 > [!NOTE]
 > Note, the load performance of these options is slower than PolyBase and the COPY statement. 

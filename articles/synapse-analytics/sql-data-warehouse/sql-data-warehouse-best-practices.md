@@ -29,18 +29,17 @@ We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep 
 
 If you find it is taking too long to update all of your statistics, you may want to try to be more selective about which columns need frequent statistics updates. For example, you might want to update date columns, where new values may be added, daily. 
 
-
 > [!TIP]
 > You will gain the most benefit by having updated statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.
 
-See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx), [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx).
+See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx), and [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx).
 
 ## Use DMVs to monitor and optimize your queries
-SQL pool has several DMVs that can be used to monitor query execution.  The monitoring article below walks through step-by-step instructions on how to look at the details of an executing query.  
+SQL pool has several DMVs that can be used to monitor query execution.  The Monitor your workload using DMVs article details step-by-step instructions on how to look at the details of an executing query.  
 
 To quickly find queries in these DMVs, using the LABEL option with your queries can help.
 
-See also [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md), [LABEL](sql-data-warehouse-develop-label.md), [OPTION](https://msdn.microsoft.com/library/ms190322.aspx), [sys.dm_exec_sessions]( https://msdn.microsoft.com/library/ms176013.aspx), [sys.dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx), [sys.dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx), [sys.dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx), [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx), [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx), [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx).
+See also [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md), [LABEL](sql-data-warehouse-develop-label.md), [OPTION](https://msdn.microsoft.com/library/ms190322.aspx), [sys.dm_exec_sessions]( https://msdn.microsoft.com/library/ms176013.aspx), [sys.dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx), [sys.dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx), [sys.dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx), [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx), [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx), and [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx).
 
 ## Tune query performance with new product enhancements
 - [Performance tuning with materialized views](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views)
@@ -152,7 +151,7 @@ See also [Table indexes](sql-data-warehouse-tables-index.md), [Columnstore index
 ## Use larger resource class to improve query performance
 SQL pool uses resource groups as a way to allocate memory to queries.  Out of the box, all users are assigned to the small resource class, which grants 100 MB of memory per distribution.  Since there are always 60 distributions and each distribution is given a minimum of 100 MB, system wide the total memory allocation is 6,000 MB, or just under 6 GB.  
 
-Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will yield no benefit.  On the flip side, utilizing larger resource classes reduces concurrency, so you will want to take this impact into consideration before moving all of your users to a large resource class.
+Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, like pure scans, will yield no benefit.  However, utilizing larger resource classes reduces concurrency, so you will want to take this impact into consideration before moving all of your users to a large resource class.
 
 See also [Resource classes for workload management](resource-classes-for-workload-management.md).
 
@@ -164,7 +163,7 @@ See also [Resource classes for workload management](resource-classes-for-workloa
 ## Other resources
 Also see our [Troubleshooting](sql-data-warehouse-troubleshoot.md) article for common issues and solutions.
 
-If you didn't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to ask questions to other users and to the Azure Synapse Product Group. We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
+If you didn't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to post questions to other users and to the Azure Synapse Product Group. We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
 If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

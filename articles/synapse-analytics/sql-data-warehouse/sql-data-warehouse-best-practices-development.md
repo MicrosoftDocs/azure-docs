@@ -22,7 +22,7 @@ This article describes guidance and best practices as you develop your SQL pool 
 - [Performance tuning with result set caching](performance-tuning-result-set-caching.md)
 
 ## Reduce cost with pause and scale
-For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md). 
+For more information about reducing costs through pausing and scaling, see the [Manage compute](sql-data-warehouse-manage-compute-overview.md) article. 
 
 ## Maintain statistics
 SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up-to-date. 
@@ -30,7 +30,7 @@ SQL pool can be configured to automatically detect and create statistics on colu
 If you find it is taking too long to update all of your statistics, you may want to try to be more selective about which columns need frequent statistics updates. For example, you might want to update date columns, where new values may be added, daily. 
 
 > [!TIP]
-> You will gain the most benefit by having updated statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.
+> You will gain the most benefit by having updated statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
 See also [Manage table statistics](sql-data-warehouse-tables-statistics.md), [CREATE STATISTICS](sql-data-warehouse-tables-statistics.md), and [UPDATE STATISTICS](sql-data-warehouse-tables-statistics.md#updating-statistics).
 
@@ -103,7 +103,7 @@ See also [Table indexes](sql-data-warehouse-tables-index.md), [Columnstore index
 ## Next steps
 If you don't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  
 
-The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to ask questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
+The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to post questions to other users and to the Azure Synapse Product Group.  We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
 If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL Data Warehouse Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

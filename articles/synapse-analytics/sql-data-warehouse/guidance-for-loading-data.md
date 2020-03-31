@@ -1,5 +1,5 @@
 ---
-title: Data loading best practices for Synapse SQL pool.
+title: Data loading best practices for Synapse SQL pool
 description: Recommendations and performance optimizations for loading data using Synapse SQL pool.
 services: synapse-analytics
 author: kevinvngo 
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Best practices for loading data using Synapse SQL pool.
+# Best practices for loading data using Synapse SQL pool
 
 In this article, you'll learn recommendations and performance optimizations for loading data using SQL pool.
 
@@ -33,7 +33,10 @@ Split large compressed files into smaller compressed files.
 
 For fastest loading speed, run only one load job at a time. If that isn't feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
 
-To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
+To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  
+
+> [!NOTE]
+> This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
 ### Example of creating a loading user
 
@@ -55,11 +58,15 @@ Connect to the SQL pool and create a user. The following code assumes you're con
 
 To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
 
-Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
+Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. 
+
+For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
 ## Allowing multiple users to load
 
-There's often a need to have multiple users load data into a SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
+There's often a need to have multiple users load data into a SQL pool. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. 
+
+You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
@@ -74,23 +81,35 @@ User_A and user_B are now locked out from the other dept's schema.
 
 To achieve the fastest loading speed for moving data into a SQL pool table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option. 
 
-Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
+Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production SQL pool table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. 
+
+Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
 
 ## Loading to a columnstore index
 
-Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. 
+
+When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class. 
-- Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
+- Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. 
 
-## Increase batch size when using SQLBulkCopy API or BCP
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP), you should consider increasing batch size for better throughput. A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
+> [!NOTE]
+> If you load too few rows, they might all route to the deltastore and not get compressed immediately into columnstore format.
+
+## Increase batch size when using SqLBulkCopy API or bcp
+As mentioned before, loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) or [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15), you should consider increasing batch size for better throughput. 
+
+> [!TIP]
+> A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. 
 
 ## Handling loading failures
 
-A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. A data record is considered dirty if the data types and number of columns do not match the column definitions of the external table, or if the data doesn't conform to the specified external file format. 
+A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. 
 
-To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
+A data record is considered dirty if the data types and number of columns do not match the column definitions of the external table, or if the data doesn't conform to the specified external file format. 
+
+To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
 
 ## Inserting data into a production table
 
