@@ -26,7 +26,7 @@ Before you start, make sure you have the following things:
 - Users assigned one of the following licenses:
   - Microsoft 365 E3 or E5
   - Azure Active Directory Premium P1 or P2
-  - Enterprise Mobility + Security (EM+S) E3 / E5
+  - Enterprise Mobility + Security E3 or E5
 - An Azure Active Directory group with your users assigned as group members
 
 ## Opt in to the Conditional Access policy
@@ -109,7 +109,5 @@ To set up an allow list for trusted IPs:
 11. Enable the policy.
 
 12. Select **Create** to confirm the policy.
-
-    ![A screenshot of the Create button.](media/create-button.png)
 
 13. You're all done! Feel free to test the policy to make sure your allow list works as intended.
