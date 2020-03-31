@@ -241,6 +241,10 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
 
+### Media Services v2 (legacy)
+
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
+
 ## Mobile Services limits
 
 [!INCLUDE [mobile-services-limits](../../../includes/mobile-services-limits.md)]
