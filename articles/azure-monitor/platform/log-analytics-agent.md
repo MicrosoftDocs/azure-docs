@@ -156,7 +156,7 @@ The agent for Linux and Windows communicates outbound to the Azure Monitor servi
 
 ![Log Analytics agent communication diagram](./media/log-analytics-agent/log-analytics-agent-01.png)
 
-The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.
+The following table lists the proxy and firewall configuration information that's required for the Linux and Windows agents to communicate with Azure Monitor logs.
 
 ### Firewall requirements
 
