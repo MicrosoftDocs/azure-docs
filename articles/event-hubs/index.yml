@@ -118,7 +118,7 @@ landingContent:
           - text: Overview
             url: /azure-stack/user/event-hubs-overview
           - text: Common feature set
-            url: /azure-stack/user/event-hubs-overview
+            url: /azure-stack/user/event-hubs-overview#features
       - linkListType: how-to-guide
         links:
           - text: Capacity planning
