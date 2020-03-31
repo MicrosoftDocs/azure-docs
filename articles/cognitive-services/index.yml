@@ -38,9 +38,9 @@ highlightedContent:
     - title: Custom subdomains for Cognitive Services
       itemType: how-to-guide
       url: cognitive-services-custom-subdomains.md
-    - title: Authenticate a request
-      itemType: how-to-guide
-      url: ./authentication.md
+    - title: Cognitive Services security
+      itemType: concept
+      url: cognitive-services-security.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

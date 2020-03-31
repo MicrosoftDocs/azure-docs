@@ -10,13 +10,13 @@
  ms.custom: include file
 
 ---
-<a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager
+### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager
 The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
-| Resource | Default/maximum limit | 
+| Resource | Limit | 
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
@@ -60,7 +60,7 @@ The following limits apply only for networking resources managed through Azure R
 
 **Standard Load Balancer**
 
-| Resource                                | Default/maximum limit         |
+| Resource                                | Limit         |
 |-----------------------------------------|-------------------------------|
 | Load balancers                          | 1,000                         |
 | Rules per resource                      | 1,500                         |
@@ -74,7 +74,7 @@ The following limits apply only for networking resources managed through Azure R
 
 **Basic Load Balancer**
 
-| Resource                                | Default/maximum limit        |
+| Resource                                | Limit        |
 |-----------------------------------------|------------------------------|
 | Load balancers                          | 1,000                        |
 | Rules per resource                      | 250                          |
@@ -83,7 +83,7 @@ The following limits apply only for networking resources managed through Azure R
 | Backend pool size                       | 300 IP configurations, single availability set |
 | Availability sets per Load Balancer     | 150                          |
 
-#### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |

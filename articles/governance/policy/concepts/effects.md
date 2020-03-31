@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 11/04/2019
+ms.date: 03/23/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -413,7 +413,8 @@ no related resources or if the resources defined by **ExistenceCondition** don't
 The duration of the deployment depends on the complexity of resources included in the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
-are marked as non-compliant, but no action is taken on that resource.
+are marked as non-compliant, but no action is taken on that resource. Existing non-compliant
+resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
 
 ### DeployIfNotExists properties
 
@@ -561,7 +562,7 @@ Gatekeeper v3 admission control rule.
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
 
-### EnforceRegoPolicy example
+### EnforceOPAConstraint example
 
 Example: Gatekeeper v3 admission control rule to set container CPU and memory resource limits in AKS
 Engine.

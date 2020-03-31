@@ -21,6 +21,8 @@
       href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
+    - name: Query with Search explorer
+      href: search-explorer.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -231,10 +233,10 @@
       href: search-query-simple-examples.md
     - name: Use full Lucene syntax
       href: search-query-lucene-examples.md
-    - name: Use Search Explorer (portal)
-      href: search-explorer.md
     - name: Special characters and partial terms
       href: search-query-partial-matching.md
+    - name: Query from Power Apps   
+      href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
       - name: Simple query syntax

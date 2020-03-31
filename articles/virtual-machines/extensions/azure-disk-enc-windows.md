@@ -12,7 +12,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 03/19/2020
 ms.author: ejarvi
 
 ---
@@ -30,7 +30,7 @@ For a full list of prerequisites, see [Azure Disk Encryption for Windows VMs](..
 - [Networking requirements](../windows/disk-encryption-overview.md#networking-requirements)
 - [Group Policy requirements](../windows/disk-encryption-overview.md#group-policy-requirements)
 
-## Extension schema
+## Extension Schema
 
 There are two versions of extension schema for Azure Disk Encryption (ADE):
 - v2.2 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.

@@ -159,6 +159,7 @@ Your Secure Score is based on the number of Security Center recommendations you'
 ## Next steps
 To learn more about recommendations, see the following:
 
+* [The Microsoft Learn module on how to analyze the recommendations made by Security Center](https://docs.microsoft.com/learn/modules/identify-threats-with-azure-security-center/)
 * [Security recommendations in Azure Security Center](security-center-recommendations.md)
 * [Protecting your machines and applications](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)

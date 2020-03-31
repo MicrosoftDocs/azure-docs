@@ -1,13 +1,12 @@
 ---
 title: Publish a virtual machine offer in the Azure Marketplace 
 description: Lists the steps required to publish an existing virtual machine offer onto the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish a virtual machine offer
