@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/30/2020
 ---
 
 # Adjust capacity in Azure Cognitive Search
