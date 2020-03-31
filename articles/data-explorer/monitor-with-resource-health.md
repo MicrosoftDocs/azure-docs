@@ -21,15 +21,15 @@ Resource Health determines the health of your Azure Data Explorer resource by ex
 
 1. In the [Azure portal](https://portal.azure.com/), select **Monitor** from list of services.
 1. Select **Service Health** > **Resource health**.
-1. In the **Subscription** dropdown, select your subscription and in the **Resource type** dropdown, select **Azure Data Explorer**.
-1. The resulting table will list all the resources in the chosen subscription. Each resource will have a health state icon indicating the resource health.
+1. In the **Subscription** dropdown, select your subscription. In the **Resource type** dropdown, select **Azure Data Explorer**.
+1. The resulting table lists all the resources in the chosen subscription. Each resource will have a health state icon indicating the resource health.
 1. Select your resource to view its [resource health status](#resource-health-status) and recommendations.
 
     ![Overview](media/monitor-with-resource-health/resource-health-overview.png)
 
 ## Resource health status
 
-The health of a resource is displayed with one of the following statuses, available, unavailable, and unknown
+The health of a resource is displayed with one of the following statuses, available, unavailable, and unknown.
 
 ### Available
 
