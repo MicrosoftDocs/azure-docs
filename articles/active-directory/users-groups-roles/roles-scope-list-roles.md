@@ -38,4 +38,4 @@ The highlighted section may be changed as required for the specific environment.
 
 ## Next steps
 
-- [Aasign roles with administrative unit scope](roles-scope-assign-roles.md)
+- [Aasign roles with administrative unit scope](roles-scope-assign-role.md)
