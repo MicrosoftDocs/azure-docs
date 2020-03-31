@@ -41,10 +41,10 @@ Before making requests to the REST proxy endpoint, the client application should
 1. Create an Azure AD security group and add the application that you have registered with Azure AD to the security group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Validate the group is of type "Security"
-![Security Group](./media/rest-proxy/rest-proxy-group.PNG)
+![Security Group](./media/rest-proxy/rest-proxy-group.png)
 
 Validate that application is member of Group
-![Validate Membership](./media/rest-proxy/rest-proxy-membergroup.PNG)
+![Validate Membership](./media/rest-proxy/rest-proxy-membergroup.png)
 
 ## Create a Kafka cluster with REST proxy enabled
 
@@ -125,6 +125,14 @@ request_url = kafkarest_endpoint + getstatus
 response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
+
+Please find below another sample on how to get a token from Azure for REST proxy using a curl command. Notice that we need the resource=https://hib.azurehdinsight.net specified while getting a token.
+
+    ```cmd
+    
+    curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
+    
+    ```
 
 ## Next steps
 
