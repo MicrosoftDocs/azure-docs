@@ -1,7 +1,7 @@
 ---
 title: Private Atlas for indoor maps| Microsoft Azure Maps 
 description: In this article, you'll learn how the workflow for managing your Private Atlas indoor maps.
-author: anastasia-harris
+author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/30/2020
 ms.topic: conceptual
@@ -29,5 +29,5 @@ In addition, the DWG package contains a manifest.json file that defines the DWG 
 
 The minimum set of data required is defined by the mandatory elements of the DWG package. However, depending on data availability and solution requirements, those mandatory elements can be expanded further to include, for example, space names, categories and zones. 
 
-For further information on DWG Package requirements, see [DWG Package requirements]().
+For further information on DWG Package requirements, see [DWG Package requirements](dwg-requirements.md).
 

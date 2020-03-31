@@ -1,7 +1,7 @@
 ---
 title: Manage your Azure Maps Private Atlas | Microsoft Azure Maps 
 description: In this article, you'll learn how to use the Azure portal to manage your Private Atlas in your Microsoft Azure Maps account.
-author: anastasia-harris
+author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/30/2020
 ms.topic: how-to
@@ -31,8 +31,7 @@ Before you begin, if you don't have an Azure subscription, [create an Azure acco
     ![ Select your Azure Maps account](./media/how-to-manage-private-atlas/select-your-azure-maps-account.png)
 
 3. Once you're on the Azure Maps account page, navigate to the **Overview** option under the **Private Atlas**.
-
-    
+  
     ![Overview Option](./media/how-to-manage-private-atlas/overview-option.png)
 
 4. Select the **create** button to create your Private Atlas. Enter the information for your Private Atlas account and select the location for your Private Atlas. Currently, the United States is the only supported geographical location.

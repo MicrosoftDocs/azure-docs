@@ -1,8 +1,8 @@
 ---
 title: DWG Conversion Error and Warning in Azure Maps | Microsoft Docs
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -28,7 +28,7 @@ The table contains the possible error codes you may come across. Click on an err
 | [missingManifest](#missingmanifest) | [Manifest](#manifest-errors) |
 | [conflict](#conflict) | [Manifest](#manifest-errors) |
 | [invalidGeoreference](#invalidgeoreference) | [Manifest](#manifest-errors) |
-| [wallError](#wallerrors) | [wall](#wall-errors) |
+| [wallError](#wallError) | [wall](#wall-errors) |
 | [verticalPenetrationError](#verticalpenetrationerror) | [Vertical Penetration](#vertical-penetration-errors) |
 
 The table lists the possible warning codes you may meet. Click on a warning category or a specific warning to see more details. The Conversion service will let you convert your designs into map data with warnings, but it's recommended you resolve all warnings. Failing to resolve the warnings could mean your map won't render as expected.
@@ -42,8 +42,8 @@ The table lists the possible warning codes you may meet. Click on a warning cate
 | [wallOutsideLevel](#walloutsidelevel ) | [Level](#level-warnings) |
 | [unitOutsideLevel](#unitoutsidelevel) | [Unit](#unit-warnings) |
 | [partiallyOverlappingUnit](#partiallyoverlappingunit) | [Unit](#unit-warnings) |
-| [doorOutsideLevel](#dooroutsidelevel) | [Door](#door-warnings) |
-| [zoneWarning](#zonewarning ) | [Zone](#zone-warnings) |
+| [doorOutsideLevel](#doorOutsideLevel) | [Door](#door-warnings) |
+| [zoneWarning](#zoneWarning ) | [Zone](#zone-warnings) |
 
 ## General warnings
 
@@ -60,7 +60,7 @@ The Conversion service came across a geometry of an unexpected type, and the ser
 * Non-closed PolyLine is found in the level outline layer, unit layer, zone layer, or wall layer
 * Non-text entity is found in the zoneLabel layer or the unitLabel layer
 
-inspect each error and remove the incompatible geometry. Or, move the incompatible geometry to a layer in which it's compatible.
+Inspect each error and remove the incompatible geometry. Otherwise, move the incompatible geometry to a layer in which it's compatible.
 
 ### unsupportedFeatureRepresentation
 
@@ -70,7 +70,7 @@ The Conversion service came across a DWG entity of an unsupported type. For exam
 * A 3D Face in the unit layer
 * An old-style Polyline2D entity that hasn't been converted to a regular Polyline
 
-Only use the supported entity types, they're listed under the [DWG files requirements section in the DWG package requirements article](dwg-requirements.md#dwg-files-requirements).''
+Only use the supported entity types listed under the [DWG files requirements section in the DWG package requirements article](dwg-requirements.md#dwg-files-requirements).
 
 ### automaticRepairPerformed
 
@@ -106,7 +106,6 @@ To resolve this error:
 Unable to read user data object from storage. For example:
 
 * User provided an incorrect `udid` parameter
-* User provided a `udid` that's associated with a different Private Atlas subscription than the subscription used to make the request
 
 Make sure you provide a correct `udid` for the uploaded package. The Private Atlas subscription that you use to make the conversion request must match with the subscription you used to upload your package.
 
@@ -151,7 +150,7 @@ Manifest is missing from archive. It could be because manifest.json is:
 * Missing
 * Not inside the root directory of the archive
 
-Ensure the archive has a file named _manifest.json_. 
+Ensure the archive has a file named _manifest.json_ at the root level.
 
 ### conflict
 
@@ -189,13 +188,11 @@ Wall geometry occurs outside the bounds of the level outline.
 
 The following two images show the error in red. The interior wall is outside the level boundary in the first image. In the second image, the exterior wall is outside the level boundary.
 
-<center>
+    ![Interior wall goes outside the level boundary](./media/dwg-conversion-error-codes/interior-wall-outside-level-boundary.png)
 
-![Interior wall goes outside the level boundary](./media/dwg-conversion-error-codes/interior-wall-outside-level-boundary.png)
+    ![Exterior wall goes outside the level boundary](./media/dwg-conversion-error-codes/exterior-wall-outside-level-boundary.png)
 
-![Exterior wall goes outside the level boundary](./media/dwg-conversion-error-codes/exterior-wall-outside-level-boundary.png)
 
-</center>
 
 To fix `wallOutsideLevel` warnings, expand the level geometry to include all walls. Or, modify walls to fit inside level.
 
@@ -205,23 +202,19 @@ To fix `wallOutsideLevel` warnings, expand the level geometry to include all wal
 
 Unit geometry occurs outside the bounds of the level outline. The image below shows one example. The red segments of the unit are outside the level yellow boundary.
 
-<center>
 
-![Unit goes outside the level boundary](./media/dwg-conversion-error-codes/unit-outside-level-boundary.png)
 
-</center>
+    ![Unit goes outside the level boundary](./media/dwg-conversion-error-codes/unit-outside-level-boundary.png)
+
 
 Expand level geometry to include all units or modify unit to fit inside level.
 
 ### partiallyOverlappingUnit
 
-The Conversion service came across a unit that's partially overlapping on another unit. Below is an example image, the overlaps are highlighted in red. uNIT 136 overlaps CIRC103, 126, and 135. 
+The Conversion service came across a unit that's partially overlapping on another unit. Below is an example image, the overlaps are highlighted in red. UNIT 136 overlaps CIRC103, UNIT 126, and UNIT 135.
 
-<center>
+    ![Unit overlap](./media/dwg-conversion-error-codes/unit-overlap.png)
 
-![Unit overlap](./media/dwg-conversion-error-codes/unit-overlap.png)
-
-</center>
 
 The Conversion service doesn't support partially overlapping units. Redraw each partially overlapping unit, so that it doesn't overlap any other units.
 
@@ -231,13 +224,17 @@ The Conversion service doesn't support partially overlapping units. Redraw each 
 
 Error creating a wall feature. For example, this error occurs when a wall feature doesn't overlap any units.
 
-Redraw the wall so that it overlaps at least one unit. Or, create a new unit that overlaps the wall.
+Redraw the wall so that it overlaps at least one unit. Otherwise, create a new unit that overlaps the wall.
 
 ## Door warnings
 
+### doorOutsideLevel
+
 Door geometry occurs completely outside the bounds of the level geometry. Resolve this warning by placing your door inside the level geometry.
 
-### doorOutsideLevel
+## Zone warnings
+
+### zoneWarning
 
 Error creating a zone feature. For example, this warning is raised when a zone contains multiple zone labels or no zone labels.
 

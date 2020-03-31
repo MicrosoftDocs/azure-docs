@@ -50,11 +50,7 @@ Begin by using the [Data Upload API]() to upload your DWG package to Azure Maps 
 
 4. In the **Headers** tab, specify a value for the `Content-Type` key. Our DWG package is a zipped folder, so use the `application/octet-stream` value. In the **Body** tab, select **binary**. Click on **Select File** and choose your DWG package.
 
-    <center>
-
-    ![data-management](./media/tutorial-private-atlas-indoor-maps/specify-content-type.png)
-
-    </center>
+     ![data-management](./media/tutorial-private-atlas-indoor-maps/specify-content-type.png)
 
 5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the status URL, it's the value for the **Location** key.
 
@@ -96,7 +92,7 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
 > [!Note]
 > The user interface of the Postman application is not perfectly synchronized with the API response. If you notice a long delay while making a **GET** request at the status URL, click the **send** button again. The request will be resent and you'll see the status at the time of clicking the button.
 
-If you meet errors while you're converting your DWG package, see the [DWG conversion errors and warnings](dwg-conversion-error-codes). It provides recommendations on how to resolve conversion issues, with some examples. You may also use the [DWG error visualizer](azure-maps-dwg-errors-visualizer.md) to conveniently see the errors and warnings on your indoor map.
+If you meet errors while you're converting your DWG package, see the [DWG conversion errors and warnings](dwg-conversion-error-codes.md). It provides recommendations on how to resolve conversion issues, with some examples. You may also use the [DWG error visualizer](azure-maps-dwg-errors-visualizer.md) to conveniently see the errors and warnings on your indoor map.
 
 ## Create a data set
 
