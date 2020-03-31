@@ -177,7 +177,7 @@ This can be done using the same steps as shown above for [configuring group owne
     ```
 
     ```powershell
-    # Re-enable Risk Based Step-up consent, if disabled previously
+    # Re-enable risk-based step-up consent, if disabled previously
     $riskBasedConsentEnabledValue.Value = "True"
     ```
 
