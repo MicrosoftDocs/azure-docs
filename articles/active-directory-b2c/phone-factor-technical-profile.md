@@ -56,7 +56,7 @@ The InputClaims element must contain the following claims. You can also map the 
 
 |  Data Type| Required | Description |
 | --------- | -------- | ----------- | 
-| string| Yes | A unique identifier for the user. The claim name, or PartnerClaimType must be set to `UserId`. This claim should not contain person identifiable information.|
+| string| Yes | A unique identifier for the user. The claim name, or PartnerClaimType must be set to `UserId`. This claim should not contain personal identifiable information.|
 | string| Yes | List of claim types. Each claim contains one phone number. If any of the input claims do not contain a phone number, the user will be asked to enroll and verify a new phone number. The validated phone number is returned as an output claim. If one of the input claims contain a phone number, the user is asked to verify it. If multiple input claims contain a phone number, the user is asked to choose and verify one of the phone numbers. |
 
 The following example demonstrates using multiple phone numbers. For more information, see [sample policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
