@@ -6,11 +6,15 @@ ms.date: 03/31/2020
 ms.author: juliako
 ---
 
-This article describes quotas and limitations in Azure Media Services v3.
+This section describes quotas and limitations in Azure Media Services.
+
+> [!NOTE]
+> For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
 | Resource | Default Limit | 
 | --- | --- | 
-| Assets per Azure Media Services account | 1,000,000|
+| Media Services accounts in a single subscription | 25 (fixed) |
+| Assets per Media Services account | 1,000,000|
 | Dynamic Manifest Filters|100|
 | Job inputs per Job | 50  (fixed)|
 | Job outputs per Job | 20 (fixed) |
@@ -19,7 +23,6 @@ This article describes quotas and limitations in Azure Media Services v3.
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
 | Jobs per Media Services account | 500,000 <sup>(2)</sup> (fixed)|
 | Live Events per Media Services account |5|
-| Media Services accounts in a single subscription | 25 (fixed) |
 | Live Outputs per Live Event |3 <sup>(3)</sup> |
 | Max Live Output duration | 25 hours |
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
@@ -34,7 +37,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 
 The following table shows the limits on the media reserved units S1, S2, and S3. If your source file is larger than the limits defined in the table, your encoding job fails. If you encode 4K resolution sources of long duration, you're required to use S3 media reserved units to achieve the performance needed. If you have 4K content that's larger than the 260-GB limit on the S3 media reserved units, open a support ticket.
 
-|Media reserved unit type    |Maximum input size (GB)|
+|Media reserved unit type|Maximum input size (GB)|
 |---|---|
 |S1 |    26|
 |S2    | 60|
