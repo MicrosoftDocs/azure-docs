@@ -233,11 +233,12 @@ To resolve this issue, configure the virtual network peering under **Azure Datab
 
 ### The remote virtual network lacks a gateway
 
-This issue occurs when you peer vnets from different tenants and want to configure `Use Remote Gateways` afterwards. It is a limitation in Azure Portal that cannot validate presence of Vnet gateway in the other tenant's vnet.
+This issue occurs when you peer virtual networks from different tenants and later want to configure `Use Remote Gateways`. A limitation of the Azure portal is that it can't validate the presence of a virtual network gateway in another tenant's virtual network.
+
 There are two ways to resolve the issue:
 
- * Destroy the peerings and activate the `Use Remote Gateways` option during new peering creation
- * Enable the `Use Remote Gateways` through PowerShell or CLI
+ * Delete the peerings and activate the `Use Remote Gateways` option when you create a new peering.
+ * Use PowerShell or CLI, instead of the Azure portal, to enable `Use Remote Gateways`.
 
 ## Next steps
 
