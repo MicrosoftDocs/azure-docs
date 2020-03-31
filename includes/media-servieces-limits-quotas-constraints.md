@@ -6,8 +6,6 @@ ms.date: 03/31/2020
 ms.author: juliako
 ---
 
-This section describes quotas and limitations in Azure Media Services.
-
 > [!NOTE]
 > For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
