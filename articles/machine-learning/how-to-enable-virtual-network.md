@@ -507,7 +507,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
 1. To find the name of the Azure Container Registry for your workspace, use one of the following methods:
 
-    __Azure Portal__
+    __Azure portal__
 
     From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
 
