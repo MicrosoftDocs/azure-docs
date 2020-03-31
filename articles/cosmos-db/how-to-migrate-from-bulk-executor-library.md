@@ -24,7 +24,7 @@ Bulk support in the .NET SDK works by leveraging the [Task Parallel Library](htt
 
 There is no single method that will take your list of documents or operations as an input parameter, but rather, you need to create a Task for each operation you want to execute in bulk.
 
-If our initial input is a list of items where each item has, for example, this schema:
+For example, if your initial input is a list of items where each item has the following schema:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
