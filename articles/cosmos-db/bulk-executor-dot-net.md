@@ -11,12 +11,12 @@ ms.author: ramkris
 ms.reviewer: sngun
 ---
 
+# Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
+
 > [!NOTE]
 > This bulk executor library described in this article is maintained for applications using the .NET SDK 2.x version. For new applications, you can use the **bulk support** that is directly available with the [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md) and it does not require any external library. 
 
 > If you are currently using the bulk executor library and planning to migrate to bulk support on the newer SDK, use the steps in the [Migration guide](how-to-migrate-from-bulk-executor-library.md) to migrate your application.
-
-# Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
 This tutorial provides instructions on using the bulk executor .NET library to import and update documents to an Azure Cosmos container. To learn about the bulk executor library and how it helps you leverage massive throughput and storage, see the [bulk executor library overview](bulk-executor-overview.md) article. In this tutorial, you will see a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos container. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
@@ -197,10 +197,6 @@ Consider the following points for better performance when using the bulk executo
     </trace>
   </system.diagnostics>
   ```
-
-## Migration to .NET SDK version 3
-
-[.NET SDK version 3](tutorial-sql-api-dotnet-bulk-import.md) **includes bulk support** and does not require any external library. If you are currently using the bulk executor library and planning to migrate to bulk support on the newer SDK, follow the steps in our [migration guide](how-to-migrate-from-bulk-executor-library.md).
 
 ## Next steps
 
