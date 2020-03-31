@@ -190,12 +190,14 @@ A zonal promise for zone isolation exists when a virtual machine instance using 
 
 Failure in a zone other than where your scenario exists is expected to be without impact to NAT. Outbound traffic from virtual machines in the same zone will fail because of zone isolation.  
 
+#### Integrating inbound endpoints
+
 If your scenario requires inbound endpoints, you have two options:
 
 | Option | Pattern | Example | Pro | Con |
 |---|---|---|---|---|
-| (1) | **Align** the inbound endpoints with the respective zonal stacks you're creating for outbound. | Create a standard load balancer with zonal frontend. | Same health model and failure mode for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
-| (2) | **Overlay** the zonal stacks with a cross-zone inbound endpoint. | Create a standard load balancer with zone-redundant frontend. | Single IP address for inbound endpoint. | Varying health model and failure modes for inbound and outbound.  More complex to operate. |
+| (1) | **Align** the inbound endpoints with the respective **zonal stacks** you're creating for outbound. | Create a standard load balancer with zonal frontend. | Same health model and failure mode for inbound and outbound. Simpler to operate. | Individual IP addresses per zone may need to be masked by a common DNS name. |
+| (2) | **Overlay** the zonal stacks with a **cross-zone** inbound endpoint. | Create a standard load balancer with zone-redundant frontend. | Single IP address for inbound endpoint. | Varying health model and failure modes for inbound and outbound.  More complex to operate. |
 
 >[!NOTE]
 > A zone-isolated NAT gateway requires IP addresses to match the zone of the NAT gateway. NAT gateway resources with IP addresses from a different zone or without a zone aren't allowed.
