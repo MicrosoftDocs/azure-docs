@@ -316,6 +316,8 @@
       items:
       - name: Subscriptions and storage accounts
         href: storsimple-8000-migrate-classic-azure-portal.md
+      - name: From 8000 series devices
+        href: storsimple-8000-migration-from-8000-options.md
       - name: From 5000/7000 series devices
         href: storsimple-8000-migration-options.md
         items:
