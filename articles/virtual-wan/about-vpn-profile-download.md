@@ -12,11 +12,11 @@ ms.author: cherylmc
 ---
 # Working with User VPN client profiles
 
-The downloaded profile file contains information that is necessary to configure a VPN connection. This article will help you obtain and understand the information necessary for a User VPN client profile.
+The downloaded profile file contains information that is necessary to configure a VPN connection. This article helps you obtain and understand the information necessary for a User VPN client profile.
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients](../vpn-gateway/vpn-gateway-howto-openvpn-clients.md#windows).
+* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients](../virtual-wan/howto-openvpn-clients.md#windows).
 
 ## Next steps
 

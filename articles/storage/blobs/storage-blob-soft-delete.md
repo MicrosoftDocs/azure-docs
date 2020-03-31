@@ -203,7 +203,8 @@ $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 You can verify that soft delete was turned on by using the following command:
 
 ```powershell
-$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
 To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:

@@ -20,9 +20,9 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -39,14 +39,14 @@ az account set -s $subscription # ...or use 'az login'
 Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $resourceGroup
+az group delete --name $resource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| Command | Notes |
+| | |
 |---|---|
 | [az sql db audit-policy](/cli/azure/sql/db/audit-policy) | Sets the auditing policy for a database. |
 | [az sql db threat-policy](/cli/azure/sql/db/threat-policy) | Sets an Advanced Threat Protection policy on a database. |

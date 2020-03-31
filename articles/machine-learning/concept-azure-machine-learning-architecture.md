@@ -9,9 +9,8 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
-ms.custom: seoapril2019
+ms.custom: seoapril2019, seodec18
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
-ms.custom: seodec18
 ---
 
 # How Azure Machine Learning works: Architecture and concepts

@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 3. Search for **Front Door** using the search bar and once you find the resource type, click **Create**.
-4. Choose a subscription and then either use an existing resource group or create a new one. Note, the location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
+4. Choose a subscription and then either use an existing resource group or create a new one. Note, the location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
     ![Configure basics for new Front Door](./media/front-door-url-redirect/front-door-create-basics.png)
 

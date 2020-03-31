@@ -7,9 +7,9 @@ ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Configuring a Web Application Firewall (WAF) for App Service Environment
 ## Overview
 

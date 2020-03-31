@@ -4,8 +4,6 @@ titleSuffix: Azure App Configuration
 description: Use labels to provide per-environment configuration values
 ms.service: azure-app-configuration
 author: lisaguthrie
-
-ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens

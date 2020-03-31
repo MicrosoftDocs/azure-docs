@@ -44,7 +44,7 @@ Azure Private Link provides the following benefits:
 |  | Azure Data Lake Storage Gen2        |  All public regions      | GA <br/> [Learn more](/azure/storage/common/storage-private-endpoints)  |
 |  |  Azure SQL Database         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |  |Azure Synapse Analytics (SQL Data Warehouse)| All public regions |GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|  |Azure Cosmos DB|  EAST US, EAST US2, WEST US,  WEST US2, CENTRAL US, SOUTH CENTRAL US, WEST CENTRAL  US,  NORTH CENTRAL US, NORTH EUROPE, WEST EUROPE  |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |Azure Cosmos DB|  All public regions |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  |  Azure Database for PostgreSQL - Single server         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  |  Azure Database for MySQL         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  |  Azure Database for MariaDB         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
@@ -58,7 +58,7 @@ Azure Private Link provides the following benefits:
 |  |Azure Service Bus | All public regions      |   Preview   |
 |  |Azure Relay | All public regions      |   Preview   |
 |  |Azure Event Grid| All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | EAST US, WEST US2      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Web Apps | EAST US, WEST US2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
