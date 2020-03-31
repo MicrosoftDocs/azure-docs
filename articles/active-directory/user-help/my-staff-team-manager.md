@@ -17,13 +17,13 @@ ms.custom: oldportal;it-pro;
 ---
 # Delegate user management with My Staff (preview)
 
-**My Staff** enables an organization to delegate user management tasks to figures of authority, such as a store manager or team leader, to help their team members access the applications that they need. When a team member can't access an application because they forgot their password, productivity is lost. Not only does this impact team productivity, but it drives up helpdesk costs and causes a bottleneck in the organizational structure.  With My Staff, a user who can't access their account can regain access in just a couple of clicks, with no helpdesk or IT staff required.
+Your organization can use **My Staff** to delegate user management tasks to figures of authority, such as a store manager or team leader, to help their staff members access the applications that they need. If your team member can't access an application because they forget a password, productivity is lost. This also drives up support costs and causes a bottleneck in your administrative processes.  With My Staff, a team member who can't access their account can regain access in just a couple of clicks, with no administrator help required.
 
 ## Manage your staff in My Staff
 
-Managing your users in My Staff is simple. To start, go to [go to My Staff](https://aka.ms/mystaff), select a team or location, and then select a user. Locations and the users in a location are determined by your IT administrator and you can't change them.
+Managing your team members in My Staff is simple. To start, go to [go to My Staff](https://aka.ms/mystaff), select a team or location, and then select a user. Locations and the team members in a location are determined by your IT administrator and you can't change them.
 
-If you manage more than one location or group of users, the first time you visit My Staff you must select a location to see the list of users who are part of your location or team.
+If you manage more than one location or group of staff members, the first time you visit My Staff you must select a location to see the list of staff who are part of your location or team.
 
 ## Reset a user password
 
