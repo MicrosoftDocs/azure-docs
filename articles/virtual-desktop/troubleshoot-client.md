@@ -24,7 +24,7 @@ Use the following command to remove your user data, restore default settings and
 msrdcw.exe /reset [/f]
 ```
 
-For previous versions of the client, it is recommended to uninstall and reinstall the Remote Desktop client.
+If you're using an earlier version of the Remote Desktop client, we recommend you uninstall and reinstall the client.
 
 ## Web client won't open
 
