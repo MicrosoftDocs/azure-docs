@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service.
-ms.date: 03/23/2020
+ms.date: 03/27/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Azure Kubernetes Service
@@ -18,6 +18,10 @@ clusters from one place.
 > policies are in the **Kubernetes** category. The **EnforceRegoPolicy** effect and related
 > **Kubernetes Service** category policies are being _deprecated_. Instead, use the updated
 > [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+
+> [!WARNING]
+> This feature isn't yet available in all regions. For a status on the rollout, see
+> [AKS Issues - Breaking Change for Policy Add-on](https://github.com/Azure/AKS/issues/1529).
 
 ## Overview
 
@@ -184,7 +188,7 @@ The Azure Policy language structure for managing Kubernetes follows that of exis
 effect _EnforceOPAConstraint_ is used to manage your Kubernetes clusters and takes details
 properties specific to working with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint)
-and Gatekeeper v3. For details and examples, see the  
+and Gatekeeper v3. For details and examples, see the 
 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
   
 As part of the _details.constraintTemplate_ and _details.constraint_ properties in the policy
@@ -244,7 +248,7 @@ assign an AKS policy. Search for a Kubernetes policy definition instead of the s
 
 > [!IMPORTANT]
 > Built-in policies in category **Kubernetes** are only for use with AKS. For a list of built-in
-> policies, see [../samples/built-in-policies.md#kubernetes]
+> policies, see [Kubernetes samples](../samples/built-in-policies.md#kubernetes).
 
 ## Logging
 

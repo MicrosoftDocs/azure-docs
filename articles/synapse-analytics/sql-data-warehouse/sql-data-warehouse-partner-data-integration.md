@@ -1,12 +1,12 @@
 ---
 title: Data integration partners 
 description: Lists of third-party partners with data integration solutions that support Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mabasile-MSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: 
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
