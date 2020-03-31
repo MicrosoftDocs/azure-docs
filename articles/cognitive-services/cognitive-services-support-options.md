@@ -107,7 +107,11 @@ Reddit is a community-driven discussion website, offering the latest conversatio
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on UserVoice. Share your ideas for making Cognitive Services and its APIs work better for the applications you develop. NOTE: while this is a public forum, do not expect support from Microsoft here, but do enjoy discussing new features you'd like to see in upcoming Cognitive Services releases.
+To request new features, post them on UserVoice. Share your ideas for making Cognitive Services and its APIs work better for the applications you develop. 
+
+> [!NOTE]
+> Although this is a public forum, don't expect support from Microsoft here, but do enjoy discussing new features you'd like to see in upcoming Cognitive Services releases.
+
 
 | Service                       | Cognitive Services UserVoice URL |
 |-------------------------------|---------------|
