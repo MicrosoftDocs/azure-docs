@@ -49,7 +49,7 @@ In some cases, applications require a local certificate file generated from a tr
 
 ### Connect using psql
 
-The following example shows how to connect to your PostgreSQL server using the psql command-line utility. Use the `sslmode=verify-full` connection string setting to enforce TLS certificate verification. Pass the local certificate file path to the `sslrootcert` parameter.
+The following example shows how to connect to your PostgreSQL server using the psql command-line utility. Use the `sslmode=verify-full` connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the `sslrootcert` parameter.
 
 The following command is an example of the psql connection string:
 
