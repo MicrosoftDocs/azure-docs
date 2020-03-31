@@ -2,13 +2,15 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 02/13/2020
 ---
-# Azure Resource Manager template functions
+# ARM template functions
 
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
+This article describes all the functions you can use in an Azure Resource Manager (ARM) template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](template-syntax.md#functions).
+
+Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -29,6 +31,7 @@ To create your own functions, see [User-defined functions](template-syntax.md#fu
 <a id="union" aria-hidden="true" />
 
 ## Array and object functions
+
 Resource Manager provides several functions for working with arrays and objects.
 
 * [array](template-functions-array.md#array)
@@ -56,6 +59,7 @@ Resource Manager provides several functions for working with arrays and objects.
 <a id="greaterorequals" aria-hidden="true" />
 
 ## Comparison functions
+
 Resource Manager provides several functions for making comparisons in your templates.
 
 * [equals](template-functions-comparison.md#equals)
@@ -69,6 +73,7 @@ Resource Manager provides several functions for making comparisons in your templ
 <a id="variables" aria-hidden="true" />
 
 ## Deployment value functions
+
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](template-functions-deployment.md#deployment)
@@ -83,6 +88,7 @@ Resource Manager provides the following functions for getting values from sectio
 <a id="or" aria-hidden="true" />
 
 ## Logical functions
+
 Resource Manager provides the following functions for working with logical conditions:
 
 * [and](template-functions-logical.md#and)
@@ -103,6 +109,7 @@ Resource Manager provides the following functions for working with logical condi
 <a id="sub" aria-hidden="true" />
 
 ## Numeric functions
+
 Resource Manager provides the following functions for working with integers:
 
 * [add](template-functions-numeric.md#add)
@@ -128,6 +135,7 @@ Resource Manager provides the following functions for working with integers:
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## Resource functions
+
 Resource Manager provides the following functions for getting resource values:
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
@@ -137,9 +145,9 @@ Resource Manager provides the following functions for getting resource values:
 * [list*](template-functions-resource.md#list)
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [subscription](template-functions-resource.md#subscription)
+* [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
+* [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
+* [subscription](template-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -175,6 +183,7 @@ Resource Manager provides the following functions for getting resource values:
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## String functions
+
 Resource Manager provides the following functions for working with strings:
 
 * [base64](template-functions-string.md#base64)
@@ -213,7 +222,7 @@ Resource Manager provides the following functions for working with strings:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md)
+* For a description of the sections in an ARM template, see [Authoring ARM templates](template-syntax.md)
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md)
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md)
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md)
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
+* To see how to deploy the template you've created, see [Deploy an application with ARM templates](deploy-powershell.md)

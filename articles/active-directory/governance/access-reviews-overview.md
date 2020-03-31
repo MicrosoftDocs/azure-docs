@@ -57,9 +57,9 @@ Depending on what you want to review, you will create your access review in Azur
 | Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 
-## Onboard access reviews
+## Create access reviews
 
-To onboard access reviews, follow these steps.
+To create an access reviews, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage access reviews and sign in as a Global administrator or User administrator.
 
@@ -69,13 +69,9 @@ To onboard access reviews, follow these steps.
 
 1. Select **Identity Governance**.
 
-1. Click **Access reviews**.
- 
-    ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+1. On the Getting started page, click the **Create an access review** button.
 
-1. On the page, click the **Onboard now** button.
-    
-      ![Access reviews onboard](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+   ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
 
 ## Learn about access reviews

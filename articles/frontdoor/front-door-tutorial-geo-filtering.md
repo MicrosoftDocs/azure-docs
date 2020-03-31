@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure geo-filtering WAF policy - Azure Front Door service
-description: In this tutorial, you learn how to create a simple geo-filtering policy and associate the policy with your existing Front Door frontend host
+title: Tutorial - Configure geo-filtering WAF policy - Azure Front Door
+description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host
 services: frontdoor
 documentationcenter: ''
 author: teresayao
@@ -72,7 +72,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ## Add rules to a policy
-Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, create a `geoPolicy` policy object containing `nonUSBlockRule`  using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) in the specified resource group that contains the Front Door profile. You must provide a unique name for the geo policy. 
+Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, create a `geoPolicy` policy object containing `nonUSBlockRule`  using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) in the specified resource group that contains the Front Door profile. You must provide a unique name for the geo-filtering policy. 
 
 The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article. In the below example, replace the policy name *geoPolicyAllowUSOnly* with a unique policy name.
 

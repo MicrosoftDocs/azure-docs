@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
+manager: lizross
 ---
 # Linux support
 
@@ -16,6 +17,9 @@ You can use the Linux SDK for Windows Virtual Desktop to build a standalone Wind
 ## What is the Linux SDK?
 
 You can use the SDK APIs to retrieve resource feeds, connect to desktop or remote application sessions, and use many of the redirections that our first-party clients support.
+
+> [!NOTE]
+> The SDK is currently in development. We'll update this document with instructions to access the SDK when it is available.
 
 ### Supported Linux distributions
 
@@ -49,8 +53,6 @@ Before you can develop a Linux client for Windows Virtual Desktop, you need to d
 2. Test the available first-party clients to familiarize yourself with the Windows Virtual Desktop user experience.
 
 ## Next steps
-
-You can request access to the Linux SDK on our [Tech Community forum](https://go.microsoft.com/fwlink/?linkid=2116541).
 
 Check out our documentation for the following clients:
 

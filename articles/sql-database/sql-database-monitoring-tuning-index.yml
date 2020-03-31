@@ -5,14 +5,14 @@ summary: Azure SQL Database provides tools to help you collect metrics and diagn
 
 metadata:
   title: Azure SQL Database monitoring and tuning documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure SQL Database provides tools to help you collect metrics and diagnostic information to monitor your database and improve its performance. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn about Azure SQL Database monitoring and performance tuning tools that help you collect metrics and diagnostics and improve database performance.
   ms.service: sql-database #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: performance # Optional; Remove if no subservice is used.
   ms.topic: landing-page # Required
   ms.collection: performance # Optional; Remove if no collection is used.
   author: CarlRabeler #Required; your GitHub user alias, with correct capitalization.
   ms.author: carlrab #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/25/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/10/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -32,14 +32,20 @@ landingContent:
             url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
 
   # Card (optional)
-  - title: Collecting metrics and logs
+  - title: Intelligent performance recommendations
     linkLists:
       - linkListType: concept
         links:
-          - text: Metrics and diagnostics logging
-            url: sql-database-metrics-diag-logging.md
-          - text: Understand the performance diagnostics log
-            url: sql-database-intelligent-insights-use-diagnostics-log.md
+          - text: SQL Database Advisor tuning recommendations
+            url: sql-database-advisor.md
+          - text: Automatic tuning
+            url: sql-database-automatic-tuning.md  
+          - text: Query Performance Insight
+            url: sql-database-query-performance.md
+      - linkListType: video
+        links:
+          - text: Automatic tuning
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 
   # Card
   - title: Resource limits
@@ -60,52 +66,48 @@ landingContent:
             url: sql-database-instance-pools.md#instance-pools-resource-limitations
 
   # Card (optional)
-  - title: Getting started - Azure portal
+  - title: Intelligent performance analysis
     linkLists:
       - linkListType: overview
         links: 
-          - text: Monitor and tune using AI 
-            url: sql-database-performance.md
+          - text: Intelligent Insights using AI
+            url: sql-database-intelligent-insights.md
       - linkListType: concept
         links:
-          - text: SQL Database Advisor tuning recommendations
-            url: sql-database-advisor.md
-          - text: Query Performance Insight
-            url: sql-database-query-performance.md
+          - text: Metrics and diagnostics logging
+            url: sql-database-metrics-diag-logging.md
+          - text: Understand the performance diagnostics log
+            url: sql-database-intelligent-insights-use-diagnostics-log.md
           - text: Azure SQL Analytics
             url: ../azure-monitor/insights/azure-sql.md
-          - text: Intelligent Insights
-            url: sql-database-intelligent-insights.md
           - text: Detectable performance patterns
             url: sql-database-intelligent-insights-troubleshoot-performance.md
-          - text: Automatic tuning
-            url: sql-database-automatic-tuning.md
+          - text: Intelligent query processing
+            url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
       - linkListType: video
         links:
           - text: Intelligent Insights
             url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
-          - text: Automatic tuning
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 
   # Card
   - title: Manual performance tuning
     linkLists:
       - linkListType: overview
         links:
-          - text: Manual performance tuning guidance
-            url: sql-database-performance-guidance.md
+          - text: Identify query performance issues
+            url: sql-database-identify-query-performance-issues.md
       - linkListType: concept
         links:
+          - text: Monitoring using DMVs
+            url: sql-database-monitoring-with-dmvs.md
+          - text: Application and database tuning
+            url: sql-database-performance-guidance.md
           - text: Using Query Store
             url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
-          - text: Using DMVs
-            url: sql-database-monitoring-with-dmvs.md
           - text: Using extended events
             url: sql-database-xevent-db-diff-from-svr.md
           - text: Hyperscale performance diagnostics
             url: sql-database-hyperscale-performance-diagnostics.md
-          - text: Intelligent query processing
-            url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
 
   # Card
   - title: Resource scaling

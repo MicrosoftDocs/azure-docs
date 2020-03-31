@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/30/2020
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -84,6 +84,10 @@ For some resource types, you need to contact support to have the 800 instance li
 * software
 * softwareUpdateProfile
 * softwareUpdates
+
+## Microsoft.Insights
+
+* metricalerts
 
 ## Microsoft.Logic
 
@@ -174,10 +178,6 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * apiManagementAccounts/apis
 * sites
-
-## microsoft.insights
-
-* metricalerts
 
 ## Next steps
 

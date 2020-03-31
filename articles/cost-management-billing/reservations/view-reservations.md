@@ -1,18 +1,14 @@
 ---
 title: View reservations for Azure resources| Microsoft Docs
 description: Learn how to view Azure reservations in the Azure portal.
-documentationcenter: ''
 author: yashesvi
-manager: yashar
-editor: ''
+ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 ---
+
 # View Azure reservations in the Azure portal
 
 Depending on your subscription type and permissions, there are a couple of ways to view reservations for Azure.

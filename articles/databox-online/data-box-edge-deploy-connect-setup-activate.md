@@ -42,7 +42,7 @@ Before you configure and set up your Data Box Edge device, make sure that:
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device. 
 
-    You see an error or a warning indicating that there is a problem with the website’s security certificate. 
+    You see an error or a warning indicating that there is a problem with the website's security certificate. 
    
     ![Website security certificate error message](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
@@ -96,6 +96,11 @@ Your dashboard displays the various settings that are required to configure and 
    c. If you're using authentication, enter a username and password.
 
    d. To validate and apply the configured web proxy settings, select **Apply settings**.
+   
+   > [!NOTE]
+   > Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL.
+   > Proxies that try to intercept and read all the traffic (then re-sign everything with their own certification) aren't compatible since the proxy's cert is not trusted.
+   > Typically transparent proxies work well with Azure Data Box Edge.
 
 4. (Optional) In the left pane, select **Time settings**, and then configure the time zone and the primary and secondary NTP servers for your device.  
     NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.

@@ -74,7 +74,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
     ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Enter the following details:
-    - **Organization name**: The name of the Fabric organization, which is required for various data plane operations.
+    - **Organization name**: The name of the Fabric organization, which is required for various data plane operations. The organization name needs to be unique per deployment. 
     - **Fabric network component**: Choose either Ordering Service or Peer nodes based on Blockchain network component you want to setup.
     - **Number of nodes** - The following are the two types of nodes:
         - Ordering service - select the number of nodes to provided fault tolerance to the network. Only 3,5 and 7 are the supported orderer node count.
@@ -139,7 +139,6 @@ SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 -
 ORDERER_AKS_SUBSCRIPTION=<ordererAKSClusterSubscriptionID>
 ORDERER_AKS_RESOURCE_GROUP=<ordererAKSClusterResourceGroup>
 ORDERER_AKS_NAME=<ordererAKSClusterName>
-ORDERER_DNS_ZONE=
 ORDERER_DNS_ZONE=$(az aks show --resource-group $ORDERER_AKS_RESOURCE_GROUP --name $ORDERER_AKS_NAME --subscription $ORDERER_AKS_SUBSCRIPTION -o json | jq .addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName | tr -d '"')
 ORDERER_END_POINT="orderer1.$ORDERER_DNS_ZONE:443"
 CHANNEL_NAME=<channelName>
@@ -462,7 +461,7 @@ npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <que
 
 ```
 
-Pass query function name and comma separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking `fabcar` chaincode as reference, to query all the cars in the world state set `<queryFunction>` to `"queryAllCars"` and `<queryArgs>' to `""`.
+Pass query function name and comma separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking `fabcar` chaincode as reference, to query all the cars in the world state set `<queryFunction>` to `"queryAllCars"` and `<queryArgs>` to `""`.
 
 Refer command help for more details on the arguments passed in the command
 

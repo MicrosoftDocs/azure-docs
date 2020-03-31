@@ -1,12 +1,12 @@
 ---
 title: Best practices - Azure Batch
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-author: ju-shim
-ms.author: jushiman
+author: LauraBrenner
+ms.author: labrenne
 ms.date: 11/22/2019
 ms.service: batch 
 ms.topic: article
-manager: gwallace
+manager: evansma
 ---
 
 # Azure Batch best practices
@@ -81,7 +81,7 @@ A job is a container designed to contain hundreds, thousands, or even millions o
     Do not design a Batch solution that requires thousands simultaneously of active jobs. There is no quota for tasks, so executing as many tasks under as few jobs as possible efficiently uses your [job and job schedule quotas](batch-quota-limit.md#resource-quotas).
 
 - **Job lifetime**  
-    A Batch job has an indefinite lifetime until it's deleted from the system. A job’s state designates whether it can accept more tasks for scheduling or not. A job does not automatically move to completed state unless explicitly terminated. This can be automatically triggered through the [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) property or [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+    A Batch job has an indefinite lifetime until it's deleted from the system. A job's state designates whether it can accept more tasks for scheduling or not. A job does not automatically move to completed state unless explicitly terminated. This can be automatically triggered through the [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) property or [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
 
 There is a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state do not count towards this quota.
 
@@ -111,12 +111,12 @@ Tasks are individual units of work that comprise a job. Tasks are submitted by t
 
 ### Designing for retries and re-execution
 
-Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task’s [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). When a program specified in the task exits with a non-zero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
+Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task's [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). When a program specified in the task exits with a non-zero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
 
 Although rare, a task can be retried internally due to failures on the compute node, such as not being able to update internal state or a failure on the node while the task is running. The task will be retried on the same compute node, if possible, up to an internal limit before giving up on the task and deferring the task to be rescheduled by Batch, potentially on a different compute node.
 
 - **Build durable tasks**  
-    Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks “goal seeking”. Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run).
+    Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks "goal seeking". Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run).
 
     A common example is a task to copy files to a compute node. A simple approach is a task that copies all the specified files every time it runs, which is inefficient and isn't built to withstand failure. Instead, create a task to ensure the files are on the compute node; a task that doesn't recopy files that are already present. In this way, the task picks up where it left off if it was interrupted.
 
@@ -147,3 +147,15 @@ Although rare, a task can be retried internally due to failures on the compute n
 ### Security isolation
 
 For the purposes of isolation, if your scenario requires isolating jobs from each other, then you should isolate these jobs by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools are not visible or able to communicate with each other. Avoid using separate Batch accounts as a means of isolation.
+
+## Moving
+
+### Move Batch account across regions 
+
+There are various scenarios in which you'd want to move your existing Batch account from one region to another. For example, you may want to move to another region as part of disaster recovery planning.
+
+Azure Batch accounts cannot be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration of your Batch account.  You can then stage the resource in another region by exporting the Batch account to a template, modifying the parameters to match the destination region, and then deploy the template to the new region. After you upload the template to the new region, you will have to recreate certificates, job schedules, and application packages. To commit the changes and complete the move of the Batch account, remember to delete the original Batch account or resource group.  
+
+For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

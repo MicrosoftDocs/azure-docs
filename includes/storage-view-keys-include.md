@@ -14,7 +14,7 @@ To view and copy your storage account access keys or connection string from the 
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+3. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 4. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 

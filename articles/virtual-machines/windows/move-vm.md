@@ -30,13 +30,13 @@ This article walks you through how to move a Windows virtual machine (VM) betwee
 To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To get a list with the resource ID of each of these resources, use the [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet.
 
 ```azurepowershell-interactive
- Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-list -wrap -Property ResourceId
+ Get-AzResource -ResourceGroupName myResourceGroup | Format-table -wrap -Property ResourceId
 ```
 
-You can use the output of the previous command as a comma-separated list of resource IDs to [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) to move each resource to the destination.
+You can use the output of the previous command to create a comma-separated list of resource IDs to [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) to move each resource to the destination.
 
 ```azurepowershell-interactive
-Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+Move-AzResource -DestinationResourceGroupName "myDestinationResourceGroup" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 

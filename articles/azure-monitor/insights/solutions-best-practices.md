@@ -1,7 +1,6 @@
 ---
 title: Management solution in Azure best practices | Microsoft Docs
 description: 
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

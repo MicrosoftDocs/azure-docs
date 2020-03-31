@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 07/31/2019
 ---
-# String functions for Azure Resource Manager templates
+# String functions for ARM templates
 
-Resource Manager provides the following functions for working with strings:
+Resource Manager provides the following functions for working with strings in your Azure Resource Manager (ARM) templates:
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -1580,21 +1580,21 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "one two three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"substringOutput": {
-			"value": "[substring(parameters('testString'), 4, 3)]",
-			"type": "string"
-		}
-	}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "one two three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "substringOutput": {
+            "value": "[substring(parameters('testString'), 4, 3)]",
+            "type": "string"
+        }
+    }
 }
 ```
 
@@ -1694,25 +1694,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "One Two Three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"toLowerOutput": {
-			"value": "[toLower(parameters('testString'))]",
-			"type": "string"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-	}
+    }
 }
 ```
 
@@ -1745,25 +1745,25 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"testString": {
-			"type": "string",
-			"defaultValue": "One Two Three"
-		}
-	},
-	"resources": [],
-	"outputs": {
-		"toLowerOutput": {
-			"value": "[toLower(parameters('testString'))]",
-			"type": "string"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testString": {
+            "type": "string",
+            "defaultValue": "One Two Three"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "toLowerOutput": {
+            "value": "[toLower(parameters('testString'))]",
+            "type": "string"
+        },
         "toUpperOutput": {
             "type": "string",
             "value": "[toUpper(parameters('testString'))]"
         }
-	}
+    }
 }
 ```
 
@@ -2207,6 +2207,6 @@ The next example shows how to use a value from the function when setting a tag v
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 

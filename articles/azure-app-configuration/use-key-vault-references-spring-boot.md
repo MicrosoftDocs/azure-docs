@@ -40,9 +40,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* A supported [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) with version 8.
+* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault
 
@@ -53,10 +53,10 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 1. From the results list, select **Key vaults** on the left.
 1. In **Key vaults**, select **Add**.
 1. On the right in **Create key vault**, provide the following information:
-    - Select **Subscription** to choose a subscription.
-    - In **Resource Group**, select **Create new** and enter a resource group name.
-    - In **Key vault name**, a unique name is required. For this tutorial, enter **Contoso-vault2**.
-    - In the **Region** drop-down list, choose a location.
+    * Select **Subscription** to choose a subscription.
+    * In **Resource Group**, select **Create new** and enter a resource group name.
+    * In **Key vault name**, a unique name is required. For this tutorial, enter **Contoso-vault2**.
+    * In the **Region** drop-down list, choose a location.
 1. Leave the other **Create key vault** options with their default values.
 1. Select **Create**.
 
@@ -71,9 +71,9 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. From the Key Vault properties pages, select **Secrets**.
 1. Select **Generate/Import**.
 1. In the **Create a secret** pane, enter the following values:
-    - **Upload options**: Enter **Manual**.
-    - **Name**: Enter **Message**.
-    - **Value**: Enter **Hello from Key Vault**.
+    * **Upload options**: Enter **Manual**.
+    * **Name**: Enter **Message**.
+    * **Value**: Enter **Hello from Key Vault**.
 1. Leave the other **Create a secret** properties with their default values.
 1. Select **Create**.
 
@@ -84,10 +84,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. Select **Configuration Explorer**.
 
 1. Select **+ Create** > **Key vault reference**, and then specify the following values:
-    - **Key**: Select **/application/config.keyvaultmessage**
-    - **Label**: Leave this value blank.
-    - **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to the values in the key vault you created in the previous section.
-    - **Secret**: Select the secret named **Message** that you created in the previous section.
+    * **Key**: Select **/application/config.keyvaultmessage**
+    * **Label**: Leave this value blank.
+    * **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to the values in the key vault you created in the previous section.
+    * **Secret**: Select the secret named **Message** that you created in the previous section.
 
 ## Connect to Key Vault
 
@@ -107,7 +107,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -116,8 +115,15 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. Run the following command to let the service principal access your key vault:
 
+    ```console
+    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+
+1. Run the following command to get your object-id, then add it to App Configuration.
+
+    ```console
+    az ad sp show --id <clientId-of-your-service-principal>
+    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Create the following environment variables, using the values for the service principal that were displayed in the previous step:
@@ -127,7 +133,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     * **AZURE_TENANT_ID**: *tenantId*
 
 > [!NOTE]
-> These Key Vault credentials are used only within your application. Your application authenticates directly to Key Vault with these credentials. They are never passed to the App Configuration service.
+> These Key Vault credentials are only used within your application.  Your application authenticates directly with Key Vault using these credentials without involving the App Configuration service.  The Key Vault provides authentication for both your application and your App Configuration service without sharing or exposing keys.
 
 ## Update your code to use a Key Vault reference
 
@@ -154,17 +160,73 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     }
     ```
 
+1. Create a new file called *AzureCredentials.java* and add the code below.
+
+    ```java
+    package com.example;
+
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.EnvironmentCredentialBuilder;
+    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+
+    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
+
+        @Override
+        public TokenCredential getKeyVaultCredential(String uri) {
+            return getCredential();
+        }
+
+        @Override
+        public TokenCredential getAppConfigCredential(String uri) {
+            return getCredential();
+        }
+
+        private TokenCredential getCredential() {
+            return new EnvironmentCredentialBuilder().build();
+        }
+
+    }
+    ```
+
+1. Create a new file called *AppConfiguration.java*. And add the code below.
+
+    ```java
+    package com.example;
+
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class AppConfiguration {
+
+        @Bean
+        public AzureCredentials azureCredentials() {
+            return new AzureCredentials();
+        }
+    }
+    ```
+
+1. Create a new file in your resources META-INF directory called *spring.factories* and add.
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.AppConfiguration
+    ```
+
 1. Build your Spring Boot application with Maven and run it, for example:
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
+
 1. After your application is running, use *curl* to test your application, for example:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
+
     You see the message that you entered in the App Configuration store. You also see the message that you entered in Key Vault.
 
 ## Clean up resources

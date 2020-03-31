@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 01/16/2020
+ ms.date: 03/05/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -14,11 +14,46 @@
 >We are working hard to add additional regions. When a region is added, we will add it to this list.
 >
 
-* West US
-* West US 2
+**Americas**
+* Brazil South
+* Canada Central
+* Central US
 * East US
 * East US 2
-* West Europe
+* North Central US
 * South Central US
+* West Central US
+* West US
+* West US 2
+
+**Europe**
+* France Central
+* North Europe
+* Norway East
+* UK South
+* UK West
+* West Europe
+
+**Asia Pacific**
+* Australia Central 2
 * Australia East
+* Australia Southeast
+* East Asia
 * Japan East
+* Japan West
+* Korea Central
+* Korea South
+* Southeast Asia
+* West India
+
+**Middle East and Africa**
+* South Africa North
+* UAE Central
+
+**Azure Government**
+* US DoD Central
+* US DoD East
+* US Gov Arizona
+* US Gov Iowa
+* US Gov Texas
+* US Gov Virginia

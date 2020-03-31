@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
+manager: lizross
 ---
 # Troubleshoot the Remote Desktop client
 

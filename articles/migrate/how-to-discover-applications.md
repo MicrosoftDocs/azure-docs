@@ -2,7 +2,7 @@
 title: Discover apps, roles, and features on on-premises servers with Azure Migrate 
 description: Learn how to discover apps, roles, and features on on-premises servers with Azure Migrate Server Assessment.
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 03/12/2020
 ---
 
 # Discover machine apps, roles, and features
@@ -12,9 +12,9 @@ This article describes how to discover applications, roles, and features on on-p
 Discovering the inventory of apps, and roles/features running on your on-premises machines helps you to identify and plan a migration path to Azure that's tailored for your workloads.
 
 > [!NOTE]
-> App discovery is currently supported for VMware VMs only, and is limited to discovery only. We don't yet offer app-based assessment. Machine-based assessment for on-premises VMware VMs, Hyper-V VMs, and physical servers.
+> App discovery is currently in preview for VMware VMs only, and is limited to discovery only. We don't yet offer app-based assessment. Machine-based assessment for on-premises VMware VMs, Hyper-V VMs, and physical servers.
 
-App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs to be installed on machines and VMs. Server Assessment uses the Azure Migrate appliance to perform discovery along with machine guest credentials. The appliance remotely accesses the VMware machines using VMware APIs.
+App discovery using Azure Migrate: Server Assessment is agentless. Nothing is installed on machines and VMs. Server Assessment uses the Azure Migrate appliance to perform discovery along with machine guest credentials. The appliance remotely accesses the VMware machines using VMware APIs.
 
 
 ## Before you start
@@ -23,7 +23,7 @@ App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs
 2. Make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool to a project.
 4. Check the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) for discovering and assessing VMware VMs with the Azure Migrate appliance.
 5. Check the [requirements](migrate-appliance.md) for deploying the Azure Migrate appliance.
-6. [Verify support and requirements](/migrate-support-matrix-vmware.md#application-discovery) for application discovery.
+6. [Verify support and requirements](migrate-support-matrix-vmware.md#application-discovery) for application discovery.
 
 ## Prepare for app discovery
 
@@ -39,7 +39,7 @@ After the appliance is deployed and you've provided credentials, the appliance s
 
 ## Review and export the inventory
 
-After discovery finishes, if you provided credentials for app discovery, you can review and export the app inventory in the Azure portal.
+After discovery ends, if you provided credentials for app discovery, you can review and export the app inventory in the Azure portal.
 
 1. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment**, click the displayed count to open the **Discovered servers** page.
 

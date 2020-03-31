@@ -57,4 +57,4 @@ Deploying services within a virtual network provides the following capabilities:
 | | |
 
 ¹ 'Dedicated' implies that only service specific resources can be deployed in this subnet and cannot be combined with customer VM/VMSSs <br/> 
-² Recommended, but not a mandatory requirement imposed by the service.
+² It is recommended as a best practice to have these services in a dedicated subnet, but not a mandatory requirement imposed by the service.

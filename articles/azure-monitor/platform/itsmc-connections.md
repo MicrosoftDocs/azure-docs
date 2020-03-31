@@ -1,10 +1,9 @@
 ---
-title: Supported connections with IT Service Management Connector in Azure Log Analytics | Microsoft Docs
+title: IT Service Management Connector in Azure Monitor
 description: This article provides information about how to connect your ITSM products/services with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 
@@ -177,6 +176,8 @@ The following sections provide details about how to connect your ServiceNow prod
 Ensure the following prerequisites are met:
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow supported versions: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+> [!NOTE]
+> ITSMC supports only the official SaaS offering from Service Now. Private deployments of Service Now are not supported. 
 
 **ServiceNow Admins must do the following in their ServiceNow instance**:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
@@ -217,7 +218,7 @@ Use the following procedure to create a ServiceNow connection:
 | **Partner type**   | Select **ServiceNow**. |
 | **Username**   | Type the integration user name that you created in the ServiceNow app to support the connection to ITSMC. More information: [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app).|
 | **Password**   | Type the password associated with this user name. **Note**: User name and password are used for generating authentication tokens only, and are not stored anywhere within the ITSMC service.  |
-| **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to ITSMC. |
+| **Server URL**   | Type the URL of the ServiceNow instance that you want to connect to ITSMC. The URL should point to a supported SaaS version with suffix ".servicenow.com".|
 | **Client ID**   | Type the client ID that you want to use for OAuth2 Authentication, which you generated earlier.  More information on generating client ID and secret:   [OAuth Setup](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Client Secret**   | Type the client secret, generated for this ID.   |
 | **Data Sync Scope**   | Select the ServiceNow work items that you want to sync to Azure Log Analytics, through the ITSMC.  The selected values are imported into log analytics.   **Options:**  Incidents and Change Requests.|

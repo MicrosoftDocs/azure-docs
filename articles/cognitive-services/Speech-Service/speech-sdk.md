@@ -3,13 +3,13 @@ title: About the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech Software Development Kit (SDK) gives your applications native access to the functions of the Speech service, making it easier to develop software. This article provides additional details about the SDK for Windows, Linux, and Android.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: wolfma
+ms.date: 02/13/2020
+ms.author: dapine
 ---
 
 # About the Speech SDK
@@ -26,7 +26,7 @@ A general overview about the capabilities and supported platforms can be found o
 
 ## Get the SDK
 
-### Windows
+# [Windows](#tab/windows)
 
 > [!WARNING]
 > The Speech SDK supports Windows 10 or later versions. Earlier Windows versions are **not supported**.
@@ -39,12 +39,12 @@ For Windows, we support the following languages:
 * Java:
   You can reference and use the latest version of our Speech SDK Maven package, which supports only Windows x64. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` as a dependency.
 
-### Linux
+# [Linux](#tab/linux)
 
 > [!NOTE]
-> Currently, we only support Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on the following target architectures:
-> - x86, x64, and ARM64 for C++ development
-> - x64 and ARM64 for Java
+> Currently, we only support Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8, and CentOS 8 on the following target architectures:
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
+> - x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
 > - x64 for .NET Core and Python
 
 Make sure you have the required libraries installed by running the following shell commands:
@@ -62,6 +62,16 @@ On Debian 9:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+On RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C#:
   You can reference and use the latest version of our Speech SDK NuGet package. To reference the SDK, add the following package reference to your project:
@@ -85,7 +95,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
   To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
 
-### Android
+# [Android](#tab/android)
 
 The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
 
@@ -104,6 +114,8 @@ To consume the package from your Android Studio project, make the following chan
   ```
 
 The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
+
+---
 
 [!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 

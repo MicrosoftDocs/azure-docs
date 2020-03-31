@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # Tutorial: Train your first ML model
@@ -30,7 +30,7 @@ In this tutorial, you learn the following tasks:
 
 The only prerequisite is to run part one of this tutorial, [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-In this part of the tutorial, you run the code in the sample Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` opened at the end of part one. This article walks through the same code that is in the notebook.
+In this part of the tutorial, you run the code in the sample Jupyter notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* opened at the end of part one. This article walks through the same code that is in the notebook.
 
 ## Open the notebook
 
@@ -40,7 +40,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 
 > [!Warning]
-> Do **not** create a *new* notebook in the Jupyter interface! The notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` is inclusive of **all code and data needed** 
+> Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
 > for this tutorial.
 
 ## Connect workspace and create experiment

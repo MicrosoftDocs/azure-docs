@@ -48,6 +48,8 @@
         href: entitlement-management-external-users.md
       - name: View reports and logs
         href: entitlement-management-reports.md
+      - name: Archive logs and reporting
+        href: entitlement-management-logs-and-reporting.md
       - name: Troubleshoot
         href: entitlement-management-troubleshoot.md
     - name: Catalog owners

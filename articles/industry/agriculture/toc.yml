@@ -9,6 +9,8 @@
      href: generate-soil-moisture-map-in-azure-farmbeats.md
    - name: Ingest historical telemetry data
      href: ingest-historical-telemetry-data-in-azure-farmbeats.md
+   - name: Query ingested telemetry data
+     href: query-telemetry-data-from-azure-farmbeats.md
 - name: Concepts
   items:
    - name: Integration patterns
@@ -39,4 +41,7 @@
      href: troubleshoot-azure-farmbeats.md
 - name: Reference
   items:
-  href: references-for-azure-farmbeats.md
+   - name: Reference
+     href: references-for-azure-farmbeats.md
+   - name: REST API
+     href: rest-api-in-azure-farmbeats.md

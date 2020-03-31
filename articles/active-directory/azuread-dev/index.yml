@@ -1,0 +1,51 @@
+### YamlMime:Landing
+
+title: Azure Active Directory for developers
+summary: Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps that securely sign in users with a Microsoft work or school account. Azure AD supports developers building both single-tenant, line-of-business (LOB) apps, as well as developers looking to develop multi-tenant apps. Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. For new applications, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs.
+
+metadata: 
+   ms.topic: landing-page
+   ms.date: 01/27/2020
+   author: CelesteDG
+   ms.author: celested
+   ms.service: active-directory
+   ms.subservice: azuread-dev
+   ms.workload: identity   
+
+landingContent:
+  - title: Azure Active Directory for developers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Active Directory for developers (v1.0)
+            url: v1-overview.md
+          - text: Evolution of Microsoft identity platform
+            url: ../develop/about-microsoft-identity-platform.md
+          - text: Microsoft identity platform (v2.0)
+            url: ../develop/v2-overview.md          
+      - linkListType: concept
+        links:
+          - text: Why update to Microsoft identity platform (v2.0)?
+            url: azure-ad-endpoint-comparison.md
+          - text: Application types and scenarios
+            url: app-types.md          
+  - title: Authentication protocols
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Authentication basics
+            url: v1-authentication-scenarios.md
+      - linkListType: concept
+        links:
+          - text: OAuth 2.0 authorization code flow
+            url: v1-protocols-oauth-code.md
+          - text: OpenID Connect code flow
+            url: v1-protocols-openid-connect-code.md
+          - text: OAuth 2.0 client credentials grant flow
+            url: v1-oauth2-client-creds-grant-flow.md
+  - title: Samples
+    linkLists:
+      - linkListType: download
+        links:
+          - text: Sample apps
+            url: sample-v1-code.md

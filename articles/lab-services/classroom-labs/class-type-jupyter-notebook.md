@@ -26,7 +26,7 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ### Lab Account Settings
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [specify Marketplace images available to lab creators](specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
@@ -52,7 +52,7 @@ The remaining task to set up the class is to provide local notebooks.  For instr
 
 ## Cost estimate
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was small gpu (compute), which is 139 lab units.
+Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was small GPU (compute), which is 139 lab units.
 
 Here is an example of a possible cost estimate for this class:
 

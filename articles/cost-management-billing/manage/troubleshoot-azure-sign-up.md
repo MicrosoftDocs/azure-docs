@@ -1,17 +1,12 @@
 ---
 title: Troubleshoot Azure sign-up
 description: Resolving an issue when trying to sign-up for a new account in the Microsoft Azure portal account center.
-services: billing
 author: v-miegge
-manager: dcscontentpm
-editor: v-jesits
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.topic: conceptual
+ms.date: 02/12/2020
 ms.author: v-miegge
 ---
 

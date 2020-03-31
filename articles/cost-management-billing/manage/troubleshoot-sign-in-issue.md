@@ -1,17 +1,12 @@
 ---
 title: Troubleshoot Azure subscription sign-in issues
 description: Helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center.
-services: azure
 author: v-miegge
-manager: dcscontentpm
-editor: na
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.topic: conceptual
+ms.date: 02/12/2020
 ms.author: v-miegge
 ---
 

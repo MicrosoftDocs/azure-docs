@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2019
+ms.date: 02/17/2020
 ---
 
 # Creating and using active geo-replication
@@ -140,7 +140,7 @@ The client performing the changes needs network access to the primary server. Al
 1. Create a corresponding user and assign it to the dbmanager role: 
 
    ```sql
-   create user geodrsetup for login gedrsetup
+   create user geodrsetup for login geodrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
 

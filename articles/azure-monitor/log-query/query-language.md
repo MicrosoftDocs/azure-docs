@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor log queries | Microsoft Docs
 description: References to resources for learning how to write log queries in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

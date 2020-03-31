@@ -29,7 +29,7 @@ You can stream an adaptive bitrate MP4 set by creating an OnDemand streaming loc
 
 You can also use an OnDemand streaming locator to build URLs that point to MP4 files that can be progressively downloaded.  
 
-This article shows how to create an OnDemand streaming locator in order to publish your asset and build a Smooth, MPEG DASH, and HLS streaming URLs. It also shows hot to build progressive download URLs.
+This article shows how to create an OnDemand streaming locator in order to publish your asset and build a Smooth, MPEG DASH, and HLS streaming URLs. It also shows how to build progressive download URLs.
 
 The [following](#types) section shows the enum types whose values are used in the REST calls.   
 

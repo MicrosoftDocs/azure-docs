@@ -43,7 +43,7 @@ Once a document is in the enrichment pipeline, it is represented as a tree of co
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
- As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist only a subset of the enrichments to the index or the knowledge store.
+ As skills execute, they add new nodes to the enrichment tree. These new nodes may then be used as inputs for downstream skills, projecting to the knowledge store, or mapping to index fields. Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. 
 
 You can selectively persist only a subset of the enrichments to the index or the knowledge store.
 For the rest of this document, we will assume we are working with [hotel reviews example](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), but the same concepts apply to enriching documents from all other data sources.

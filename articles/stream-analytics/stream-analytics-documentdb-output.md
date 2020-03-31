@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/2/2020
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
@@ -91,7 +91,7 @@ The incoming event rate in Event Hubs is two times higher than Azure Cosmos DB c
 
 With 1.2, Stream Analytics is more intelligent in utilizing 100 percent of the available throughput in Azure Cosmos DB with very few resubmissions from throttling or rate limiting. This provides a better experience for other workloads like queries running on the container at the same time. If you want to see how Stream Analytics scales out with Azure Cosmos DB as a sink for 1,000 to 10,000 messages per second, try  [this Azure sample project](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
-Throughput of Azure Cosmos DB output is identical with 1.0 and 1.1. Because 1.2 is currently not the default, you can [set the compatibility level](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) for a Stream Analytics job by using the portal or by using the [Create Stream Analytics Job REST API call](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). We *strongly recommend* that you use compatibility level 1.2 in Stream Analytics with Azure Cosmos DB.
+Throughput of Azure Cosmos DB output is identical with 1.0 and 1.1. We *strongly recommend* that you use compatibility level 1.2 in Stream Analytics with Azure Cosmos DB.
 
 ## Azure Cosmos DB settings for JSON output
 

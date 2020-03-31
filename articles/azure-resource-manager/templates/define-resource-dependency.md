@@ -4,7 +4,7 @@ description: Describes how to set one resource as dependent on another resource 
 ms.topic: conceptual
 ms.date: 12/03/2019
 ---
-# Define the order for deploying resources in Azure Resource Manager templates
+# Define the order for deploying resources in ARM templates
 
 When deploying a resource, you may need to make sure other resources exist before it's deployed. For example, you need a SQL server before deploying a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function.
 
@@ -34,7 +34,7 @@ The following example shows a virtual machine scale set that depends on a load b
 }
 ```
 
-In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
 When defining dependencies, you can include the resource provider namespace and resource type to avoid ambiguity. For example, to clarify a load balancer and virtual network that may have the same names as other resources, use the following format:
 

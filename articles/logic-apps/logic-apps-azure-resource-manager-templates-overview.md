@@ -116,7 +116,7 @@ This example shows just the template parameters for the values used to create an
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location for the logic app"
@@ -140,11 +140,11 @@ This example shows just the template parameters for the values used to create an
 
 Except for parameters that handle values that are sensitive or must be secured, such as usernames, passwords, and secrets, all these parameters include `defaultValue` attributes, although in some cases, the default values are empty values. The deployment values to use for these template parameters are provided by the sample [parameters file](#template-parameter-files) described later in this topic.
 
-To secure template parameters, see these topics:
+For more information about securing template parameters, see these topics:
 
 * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+* [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Pass secured parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Other template objects often reference template parameters so that they can use the values that pass through template parameters, for example:
 
@@ -166,9 +166,9 @@ Here are some best practices for defining parameters:
 
   * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
+  * [Pass secured parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
 
@@ -183,7 +183,7 @@ To provide the values for template parameters, store those values in a [paramete
 * Logic app template file name: **<*logic-app-name*>.json**
 * Parameters file name: **<*logic-app-name*>.parameters.json**
 
-Here is the structure inside the parameters file, which includes a key vault reference for [passing a secure parameter value with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
+Here is the structure inside the parameters file, which includes a key vault reference for [passing a secured parameter value with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -411,7 +411,7 @@ To set the value for the workflow definition parameter, use the `parameters` obj
 
 This example template shows how you can complete these tasks by defining secured parameters when necessary so that you can store their values in Azure Key Vault:
 
-* Declare secure parameters for the values used to authenticate access.
+* Declare secured parameters for the values used to authenticate access.
 * Use these values at both the template and workflow definition levels.
 * Provide these values by using a parameters file.
 
@@ -1051,7 +1051,7 @@ Here is the parameterized sample template that's used by this topic's examples:
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location to use for the logic app"

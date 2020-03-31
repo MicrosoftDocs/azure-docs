@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
@@ -109,7 +110,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: The address of the OAuth2 authorization service that may be used to obtain an access token for the request.  
 
--   resource: The name of the resource to use in the authorization request.  
+-   resource: The name of the resource (`https://vault.azure.net`) to use in the authorization request.  
 
 ## See Also  
  [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)

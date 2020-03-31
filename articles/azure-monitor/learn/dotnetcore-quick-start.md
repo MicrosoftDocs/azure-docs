@@ -1,7 +1,6 @@
 ---
 title: Quickstart ASP.NET Core - Azure Monitor Application Insights 
 description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Azure Monitor Application Insights
-ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -21,10 +20,10 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 To complete this quickstart:
 
-- [Install Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
+- [Install Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the following workloads:
   - ASP.NET and web development
   - Azure development
-- [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+- [Install .NET Core 2.0 SDK](https://dotnet.microsoft.com/download)
 - You will need an Azure subscription and an existing .NET Core web application.
 
 If you don't have an ASP.NET Core web application, you can use our step-by-step guide to [create an ASP.NET Core app and add Application Insights.](../../azure-monitor/app/asp-net-core.md)

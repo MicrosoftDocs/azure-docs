@@ -193,7 +193,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 ## Enable requests
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. If you want the access package to be made immediately available for users in the request policy to request, move the Enable toggle to **Yes**.
 
     You can always enable it in the future after you have finished creating the access package.
 
