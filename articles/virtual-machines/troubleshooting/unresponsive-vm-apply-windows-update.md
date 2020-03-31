@@ -34,10 +34,10 @@ This happens because a core file can't be created on the file system. Based on t
 
 ### Process overview
 
-1. [Create and access a repair VM](#create-and-access-a-repair-VM).
+1. [Create and access a repair VM](#create-and-access-a-repair-vm).
 2. [Free up space on the hard disk](#free-up-space-on-the-hard-disk).
-3. [Recommended: Before you rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-VM-enable-serial-console-and-memory-dump-collection).
-4. [Rebuild the VM](#rebuild-the-VM).
+3. [Recommended: Before you rebuilding the VM, enable serial console and memory dump collection](#recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection).
+4. [Rebuild the VM](#rebuild-the-vm).
 
 > [!NOTE]
 > When this error occurs, the Guest OS isn't operational. You must troubleshoot in offline mode to resolve this issue.
@@ -106,7 +106,7 @@ You will need to resize the disk to 1 Tb. If it isn't already, perform a disk cl
 
     ```
     REG UNLOAD HKLM\BROKENSYSTEM
-   ```
+    ```
 
 ### Rebuild the VM
 
