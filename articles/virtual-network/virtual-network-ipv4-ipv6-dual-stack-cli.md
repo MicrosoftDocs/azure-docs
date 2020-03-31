@@ -362,7 +362,6 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 
 
 
-
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, VM, and all related resources.
