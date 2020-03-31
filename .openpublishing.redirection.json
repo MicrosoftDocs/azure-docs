@@ -50487,6 +50487,10 @@
     {
       "source_path": "articles/sql-database/sql-database-features-index.yml",
       "redirect_url": "/azure/sql-database/sql-database-features"
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-deploy-multiple-apps.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-deploy-existing-app"
     }
   ]
 }
