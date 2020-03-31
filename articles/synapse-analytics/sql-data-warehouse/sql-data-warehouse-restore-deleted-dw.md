@@ -1,12 +1,12 @@
 ---
 title: Restore a deleted SQL pool 
 description: How to guide for restoring a deleted SQL pool.
-services: sql-data-warehouse
+services: synapse-analytics
 author: anumjs
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan

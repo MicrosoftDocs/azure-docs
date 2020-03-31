@@ -62,11 +62,7 @@ Azure Files authentication with AD DS (preview) is available in [most public reg
 
 Azure Files authentication with on-premises AD DS is not available in:
 - West US
-- West US 2
-- East US
-- East US 2
-- West Europe
-- North Europe
+
 
 ## Workflow overview
 
