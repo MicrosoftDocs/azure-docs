@@ -42,12 +42,12 @@ First, assign the variables you'll need for Service Fabric cluster deployment. A
 
 ```powershell
 # Assign deployment variables
-$resourceGroupName="sftestupgradegroup"
-$certOutputFolder="c:\certificates"
-$certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force
-$certSubjectName="sftestupgrade.southcentralus.cloudapp.azure.com"
-$templateFilePath="C:\Initial-1NodeType-UnmanagedDisks.json"
-$parameterFilePath="C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
+$resourceGroupName = "sftestupgradegroup"
+$certOutputFolder = "c:\certificates"
+$certPassword = "Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$certSubjectName = "sftestupgrade.southcentralus.cloudapp.azure.com"
+$templateFilePath = "C:\Initial-1NodeType-UnmanagedDisks.json"
+$parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 ```
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Once the deployment is complete, locate the *.pfx* file (`$certPfx`) on your loc
 
 ```powershell
 cd c:\certificates
-$certPfx=".\sftestupgradegroup20200312121003.pfx"
+$certPfx = ".\sftestupgradegroup20200312121003.pfx"
 
 Import-PfxCertificate `
      -FilePath $certPfx `
@@ -88,9 +88,9 @@ You can also use an existing Azure Key Vault certificate  to deploy the test clu
 
 ```powershell
 # Key Vault variables
-$certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
-$sourceVaultValue="/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
-$thumb="BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+$certUrlValue = "https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
+$sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
 Open the [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file and change the values for `clusterName` and `dnsName` to something unique.
@@ -102,9 +102,9 @@ Finally, designate a resource group name for the cluster and set the `templateFi
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
-$resourceGroupName="sftestupgradegroup"
-$templateFilePath="C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
-$parameterFilePath="C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
+$resourceGroupName = "sftestupgradegroup"
+$templateFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
+$parameterFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
 ```
 
 Finally, run the following command to deploy the initial test cluster:
@@ -126,8 +126,8 @@ Connect to the cluster and ensure that all five of its nodes are healthy (replac
 
 ```powershell
 # Connect to the cluster
-$clusterName="sftestupgrade.southcentralus.cloudapp.azure.com:19000"
-$thumb="BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+$clusterName = "sftestupgrade.southcentralus.cloudapp.azure.com:19000"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 
 Connect-ServiceFabricCluster `
     -ConnectionEndpoint $clusterName `
@@ -147,7 +147,7 @@ With that, we're ready to begin the upgrade procedure.
 
 ## Deploy an upgraded scale set for the primary node type
 
-In order to upgrade, or *vertically scale*, a node type, we'll need to deploy a copy of that node type's virtual machine scale set, which is otherwise identical to the original scale set (including reference to the same `nodeTypeRef`, `subnet`, and `loadBalancerBackendAddressPools`) except that it includes the desired upgrade/changes and its own separate subnet and inbound NAT address pool. Because we are upgrading a primary node type, the new scale set will be marked as primary (`isPrimary: true`), just like the original scale set.
+In order to upgrade, or *vertically scale*, a node type, we'll need to deploy a copy of that node type's virtual machine scale set, which is otherwise identical to the original scale set (including reference to the same `nodeTypeRef`, `subnet`, and `loadBalancerBackendAddressPools`) except that it includes the desired upgrade/changes and its own separate subnet and inbound NAT address pool. Because we are upgrading a primary node type, the new scale set will be marked as primary (`isPrimary: true`), just like the original scale set. (For non-primary node type upgrades, simply omit this.)
 
 For convenience, the required changes have already been made for you in the *Upgrade-1NodeType-2ScaleSets-ManagedDisks** [template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) and [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) files.
 
@@ -216,7 +216,7 @@ In the deployment template *resources* section, add the new virtual machine scal
     "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* The new scale set references the same load balancer backend addrss and subnet (but uses a different load balancer inbound NAT pool):
+* The new scale set references the same load balancer backend address and subnet (but uses a different load balancer inbound NAT pool):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -234,7 +234,7 @@ In the deployment template *resources* section, add the new virtual machine scal
     }
    ```
 
-* Like the original scale set, the new scale set is marked as the primary node type.
+* Like the original scale set, the new scale set is marked as the primary node type. (When upgrading non-primary node types, omit this change.)
 
     ```json
     "isPrimary": true,
@@ -248,7 +248,7 @@ In the deployment template *resources* section, add the new virtual machine scal
     }
     ```
 
-Once you've implemented all the changes in your template and parameters files, proceed to the next section to aquire your Key Vault references and deploy the updates to your cluster.
+Once you've implemented all the changes in your template and parameters files, proceed to the next section to acquire your Key Vault references and deploy the updates to your cluster.
 
 ### Obtain your Key Vault references
 
@@ -263,13 +263,13 @@ To deploy the updated configuration, you'll first to obtain several references t
 * **The thumbprint of your cluster certificate.** (You probably already have this if you [connected to the initial cluster](#connect-to-the-new-cluster-and-check-health-status) to check its health status.) From the same certificate blade (**Certificates** > *Your desired certificate*) in Azure portal, copy **X.509 SHA-1 Thumbprint (in hex)**:
 
     ```powershell
-    $thumb="BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+    $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
 * **The Resource ID of your Key Vault.** From your Key Vault in Azure portal, select **Properties** > **Resource ID**:
 
     ```powershell
-    $sourceVaultValue="/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
+    $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
     ```
 
 ### Deploy the updated template
@@ -278,8 +278,8 @@ Adjust the `parameterFilePath` and `templateFilePath` as needed and then run the
 
 ```powershell
 # Deploy the new scale set (upgraded to use managed disks) into the primary node type.
-$templateFilePath="C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
-$parameterFilePath="C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
+$templateFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.json"
+$parameterFilePath = "C:\Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
@@ -316,7 +316,7 @@ Use Service Fabric Explorer to monitor the migration of seed nodes to the new sc
 ![Service Fabric Explorer showing status of disabled nodes](./media/service-fabric-upgrade-to-managed-disks/sfx-node-status.png)
 
 > [!NOTE]
-> It may take some time to complete the disabling operation across all the nodes of the original scale set.
+> It may take some time to complete the disabling operation across all the nodes of the original scale set. To guarantee data consistency, only one seed node can change at a time. Each seed node change requires a cluster update; thus replacing a seed node requires two cluster upgrades (one each for node addition and removal). Upgrading the five seed nodes in this sample scenario will result in ten cluster upgrades.
 
 ## Remove the original scale set
 
@@ -324,7 +324,7 @@ Once the disabling operation is complete, remove the scale set.
 
 ```powershell
 # Remove the original scale set
-$scaleSetName="NTvm1"
+$scaleSetName = "NTvm1"
 
 Remove-AzVmss `
     -ResourceGroupName $resourceGroupName `
