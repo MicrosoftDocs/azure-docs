@@ -139,7 +139,7 @@ You can use the Azure AD PowerShell Preview module ([AzureADPreview](https://doc
     }
     ```
 
-## Configure risk based step-up consent
+## Configure risk-based step-up consent
 
 Risk-based step-up consent helps reduce user exposure to malicious apps making [illicit consent requests](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). If Microsoft detects a risky end-user consent request, the request will require a "step-up" to admin consent instead. This capability is enabled by default, but it will only result in a behavior change when end-user consent is enabled.
 
