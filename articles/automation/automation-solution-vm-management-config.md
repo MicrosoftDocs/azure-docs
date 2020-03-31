@@ -83,7 +83,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 ## <a name="cpuutil"></a>Scenario 3: Start/Stop automatically based on CPU utilization
 
-This solution can help manage the cost of running virtual machines in your subscription by evaluating Azure VMs that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than *x*%.
+This solution can help manage the cost of running virtual machines in your subscription by evaluating Azure VMs that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
 By default, the solution is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less. This scenario is controlled by the following variables and can be modified if the default values do not meet your requirements:
 
