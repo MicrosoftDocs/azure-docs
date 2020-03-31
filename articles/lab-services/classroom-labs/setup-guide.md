@@ -122,7 +122,7 @@ Once you understand the requirements for your class's lab, you are ready to set 
     Also, refer to the following article for information on the types of accounts that students can use:
     - [Student accounts](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts)
   
-1. **Set cost controls**'
+1. **Set cost controls**
 
     To control the costs of your lab, set schedules, quotas, and auto-shutdown; refer to instructions in the following tutorials:
 
