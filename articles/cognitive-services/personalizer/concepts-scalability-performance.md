@@ -34,6 +34,8 @@ Personalizer works by updating a model that is retrained based on messages sent 
 
  It is unlikely most applications will reach the maximum joining and training throughput of Personalizer. While reaching this maximum will not slow down the application, it would imply Event Hub queues are getting filled internally faster than they can be cleaned up.
 
+Personalizer also supports containers in a hybrid model. Scenarios that require low latency, Personalizer can be deployed in a container, closer to your application achieving a very low latency.
+
 ## How to estimate your throughput requirements
 
 * Estimate the average number of bytes per ranking event adding the lengths of the context and action JSON documents.
