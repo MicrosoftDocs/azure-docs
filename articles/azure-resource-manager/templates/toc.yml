@@ -27,7 +27,7 @@
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Hadoop
-      href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - Kafka
       href: ../../hdinsight/kafka/apache-kafka-quickstart-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: HDInsight - HBase
