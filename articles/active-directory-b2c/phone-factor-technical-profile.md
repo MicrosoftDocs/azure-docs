@@ -20,12 +20,11 @@ ms.subservice: B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides support for enrolling and verifying phone numbers. This technical profile:
 
-- Provides a user interface to interact with the user.
-- Uses content definition to control the look and feel.
-- Supports both phone calls and text messages to validate the phone number.
+- Provides a user interface to interact with the user to verify or enrol a phone number.
+- Supports phone calls and text messages to validate the phone number.
 - Supports multiple phone numbers. The user can select one of the phone numbers to verify.  
-- If a phone number is provided, the phone factor user interface asks the user to verify the phone number. If not provided, it asks the user to enroll a new phone number.
-- Returns a claim indicating whether the user provided a new phone number. You can use this claim to decide whether the phone number should  be persisted to the Azure AD user profile.  
+- Returns a claim indicating whether the user provided a new phone number. You can use this claim to decide whether the phone number should  be persisted to the Azure AD B2C user profile.  
+- Uses a [content definition](contentdefinitions.md) to control the look and feel.
 
 ## Protocol
 
@@ -41,15 +40,24 @@ The following example shows a phone factor technical profile for enrollment and 
 </TechnicalProfile>
 ```
 
+## Input claims transformations
+
+The InputClaimsTransformations element may contain a collection of input claims transformation that are used to modify the input claims, or generate new ones. The following input claims transformation generates a `UserId` claims that is used later in the input claims collection.
+
+```xml
+<InputClaimsTransformations>
+  <InputClaimsTransformation ReferenceId="CreateUserIdForMFA" />
+</InputClaimsTransformations>
+```
+
 ## Input claims
 
-The InputClaims element must contain following claims. You can also map the name of your claim to the name defined in the phone factor technical profile. 
+The InputClaims element must contain the following claims. You can also map the name of your claim to the name defined in the phone factor technical profile. 
 
 |  Data Type| Required | Description |
 | --------- | -------- | ----------- | 
-| string| Yes | A unique identifier of the user. The claim name, or PartnerClaimType must be set to `UserId`.|
-| string| Yes | List of claim types. Each claim contains one phone number. If any of the input claims don't contain a phone number, the user is asked to enroll a new phone number, by typing and verifying the phone number. The validated phone number is return as an output claim. If one of the input claims contains a phone number, the phone number is presented to the user asking to verify it.  If multiple input claims contain a phone number, the user is asked to choose and verify one of the phone numbers. |
-
+| string| Yes | A unique identifier for the user. The claim name, or PartnerClaimType must be set to `UserId`. This claim should not contain personably identifiable information.|
+| string| Yes | List of claim types. Each claim contains one phone number. If any of the input claims do not contain a phone number, the user will be asked to enroll and verify a new phone number. The validated phone number is returned as an output claim. If one of the input claims contain a phone number, the user is asked to verify it. If multiple input claims contain a phone number, the user is asked to choose and verify one of the phone numbers. |
 
 The following example demonstrates using multiple phone numbers. For more information, see [sample policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa).
 
@@ -60,8 +68,6 @@ The following example demonstrates using multiple phone numbers. For more inform
   <InputClaim ClaimTypeReferenceId="secondaryStrongAuthenticationPhoneNumber" />
 </InputClaims>
 ```
-
-The InputClaimsTransformations element may contain a collection of InputClaimsTransformation elements that are used to modify the input claims or generate new ones before presenting them to the phone factor page.
 
 ## Output claims
 
@@ -95,4 +101,3 @@ The phone factor authentication page user interface elements can be [localized](
 ## Next steps
 
 - Check the [social and local accounts with MFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) starter pack.
-
