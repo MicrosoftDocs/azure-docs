@@ -177,7 +177,7 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
     sudo zypper remove azcmagent
     ```
 
-## Unregister machine with Arc for servers (preview)
+## Unregister machine
 
 If you are planning to stop managing the machine with supporting services in Azure, perform the following steps to unregister the machine with Arc for servers (preview). You can perform these step either before or after you have removed the Connected Machine agent from the machine. 
 
