@@ -15,7 +15,7 @@ ms.author: spelluru
 
 # Guide to controlling Windows shutdown behavior
 
-Azure Lab Services provides several cost controls to ensure that Windows virtual machines (VMs) are shutdown when they are not being used:
+Azure Lab Services provides several cost controls to ensure that Windows virtual machines (VMs) are not running unexpectedly:
  - [Set a schedule](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
  - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
  - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
