@@ -39,7 +39,7 @@ The following error codes and messages are supported when using change streams:
 
 The following example shows how to get change streams on all the items in the collection. This example creates a cursor to watch items when they are inserted, updated, or replaced. The `$match` stage, `$project` stage, and `fullDocument` option are required to get the change streams. Watching for delete operations using change streams is currently not supported. As a workaround, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted." When you'd like to delete the item, you can set "deleted" to `true` and set a TTL on the item. Since updating "deleted" to `true` is an update, this change will be visible in the change stream.
 
-### Javascript:
+### JavaScript:
 
 ```javascript
 var cursor = db.coll.watch(
