@@ -1119,7 +1119,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/scheduler.svg
       azureCategories:
         - management-and-governance
-      url: scheduler/index.md
+      url: scheduler/index.yml
     # Card
     - title: Traffic Manager
       summary: Route incoming traffic for high performance and availability
