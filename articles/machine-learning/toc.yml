@@ -151,7 +151,6 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
-
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -405,6 +404,9 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Practical Tips & Patterns
+    displayName: best practices
+    href: concept-practices-patterns-and-tips.md    
   - name: Known issues
     displayName: bugs, errors, troubleshoot
     href: resource-known-issues.md
