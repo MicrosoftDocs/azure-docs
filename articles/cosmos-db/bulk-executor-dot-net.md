@@ -12,7 +12,9 @@ ms.reviewer: sngun
 ---
 
 > [!NOTE]
-> For new applications, we have added **bulk support** directly into the [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md). This page is maintained for applications using the previous .NET SDK 2.x.
+> This bulk executor library described in this article is maintained for applications using the .NET SDK 2.x version. For new applications, you can use the **bulk support** that is directly available with the [.NET SDK version 3.x](tutorial-sql-api-dotnet-bulk-import.md) and it does not require any external library. 
+
+> If you are currently using the bulk executor library and planning to migrate to bulk support on the newer SDK, use the steps in the [Migration guide](how-to-migrate-from-bulk-executor-library.md) to migrate your application.
 
 # Use the bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
