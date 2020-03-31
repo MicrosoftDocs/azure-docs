@@ -32,17 +32,20 @@ To view a reservation as an Owner or Reader,
 ## Get reservations and utilization using APIs, PowerShell, CLI
 
 Get list of all reservations using following resources
-[API: Reservation Order - List](/rest/api/reserved-vm-instances/reservationorder/list)
-[PowerShell: Reservation Order - List](/powershell/module/azurerm.reservations/get-azurermreservationorder)
-[CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
+-[API: Reservation Order - List](/rest/api/reserved-vm-instances/reservationorder/list)
+-[PowerShell: Reservation Order - List](/powershell/module/azurerm.reservations/get-azurermreservationorder)
+-[CLI: Reservation Order - List](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
 
 You can also get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API. 
 
 ## See reservations and utilization in Power BI
 
-Reservation purchases and utilization data is also available in the [Microsoft Azure Consumption Insights Power BI content pack](/power-bi/desktop-connect-azure-cost-management). Create the reports you want using this content pack, or use the [Cost Management App] (https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) for pre-created reports.
+There are two options for Power BI users
+- Content Pack: Reservation purchases and utilization data is available in the [Consumption Insights Power BI content pack](/power-bi/desktop-connect-azure-cost-management). Create the reports you want using this content pack. 
+- Cost management app: Use the [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) for pre-created reports that you can further customize.
 
 ## Next steps
+
 - [Manage Azure Reservations](manage-reserved-vm-instance.md).
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
