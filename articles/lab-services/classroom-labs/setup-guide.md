@@ -47,7 +47,7 @@ There are a variety of compute sizes that you can choose from that includes:
 - GPU sizes so that your students can use computer-intensive types of applications, such as for Artificial Intelligence and Machine Learning.
 
 Refer to the guide on [VM sizing](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) to see the complete list of available compute sizes.
-
+'
 > [!NOTE]
 > Depending on the region that your lab will be created in, you may see fewer compute sizes available since this varies by region.  Our general recommendation is to select the smallest compute size that is closest to your needs.  With Azure Lab Services, you can set up a new lab with a different compute capacity later if needed.
 
@@ -76,7 +76,7 @@ Lab Services uses a pay-as-you go pricing model which means that you only pay fo
 Students are each assigned their own VM that is assigned to them for the lifetime of the lab.  They can choose to:
 
 - Save directly to the VM.
-- Save to an external repository, such as OneDrive, GitHub, etc.
+- Save to an external location, such as OneDrive, GitHub, etc.
 
 To use OneDrive, you may choose to configure this automatically for students on their lab VMs.  Additional information on this is provided below.
 
@@ -88,7 +88,7 @@ To use OneDrive, you may choose to configure this automatically for students on 
 For RDP to Windows VMs, we recommend students use [Microsoft Remote Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  Remote Desktop client supports Macs, Chromebooks, and Windows.
 
 For Linux VMs, students may use either SSH or RDP.   To connect using RDP, you are responsible for installing and configuring the necessary RDP and GUI packages.  More details on this is provided below.
-
+'
 ## Set up your lab
 
 Once you understand the requirements for your class's lab, you are ready to set it up.  Follow the links in this section to see how to set up your lab.
@@ -96,7 +96,7 @@ Once you understand the requirements for your class's lab, you are ready to set 
 1. **Create a lab**
 
    Refer to the tutorial on [creating a classroom lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) for instructions.
-
+'
     > [!NOTE]
     > If your class requires nested virtualization, refer to steps in the how-to guide that shows [enabling nested virtualization](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
 
@@ -122,25 +122,25 @@ Once you understand the requirements for your class's lab, you are ready to set 
     Also, refer to the following article for information on the types of accounts that students can use:
     - [Student accounts](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts)
   
-1. **Set cost controls**
+1. **Set cost controls**'
 
     To control the costs of your lab, set schedules, quotas, and auto-shutdown; refer to instructions in the following tutorials:
 
    - [Set a schedule](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
         > [!NOTE]
         > Depending on the type of OS you have installed, a VM may take several minutes to start.  To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start VMs 30 minutes in advance to ensure that VMs are running and ready for use.
-
+'
    - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) and [set additional quota for a specific user](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
   
    - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
-
+'
         > [!NOTE]
         > Schedules, quotas, and automatic shutdown do *not* apply to the template VM.  As a result, you must ensure that you shut down the template VM when it's not being used otherwise it will continue to incur costs.  Also, by default, when you create a lab, the template VM is automatically started, so you'll want to make sure that you immediately finish setting up the lab and shutdown the template VM.
 
 1. **Use dashboard**
-
+'
     Refer to the how-to guide on [using the lab's dashboard](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard) for instructions.
-
+''
     > [!NOTE]
     > The estimated costs shown in the dashboard is the maximum cost that you can expect for students usage of the lab.  For example, you will *not* be charged for unused quota hours by your students.  The estimated costs do *not* reflect any charges for using the template VM or the Shared Image Gallery.
 
@@ -151,3 +151,4 @@ See the following articles:
 - [Track usage of a classroom lab](tutorial-track-usage.md)
   
 - [Access a classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
+""'''''''
