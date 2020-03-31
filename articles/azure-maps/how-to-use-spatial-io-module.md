@@ -1,8 +1,8 @@
 ---
 title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web sdk.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -15,10 +15,10 @@ manager: philmea
 
 The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
-- [Read and write data to common spatial files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
-- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK. Overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map.](spatial-io-add-ogc-map-layer.md).
+- [Read and write common spatial data files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, GeoJSON and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
+- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK. Overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map](spatial-io-add-ogc-map-layer.md).
 - [Query data in a Web Feature Service (WFS)](spatial-io-connect-wfs-service.md).
-- [Overlay complex data sets that contain style information and have them render automatically](spatial-io-add-simple-data-layer.md).
+- [Overlay complex data sets that contain style information and have them render automatically using minimal code](spatial-io-add-simple-data-layer.md).
 - [Leverage high-speed XML and delimited file reader and writer classes](spatial-io-core-operations.md).
 
 In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
