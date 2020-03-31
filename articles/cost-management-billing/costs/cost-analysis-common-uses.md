@@ -53,6 +53,18 @@ Looking at daily and monthly costs can help you to better understand if there's 
 
 [![View costs per day](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
 
+
+## View your Spot VM charges
+
+Spot VMs can provide large cost savings for workloads that can handle interruptions. Workloads are run on unused Azure capacity. Since they can be evicted at any time, Spot VMs get a significant discount. Use the following steps to view your Spot VM charges.
+
+1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+2. Add a filter for **Pricing Model: Spot**.
+
+![Example showing Spot VM filter](./media/cost-analysis-common-uses/spot-vm-filter.png)
+
+The Pricing Model dimension is also used to view on demand and reservation charges.
+
 ## View your reservation charges
 
 Reserved instances provide a way for you to save money with Azure. With reservations, you spend money up front for a given number of resources over time. Cost analysis shows the charges as they appear on your bill. The charges are shown as actual costs or amortized over the course of your reservation period.
@@ -68,17 +80,6 @@ Each metric affects how data is shown for your reservation charges.
 **Actual cost** - Shows the purchase as it appears on your bill. For example, if you bought a one-year reservation for $1200 in January, cost analysis shows a $1200 cost in the month of January for the reservation. It doesn't show a reservation cost for other months of the year. If you group your actual costs by VM, then a VM that received the reservation benefit for a given month would have zero cost for the month.
 
 **Amortized cost** - Shows a reservation purchase split as an amortized cost over the duration of the reservation term. Using the same example above, cost analysis shows a $100 cost for each month throughout the year, if you purchased a one-year reservation for $1200 in January. If you group costs by VM in this example, you'd see cost attributed to each VM that received the reservation benefit.
-
-## View your Spot VM charges
-
-Spot VMs can provide large cost savings for workloads that can handle interruptions. Workloads are run on unused Azure capacity. Since they can be evicted at any time, Spot VMs get a significant discount. Use the following steps to view your Spot VM charges.
-
-1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
-2. Add a filter for **Pricing Model: Spot**.
-
-![Example showing Spot VM filter](./media/cost-analysis-common-uses/spot-vm-filter.png)
-
-The Pricing Model dimension is also used to view on demand and reservation charges.
 
 ## View your reservation utilization
 
