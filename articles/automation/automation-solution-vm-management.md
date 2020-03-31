@@ -132,7 +132,7 @@ The following table lists the variables created in your Automation account. Only
 |External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces. This is limited to 140 VMs. If you add more than 140 VMs to this comma-separated list, VMs that are set to be excluded may be inadvertently started or stopped.|
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
-|External_WaitTimeForVMRetrySeconds |The wait time in seconds for the actions to be performed on the VMs for the Sequenced start/stop runbook.|
+|External_WaitTimeForVMRetrySeconds |The wait time in seconds for the actions to be performed on the VMs for the Sequenced start/stop runbook.<br> Default value is 2100 seconds and supports configuring to a maximum value of 10800 or three hours.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
 |Internal_AutoSnooze_ARM_WebhookURI | Specifies Webhook URI called for the AutoStop scenario for classic VMs.|
 |Internal_AutoSnooze_WebhookUri | Specifies Webhook URI called for the AutoStop scenario.|
@@ -140,7 +140,8 @@ The following table lists the variables created in your Automation account. Only
 |Internal_ResourceGroupName | Specifies the Automation account resource group name.|
 
 >[!NOTE]
->For the variable **External_WaitTimeForVMRetryInSeconds**, the default value has been updated from 600 to 2100. This variable allows the **Sequenced start/stop scenario** runbook to wait for the child operations on *x* seconds before proceeding with the next action.
+>For the variable **External_WaitTimeForVMRetryInSeconds**, the default value has been updated from 600 to 2100. This variable allows the **Sequenced start/stop scenario** runbook to wait for the child operations for specified number of seconds before proceeding with the next action.
+>
 
 Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Stop_ResourceGroupNames**, and **External_ExcludeVMNames** variables are necessary for targeting VMs, with the exception of providing a comma-separated list of VMs for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must reside in target resource groups for start and stop actions to occur. The logic works similar to Azure policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 

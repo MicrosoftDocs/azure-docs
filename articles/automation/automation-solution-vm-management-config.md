@@ -95,6 +95,10 @@ By default, the solution is pre-configured to evaluate the percentage CPU metric
 
 * **External_AutoStop_TimeWindow**
 
+* **External_AutoStop_Frequency**
+
+* **External_AutoStop_Severity**
+
 You can enable and target the action against a subscription and resource group, or target a specific list of VMs.
 
 When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the targeted subscription, resource group(s) and VMs exist. If the VMs exist, it then calls the **AutoStop_CreateAlert_Child** runbook for each verified VM by the parent runbook. This child runbook performs the following:
