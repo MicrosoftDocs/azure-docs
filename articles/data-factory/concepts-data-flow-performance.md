@@ -64,7 +64,7 @@ By default, turning on debug will use the default Azure Integration runtime that
 
 Under **Source Options** in the source transformation, the following settings can affect performance:
 
-* Batch size instructs ADF to store data in sets in memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly.
+* Batch size instructs ADF to store data in sets in Spark memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly. Not setting this property will utilize Spark caching batch defaults.
 * Setting a query can allow you to filter rows at the source before they arrive in Data Flow for processing. This can make the initial data acquisition faster. If you use a query, you can add optional query hints for your Azure SQL DB such as READ UNCOMMITTED.
 * Read uncommitted will provide faster query results on Source transformation
 
@@ -72,7 +72,7 @@ Under **Source Options** in the source transformation, the following settings ca
 
 ### Sink batch size
 
-To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided.
+To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided. Not setting this property will utilize Spark caching batch defaults.
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
