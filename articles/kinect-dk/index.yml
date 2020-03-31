@@ -30,7 +30,7 @@ landingContent:
             url: system-requirements.md
 
   # Card
-  - title: Download files
+  - title: Get started
     linkLists:
       - linkListType: download
         links:
@@ -38,10 +38,6 @@ landingContent:
             url: sensor-sdk-download.md
           - text: Azure Kinect Body Tracking SDK
             url: body-sdk-download.md
-
-  # Card
-  - title: Get started
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Set up Azure Kinect DK
