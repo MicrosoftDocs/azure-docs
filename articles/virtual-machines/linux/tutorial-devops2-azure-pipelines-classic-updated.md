@@ -48,8 +48,13 @@ You can configure rolling updates to your “**virtual machines**” within the 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine. 
 2. In the VM left pane, navigate to the **continuous delivery** menu. Then click on **Configure**. 
+
+### [TODO] Update Image
+
    ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azdevops-configure.png) 
 3. In the configuration panel, click on “Azure DevOps Organization” to select an existing account or create one. Then select the project under which you would like to configure the pipeline.  
+
+### [TODO] Update Image
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azdevops-project.png) 
 4. A deployment group is a logical set of deployment target machines that represent the physical environments; for example, "Dev", "Test", "UAT", and "Production". You can create a new deployment group or select an existing deployment group. 
 5. Select the build pipeline which publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time.
@@ -57,12 +62,18 @@ Here is the step-by-step walkthrough.
 7. Optionally, you can tag the machine with the role. For example, ‘web’, ‘db’ etc. This helps you   target VMs that have specific role only.
 8. Click **OK** on the dialog to configure the continuous delivery pipeline. 
 9. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.  
+
+### [TODO] Update Image
    ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-pipeline.png)
 10. You will see that the deployment to the virtual machine is in progress. You can click on the link to navigate to the pipeline. Click on **Release-1** to view the deployment. Or you can click on the **Edit** to modify the release pipeline definition. 
 11. If you have multiple VMs to be configured, repeat the steps 2-4 for other VMs to be added to the deployment group. Note that if you select an Deployment Group for which a pipeline run already exists, the VM will be just added to the deployment group without creating any new pipelines. 
 12. Once done, click on the pipeline definition, navigate to the Azure DevOps organization, and click on **Edit** release pipeline. 
+
+### [TODO] Update Image
    ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-edit-pipeline.png)
-13. Click on the link **1 job, 1 task** in **dev** stage. Click on the **Deploy** phase.  
+13. Click on the link **1 job, 1 task** in **dev** stage. Click on the **Deploy** phase. 
+
+### [TODO] Update Image
    ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azdevops-deployment-group.png)
 14. From the configuration pane on the right, you can see that by default the pipeline is configured to do a rolling update to all targets in parallel. You can configure the deployments to happen either one at a time or in terms of percentage by using the slider.  
   
