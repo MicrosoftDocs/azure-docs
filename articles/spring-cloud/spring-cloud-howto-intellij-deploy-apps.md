@@ -16,7 +16,7 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
 * [IntelliJ IDEA version 2019.2.4](https://www.jetbrains.com/idea/download/other.html)
 
 ## Install the plug-in
-1. Download the [plug-in preview bits](https://azuredownloads.blob.core.windows.net/azuretoolkitforintellij/preview/azure-toolkit-for-intellij-2019.2.4.develop.11760558.03-23-2020.zip)
+1. Download the [Azure Toolkit for IntelliJ plug-in preview bits](https://azuredownloads.blob.core.windows.net/azuretoolkitforintellij/preview/azure-toolkit-for-intellij-2019.2.4.develop.11760558.03-23-2020.zip)
 
 1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then select **Plugins** to open the plug-in configuration dialog.
 
@@ -45,7 +45,7 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
 1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone https://github.com/spring-guides/gs-spring-boot.git 
 1. cd into gs-spring-boot\complete.
 1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
-1. Select complete folder.
+1. Select `gs-spring-boot\complete` folder.
 
     ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
 
@@ -61,8 +61,9 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
-1. Select the subscription and cluster, and then select **Create app...**.
-1. Assign a unique name for the **Artifact**, such as *gs-spring-boot-azure* for the app.
+1. Accept the name for app in the **Name** field, or assign your own.
+1. Select the subscription and Spring Cloud service instance, and then select **Create app...**. (You can also deploy to an existing application.)
+1. Assign a unique identifier for the **Artifact**, such as *gs-spring-boot-azure*.
 
     ![Deploy to Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
@@ -80,13 +81,13 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 
     ![App in Azure Explorer 2](media/spring-cloud-intellij-howto/app-in-azure-explorer-2.png)
 
-1. Wait a few seconds to see all Azure Spring Cloud Clusters in the tree.  Double click the cluster to which you just created the app.
+1. Wait a few seconds to see all Azure Spring Cloud Clusters in the tree.  Double click the cluster to which you just created the app. (Refresh if status doesn't include the cluster.)
 1. When loaded, you can see the new app.
 1. Right click the app just created. Select **Show Properties** to see the property view for the app.
 
     ![App in Azure Explorer 3](media/spring-cloud-intellij-howto/app-in-azure-explorer-3.png)
 
-## Navigate in browser
+## Assign application endpoint
 
 In the property view, you will see 'N/A' in the URL, because by default the public endpoint is not enabled.
 
