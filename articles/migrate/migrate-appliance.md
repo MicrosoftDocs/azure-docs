@@ -75,7 +75,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
-- If you're using a URL-based proxy to connect to the internet, you need to alllow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
+- If you're using a URL-based proxy to connect to the internet, you need to allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
 
 **URL** | **Details**  
 --- | --- |
