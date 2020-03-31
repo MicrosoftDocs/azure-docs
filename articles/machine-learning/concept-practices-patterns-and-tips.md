@@ -14,10 +14,12 @@ ms.date: 03/29/2020
 
 # Iterating and Evolving Machine Learning Pipelines
 
-Azure Machine Learning pipelines provide an efficient way to modularize your code, reuse results, and optimize your compute resources. Here are some practical tips and practices for moving your machine learning code into pipelines. tk more needed here tk
+Azure Machine Learning pipelines provide an efficient way to modularize your code, reuse results, and optimize your compute resources. Here are some practical tips and practices for working with pipelines.
 
-## H2
+## Getting started
+
 {>> How do you begin? "Difficult to get started on a new pipeline without referring to an existing notebook"<<}
+
 Generally, pipeline projects do not start from a blank slate. If you are starting from scratch with your ML solution, you should develop at least a rough idea of your data preparation needs and know what kind of learning architecture you'll be applying to your problem. Individual pipeline steps are substantially walled-off from each other, so it's generally best to have an understanding of the scope of your data and functions.
 
 Of course, the most straightforward pay to begin creating a machine learning pipeline is to start with a monolithic, single-step pipeline. Getting a single `PythonScriptStep` pipeline up and running will get you familiar with the pipeline-iteration process without introducing other complexities. One important advantage of a monolithic initial project is that you can troubleshoot the environment and compute configuration in a single place. Locking down the Python libraries and versions in a single place can save you headaches later. See tk environment article tk. 
@@ -36,7 +38,7 @@ Pipelines give you a great opportunity to modularize your ML code. However, it h
 
 As discussed previously, separating data preparation from training is often one such opportunity. Sometimes data preparation is complex and time-consuming enough that it can be appropriate to break into separate pipeline steps. Other opportunities include post-training testing and analysis. 
 
-## H2
+## Iterative development
 
 {>> How can you quickly iterate on a single step without having to spin up a new compute? <<}
 
@@ -44,8 +46,25 @@ tk I don't know the answer to this. tk
 
 {>>How do you collaborate while using pipelines?<<}
 
-Separate pipelines are natural lines along which to split effort. 
+Separate pipelines are natural lines along which to split effort. Multiple developers or even multiple teams can work on different steps, so long as the data and arguments flowing between steps are agreed upon. 
 
-## H2
+## Use pipelines to test techniques in isolation
 
 {>> How do you do A/B testing? <<}
+
+Real-world ML solutions generally involve considerable customization of every step. The raw data often needs to be filtered, transformed, and augmented. The training processes might have several potential architectures and, for deep learning, many possible variations in terms of layer sizes and activation functions. Even with a consistent architecture, hyperparameter search can produce significant wins.
+
+In addition to tools like [AutoML](tk) and [automated hyperparameter search](tk), pipelines can be an important tool for A/B testing solutions. If you have several variants of your pipeline steps, it is easy to generate separate runs trying their variations: 
+
+```python
+data_preparation_variants = [data1, data2, data3]
+data_augmentation_variants = [aug1, aug2]
+architecture_variants = [train1, train2, train3]
+
+# Cartesian product
+all_variants = np.array(np.meshgrid(data_preparation_variants,data_augmentation_variants,architecture_variants)).T.reshape(-1,3)
+
+pipelines = [Pipeline(workspace=ws, steps=variant.tolist(), description=str(variant)) for variant in all_variants]
+
+```
+
