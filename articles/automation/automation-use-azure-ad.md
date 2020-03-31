@@ -58,7 +58,7 @@ Before installing the Azure AD modules on your computer:
 
 ### Install support for PSCredential
 
-Azure Automation uses the [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) class to represent a credential asset. Your scripts retrieve `PSCredential` objects using the `Get-AutomationPSCredential` cmdlet. For more information, see [Credential assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/credentials).
+Azure Automation uses the [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) class to represent a credential asset. Your scripts retrieve `PSCredential` objects using the `Get-AutomationPSCredential` cmdlet. For more information, see [Credential assets in Azure Automation](shared-resources/credentials.md).
 
 ## Assigning a subscription administrator
 
@@ -82,11 +82,11 @@ With the Azure credentials for Azure AD available, it's time to create an Azure 
 
 ### Create the credential asset in Azure portal
 
-You can use the Azure portal to create the credential asset. Perform this operation from your Automation account using **Credentials** under **Shared Resources**. See [Credential assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/credentials).
+You can use the Azure portal to create the credential asset. Perform this operation from your Automation account using **Credentials** under **Shared Resources**. See [Credential assets in Azure Automation](shared-resources/credentials.md).
 
 ### Create the credential asset with Windows PowerShell
 
-To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet. Alternatively, the script can call the [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/credentials). 
+To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet. Alternatively, the script can call the [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
 
 ## Managing Azure resources from an Azure Automation runbook
 
@@ -153,7 +153,7 @@ Workflow Stop-Start-AzureVM
 
 ## Next steps
 
-* You can find information about Automation credential assets in [Credential assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/credentials).
-* See [Manage modules in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/shared-resources/modules) to find out how to work with Automation modules.
+* You can find information about Automation credential assets in [Credential assets in Azure Automation](shared-resources/credentials.md).
+* See [Manage modules in Azure Automation](shared-resources/modules.md) to find out how to work with Automation modules.
 * To learn more about the methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
