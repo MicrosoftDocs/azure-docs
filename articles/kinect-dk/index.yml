@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Kinect DK documentation
-summary: Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.
+summary: Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models. Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and software development kits (SDKs).
 
 metadata:
   title: Azure Kinect DK documentation
