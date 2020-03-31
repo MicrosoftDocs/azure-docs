@@ -34,6 +34,13 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 
 For an example walkthrough, see [Create your first guest executable application using Visual Studio](quickstart-guest-app.md).
 
+### Packaging multiple executables with Visual Studio
+
+You can use Visual Studio to produce an application package that contains multiple guest executables. After adding the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution.
+
+> [!NOTE]
+> If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source.
+
 ## Use Yeoman to package and deploy an existing executable on Linux
 
 The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application.
@@ -43,6 +50,13 @@ The procedure for creating and deploying a guest executable on Linux is the same
 3. Name your service, and provide the details including path of the executable and the parameters it must be invoked with.
 
 Yeoman creates an application package with the appropriate application and manifest files along with install and uninstall scripts.
+
+### Packaging multiple executables using Yeoman on Linux
+
+To add another service to an application already created using `yo`, perform the following steps:
+
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfguest:AddService` and provide the necessary details.
 
 <a id="manually"></a>
 
@@ -54,10 +68,6 @@ The process of manually packaging a guest executable is based on the following g
 2. Add the application's code and configuration files.
 3. Edit the service manifest file.
 4. Edit the application manifest file.
-
-<!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
--->
 
 ### Create the package directory structure
 
