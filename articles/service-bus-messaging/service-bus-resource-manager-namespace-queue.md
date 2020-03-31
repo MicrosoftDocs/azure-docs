@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2019
+ms.date: 03/30/2020
 ms.author: spelluru
 ---
 # Quickstart: Create a Service Bus namespace and a queue using an Azure Resource Manager template
@@ -57,9 +57,27 @@ With this template, you deploy a Service Bus namespace with a queue.
 
 [Service Bus queues](service-bus-queues-topics-subscriptions.md#queues) offer First In, First Out (FIFO) message delivery to one or more competing consumers.
 
-To run the deployment automatically, click the following button:
+To run the deployment automatically, click the following button: Create a new resource group for the deployment so that you can easily cleanup later.
 
 [![Deploy to Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+
+## Verify the deployment
+
+1. Select **Notifications** at the top to see the status of the deployment. Wait until the deployment succeeds. Then, select **Go to resource group** in the notification message to navigate to the page for the resource group that contains the Service Bus namespace. 
+
+    ![Notification from deployment](./media/service-bus-resource-manager-namespace-queue/notification.png)
+2. Confirm that you see your Service Bus namespace in the list of resources. 
+
+    ![Resource group - namespace](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
+3. Select the namespace from the list to see the **Service Bus Namespace** page. 
+
+## Cleanup resources
+
+1. In the Azure portal, navigate to the **Resource group** page for your resource group.
+2. Select **Delete resource group** from the toolbar. 
+3. Type the name of the resource group, and select **Delete**. 
+
+    ![Resource group - delete](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)
 
 ## Next steps
 
