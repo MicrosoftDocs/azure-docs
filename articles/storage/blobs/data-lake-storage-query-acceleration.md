@@ -5,7 +5,7 @@ author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 03/24/2020
+ms.date: 03/31/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
@@ -53,6 +53,16 @@ To calculate an aggregated value, applications commonly retrieve **all** of the 
 Even though Azure features an industry-leading network, in terms of both throughput and latency, needlessly transferring data across that network is still costly for application performance. By filtering out the unwanted data during the storage request, query acceleration eliminates this cost.
 
 Additionally, the CPU load that is required to parse and filter unneeded data requires your application to provision a greater number and larger VMs in order to do it's work. By transferring this compute load to query acceleration, applications can realize significant cost savings.
+
+## Applications that can benefit from query acceleration
+
+Query acceleration is designed for distributed analytics frameworks and data processing applications. 
+
+Distributed analytics frameworks such as Apache Spark and Apache Hive, include a storage abstraction layer within the framework. These engines also include query optimizers that can incorporate knowledge of the underlying I/O service's capabilities when determining an optimal query plan for user queries. The owners and contributors of these frameworks are beginning to integrate query acceleration. As a result, users of these frameworks will see improved query latency and a lower total cost of ownership. 
+
+Query acceleration is also designed for data processing applications. These types of applications typically perform large scale data transformations that might not directly lead to analytics insights so they don't always use established distributed analytics frameworks. These applications often have a more direct relationship with the underlying storage service so they can benefit directly from features such as query acceleration. 
+
+For an example of how an application can integrate query acceleration, see [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md).
 
 ## Pricing
 

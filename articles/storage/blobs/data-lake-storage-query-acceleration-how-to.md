@@ -56,8 +56,8 @@ Query acceleration (preview) is a new capability for Azure Data Lake Storage tha
 
    ```xml
    <ItemGroup>
-       <PackageReference Include="Azure.Storage.Blobs" Version="12.4.0-preview.1" />
-       <PackageReference Include="Azure.Storage.Common" Version="12.3.0-preview.1" />
+       <PackageReference Include="Azure.Storage.Blobs" Version="12.5.0-preview.1" />
+       <PackageReference Include="Azure.Storage.Common" Version="12.4.0-preview.1" />
        <PackageReference Include="Azure.Storage.QuickQuery" Version="12.0.0-preview.1" />
    </ItemGroup>
    ```

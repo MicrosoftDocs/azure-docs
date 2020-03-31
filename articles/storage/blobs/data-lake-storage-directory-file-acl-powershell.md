@@ -30,7 +30,7 @@ This article shows you how to use PowerShell to create and manage directories, f
 
 ## Install PowerShell modules
 
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.	
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.       
 
     ```powershell
     echo $PSVersionTable.PSVersion.ToString() 
@@ -44,7 +44,7 @@ This article shows you how to use PowerShell to create and manage directories, f
     install-Module PowerShellGet –Repository PSGallery –Force 
     ```
 
-3.	Install **Az.Storage** preview module.
+3.       Install **Az.Storage** preview module.
 
     ```powershell
     install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.9.1-preview –AllowPrerelease –AllowClobber –Force 
