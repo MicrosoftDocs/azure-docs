@@ -240,6 +240,8 @@
       href: using-diagnostic-logs.md
     - name: Use metrics to monitor cluster health
       href: using-metrics.md
+    - name: Use resource health to monitor cluster health
+      href: monitor-with-resource-health.md
   - name: Integrate with other tools
     items:
     - name: Azure Data Factory
