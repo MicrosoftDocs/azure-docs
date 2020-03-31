@@ -192,9 +192,6 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 
 ## Application Insights
 
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. As soon as this functionality becomes available this article will be updated.
-
 This section describes the supplemental configuration that is required to use Application Insights in Azure Government. To learn more about Azure Monitor and Application Insights checkout the [full documentation](https://docs.microsoft.com/azure/azure-monitor/overview).
 
 ### Enable Application Insights for ASP.NET & ASP.NET Core with Visual Studio
@@ -472,7 +469,7 @@ The following Azure Monitor logs features behave differently in Azure Government
 For more information, see [Azure Monitor logs public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Scheduler
-For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md).
+For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.yml).
 
 ## Azure portal
 The Azure Government portal can be accessed [here](https://portal.azure.us).

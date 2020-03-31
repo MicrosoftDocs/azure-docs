@@ -24,6 +24,11 @@ The Key Vault VM extension supports these Linux distributions:
 - Debian-9
 - Suse-15 
 
+### Supported certificate content types
+
+- PKCS #12
+- PEM
+
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:  

@@ -22,9 +22,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPo
 
 The following example output shows that the *name* is *nodepool1*:
 
-```console
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
-
+```output
 [
   {
     "count": 1,

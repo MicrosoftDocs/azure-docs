@@ -33,21 +33,24 @@ To complete this tutorial, you need the following:
 
 PowerShell runbooks have the same lifecycle, capabilities, and management as PowerShell Workflow runbooks. However, there are some differences and limitations.
 
-* PowerShell runbooks run fast compared to PowerShell Workflow runbooks as they don't use a compilation step.
-* PowerShell workbooks don't support checkpoints, which are used in PowerShell Workflow runbooks. Using checkpoints, PowerShell Workflow runbooks can resume operation from any point. Your PowerShell runbook can only resume operation from the beginning.
-* PowerShell runbooks can only execute commands serially. PowerShell Workflow runbooks support both serial and parallel execution.
-* For a PowerShell runbook, everything in a script runs in a single runspace. In a PowerShell Workflow runbook, an activity, a command, or a script block can have its own runspace. 
-* PowerShell runbooks have some [syntactic differences](https://technet.microsoft.com/magazine/dn151046.aspx) from PowerShell Workflow runbooks.
+| Characteristic  | PowerShell Runbooks | PowerShell Workflow Runbooks |
+| ------ | ----- | ----- |
+| Speed | Run fast as they don't use a compilation step. | Run more slowly. |
+| Checkpoints | Don't support checkpoints. A PowerShell runbook can only resume operation from the beginning. | Use checkpoints, which allow a workbook to resume operation from any point. |
+| Command Execution | Support serial execution only. | Support both serial and parallel execution.|
+| Runspace | A single runspace runs everything in a script. | A separate runspace can be used for an activity, a command, or a script block. |
+
+In addition to these differences, PowerShell runbooks have some [syntactic differences](https://technet.microsoft.com/magazine/dn151046.aspx) from PowerShell Workflow runbooks.
 
 ## Step 1 - Create runbook
 
-Start by creating a simple runbook that outputs the text **Hello World**.
+Start by creating a simple runbook that outputs the text `Hello World`.
 
 1. In the Azure portal, open your Automation account.
 2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 3. Create a new runbook by selecting **Create a runbook**.
 4. Give the runbook the name **MyFirstRunbook-PowerShell**.
-5. In this case, you're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks). Select **Powershell** for **Runbook type**.
+5. In this case, you're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks). Select **PowerShell** for **Runbook type**.
 6. Click **Create** to create the runbook and open the textual editor.
 
 ## Step 2 - Add code to the runbook
@@ -68,9 +71,9 @@ Before you publish the runbook to make it available in production, you should te
 2. Click **Start** to start the test. This should be the only enabled option.
 3. Note that a [runbook job](automation-runbook-execution.md) is created and its status is displayed in the pane.
 
-   The job status starts as **Queued**, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to **Starting** when a worker claims the job. Finally, the status becomes **Running** when the runbook actually starts to run.
+   The job status starts as `Queued`, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to `Starting` when a worker claims the job. Finally, the status becomes `Running` when the runbook actually starts to run.
 
-4. When the runbook job completes, the Test pane displays its output. In this case, you see **Hello World**.
+4. When the runbook job completes, the Test pane displays its output. In this case, you see `Hello World`.
 
    ![Test Pane Output](media/automation-first-runbook-textual-powershell/automation-testpane-output.png)
 
@@ -90,12 +93,12 @@ The runbook that you have created is still in Draft mode. It needs to be publish
 
    ![Job Summary](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-1. Once the runbook status shows **Completed**, click **Output** to open the Output page, where you can see **Hello World** displayed.
+1. Once the runbook status shows `Completed`, click **Output** to open the Output page, where you can see `Hello World` displayed.
 
    ![Job Output](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
 1. Close the Output page.
-1. Click **All Logs** to open the Streams pane for the runbook job. You should only see **Hello World** in the output stream.
+1. Click **All Logs** to open the Streams pane for the runbook job. You should only see `Hello World` in the output stream.
 
     Note that the Streams pane can show other streams for a runbook job, such as Verbose and Error streams, if the runbook writes to them.
 
@@ -112,10 +115,10 @@ The runbook that you have created is still in Draft mode. It needs to be publish
 
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. To do this, the runbook must be able to authenticate using the Run As account that was automatically created when you created your Automation account.
 
-As shown in the example below, the Run As connection is made with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet. If you are managing resources across multiple subscriptions, you need to use the *AzContext* parameter along with [Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+As shown in the example below, the Run As connection is made with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet. If you are managing resources across multiple subscriptions, you need to use the `AzContext` parameter with [Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
 
 > [!NOTE]
-> For PowerShell runbooks, **Add-AzAccount** and **Add-AzureRMAccount** are aliases for **Connect-AzAccount**. You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
+> For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -143,7 +146,7 @@ As shown in the example below, the Run As connection is made with the [Connect-A
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
 1. Open the textual editor by clicking **Edit** on the **MyFirstRunbook-PowerShell** page.
-1. You don't need the **Write-Output** line any longer. Just go ahead and delete it.
+1. You don't need the `Write-Output` line any longer. Just go ahead and delete it.
 1. Type or copy and paste the following code, which handles the authentication with your Automation Run As account.
 
    ```powershell
@@ -175,7 +178,7 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
 Now that your runbook is authenticating to your Azure subscription, you can manage resources. Let's add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and just hardcode that name in the runbook for now.
 
-1. To your runbook script, add the [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet to start the virtual machine. As shown below, the cmdlet starts a virtual machine with the name **VMName** and with a resource group named **ResourceGroupName**.
+1. To your runbook script, add the [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet to start the virtual machine. As shown below, the cmdlet starts a virtual machine with the name `VMName` and with a resource group named `ResourceGroupName`.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -205,7 +208,7 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
 
 Your runbook currently starts the virtual machine that you hardcoded in the runbook. The runbook will be more useful if you specify the virtual machine when the runbook is started. Let's add input parameters to the runbook to provide that functionality.
 
-1. In the textual editor, modify the **Start-AzVM** cmdlet to use variables for the parameters *VMName* and *ResourceGroupName*. 
+1. In the textual editor, modify the `Start-AzVM` cmdlet to use variables for the parameters `VMName` and `ResourceGroupName`. 
 
    ```powershell
    Param(

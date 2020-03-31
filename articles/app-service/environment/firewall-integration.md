@@ -135,7 +135,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 | Endpoint |
 |----------|
-|graph.windows.net:443 |
+|graph.microsoft.com:443 |
 |login.live.com:443 |
 |login.windows.com:443 |
 |login.windows.net:443 |

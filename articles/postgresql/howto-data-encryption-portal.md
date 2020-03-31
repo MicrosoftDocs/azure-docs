@@ -1,5 +1,5 @@
 ---
-title: Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal
+title: Data encryption - Azure portal - for Azure Database for PostgreSQL - Single server
 description: Learn how to set up and manage data encryption for your Azure Database for PostgreSQL Single server by using the Azure portal.
 author: kummanish
 ms.author: manishku

@@ -15,11 +15,11 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
+For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 ## Prerequisites
 
-To integrate a key vault with Azure Private Link (Preview), you will need the following:
+To integrate a key vault with Azure Private Link, you will need the following:
 
 - A key vault.
 - An Azure virtual network.
@@ -42,7 +42,7 @@ You can create a new key Vault by following the steps in [Set and retrieve a sec
 
 After configuring the key vault basics, select the Networking tab and follow these steps:
 
-1. Select the Private Endpoint (preview) radio button in the Networking tab.
+1. Select the Private Endpoint radio button in the Networking tab.
 1. Click the "+ Add" Button to add a private endpoint.
 
     ![Image](./media/private-link-service-1.png)
@@ -53,7 +53,7 @@ After configuring the key vault basics, select the Networking tab and follow the
 1. Leave the "integrate with the private zone DNS" option unchanged.  
 1. Select "Ok".
 
-    ![Image](./media/private-link-service-2.png)
+    ![Image](./media/private-link-service-8.png)
  
 You will now be able to see the configured private endpoint. You now have the option to delete and edit this private endpoint. 
 Select the "Review + Create" button and create the key vault. It will take 5-10 minutes for the deployment to complete. 
@@ -66,7 +66,7 @@ If you already have a key vault, you can create a private link connection by fol
 1. In the search bar, type in "key vaults"
 1. Select the key vault from the list to which you want to add a private endpoint.
 1. Select the "Networking" tab under Settings
-1. Select the Private endpoint connections (preview) tab at the top of the page
+1. Select the Private endpoint connections tab at the top of the page
 1. Select the "+ Private Endpoint" button at the top of the page.
 
     ![Image](./media/private-link-service-3.png)
@@ -98,6 +98,10 @@ az provider register -n Microsoft.KeyVault
 ### Create a new Key Vault
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### Turn on Key Vault Firewall
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### Create a Virtual Network
 ```console
@@ -218,9 +222,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## Limitations and Design Considerations
 
-**Pricing**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
+**Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**:  Private Endpoint for Azure Key Vault is in public preview. This feature is available in all Azure public regions.
+**Limitations**:  Private Endpoint for Azure Key Vault is only available in Azure public regions.
 
 **Maximum Number of Private Endpoints per Key Vault**: 64.
 
@@ -230,5 +234,5 @@ For more, see [Azure Private Link service: Limitations](../private-link/private-
 
 ## Next Steps
 
-- Learn more about [Azure Private Link (Preview)](../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Key Vault](key-vault-overview.md)

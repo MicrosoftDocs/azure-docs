@@ -47,7 +47,7 @@ During the implementation phase, consider the following recommendations.
 
 |  |  |
 |--|--|
-| Edit custom policies with the Azure AD B2C extension for Visual Studio Code | Download Visual Studio Code and this community-built [extension from the Visual Studio Code Marketplace]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)). While not an official Microsoft product, the Azure AD B2C extension for Visual Studio Code includes several features that help make working with custom policies easier. |
+| Edit custom policies with the Azure AD B2C extension for Visual Studio Code | Download Visual Studio Code and this community-built [extension from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). While not an official Microsoft product, the Azure AD B2C extension for Visual Studio Code includes several features that help make working with custom policies easier. |
 | Learn how to troubleshoot Azure AD B2C | Learn how to [troubleshoot custom policies](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) during development. Learn what a normal authentication flow looks like and use tools for discovering anomalies and errors. For example, use [Application Insights](troubleshoot-with-application-insights.md) to review output logs of user journeys. |
 | Leverage our library of proven custom policy patterns | Find [samples](https://github.com/azure-ad-b2c/samples) for several enhanced Azure AD B2C customer identity and access management (CIAM) user journeys. |
 

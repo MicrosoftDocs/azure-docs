@@ -18,7 +18,7 @@ This article shows you how to create and manage multiple node pools in an AKS cl
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.2.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Limitations
 
@@ -29,8 +29,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
 * The AKS cluster must use virtual machine scale sets for the nodes.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-* All node pools must reside in the same virtual network and subnet.
-* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This version can be updated after the cluster has been provisioned by using per node pool operations.
+* All node pools must reside in the same virtual network.
+* When creating multiple node pools at cluster create time, all Kubernetes versions used by node pools must match the version set for the control plane. This can be updated after the cluster has been provisioned by using per node pool operations.
 
 ## Create an AKS cluster
 
@@ -89,9 +89,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 
 The following example output shows that *mynodepool* has been successfully created with three nodes in the node pool. When the AKS cluster was created in the previous step, a default *nodepool1* was created with a node count of *2*.
 
-```console
-$ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
-
+```output
 [
   {
     ...
@@ -119,6 +117,29 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!TIP]
 > If no *VmSize* is specified when you add a node pool, the default size is *Standard_DS2_v3* for Windows node pools and *Standard_DS2_v2* for Linux node pools. If no *OrchestratorVersion* is specified, it defaults to the same version as the control plane.
 
+### Add a node pool with a unique subnet (preview)
+
+A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
+
+#### Limitations
+
+* All subnets assigned to nodepools must belong to the same virtual network.
+* System pods must have access to all nodes in the cluster to provide critical functionality such as DNS resolution via coreDNS.
+* Assignment of a unique subnet per node pool is limited to Azure CNI during preview.
+* Using network policies with a unique subnet per node pool is not supported during preview.
+
+To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
+
 ## Upgrade a node pool
 
 > [!NOTE]
@@ -144,9 +165,11 @@ az aks nodepool upgrade \
 
 List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.15.7*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -230,9 +253,11 @@ az aks nodepool scale \
 
 List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -280,9 +305,11 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -333,9 +360,11 @@ az aks nodepool add \
 
 The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -371,8 +400,10 @@ It takes a few minutes for the *gpunodepool* to be successfully created.
 You now have two node pools in your cluster - the default node pool initially created, and the GPU-based node pool. Use the [kubectl get nodes][kubectl-get] command to view the nodes in your cluster. The following example output shows the nodes:
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
+```
 
+```output
 NAME                                 STATUS   ROLES   AGE     VERSION
 aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
 aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
@@ -427,8 +458,10 @@ kubectl apply -f gpu-toleration.yaml
 It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-gpunodepool-28993262-vmss000000* GPU-based node:
 
 ```console
-$ kubectl describe pod mypod
+kubectl describe pod mypod
+```
 
+```output
 [...]
 Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
                  node.kubernetes.io/unreachable:NoExecute for 300s
@@ -486,17 +519,6 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
 The taint information is visible in Kubernetes for handling scheduling rules for nodes.
-
-> [!IMPORTANT]
-> To use node pool labels and tags, you need the *aks-preview* CLI extension version 0.4.35 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-> 
-> ```azurecli-interactive
-> # Install the aks-preview extension
-> az extension add --name aks-preview
-> 
-> # Update the extension to make sure you have the latest version installed
-> az extension update --name aks-preview
-> ```
 
 You can also add labels to a node pool during node pool creation. Labels set at the node pool are added to each node in the node pool. These [labels are visible in Kubernetes][kubernetes-labels] for handling scheduling rules for nodes.
 
@@ -559,9 +581,11 @@ az aks nodepool add \
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *tagnodepool* is *Creating* nodes with the specified *tag*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -690,18 +714,22 @@ az group deployment create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node in a node pool
+## Assign a public IP per node for a node pool (preview)
 
 > [!WARNING]
 > During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. As a result of this limitation, Windows agent pools are not supported with this preview feature. While in preview you must use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
 
-AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved by registering for a separate preview feature, Node Public IP (preview).
+AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
+
+Register for the Node Public IP feature by issuing the following Azure CLI command.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. 
+
+This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ## Clean up resources
 

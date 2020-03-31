@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -30,7 +30,7 @@ Compare two claims, and throw an exception if they are not equal according to th
 | InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user.
+The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)

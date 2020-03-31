@@ -24,7 +24,13 @@ To connect, you need to download the Azure VPN Client and configure a VPN client
 
 ### To download the Azure VPN client
 
-Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the Azure VPN Client.
+Use this [link](https://go.microsoft.com/fwlink/?linkid=2117554) to download the Azure VPN Client. Please ensure that the Azure VPN Client has permission to run in the background. To check/enable the permission follow the steps below:
+
+1. Go to Start , then select Settings  > Privacy > Background apps.
+2. Under Background Apps, make sure **Let apps run in the background** is turned On.
+3. Under Choose which apps can run in the background, turn settings for Azure VPN Client to **On**.
+
+  ![permission](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
@@ -180,6 +186,10 @@ You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnss
 </clientconfig>
 </azvpnprofile>
 ```
+
+> [!NOTE]
+> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) in PowerShell.
+>
 
 ### How do I add custom routes to the VPN client?
 

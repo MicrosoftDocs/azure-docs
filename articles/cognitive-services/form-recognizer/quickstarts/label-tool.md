@@ -31,6 +31,10 @@ To complete this quickstart, you must have:
 ## Set up the sample labeling tool
 
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+
+> [!TIP]
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide. 
 
    The host computer must meet the following hardware requirements:
@@ -42,7 +46,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    Install Docker on your machine by following the appropriate instructions for your operating system: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux](https://docs.docker.com/install/).
+   * [Linux](https://docs.docker.com/install/)
 
 1. Get the sample labeling tool container with the `docker pull` command.
     ```
@@ -181,11 +185,12 @@ Go to your project settings page (slider icon) and take note of the security tok
 When you want to resume your project, you first need to create a connection to the same blob storage container. Repeat the steps above to do this. Then, go to the application settings page (gear icon) and see if your project's security token is there. If it isn't, add a new security token and copy over your token name and key from the previous step. Then click Save Settings. 
 
 ### Resume a project
+
 Finally, go to the main page (house icon) and click Open Cloud Project. Then select the blob storage connection, and select your project's *.vott* file. The application will load all of the project's settings because it has the security token.
 
 ## Next steps
 
-In this quickstart, you learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to integrate the labeling tool into your own application, use the REST APIs that deal with labeled data training.
+In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to integrate the labeling tool into your own application, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](./python-labeled-data.md)
