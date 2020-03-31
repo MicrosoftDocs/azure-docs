@@ -47326,6 +47326,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/compatible-software.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshooting.md",
       "redirect_url": "/azure/active-directory-domain-services/troubleshoot",
       "redirect_document_id": false
