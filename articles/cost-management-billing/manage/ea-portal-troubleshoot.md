@@ -3,8 +3,8 @@ title: Troubleshoot Azure EA portal access
 description: This article describes some common issues that can occur with an Azure Enterprise Agreement (EA) in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
-ms.topic: troubleshooting
+ms.date: 03/03/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
 ---

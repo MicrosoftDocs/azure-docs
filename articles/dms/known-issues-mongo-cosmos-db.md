@@ -36,6 +36,8 @@ Known issues and limitations associated with migrations from MongoDB to Cosmos D
 
 ## Using an unsupported version of the database
 
+* **Symptom**: The migration fails.
+
 | Cause         | Resolution |
 | ------------- | ------------- |
 | You attempt to migrate to Azure Cosmos DB from an unsupported version of MongoDB. | As new versions of MongoDB are released, they are tested to ensure compatibility with Azure Database Migration Service, and the  service is being updated periodically to accept the latest version(s). If there is an immediate need to migrate, as a workaround you can export the databases/collections to Azure Storage and the point the source to the resulting dump. Create the SAS on the blob container in Storage Explorer, and then use the URL with container SAS info as the source detail connection string.<br><br> |

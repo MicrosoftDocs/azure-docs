@@ -502,7 +502,7 @@ The *PublicConfig* and *PrivateConfig* are separated because in most JSON usage 
 ```
 
 > [!NOTE]
-> The public config Azure Monitor sink definition has two properties, *PrincipalId* and *Secret*. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for other resources.
+> The private config Azure Monitor sink definition has two properties, *PrincipalId* and *Secret*. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for other resources.
 
 
 ```json

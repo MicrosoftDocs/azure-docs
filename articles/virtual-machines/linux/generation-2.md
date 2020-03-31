@@ -1,17 +1,9 @@
 ---
 title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
-services: virtual-machines-linux
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman

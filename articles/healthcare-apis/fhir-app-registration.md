@@ -1,5 +1,5 @@
 ---
-title: Register the applications for Azure API for FHIR
+title: Register the Azure Active Directory apps for Azure API for FHIR
 description: This tutorial explains which applications need to be registered for Azure API for FHIR and FHIR Server for Azure.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -34,13 +34,14 @@ In order for an application to interact with Azure AD, it needs to be registered
 
 In this overview, you've gone through the types of application registrations you may need in order to work with a FHIR API.
 
-Based on the decisions you made above, please see the how-to-guides to register your applications
+Based on your setup, please see the how-to-guides to register your applications
 
 * [Register a resource application](register-resource-azure-ad-client-app.md)
 * [Register a confidential client application](register-confidential-azure-ad-client-app.md)
 * [Register a public client application](register-public-azure-ad-client-app.md)
+* [Register a service application](register-service-azure-ad-client-app.md)
 
-Once this is complete, you can deploy the Azure API for FHIR.
+Once you have registered your applications, you can deploy the Azure API for FHIR.
 
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)

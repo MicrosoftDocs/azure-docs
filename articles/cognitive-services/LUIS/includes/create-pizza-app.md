@@ -1,12 +1,7 @@
 ---
 title: Create pizza app steps
 description: Steps to create a LUIS pizza app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.date: 02/14/2020
-ms.subservice: language-understanding
+ms.date: 03/25/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
@@ -16,7 +11,8 @@ ms.author: diberry
 
 1. Select **Create new app**.
 
-    [![Screenshot of Language Understanding (LUIS) My Apps page](../media/create-app-in-portal.png "Screenshot of Language Understanding (LUIS) My Apps page")](../media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot of Language Understanding (LUIS) My Apps page](../media/create-app-in-portal.png "Screenshot of Language Understanding (LUIS) My Apps page")](../media/create-app-in-portal.png#lightbox)
 
 1. In the pop-up dialog, enter the name `Pizza tutorial` and keep the default culture, **English**. The other fields are optional, do not set them. Select **Done**.
 

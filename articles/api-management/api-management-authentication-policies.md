@@ -113,7 +113,7 @@ In this example client certificate is identified by resource name.
 ### Example  
 #### Use managed identity to authenticate with a backend service
 ```xml  
-<authentication-managed-identity resource="https://graph.windows.net"/> 
+<authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->

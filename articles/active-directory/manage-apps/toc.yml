@@ -68,7 +68,7 @@
           href: manage-certificates-for-federated-single-sign-on.md
         - name: Tenant restrictions
           href: tenant-restrictions.md
-        - name: Configure SAML token encryption (Preview)
+        - name: Configure SAML token encryption
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
@@ -139,9 +139,7 @@
           href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)
           href: configure-admin-consent-workflow.md
-        - name: Methods for assigning users and groups to an app
-          href: methods-for-assigning-users-and-groups.md
-        - name: Assign a user to an app
+        - name: Assign a user or group to an app
           href: assign-user-or-group-access-portal.md
         - name: Create collections on My Apps
           href: access-panel-collections.md

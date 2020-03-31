@@ -120,7 +120,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
    ```
    
 > [!Note]
-> If connecting to the **Cosmos DB Emulator**, disable SSL verification for your node process:
+> If connecting to the **Cosmos DB Emulator**, disable TLS verification for your node process:
 >   ```
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -433,7 +433,7 @@ Azure Cosmos DB supports rich queries against JSON documents stored in each cont
         ]
     };
 
-    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec, {enableCrossPartitionQuery:true}).fetchAll();
+    const { resources } = await client.database(databaseId).container(containerId).items.query(querySpec).fetchAll();
     for (var queryResult of resources) {
         let resultString = JSON.stringify(queryResult);
         console.log(`\tQuery returned ${resultString}\n`);

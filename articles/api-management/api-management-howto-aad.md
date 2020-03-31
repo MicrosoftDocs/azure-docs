@@ -81,12 +81,12 @@ After the changes are saved, users in the specified Azure AD instance can sign i
 
 After you enable access for users in an Azure AD tenant, you can add Azure AD groups into API Management. As a result, you can control product visibility using Azure AD groups.
 
-To add an external Azure AD group into APIM, you must first complete the previous section. Additionally, the application you registered must be granted access to the Azure Active Directory Graph API with `Directory.ReadAll` permission by following below steps: 
+To add an external Azure AD group into APIM, you must first complete the previous section. Additionally, the application you registered must be granted access to the Microsoft Graph API with `Directory.Read.All` permission by following these steps: 
 
-1. Go back to your App Registration that was created in the previous section
-2. Click on the **API Permissions** tab, then click **+Add a permission** button 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and scroll to the bottom to find the **Azure Active Directory Graph** tile under the Supported Legacy APIs section and click it. Then click **APPLICATION Permissions** button, and select **Directory.ReadAll** permission and then add that permission using button at the bottom. 
-4. Click the **Grant admin consent for {tenantname}** button so that you grant access for all users in this directory. 
+1. Go back to your App Registration that was created in the previous section.
+2. Select **API Permissions**, and then click **+Add a permission**. 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
+4. Click **Add permissions** at the bottom of the pane, and then click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
@@ -150,7 +150,6 @@ Your user is now signed in to the developer portal for your API Management servi
 
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

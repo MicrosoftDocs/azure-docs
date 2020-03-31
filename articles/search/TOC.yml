@@ -21,6 +21,8 @@
       href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
+    - name: Query with Search explorer
+      href: search-explorer.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -231,10 +233,10 @@
       href: search-query-simple-examples.md
     - name: Use full Lucene syntax
       href: search-query-lucene-examples.md
-    - name: Use Search Explorer (portal)
-      href: search-explorer.md
     - name: Special characters and partial terms
       href: search-query-partial-matching.md
+    - name: Query from Power Apps   
+      href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -261,8 +263,10 @@
     items:
     - name: Page-related features
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)
+    - name: Relevance tuning (scoring profiles)    
       href: index-add-scoring-profiles.md
+    - name: Relevance tuning (similarity algorithm)  
+      href: index-ranking-similarity.md
   - name: Plan
     items:
     - name: Choose a tier
@@ -361,7 +365,7 @@
       href: /rest/api/searchservice
     - name: Search 2019-05-06-Preview
       href: /rest/api/searchservice/index-2019-05-06-preview
-    - name: Management 2015-08-15
+    - name: Management 2020-03-13
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
       href: /rest/api/searchmanagement/index-2019-10-01-preview

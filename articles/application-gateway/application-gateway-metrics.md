@@ -29,7 +29,7 @@ Application Gateway provides several built‑in timing metrics related to the re
 
   Time spent establishing a connection with the backend application. 
 
-  This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. In case of SSL, it also includes the time spent on handshake. 
+  This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. In case of TLS, it also includes the time spent on handshake. 
 
 - **Backend first byte response time**
 
@@ -121,10 +121,6 @@ For Application Gateway, the following metrics are available:
 
    Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall matched rules**
-
-- **Web Application Firewall triggered rules**
-
 ### Backend metrics
 
 For Application Gateway, the following metrics are available:
@@ -176,9 +172,9 @@ For Application Gateway, the following metrics are available:
 
   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall matched rules**
-
-- **Web Application Firewall triggered rules**
+- **Web Application Firewall Blocked Requests Count**
+- **Web Application Firewall Blocked Requests Distribution**
+- **Web Application Firewall Total Rule Distribution**
 
 ### Backend metrics
 

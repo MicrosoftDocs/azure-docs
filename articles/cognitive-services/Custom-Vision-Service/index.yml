@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Custom Vision?
             url: home.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md
       - linkListType: video
         links:
           - text: Train and identify unique images

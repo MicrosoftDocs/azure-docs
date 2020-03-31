@@ -80,7 +80,7 @@ are:
 - `indexed`: only evaluate resource types that support tags and location
 
 For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
-both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged isn't evaluated
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated
 in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
@@ -695,19 +695,19 @@ use within a policy rule, except the following functions and user-defined functi
 - resourceId()
 - variables()
 
-The following functions are available to use in a policy rule, but differ from use in an Azure
+The following function is available to use in a policy rule, but differs from use in an Azure
 Resource Manager template:
 
-- `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
 - `utcNow()` - Unlike a Resource Manager template, this can be used outside defaultValue.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 The following functions are only available in policy rules:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition
@@ -855,7 +855,7 @@ tagging policy definitions into a single initiative. Rather than assigning each 
 you apply the initiative.
 
 > [!NOTE]
-> Once an initiative is assigned, initative level parameters can't be altered. Due to this, the
+> Once an initiative is assigned, initiative level parameters can't be altered. Due to this, the
 > recommendation is to set a **defaultValue** when defining the parameter.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
