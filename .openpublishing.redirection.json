@@ -5106,6 +5106,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/shared-device-mode.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-shared-devices",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-group-authenticate-service-principal.md",
       "redirect_url": "/azure/active-directory/develop/howto-authenticate-service-principal-powershell",
       "redirect_document_id": true

@@ -3,7 +3,7 @@ title: Microsoft Enterprise SSO plug-in for Apple devices
 titleSuffix: Microsoft identity platform
 description: Learn about Microsoft's Azure Active Directory SSO plug-in for iOS and macOS devices.
 services: active-directory
-author: mmacy
+author: brandwe
 manager: CelesteDG
 
 ms.service: active-directory
