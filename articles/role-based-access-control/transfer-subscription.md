@@ -124,14 +124,14 @@ If you have role assignments in the source directory that aren't needed, you sho
 
 1. Based on the list of role assignments, determine which of the following objects will be needed in the destination directory:
 
-- Users
-- Groups
-- User-assigned managed identities
-- System-assigned managed identities
+    - Users
+    - Groups
+    - User-assigned managed identities
+    - System-assigned managed identities
 
-1. In the target directory, verify you have the objects that you will need.
+1. In the destination directory, verify you have the objects that you will need.
 
-1. If necessary, in the target directory, create the objects you will need.
+1. If necessary, in the destination directory, create the objects you will need.
 
 ## Step 6: Transfer billing ownership of the subscription
 
@@ -146,11 +146,15 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ## Step 7: Create custom roles in destination directory
 
-1. In the target directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+1. In the destination directory, sign-in as the user that accepted the transfer request.
+
+    Only the user in the new account who accepted the transfer request will have access to manage the resources.
+
+1. In the destination directory, create the custom roles that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
 
 ## Step 8: Create role assignments in destination directory
 
-1. In the target directory, create the role assignments that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
+1. In the destination directory, create the role assignments that you will need. You can use the Azure portal, Azure PowerShell, Azure CLI, or REST API.
 
 ## Step 9: Create other artifacts in the source directory
 
