@@ -56,7 +56,7 @@ To configure the integration of Wisdom by Invictus into Azure AD, you need to ad
 1. In the **Add from the gallery** section, type **Wisdom by Invictus** in the search box.
 1. Select **Wisdom by Invictus** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Wisdom by Invictus
+## Configure and test Azure AD SSO for Wisdom by Invictus
 
 Configure and test Azure AD SSO with Wisdom by Invictus using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Wisdom by Invictus.
 
