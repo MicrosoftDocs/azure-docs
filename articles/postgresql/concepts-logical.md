@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ---
 
-# Logical Decoding
+# Logical decoding
  
 [Logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) allows you to stream data changes to external consumers. Logical decoding is popularly used for event streaming and change data capture scenarios.
 
