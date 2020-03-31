@@ -24,7 +24,7 @@
         href: quickstarts/ruby.md
       - name: Using Go
         href: quickstarts/go.md
-    - name: SDK
+    - name: Client library
       expanded: true
       items:
       - name: Bing Visual Search client libraries

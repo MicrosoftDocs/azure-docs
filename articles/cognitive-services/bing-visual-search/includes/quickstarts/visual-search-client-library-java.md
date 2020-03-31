@@ -10,7 +10,7 @@ ms.date: 03/26/2020
 ms.author: aahi
 ---
 
-Get started with the Bing Visual Search client library for Java. Follow these steps to install the package and try out the example code for basic tasks. 
+Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Java client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 
 Use the Bing Visual Search client library for Java to:
 
