@@ -152,7 +152,7 @@ In this case, an audit event will also be logged with a Category of "Application
 > [!IMPORTANT]
 > Admins should [evaluate all consent requests](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) carefully before approving, especially when Microsoft has detected risk.
 
-### Disable or re-enable risk based step-up consent using PowerShell
+### Disable or re-enable risk-based step-up consent using PowerShell
 
 You can use the Azure AD PowerShell Preview module ([AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)), to disable the step-up to admin consent required in cases where Microsoft detects risk or to re-enable it if it was previously disabled.
 
