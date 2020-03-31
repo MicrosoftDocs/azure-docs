@@ -38,11 +38,28 @@ After you have reset the user's password, give the user the temporary password. 
 
 ## Manage a user's phone number
 
-If your organization has given you permission, you can manage phone numbers for your staff members. To do this, select a user in My Staff.
+If your organization has given you permission, you can manage phone numbers for your staff members.
 
-- If the user doesn't have a phone number set up, select the plus icon to add their phone number. Once you set up a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
-- If the user has a phone number and needs to change it, select the pencil icon and enter their new number.
-- If the user no longer has the phone number that was set up for them, select the trashcan icon to remove it.
+### Add a phone mumber
+
+1. [Open My Staff](https://aka.ms/mystaff).
+1. Open a user's profile.
+1. Select **Devices**.
+1. If the user doesn't have a phone number registered, select **+** to add their phone number.
+1. To edit the phone number, select the pencil icon and enter their new number.
+
+After you register a phone number for a user, they can use it to sign in with SMS, perform two-step verification, or reset their password on their own, depending on your organization's settings.
+
+### To enable phone for SMS sign-in
+
+
+
+### To remove a phone number
+
+1. [Open My Staff](https://aka.ms/mystaff).
+1. Open a user's profile.
+1. Select **Devices**.
+1. Select the trash can to remove the phone number.
 
 ## Next steps
 

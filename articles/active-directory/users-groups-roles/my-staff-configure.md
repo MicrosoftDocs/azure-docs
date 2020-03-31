@@ -27,7 +27,7 @@ My Staff is based on administrative units (AUs), which are a container of resour
 
 ## How to enable My Staff
 
-Once you have configured AUs, you can enable your users to access my staff. Regardless of who is enabled to use my staff, only users who have been assigned an administrative role will be able to access my staff. To enable My Staff, complete the following steps:
+Once you have configured AUs, you can enable your users to access My Staff. Regardless of who is enabled to use My Staff, only users who have been assigned an administrative role will be able to access My Staff. To enable My Staff, complete the following steps:
 
 1. Sign into the Azure portal as a User administrator.
 2. Browse to **Azure Active Directory** > **User settings** > **User feature previews** > **Manage user feature preview settings**.
@@ -35,17 +35,24 @@ Once you have configured AUs, you can enable your users to access my staff. Rega
 
 ## Using My Staff
 
-When a user goes to My Staff, they are shown a list of AUs (seen as "locations") over which they have administrative permissions. If an administrator's permissions do not have an AU scope, they will see all AUs in the organization. After my staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through https://mystaff.microsoft.com. They can select an AU to view the members of that AU, and then select a user to open their profile.
+When a user goes to My Staff, they are shown a list of locations (administrative units) over which they have administrative permissions. If an administrator's permissions do not have an AU scope, they will see all AUs in the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the members of that AU, and then select a user to open their profile.
+
+## Licenses
+
+Each user that's enabled in the text message authentication method policy must be licensed, even if it's not assigned to them. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
+
+- Azure AD Premium P1 or P2
+- Microsoft 365 F1 or F3
 
 ## Reset a user's password
 
 To reset a user's password, you must be assigned one of the following roles:
 
-- Password Administrator
-- Helpdesk Administrator
-- Authentication Administrator
-- Global Administrator
-- Company Administrator
+- Authentication administrator
+- Privileged authentication administrator
+- Global administrator
+- Helpdeek administrator
+- User administrator
 
 From **My Staff**, open a user's profile. Select **Reset password**.
 
@@ -54,7 +61,23 @@ From **My Staff**, open a user's profile. Select **Reset password**.
 
 ![Password reset progress indicator and success notification](media/my-staff-configure/reset-password.png)
 
-The user is prompted to change their password the next time they sign in.
+The user is required to change their password the next time they sign in.
+
+## Manage a phone number
+
+From **My Staff**, open a user's profile.
+
+- Select the plus icon in the **Phone number** section to add a phone number for the user.
+- Select the pencil icon to change the phone number
+- Select the trashcan icon to remove the phone number from the user's profile
+
+Depending on your settings, the user can then use the phone number you set up to sign in with SMS, perform multi-factor authentication, and perform self-service password reset.
+
+To manage a user's phone number, you must be assigned one of the following roles:
+
+- Authentication administrator
+- Privileged authentication administrator
+- Global administrator
 
 ## Search
 
@@ -67,18 +90,6 @@ You can also search for a user within an AU. To do this, use the search bar at t
 You can view audit logs for My Staff in the Azure Active Directory portal. The following audit logs are generated from My Staff:
 
 - Reset password by My Staff admin
-
-## Manage a phone number
-
-From **My Staff**, open a user's profile.
-
-- Select the plus icon in the **Phone number** section to add a phone number for the user.
-- Select the pencil icon to change the phone number
-- Select the trashcan icon to remove the phone number from the user's profile
-
-Depending on your settings, the user can then use the phone number you set up to sign in with SMS, perform multi-factor authentication, and perform self-service password reset.
-
-To manage a user's phone number, you must be assigned to the Authentication Administrator role.
 
 ## Next steps
 
