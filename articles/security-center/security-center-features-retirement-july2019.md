@@ -39,7 +39,7 @@ This article provides detailed information for each retired feature and the step
 
 ## Events dashboard<a name="menu_events"></a>
 
-Security Center uses Microsoft Monitoring Agent to collect various security-related configurations and events from your machines. It stores these events in your workspaces. The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and gives you an entry point to Log Analytics.
+Security Center uses Log Analytics agent to collect various security-related configurations and events from your machines. It stores these events in your workspaces. The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and gives you an entry point to Log Analytics.
 
 We retired the events dashboard that appeared when you selected a workspace:
 
