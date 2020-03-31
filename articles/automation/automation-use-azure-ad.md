@@ -22,8 +22,6 @@ You can enable Azure AD through the following PowerShell modules:
 * Microsoft Azure Active Directory for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Office 365.
 Note: PowerShell Core does not support the MSOnline module.  To use the module cmdlets, you must run them from Windows PowerShell. You are encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module. 
 
-* Azure Automation Authoring Toolkit. This module is the [Microsoft Azure  Automation ISE add-on for the PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon). 
-
 ### Preinstallation
 
 Before installing the Azure AD modules on your computer:
@@ -60,23 +58,11 @@ Before installing the Azure AD modules on your computer:
 
 ### Install support for PSCredential
 
-Azure Automation uses the [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) class to represent a credential asset. Your scripts retrieve `PSCredential` objects using the `Get-AutomationPSCredential` cmdlet. For local development using the Azure Automation Authoring Toolkit, the cmdlet is part of assembly `AzureAutomationAuthoringToolkit`. For Azure working with the Automation context, the cmdlet is in `Orchestrator.AssetManagement.Cmdlets`. 
-
-To be able to retrieve the Azure Automation credential asset `PSCredential` in your code, you can install the [Microsoft Azure Automation ISE add-on for the PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon).
-
-```azurepowershell
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser -Force
-```
-
-Your script can also import the required module where needed, as in the following example: 
-
-```azurepowershell
-Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
-```
+Azure Automation uses the [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) class to represent a credential asset. Your scripts retrieve `PSCredential` objects using the `Get-AutomationPSCredential` cmdlet. For more information, see [Credential assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/credentials).
 
 ## Assigning a subscription administrator
 
-You must assign an administrator for the Azure subscription. This person has the role of Owner for the subscription scope. See [Role-based access control in Azure Automation](automation-role-based-access-control.md).
+You must assign an administrator for the Azure subscription. This person has the role of Owner for the subscription scope. See [Role-based access control in Azure Automation](automation-role-based-access-control.md). 
 
 ## Changing the Azure AD user's password
 
@@ -168,5 +154,6 @@ Workflow Stop-Start-AzureVM
 ## Next steps
 
 * You can find information about Automation credential assets in [Credential assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/credentials).
+* See [Manage modules in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/shared-resources/modules) to find out how to work with Automation modules.
 * To learn more about the methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
