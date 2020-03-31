@@ -114,13 +114,13 @@ You must also open the HTTP port so that you would be able to access the web ser
         "direction": "Inbound",
         "destinationPortRange": "80",
         "protocol": "Tcp",
-        "sourcePortRange": "",
-        "sourceAddressPrefix": "",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
         "destinationAddressPrefix": "*"
       }
     }
     ```
-    
+
 ## Deploy the template
 
 For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
