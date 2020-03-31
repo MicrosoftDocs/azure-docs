@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 03/31/2020
 ms.author: allensu
 ---
 
@@ -177,7 +177,7 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 #### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with availability zones">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
 </p>
 
 *Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
@@ -203,7 +203,7 @@ If your scenario requires inbound endpoints, you have two options:
 #### Cross-zone outbound scenarios not supported
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="zone-spanning Virtual Network NAT">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
 </p>
 
 *Figure: Virtual Network NAT not compatible with zone-spanning subnet*
