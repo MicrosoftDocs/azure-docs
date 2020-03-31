@@ -23,8 +23,8 @@ Security Center collects data from your Azure virtual machines (VMs), Virtual ma
 
 ## Am I billed for Azure Monitor logs on the workspaces created by Security Center?
 
-No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor lo's charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
-'
+No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
+
 - **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You won't be billed for the Free tier.
 
 - **Standard tier** – Security Center enables the 'Security' solution on the default workspace.
@@ -54,11 +54,11 @@ Windows or Linux IaaS VMs qualify if:
 To recover, remove the Log Analytics agent on the VMs connected to the deleted workspace. Security Center reinstalls the agent and creates new default workspaces.
 
 ## How can I use my existing Log Analytics workspace?
-'
-    ou can select an existing Log Analytics workspace to store data collected by Security Center. To use your existing Log Analytics workspace:
+
+You can select an existing Log Analytics workspace to store data collected by Security Center. To use your existing Log Analytics workspace:
 
 - The workspace must be associated with your selected Azure subscription.
-- At a minimum, you must have read permissions to access the workspace.'
+- At a minimum, you must have read permissions to access the workspace.
 
 To select an existing Log Analytics workspace:
 
