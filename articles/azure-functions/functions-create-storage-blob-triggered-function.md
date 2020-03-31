@@ -15,14 +15,13 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 ## Prerequisites
 
-+ Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create an Azure Function app
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
+   ![Function app successfully created.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
 Next, you create a function in the new function app.
 
@@ -48,7 +47,7 @@ Next, you create a function in the new function app.
 
 1. Select **Create Function** to create your function.
 
-Next, you connect to your Azure Storage account and create the **samples-workitems** container.
+Next, create the **samples-workitems** container.
 
 ## Create the container
 
