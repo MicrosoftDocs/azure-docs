@@ -174,12 +174,14 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-    - name:
+    - name: Administrative units preview
       items:
-      - name: Administrative units preview  
+      - name: Administrative units overview  
         href: directory-administrative-units.md
       - name: Set role scope with AUs
         href: roles-scope-admin-units.md
+      - name: Create an AU
+        href: roles-scope-create-au.md
       - name: Add users to AUs
         href: roles-scope-add-users.md
       - name: Add groups to AUs
