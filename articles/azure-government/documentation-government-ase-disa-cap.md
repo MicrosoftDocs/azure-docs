@@ -56,8 +56,7 @@ The images below describe the default NSG rules created during the ASE creation.
 
 ### Service Endpoints 
 
-Depending what storage you are using you will be required to enable Service Endpoints for SQL and Azure Storage to access them without going back down to the DISA BCAP. You also need to enable EventHub Service Endpoint for ASE logs.
-[Service Endpoints](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#service-endpoints)
+Depending on the storage you use, you will be required to enable Service Endpoints for SQL and Azure Storage to access them without going back down to the DISA BCAP. You also need to enable EventHub Service Endpoint for ASE logs. [Learn more](https://docs.microsoft.com/azure/app-service/environment/network-info#service-endpoints).
 
 ## FAQs
 
@@ -66,7 +65,7 @@ Some configuration changes may take some time to take effect.  Allow for several
 ## Resource manager template sample
 
 > [!NOTE]
-   >In order to deploy non-RFC 1918 IP addresses in the portal you must pre-stage the VNet and Subnet for the ASE. You can use a Resource Manager Template to deploy the ASE with non-RFC1918 IPs as well.
+> In order to deploy non-RFC 1918 IP addresses in the portal you must pre-stage the VNet and Subnet for the ASE. You can use a Resource Manager Template to deploy the ASE with non-RFC1918 IPs as well.
    
 <a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2FApp-Service-Environment-AzFirewall%2Fazuredeploy.json" target="_blank">
 
