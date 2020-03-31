@@ -141,6 +141,9 @@
         - name: Use virtual networks
           displayName: vnet, blob
           href: how-to-enable-virtual-network.md
+        - name: Use Private Link
+          displayName: private endpoint
+          href: how-to-configure-private-link.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
         - name: Use Azure AD identity in AKS deployments
