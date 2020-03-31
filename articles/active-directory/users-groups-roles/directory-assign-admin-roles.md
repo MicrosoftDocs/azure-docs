@@ -65,8 +65,7 @@ Users in this role can create application registrations when the "Users can regi
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-The Authentication administrator role is currently in public preview. Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
-
+Users in this role can set or reset non-password credentials, update passwords, require to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device** (which prompts for MFA on the next sign-in) of users who are non-administrators or assigned the following roles only:
 * Authentication Administrator
 * Directory Readers
 * Guest Inviter

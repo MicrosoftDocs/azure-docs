@@ -4,7 +4,7 @@ description: As a solution developer, configure an IoT Central application to do
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
