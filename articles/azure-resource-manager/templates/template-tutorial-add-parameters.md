@@ -89,7 +89,7 @@ You're ready to deploy again. Because the default SKU is set to **Standard_LRS**
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name addskuparameter `
+  -Name usedefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}"
@@ -99,7 +99,7 @@ New-AzResourceGroupDeployment `
 
 ```azurecli
 az deployment group create \
-  --name addskuparameter \
+  --name usedefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageName={your-unique-name}
@@ -116,7 +116,7 @@ To see the flexibility of your template, let's deploy again. This time set the S
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name addskuparameter `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
@@ -127,7 +127,7 @@ New-AzResourceGroupDeployment `
 
 ```azurecli
 az deployment group create \
-  --name usedefaultsku \
+  --name addskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
