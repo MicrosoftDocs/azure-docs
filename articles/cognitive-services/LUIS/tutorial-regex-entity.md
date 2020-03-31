@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity.
 ---
