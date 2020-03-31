@@ -469,7 +469,7 @@ The following Azure Monitor logs features behave differently in Azure Government
 For more information, see [Azure Monitor logs public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Scheduler
-For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md).
+For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.yml).
 
 ## Azure portal
 The Azure Government portal can be accessed [here](https://portal.azure.us).
