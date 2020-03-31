@@ -131,8 +131,10 @@ landingContent:
         links:
           - text: Search for an address (geocoding)
             url: how-to-search-for-address.md
-          - text: Best practices for search
+          - text: Best Practices using Search Service
             url: how-to-use-best-practices-for-search.md
+          - text: Best Practices using Route Service
+            url: how-to-use-best-practices-for-routing.md
           - text: Render custom data on static map
             url: how-to-render-custom-data.md
       - linkListType: reference

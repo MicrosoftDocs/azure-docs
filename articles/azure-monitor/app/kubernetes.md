@@ -55,7 +55,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up SSL termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
+> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up TLS termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
 
 Applications running outside of the service mesh are not affected.
 

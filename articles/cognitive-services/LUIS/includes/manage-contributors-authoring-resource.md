@@ -21,4 +21,4 @@ If you are **not the owner or administrator of your Azure subscription**, your A
 If you have trouble with this role assignment, review:
 
 * [Azure role assignments](../../../role-based-access-control/role-assignments-portal.md)
- * [Azure access control troubleshooting](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Azure access control troubleshooting](../../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)

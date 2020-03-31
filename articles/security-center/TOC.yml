@@ -66,6 +66,8 @@
       href: security-center-alerts-overview.md      
     - name: Reference list of alerts
       href: alerts-reference.md
+    - name: Alerts schemas
+      href: alerts-schemas.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
@@ -168,8 +170,6 @@
       href: security-center-apply-disk-encryption.md
     - name: Apply system updates
       href: security-center-apply-system-updates.md
-    - name: Install Endpoint Protection
-      href: security-center-install-endpoint-protection.md
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Alert confidence score

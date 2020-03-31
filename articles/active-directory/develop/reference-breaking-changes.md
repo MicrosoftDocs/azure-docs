@@ -123,7 +123,7 @@ If the Contoso gateway app were a multi-tenant application, however, then the re
 
 **Protocol impacted**: All flows
 
-Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as `https://contoso.com/oauth2?idp=microsoft`) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
 
 The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the request will be rejected.  If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter. 
 
