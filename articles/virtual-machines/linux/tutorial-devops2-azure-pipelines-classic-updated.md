@@ -36,9 +36,11 @@ Whether your app uses virtual machines, web apps, Kubernetes, or any other resou
  
 ## IaaS - Configure CI/CD 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for multi-machine deployments from Azure portal. 
-Configure CI/CD on Virtual Machines.
 
-Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine rolling updates. Deployment history views within Deployment groups provide traceability from VM to the pipeline and then to the commit. 
+
+**Configure CI/CD on Virtual Machines**
+
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine update. Based on your requirements, you can choose any one of deployment strategies, viz, Rolling, Canary, Blue-Green or can further customize them. Once deployed, Deployment history views within Deployment groups provides traceability from VM to the pipeline and then to the commit. 
  
 **Rolling Deployments**: A rolling deployment replaces instances of the previous version of an application with instances of the new version of the application on a fixed set of machines (rolling set) in each iteration. Let’s walkthrough how you can configure a rolling update to virtual machines.  
 You can configure rolling updates to your “**virtual machines**” within the Azure portal using continuous delivery option. 
@@ -50,9 +52,9 @@ Here is the step-by-step walkthrough.
 3. In the configuration panel, click on “Azure DevOps Organization” to select an existing account or create one. Then select the project under which you would like to configure the pipeline.  
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azdevops-project.png) 
 4. A deployment group is a logical set of deployment target machines that represent the physical environments; for example, "Dev", "Test", "UAT", and "Production". You can create a new deployment group or select an existing deployment group. 
-5. Select the build pipeline which publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ ) in _deployscripts_ folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time. 
+5. Select the build pipeline which publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time. 
 6. Select the deployment strategy of your choice. In this case, lets select _Rolling_.
-7. Finally you can optionally tag the machine with the role. For example, ‘web’, ‘db’ etc. This way the you can target VMs that have specific role only.
+7. Optionally, you can tag the machine with the role. For example, ‘web’, ‘db’ etc. This way the you can target VMs that have specific role only.
 8. Click **OK** on the dialog to configure the continuous delivery pipeline. 
 9. Once done, you will have a continuous delivery pipeline configured to deploy to the virtual machine.  
    ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azdevops-pipeline.png)
@@ -65,7 +67,7 @@ Here is the step-by-step walkthrough.
 14. From the configuration pane on the right, you can see that by default the pipeline is configured to do a rolling update to all targets in parallel. You can configure the deployments to happen either one at a time or in terms of percentage by using the slider.  
   
   
-**Canary** reduces the risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
+**Canary Deployments** reduces the risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
 You can configure canary deployments to your “**virtual machines**” with the Azure portal using continuous delivery option. 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
