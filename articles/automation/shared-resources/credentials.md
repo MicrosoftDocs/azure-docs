@@ -21,7 +21,7 @@ An Automation credential asset holds an object that contains security credential
 
 ## Azure PowerShell Az cmdlets used for credential assets
 
-For the Azure PowerShell Az module, the cmdlets in the following table are used to create and manage Automation credential assets with Windows PowerShell. They ship as part of the [Az.Automation module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), which is available for use in Automation runbooks and DSC configurations. See [Az module support in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/az-modules).
+For the Azure PowerShell Az module, the cmdlets in the following table are used to create and manage Automation credential assets with Windows PowerShell. They ship as part of the [Az.Automation module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0), which is available for use in Automation runbooks and DSC configurations. See [Az module support in Azure Automation](https://docs.microsoft.com/azure/automation/az-modules).
 
 | Cmdlet | Description |
 |:--- |:--- |
