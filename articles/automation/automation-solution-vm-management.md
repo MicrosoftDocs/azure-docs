@@ -106,8 +106,8 @@ All parent runbooks include the _WhatIf_ parameter. When set to **True**, _WhatI
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Called from the parent runbook. This runbook creates alerts on a per-resource basis for the AutoStop scenario.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True or False  | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> VMList: Comma-separated list of VMs. For example, _vm1, vm2, vm3_.<br> *WhatIf* validates the runbook logic without executing.|
 |AutoStop_Disable | none | Disables AutoStop alerts and default schedule.|
-|AutoStop_VM_Child | WebHookData | Called from the parent runbook. Alert rules call this runbook to stop the VM.|
-|AutoStop_VM_Child_ARM | WebHookData |Called from the parent runbook. Alert rules call this runbook to stop the classic VM.  |
+|AutoStop_VM_Child | WebHookData | Called from the parent runbook. Alert rules call this runbook to stop the classic VM.|
+|AutoStop_VM_Child_ARM | WebHookData |Called from the parent runbook. Alert rules call this runbook to stop the VM.  |
 |ScheduledStartStop_Base_Classic | |
 |ScheduledStartStop_Child | VMName <br> Action: Start or Stop <br> ResourceGroupName | Called from the parent runbook. Executes a start or stop action for the scheduled stop.|
 |ScheduledStartStop_Child_Classic |Called from the parent runbook. Executes a start or stop action for the scheduled stop for classic VMs. |
@@ -122,9 +122,9 @@ The following table lists the variables created in your Automation account. Only
 |---------|------------|
 |External_AutoStop_Condition | The conditional operator required for configuring the condition before triggering an alert. Acceptable values are **GreaterThan**, **GreaterThanOrEqual**, **LessThan**, and **LessThanOrEqual**.|
 |External_AutoStop_Description | The alert to stop the VM if the CPU percentage exceeds the threshold.|
-|External_AutoStop_Frequency | |
+|External_AutoStop_Frequency | The evaluation frequency for rule. This parameter accepts input in timespan format. Possible values are from 5 mins to 6 hours. |
 |External_AutoStop_MetricName | The name of the performance metric for which the Azure Alert rule is to be configured.|
-|External_AutoStop_Severity | |
+|External_AutoStop_Severity | Severity of the metric alert, which can range from 0 to 4. |
 |External_AutoStop_Threshold | The threshold for the Azure Alert rule specified in the variable _External_AutoStop_MetricName_. Percentage values can range from 1 to 100.|
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator, which is applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, and **Last**.|
 |External_AutoStop_TimeWindow | The window size during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
