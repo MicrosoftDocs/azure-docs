@@ -93,7 +93,7 @@ To lock down your application to accept traffic only from your specific Front Do
     > [!WARNING]
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
 
--    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. The same operation can also be done by referring your Front Door profile in Azure portal. In the 'Overview' section in Azure portal, you will see a field named *Front Door ID" and in the API call this field is called `frontdoorID`. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. 
+-    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. 
 
 ### Can the anycast IP change over the lifetime of my Front Door?
 
@@ -114,6 +114,9 @@ Learn more about the [Front Door supported HTTP headers](front-door-http-headers
 A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all of our POPs globally.
 
 Note - Custom SSL certificate updates take about 30 minutes to be deployed globally.
+
+Any updates to routes or backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage, unless switching from 'AFD Managed' to 'Use your own cert' or vice versa.
+
 
 ## Configuration
 
@@ -203,7 +206,7 @@ For having successful HTTPS connections to your backend whether for health probe
 
 1. **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the SSL handshake neither has `myapp-centralus.contosonews.net` nor `*myapp-centralus*.contosonews.net` in the subject name, the Front Door will refuse the connection and result in an error. 
     1. **Solution**: While it is not recommended from a compliance standpoint, you can workaround this error by disabling certificate subject name check for your Front Door. This is present under Settings in Azure portal and under BackendPoolsSettings in the API.
-2. **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs]() can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates are not allowed.
+2. **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs](/azure/frontdoor/front-door-troubleshoot-allowed-ca) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates are not allowed.
 
 ## Diagnostics and logging
 

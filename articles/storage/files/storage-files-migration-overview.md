@@ -65,7 +65,7 @@ A scenario without a link does not yet have a published migration guide. Check t
 | Windows Server 2012 R2 and newer | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync + DataBox](storage-sync-offline-data-transfer.md)</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 and older | <ul><li>Azure File Sync + DataBox</li><li>Storage Migration Service + Azure File Sync</li></ul> | <ul><li>Storage Migration Service + Azure File Sync</li><li>RoboCopy</li></ul> |
 | Network Attached Storage (NAS) | <ul><li>[Azure File Sync + RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Linux / Samba | <ul><li>RoboCopy + Azure File Sync</li></ul> | <ul><li>RoboCopy</li></ul> |
+| Linux / Samba | <ul><li>[RoboCopy + Azure File Sync](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | StorSimple 8100 / 8600 | <ul><li>[Azure File Sync + 8020 Virtual Appliance](storage-files-migration-storsimple-8000.md)</li></ul> | |
 | StorSimple 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 | | | |

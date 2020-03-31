@@ -1,12 +1,12 @@
 ---
 title: Create and query a Synapse SQL pool with Azure PowerShell
 description: Quickly create a Synapse SQL pool logical server with a server-level firewall rule using Azure PowerShell.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: development
+ms.subservice: 
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan

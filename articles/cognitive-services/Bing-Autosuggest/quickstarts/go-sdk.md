@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest 
 ms.topic: quickstart
-ms.date: 12/18/2019
+ms.date: 03/24/2020
 ms.author: aahi
 ---
 
@@ -122,12 +122,12 @@ Open `sample-app.go` and add the package name and import the following libraries
 package main
 
 import (
-	"context"
-	"fmt"
-	"github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest"
-	"github.com/Azure/go-autorest/autorest"
-	"log"
-	"os"
+    "context"
+    "fmt"
+    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest"
+    "github.com/Azure/go-autorest/autorest"
+    "log"
+    "os"
 )
 ```
 

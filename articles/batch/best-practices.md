@@ -81,7 +81,7 @@ A job is a container designed to contain hundreds, thousands, or even millions o
     Do not design a Batch solution that requires thousands simultaneously of active jobs. There is no quota for tasks, so executing as many tasks under as few jobs as possible efficiently uses your [job and job schedule quotas](batch-quota-limit.md#resource-quotas).
 
 - **Job lifetime**  
-    A Batch job has an indefinite lifetime until it's deleted from the system. A job’s state designates whether it can accept more tasks for scheduling or not. A job does not automatically move to completed state unless explicitly terminated. This can be automatically triggered through the [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) property or [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+    A Batch job has an indefinite lifetime until it's deleted from the system. A job's state designates whether it can accept more tasks for scheduling or not. A job does not automatically move to completed state unless explicitly terminated. This can be automatically triggered through the [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) property or [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
 
 There is a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state do not count towards this quota.
 
@@ -111,12 +111,12 @@ Tasks are individual units of work that comprise a job. Tasks are submitted by t
 
 ### Designing for retries and re-execution
 
-Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task’s [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). When a program specified in the task exits with a non-zero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
+Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task's [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). When a program specified in the task exits with a non-zero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
 
 Although rare, a task can be retried internally due to failures on the compute node, such as not being able to update internal state or a failure on the node while the task is running. The task will be retried on the same compute node, if possible, up to an internal limit before giving up on the task and deferring the task to be rescheduled by Batch, potentially on a different compute node.
 
 - **Build durable tasks**  
-    Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks “goal seeking”. Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run).
+    Tasks should be designed to withstand failure and accommodate retry. This is especially important for long running tasks. To do this, ensure tasks generate the same, single result even if they are run more than once. One way to achieve this is to make your tasks "goal seeking". Another way is to make sure your tasks are idempotent (tasks will have the same outcome no matter how many times they are run).
 
     A common example is a task to copy files to a compute node. A simple approach is a task that copies all the specified files every time it runs, which is inefficient and isn't built to withstand failure. Instead, create a task to ensure the files are on the compute node; a task that doesn't recopy files that are already present. In this way, the task picks up where it left off if it was interrupted.
 
