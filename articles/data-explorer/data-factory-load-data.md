@@ -141,6 +141,7 @@ The new Azure Data Explorer linked service is created to copy the data into the 
 
 > [!NOTE]
 > Use the [Azure Data Factory command activity to run Azure Data Explorer control commands](data-factory-command-activity.md) and use any of the [ingest from query commands](/azure/kusto/management/data-ingestion/ingest-from-query), such as `.set-or-replace`.
+
 #### Create the Azure Data Explorer linked service
 
 To create the Azure Data Explorer linked service, do the following steps:
