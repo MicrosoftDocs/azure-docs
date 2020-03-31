@@ -141,7 +141,7 @@ To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage
 
 Use a proof of concept to verify the end-to-end solution and test the copy throughput in your environment. Major proof-of-concept steps: 
 
-1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance.md#data-integration-units) as 128. 
+1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) as 128. 
 2. Based on the copy throughput you get in step 1, calculate the estimated time that's required for the entire data migration. 
 3. (Optional) Create a control table and define the file filter to partition the files to be migrated. The way to partition the files is to: 
 
