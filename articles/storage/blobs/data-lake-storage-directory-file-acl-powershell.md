@@ -41,7 +41,7 @@ This article shows you how to use PowerShell to create and manage directories, f
 2. Install the latest **PowershellGet** module. Then, close and reopen the PowerShell console.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force 
+   Install-Module PowerShellGet –Repository PSGallery –Force 
    ```
 
 3. Install **Az.Storage** preview module.
