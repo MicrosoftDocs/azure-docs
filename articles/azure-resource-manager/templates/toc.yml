@@ -46,9 +46,9 @@
       href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-single-database-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: virtual Machine Scale Sets - Linux
+    - name: Virtual machine scale sets - Linux
       href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: virtual Machine Scale Sets - Windows
+    - name: Virtual machine scale sets - Windows
       href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
