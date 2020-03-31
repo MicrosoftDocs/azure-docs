@@ -18,7 +18,7 @@ ms.author: memildin
 
 ## Combinations of environments <a name="vm-server"></a>
 
-Security Center supports virtual machines and servers on different types of hybrid environments:
+Azure Security Center supports virtual machines and servers on different types of hybrid environments:
 
 * Only Azure
 * Azure and on-premises
@@ -29,25 +29,25 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 
 ## Supported operating systems
 
-Azure Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
 * [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
 * [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
 
-Also ensure your Log Analytics agent is [properly configured to send data to Azure Security Center](security-center-enable-data-collection.md#manual-agent)
+Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
 
 > [!TIP]
-> To learn more about the specific Azure Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
+> To learn more about the specific Security Center features available on Windows and Linux, see [Feature coverage for machines](security-center-services.md).
 
 ## Managed virtual machine services <a name="virtual-machine"></a>
 
-Virtual machines are also created in a customer subscription as part of some Azure managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. These virtual machines are also discovered by Azure Security Center, and the Log analytics agent can be installed and configured according the supported operating systems, listed above.
+Virtual machines are also created in a customer subscription as part of some Azure-managed services as well, such as Azure Kubernetes (AKS), Azure Databricks, and more. Security Center discovers these virtual machines too, and the Log Analytics agent can be installed and configured if a supported OS is available.
 
 ## Cloud Services <a name="cloud-services"></a>
 
 Virtual machines that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-Protection for Virtual Machines residing in Azure Stack is also supported. For more information about Security Center's integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+Protection for VMs residing in Azure Stack is also supported. For more information about Security Center's integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## Next steps
 
