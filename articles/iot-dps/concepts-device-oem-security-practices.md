@@ -60,8 +60,7 @@ For more information, see [Autoprovisioning concepts](concepts-auto-provisioning
 ## Installing certificates on IoT devices
 When you start using certificates on IoT devices in a manufacturing process, you'll need to make several decisions.  These include decisions about common certificate variables, when to generate certificates, and when to install them. 
 
-> [!CAUTION]
-> If you're used to using passwords, you might ask why you can't use the same certificate in all your devices, in the same way that you'd be able to use the same password in all your devices. First, using the same password everywhere is dangerous. The practice has exposed companies to major DDoS attacks, including the one that took down DNS on the US East Coast several years ago. Never use the same password everywhere, even with personal accounts. Second, a certificate isn't a password, it's a unique identity. A password is like a secret code that anyone can use to open a door at a secured building.  It's something you know, and you could give the password to anyone to gain entrance.  A certificate is like a driver's license with your photo and other details, which you can show to a guard to get into a secured building. It's tied to who you are.  Provided that the guard accurately matches people with driver's licenses, only you can use your license (identity) to gain entrance. 
+If you're used to using passwords, you might ask why you can't use the same certificate in all your devices, in the same way that you'd be able to use the same password in all your devices. First, using the same password everywhere is dangerous. The practice has exposed companies to major DDoS attacks, including the one that took down DNS on the US East Coast several years ago. Never use the same password everywhere, even with personal accounts. Second, a certificate isn't a password, it's a unique identity. A password is like a secret code that anyone can use to open a door at a secured building.  It's something you know, and you could give the password to anyone to gain entrance.  A certificate is like a driver's license with your photo and other details, which you can show to a guard to get into a secured building. It's tied to who you are.  Provided that the guard accurately matches people with driver's licenses, only you can use your license (identity) to gain entrance. 
 
 ### Variables involved in certificate decisions
 Consider the following variables, and how each one impacts the overall manufacturing process. 
@@ -77,6 +76,9 @@ There are a few factors that impact the decision on where certificates are store
 - In a hardware security module (HSM). Using an HSM is highly recommended. Check whether your device's control board already has an HSM installed. If you know you don't have an HSM, work with your hardware manufacturer to identify an HSM that meets your needs.
 - In a secure place on disk such as a trusted execution environment (TEE).
 - In the local file system or a certificate store. For example, the Windows certificate store. 
+
+> [!NOTE]
+> Another option for storing certificates 
 
 #### Connectivity at the factory
 Connectivity at the factory determines how and when you'll get the certificates to install on the devices. Connectivity options are as follows:
@@ -172,7 +174,7 @@ Pro for shared symmetric key:
 Cons for shared symmetric key: 
 - Highly vulnerable to attack. The benefit of easy implementation is far outweighed by the risk. 
 - Anyone can impersonate your devices if they obtain the shared key.
-- You will likely lose control of devices if you rely on shared symmetric key. 
+- If you rely on a shared symmetric key that becomes compromised, you will likely lose control of the devices. 
 
 ### Making the right choice for your devices
 To choose an authentication method, make sure you consider the benefits and costs of each approach for your unique manufacturing process.  For device authentication, usually there's an inverse relationship between how secure a given approach is, and how convenient it is.  
