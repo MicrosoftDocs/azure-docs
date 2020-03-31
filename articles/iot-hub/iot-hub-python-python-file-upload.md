@@ -144,15 +144,17 @@ In this section, you create the device app to upload a file to IoT hub.
                     storage_info["correlationId"], False, result.status_code, str(result)
                 )
 
-            # Finally, disconnect the client
-            await device_client.disconnect()
-
         except Exception as ex:
             print("\nException:")
             print(ex)
 
         except KeyboardInterrupt:
             print ( "\nIoTHubDeviceClient sample stopped" )
+
+        finally:
+            # Finally, disconnect the client
+            await device_client.disconnect()
+
 
     if __name__ == "__main__":
         asyncio.run(main())
@@ -185,7 +187,7 @@ Now you're ready to run the application.
 
 3. You can use the portal to view the uploaded file in the storage container you configured:
 
-    ![Uploaded file](./media/iot-hub-python-python-file-upload/2.png)
+    ![Uploaded file](./media/iot-hub-python-python-file-upload/view-blob.png)
 
 ## Next steps
 
