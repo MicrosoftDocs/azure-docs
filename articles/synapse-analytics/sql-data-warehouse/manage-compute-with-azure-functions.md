@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Manage compute with Azure Functions'
 description: How to use Azure functions to manage the compute of your SQL pool in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: julieMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: 
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
