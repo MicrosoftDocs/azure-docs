@@ -17,25 +17,34 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn to use the interpretability package of the Azure Machine Learning Python SDK to understand how your feature values have impacted the model predictions. You learn how to:
+In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
-* [Part 1] Explain the entire model behavior (Part 1.1) or individual predictions (Part 1.2) on your personal machine. Learn how to enable the interpretability techniques to explain models trained using engineered features (Part 1.3).
 
-* [Part 2] Explain the entire model behavior or individual predictions on remote compute resources, and store your model's feature importance values on Azure Run History.
+* Explain the entire model behavior or individual predictions on your personal machine locally.
+
+* Enable interpretability techniques for engineered features.
+
+* Explain the behavior for the entire model and individual predictions in Azure.
 
  
-* [Part 3] Use a visualization dashboard to interact with your model explanations in Jupyter notebook or via [Azure Machine Learning studio](https://ml.azure.com).
+* Use a visualization dashboard to interact with your model explanations.
 
-* [Part 4] Deploy a scoring explainer alongside your model to observe model explanations at scoring time.
+* Deploy a scoring explainer alongside your model to observe explanations during inferencing.
+
+
 
 For more information on the supported interpretability techniques and machine learning models, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
 
-## [Part 1] Generate feature importance value on your personal machine 
+## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
 
-1. If needed, use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` to get the interpretability packages.
+1. Install `azureml-interpret` and `azureml-interpret-contrib` packages.
+    ```bash
+    pip install azureml-interpret
+    pip install azureml-interpret-contrib
+    ```
 
-1. Train a sample model in a local Jupyter notebook.
+2. Train a sample model in a local Jupyter notebook.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -55,7 +64,7 @@ The following example shows how to use the interpretability package on your pers
     model = clf.fit(x_train, y_train)
     ```
 
-1. Call the explainer locally.
+3. Call the explainer locally.
    * To initialize an explainer object, pass your model and some training data to the explainer's constructor.
    * To make your explanations and visualizations more informative, you can choose to pass in feature names and output class names if doing classification.
 
@@ -110,7 +119,7 @@ The following example shows how to use the interpretability package on your pers
                              classes=classes)
     ```
 
-### [Part 1.1] Explain the entire model behavior (global explanation) 
+### Explain the entire model behavior (global explanation) 
 
 Refer to the following example to help you get the aggregate (global) feature importance values.
 
@@ -131,7 +140,7 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### [Part 1.2] Explain an individual prediction (local explanation)
+### Explain an individual prediction (local explanation)
 Get the individual feature importance values of different datapoints by calling explanations for an individual instance or a group of instances.
 > [!NOTE]
 > `PFIExplainer` does not support local explanations.
@@ -145,7 +154,7 @@ sorted_local_importance_names = local_explanation.get_ranked_local_names()
 sorted_local_importance_values = local_explanation.get_ranked_local_values()
 ```
 
-### [Part 1.3] Raw feature transformations
+### Raw feature transformations
 
 You can opt to get explanations in terms of raw, untransformed features rather than engineered features. For this option, you pass your feature transformation pipeline to the explainer in `train_explain.py`. Otherwise, the explainer provides explanations in terms of engineered features.
 
@@ -219,15 +228,18 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=transformations)
 ```
 
-## [Part 2] Generate feature importance values via remote runs
+## Generate feature importance values via remote runs
 
 The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It is conceptually similar to the local process, except you:
 
 * Use the `ExplanationClient` in the remote run to upload the interpretability context.
 * Download the context later in a local environment.
 
-1. If needed, use `pip install azureml-contrib-interpret` to get the necessary package.
-
+1. Install `azureml-interpret` and `azureml-interpret-contrib` packages.
+    ```bash
+    pip install azureml-interpret
+    pip install azureml-interpret-contrib
+    ```
 1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
 
     ```python
@@ -280,11 +292,11 @@ The following example shows how you can use the `ExplanationClient` class to ena
     ```
 
 
-## [Part 3] Visualizations
+## Visualizations
 
 After you download the explanations in your local Jupyter notebook, you can use the visualization dashboard to understand and interpret your model.
 
-### Understand entire model behavior 
+### Understand entire model behavior (global explanation) 
 
 The following plots provide an overall view of the trained model along with its predictions and explanations.
 
@@ -298,7 +310,7 @@ The following plots provide an overall view of the trained model along with its 
 
 [![Visualization Dashboard Global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
 
-### Understand individual predictions
+### Understand individual predictions (local explanation) 
 
 You can load the individual feature importance plot for any data point by clicking on any of the individual data points in any of the overall plots.
 
@@ -343,7 +355,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### Visualization in Azure Machine Learning studio
 
-If you complete the [remote interpretability](#interpretability-for-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above (explanation exploration and ICE plots are disabled as there is no active compute in studio that can perform their real time computations). 
+If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#interpretability-for-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above (explanation exploration and ICE plots are disabled as there is no active compute in studio that can perform their real time computations).
 
 
 
@@ -362,7 +374,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), you can select **Models** in the left pane to view it.
   1. Select a model, and then the **Explanations** tab to view the explanation visualization dashboard.
 
-## [Part 4] Interpretability at inference time
+## Interpretability at inference time
 
 You can deploy the explainer along with the original model and use it at inference time to provide the individual feature importance values (local explanation) for new any new datapoint. We also offer lighter-weight scoring explainers to improve interpretability performance at inference time. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
 

@@ -20,11 +20,11 @@ ms.date: 10/25/2019
 
 Interpretability is critical for data scientists, auditors, and business decision makers alike to ensure compliance with company policies, industry standards, and government regulations:
 
-+ Data scientists need the ability to explain their models to executives and stakeholders, so they can understand the value and accuracy of their findings. The also require interpretability to debug their models and make informed decisions about how to improve them. 
++ Data scientists need the ability to explain their models to executives and stakeholders, so they can understand the value and accuracy of their findings. They also require interpretability to debug their models and make informed decisions about how to improve them. 
 
 + Legal auditors require tools to validate models with respect to regulatory compliance and monitor how models' decisions are impacting humans. 
 
-+ Business decision makers need peace-of-mind by having the ability to provide transparency for end users to gain and maintain their trust.
++ Business decision makers need peace-of-mind by having the ability to provide transparency for end users. This allows them to earn and maintain trust.
 
 
 Enabling the capability of explaining a machine learning model is important during two main phases of model development:
@@ -63,12 +63,12 @@ In machine learning, **features** are the data fields used to predict a target d
 to predict credit risk, data fields for age, account size, and account age might be used. In this case,
 age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
 
-Learn about [Part 1] supported interpretability techniques, [Part 2] supported machine learning models, and [Part 3] supported run environments here.
+Learn about supported interpretability techniques, supported machine learning models, and supported run environments here.
 
 
-### [Part 1] Supported interpretability techniques
+## Supported interpretability techniques
 
-This package uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
+ `azureml-interpret` uses the interpretability techniques developed in [Interpret-Community](https://github.com/interpretml/interpret-community/), an open source python package for training interpretable models and helping to explain blackbox AI systems. [Interpret-Community](https://github.com/interpretml/interpret-community/) serves as the host for this SDK's supported explainers, and currently supports the following interpretability techniques:
 
 |Interpretability Technique|Description|Type|
 |--|--|--------------------|
@@ -82,13 +82,12 @@ This package uses the interpretability techniques developed in [Interpret-Commun
 
 
 
-Besides the interpretability techniques described above, we support another [SHAP](https://github.com/slundberg/shap)-based explainer, called `TabularExplainer`, which employs the following logic to automatically invoke one of the supported [SHAP](https://github.com/slundberg/shap) explainers (explainers 1-4 above):
+Besides the interpretability techniques described above, we support another [SHAP-based explainer](https://github.com/slundberg/shap), called `TabularExplainer`. Depending on the model, `TabularExplainer` uses one of the supported SHAP explainers:
 
-    1. If it is a tree-based model, apply SHAP `TreeExplainer`, else
-    2. If it is a DNN model, apply SHAP `DeepExplainer`, else
-    3. If it is a linear model, apply SHAP `LinearExplainer`, else
-    3. Treat it as a black-box model and apply SHAP `KernelExplainer`
-
+* TreeExplainer for all tree-based models
+* DeepExplainer for DNN models
+* LinearExplainer for linear models
+* KernelExplainer for all other models
 
 `TabularExplainer` has also made significant feature and performance enhancements over the direct SHAP Explainers:
 
@@ -100,15 +99,21 @@ The following diagram shows the current structure of supported explainers.
 [![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability/interpretability-architecture.png)](./media/how-to-machine-learning-interpretability/interpretability-architecture.png#lightbox)
 
 
-### [Part 2] Supported machine learning models
+## Supported machine learning models
 
-Any models that are trained on datasets in Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, or `scipy.sparse.csr_matrix` format are supported by the interpretability `azureml.interpret` package of the SDK.
+The `azureml.interpret` package of the SDK supports models trained with the following dataset formats:
+- `numpy.array`
+- `pandas.DataFrame`
+- `iml.datatypes.DenseData`
+- `scipy.sparse.csr_matrix`
 
-The explanation functions accept both models and pipelines as input. If a model is provided, the model must implement the prediction function `predict` or `predict_proba` that conforms to the Scikit convention. If your model does not support this, you can wrap your model in a function that generates the same outcome as `predict` or `predict_proba` in Scikit and pass that wrapper function to the selected explainer. If a pipeline (name of the pipeline script) is provided, the explanation function assumes that the running pipeline script returns a prediction. Using this wrapping technique, `azureml.interpret` can support models trained via PyTorch, TensorFlow, and Keras deep learning frameworks as well as classic machine learning models.
+The explanation functions accept both models and pipelines as input. If a model is provided, the model must implement the prediction function `predict` or `predict_proba` that conforms to the Scikit convention. If your model does not support this, you can wrap your model in a function that generates the same outcome as `predict` or `predict_proba` in Scikit and use that wrapper function with the selected explainer. If a pipeline is provided, the explanation function assumes that the running pipeline script returns a prediction. Using this wrapping technique, `azureml.interpret` can support models trained via PyTorch, TensorFlow, and Keras deep learning frameworks as well as classic machine learning models.
 
-### [Part 3] Local and remote compute target
+## Local and remote compute target
 
-The `azureml.interpret` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into the Azure Machine Learning Run History Service. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning studio for user analysis.
+The `azureml.interpret` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. 
+
+You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into the Azure Machine Learning Run History Service. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning studio for user analysis.
 
 
 ## Next steps
