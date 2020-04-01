@@ -19,7 +19,7 @@ The language extensions feature allows you to use language extension plugins to 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md)
+* Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md).
 
 ## Enable language extensions on your cluster
 
@@ -40,8 +40,8 @@ Do the following steps to enable language extensions on your cluster:
  
 ## Run language extension-integrated queries
 
-* Learn how to [run Python integrated KQL queries](/azure/kusto/query/pythonplugin)
-* Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin) 
+* Learn how to [run Python integrated KQL queries](/azure/kusto/query/pythonplugin).
+* Learn how to [run R integrated KQL queries](/azure/kusto/query/rplugin). 
 
 ## Disable language extensions on your cluster
 
