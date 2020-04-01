@@ -74,11 +74,6 @@ Add the following code to the **Main** method of the **Program** class. This cod
 ```csharp
         static void Main(string[] args)
         {
-
-            // Explicitly set TLS 1.2.
-            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
-                SecurityProtocolType.Tls12;
-
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
             Console.Write(

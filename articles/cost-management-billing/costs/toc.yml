@@ -22,6 +22,8 @@
     items:
     - name: Azure Cost Management best practices
       href: cost-mgt-best-practices.md
+    - name: Choose between Cost Management and Cloudyn
+      href: choose-between-azure-cost-management-cloudyn.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
@@ -30,6 +32,8 @@
       href: migrate-cost-management-api.md
   - name: How-to guides
     items:
+    - name: Prevent and analyze unexpected charges
+      href: ../manage/getting-started.md
     - name: Assign access to data
       href: assign-access-acm-data.md
     - name: Use cost analysis for common tasks

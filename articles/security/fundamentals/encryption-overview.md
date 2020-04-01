@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: barclayn
+ms.author: mbaldwin
 ---
 # Azure encryption overview
 
@@ -84,7 +84,7 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 #### Transparent Data Encryption
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), and [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), and [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and Triple Data Encryption Standard (3DES) encryption algorithms. Encryption of the database file is performed at the page level. The pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 

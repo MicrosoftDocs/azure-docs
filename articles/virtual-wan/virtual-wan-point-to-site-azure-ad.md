@@ -27,7 +27,6 @@ In this article, you learn how to:
 > * Connect a VNet to a hub
 > * Download and apply the VPN client configuration
 > * View your virtual WAN
-> * View resource health
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -182,13 +181,8 @@ Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 ## <a name="viewwan"></a>View your virtual WAN
 
 1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
+2. On the Overview page, each point on the map represents a hub.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
 
 ## <a name="cleanup"></a>Clean up resources

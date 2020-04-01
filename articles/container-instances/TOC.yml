@@ -59,6 +59,8 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Deploy with GitHub Actions (preview)
+      href: container-instances-github-action.md
     - name: Encrypt deployment data
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts

@@ -15,6 +15,8 @@ ms.author: diberry
 
 # What is Personalizer?
 
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
 Azure Personalizer is a cloud-based API service that helps your client application choose the best, single _content_ item to show each user. The service selects the best item, from content items, based on collective real-time information you provide about content and context.
 
 After you present the content item to your user, your system monitors user behavior and reports a reward score back to Personalizer to improve its ability to select the best content based on the context information it receives.
@@ -53,7 +55,7 @@ Personalizer used reinforcement learning to select the single best action, known
 
 Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
 
-Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
+Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. The reward score is between 0 and 1. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
 
 ## Personalizer content requirements
 

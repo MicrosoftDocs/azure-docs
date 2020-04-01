@@ -11,17 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
 # Tutorial: Use deployment scripts to create a self-signed certificate (Preview)
 
-Learn how to use deployment scripts in Azure Resource Manage templates. Deployment scripts can be used to perform custom steps that can't be done by Resource Manager templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in Azure Resource Manager templates](./deployment-script-template.md).
-
-> [!NOTE]
-> The deployment script is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews).
+Learn how to use deployment scripts in Azure Resource Manage (ARM) templates. Deployment scripts can be used to perform custom steps that can't be done by ARM templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in ARM templates](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean up deployment script resources](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -39,7 +36,7 @@ This tutorial covers the following tasks:
 
 To complete this article, you need:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Use Visual Studio Code to create ARM templates](./use-vs-code-to-create-template.md).
 
 * **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -58,7 +55,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates.
+Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for ARM templates.
 
 The template used in this quickstart is called [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/101-key-vault-create/). The template creates a key vault, and then adds a secret to the key vault.
 
@@ -344,7 +341,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use deployment script in Azure Resource Manager templates. To learn how to deploy Azure resources based on conditions, see:
+In this tutorial, you learned how to use deployment script in ARM templates. To learn how to deploy Azure resources based on conditions, see:
 
 > [!div class="nextstepaction"]
 > [Use conditions](./template-tutorial-use-conditions.md)

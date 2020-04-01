@@ -283,7 +283,7 @@ The URL appears in the output of this command. Your script can then download AzC
 
 ### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an additional `%` character next to existing `%` characters in the SAS token string.
 
 ### Run scripts by using Jenkins
 
