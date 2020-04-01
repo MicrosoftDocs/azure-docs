@@ -87,20 +87,19 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
 |*.wvd.microsoft.com|443|Service traffic|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Agent, SXS stack updates, and Agent traffic|AzureCloud|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Agent and SXS stack updates|AzureCloud|
 |*.core.windows.net|443|Agent traffic|AzureCloud|
 |*.servicebus.windows.net|443|Agent traffic|AzureCloud|
 |prod.warmpath.msftcloudes.com|443|Agent traffic|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
-|kms.core.windows.net|1688|Windows activation|None|
-|*.microsoftonline.com|443|Authentication to MS Online Services|None|
-|*.events.data.microsoft.com|443|Telemetry Service|None|
+|kms.core.windows.net|1688|Windows activation|Internet|
+
 
 
 >[!IMPORTANT]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
 
-Here are a list of URLs that are optional for your Azure virtual machines to hve access to:
+The following table lists optional URLs that your Azure virtual machines can have access to:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
@@ -116,7 +115,7 @@ Here are a list of URLs that are optional for your Azure virtual machines to hve
 >[!NOTE]
 >Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can whitelist to allow network traffic. We only support whitelisting specific URLs at this time.
 >
->For Office related URL’s, visit https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges. This documentation also covers required AAD related URL’s.
+>For a list of Office-related URLs, including required Azure Active Directory-related URLs, see [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges).
 >
 >You must use the wildcard character (*) for URLs involving service traffic. If you prefer to not use * for agent-related traffic, here's how to find the URLs without wildcards:
 >
