@@ -1,6 +1,6 @@
 ---
 title: Build integrated solutions
-description: Solution tools and partners that integrate with a data warehouse provisioned using SQL Analytics.
+description: Solution tools and partners that integrate with a Synapse SQL pool.
 services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
@@ -13,8 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Integrate other services with a SQL Analytics data warehouse 
-The SQL Analytics capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Using SQL Analytics, you can create a data warehouse via its SQL Pool resource, which can then utilize several additional services, some of which include:
+# Integrate other services with a Synapse SQL pool
+
+The Synapse SQL pool capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Using Synapse SQL, you can create a data warehouse via its SQL pool resource, which can then utilize several additional services, some of which include:
 
 * Power BI
 * Azure Data Factory
