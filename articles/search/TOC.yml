@@ -261,7 +261,7 @@
       href: search-example-adventureworks-multilevel-faceting.md
   - name: Results
     items:
-    - name: Page-related features
+    - name: Work with results
       href: search-pagination-page-layout.md
     - name: Relevance tuning (scoring profiles)    
       href: index-add-scoring-profiles.md

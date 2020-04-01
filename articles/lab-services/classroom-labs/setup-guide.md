@@ -76,7 +76,7 @@ Lab Services uses a pay-as-you go pricing model which means that you only pay fo
 Students are each assigned their own VM that is assigned to them for the lifetime of the lab.  They can choose to:
 
 - Save directly to the VM.
-- Save to an external repository, such as OneDrive, GitHub, etc.
+- Save to an external location, such as OneDrive, GitHub, etc.
 
 To use OneDrive, you may choose to configure this automatically for students on their lab VMs.  Additional information on this is provided below.
 
@@ -130,7 +130,7 @@ Once you understand the requirements for your class's lab, you are ready to set 
         > [!NOTE]
         > Depending on the type of OS you have installed, a VM may take several minutes to start.  To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start VMs 30 minutes in advance to ensure that VMs are running and ready for use.
 
-   - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) and [set additional quota for a specific user](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
+   - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) and [set additional quota for a specific user](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
