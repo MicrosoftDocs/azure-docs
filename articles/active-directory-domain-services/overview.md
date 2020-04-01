@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/22/2020
+ms.date: 03/30/2020
 ms.author: iainfou
 
 #Customer intent: As an IT administrator or decision maker, I want to understand what Azure AD DS is and how it can benefit my organization.
@@ -49,7 +49,7 @@ Azure AD DS offers alternatives to the need to create VPN connections back to an
 
 ## Azure AD DS features and benefits
 
-To provide identity services to applications and VMs in the cloud, Azure AD DS is fully compatible with a traditional AD DS environment for operations such as domain-join, secure LDAP (LDAPS), Group Policy and DNS management, and LDAP bind and read support. LDAP write support is available for objects created in the Azure AD DS managed domain, but not resources synchronized from Azure AD. The following features of Azure AD DS simplify deployment and management operations:
+To provide identity services to applications and VMs in the cloud, Azure AD DS is fully compatible with a traditional AD DS environment for operations such as domain-join, secure LDAP (LDAPS), Group Policy, DNS management, and LDAP bind and read support. LDAP write support is available for objects created in the Azure AD DS managed domain, but not resources synchronized from Azure AD. The following features of Azure AD DS simplify deployment and management operations:
 
 * **Simplified deployment experience:** Azure AD DS is enabled for your Azure AD tenant using a single wizard in the Azure portal.
 * **Integrated with Azure AD:** User accounts, group memberships, and credentials are automatically available from your Azure AD tenant. New users, groups, or changes to attributes from your Azure AD tenant or your on-premises AD DS environment are automatically synchronized to Azure AD DS.
@@ -69,7 +69,7 @@ For hybrid environments that run AD DS on-premises, you don't need to manage AD 
 
 ## How does Azure AD DS work?
 
-To provide identity services, Azure creates an AD DS instance on a virtual network of your choice. Behind the scenes, a pair of Windows Server domain controllers is created that run on Azure VMs. You don't need to manage, configure, or update these domain controllers. The Azure platform manages the domain controllers as part of the Azure AD DS service.
+To provide identity services, Azure creates an AD DS instance on a virtual network of your choice. Behind the scenes, a pair of Windows Server domain controllers are created that run on Azure VMs. You don't need to manage, configure, or update these domain controllers. The Azure platform manages the domain controllers as part of the Azure AD DS service.
 
 The Azure AD DS managed domain is configured to perform a one-way synchronization from Azure AD to provide access to a central set of users, groups, and credentials. You can create resources directly in the Azure AD DS managed domain, but they aren't synchronized back to Azure AD. Applications, services, and VMs in Azure that connect to this virtual network can then use common AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
 
