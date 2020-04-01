@@ -1,6 +1,6 @@
 ---
 title: Verify encryption status for Linux - Azure Disk Encryption
-description: This article provides instructions on verifying the encryption status from the platform and OS level.
+description: This article provides instructions on verifying the encryption status from the platform and OS levels.
 author: kailashmsft
 ms.service: security
 ms.topic: article
@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Verify encryption status for Linux 
 
-The scope of this article is to validate the encryption status of a virtual machine by using different methods: the Azure portal, PowerShell, the Azure CLI, or the OS of the virtual machine (VM). 
+The scope of this article is to validate the encryption status of a virtual machine by using different methods: the Azure portal, PowerShell, the Azure CLI, or the operating system of the virtual machine (VM). 
 
 You can validate the encryption status during or after the encryption, by either:
 
@@ -29,13 +29,11 @@ This scenario applies for Azure Disk Encryption dual-pass and single-pass extens
 
 ## Portal
 
-Validate the encryption status by checking the extensions section on the Azure portal.
-
 In the Azure portal, inside the **Extensions** section, select the Azure Disk Encryption extension in the list. The information for **Status message** indicates the current encryption status:
 
 ![Portal check with status, version, and status message highlighted](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
-In the list of extensions, you'll see the corresponding Azure Disk Encryption extension version. Version 0.x corresponds to Azure Disk Encryption dual-pass, and version 1.x corresponds to Azure Disk Encryption single-pass.
+In the list of extensions, you'll see the corresponding Azure Disk Encryption extension version. Version 0.x corresponds to Azure Disk Encryption dual pass, and version 1.x corresponds to Azure Disk Encryption single pass.
 
 You can get more details by selecting the extension and then selecting **View detailed status**. The detailed status of the encryption process appears in JSON format.
 
@@ -48,11 +46,11 @@ Another way to validate the encryption status is by looking at the **Disk settin
 ![Encryption status for OS disk and data disks](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
 >[!NOTE] 
-> This status means the disks have encryption settings stamped but not that they were actually encrypted at the OS level.
+> This status means the disks have encryption settings stamped, not that they were actually encrypted at the OS level.
 >
 > By design, the disks are stamped first and encrypted later. If the encryption process fails, the disks may end up stamped but not encrypted. 
 >
-> To confirm if the disks are truly encrypted, you can double check the encryption of each disk at OS level.
+> To confirm if the disks are truly encrypted, you can double check the encryption of each disk at the OS level.
 
 ## PowerShell
 
@@ -68,7 +66,7 @@ You can validate the *general* encryption status of an encrypted VM by using the
 You can capture the encryption settings from each disk by using the following PowerShell commands.
 
 ### Single pass
-In a single pass, the encryption settings are stamped on each of the disks (OS and data). You can capture the encryption settings for an OS disk in a single pass, as follows:
+In a single pass, the encryption settings are stamped on each of the disks (OS and data). You can capture the encryption settings for an OS disk in a single pass as follows:
 
 ``` powershell
 $RGNAME = "RGNAME"
@@ -137,7 +135,7 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
-![Encyption settings in a dual pass](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
+![Encryption settings in a dual pass](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
 ### Unattached disks
 
@@ -168,7 +166,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ![General encryption status from the Azure CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
 ### Single pass
-You can validate the encryption settings from each individual disk by using the following Azure CLI commands:
+You can validate the encryption settings for each disk by using the following Azure CLI commands:
 
 ```bash
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
@@ -177,7 +175,7 @@ az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuse
 ![Data encryption settings](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> If the disk doesn't have encryption settings stamped, you'll see the message "Disk is not encrypted."
+> If the disk doesn't have encryption settings stamped, you'll see the text **Disk is not encrypted**.
 
 Use the following commands to get detailed status and encryption settings.
 
@@ -228,7 +226,8 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
 ![General encryption settings for dual pass via the Azure CLI](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png)
-You can also check the Encryption settings on the VM Model Storage profile of the OS disk:
+
+You can also check the encryption settings on the VM Model Storage profile of the OS disk:
 
 ```bash
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
@@ -266,7 +265,7 @@ echo "==========================================================================
 
 Unmanaged disks are VHD files that are stored as page blobs in Azure storage accounts.
 
-To get the details of a specific disk, you need to provide:
+To get the details for a specific disk, you need to provide:
 
 - The ID of the storage account that contains the disk.
 - A connection string for that particular storage account.
@@ -308,7 +307,7 @@ Use this command to list all the blobs on a particular container:
 ```bash 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-Choose the disk you want to query and store its name on a variable:
+Choose the disk that you want to query and store its name on a variable:
 ```bash
 DiskName="diskname.vhd"
 ```
@@ -328,14 +327,14 @@ lsblk
 
 ![OS crypt layer for a partition](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-You can get more details using the following **lsblk** variant. 
+You can get more details by using the following **lsblk** variant. 
 
 You'll see a **crypt** type layer that is mounted by the extension. The following example shows logical volumes and normal disks having **crypto\_LUKS FSTYPE**.
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 ```
-![OS crypt layer for logial volumes and normal disks](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
+![OS crypt layer for logical volumes and normal disks](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
 
 As an extra step, you can validate if the data disk has any keys loaded:
 
