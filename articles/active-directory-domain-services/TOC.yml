@@ -93,6 +93,8 @@
           href: security-audit-events.md
         - name: Analyze audit events with Azure Monitor Workbooks
           href: use-azure-monitor-workbooks.md
+        - name: Secure remote access to VMs
+          href: secure-remote-vm-access.md
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template
@@ -143,13 +145,9 @@
       href: faqs.md
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
-    - name: Compatible third-party software
-      href: compatible-software.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory-ds/
     - name: Azure AD feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
-    - name: Contact us
-      href: contact-us.md
     - name: Use Azure AD Domain Services in Azure CSP subscriptions
       href: csp.md
