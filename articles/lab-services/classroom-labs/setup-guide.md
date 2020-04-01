@@ -130,7 +130,7 @@ Once you understand the requirements for your class's lab, you are ready to set 
         > [!NOTE]
         > Depending on the type of OS you have installed, a VM may take several minutes to start.  To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start VMs 30 minutes in advance to ensure that VMs are running and ready for use.
 
-   - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) and [set additional quota for a specific user](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
+   - [Set quotas for users](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) and [set additional quota for a specific user](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Enable automatic shutdown on disconnect](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
