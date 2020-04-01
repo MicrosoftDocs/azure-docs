@@ -1,5 +1,5 @@
 ---
-title: Release Notes - Speech service
+title: Release Notes - Speech Service
 titleSuffix: Azure Cognitive Services
 description: A running log of Speech Service feature releases, improvements, bug fixes, and known issues.
 services: cognitive-services
