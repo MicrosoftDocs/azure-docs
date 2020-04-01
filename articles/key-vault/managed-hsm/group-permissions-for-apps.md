@@ -1,6 +1,6 @@
 ﻿---
-title: Grant permission to applications to access an Azure key vault - Azure Key Vault | Microsoft Docs
-description: Learn how to grant permission to many applications to access a key vault
+title: Grant permission to applications to access a Managed HSM - Managed HSM | Microsoft Docs
+description: Learn how to grant permission to many applications to access a Managed HSM
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -13,42 +13,35 @@ ms.date: 09/27/2019
 ms.author: mbaldwin
 
 ---
-# Provide Key Vault authentication with an access control policy
+# Provide Managed HSM authentication with an access control policy
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The simplest way to authenticate a cloud-based application to Key Vault is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details.  If you are creating an on-prem application, doing local development, or otherwise unable to use a managed identity, you can instead register a service principal manually and provide access to your key vault using an access control policy.  
+The simplest way to authenticate a cloud-based application to Managed HSM is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details.  If you are creating an on-premises application, doing local development, or otherwise unable to use a managed identity, you can instead register a service principal manually and provide access to your Managed HSM using an access control policy.  
 
-Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a "principal":   For example, this is how the console app in the [Azure Key Vault client library for .NET quickstart](quick-create-net.md) accesses the key vault.
+Managed HSM supports up to ??1024??? access policy entries, with each entry granting a distinct set of permissions to a "principal":   For example, this is how the console app in the [Azure Key Vault client library for .NET quickstart](quick-create-net.md) accesses the Managed HSM.
 
-For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). For full details on [Keys, Secrets, and Certificates](about-keys-secrets-and-certificates.md) access control, see: 
-
-- [Keys access control](about-keys-secrets-and-certificates.md#key-access-control)
-- [Secrets access control](about-keys-secrets-and-certificates.md#secret-access-control)
-- [Certificates access control](about-keys-secrets-and-certificates.md#certificate-access-control)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
-- A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
-   - [Create a key vault with the Azure CLI](quick-create-cli.md)
-   - [Create a key vault with Azure PowerShell](quick-create-powershell.md)
-   - [Create a key vault with the Azure portal](quick-create-portal.md).
+- A Managed HSM. You can use an existing Managed HSM, or create a new one by following the steps in one of the quickstarts.
+   - [Create a Managed HSM with the Azure CLI](quick-create-cli.md)
+   - [Create a Managed HSM with Azure PowerShell](quick-create-powershell.md)
+   - [Create a Managed HSM with the Azure portal](quick-create-portal.md).
 - The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](https://portal.azure.com).
 
-## Grant access to your key vault
+## Grant access to your Managed HSM
 
-Each key vault access policy entry grants a distinct set of permissions to a principal:
+Each Managed HSM access policy entry grants a distinct set of permissions to a principal:
 
 - **An application** If the application is cloud-based, you should instead [Use an managed identity to access Azure Key Vault](managed-identity.md), if possible
-- **An Azure AD group** Although key vault only supports 1024 access policy entries, you can add multiple applications and users to a single Azure AD group, and then add that group as a single entry to your access control policy.
-- **A User** Giving users direct access to a key vault is **discouraged**. Ideally, users should be added to an Azure AD group, which is in turn given access to the key vault. See [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management).
+- **An Azure AD group** Although Managed HSM only supports ???1024??? access policy entries, you can add multiple applications and users to a single Azure AD group, and then add that group as a single entry to your access control policy.
+- **A User** Giving users direct access to a Managed HSM is **discouraged**. Ideally, users should be added to an Azure AD group, which is in turn given access to the Managed HSM. 
 
 
 ### Get the objectID
 
-To give an application, Azure AD group, or user access to your key vault, you must first obtain its objectId.
+To give an application, Azure AD group, or user access to your Managed HSM, you must first obtain its objectId.
 
 #### Applications
 
@@ -106,7 +99,7 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 
 #### Users
 
-You can also add an individual user to an key vault's access control policy. **We do not recommend this.** We instead encourage you to add users to an Azure AD group, and add the group on the policies.
+You can also add an individual user to an Managed HSM's access control policy. **We do not recommend this.** We instead encourage you to add users to an Azure AD group, and add the group on the policies.
 
 If you nonetheless wish to find a user with the Azure CLI, use the [az ad user show](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) command, passing the users email address to the `--id` parameter.
 
@@ -138,9 +131,9 @@ Id                : f76a2a6f-3b6d-4735-9abd-14dccbf70fd9
 Type              :
 ```
 
-### Give the principal access to your key vault
+### Give the principal access to your Managed HSM
 
-Now that you have an objectID of your principal, you can create an access policy for your key vault that gives it get, list, set, and delete permissions for both keys and secrets, plus any additional permissions you wish.
+Now that you have an objectID of your principal, you can create an access policy for your Managed HSM that gives it get, list, set, and delete permissions for keys, plus any additional permissions you wish.
 
 With the Azure CLI, this is done by passing the objectId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
 
@@ -157,7 +150,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 ## Creating and adding members to an Azure AD group
 
-You can create an Azure AD group, add applications and users to the group, and give the group access to your key vault.  This allows you to add a number of applications to a key vault as a single access policy entry, and eliminates the need to give users direct access to your key vault (which we discourage). For more details, see [Manage app and resource access using Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md).
+You can create an Azure AD group, add applications and users to the group, and give the group access to your Managed HSM.  This allows you to add a number of applications to a Managed HSM as a single access policy entry, and eliminates the need to give users direct access to your Managed HSM (which we discourage). For more details, see [Manage app and resource access using Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md).
 
 ### Additional prerequisites
 
