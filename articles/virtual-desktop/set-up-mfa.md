@@ -60,7 +60,7 @@ Before you start, make sure you have the following things:
 8. On the **Select** panel, select both the **Windows Virtual Desktop** and **Windows Virtual Desktop Client** Enterprise applications.
 
 >[!NOTE]
->Please don’t forget to add both Windows Virtual Desktop Enterprise Applications. Only the Client app isn’t enough. 
+>Make sure you add both Windows Virtual Desktop Enterprise applications. If you only add the client app, the instructions won't work.
 
 9. Finally, select **Select**, then select **Done**.
 
