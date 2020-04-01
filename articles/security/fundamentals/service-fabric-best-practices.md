@@ -118,9 +118,9 @@ Replicator configurations configure the replicator that is responsible for makin
 The server authentication process [authenticates](../../service-fabric/service-fabric-cluster-creation-via-arm.md) the cluster management endpoints to a management client. The management client then recognizes that it's talking to the real cluster. This certificate also provides a [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) for the HTTPS management API and for Service Fabric Explorer over HTTPS.
 You must obtain a custom domain name for your cluster. When you request a certificate from a certificate authority, the certificate's subject name must match the custom domain name that you use for your cluster.
 
-To configure TLS for an application, you first need to obtain a TLS/SSL certificate that has been signed by a CA. The CA is a trusted third party that issues certificates for TLS security purposes. If you don't already have a TLS/SSL certificate, you need to obtain one from a company that sells TLS/SSL certificates.
+To configure TLS for an application, you first need to obtain a SSL/TLS certificate that has been signed by a CA. The CA is a trusted third party that issues certificates for TLS security purposes. If you don't already have a SSL/TLS certificate, you need to obtain one from a company that sells SSL/TLS certificates.
 
-The certificate must meet the following requirements for TLS/SSL certificates in Azure:
+The certificate must meet the following requirements for SSL/TLS certificates in Azure:
 -	The certificate must contain a private key.
 
 -	The certificate must be created for key exchange and be exportable to a personal information exchange (.pfx) file.
@@ -131,13 +131,13 @@ The certificate must meet the following requirements for TLS/SSL certificates in
     - Request a certificate from a CA with a subject name that matches your service's custom domain name. For example, if your custom domain name is __contoso__**.com**, the certificate from your CA should have the subject name **.contoso.com** or __www__**.contoso.com**.
 
     >[!NOTE]
-    >You cannot obtain a TLS/SSL certificate from a CA for the __cloudapp__**.net** domain.
+    >You cannot obtain a SSL/TLS certificate from a CA for the __cloudapp__**.net** domain.
 
 -	The certificate must use a minimum of 2,048-bit encryption.
 
 The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is transmitted over HTTP is sent as plain text from the web browser to the web server or between other endpoints. Attackers can intercept and view sensitive data that is sent via HTTP, such as credit card details and account logins. When data is sent or posted through a browser via HTTPS, SSL ensures that sensitive information is encrypted and secure from interception.
 
-To learn more about using TLS/SSL certificates, see [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+To learn more about using SSL/TLS certificates, see [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## Use network isolation and security with Azure Service Fabric
 Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
