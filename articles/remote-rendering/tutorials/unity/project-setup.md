@@ -797,7 +797,7 @@ Now, when connected to the remote session, the text should show the streaming st
 
 ![frame stats output](media/framestats-output.png)
 
-The code disables the stats update outside of the editor as a head-locked text box would be distracting. A more sophisticated implemented is found in the [Quickstart](../../quickstarts/render-model.md) project.
+The code disables the statistics update outside of the editor as a head-locked text box would be distracting. A more sophisticated implementation is found in the [Quickstart](../../quickstarts/render-model.md) project.
 
 ## Next steps
 
