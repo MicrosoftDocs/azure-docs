@@ -17,19 +17,31 @@ This article explains how to get a query response that comes back with a total c
 
 The structure of a response is determined by parameters in the query: [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) in the REST API, or [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in the .NET SDK.
 
-## Total hits and result composition
+## Result composition
 
-On the query, specify the following parameters to return the total number of matches and which fields to include in the results.
+While a search document might consist of a large number of fields, typically only a few are needed to represent each document in the result set. On a query request, append `$select=<field list>` to specify which fields show up in the response. A field must be attributed as **Retrievable** in the index to be included in a result. 
+
+Fields that work best include those that contrast and differentiate among documents, providing sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating. For the hotels-sample-index built-in sample, it might be fields in the following example:
+
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+    {  
+      "search": "sandy beaches",
+      "select": "HotelId, HotelName, Description, Rating, Address/City"
+      "count": true
+    }
+```
+
+> [!NOTE]
+> If want to include image files in a result, such as a product photo or logo, store them outside of Azure Cognitive Search, but include a field in your index to reference the image URL in the search document. Sample indexes that support images in the results include the **realestate-sample-us** demo, featured in this [quickstart](search-create-app-portal.md), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+
+## Results returned
+
+By default, the search engine returns up to the first 50 matches, as determined by search score if the query is full text search, or in an arbitrary order for exact match queries.
+
+To return a different number of matching documents, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
 
 + Add `$count=true` to return the total number of matching documents within an index.
-
-+ Use `$select` to specify which fields show up in the response. A field must be attributed as **Retrievable** in the index to be included. When specifying fields, choose those that provide the best contrast and differentiation among documents, with sufficient information to invite a click-through response on the part of the user. On an e-commerce site, it might be a product name, description, brand, color, size, price, and rating.
-
-## Paginated queries
-
-By default, the search engine returns the first 50 matches, either ranked by search score if the query is full text search, or in arbitrary order for exact match queries.
-
-Paged results are achieved by adding `$top`, and `$skip` parameters to the query request: 
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
@@ -49,30 +61,44 @@ Now assume you want results returned two at a time, ordered by rating. You would
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
  
-On the service, assume a fifth document has just been added to the index: `{ "id": "5", "rating": 4 }`.  Shortly thereafter, you execute a query to fetch the second page: `$top=2&$skip=2&$orderby=rating desc`, and get these results:
+On the service, assume a fifth document is added to the index in between query calls: `{ "id": "5", "rating": 4 }`.  Shortly thereafter, you execute a query to fetch the second page: `$top=2&$skip=2&$orderby=rating desc`, and get these results:
 
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
  
 Notice that document 2 is fetched twice. This is because the new document 5 has a greater value for rating, so it sorts before document 2 and lands on the first page. While this behavior might be unexpected, it's typical of how a search engine behaves.
 
-## Sorting results
+## Ordering results
 
-For full text search queries that include a search score, results are automatically ranked in order of relevance based on how well each document matches against the search criteria. Relevance is determined [scoring profiles](index-add-scoring-profiles.md). You can use the default scoring, which relies on text analysis and statistics to rank order all results, with higher scores going to documents with more or stronger matches on a search term.
+For full text search queries, results are automatically ranked by a search score which indicates how relevant the match is to  the query's search criteria. Search scores give a general sense of relevance, relative to other documents in the same results set, and are not guaranteed to be consistent from one query to the next.  Relevance is determined by text analysis and statistics, with higher scores going to documents with more or stronger matches on a search term.
 
-However, if you want to sort by a specific field, for example by a rating or date, you can define an [`$orderby` expression](query-odata-filter-orderby-syntax.md), which can be applied to any field that is indexed as **Sortable**.
+For scenarios where you want to sort by a specific field, such as a rating or date, you can explicitly define an [`$orderby` expression](query-odata-filter-orderby-syntax.md), which can be applied to any field that is indexed as **Sortable**.
+
+As you work with queries, you might notice small discrepancies in ordered results. There are several explanations for why this might occur.
+
+| Condition | Description |
+|-----------|-------------|
+| Data volatility | The contents of an index varies as you add, modify, or delete documents. Term frequencies will change as the index updates are processed over time, affecting the search scores of matching documents. |
+| Query execution location | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered by score in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Generally, differences in per-replica statistics are more noticeable in smaller indexes. |
+| Breaking a tie between identical search scores | Discrepancies in ordered results can also occur when search documents have identical scores. In this case, as you rerun the same query, there is no guarantee which document will appear first. |
+
+### Mitigation strategies
+
+The easiest way to ensure consistent results to sorting by a field value, such as rating or date, as mentioned above.
+
+Another option is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
 ## Hit highlighting
 
-Formatting applied to matching terms in search results makes it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching term in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). The search engine encloses the matching term in tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font).
 
-Formatting is applied to whole term queries. Queries on partial terms, such as fuzzy search or wildcard search that result in query expansion in the engine, cannot use hit highlighting.
+Formatting is applied to whole term queries. In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries on partial terms, such as fuzzy search or wildcard search that result in query expansion in the engine, cannot use hit highlighting.
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
     {  
-      "search": "something",  
-      "highlight": "Description"  
+      "search": "sandy beaches",  
+      "highlight": "Description"
     }
 ```
 
@@ -85,7 +111,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 To quickly generate a search page for your client, consider these options:
 
-+ Use the [application generator](search-create-app-portal.md) in the portal to create an HTML page with a search bar, faceted navigation, and results area.
-+ Follow the [Create your first app in C#](tutorial-csharp-create-first-app.md) tutorial to create a functional client that covers paginated queries, hit highlighting, and sorting.
++ [Application Generator](search-create-app-portal.md), in the portal, creates an HTML page with a search bar, faceted navigation, and results area that includes images.
++ [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
 
 Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://aka.ms/azjobsdemo), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
