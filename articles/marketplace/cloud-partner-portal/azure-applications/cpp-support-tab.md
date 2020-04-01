@@ -1,12 +1,12 @@
 ---
 title: Configure Azure application support | Azure Marketplace 
 description: Configure Azure application support for an offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application Support tab
@@ -32,7 +32,7 @@ Use the next screen capture as a guide to provide the required information. All 
    - **Phone\*** - Enter the phone number of the support contact.
  
 3. Under **Support Urls**, provide the appropriate support URLs that Microsoft will use when your customers open support tickets. These Urls will be for either Public Azure or the Azure Government Cloud.
-4. Select **Save** when you’re done.
+4. Select **Save** when you're done.
 
 ## Next steps
 

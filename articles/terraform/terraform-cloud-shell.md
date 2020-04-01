@@ -1,49 +1,49 @@
 ---
-title: Configure Azure Cloud Shell for Terraform
-description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, scale set, virtual machine, network, storage, modules
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
+title: Tutorial - Configure Azure Cloud Shell for Terraform
+description: In this tutorial, you use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
+keywords: azure devops terraform cloud shell
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 03/09/2020
 ---
 
-# Terraform Cloud Shell development 
+# Tutorial: Configure Azure Cloud Shell for Terraform
 
-Terraform works great from a Bash command line such as macOS Terminal or Bash on Windows or Linux. Running your Terraform configurations in the Bash experience of the [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages to speed up your development cycle.
-
-This concepts article covers Cloud Shell features that help you write Terraform scripts that deploy to Azure.
+Terraform works well from a Bash command line in macOS, Windows, or Linux. Running your Terraform configurations in the Bash experience of [Azure Cloud Shell](/azure/cloud-shell/overview) has some unique advantages. This tutorial shows how to write Terraform scripts that deploy to Azure by using Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Automatic credential configuration
 
-Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to the Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses the need to manually create an Active Directory service principal and configure the Azure Terraform provider variables.
+Terraform is installed and immediately available in Cloud Shell. Terraform scripts authenticate with Azure when logged in to Cloud Shell to manage infrastructure without any additional configuration. Automatic authentication bypasses two manual processes:
+- Creating an Active Directory service principal
+- Configuring the Azure Terraform provider variables
 
 
-## Using Modules and Providers
+## Use modules and providers
 
-Azure Terraform modules require credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, add the following code to your scripts to use Azure Terraform modules in the Cloud Shell:
+Azure Terraform modules require credentials to access and modify Azure resources. To use Terraform modules in Cloud Shell, add the following code:
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
 }
 ```
 
-The Cloud Shell passes required values for the `azurerm` provider through environment variables when using any of the `terraform` CLI commands.
+Cloud Shell passes required values for the `azurerm` provider through environment variables when you use any of the `terraform` CLI commands.
 
 ## Other Cloud Shell developer tools
 
-Files and shell states persist in Azure Storage between Cloud Shell sessions. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to copy and upload files to the Cloud Shell from your local computer.
+Files and shell states persist in Azure Storage between Cloud Shell sessions. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to copy and upload files to Cloud Shell from your local computer.
 
-The Azure CLI is available in the Cloud Shell and is a great tool for testing configurations and checking your work after a `terraform apply` or `terraform destroy` completes.
+The Azure CLI is available in Cloud Shell and is a great tool for testing configurations and checking your work after `terraform apply` or `terraform destroy` finishes.
 
 
 ## Next steps
 
-[Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)
-[Create a small VM cluster using custom HCL](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [Create a small VM cluster using the Module Registry](terraform-create-vm-cluster-module.md)

@@ -1,23 +1,12 @@
 ---
-title: Create PHP web app - Azure App Service | Microsoft Docs
-description: Deploy your first PHP Hello World in Azure App Service Web Apps in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
+title: 'QuickStart: Create a PHP web app'
+description: Deploy your first PHP Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create a PHP web app in Azure
 
 > [!NOTE]
@@ -101,7 +90,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
   < JSON data removed for brevity. >
 }
 ```
-You’ve created an empty new web app, with git deployment enabled.
+You've created an empty new web app, with git deployment enabled.
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.
@@ -179,17 +168,19 @@ Once deployment has completed, return to the browser window that opened during t
 
 ## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+    ![Search for App Services, Azure portal, create PHP web app](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![Portal navigation to Azure app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. Select the name of your Azure app.
 
-Your web app's Overview page will be displayed. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
+    ![Portal navigation to Azure app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-The left menu provides different options for configuring your app. 
+    ![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    The web app menu provides different options for configuring your app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

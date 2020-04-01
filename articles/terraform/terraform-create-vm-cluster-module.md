@@ -1,17 +1,12 @@
 ---
-title: Use Terraform modules to create a VM cluster on Azure
-description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtual machine, network, modules
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
+title: Tutorial - Create an Azure VM cluster with Terraform using the Module Registry
+description: In this tutorial, you use Terraform modules to create a Windows virtual machine cluster in Azure
+keywords: azure devops terraform vm virtual machine cluster module registry
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 03/09/2020
 ---
 
-# Create a VM cluster with Terraform using the Module Registry
+# Tutorial: Create an Azure VM cluster with Terraform using the Module Registry
 
 This article walks you through creating a small VM cluster with the Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
 
@@ -26,9 +21,9 @@ For more information on Terraform, see the [Terraform documentation](https://www
 ## Set up authentication with Azure
 
 > [!TIP]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+> If you [use Terraform environment variables](terraform-install-configure.md) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
 
- Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
+ Review [Install Terraform and configure access to Azure](terraform-install-configure.md) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
 ```hcl
 variable subscription_id {}
@@ -37,6 +32,8 @@ variable client_id {}
 variable client_secret {}
 
 provider "azurerm" {
+    version = "~>1.40"
+
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -55,10 +52,11 @@ module mycompute {
     location = "East US 2"
     admin_password = "ComplxP@assw0rd!"
     vm_os_simple = "WindowsServer"
+    is_windows_image = "true"
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]
-    vnet_subnet_id = "${module.network.vnet_subnets[0]}"
+    vnet_subnet_id = module.network.vnet_subnets[0]
 }
 
 module "network" {
@@ -68,15 +66,15 @@ module "network" {
 }
 
 output "vm_public_name" {
-    value = "${module.mycompute.public_ip_dns_name}"
+    value = module.mycompute.public_ip_dns_name
 }
 
 output "vm_public_ip" {
-    value = "${module.mycompute.public_ip_address}"
+    value = module.mycompute.public_ip_address
 }
 
 output "vm_private_ips" {
-    value = "${module.mycompute.network_interface_private_ip}"
+    value = module.mycompute.network_interface_private_ip
 }
 ```
 
@@ -99,5 +97,5 @@ Run `terraform apply` to provision the VMs on Azure.
 
 ## Next steps
 
-- Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+> [!div class="nextstepaction"] 
+> [Browse the list of Azure Terraform modules](https://registry.terraform.io/modules/Azure)

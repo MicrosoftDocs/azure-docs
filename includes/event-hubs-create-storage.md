@@ -14,35 +14,37 @@ ms.custom: "include file"
 ### Create a storage account for Event Processor Host
 The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
 
-1. In the Azure portal, and select **Create a resource** at the top left of the screen.
+1. From the Azure portal menu, select **Create a resource**.
 
-2. Select **Storage**, then select **Storage account - blob, file, table, queue**.
+    ![Create a resource menu item, Microsoft Azure portal](./media/event-hubs-create-storage/create-resource.png)
+
+2. Select **Storage** > **Storage account**.
    
-    ![Select Storage Account](./media/event-hubs-create-storage/create-storage1.png)
+    ![Select Storage account, Microsoft Azure portal](./media/event-hubs-create-storage/select-storage-account.png)
 
 3. On the **Create storage account** page, take the following steps: 
 
-   1. Enter a name for the storage account. 
-   2. Choose an Azure subscription that contains the event hub.
-   3. Select the resource group that has the event hub.
-   4. Select a location in which to create the resource. 
-   5. Then click **Review + create**.
+   1. Enter the **Storage account name**.
+   2. Choose an Azure **Subscription** that contains the event hub.
+   3. Choose or create the **Resource group** that has the event hub.
+   4. Pick a **Location** in which to create the resource. 
+   5. Select **Review + create**.
    
-      ![Create storage account - page](./media/event-hubs-create-storage/create-storage2.png)
+        ![Review + create, Create storage account, Microsoft Azure portal](./media/event-hubs-create-storage/review-create.png)
 
 4. On the **Review + create** page, review the values, and select **Create**. 
 
-    ![Review storage account settings and create](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. After you see the **Deployments Succeeded** message, select **Go to resource** at the top of the page. You can also launch the Storage Account page by selecting your storage account from the resource list.  
+    ![Review storage account settings and create, Microsoft Azure portal](./media/event-hubs-create-storage/create-storage-account.png)
+5. After you see the **Deployments Succeeded** message in your notifications, select **Go to resource** to open the Storage Account page. Alternatively, you can expand **Deployment details** and then select your new resource from the resource list.  
 
-    ![Select the storage account from deployment](./media/event-hubs-create-storage/select-storage-deployment.png) 
-7. In the **Essentials** window, select **Blobs**. 
+    ![Go to resource, storage account deployment, Microsoft Azure portal](./media/event-hubs-create-storage/go-to-resource.png) 
+6. Select **Containers**.
 
-    ![Select the Blobs service](./media/event-hubs-create-storage/select-blobs-service.png)
-1. Select **+ Container** at the top, enter a **name** for the container, and select **OK**. 
+    ![Select the Blobs container service, storage accounts, Microsoft Azure portal](./media/event-hubs-create-storage/select-blob-container-service.png)
+7. Select **+ Container** at the top, enter a **Name** for the container, and select **OK**. 
 
-    ![Create a blob container](./media/event-hubs-create-storage/create-blob-container.png)
-1. Select **Access keys** in the left-side menu, and copy the value of **key1**. 
+    ![Create a new blob container, storage accounts, Microsoft Azure portal](./media/event-hubs-create-storage/create-new-blob-container.png)
+8. Choose **Access keys** from the **Storage account** page menu, and copy the value of **key1**.
 
     Save the following values to Notepad or some other temporary location.
     - Name of the storage account

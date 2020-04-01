@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor virtual machine extension for Windows | Microsoft Docs
+title: Log Analytics virtual machine extension for Windows 
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2019
+ms.date: 01/30/2020
 ms.author: akjosh
 
 ---
-# Azure Monitor virtual machine extension for Windows
+# Log Analytics virtual machine extension for Windows
 
-Azure Monitor logs provides monitoring capabilities across cloud and on-premises assets. The Log Analytics agent virtual machine extension for Windows is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Azure Monitor virtual machine extension for Windows.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+Azure Monitor Logs provides monitoring capabilities across cloud and on-premises assets. The Log Analytics agent virtual machine extension for Windows is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Windows.
 
 ## Prerequisites
 
@@ -30,10 +28,12 @@ Azure Monitor logs provides monitoring capabilities across cloud and on-premises
 For details about the supported Windows operating systems, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) article.
 
 ### Agent and VM Extension version
-The following table provides a mapping of the version of the Windows Azure Monitor VM extension and Log Analytics agent bundle for each release. 
+The following table provides a mapping of the version of the Windows Log Analytics VM extension and Log Analytics agent bundle for each release. 
 
-| Log Analytics Windows agent bundle version | Azure Monitor Windows VM extension version | Release Date | Release Notes |
+| Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug in Azure Arc for Servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
+| 10.20.18018 | 1.0.18018 | October 2019 | <ul><li> Minor bug fixes and stabilization improvements </li></ul> |
 | 10.20.18011 | 1.0.18011 | July 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Increased MaxExpressionDepth to 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | June 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Added ability to disable default credentials when making proxy connection (support for WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | March 2019 | <ul><li>Minor stabilization fixes </li></ul> |
@@ -43,6 +43,7 @@ The following table provides a mapping of the version of the Windows Azure Monit
 | 8.0.11081 | 1.0.11081 | Nov 2017 | | 
 | 8.0.11072 | 1.0.11072 | Sept 2017 | |
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
+
 
 ### Azure Security Center
 
@@ -57,25 +58,25 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 
 ```json
 {
-	"type": "extensions",
-	"name": "OMSExtension",
-	"apiVersion": "[variables('apiVersion')]",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"properties": {
-		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
-		"type": "MicrosoftMonitoringAgent",
-		"typeHandlerVersion": "1.0",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"workspaceId": "myWorkSpaceId"
-		},
-		"protectedSettings": {
-			"workspaceKey": "myWorkspaceKey"
-		}
-	}
+    "type": "extensions",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
 }
 ```
 ### Property values
@@ -91,39 +92,42 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 
 \* The workspaceId is called the consumerId in the Log Analytics API.
 
+> [!NOTE]
+> For additional properties see Azure [Connect Windows Computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 >[!NOTE]
 >The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/child-resource-name-type.md). 
+The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
-The following example assumes the Azure Monitor extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
+The following example assumes the Log Analytics extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
 
 ```json
 {
-	"type": "extensions",
-	"name": "OMSExtension",
-	"apiVersion": "[variables('apiVersion')]",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"properties": {
-		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
-		"type": "MicrosoftMonitoringAgent",
-		"typeHandlerVersion": "1.0",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"workspaceId": "myWorkSpaceId"
-		},
-		"protectedSettings": {
-			"workspaceKey": "myWorkspaceKey"
-		}
-	}
+    "type": "extensions",
+    "name": "OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
 }
 ```
 
@@ -131,25 +135,25 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ```json
 {
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"name": "<parentVmResource>/OMSExtension",
-	"apiVersion": "[variables('apiVersion')]",
-	"location": "[resourceGroup().location]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"properties": {
-		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
-		"type": "MicrosoftMonitoringAgent",
-		"typeHandlerVersion": "1.0",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"workspaceId": "myWorkSpaceId"
-		},
-		"protectedSettings": {
-			"workspaceKey": "myWorkspaceKey"
-		}
-	}
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "<parentVmResource>/OMSExtension",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "workspaceId": "myWorkSpaceId"
+        },
+        "protectedSettings": {
+            "workspaceKey": "myWorkspaceKey"
+        }
+    }
 }
 ```
 

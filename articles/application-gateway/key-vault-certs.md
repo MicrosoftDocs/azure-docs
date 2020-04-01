@@ -11,12 +11,9 @@ ms.author: victorh
 
 # SSL termination with Key Vault certificates
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and SSL certificates. Azure Application Gateway supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
 
-> [!IMPORTANT]
-> Integration of Application Gateway with Key Vault is currently in public preview. This preview is provided without a service-level agreement (SLA) and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This public preview offers two models for SSL termination:
+Key Vault integration offers two models for SSL termination:
 
 - You can explicitly provide SSL certificates attached to the listener. This model is the traditional way to pass SSL certificates to Application Gateway for SSL termination.
 - You can optionally provide a reference to an existing Key Vault certificate or secret when you create an HTTPS-enabled listener.
@@ -31,6 +28,9 @@ Application Gateway integration with Key Vault offers many benefits, including:
 - Support for automatic renewal of certificates that are stored in your key vault.
 
 Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for SSL termination. The instances also poll Key Vault at 24-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the SSL certificate currently associated with the HTTPS listener is automatically rotated.
+
+> [!NOTE]
+> The Azure portal only supports KeyVault Certificates, not secrets. Application Gateway still supports referencing secrets from KeyVault, but only through non-Portal resources like PowerShell, CLI, API, ARM templates, etc. 
 
 ## How integration works
 

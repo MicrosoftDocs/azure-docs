@@ -1,12 +1,12 @@
 ---
 title: Overview of log queries in Azure Monitor | Microsoft Docs
 description: Answers common questions related to log queries and gets you started in using them.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/19/2019
+author: bwren
 ms.author: bwren
+ms.date: 06/19/2019
+
 ---
 
 # Overview of log queries in Azure Monitor

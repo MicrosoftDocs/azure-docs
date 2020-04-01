@@ -1,12 +1,12 @@
 ---
 title: Azure application offer Marketplace tab 
 description: Use the Marketplace tab to identify marketing assets for an Azure application offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application Marketplace tab
@@ -27,8 +27,8 @@ The following table describes the settings to use for creating a storefront for 
 | **Summary\***      | Short summary of the offer. The maximum length is  100 characters.           |
 | **Long Summary\*** | Longer summary of the offer (though it could be the same as the summary). The maximum length is  256 characters.           |
 | **Description\***  | Description of the offer. The maximum length is 3000 characters. Simple HTML formatting is allowed, including &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; and header tags.  |
-| **Marketing Identifier\*** | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters. Choose a short, friendly marketing identifier for your service. This will be used in marketplace URLs for this offer. For example, if your publisher ID is “contoso” and your marketing identifier is “sampleApp”, the URL for your offer in Azure Marketplace will be https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
-| **Preview Subscription IDs\*** | Add from one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to your offer while it’s available in preview after it’s published, before it goes live.          |
+| **Marketing Identifier\*** | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters. Choose a short, friendly marketing identifier for your service. This will be used in marketplace URLs for this offer. For example, if your publisher ID is "contoso" and your marketing identifier is "sampleApp", the URL for your offer in Azure Marketplace will be https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Preview Subscription IDs\*** | Add from one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to your offer while it's available in preview after it's published, before it goes live.          |
 | **Useful Links**    | Optionally, you can provide links to various resources for users of your offer, such as support, documentation, forums, etc.  It is recommended that you add at least one link to your documentation.            |
 | **Suggested Categories (Max 5)\*** | Select one to five categories. The selected categories are used to map your offer to the product categories available in Azure Marketplace and Azure Portal. They'll be shown on browse pages and on your product details page. |
 |  |  |
@@ -50,7 +50,7 @@ The following table describes the marketing artifacts.
 | **Wide\***         | Wide logo: 255x115 pixels in PNG format    |
 | **Hero**           | Optional hero logo: 815x290 pixels in PNG format. **Note:** The hero icon can't be deleted after it's uploaded. |
 | **Screenshots (Max 5)** |        Screenshots are displayed on your product details page. They're a good way to visually communicate what your app does and how it works. For example, you can show architecture diagrams or use case illustrations. Screenshots are optional, and you limited to 5 per SKU. To add a screenshot:<ul><li>Select **+ Add screenshot** to open the Screenshot window</li><li>**Name** - Enter a name/title (Maximum length of 100 characters.)</li><li>**Upload** - Upload the image. It must be in PNG format, and the size is 533 x 324 pixels.</li></ul>           |
-| **Add video**      | Optional, videos are displayed on your product details page. They're a good way to visually communicate what your application does and how it works. To add a video: <ul><li>Select **+ Add video** to open the Video window</li><li>**Name** - Enter a name/title (Maximum length of 100 characters.)</li><li>**Link** – Enter the URL for the site that’s hosting the video (YouTube or Vimeo)</li><li>**Thumbnail** – Upload a thumbnail. It must be in PNG format, and the size is 533 x 324 pixels.</li></ul>          |
+| **Add video**      | Optional, videos are displayed on your product details page. They're a good way to visually communicate what your application does and how it works. To add a video: <ul><li>Select **+ Add video** to open the Video window</li><li>**Name** - Enter a name/title (Maximum length of 100 characters.)</li><li>**Link** - Enter the URL for the site that's hosting the video (YouTube or Vimeo)</li><li>**Thumbnail** - Upload a thumbnail. It must be in PNG format, and the size is 533 x 324 pixels.</li></ul>          |
 |  |  |
 
 
@@ -60,7 +60,7 @@ The next screen capture shows an example of a Marketplace search result.
 
 ![Marketplace offer search result](./media/azureapp-marketplace-example-browse.png)
 
-The following image shows how the offer is displayed in the Marketplace after a customer clicks on the offer’s tile in the search result.
+The following image shows how the offer is displayed in the Marketplace after a customer clicks on the offer's tile in the search result.
 
 ![Marketplace offer search result details](./media/azureapp-marketplace-example-details.png)
 
@@ -92,7 +92,7 @@ All the logos uploaded to the Cloud Partner Portal should follow the guidelines:
 The Hero logo is optional.
 
 >[!IMPORTANT]
->You can’t delete the Hero logo after it’s uploaded.
+>You can't delete the Hero logo after it's uploaded.
 
 Use the following guidelines for a Hero logo:
 
@@ -109,7 +109,7 @@ The Lead Management form has an optional field to configure lead management. To 
 ![Select lead management destination](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Select the information icon to see this message: “Select the system where your leads will be stored. Learn how to connect to your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) .”
+>Select the information icon to see this message: "Select the system where your leads will be stored. Learn how to connect to your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) ."
 
 For more information, see [Configure customer leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).
 
@@ -120,8 +120,8 @@ Use the Legal form to provide the legal documentation required for every offer.
 
 Provide the following information:
 
-- **Privacy policy URL\*** – Enter a link to your app’s privacy policy.
-- **Terms of use\*** – Enter the terms of use for your app. Customers are required to accept these terms before they can try your app.
+- **Privacy policy URL\*** - Enter a link to your app's privacy policy.
+- **Terms of use\*** - Enter the terms of use for your app. Customers are required to accept these terms before they can try your app.
 
 ![Legal form](./media/azureapp-marketplace-legal.png)
 

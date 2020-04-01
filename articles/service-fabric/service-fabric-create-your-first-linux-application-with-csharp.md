@@ -1,21 +1,9 @@
 ---
-title: Create your first Azure Service Fabric app on Linux using C#| Microsoft Docs
+title: Create your first Azure Service Fabric app on Linux using C#
 description: Learn how to create and deploy a Service Fabric application using C# and .NET Core 2.0.
-services: service-fabric
-documentationcenter: csharp
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
-ms.service: service-fabric
-ms.devlang: csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
-
 ---
 # Create your first Azure Service Fabric application
 > [!div class="op_single_selector"]

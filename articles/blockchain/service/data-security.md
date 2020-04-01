@@ -1,15 +1,9 @@
 ---
 title: Azure Blockchain Service security
 description: Azure Blockchain Service data access and security concepts
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
+ms.date: 11/22/2019
+ms.topic: conceptual
+ms.reviewer: janders
 #Customer intent: As a network operator, I want to understand how Azure Blockchain Service implements data access and security
 ---
 
@@ -25,7 +19,7 @@ Azure Blockchain Service resources are isolated in a private virtual network. Ea
 
 ## Encryption
 
-User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/common/storage-security-guide.md).
+User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/blobs/security-recommendations.md).
 
 ## Authentication
 
@@ -63,4 +57,4 @@ Constellation keys are used to uniquely identify a Quorum node. Constellation ke
 
 ## Next steps
 
-[Configure Azure Blockchain Service transaction nodes](configure-transaction-nodes.md)
+See [How to configure Azure Active Directory access for Azure Blockchain Service](configure-aad.md).

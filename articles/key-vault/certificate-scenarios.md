@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
@@ -35,10 +36,10 @@ Certificates are composed of three interrelated resources linked together as a K
 **Step 1** - Certificate Authority (CA) Providers  
 -   On-boarding as the IT Admin, PKI Admin or anyone managing accounts with CAs, for a given company (ex. Contoso)  is a prerequisite to using Key Vault certificates.  
     The following CAs are the current partnered providers with Key Vault:  
-    -   DigiCert - Key Vault offers OV SSL certificates with DigiCert.  
-    -   GlobalSign - Key Vault offers OV SSL certificates with GlobalSign.  
+    -   DigiCert - Key Vault offers OV TLS/SSL certificates with DigiCert.  
+    -   GlobalSign - Key Vault offers OV TLS/SSL certificates with GlobalSign.  
 
-**Step 2** - An account admin for a CA provider creates credentials to be used by Key Vault to enroll, renew, and use SSL certificates via Key Vault.
+**Step 2** - An account admin for a CA provider creates credentials to be used by Key Vault to enroll, renew, and use TLS/SSL certificates via Key Vault.
 
 **Step 3** - A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
@@ -59,9 +60,9 @@ Note - This process, through step 3.1, is a onetime operation.
 
 **Step 4** - The following descriptions correspond to the green numbered steps in the preceding diagram.  
   (1) - In the diagram above, your application is creating a certificate which internally begins by creating a key in your key vault.  
-  (2) - Key Vault sends an SSL Certificate Request to the CA.  
+  (2) - Key Vault sends an TLS/SSL Certificate Request to the CA.  
   (3) - Your application polls, in a loop and wait process, for your Key Vault for certificate completion. The certificate creation is complete when Key Vault receives the CA’s response with x509 certificate.  
-  (4) - The CA responds to Key Vault's SSL Certificate Request with an X509 SSL Certificate.  
+  (4) - The CA responds to Key Vault's TLS/SSL Certificate Request with an X509 TLS/SSL Certificate.  
   (5) - Your new certificate creation completes with the merger of the X509 Certificate for the CA.  
 
   Key Vault user – creates a certificate by specifying a policy

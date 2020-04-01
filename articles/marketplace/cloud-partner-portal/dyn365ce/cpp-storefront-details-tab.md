@@ -1,12 +1,12 @@
 ---
 title: Dynamics 365 for Customer Engagement offer Storefront Details tab | Azure Marketplace 
 description: Deprecated this CPP article, linked to PC article. Was "Use the Storefront Details tab to specify sales and marketing information for a Dynamics 365 for Customer Engagement offer."
-services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Dynamics 365 for Customer Engagement Storefront Details tab

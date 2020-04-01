@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Add a custom domain to your Azure Front Door configuration | Microsoft Docs
+title: Tutorial - Add custom domain to your Azure Front Door configuration
 description: In this tutorial, you learn how to onboard a custom domain to Azure Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.author: sharadag
 
 ---
 # Tutorial: Add a custom domain to your Front Door
-This tutorial shows how to add a custom domain to your Front Door. When you use Azure Front Door Service for application delivery, a custom domain is necessary if you would like your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
+This tutorial shows how to add a custom domain to your Front Door. When you use Azure Front Door for application delivery, a custom domain is necessary if you would like your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
 After you create a Front Door, the default frontend host, which is a subdomain of `azurefd.net`, is included in the URL for delivering Front Door content from your backend by default (for example, https:\//contoso.azurefd.net/activeusers.htm). For your convenience, Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your content with a custom domain in your URL instead of a Front Door owned domain name (for example, https:\//www.contoso.com/photo.png). 
 
@@ -27,6 +27,9 @@ In this tutorial, you learn how to:
 > - Verify the custom domain.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+> Front Door does **not** support custom domains with [punycode](https://en.wikipedia.org/wiki/Punycode) characters. 
 
 ## Prerequisites
 
@@ -39,14 +42,14 @@ If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azu
 
 ## Create a CNAME DNS record
 
-Before you can use a custom domain with your Front Door, you must first create a canonical name (CNAME) record with your domain provider to point to your Front Door's default frontend host (say contoso.azurefd.net). A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure Front Door Service, the source domain name is your custom domain name and the destination domain name is your Front Door default hostname. After Front Door verifies the CNAME record that you create, traffic addressed to the source custom domain (such as www\.contoso.com) is routed to the specified destination Front Door default frontend host (such as contoso.azurefd.net). 
+Before you can use a custom domain with your Front Door, you must first create a canonical name (CNAME) record with your domain provider to point to your Front Door's default frontend host (say contoso.azurefd.net). A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure Front Door, the source domain name is your custom domain name and the destination domain name is your Front Door default hostname. After Front Door verifies the CNAME record that you create, traffic addressed to the source custom domain (such as www\.contoso.com) is routed to the specified destination Front Door default frontend host (such as contoso.azurefd.net). 
 
-A custom domain and its sub-domain can be associated with only a single Front Door at a time. However, you can use different sub-domains from the same custom domain for different Front Doors by using multiple CNAME records. You can also map a custom domain with different sub-domains to the same Front Door.
+A custom domain and its subdomain can be associated with only a single Front Door at a time. However, you can use different subdomains from the same custom domain for different Front Doors by using multiple CNAME records. You can also map a custom domain with different subdomains to the same Front Door.
 
 
-## Map the temporary afdverify sub-domain
+## Map the temporary afdverify subdomain
 
-When you map an existing domain that is in production, there are special considerations. While you are registering your custom domain in the Azure portal, a brief period of downtime for the domain can occur. To avoid interruption of web traffic, first map your custom domain to your Front Door default frontend host with the Azure afdverify sub-domain to create a temporary CNAME mapping. With this method, users can access your domain without interruption while the DNS mapping occurs.
+When you map an existing domain that is in production, there are special considerations. While you are registering your custom domain in the Azure portal, a brief period of downtime for the domain can occur. To avoid interruption of web traffic, first map your custom domain to your Front Door default frontend host with the Azure afdverify subdomain to create a temporary CNAME mapping. With this method, users can access your domain without interruption while the DNS mapping occurs.
 
 Otherwise, if you are using your custom domain for the first time and no production traffic is running on it, you can directly map your custom domain to your Front Door. Proceed to [Map the permanent custom domain](#map-the-permanent-custom-domain).
 
@@ -88,7 +91,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
     - Points to: Enter the host name of your default Front Door frontend host, including the afdverify subdomain name. For example, afdverify.contoso.azurefd.net. 
 
-    - TTL: Leave *1 Hour* selected.
+    - TTL: Leave *one Hour* selected.
 
 6. Select **Save**.
  
@@ -169,7 +172,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
     - Points to: Enter the default host name of your Front Door. For example, contoso.azurefd.net. 
 
-    - TTL: Leave *1 Hour* selected.
+    - TTL: Leave *one Hour* selected.
 
 6. Select **Save**.
  

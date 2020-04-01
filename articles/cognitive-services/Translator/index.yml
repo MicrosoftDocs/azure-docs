@@ -9,11 +9,10 @@ metadata:
   services: cognitive-services
   author: erhopf
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 09/05/2019
+  ms.date: 10/14/2019
   ms.author: erhopf
 
 

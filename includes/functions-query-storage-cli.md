@@ -6,6 +6,8 @@ ms.date: 09/26/2019
 ms.author: glenga
 ---
 
+### Query the Storage queue
+
 You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account, as in the following example:
 
 ```azurecli-interactive
@@ -23,4 +25,4 @@ echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{M
 The string returned should be the same as the message you sent to test the function.
 
 > [!NOTE]  
-> The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](../articles/azure-functions/functions-bindings-storage-queue.md#encoding).
+> The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding).

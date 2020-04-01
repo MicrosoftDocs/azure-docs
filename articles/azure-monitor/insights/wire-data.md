@@ -1,19 +1,14 @@
 ---
 title: Wire Data solution in Azure Monitor | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with Log Analytics agents. Network data is combined with your log data to help you correlate data.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 10/03/2018
-ms.author: magoedte
+
 ---
+
 # Wire Data 2.0 (Preview) solution in Azure Monitor
 
 ![Wire Data symbol](media/wire-data/wire-data2-symbol.png)

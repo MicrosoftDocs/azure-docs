@@ -5,11 +5,11 @@ author: roygara
 ms.author: rogarana
 ms.date: 09/25/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 
+# Use Azure Storage Explorer to manage Azure managed disks
 [!INCLUDE [disks-upload-vhd-to-managed-disk-storage-explorer](../../../includes/disks-upload-vhd-to-managed-disk-storage-explorer.md)]
 
 Learn how to [Create a VM from a VHD by using the Azure portal](../windows/create-vm-specialized-portal.md).

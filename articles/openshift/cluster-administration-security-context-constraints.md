@@ -4,7 +4,6 @@ description:  Security context constraints for Azure Red Hat OpenShift cluster a
 services: container-service
 author: troy0820
 ms.author: b-trconn
-ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
@@ -12,7 +11,7 @@ ms.date: 09/25/2019
 ---
 # Manage security context constraints in Azure Red Hat OpenShift 
 
-Security context constraints (SCCs) allow cluster administrators to control permissions for pods. To learn more about this API type, see the [architecture documentation for SCCs](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). You can manage SCCs in your instance as normal API objects by using the CLI.
+Security context constraints (SCCs) allow cluster administrators to control permissions for pods. To learn more about this API type, see the [architecture documentation for SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). You can manage SCCs in your instance as normal API objects by using the CLI.
 
 ## List security context constraints
 
@@ -36,36 +35,36 @@ restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs 
 To examine a particular SCC, use `oc get`, `oc describe`, or `oc edit`.  For example, to examine the **restricted** SCC, use this command:
 ```bash
 $ oc describe scc restricted
-Name:					restricted
-Priority:				<none>
+Name:                    restricted
+Priority:                <none>
 Access:
-  Users:				<none>
-  Groups:				system:authenticated
+  Users:                <none>
+  Groups:                system:authenticated
 Settings:
-  Allow Privileged:			false
-  Default Add Capabilities:		<none>
-  Required Drop Capabilities:		KILL,MKNOD,SYS_CHROOT,SETUID,SETGID
-  Allowed Capabilities:			<none>
-  Allowed Seccomp Profiles:		<none>
-  Allowed Volume Types:			configMap,downwardAPI,emptyDir,persistentVolumeClaim,projected,secret
-  Allow Host Network:			false
-  Allow Host Ports:			false
-  Allow Host PID:			false
-  Allow Host IPC:			false
-  Read Only Root Filesystem:		false
+  Allow Privileged:            false
+  Default Add Capabilities:        <none>
+  Required Drop Capabilities:        KILL,MKNOD,SYS_CHROOT,SETUID,SETGID
+  Allowed Capabilities:            <none>
+  Allowed Seccomp Profiles:        <none>
+  Allowed Volume Types:            configMap,downwardAPI,emptyDir,persistentVolumeClaim,projected,secret
+  Allow Host Network:            false
+  Allow Host Ports:            false
+  Allow Host PID:            false
+  Allow Host IPC:            false
+  Read Only Root Filesystem:        false
   Run As User Strategy: MustRunAsRange
-    UID:				<none>
-    UID Range Min:			<none>
-    UID Range Max:			<none>
+    UID:                <none>
+    UID Range Min:            <none>
+    UID Range Max:            <none>
   SELinux Context Strategy: MustRunAs
-    User:				<none>
-    Role:				<none>
-    Type:				<none>
-    Level:				<none>
+    User:                <none>
+    Role:                <none>
+    Type:                <none>
+    Level:                <none>
   FSGroup Strategy: MustRunAs
-    Ranges:				<none>
+    Ranges:                <none>
   Supplemental Groups Strategy: RunAsAny
-    Ranges:				<none>
+    Ranges:                <none>
 ```
 ## Next steps
 > [!div class="nextstepaction"]

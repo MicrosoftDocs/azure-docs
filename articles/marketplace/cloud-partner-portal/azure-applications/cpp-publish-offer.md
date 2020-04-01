@@ -1,12 +1,12 @@
 ---
 title: Publish Azure application offer | Azure Marketplace 
 description: Describes the process and steps for publishing an Azure application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish Azure application offer
@@ -28,7 +28,7 @@ The following table lists and describes each publishing step, and provides a tim
 | Validate influenced revenue settings | < 15 min  | Azure resource usage attribution for the offer is checked.             |
 | Certification                  | < 1 day     | Offer is analyzed by the Azure Certification Team. The offer is scanned for viruses, malware, safety compliance, and security issues. The offer is checked to see that it meets all the eligibility criteria. For more information, see [prerequisites](./cpp-prerequisites.md). Feedback is provided if an issue is found. |
 | Test Drive validation          | < 2 hours   | (Optional) If a Test Drive is present, Microsoft validates that it can be deployed and replicated.  |
-| Packaging and lead generation registration | < 1 hour  | Offer’s technical assets are packaged for customer use and the lead systems are configured and deployed. |
+| Packaging and lead generation registration | < 1 hour  | Offer's technical assets are packaged for customer use and the lead systems are configured and deployed. |
 |  Publisher sign-off             |  manual    | Final publisher review and confirmation before the offer goes live. The offer is now available for preview.  You can deploy your offer in the selected subscriptions (in the offer information steps) to verify that it meets all your requirements.  After you verify the offer, select **Go Live** so your offer can move to the next step. |
 | Microsoft review                | 7 - 14 days | Microsoft holistically reviews your Azure application and emails you if issues are discovered.  The length of this step depends upon the complexity of the application, the issues uncovered, and how promptly you respond to them.  |
 | Live                           | < 1 day | Offer is released, replicated to the specified regions, and made available to the public. |

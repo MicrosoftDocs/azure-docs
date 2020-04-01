@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot query performance in Azure Database for MariaDB
+title: Troubleshoot query performance - Azure Database for MariaDB
 description: Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 11/09/2018
+ms.date: 3/18/2020
 ---
 
 # How to use EXPLAIN to profile query performance in Azure Database for MariaDB

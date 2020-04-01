@@ -1,6 +1,6 @@
 ---
 title: Use existing players to playback your content - Azure | Microsoft Docs
-description: This topic lists existing players that you can use to playback your content.
+description: This article lists existing players that you can use to playback your content.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -61,9 +61,6 @@ To test HLS URLs you can also use:
 
 * **Safari** on an iOS device or
 * **3ivx HLS Player** on Windows.
-
-## Developing video players
-For information about how to develop your own players, see [Developing video players](media-services-develop-video-players.md)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

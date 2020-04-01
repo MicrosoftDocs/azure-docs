@@ -1,12 +1,12 @@
 ---
 title: Dynamics 365 for Customer Engagement offer prerequisites | Azure Marketplace 
 description: Deprecated CPP article, linked to PC article. Was "The prerequisites for publishing an Azure application offer on the Azure Marketplace"
-services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Dynamics 365 for Customer Engagement prerequisites

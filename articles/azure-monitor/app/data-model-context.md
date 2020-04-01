@@ -1,18 +1,12 @@
 ---
 title: Azure Application Insights Telemetry Data Model - Telemetry Context | Microsoft Docs
 description: Application Insights telemetry context data model
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Telemetry context: Application Insights data model
 
 Every telemetry item may have a strongly typed context fields. Every field enables a specific monitoring scenario. Use the custom properties collection to store custom or application-specific contextual information.
@@ -94,7 +88,7 @@ Max length: 1024
 
 ## Account id
 
-In multi-tenant applications this is the account ID or name, which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform.
+In multi-tenant applications this is the account ID or name, which the user is acting with. Examples may be subscription ID for Azure portal or blog name for a blogging platform.
 
 Max length: 1024
 
@@ -115,7 +109,7 @@ Max length: 256
 
 ## Internal: SDK version
 
-SDK version. See https://github.com/Microsoft/ApplicationInsights-Home/blob/master/SDK-AUTHORING.md#sdk-version-specification for information.
+SDK version. See [this article](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) for information.
 
 Max length: 64
 

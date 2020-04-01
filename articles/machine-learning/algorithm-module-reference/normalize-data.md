@@ -1,19 +1,19 @@
 ---
 title:  "Normalize Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Normalize Data module in Azure Machine Learning service to transform a dataset through *normalization*..
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Normalize Data module in Azure Machine Learning to transform a dataset through *normalization*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Normalize Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to transform a dataset through *normalization*.
 
@@ -27,7 +27,7 @@ This module offers several options for transforming numeric data:
 
 - You can change all values to a 0-1 scale, or transform the values by representing them as percentile ranks rather than absolute values.
 - You can apply normalization to a single column, or to multiple columns in the same dataset.
-- If you need to repeat the experiment, or apply the same normalization steps to other data, you can save the steps as a normalization transform, and apply it to other datasets that have the same schema.
+- If you need to repeat the pipeline, or apply the same normalization steps to other data, you can save the steps as a normalization transform, and apply it to other datasets that have the same schema.
 
 > [!WARNING]
 > Some algorithms require that data be normalized before training a model. Other algorithms perform their own data scaling or normalization. Therefore, when you choose a machine learning algorithm to use in building a predictive model, be sure to review the data requirements of the algorithm before applying normalization to the training data.
@@ -36,7 +36,7 @@ This module offers several options for transforming numeric data:
 
 You can apply only one normalization method at a time using this module. Therefore, the same normalization method is applied to all columns that you select. To use different normalization methods, use a second instance of **Normalize Data**.
 
-1. Add the **Normalize Data** module to your experiment. You can find the module In Azure Machine Learning, under **Data Transformation**, in the **Scale and Reduce** category.
+1. Add the **Normalize Data** module to your pipeline. You can find the module In Azure Machine Learning, under **Data Transformation**, in the **Scale and Reduce** category.
 
 2. Connect a dataset that contains at least one column of all numbers.
 
@@ -87,21 +87,21 @@ You can apply only one normalization method at a time using this module. Therefo
     
       ![normalization using the tanh function](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Run the experiment, or double-click the **Normalize Data** module and select **Run Selected**. 
+6. Submit the pipeline, or double-click the **Normalize Data** module and select **Run Selected**. 
 
 ## Results
 
 The **Normalize Data** module generates two outputs:
 
-- To view the transformed values, right-click the module, select **Transformed dataset**, and click **Visualize**.
+- To view the transformed values, right-click the module, and select **Visualize**.
 
     By default, values are transformed in place. If you want to compare the transformed values to the original values, use the [Add Columns](./add-columns.md) module to recombine the datasets and view the columns side by side.
 
-- To save the transformation so that you can apply the same normalization method to another similar dataset, right-click the module, select **Transformation function**, and click **Save as Transform**.
+- To save the transformation so that you can apply the same normalization method to another dataset, select the module, and select **Register dataset** under the **Outputs** tab in the right panel.
 
-    You can then load the saved transformations from the **Transforms** group of the left navigation pane and apply it to a dataset with the same schema by using [./Apply Transformation](apply-transformation.md).  
+    You can then load the saved transformations from the **Transforms** group of the left navigation pane and apply it to a dataset with the same schema by using [Apply Transformation](apply-transformation.md).  
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

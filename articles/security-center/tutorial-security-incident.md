@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Tutorial - Respond to security incidents | Microsoft Docs
-description: Azure Security Center Tutorial - Respond to security incidents
+title: Incident response tutorial - Azure Security Center
+description: In this tutorial, you'll learn how to triage security alerts, determine the root cause & scope of an incident, and search security data.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -61,7 +61,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
 1. On the Security Center main menu under **DETECTION**, select **Security alerts**:
 
-   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
 
@@ -109,7 +109,7 @@ If you wish to disable automatic provisioning:
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps

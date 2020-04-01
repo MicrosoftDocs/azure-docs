@@ -1,12 +1,12 @@
 ---
 title: Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
 description: Here's how to onboard to the Business Applications ISV Connect Program.
-services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide

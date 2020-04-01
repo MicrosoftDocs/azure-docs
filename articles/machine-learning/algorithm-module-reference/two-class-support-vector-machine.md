@@ -1,20 +1,20 @@
 ---
 title:  "Two-Class Support Vector Machine: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning service to create a model that is based on the support vector machine algorithm. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning to create a model that is based on the support vector machine algorithm. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 
 # Two-Class Support Vector Machine module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a model that is based on the support vector machine algorithm. 
 
@@ -34,11 +34,13 @@ For prediction, the SVM algorithm assigns new examples into one category or the 
 
 For this model type, it is recommended that you normalize the dataset before using it to train the classifier.
   
-1.  Add the **Two-Class Support Vector Machine** module to your experiment.  
+1.  Add the **Two-Class Support Vector Machine** module to your pipeline.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
 
 3.  For **Number of iterations**, type a number that denotes the number of iterations used when building the model.  
   
@@ -62,18 +64,17 @@ For this model type, it is recommended that you normalize the dataset before usi
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
   
-
-10. Run the experiment.
+10. Submit the pipeline.
 
 ## Results
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md), and select **Visualize**.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
-+ To use the trained models to make predictions, connect the trained model to the [Score Model](score-model.md) module.
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

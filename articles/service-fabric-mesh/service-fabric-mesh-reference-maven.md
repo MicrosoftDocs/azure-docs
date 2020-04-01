@@ -1,14 +1,10 @@
 ---
-title: Azure Service Fabric Mesh Maven reference | Microsoft Docs
+title: Azure Service Fabric Mesh Maven reference 
 description: Contains the reference for how to use the Maven plugin for Service Fabric Mesh 
-services: service-fabric-mesh
-keywords: maven, java, cli 
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
-ms.service: service-fabric-mesh
-manager: subramar
 ---
 # Maven Plugin for Service Fabric Mesh
 

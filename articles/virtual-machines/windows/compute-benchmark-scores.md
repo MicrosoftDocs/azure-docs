@@ -1,5 +1,5 @@
 ---
-title: Compute benchmark scores for Azure Windows VMs | Microsoft Docs
+title: Compute benchmark scores for Azure Windows VMs 
 description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -48,6 +48,8 @@ The following SPECInt benchmark scores show compute performance for select Azure
 | Standard_A8m_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 10 | 104.5 | 5.1 | 
 | Standard_A8m_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 13 | 111.6 | 2.3 | 
 
+Note: Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
+
 ## B - Burstable
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
@@ -60,6 +62,10 @@ The following SPECInt benchmark scores show compute performance for select Azure
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 28.3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 3 | 42.0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 41.4 | 0.9 | 
+
+Note: B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
+
+SPEC Int is a fairly long running test that typically exhausts available burst credits.  Therefore the numbers above are closer to the baseline performance of the VM (although they may reflect some burst time accumulated between runs).  For short, bursty, workloads (typical on B-Series) performance will typically be closer to that of the Ds v3 Series..
 
 ## DSv3 - General Compute + Premium Storage
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 

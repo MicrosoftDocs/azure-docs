@@ -1,5 +1,5 @@
 ---
-title: Use Remote Desktop to a Linux VM in Azure | Microsoft Docs
+title: Use Remote Desktop to a Linux VM in Azure 
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
 services: virtual-machines-linux
 documentationcenter: ''
@@ -45,7 +45,7 @@ Next, install xfce using `apt` as follows:
 
 ```bash
 sudo apt-get update
-sudo apt-get install xfce4
+sudo apt-get -y install xfce4
 ```
 
 ## Install and configure a remote desktop server

@@ -1,12 +1,7 @@
 ---
 title: Debug PowerShell Azure Functions locally
 description: Understand how to develop functions by using PowerShell.
-services: functions
-documentationcenter: na
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
@@ -17,8 +12,6 @@ ms.reviewer: glenga
 # Debug PowerShell Azure Functions locally
 
 Azure Functions lets you develop your functions as PowerShell scripts.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 You can debug your PowerShell functions locally as you would any PowerShell scripts using the following standard development tools:
 

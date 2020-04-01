@@ -2,10 +2,8 @@
 title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/19/2019
+ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -26,10 +24,8 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Create an action group by using the Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
-    ![The "Monitor" service](./media/action-groups/home-monitor.png)
-    
 1. Select **Alerts** then select **Manage actions**.
 
     ![Manage Actions button](./media/action-groups/manage-action-groups.png)
@@ -50,7 +46,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     1. **Name**: Enter a unique identifier for this action.
 
-    1. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
+    1. **Action Type**: Select Automation Runbook, Azure Function, Email Azure Resource Manager Role, Email/SMS/Push/Voice, ITSM, Logic App, Secure Webhook, Webhook.
 
     1. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
     
@@ -60,7 +56,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 ## Manage your action groups
 
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
+After you create an action group, you can view **Action groups** by selecting **Manage actions** from the **Alerts** landing page in **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
@@ -68,10 +64,10 @@ After you create an action group, it's visible in the **Action groups** section 
 ## Action specific information
 
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
 ### Automation Runbook
-Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads.
+Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads.
 
 You may have a limited number of Runbook actions in an Action Group. 
 
@@ -87,12 +83,12 @@ Emails will be sent from the following email addresses. Ensure that your email f
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### Email Azure Resource Manager Role
-Send email to the members of the subscription's role.
+Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### Function
-The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”. For more information, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets).
+Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 You may have a limited number of Function actions in an Action Group.
 
@@ -105,8 +101,6 @@ You may have a limited number of ITSM actions in an Action Group.
 You may have a limited number of Logic App actions in an Action Group.
 
 ### Secure Webhook
-**The Secure Webhook functionality is currently in Preview.**
-
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 1. Create an Azure AD Application for your protected web API. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.

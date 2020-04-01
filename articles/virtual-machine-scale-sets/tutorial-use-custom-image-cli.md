@@ -1,18 +1,9 @@
 ---
-title: Tutorial - Use a custom VM image in a scale set with Azure CLI | Microsoft Docs
+title: Tutorial - Use a custom VM image in a scale set with Azure CLI
 description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a virtual machine scale set
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
@@ -55,7 +46,7 @@ az vm create \
 
 The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
 
-```azurecli-interactive
+```console
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -94,6 +85,9 @@ az vm generalize --resource-group myResourceGroup --name myVM
 It may take a few minutes to deallocate and generalize the VM.
 
 Now, create an image of the VM with [az image create](/cli//azure/image). The following example creates an image named *myImage* from your VM:
+
+> [NOTE]
+> If the Resource Group and Virtual Machine location are different, you can add the `--location` parameter to the below commands to specificy the location of source VM used to create the image. 
 
 ```azurecli-interactive
 az image create \

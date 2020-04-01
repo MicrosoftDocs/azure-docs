@@ -1,23 +1,13 @@
 ---
-title: App Service overview - Azure | Microsoft Docs
+title: Overview
 description: Learn how Azure App Service helps you develop and host web applications
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/04/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # App Service overview
 
 *Azure App Service* is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python. Applications run and scale with ease on both Windows and Linux-based environments. For Linux-based environments, see [App Service on Linux](containers/app-service-linux-intro.md). 

@@ -59,7 +59,7 @@ In this case, start with the list of attributes in this topic and identify those
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| description | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -425,7 +425,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Enable Unified Messaging (UM) - Online voice mail: Used by Microsoft Lync Server integration to indicate to Lync Server on-premises that the user has voice mail in online services. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Litigation Hold: Enables cloud services to determine which users are under Litigation Hold. |
 | proxyAddresses| proxyAddresses |X |X |X |Only the x500 address from Exchange Online is inserted. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Allows an Exchange Online mailbox to be granted SendOnBehalfTo rights to users with on-premises Exchange mailbox. Requires Azure AD Connect build 1.1.552.0 or after. |
 

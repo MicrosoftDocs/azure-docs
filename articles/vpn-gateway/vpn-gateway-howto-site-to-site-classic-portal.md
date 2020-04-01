@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 02/11/2020
 ms.author: cherylmc
 
 ---
@@ -35,7 +35,7 @@ Verify that you have met the following criteria before beginning configuration:
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. To install the cmdlets, see [Service Management](/powershell/azure/servicemanagement/install-azure-ps). For more information about PowerShell installs in general, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator.
+* PowerShell is required in order to specify the shared key and create the VPN gateway connection. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ### <a name="values"></a>Sample configuration values for this exercise
 
@@ -68,11 +68,11 @@ When you create a virtual network to use for a S2S connection, you need to make 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. Click **+Create a resource*. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** page.
 3. click **(change to Classic)**, and then click **Create**.
-4. On the **Create virtual network(classic)** page, configure the VNet settings. On this page, you add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
+4. On the **Create virtual network(classic)** page, configure the VNet settings. On this page, you add your first address space and a single subnet address range. After you create the VNet, you can go back and add additional subnets and address spaces.
 
    ![Create virtual network page](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Create virtual network page")
 5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the drop-down.
-6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md#resource-groups).
 7. Next, select the **Location** settings for your VNet. The location determines where the resources that you deploy to this VNet will reside.
 8. Click **Create** to create your VNet.
 9. After clicking 'Create', a tile appears on the dashboard that reflects the progress of your VNet. The tile changes as the VNet is being created.
@@ -155,23 +155,24 @@ In this step, you set the shared key and create the connection. The key you set 
 
 ### Step 1. Connect to your Azure account
 
-You must run these commands locally using the PowerShell service management module. To switch to service management, use this command:
+You must run these commands locally using the PowerShell service management module. 
 
-```powershell
-azure config mode asm
-```
+1. Open your PowerShell console with elevated rights. To switch to service management, use this command:
 
-1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
+   ```powershell
+   azure config mode asm
+   ```
+2. Connect to your account. Use the following example to help you connect:
 
    ```powershell
    Add-AzureAccount
    ```
-2. Check the subscriptions for the account.
+3. Check the subscriptions for the account.
 
    ```powershell
    Get-AzureSubscription
    ```
-3. If you have more than one subscription, select the subscription that you want to use.
+4. If you have more than one subscription, select the subscription that you want to use.
 
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
@@ -179,7 +180,7 @@ azure config mode asm
 
 ### Step 2. Set the shared key and create the connection
 
-When you create a classic VNet in the portal (not using PowerShell), Azure adds the the resource group name to the short name. For example, according to Azure, the name of the VNet that you created for this exercise is "Group TestRG1 TestVNet1", not "TestVNet1". PowerShell requires the full name of the virtual network, not the short name that appears in the portal. The long name is not visible in the portal. The following steps help you export the network configuration file to obtain the exact values for the virtual network name. 
+When you create a classic VNet in the portal (not using PowerShell), Azure adds the resource group name to the short name. For example, according to Azure, the name of the VNet that you created for this exercise is "Group TestRG1 TestVNet1", not "TestVNet1". PowerShell requires the full name of the virtual network, not the short name that appears in the portal. The long name is not visible in the portal. The following steps help you export the network configuration file to obtain the exact values for the virtual network name. 
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 

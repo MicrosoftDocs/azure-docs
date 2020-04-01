@@ -1,13 +1,12 @@
 ---
 title: Prerequisites for Application Curation 
 description: Deprecated CPP article, linked to PC article; was "List of prerequisites for application curation."
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Prerequisites for Application Curation

@@ -3,9 +3,10 @@ author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows 
 ms.topic: include 
-ms.date: 11-20-2018 
+ms.date: 02-18-2020
 ---
-# Virtual machine size flexibility with Reserved VM Instances
+
+When you buy a Reserved VM Instance, you can choose to optimize for instance size flexibility or capacity priority. For more information about setting or changing the optimize setting for reserved VM instances, see [Change the optimize setting for reserved VM instances](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
 With a reserved virtual machine instance that's optimized for instance size flexibility, the reservation you buy can apply to the virtual machines (VMs) sizes in the same instance size flexibility group. For example, if you buy a reservation for a VM size that's listed in the DSv2 Series, like Standard_DS5_v2, the reservation discount can apply to the other four sizes that are listed in that same instance size flexibility group:
 

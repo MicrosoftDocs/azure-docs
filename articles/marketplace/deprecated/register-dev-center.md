@@ -1,21 +1,12 @@
 ---
 title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
-author: jm-aditi-ms
-manager: pabutler
-
-
-
+author: dsindona
 ms.service: marketplace
-
-
-
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: ellacroi
-
+ms.author: dsindona
 ---
 
 # Register in Dev Center  
@@ -144,11 +135,11 @@ The bank and tax information is required for all commercial offers using the tra
   > Publisher who are publishing in Transact listing type: VM, Azure apps: solution templates and managed apps.  
 
 * **Why is Dev Center account required?**
-  > Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/azure/marketplace/become-publisher)
+  > Dev Center account is a required to enable Microsoft to bill the customer on the publisher's behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 * **How do I get started with Dev Center registration?**
   > To prevent duplication, verify that your company does not already have a Dev Center account registered. 
-  > You must be signed in with the Microsoft account that you want to associate with your developer account. If you don’t already have a Microsoft account, you can create a new account [here.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (example: contoso_marketplace@live.com) To sign in and register, go to https://dev.windows.com/registration?accountProgram=Azure
+  > You must be signed in with the Microsoft account that you want to associate with your developer account. If you don't already have a Microsoft account, you can create a new account [here.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (example: contoso_marketplace@live.com) To sign in and register, go to https://dev.windows.com/registration?accountProgram=Azure
   > <br>To learn more on registration process click [here.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 * **Should I choose 'Individual' or 'Company' account type?**
@@ -157,17 +148,17 @@ The bank and tax information is required for all commercial offers using the tra
 * **Can I change my account type from 'Individual' to 'Company' account after account creation?**
   > No, the account type cannot be updated once the account is created.
 
-* **Why do I get a ‘City is required’ error message though I have entered the city correctly?**
+* **Why do I get a 'City is required' error message though I have entered the city correctly?**
   > Check to make sure the zip code is correctly entered too. There is a city, zip code validation.
 
 * **How can I get a promo code?**
   > Complete the [Marketplace Registration](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) form to receive a Dev Center promotional code. See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
  
 * **What should I expect after I complete the registration?**
-  > Look for an email from verify@microsoft.com with subject line “Action needed: Verify your email account with Microsoft”. Click on the time sensitive verification link to complete registration. *If you have not received an email within 24hrs, please check the spam folder.*
+  > Look for an email from verify@microsoft.com with subject line "Action needed: Verify your email account with Microsoft". Click on the time sensitive verification link to complete registration. *If you have not received an email within 24hrs, please check the spam folder.*
 
 * **What are the next steps after Dev Center verification?**
-  > Go to “Your programs” (https://developer.microsoft.com/dashboard/Account/Programs) and log into the Dev Center account. If you don’t see Azure as a registered program, look under “Recommended programs for you”, and then look for Azure to select  “Get Started.”
+  > Go to "Your programs" (https://developer.microsoft.com/dashboard/Account/Programs) and log into the Dev Center account. If you don't see Azure as a registered program, look under "Recommended programs for you", and then look for Azure to select  "Get Started."
 
 * **How do I link my Dev Center account to my Cloud Partner Portal publisher profile?**
   > The final step before publishing is linking your Dev Center account to your Cloud Partner Portal [profile](https://cloudpartner.azure.com/#profile). If your Dev Center account is different from your account on [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), add your Dev Center account as a new [user](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) in the Cloud Partner Portal. Login to the [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) with your Dev Center Account. Select Publisher profile on menu located on the top right of your web browser. Select Link Dev Center Account.

@@ -1,5 +1,5 @@
 ---
-title: ForEach activity in Azure Data Factory | Microsoft Docs
+title: ForEach activity in Azure Data Factory 
 description: The For Each Activity defines a repeating control flow in your pipeline. It is used for iterating over a collection and execute specified activities.
 services: data-factory
 documentationcenter: ''

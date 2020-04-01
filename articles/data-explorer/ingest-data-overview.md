@@ -112,11 +112,9 @@ For organizations with an existing infrastructure that are based on a messaging 
 
 ## Supported data formats
 
-For all ingestion methods other than ingest from query, format the data so that Azure Data Explorer can parse it. The supported data formats are:
-
-* CSV, TSV, TSVE, PSV, SCSV, SOH​
-* JSON (line-separated, multi-line), Avro​
-* ZIP and GZIP 
+For all ingestion methods other than ingest from query, format the data so that Azure Data Explorer can parse it. 
+* The supported data formats are: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH​, JSON (line-separated, multi-line), Avro, Orc and Parquet​. 
+* Supports ZIP and GZIP compression.
 
 > [!NOTE]
 > When data is being ingested, data types are inferred based on the target table columns. If a record is incomplete or a field cannot be parsed as the required data type, the corresponding table columns will be populated with null values.
@@ -130,8 +128,8 @@ For all ingestion methods other than ingest from query, format the data so that 
 
 Schema mapping helps bind source data fields to destination table columns.
 
-* [CSV Mapping](/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats. It can be performed using the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) and referenced from the ingest command parameter.
-* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be performed using the ingest command parameter. They can also be [pre-created on the table](/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
+* [CSV Mapping](/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats. It can be performed using the ingest command parameter or [pre-created on the table](/azure/kusto/management/create-ingestion-mapping-command) and referenced from the ingest command parameter.
+* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be performed using the ingest command parameter. They can also be [pre-created on the table](/azure/kusto/management/create-ingestion-mapping-command) and referenced from the ingest command parameter.
 
 ## Next steps
 

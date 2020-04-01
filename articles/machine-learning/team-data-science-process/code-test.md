@@ -3,12 +3,12 @@ title: Test data science code with Azure DevOps Services - Team Data Science Pro
 description: Data science code testing on Azure with the UCI adult income prediction dataset with the Team Data Science Process and Azure DevOps Services
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ---
@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 This article gives preliminary guidelines for testing code in a data science workflow. Such testing gives data scientists a systematic and efficient way to check the quality and expected outcome of their code. We use a Team Data Science Process (TDSP) [project that uses the UCI Adult Income dataset](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) that we published earlier to show how code testing can be done. 
 
 ## Introduction on code testing
-"Unit testing" is a longstanding practice for software development. But for data science, it's often not clear what that means and how you should test code for different stages of a data science lifecycle, such as:
+"Unit testing" is a longstanding practice for software development. But for data science, it's often not clear what "unit testing" means and how you should test code for different stages of a data science lifecycle, such as:
 
 * Data preparation
 * Data quality examination
@@ -106,35 +106,35 @@ Use the following steps to set up and run code testing and an automated build by
 
 1. Set up automatic build and test in Azure DevOps:
 
-	a. In the project repository, select **Build and Release**, and then select **+New** to create a new build process.
+    a. In the project repository, select **Build and Release**, and then select **+New** to create a new build process.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
-	b. Follow the prompts to select your source code location, project name, repository, and branch information.
+    b. Follow the prompts to select your source code location, project name, repository, and branch information.
 	
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
-	c. Select a template. Because there's no Python project template, start by selecting **Empty process**. 
+    c. Select a template. Because there's no Python project template, start by selecting **Empty process**. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-	d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to finish the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
 	
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![Build and agent selections](./media/code-test/select_agent.PNG)
 
-	e. Select **+** in the left pane, to add a task for this build phase. Because we're going to run the Python script **test1.py** to finish all the checks, this task is using a PowerShell command to run Python code.
+    e. Select **+** in the left pane, to add a task for this build phase. Because we're going to run the Python script **test1.py** to complete all the checks, this task is using a PowerShell command to run Python code.
 	
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
-	f. In the PowerShell details, fill in the required information, such as the name and version of PowerShell. Choose **Inline Script** as the type. 
+    f. In the PowerShell details, fill in the required information, such as the name and version of PowerShell. Choose **Inline Script** as the type. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
 	
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-	g. Select **Save & queue** to finish the build pipeline process.
+    g. Select **Save & queue** to complete the build pipeline process.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Now every time a new commit is pushed to the code repository, the build process will start automatically. (Here we use master as the repository, but you can define any branch.) The process runs the **test1.py** file in the agent machine to make sure that everything defined in the code runs correctly. 
 

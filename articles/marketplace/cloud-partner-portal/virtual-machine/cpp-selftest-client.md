@@ -1,12 +1,12 @@
 ---
 title: Self-test client to pre-validate a virtual machine | Azure Marketplace 
 description: How to create a self-test client for pre-validating a virtual machine image for the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create a self-test client to pre-validate an Azure virtual machine image
@@ -15,7 +15,7 @@ Use this article as a guide for creating a client service that consumes the self
 
 ## Development and testing overview
 
-As part of the self-test process, you’ll create a local client that connects to Azure Marketplace to validate a VM running in your Azure Subscription. The VM can be running the Windows or Linux operating system.
+As part of the self-test process, you'll create a local client that connects to Azure Marketplace to validate a VM running in your Azure Subscription. The VM can be running the Windows or Linux operating system.
 
 The local client runs a script that authenticates with the self-test API, sends connection information, and receives test results.
 
@@ -41,8 +41,8 @@ The self-test API contains a single endpoint that supports only the POST method.
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -59,7 +59,7 @@ The following table describes the API fields.
 
 |      Field         |    Description    |
 |  ---------------   |  ---------------  |
-|  Authorization     |  The  “Bearer xxxx-xxxx-xxxx-xxxxx” string contains the Azure Active Directory (AD) client token, which can be created by using PowerShell.          |
+|  Authorization     |  The  "Bearer xxxx-xxxx-xxxx-xxxxx" string contains the Azure Active Directory (AD) client token, which can be created by using PowerShell.          |
 |  DNSName           |  DNS Name of the VM to test    |
 |  User              |  User name for signing into the VM         |
 |  Password          |  Password for signing into the VM          |
@@ -82,7 +82,7 @@ To call the API in PowerShell, follow these steps:
 The following code example shows a PowerShell call to the API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -94,7 +94,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 The following screen capture shows an example for calling the API in PowerShell.
@@ -104,7 +104,7 @@ The following screen capture shows an example for calling the API in PowerShell.
 Using the previous example, you can retrieve the JSON and parse it to get the following details:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -140,7 +140,7 @@ To call the API in PowerShell, follow these steps:
 The following code example shows a PowerShell call to the API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -152,7 +152,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 
@@ -163,7 +163,7 @@ The following screen capture shows an example for calling the API in PowerShell.
 Using the previous example, you can retrieve the JSON and parse it to get the following details:
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -197,7 +197,7 @@ To call the API with cURL, follow these steps:
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```
@@ -226,7 +226,7 @@ Use the following steps to choose the Azure AD tenant where you want to create y
 
    **To get tenant information:**
 
-   In **Azure Active Directory Overview**, search for “Properties” and then select **Properties**. Using the following screen capture as an example:
+   In **Azure Active Directory Overview**, search for "Properties" and then select **Properties**. Using the following screen capture as an example:
 
    - **Name** - The tenant name or directory name
    - **Directory ID** - The tenant ID or directory ID or use the scroll bar to find Properties.
@@ -241,9 +241,9 @@ Use the following steps to register the client app.
 2. Under **App registrations**, select **+ New application registration**.
 3. Under **Create**, provide the information required for the following fields:
 
-   - **Name** – Enter a friendly name for the app. For example, “SelfTestClient”.
-   - **Application type** – Select **Web App/API**
-   - **Sign-on URL** – Type "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **Name** - Enter a friendly name for the app. For example, "SelfTestClient".
+   - **Application type** - Select **Web App/API**
+   - **Sign-on URL** - Type "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Select **Create**.
 5. Under **App registrations** or **Registered app**, copy the **Application ID**.
@@ -254,13 +254,13 @@ Use the following steps to register the client app.
 7. Select **Required permissions** to configure permissions for your application.
 8. Under **Required permissions**, select **+ Add**.
 9. Under **Add API access**, pick **Select an API**.
-10. Under **Select an API**, type “Windows Azure classic deployment model” to search for the API.
+10. Under **Select an API**, type "Windows Azure classic deployment model" to search for the API.
 11. In the search results, pick **Windows Azure classic deployment model** and then click **Select**.
 
     ![Configure multi-tenant for app](./media/stclient-select-api.png)
 
 12. Under **Add API access**, pick **Select permissions**.
-13. Select **Access “Windows Azure Service Management API”**.
+13. Select **Access "Windows Azure Service Management API"**.
 
     ![Enable API access for app](./media/stclient-enable-api-access.png)
 
@@ -275,13 +275,13 @@ Use the following steps to register the client app.
 19. Under **Settings**, select **Keys**.
 20. Create a secret key by selecting the Key **DESCRIPTION** textbox. Configure the following fields:
 
-    - Type in a key name. For example, “selftestclient”
-    - On the **EXPIRES** dropdown list, select “In 1 year”.
+    - Type in a key name. For example, "selftestclient"
+    - On the **EXPIRES** dropdown list, select "In 1 year".
     - Select **Save** to generate the key.
     - Under **VALUE**, copy the key.
 
       >[!Important]
-      >You won’t be able to see the key value after you exit the **Keys** form.
+      >You won't be able to see the key value after you exit the **Keys** form.
 
     ![Key value form](./media/stclient-create-key.png)
 
@@ -373,7 +373,7 @@ To ask Auth0 for tokens for any of your authorized applications, perform a POST 
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
-$clientSecret = "Secret Key of AD Client APP “
+$clientSecret = "Secret Key of AD Client APP "
 $audience = "https://management.core.windows.net";
 $authority = "https://login.microsoftonline.com/common/oauth2/token"
 $grantType = "client_credentials";
@@ -393,8 +393,8 @@ $token.AccessToken
 Pass the token to the self-test API using the following code in the authorization header:
 
 ```powershell
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
-$accesstoken = ‘place your token here’
+$redirectUri = 'https://isvapp.azurewebsites.net/selftest-vm'
+$accesstoken = 'place your token here'
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")

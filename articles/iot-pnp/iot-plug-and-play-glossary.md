@@ -3,7 +3,7 @@ title: Glossary of terms - IoT Plug and Play Preview | Microsoft Docs
 description: Concepts - a glossary of common terms relating to IoT Plug and Play Preview.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
@@ -92,6 +92,7 @@ A connection string encapsulates the information required to connect to an endpo
 
 - Device connection strings enable [IoT Plug and Play devices](#iot-plug-and-play-device) to connect to the device-facing endpoints on an IoT hub. Client code on a device uses the connection string to establish a secure connection with an IoT hub.
 - IoT Hub connection strings enable back-end solutions and tools to connect securely to the service-facing endpoints on an IoT hub. These solutions and tools manage the IoT hub and the devices connected to it.
+- Company model repository connection strings enable back-end solutions and tools to connect securely to a [Company model repository](#company-model-repository). These solutions and tools consume or manage the [device capability models](#device-capability-model) and [interfaces](#interface) in the repository.
 
 ## Device capability model
 
@@ -111,7 +112,7 @@ A [device developer](#device-developer) uses the [Digital Twin Definition Langua
 
 ## Device Provisioning Service
 
-[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/concepts-connectivity-pnp.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/core/concepts-get-connected.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ## Device registration
 

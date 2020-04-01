@@ -3,13 +3,13 @@ title: What is Ink Recognizer? - Ink Recognizer API
 titleSuffix: Azure Cognitive Services
 description: Integrate the Ink Recognizer into your applications, websites, tools, and other solutions to allow ink stroke data to be identified and used as input.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
+ms.date: 12/17/2019
+ms.author: aahi
 ---
 
 # What is the Ink Recognizer API?
@@ -47,7 +47,7 @@ After signing up:
 Try a quickstart in the following languages to begin making calls to the Ink Recognizer API.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
 * [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  

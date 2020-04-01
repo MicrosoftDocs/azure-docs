@@ -3,11 +3,11 @@ title: Monitor an Azure Cloud Service | Microsoft Docs
 description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
+ms.author: tagore
 ---
 
 # Introduction to Cloud Service Monitoring
@@ -47,7 +47,7 @@ As each role is created, Visual Studio adds the Azure Diagnostics extension to i
 
 ## Setup diagnostics extension
 
-First, if you don't have a **classic** storage account, [create one](../storage/common/storage-quickstart-create-account.md). Make sure the storage account is created with the **Classic deployment model** specified.
+First, if you don't have a **classic** storage account, [create one](../storage/common/storage-account-create.md). Make sure the storage account is created with the **Classic deployment model** specified.
 
 Next, navigate to the **Storage account (classic)** resource. Select **Settings** > **Access keys** and copy the **Primary connection string** value. You need this value for the cloud service. 
 
@@ -91,4 +91,7 @@ Note that while you can use Application Insights to display the performance coun
 
 - [Learn about Application Insights with Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Set up performance counters](diagnostics-performance-counters.md)
+
+
+
 

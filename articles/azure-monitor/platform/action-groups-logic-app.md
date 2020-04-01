@@ -1,12 +1,10 @@
-﻿---
+---
 title: How to trigger complex actions with Azure Monitor alerts 
 description: Learn how to create a logic app action to process Azure Monitor alerts.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dukek
 ms.subservice: alerts
 ---
 # How to trigger complex actions with Azure Monitor alerts
@@ -14,6 +12,7 @@ ms.subservice: alerts
 This article shows you how to set up and trigger a logic app to create a conversation in Microsoft Teams when an alert fires.
 
 ## Overview
+
 When an Azure Monitor alert triggers, it calls an [action group](../../azure-monitor/platform/action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
 
 The general process is:
@@ -99,7 +98,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Add an action](media/action-groups-logic-app/add-action.png "Add an action")
 
-11. Search for and select the Microsoft Teams connector. Choose the **Microsoft Teams – Post message** action.
+11. Search for and select the Microsoft Teams connector. Choose the **Microsoft Teams - Post message** action.
 
     ![Microsoft Teams actions](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams actions")
 
@@ -123,7 +122,7 @@ The process is similar if you want the logic app to perform a different action.
 
 14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Open your existing action group and add an action to reference the logic app. If you don’t have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
+15. Open your existing action group and add an action to reference the logic app. If you don't have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
 
     ![Update the action group](media/action-groups-logic-app/update-action-group.png "Update the action group")
 
@@ -153,23 +152,23 @@ Azure Service Health entries are part of the activity log. The process for creat
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "…",
-                        "service": "…",
+                        "title": "...",
+                        "service": "...",
                         "region": "Global",
-                        "communication": "…",
+                        "communication": "...",
                         "incidentType": "Incident",
-                        "trackingId": "…",
+                        "trackingId": "...",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "…",
-                        "defaultLanguageContent": "…",
+                        "defaultLanguageTitle": "...",
+                        "defaultLanguageContent": "...",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "…",
+                    "subscriptionId": "...",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -232,7 +231,7 @@ The process for creating a metric alert is similar to [creating an activity log 
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "…",
+        "id": "...",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -254,12 +253,12 @@ The process for creating a metric alert is similar to [creating an activity log 
             }
             ]
         },
-        "subscriptionId": "…",
+        "subscriptionId": "...",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "…",
-        "portalLink": "…"
+        "resourceId": "...",
+        "portalLink": "..."
         },
         "properties": {}
     }
@@ -279,7 +278,7 @@ The process for creating a metric alert is similar to [creating an activity log 
 
       !["Metric alert true condition post action"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Metric alert true condition post action")
 
-  1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesn’t match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
+  1. In the **If false** condition, define a Microsoft Teams action to communicate that the metric alert doesn't match the expectations of the logic app. Include the JSON payload. Notice how to reference the `triggerBody` dynamic content in the `json()` expression.
 
       !["Metric alert false condition post action"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Metric alert false condition post action")
 

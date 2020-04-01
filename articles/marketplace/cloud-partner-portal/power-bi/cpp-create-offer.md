@@ -1,12 +1,12 @@
 ---
 title: Create a Power BI App offer | Azure Marketplace 
 description: How to create a Power BI App offer for the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create a Power BI App offer
@@ -18,7 +18,7 @@ The asset groups are described in the following table:
 |   Asset group      | Description                                                                         |
 | ----------------   | ----------------                                                                    |
 | Offer Settings     | The primary identifications and the name for the offer.                                      |
-| Technical Info     | The installer URL that you use to install the app in the client’s Power BI workspace. For more information about how to generate this URL, see [Power BI App documentation](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Technical Info     | The installer URL that you use to install the app in the client's Power BI workspace. For more information about how to generate this URL, see [Power BI App documentation](https://go.microsoft.com/fwlink/?linkid=2028636). |
 | Storefront Details | Contains marketing, legal, and lead management assets. Marketing assets include an offer description and logos. Legal assets include a privacy policy, terms of use, and other legal documentation. The lead management policy lets you specify how to handle leads from the AppSource user portal. |
 | Contacts           | Contains support contact and policy information.                                     |
 

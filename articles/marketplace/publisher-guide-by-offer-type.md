@@ -1,13 +1,12 @@
 ---
 title: Determine Your Publishing Option in Azure Marketplace | Azure Marketplace
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
-services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publishing guide by offer type
@@ -41,6 +40,6 @@ Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/market
 
 ## Next steps
 
-*	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
-*	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+*    Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
+*    Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
 

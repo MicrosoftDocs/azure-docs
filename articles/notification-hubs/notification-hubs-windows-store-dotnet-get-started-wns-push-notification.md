@@ -5,22 +5,20 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/22/2019
+ms.lastreviewed: 12/04/2019
 ---
 
-# Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs
+# Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -33,21 +31,21 @@ You take the following steps:
 
 > [!div class="checklist"]
 > * Create an app in Windows Store
-> * Create a Notification Hub
+> * Create a notification hub
 > * Create a sample Windows app
 > * Send test notifications
 
 ## Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [Microsoft Visual Studio Community 2015 or later](https://www.visualstudio.com/products/visual-studio-community-vs) or later.
+- Microsoft Visual Studio 2017 or later. The example in this tutorial uses [Visual Studio 2019](https://www.visualstudio.com/products).
 - [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - An active Windows Store account
 - Confirm that **Get notifications from apps and other senders** setting is enabled. 
     - Launch **Settings** window on your computer.
     - Select the **System** tile.
     - Select **Notifications & actions** from the left menu. 
-    - Confirm that the **Get notifications from apps and other senders** setting is enabled. If it isn't enabled, enable it. 
+    - Confirm that the **Get notifications from apps and other senders** setting is enabled. If it isn't enabled, enable it.
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.
 
@@ -55,16 +53,16 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
-1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
+1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
 
     ![New app button](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
 
     ![Store app name](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Expand **App Management**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The **Application Registration Portal** opens in a new tab. Alternatively, you can navigate directly to the [Application Registration Portal](https://apps.dev.microsoft.com), select your application name to get to this page.
+3. Expand **Product management**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The application registration page opens in a new tab. Alternatively, you can navigate directly to the [My applications](https://apps.dev.microsoft.com) page, and select your application name to get to this page.
 
     ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Note the **Application Secret** password and the **Package security identifier (SID)**.
+4. Note the **Application Secrets** password and the **Package security identifier (SID)**.
 
     >[!WARNING]
     >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
@@ -86,17 +84,18 @@ Your notification hub is now configured to work with WNS. You have the connectio
 ## Create a sample Windows app
 
 1. In Visual Studio, open the **File** menu, select **New**, and then select **Project**.
-2. In the **New Project** dialog, complete the following steps:
+2. In the **Create a new project** dialog, complete the following steps:
 
-    1. Expand **Visual C#**.
-    2. Select **Windows Universal**.
-    3. Select **Blank App (Universal Windows)**.
-    4. Enter a **name** for the project.
-    5. Select **OK**.
+    1. In the search box at the top, type **Windows Universal**.
+    2. In the search results, select **Blank App (Universal Windows)**, and then select **Next**.
 
-        ![New Project dialog](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+       ![New Project dialog](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+
+    3. In the **Configure your new project** dialog, enter a **Project name**, and a **Location** for the project files.
+    4. Select **Create**.
+
 3. Accept the defaults for the **target** and **minimum** platform versions, and select **OK**.
-4. In Solution Explorer, right-click the Windows Store app project, select **Store**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
+4. In Solution Explorer, right-click the Windows Store app project, select **Publish**, and then select **Associate App with the Store**. The **Associate Your App with the Windows Store** wizard appears.
 5. In the wizard, sign in with your Microsoft account.
 6. Select the app that you registered in step 2, select **Next**, and then select **Associate**. Doing so adds the required Windows Store registration information to the application manifest.
 7. In Visual Studio, right-click the solution, and then select **Manage NuGet Packages**. The **Manage NuGet Packages** window opens.
@@ -113,7 +112,7 @@ Your notification hub is now configured to work with WNS. You have the connectio
     using Windows.UI.Popups;
     ```
 
-10. In the project's `App.xaml.cs` file, locate the `App` class, and add the following `InitNotificationsAsync` method definition:
+10. In the project's `App.xaml.cs` file, locate the `App` class, and add the following `InitNotificationsAsync` method definition. Replace `<your hub name>` with the name of the notification hub you created in the Azure portal, and replace `<Your DefaultListenSharedAccessSignature connection string>` with the `DefaultListenSharedAccessSignature` connection string from the **Access Polices** page of your notification hub:
 
     ```csharp
     private async void InitNotificationsAsync()

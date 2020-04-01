@@ -1,13 +1,12 @@
 ---
 title: Azure IoT Edge Modules 
 description: The IoT Edge Module Offer in the Azure Marketplace for app and service publishers.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
-manager: pabutler
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # IoT Edge modules
@@ -71,11 +70,11 @@ The primary technical requirements for an IoT Edge Module, in order for it to ge
 
 ## Documentation and Resources
 
-[Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– The steps for publishing a new IoT Edge module offer with the Cloud Publishing Portal.
+[Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -- The steps for publishing a new IoT Edge module offer with the Cloud Publishing Portal.
 
 ## Next steps
 
-If you haven’t already done so,
+If you haven't already done so,
 
 - [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
