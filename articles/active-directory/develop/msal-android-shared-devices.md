@@ -1,20 +1,19 @@
 ---
-title: Shared device mode for Android devices | Azure
-description: Learn about shared device mode, which allows firstline workers to share an Android device 
+title: Shared device mode for Android devices
+titleSuffix: Microsoft identity platform | Azure
+description: Learn how to enable shared device mode to allow Firstline Workers to share an Android device
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/15/2020
+ms.date: 03/31/2020
 ms.author: marsma
-ms.reviwer: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hahamil
+ms.custom: aaddev, identitypla | Azuretformtop40
 ---
 
 # Shared device mode for Android devices
@@ -24,7 +23,7 @@ ms.custom: aaddev, identityplatformtop40
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Firstline workers, such as retail associates, flight crew members, and field service workers, often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
+Firstline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
 
 Shared device mode allows you to configure an Android device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they are finished with their shift or task, they can sign out of the device and it will be immediately ready for the next employee to use.
 
@@ -33,14 +32,14 @@ Shared device mode also provides Microsoft identity backed management of the dev
 To create a shared device mode app, developers and cloud device admins work together:
 
 - Developers write a single-account app (multiple-account apps are not supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
-- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview). You can configure the membership of your organizational roles in the Azure portal via:
+- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator-permissions) role can put a device into shared mode by using the [Authenticator app](../user-help/user-help-auth-app-overview.md). You can configure the membership of your organizational roles in the Azure portal via:
 **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
 
  This article focuses primarily what developers should think about.
 
 ## Single vs multiple-account applications
 
-Applications written using the Microsoft Authentication Library SDK (MSAL) can manage a single account or multiple accounts. For details, see [single-account mode or multiple-account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account). Microsoft identity platform features available to your app vary depending on whether the application is running in single-account mode or multiple-account mode.
+Applications written using the Microsoft Authentication Library SDK (MSAL) can manage a single account or multiple accounts. For details, see [single-account mode or multiple-account mode](single-multi-account.md). Microsoft identity platform features available to your app vary depending on whether the application is running in single-account mode or multiple-account mode.
 
 **Shared device mode apps only work in single-account mode**.
 
@@ -55,7 +54,7 @@ Your app can be built to support running on both personal devices and shared dev
 
 You may also want your app to change its behavior depending on the type of device it is running on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode.
 
-There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL’s application factory, the correct  application object is provided automatically.
+There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL's application factory, the correct  application object is provided automatically.
 
 The following object model illustrates the type of object you may receive and what it means in the context of a shared device:
 
