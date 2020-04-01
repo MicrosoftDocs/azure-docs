@@ -731,7 +731,7 @@
       items:
       - name: Overview
         items:
-        - name: What is Germlin API in Cosmos DB?
+        - name: What is Gremlin API in Cosmos DB?
           href: graph-introduction.md
         - name: Wire protocol support
           href: gremlin-support.md
