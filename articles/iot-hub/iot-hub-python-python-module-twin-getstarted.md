@@ -44,7 +44,7 @@ At the end of this tutorial, you have three Python apps:
 
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the [Identity registry section of the IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module can't connect to IoT hub unless it has an entry in the identity registry. For more information, see the [Identity registry section of the IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
 1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
@@ -175,7 +175,7 @@ In this section, you create a Python app that updates the module twin desired pr
 
 In this section, you create a Python app to get the module twin desired properties update on your device.
 
-1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** on the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities** select **myFirstModule**. Copy the module connection string. You need it in a following step.
+1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** on the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities**, select **myFirstModule**. Copy the module connection string. You need it in a following step.
 
    ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
@@ -228,9 +228,9 @@ In this section, you create a Python app to get the module twin desired properti
 
 ## Run the apps
 
-In this section you run the **ReceiveModuleTwinDesiredPropertiesPatch** app on your device and then run the **UpdateModuleTwinDesiredProperties** app to update the desired properties of your module.
+In this section, you run the **ReceiveModuleTwinDesiredPropertiesPatch** device app and then run the **UpdateModuleTwinDesiredProperties** service app to update the desired properties of your module.
 
-1. Open a command window and run the device app:
+1. Open a command prompt and run the device app:
 
     ```cmd/sh
     python ReceiveModuleTwinDesiredPropertiesPatch.py
@@ -238,7 +238,7 @@ In this section you run the **ReceiveModuleTwinDesiredPropertiesPatch** app on y
 
    ![Device app initial output](./media/iot-hub-python-python-module-twin-getstarted/device-1.png)
 
-1. In a separate command window, run the service app:
+1. Open a separate command prompt and run the service app:
 
     ```cmd/sh
     python UpdateModuleTwinDesiredProperties.py
@@ -248,7 +248,7 @@ In this section you run the **ReceiveModuleTwinDesiredPropertiesPatch** app on y
 
    ![Service app output](./media/iot-hub-python-python-module-twin-getstarted/service.png)
 
-    And the receipt of the same property appears in the desired properties patch in the output of your device app:
+    The same property appears in the desired properties patch received in your device app output:
 
    ![Device app output shows desired properties patch](./media/iot-hub-python-python-module-twin-getstarted/device-2.png)
 
