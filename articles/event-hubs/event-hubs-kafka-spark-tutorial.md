@@ -40,7 +40,7 @@ Before you start this tutorial, make sure that you have:
 
 
 ## Create an Event Hubs namespace
-An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating a Kafka enabled Event Hub](event-hubs-create.md) for instructions on getting an Event Hubs Kafka endpoint. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
+An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
 
 ## Clone the example project
 Clone the Azure Event Hubs repository and navigate to the `tutorials/spark` subfolder:
@@ -110,7 +110,7 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following topic
 
 - [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 - [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create Kafka enabled Event Hubs](event-hubs-create.md)
+- [Create an event hub](event-hubs-create.md)
 - [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
