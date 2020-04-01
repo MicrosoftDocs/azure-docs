@@ -75,7 +75,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 <sup>7</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
-### Protection
+### Protection limitations
 
 | Resource | Default Limit | 
 | --- | --- | 
