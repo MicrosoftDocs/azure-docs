@@ -1,6 +1,6 @@
 ---
 title: Build a mobile app that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform | Azure
 description: Learn how to build a mobile app that calls web APIs (overview)
 services: active-directory
 documentationcenter: dev-center-name

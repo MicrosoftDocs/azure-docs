@@ -1,6 +1,6 @@
 ---
 title: Shared device mode for Android devices
-titleSuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform | Azure
 description: Learn how to enable shared device mode to allow Firstline Workers to share an Android device
 services: active-directory
 author: mmacy
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identitypla | Azuretformtop40
 ---
 
 # Shared device mode for Android devices

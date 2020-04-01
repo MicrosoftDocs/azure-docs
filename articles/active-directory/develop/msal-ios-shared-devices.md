@@ -1,6 +1,6 @@
 ---
 title: Shared device mode for iOS devices
-titleSuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform | Azure
 description: Learn how to enable shared device mode to allow Firstline Workers to share an iOS device
 services: active-directory
 author: brandwe
@@ -43,16 +43,12 @@ To create a shared device mode app, developers and cloud device admins work toge
 
     To configure the membership of your organizational roles in the Azure portal: **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**
 
-    When this feature launches for production workloads, this step will be unnecessary as Microsoft Intune will be able to join the device to your organization as part of the initial setup. Support for additional MDMs is planned.
-
 The following sections help you update your application to support shared device mode.
 
-## Use Intune to enable shared device mode and the SSO extension
+## Use Intune to enable shared device mode & SSO extension
 
 > [!NOTE]
 > The following step is required only during public preview.
->
-> In the future, Intune will include the ability to turn on the Microsoft Enterprise SSO plug-in for Apple devices and enable shared device mode. The following steps are required only for this Public Preview.
 
 Your device needs to be configured to support shared device mode. It must have iOS 13+ installed and be MDM-enrolled. MDM configuration also needs to enable [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md). To learn more about SSO extensions, see the [Apple video](https://developer.apple.com/videos/play/tech-talks/301/).
 
@@ -177,12 +173,10 @@ The following code removes the signed-in account and clears cached tokens from n
 
 #### Clear browser state
 
+> [!NOTE]
+> The following step is required only during public preview.
+
 In this public preview version, the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) clears state only for applications. It does not clear state on the Safari browser. We recommend you manually clear browser session to ensure no traces of user state are left behind. You can use the optional `signoutFromBrowser` property shown below to clear any cookies. This will cause the browser to briefly launch on the device.
-
-Microsoft plans to resolve this issue prior to general availability (GA) of this feature.
-
-> [!TIP]
-> In a future release of this feature, the Microsoft Enterprise SSO plug-in for Apple devices will automatically add credentials to and remove them from the Safari browser on the shared device. When released, this documentation will be updated to include a recommendation that you rely on the new functionality to clear the browser state.
 
 #### Swift
 
