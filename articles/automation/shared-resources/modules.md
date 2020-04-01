@@ -1,6 +1,6 @@
 ---
-title: Manage Modules in Azure Automation
-description: This article describes how to manage modules in Azure Automation
+title: Manage modules in Azure Automation
+description: This article describes how to manage modules in Azure Automation.
 services: automation
 ms.service: automation
 author: mgoedtel
@@ -10,7 +10,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 
-# Manage Modules in Azure Automation
+# Manage modules in Azure Automation
 
 Azure Automation provides the ability to import PowerShell modules into your Automation Account to be used by the PowerShell based runbooks. These modules can be custom modules you've created, from the PowerShell Gallery, or the AzureRM and Az modules for Azure. When you create an Automation Account, some modules are imported by default.
 
