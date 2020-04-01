@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 author: 
 ms.author: 
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: , estfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/20/20
+ms.date: 04/10/20
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
