@@ -174,9 +174,7 @@ Automated machine learning offers preprocessing and data guardrails automaticall
 
 ### Data guardrails
 
-Data guardrails are applied when automatic featurization is enabled or validation is set to auto. Data guardrails help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. There are many best practices that are available and can be applied to achieve reliable results. 
-
-The following table describes the data guardrails currently supported, and the associated statuses that users may come across when submitting their experiment.
+Data guardrails are applied when automatic featurization is enabled or validation is set to auto. Data guardrails help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. There are many best practices that are available and can be applied to achieve reliable results. Users can review data guardrails in the studio within the **Data guardrails** tab of an Automated ML run or by setting ```show_output=True``` when submitting an experiment using the Python SDK. The following table describes the data guardrails currently supported, and the associated statuses that users may come across when submitting their experiment.
 
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
@@ -189,11 +187,11 @@ Frequency detection |**Passed** <br><br><br><br> **Done** |<br> The time series 
 
 #### Data Guardrail States
 Data guardrails will display one of three states: 'Passed', 'Done, or 'Alerted'. 
-State|Description
----|---
-Passed | No data problems were detected and no users action is required. 
-Done | Some changes were applied to your data. We encourage users to review the corrective actions Automated ML took to ensure the changes align with the expected results. 
-Alerted | A data issue that could not be remedied was detected. We encourage users to revise and fix the issue. 
+State| Description
+----|----
+Passed| No data problems were detected and no user action is required. 
+Done| Changes were applied to your data. We encourage users to review the corrective actions Automated ML took to ensure the changes align with the expected results. 
+Alerted| A data issue that could not be remedied was detected. We encourage users to revise and fix the issue. 
 
 Previous version of the Automated ML displayed a fourth state: 'Fixed'. Newer experiments will not display this state, and all guardrails which displayed the 'Fixed' state will now display 'Done'.   
 
