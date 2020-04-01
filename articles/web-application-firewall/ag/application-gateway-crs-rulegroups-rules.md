@@ -276,6 +276,7 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
+|942120|SQL Injection Attack: SQL Operator Detected|
 |942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack = Common DB Names Detected|
 |942150|SQL Injection Attack|
