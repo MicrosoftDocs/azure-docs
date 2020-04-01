@@ -121,10 +121,10 @@ When you use an External ASE, apps made in your ASE are registered with Azure DN
 
 To configure DNS with your ILB ASE:
 
-    create a zone for &ltASE name&gt.appserviceenvironment.net
+    create a zone for <ASE name>.appserviceenvironment.net
     create an A record in that zone that points * to the ILB IP address
     create an A record in that zone that points @ to the ILB IP address
-    create a zone in &ltASE name&gt.appserviceenvironment.net named scm
+    create a zone in <ASE name>.appserviceenvironment.net named scm
     create an A record in the scm zone that points * to the ILB IP address
 
 The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&ltASE name&gt.appserviceenvironment.net*. 
