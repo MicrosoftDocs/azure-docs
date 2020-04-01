@@ -11,7 +11,7 @@ ms.date: 04/01/2020
 
 # Install and use LightIngest
 
-LightIngest is a command-line utility for ad-hoc data ingestion into Azure Data Explorer. 
+LightIngest is a command-line utility for ad-hoc data ingestion into Azure Data Explorer.
 The utility can pull source data from a local folder or from an Azure blob storage container.
 
 ## Prerequisites
@@ -42,7 +42,7 @@ The utility can pull source data from a local folder or from an Azure blob stora
     >
     >![Command line Help](media/lightingest/lightingest-cmd-line-help.png)
 
-1. Enter `LightIngest` followed by the connection string to the Azure Data Explorer cluster that will manage the ingestion.
+1. Enter LightIngest followed by the connection string to the Azure Data Explorer cluster that will manage the ingestion.
     Enclose the connection string in double quotes and follow the [Kusto connection strings specification](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto).
 
     For example:
@@ -50,12 +50,12 @@ The utility can pull source data from a local folder or from an Azure blob stora
     ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
     ```
 
-* The recommended method is for `LightIngest` to work with the ingestion endpoint at `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`. This way, the Azure Data Explorer service can manage the ingestion load, and you can easily recover from transient errors. However, you can also configure `LightIngest` to work directly with the engine endpoint (`https://{yourClusterNameAndRegion}.kusto.windows.net`).
+* The recommended method is for LightIngest to work with the ingestion endpoint at `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`. This way, the Azure Data Explorer service can manage the ingestion load, and you can easily recover from transient errors. However, you can also configure LightIngest to work directly with the engine endpoint (`https://{yourClusterNameAndRegion}.kusto.windows.net`).
 
 > [!Note]
 > If you ingest directly with the engine endpoint, you don't need to include `ingest-` but there won't be a DM feature to protect the engine and improve the ingestion success rate.
 
-* For optimal ingestion performance, it's important for LightIngest to know the raw data size and so `LightIngest` will estimate the uncompressed size of local files. However, `LightIngest` might not be able to correctly estimate the raw size of compressed blobs without first downloading them. Therefore, when ingesting compressed blobs, set the `rawSizeBytes` property on the blob metadata to uncompressed data size in bytes.
+* For optimal ingestion performance, it's important for LightIngest to know the raw data size and so LightIngest will estimate the uncompressed size of local files. However, LightIngest might not be able to correctly estimate the raw size of compressed blobs without first downloading them. Therefore, when ingesting compressed blobs, set the `rawSizeBytes` property on the blob metadata to uncompressed data size in bytes.
 
 ## General command-line arguments
 
@@ -79,11 +79,11 @@ The utility can pull source data from a local folder or from an Azure blob stora
 ### Using CreationTimePattern argument
 
 The `-creationTimePattern` argument extracts the CreationTime property from the file or blob path. The pattern doesn't need to reflect the entire item path, just the section enclosing the timestamp you want to use.
-The value of the argument must include the following:
+
+The argument values must include:
 * Constant test immediately preceding the timestamp, enclosed in single quotes
 * The timestamp format, in standard [.NET DateTime notation](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)
-* Constant text immediately following the timestamp
-For example, if blob names end with 'historicalvalues19840101.parquet' (the timestamp is four digits for the year, two digits for the month and two digits for the day of month), the corresponding value for the `-creationTimePattern` argument is:
+* Constant text immediately following the timestamp. For example, if blob names end with 'historicalvalues19840101.parquet' (the timestamp is four digits for the year, two digits for the month, and two digits for the day of month), the corresponding value for the `-creationTimePattern` argument is:
 
 ```
 ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -creationTimePattern:"'historicalvalues'yyyyMMdd'.parquet'"
@@ -104,7 +104,7 @@ ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -
 |-devTracing           |-trace       |string  |Optional  |If set, diagnostic logs are written to a local directory (by default, `RollingLogs` in the current directory, or can be modified by setting the switch value) |
 
 ## Blob metadata properties
-When used with Azure blobs, `LightIngest` will use certain blob metadata properties to augment the ingestion process.
+When used with Azure blobs, LightIngest will use certain blob metadata properties to augment the ingestion process.
 
 |Metadata property                            | Usage                                                                           |
 |---------------------------------------------|---------------------------------------------------------------------------------|
