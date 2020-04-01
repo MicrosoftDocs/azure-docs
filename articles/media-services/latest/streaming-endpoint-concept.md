@@ -116,7 +116,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     > [!NOTE]
     > Streaming Endpoints located in the same data center can't share the same custom host name.
 
-    Currently, Media Services doesn't support SSL with custom domains.
+    Currently, Media Services doesn't support TLS with custom domains.
 
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
 - `resourceState` -
