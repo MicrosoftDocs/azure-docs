@@ -20,7 +20,7 @@ ms.date: 08/20/2019
 You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
 
 > [!WARNING]
-> Deleted files or folders cannot be restored. Be cautious when using the Delete activity to delete files or folders.
+> Deleted files or folders cannot be restored (this is only possible is the storage account has soft delete disabled, if enabled, the file can be undeleted and restored back). Be cautious when using the Delete activity to delete files or folders.
 
 ## Best practices
 
