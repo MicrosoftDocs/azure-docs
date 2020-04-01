@@ -18,11 +18,13 @@ ms.author: menchi
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
 >
 
-At the end of this tutorial, you have two Python apps:
+At the end of this tutorial, you have three Python apps:
 
 * **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
 
-* **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
+* **UpdateModuleTwinDesiredProperties**, which sends updated module twin desired properties to your IoT Hub.
+
+* **
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -50,16 +52,16 @@ In this section, you create a Python app that creates a device identity and a mo
     pip install azure-iot-hub
     ```
 
-2. Using a text editor, create a file named **CreateModule.py** in your working directory.
+1. Using a text editor, create a file named **CreateModule.py** in your working directory.
 
-3. Add the following code to your Python file:
+1. Add the following code to your Python file:
 
     ```python
     import sys
     from msrest.exceptions import HttpOperationError
     from azure.iot.hub import IoTHubRegistryManager
 
-    CONNECTION_STRING = "YourConnString"
+    CONNECTION_STRING = "YourIotHubConnectionString"
     DEVICE_ID = "myFirstDevice"
     MODULE_ID = "myFirstModule"
 
@@ -109,7 +111,7 @@ In this section, you create a Python app that creates a device identity and a mo
         print("IoTHubRegistryManager sample stopped")
     ```
 
-4. At your command prompt, run the following command:
+1. At your command prompt, run the following command:
 
     ```cmd/sh
     python AddModule.py
@@ -121,94 +123,108 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 > The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 >
 
-## Update the module twin using Python device SDK
+## Update the module twin using Python service SDK
 
-In this section, you create a Python app on your simulated device that updates the module twin reported properties.
+In this section, you create a Python app that updates the module twin desired properties.
 
-1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** on the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities** select **myFirstModule**. Copy the module connection string. You need it in a following step.
-
-   ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
-
-2. At your command prompt, run the following command to install the **azure-iot-device** package:
+1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
     ```cmd/sh
-    pip install azure-iot-device
+    pip install azure-iot-hub
     ```
 
-3. Using a text editor, create a file named **UpdateModuleTwinReportedProperties.py** in your working directory.
+1. Using a text editor, create a file named **UpdateModuleTwinDesiredProperties.py** in your working directory.
 
-4. Add the following code to your Python file:
+1. Add the following code to your Python file:
 
     ```python
     import sys
-    import iothub_service_client
-    from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
+    from azure.iot.hub import IoTHubRegistryManager
+    from azure.iot.hub.models import Twin, TwinProperties
 
-    CONNECTION_STRING = "{moduleConnectionString}"
+    CONNECTION_STRING = "YourIoTHubConnectionString"
     DEVICE_ID = "myFirstDevice"
     MODULE_ID = "myFirstModule"
 
-    UPDATE_JSON = "{\"properties\":{\"desired\":{\"telemetryInterval\":122}}}"
-
     try:
-        iothub_twin = IoTHubDeviceTwin(CONNECTION_STRING)
+        # RegistryManager
+        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
-        twin_info = iothub_twin.get_twin(DEVICE_ID, MODULE_ID)
+        module_twin = iothub_registry_manager.get_module_twin(DEVICE_ID, MODULE_ID)
         print ( "" )
-        print ( "Twin before update    :" )
-        print ( "{0}".format(twin_info) )
+        print ( "Module twin properties before update    :" )
+        print ( "{0}".format(module_twin.properties) )
 
-        twin_info_updated = iothub_twin.update_twin(DEVICE_ID, MODULE_ID, UPDATE_JSON)
+        # Update twin
+        twin_patch = Twin()
+        twin_patch.properties = TwinProperties(desired={"telemetryInterval": 122})
+        updated_module_twin = iothub_registry_manager.update_module_twin(
+            DEVICE_ID, MODULE_ID, twin_patch, module_twin.etag
+        )
         print ( "" )
-        print ( "Twin after update     :" )
-        print ( "{0}".format(twin_info_updated) )
+        print ( "Module twin properties after update     :" )
+        print ( "{0}".format(updated_module_twin.properties) )
 
-    except IoTHubError as iothub_error:
-        print ( "Unexpected error {0}".format(iothub_error) )
+    except Exception as ex:
+        print ( "Unexpected error {0}".format(ex) )
     except KeyboardInterrupt:
         print ( "IoTHubRegistryManager sample stopped" )
     ```
 
 ## Get updates on the device side
 
-In addition to the above code, you can use the following code to get the twin update message on your device.
+You can use the following code to get the module twin update patch on your device.
 
-```python
-import time
-import threading
-from azure.iot.device import IoTHubModuleClient
+1. Get your module connection string. In [Azure portal](https://portal.azure.com/), navigate to your IoT Hub and select **IoT devices** on the left pane. Select **myFirstDevice** from the list of devices and open it. Under **Module identities** select **myFirstModule**. Copy the module connection string. You need it in a following step.
 
-CONNECTION_STRING = "{deviceConnectionString}"
+   ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
+
+1. At your command prompt, run the following command to install the **azure-iot-device** package:
+
+    ```cmd/sh
+    pip install azure-iot-device
+    ```
+
+1. Using a text editor, create a file named **ReceiveModuleTwinDesiredPropertiesPatch.py** in your working directory.
+
+1. Add the following code to your Python file:
+
+    ```python
+    import time
+    import threading
+    from azure.iot.device import IoTHubModuleClient
+
+    CONNECTION_STRING = "YourModuleConnectionString"
 
 
-def twin_update_listener(client):
-    while True:
-        patch = client.receive_twin_desired_properties_patch()  # blocking call
-        print("")
-        print("Twin desired properties patch received:")
-        print(patch)
-
-def iothub_client_sample_run():
-    try:
-        module_client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
-
-        twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(module_client,))
-        twin_update_listener_thread.daemon = True
-        twin_update_listener_thread.start()
-
+    def twin_update_listener(client):
         while True:
-            time.sleep(1000000)
+            patch = client.receive_twin_desired_properties_patch()  # blocking call
+            print("")
+            print("Twin desired properties patch received:")
+            print(patch)
 
-    except KeyboardInterrupt:
-        print("IoTHubModuleClient sample stopped")
+    def iothub_client_sample_run():
+        try:
+            module_client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
+
+            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(module_client,))
+            twin_update_listener_thread.daemon = True
+            twin_update_listener_thread.start()
+
+            while True:
+                time.sleep(1000000)
+
+        except KeyboardInterrupt:
+            print("IoTHubModuleClient sample stopped")
 
 
-if __name__ == '__main__':
-    print ( "Starting the IoT Hub Python sample..." )
-    print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
+    if __name__ == '__main__':
+        print ( "Starting the IoT Hub Python sample..." )
+        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
 
-    iothub_client_sample_run()
-```
+        iothub_client_sample_run()
+    ```
 
 ## Next steps
 
