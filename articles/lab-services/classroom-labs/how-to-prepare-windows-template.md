@@ -180,7 +180,7 @@ We recommend having all Microsoft Store apps be updated to their latest versions
 3. Select **Download** and updates from the drop-down menu.
 4. Click **Get update** button.
 
-You can also use Powershell to update Microsoft Store applications that are already installed.
+You can also use PowerShell to update Microsoft Store applications that are already installed.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
