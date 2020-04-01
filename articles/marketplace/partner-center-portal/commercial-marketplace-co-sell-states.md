@@ -6,16 +6,16 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 04/01/2020
 ---
 
-# Co-sell state codes
+# Co-sell state/province codes
 
 If applicable, use these codes to provide State/Province info when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md#contacts).
 
-## State/Province table
+## US States & Territories Table
 
-|   State/Province Name               |   Code    |
+|   State/Territory Name              |   Code    |
 |-------------------------------------|-----------|
 | Alabama                             | US-AL     |
 | Alaska                              | US-AK     |
@@ -73,7 +73,40 @@ If applicable, use these codes to provide State/Province info when [providing co
 | Northern Mariana Islands            | US-MP     |
 | Puerto Rico                         | US-PR     |
 | United States Minor Outlying Islands | US-UM    |
-|Virgin Islands, U.S.                 | US-VI     |
+| Virgin Islands, U.S.                 | US-VI    |
+
+## Canadian Provinces/Territories Table
+
+|   Province/Territory Name         |   Code    |
+|-------------------------------------|-----------|
+| Alberta                             |  CA-AB    |
+| British Columbia                    |  CA-BC    |
+| Manitoba                            |  CA-MB    |
+| New Brunswick                       |  CA-NB    |
+| Newfoundland and Labrador           |  CA-NL    |
+| Nova Scotia                         |  CA-NS    |
+| Ontario                             |  CA-ON    |
+| Prince Edward Island                |  CA-PE    |
+| Quebec                              |  CA-QC    |
+| Saskatchewan                        |  CA-SK    |
+| Northwest Territories               |  CA-NT    |
+| Nunavut                             |  CA-NU    |
+| Yukon                               |  CA-YT    |
+
+
+## Australian States/Territories Table
+
+|   State/Territory Name              |   Code    |
+|-------------------------------------|-----------|
+| New South Wales                     |  AU-NSW   |
+| Queensland                          |  AU-QLD   |
+| South Australia                     |  AU-SA    |
+| Tasmania                            |  AU-TAS   |
+| Victoria                            |  AU-VIC   |
+| Western Australia                   |  AU-WA    |
+| Australian Capital Territory        |  AU-ACT   |
+| Northern Territory                  |  AU-NT    |
+
 
 ## Next steps
 
