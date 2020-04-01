@@ -64,7 +64,7 @@ For now, customer-managed keys have the following restrictions:
 
 - If this feature is enabled for your disk, you cannot disable it.
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
-- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
+- Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2048 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
