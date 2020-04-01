@@ -49,7 +49,7 @@ Here's what you'll need to get started:
 
    ![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
 
-5. Enter a name for the rule, then select the name of the group you created in the prerequisites.
+5. Enter a **name** for the **rule**, then **select** the *name of the **group** you created in the prerequisites.
 
 6. Select **Select**, then select **Done**.
 
@@ -60,26 +60,20 @@ Here's what you'll need to get started:
     >[!NOTE]
     >Make sure you add both Windows Virtual Desktop Enterprise applications. If you only add the client app, the instructions won't work.
 
-9. Select **Select**, then select **Done**.
+9. Select **Select**
 
-10. Next, select **Cloud apps or actions** 
+10. Next, open **Grant** 
 
-11. Select **Require multi-factor authentication**, then select at least one of the **selected controls**.
-
-12. Select **Select**, then select **Done**.
-
-13. Select **Grant**.
-
-14. Select **Require multi-factor authentication**.
+11. Select **Require multi-factor authentication**, then select **Require one of the selected controls**.
    
     ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
 
     >[!NOTE]
     >If you have MDM-enrolled devices in your organization and don't want them to show the MFA prompt, you can also select **Require device to be marked as compliant**.
 
-15. Select **Session**.
+12. Select **Session**.
 
-16. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
+13. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
 
     ![A screenshot of the Session page. The session menu shows the sign-in frequency drop-down menus have been changed to "1" and "Hours."](media/sign-in-frequency.png)
    
@@ -88,8 +82,8 @@ Here's what you'll need to get started:
     >
     >The default setting is a rolling window of 90 days, which means the client will ask users to sign in again when they try to access a resource after being inactive on their machine for 90 days or longer.
 
-17. Enable the policy.
+14. Enable the policy.
 
-18. Select **Create** to confirm the policy.
+15. Select **Create** to confirm the policy.
 
 You're all done! Feel free to test the policy to make sure your allow list works as intended.
