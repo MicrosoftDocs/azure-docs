@@ -62,7 +62,7 @@ A service principal is automatically created when the application registration i
 
     ![Copy client secret key value](media/provision-aad-app/create-app-reg-copy-client-secret.png)
 
-Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example below, skip the next section. If you need support for delegated permissions, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
+Your application is created. If you only need access to an authorized Azure Data Explorer resource, such as in the programmatic example below, skip the next section. For delegated permissions support, see [configure delegated permissions for the application registration](#configure-delegated-permissions-for-the-application-registration).
 
 ## Configure delegated permissions for the application registration
 
@@ -71,7 +71,7 @@ If your application needs to access Azure Data Explorer using the credentials of
 1. In the **API permissions** blade, select **Add a permission**.
 1. Select **APIs my organization uses**. Search for and select **Azure Data Explorer**.
 
-    ![Add Azure Data Explorer API permission](media/provision-aad-app/configure-delegated-add-api-permissions.png)
+    ![Add Azure Data Explorer API permission](media/provision-aad-app/configure-delegated-add-api-permission.png)
 
 1. In **Delegated permissions**, select the **user_impersonation** box and **Add permissions**
 
@@ -98,13 +98,13 @@ Now that your service principal application registration is created, you need to
     The last parameter is a string that shows up as notes when you query the roles associated with a database.
     
     > [!NOTE]
-    > After creating the application registration, there may be a several minute delay until Azure Data Explorer can reference it. If you receive an error, that the application is not found, when executing this command, wait and try again.
+    > After creating the application registration, there may be a several minute delay until Azure Data Explorer can reference it. If, when executing the command, you receive an error that the application is not found, wait and try again.
 
-For additional information, see [security roles management](/azure/kusto/management/security-roles) and [ingestion permissions](azure/kusto/api/netfx/kusto-ingest-client-permissions.md).  
+For more information, see [security roles management](/azure/kusto/management/security-roles) and [ingestion permissions](/azure/kusto/api/netfx/kusto-ingest-client-permissions.md).  
 
 ## Using application credentials to access a database
 
-Use the application credentials to programmatically access your database by using the [Azure Data Explorer client library](azure/kusto/api/netfx/about-kusto-data.md).
+Use the application credentials to programmatically access your database by using the [Azure Data Explorer client library](/azure/kusto/api/netfx/about-kusto-data.md).
 
 ```C#
 . . .
@@ -129,8 +129,7 @@ var queryResult = client.ExecuteQuery($"{query}");
 
 ### Invalid resource error
 
-If your application is used to authenticate users or applications for Azure Data Explorer access, you must set up delegated permissions for Azure Data Explorer service application. You must declare your application can authenticate users or applications for Azure Data Explorer access.
-Not doing so will result in an error similar to the following, when an authentication attempt is made:
+If your application is used to authenticate users or applications for Azure Data Explorer access, you must set up delegated permissions for Azure Data Explorer service application. Declare your application can authenticate users or applications for Azure Data Explorer access. Not doing so will result in an error similar to the following, when an authentication attempt is made:
 
 `AADSTS650057: Invalid resource. The client has requested access to a resource which is not listed in the requested permissions in the client's application registration...`
 
