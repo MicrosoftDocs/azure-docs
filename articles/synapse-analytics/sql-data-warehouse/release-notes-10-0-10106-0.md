@@ -178,4 +178,4 @@ Use the version identified to confirm which release has been applied to your SQL
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
-- [Azure glossary](../../azure-glossary-cloud-terminology.md)
+- [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
