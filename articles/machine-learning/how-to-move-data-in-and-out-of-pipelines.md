@@ -166,7 +166,7 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 
 ### Use `PipelineData` as an output of a training step
 
-Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this is the first step and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`.
+Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this step is the first and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`.
 
 ```python
 parser = argparse.ArgumentParser()
