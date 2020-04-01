@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/09/2019
+ms.date: 4/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -129,11 +129,25 @@ When moving from test scenarios to production scenarios, remember to remove debu
   * Manage access to your container registry
   * Use tags to manage versions
 
-### Manage access to your container registry
+### Manage access to your container registry with a service principal
 
 Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private, not public, container registry to manage container images.
 
-In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario. Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner, as IoT Edge devices do. Create a service principal with read-only access to your container registry, and provide that username and password in the deployment manifest.
+In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario. Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner, as IoT Edge devices do.
+
+To create a service principal, run the two scripts as described in [Create a service principal](../container-registry/container-registry-auth-aci#create-a-service-principal). These scripts do the following tasks:
+
+* The first script creates the service principal. It outputs the `Service principal ID` and the `Service principal password`. Store these values securely in your records.
+
+* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** or **arcPush** user roles for the `--role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-rolesmd)
+
+To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Provide the credentials as follows:
+
+* For username or client ID, specify the service principal ID.
+
+* For the password or client secret, specify the service principal password.
+
+For an example of launching Azure Container instances using a service principal, see [](../container-registry/container-registry-roles/container-registry-auth-aci.md#authenticate-using-the-service-principal).
 
 ### Use tags to manage versions
 
