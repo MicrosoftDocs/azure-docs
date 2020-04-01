@@ -1,41 +1,20 @@
 ---
-title: 'Azure Backup: Create backup policies using REST API'
-description: Manage backup policies (schedule and retention) using REST API
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
+title: Create backup policies using REST API
+description: In this article, you will learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ---
 # Create Azure Recovery Services backup policies using REST API
 
-The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Let us use this document as a reference to create a policy for Azure VM backup.
+The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](/rest/api/backup/protectionpolicies/createorupdate). Let us use this document as a reference to create a policy for Azure VM backup.
 
-## Backup policy essentials
-
-- A backup policy is created per vault.
-- A backup policy can be created for the backup of following workloads
-  - Azure VM
-  - SQL in Azure VM
-  - Azure File Share
-- A policy can be assigned to many resources. An Azure VM backup policy can be used to protect many Azure VMs.
-- A policy consists of two components
-  - Schedule: When to take the backup
-  - Retention: For how long each backup should be retained.
-- Schedule can be defined as "daily" or "weekly" with a specific point of time.
-- Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
-- "weekly" refers to a backup on a certain day of the week, "monthly" means a backup on a certain day of the month and "yearly" refers to a backup on a certain day of the year.
-- Retention for "monthly", "yearly" backup points is referred to as "LongTermRetention".
-- When a vault is created, a policy for Azure VM backups called "DefaultPolicy" is also created and can be used to back up Azure VMs.
+## Create or update a policy
 
 To create or update an Azure Backup policy, use the following *PUT* operation
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
 The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
@@ -46,10 +25,10 @@ For example, to create a policy for Azure VM backup, following are the component
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
 |tags     |         | Object        |  Resource tags       |
 
-For the complete list of definitions in the request body, refer to the [backup policy REST API document](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
+For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### Example request body
 
@@ -150,11 +129,11 @@ The policy says:
 
 The backup policy creation/update is a [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
 ### Example responses
@@ -175,14 +154,14 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
 Then track the resulting operation using the location header or Azure-AsyncOperation header with a simple *GET* command.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 ```
 
 Once the operation completes, it returns 200 (OK) with the policy content in the response body.
@@ -279,7 +258,7 @@ If a policy is already being used to protect an item, any update in the policy w
 
 [Enable protection for an unprotected Azure VM](backup-azure-arm-userestapi-backupazurevms.md).
 
-For more information on the Azure Backup REST APIs, refer to the following documents:
+For more information on the Azure Backup REST APIs, see the following documents:
 
 - [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
 - [Get started with Azure REST API](/rest/api/azure/)

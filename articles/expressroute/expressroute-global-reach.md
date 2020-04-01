@@ -1,14 +1,14 @@
 ---
-title: 'Connect on-premises networks to Microsoft Cloud using Global Reach - Azure ExpressRoute | Microsoft Docs'
+title: 'Azure ExpressRoute: Connect to Microsoft Cloud using Global Reach'
 description: This article explains ExpressRoute Global Reach.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 02/20/2020
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 
@@ -39,6 +39,7 @@ ExpressRoute Global Reach currently is supported in the following places.
 * Japan
 * Korea
 * Netherlands
+* New Zealand
 * Singapore
 * Switzerland
 * United Kingdom

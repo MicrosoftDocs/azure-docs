@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scaling. The containers can scale independently in terms of storage and throughput. You can create containers in Azure Cosmos DB that can be automatically scaled to store a graph data. The data is automatically balanced based on the specified **partition key**.
 
-**Partitioning is required** if the container is expected to store more than 10 GB in size or if you want to allocate more than 10,000 request units per second (RUs). The same general principles from the [Azure Cosmos DB partitioning mechanism](partition-data.md) apply with a few graph-specific optimizations described below.
+**Partitioning is required** if the container is expected to store more than 20 GB in size or if you want to allocate more than 10,000 request units per second (RUs). The same general principles from the [Azure Cosmos DB partitioning mechanism](partition-data.md) apply with a few graph-specific optimizations described below.
 
 ![Graph partitioning.](./media/graph-partitioning/graph-partitioning.png)
 

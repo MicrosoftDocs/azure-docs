@@ -1,15 +1,9 @@
 ---
-title: Quickstart - Deploy Docker container to Azure Container Instances - CLI
+title: Quickstart - Deploy Docker container to container instance - Azure CLI
 description: In this quickstart, you use the Azure CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.author: danlep
-ms.custom: "seodec18, mvc"
+ms.custom: [seo-python-october2019, seodec18, mvc]
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure CLI
@@ -18,7 +12,7 @@ Use Azure Container Instances to run serverless Docker containers in Azure with 
 
 In this quickstart, you use the Azure CLI to deploy an isolated Docker container and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the application running in the container:
 
-![App deployed to Azure Container Instances viewed in browser][aci-app-browser]
+![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
@@ -56,8 +50,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query "{
 
 When you run the command, the container's fully qualified domain name (FQDN) and its provisioning state are displayed.
 
-```console
-$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+```output
 FQDN                               ProvisioningState
 ---------------------------------  -------------------
 aci-demo.eastus.azurecontainer.io  Succeeded
@@ -65,7 +58,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 If the container's `ProvisioningState` is **Succeeded**, go to its FQDN in your browser. If you see a web page similar to the following, congratulations! You've successfully deployed an application running in a Docker container to Azure.
 
-![Browser screenshot showing application running in an Azure container instance][aci-app-browser]
+![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
 If at first the application isn't displayed, you might need to wait a few seconds while DNS propagates, then try refreshing your browser.
 
@@ -81,8 +74,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 The output displays the logs for the container, and should show the HTTP GET requests generated when you viewed the application in your browser.
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```output
 listening on port 80
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
@@ -101,8 +93,7 @@ az container attach --resource-group myResourceGroup --name mycontainer
 
 Once attached, refresh your browser a few times to generate some additional output. When you're done, detach your console with `Control+C`. You should see output similar to the following:
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```output
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2019-03-21 17:27:20+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-helloworld"
 (count: 1) (last timestamp: 2019-03-21 17:27:24+00:00) Successfully pulled image "mcr.microsoft.com/azuredocs/aci-helloworld"
@@ -151,7 +142,7 @@ In this quickstart, you created an Azure container instance by using a public Mi
 To try out options for running containers in an orchestration system on Azure, see the [Azure Kubernetes Service (AKS)][container-service] quickstarts.
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

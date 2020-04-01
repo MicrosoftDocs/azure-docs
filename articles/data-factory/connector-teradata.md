@@ -1,18 +1,18 @@
 ---
-title: Copy data from Teradata Vantage by using Azure Data Factory | Microsoft Docs
+title: Copy data from Teradata Vantage by using Azure Data Factory 
 description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata Vantage to data stores supported by Data Factory as sinks. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/25/2020
 ms.author: jingwang
 
 ---
@@ -39,17 +39,11 @@ Specifically, this Teradata connector supports:
 - Copying data by using **Basic** or **Windows** authentication.
 - Parallel copying from a Teradata source. See the [Parallel copy from Teradata](#parallel-copy-from-teradata) section for details.
 
-> [!NOTE]
->
-> After the release of self-hosted integration runtime v3.18, Azure Data Factory upgraded the Teradata connector. Any existing workload that uses the previous Teradata connector is still supported. For new workloads, however, it's a good idea to use the new one. Note that the new path requires a different set of linked service, dataset, and copy source. For configuration details, see the respective sections that follow.
-
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-The integration runtime provides a built-in Teradata driver, starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
-
-For any self-hosted integration runtime version earlier than 3.18, install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), version 14 or later, on the integration runtime machine. 
+If you use Self-hosted Integration Runtime, note it provides a built-in Teradata driver starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 ## Getting started
 
@@ -67,7 +61,14 @@ The Teradata linked service supports the following properties:
 | connectionString | Specifies the information needed to connect to the Teradata instance. Refer to the following samples.<br/>You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. | Yes |
 | username | Specify a user name to connect to Teradata. Applies when you are using Windows authentication. | No |
 | password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when you are using Windows authentication, or referencing a password in Key Vault for basic authentication. | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+More connection properties you can set in connection string per your case:
+
+| Property | Description | Default value |
+|:--- |:--- |:--- |
+| CharacterSet | The character set to use for the session. E.g., `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following pre-defined character sets: <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)<br/>- EUC (Unix compatible, KANJIEC_0U)<br/>- IBM Mainframe (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | Default value is `ASCII`. |
+| MaxRespSize |The maximum size of the response buffer for SQL requests, in kilobytes (KBs). E.g., `MaxRespSize=‭10485760‬`.<br/><br/>For Teradata Database version 16.00 or later, the maximum value is 7361536. For connections that use earlier versions, the maximum value is 1048576. | Default value is `65536`. |
 
 **Example using basic authentication**
 
@@ -199,7 +200,7 @@ To copy data from Teradata, the following properties are supported in the copy a
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `TeradataSource`. | Yes |
 | query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No (if table in dataset is specified) |
-| partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from Teradata is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from Teradata is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option isn't `None`. | No |
 | partitionColumnName | Specify the name of the source column that will be used by range partition or Hash partition for parallel copy. If not specified, the primary index of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `Hash` or `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfHashPartitionCondition` or  `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No |
@@ -247,7 +248,7 @@ The Data Factory Teradata connector provides built-in data partitioning to copy 
 
 ![Screenshot of partition options](./media/connector-teradata/connector-teradata-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Teradata.
+When you enable partitioned copy, Data Factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Teradata.
 
 You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Teradata. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 

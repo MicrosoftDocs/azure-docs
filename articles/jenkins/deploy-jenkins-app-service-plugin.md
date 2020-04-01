@@ -1,11 +1,7 @@
 ---
 title: Deploy to Azure App Service by using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, app service
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---
@@ -208,10 +204,13 @@ For the **Docker registry URL** value, supply the URL by using the format https:
 ### For Azure App Service on Linux
 
 1. To verify your web app, run the following command in the Azure CLI:
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     The following message is displayed:
+    
     ```CLI
     ["calculator"]
     ```

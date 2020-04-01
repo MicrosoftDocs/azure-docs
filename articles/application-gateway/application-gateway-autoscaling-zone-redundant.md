@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 03/24/2020
 ms.author: victorh
 ---
 
@@ -21,8 +21,8 @@ The new v2 SKU includes the following enhancements:
   Zone redundancy is available only where Azure Zones are available. In other regions, all other features are supported. For more information, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart.  There isn't a static VIP in v1, so you must use the application gateway URL instead of the IP address for domain name routing to App Services via the application gateway.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](rewrite-http-headers.md)
-- **Key Vault Integration (preview)**: Application Gateway v2 supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
-- **Azure Kubernetes Service Ingress Controller (preview)**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see the [documentation page](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
+- **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md).
 - **Performance enhancements**: The v2 SKU offers up to 5X better SSL offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
@@ -30,14 +30,14 @@ The new v2 SKU includes the following enhancements:
 
 ## Supported regions
 
-The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Canada Central, Canada East, East Asia, Korea Central, Korea South, South India, UK South, Central India, West India, South India.
+The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, East Asia, Korea Central, Korea South, UK South, Central India, West India, South India.
 
 ## Pricing
 
 With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
 
-- **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway.
-- **Capacity Unit price** - This is consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.
+- **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price.
+- **Capacity Unit price** - This is a consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.  The billing is done at a Capacity Unit level for anything above the reserved instance count.
 
 Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 
@@ -59,7 +59,7 @@ The following table shows example prices and are for illustration purposes only.
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-For more pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/). Billing is scheduled to start on July 1, 2019.
+For more pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Example 1**
 
@@ -72,7 +72,7 @@ Total price = $148.8 + $297.6 = $446.4
 
 **Example 2**
 
-An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
+An Application Gateway standard_v2 is provisioned for a month, with zero minimum instances, and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
 
 Fixed price = 744(hours) * $0.20 = $148.8
 
@@ -80,10 +80,37 @@ Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 
 
 Total price = $148.8+23.81 = $172.61
 
+As you can see, you are only billed for four Capacity Units, not for the entire instance. 
+
 > [!NOTE]
 > The Max function returns the largest value in a pair of values.
 
+
 **Example 3**
+
+An Application Gateway standard_v2 is provisioned for a month, with a minimum of five instances. Assuming that there is no traffic and connections are short lived, your price would be:
+
+Fixed price = 744(hours) * $0.20 = $148.8
+
+Capacity unit price = 744(hours) * Max (0/50 compute unit for connections/sec, 0/2.22 capacity unit for throughput) * $0.008 = 744 * 50 * 0.008 = $297.60
+
+Total price = $148.80+297.60 = $446.4
+
+In this case, you're billed for the entirety of the five instances even though there is no traffic.
+
+**Example 4**
+
+An Application Gateway standard_v2 is provisioned for a month, with a minimum of five instances, but this time there is an average of 125-mbps data transfer, and 25 SSL connections per second. Assuming that there is no traffic and connections are short lived, your price would be:
+
+Fixed price = 744(hours) * $0.20 = $148.8
+
+Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 125/2.22 capacity unit for throughput) * $0.008 = 744 * 57 * 0.008 = $339.26
+
+Total price = $148.80+339.26 = $488.06
+
+In this case, you are billed for the full five instances, plus seven Capacity Units (which is 7/10 of an instance).  
+
+**Example 5**
 
 An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
 
@@ -100,7 +127,7 @@ Total price = $267.84 + $85.71 = $353.55
 
 Application Gateway and WAF can be configured to scale in two modes:
 
-- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak provisioned capacity for anticipated maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even in the absence of traffic. Each instance counts as 10 additional reserved Capacity Units. 0 signifies no reserved capacity and is purely autoscaling in nature. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified. 
+- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak provisioned capacity for anticipated maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even in the absence of traffic. Each instance counts as 10 additional reserved Capacity Units. Zero signifies no reserved capacity and is purely autoscaling in nature. Please note that zero additional minimum instances still ensures high availability of the service which is always included with fixed price. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified.
 - **Manual** - You can alternatively choose Manual mode where the gateway won't autoscale. In this mode, if there is more traffic than what Application Gateway or WAF can handle, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
 ## Feature comparison between v1 SKU and v2 SKU
@@ -118,7 +145,8 @@ The following table compares the features available with each SKU.
 | URL-based routing                                 | &#x2713; | &#x2713; |
 | Multiple-site hosting                             | &#x2713; | &#x2713; |
 | Traffic redirection                               | &#x2713; | &#x2713; |
-| Web application firewall (WAF)                    | &#x2713; | &#x2713; |
+| Web Application Firewall (WAF)                    | &#x2713; | &#x2713; |
+| WAF custom rules                                  |          | &#x2713; |
 | Secure Sockets Layer (SSL) termination            | &#x2713; | &#x2713; |
 | End-to-end SSL encryption                         | &#x2713; | &#x2713; |
 | Session affinity                                  | &#x2713; | &#x2713; |
@@ -136,7 +164,7 @@ The following table compares the features available with each SKU.
 |--|--|
 |Authentication certificate|Not supported.<br>For more information, see [Overview of end to end SSL with Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported|
-|User Defined Route (UDR) on Application Gateway subnet|Not supported|
+|User-Defined Route (UDR) on Application Gateway subnet|Supported (specific scenarios). In preview.<br> For more information about supported scenarios, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |Billing|Billing scheduled to start on July 1, 2019.|

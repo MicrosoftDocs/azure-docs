@@ -244,7 +244,7 @@ To enable Azure AD users to sign in to Kintone, they must be provisioned into Ki
     b. Click **Save**.
 
 > [!NOTE]
-> You can use any other Kintone user account creation tools or APIs provided by Kintone to provision AAD user accounts.
+> You can use any other Kintone user account creation tools or APIs provided by Kintone to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -1,10 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Manage DC/OS
 description: Azure Container Service tutorial - Manage DC/OS
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
@@ -16,7 +13,7 @@ ms.custom: mvc
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quickstart details basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 > [!div class="checklist"]
 > * Create an ACS DC/OS cluster
@@ -64,7 +61,7 @@ ip=$(az network public-ip list --resource-group myResourceGroup --query "[?conta
 
 To create the SSH tunnel, run the following command and follow the on-screen instructions. If port 80 is already in use, the command fails. Update the tunneled port to one not in use, such as `85:localhost:80`. 
 
-```azurecli
+```console
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
@@ -78,7 +75,7 @@ az acs dcos install-cli
 
 Before the CLI can be used with the cluster, it must be configured to use the SSH tunnel. To do so, run the following command, adjusting the port if needed.
 
-```azurecli
+```console
 dcos config set core.dcos_url http://localhost
 ```
 
@@ -114,19 +111,19 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **TASKS** column value switches from *0/1* to *1/1*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
@@ -163,19 +160,19 @@ In the previous example, a single instance application was created. To update th
 
 Update the application using the `dcos marathon app update` command.
 
-```azurecli
+```console
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **TASKS** column value switches from *1/3* to *3/1*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/3    ---       ---      False      DOCKER   None
 ```
@@ -220,13 +217,13 @@ Create a file named **nginx-public.json** and copy the following contents into i
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli 
+```console
 dcos marathon app add nginx-public.json
 ```
 
 Get the public IP address of the DC/OS public cluster agents.
 
-```azurecli 
+```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
@@ -254,7 +251,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, DC/OS cluster, and all related resources.
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup --no-wait
 ```
 

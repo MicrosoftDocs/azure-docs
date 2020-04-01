@@ -1,5 +1,5 @@
 ---
-title: Use Platform-as-a-Service (PaaS) services in Azure DevTest Labs | Microsoft Docs
+title: Use Platform-as-a-Service (PaaS) services in Azure DevTest Labs
 description: Learn how to use Platform-as-a-Service (Pass) services in Azure DevTest Labs. 
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---
@@ -47,10 +47,10 @@ There's some custom lab information that is outside of the resource group and is
 - Storage account in which the Resource Manager templates files are stored. 
  
 #### Lab virtual network
-The [Connecting environments to the lab's virtual network](connect-environment-lab-virtual-network.md) article describes how to modify your Resource Manager template to use the `$(LabSubnetId)` token. When an environment is created, the `$(LabSubnetId)` token is replaced by the first subnet mark where the **use in virtual machine create** option is set to **true**. It allows our environment to use previously created networks. If you want to use the same Resource Manager templates in environments in test as staging and production, use `$(LabSubnetId)` as a default value in a Resource Manager template parameter. 
+The [Connecting environments to the lab's virtual network](connect-environment-lab-virtual-network.md) article describes how to modify your Resource Manager template to use the `$(LabSubnetId)` token. When an environment is created, the `$(LabSubnetId)` token is replaced by the first subnet mark where the **use in virtual machine creation** option is set to **true**. It allows our environment to use previously created networks. If you want to use the same Resource Manager templates in environments in test as staging and production, use `$(LabSubnetId)` as a default value in a Resource Manager template parameter. 
 
 #### Environment Storage Account
-DevTest Labs supports the use of [nested Resource Manager templates](../azure-resource-manager/resource-group-linked-templates.md). The [[Deploy nested Azure Resource Manager templates for testing environments](deploy-nested-template-environments.md) article explains how to use  `_artifactsLocation` and `_artifactsLocationSasToken` tokens to create a URI to a Resource Manager template in the same folder as or in a nested folder of the main template. For more information about these two tokens, see the **Deployment artifacts** section of [Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs supports the use of [nested Resource Manager templates](../azure-resource-manager/templates/linked-templates.md). The [[Deploy nested Azure Resource Manager templates for testing environments](deploy-nested-template-environments.md) article explains how to use  `_artifactsLocation` and `_artifactsLocationSasToken` tokens to create a URI to a Resource Manager template in the same folder as or in a nested folder of the main template. For more information about these two tokens, see the **Deployment artifacts** section of [Azure Resource Manager – Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## User Experience
 

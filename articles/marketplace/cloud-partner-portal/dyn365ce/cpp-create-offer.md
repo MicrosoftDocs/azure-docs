@@ -1,12 +1,12 @@
 ---
 title: Create a Dynamics 365 for Customer Engagement application offer | Azure Marketplace 
 description: Deprecated this CPP article and pointed to PC article; was "How to create a new Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace."
-services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Create a Dynamics 365 for Customer Engagement application offer

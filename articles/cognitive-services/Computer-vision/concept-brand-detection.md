@@ -1,7 +1,7 @@
 ---
 title: Brand detection - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to brand/logo detection using the Computer Vision API.
+description: This article discusses a specialized mode of object detection; brand and/or logo detection using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -72,5 +72,5 @@ In some cases, the brand detector will pick up both the logo image and the styli
 
 The brand detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. You can call this API through a native SDK or through REST calls. Include `Brands` in the **visualFeatures** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"brands"` section.
 
-* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/csharp-sdk.md)
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)

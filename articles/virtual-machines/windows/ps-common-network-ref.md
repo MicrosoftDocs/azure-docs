@@ -1,5 +1,5 @@
 ﻿---
-title: Common PowerShell commands for Azure Virtual Networks | Microsoft Docs
+title: Common PowerShell commands for Azure Virtual Networks 
 description: Common PowerShell commands to get you started creating a virtual network and its associated resources for VMs.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -70,6 +70,6 @@ Some variables might be useful for you if running more than one of the commands 
 | Delete a public IP address |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>Removes the specified public IP address from the resource group. |
 
 ## Next Steps
-* Use the network interface that you just created when you [create a VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Learn about how you can [create a VM with multiple network interfaces](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
+Use the network interface that you just created when you [create a VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
 

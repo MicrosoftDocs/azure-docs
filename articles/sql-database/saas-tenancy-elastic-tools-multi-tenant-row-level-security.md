@@ -1,5 +1,5 @@
 ---
-title: "Multi-tenant apps with RLS and elastic database tools | Microsoft Docs"
+title: Multi-tenant apps with RLS and elastic database tools
 description: Use elastic database tools with row-level security to build an application with a highly scalable data tier.
 services: sql-database
 ms.service: sql-database
@@ -247,7 +247,7 @@ GO
 ```
 
 > [!TIP]
-> In a complex project you might need to add the predicate on hundreds of tables, which could be tedious. There is a helper stored procedure that automatically generates a security policy, and adds a predicate on all tables in a schema. For more information, see the blog post at [Apply Row-Level Security to all tables - helper script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> In a complex project you might need to add the predicate on hundreds of tables, which could be tedious. There is a helper stored procedure that automatically generates a security policy, and adds a predicate on all tables in a schema. For more information, see the blog post at [Apply Row-Level Security to all tables - helper script (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Now if you run the sample application again, tenants see only rows that belong to them. In addition, the application cannot insert rows that belong to tenants other than the one currently connected to the shard database. Also, the app cannot update the TenantId in any rows it can see. If the app attempts to do either, a DbUpdateException is raised.
 

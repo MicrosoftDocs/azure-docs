@@ -33,7 +33,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 * [Azure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 * [Azure Storage Queue client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* An [Azure storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* An [Azure storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -85,7 +85,7 @@ You have two environment options for running the examples in this guide:
 * You can run your code against an Azure Storage account in the cloud.
 * You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azure storage emulator for development and testing](../common/storage-use-emulator.md).
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Access keys](../common/storage-account-manage.md#access-keys).
+If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.

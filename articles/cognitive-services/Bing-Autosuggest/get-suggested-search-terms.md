@@ -1,7 +1,7 @@
 ---
 title: What is Bing Autosuggest?
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Bing Autosuggest API.
+description: The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
 ---
 # What is Bing Autosuggest?
@@ -44,6 +44,9 @@ To get started quickly with your first request, see [Making Your First Query](qu
 
 Familiarize yourself with the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
 
-Learn how to search the web by using the [Bing Web Search API](../bing-web-search/search-the-web.md).
+Visit the [Bing Search API hub page](../bing-web-search/search-the-web.md) to explore the other available APIs.
+
+
+Learn how to search the web by using the [Bing Web Search API](../bing-web-search/search-the-web.md), and explore the other[Bing Search APIs](../bing-web-search/index.yml).
 
 Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.

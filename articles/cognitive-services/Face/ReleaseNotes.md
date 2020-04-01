@@ -1,7 +1,7 @@
 ---
-title: Release notes - Face API Service
+title: Release notes - Face service
 titleSuffix: Azure Cognitive Services
-description: Release notes for the Face API Service include a history of release changes for various versions.
+description: Release notes for the Face service include a history of release changes for various versions.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 06/06/2019
 ms.author: yluiu
 ---
 
-# Face API Release Notes
+# Face release notes
 
-This article pertains to Face API Service version 1.0.
+This article pertains to Face service version 1.0.
 
 ### Release changes in June 2019
 

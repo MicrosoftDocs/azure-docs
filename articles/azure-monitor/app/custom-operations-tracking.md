@@ -1,17 +1,10 @@
 ---
-title: Track custom operations with Azure Application Insights .NET SDK | Microsoft Docs
+title: Track custom operations with Azure Application Insights .NET SDK 
 description: Tracking custom operations with Azure Application Insights .NET SDK
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/30/2017
+ms.date: 11/26/2019
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
 
 # Track custom operations with Application Insights .NET SDK
@@ -29,7 +22,7 @@ This document provides guidance on how to track custom operations with the Appli
 ## Overview
 An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation A was initiated by operation B, then operation B is set as a parent for A. An operation can have only one parent, but it can have many child operations. For more information on operations and telemetry correlation, see [Azure Application Insights telemetry correlation](correlation.md).
 
-In the Application Insights .NET SDK, the operation is described by the abstract class [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
+In the Application Insights .NET SDK, the operation is described by the abstract class [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) and its descendants [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) and [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## Incoming operations tracking 
 The Application Insights web SDK automatically collects HTTP requests for ASP.NET applications that run in an IIS pipeline and all ASP.NET Core applications. There are community-supported solutions for other platforms and frameworks. However, if the application isn't supported by any of the standard or community-supported solutions, you can instrument it manually.
@@ -289,9 +282,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     }
     catch (StorageException e)
     {
-        telemetry.Properties.Add("AzureServiceRequestID", e.RequestInformation.ServiceRequestID);
-        telemetry.Success = false;
-        telemetry.ResultCode = e.RequestInformation.HttpStatusCode.ToString();
+        operation.telemetry.Properties.Add("AzureServiceRequestID", e.RequestInformation.ServiceRequestID);
+        operation.telemetry.Success = false;
+        operation.telemetry.ResultCode = e.RequestInformation.HttpStatusCode.ToString();
         telemetryClient.TrackException(e);
     }
     finally

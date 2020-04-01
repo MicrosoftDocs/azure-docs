@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 03/25/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -44,9 +43,15 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO, and [Automated user provisioning](servicenow-provisioning-tutorial.md).
+In this tutorial, you configure and test Azure AD SSO in a test environment. 
 
-You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
+* ServiceNow supports **SP** initiated SSO.
+
+* ServiceNow supports [Automated user provisioning](servicenow-provisioning-tutorial.md).
+
+* Once you configure the ServiceNow you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* You can configure the ServiceNow Classic (Mobile) application with Azure AD for enabling SSO. It supports both Android and iOS users. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add ServiceNow from the gallery
 
@@ -85,18 +90,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot of Set up Single Sign-On with SAML page, with pen icon highlighted](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, perform the following steps:
+1. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In **Sign on URL**, enter a URL that uses the following pattern:
-    `https://<instance-name>.service-now.com/navpage.do`
+    `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. In **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
+	c. For **Reply URL**, enter one of the following URL:
+
+	|||
+	|-|-|
+	| `https://instancename.service-now.com/navpage.do` |
+	| `https://instancename.service-now.com/customer.do` | 
+
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)**. 
 
    ![Screenshot of the SAML Signing Certificate section, with Download highlighted](common/certificatebase64.png)
 
@@ -155,10 +167,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 4. In the **Basic SAML Configuration** section, perform the following steps:
 
 	a. For **Sign on URL**, enter a URL that uses the following pattern:
-    `https://<instance-name>.service-now.com/navpage.do`
+    `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
+
+	c. For **Reply URL**, enter one of the following URL:
+
+	|||
+	|-|-|
+	| `https://instancename.service-now.com/navpage.do` |
+	| `https://instancename.service-now.com/customer.do` |
 
 	> [!NOTE]
 	> These values aren't real. You need to update these values with the actual sign-on URL and identifier, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -179,7 +198,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Sign on to your ServiceNow application as an administrator.
 
-2. Activate the **Integration - Multiple Provider single sign-on Installer** plug-in by following these steps:
+1. Activate the **Integration - Multiple Provider single sign-on Installer** plug-in by following these steps:
 
 	a. In the left pane, search for the **System Definition** section from the search box, and then select **Plugins**.
 
@@ -197,11 +216,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	 ![Screenshot of Activate Plugin dialog box, with Activate highlighted](./media/servicenow-tutorial/tutorial_activate1.png "Activate plugin")
 
-3. In the left pane, search for the **Multi-Provider SSO** section from the search bar, and then select **Properties**.
+1. In the left pane, search for the **Multi-Provider SSO** section from the search bar, and then select **Properties**.
 
 	![Screenshot of Multi-Provider SSO section, with Multi-Provider SSO and Properties highlighted](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
-4. In the **Multiple Provider SSO Properties** dialog box, perform the following steps:
+1. In the **Multiple Provider SSO Properties** dialog box, perform the following steps:
 
 	![Screenshot of Multiple Provider SSO Properties dialog box](./media/servicenow-tutorial/ic7694981.png "Configure app URL")
 
@@ -211,11 +230,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	* For **Enable debug logging for the multiple provider SSO integration**, select **Yes**.
 
-	* For **The field on the user table that...**, enter **user_name**.
+	* For **The field on the user table that...**, enter **email**.
   
 	* Select **Save**.
 
-6. You can configure ServiceNow automatically or manually. To configure ServiceNow automatically, follow these steps:
+1. You can configure ServiceNow automatically or manually. To configure ServiceNow automatically, follow these steps:
 
 	1. Return to the **ServiceNow** single sign-on page in the Azure portal.
 
@@ -270,11 +289,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		     ![Screenshot of page, with Test Connection highlighted](./media/servicenow-tutorial/tutorial_activate2.png "Activate plugin")
 
+		     > [!NOTE]
+		     > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
+
+		     > ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
+		
 	      1. When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
 		     ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
-6. To configure **ServiceNow** manually, follow these steps:
+1. To configure **ServiceNow** manually, follow these steps:
 
 	1. Sign on to your ServiceNow application as an administrator.
 
@@ -315,12 +339,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 		* Confirm that **NameID Policy** is set to `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` value.
 
-		* Select **Advanced**. In **User Field**, enter **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
+		* Select **Advanced**. In **User Field**, enter **email**.
 
 			> [!NOTE]
 			> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
 
 		* Select **Test Connection** at the upper-right corner of the page.
+
+		  > [!NOTE]
+		  > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
+
+		  > ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
 
 		* When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
@@ -416,7 +445,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 	d. For **Clock Skew**, enter **60**.
 
-	e. For **User Field**, enter **email** or **user_name**, depending on which field is used to uniquely identify users in your ServiceNow deployment.
+	e. For **User Field**, enter **email**.
 
 	> [!NOTE]
 	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token. Do this by going to the **ServiceNow** > **Attributes** > **Single sign-on** section of the Azure portal, and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name).
@@ -446,7 +475,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 	*  Enter **Username**, like B.simon@contoso.com.
 
 	*  Select **USE EXTERNAL LOGIN**. You're redirected to the Azure AD page for sign-in.
-    
+
 	*  Enter your credentials. If there is any third-party authentication, or any other security feature enabled, the user must respond accordingly. The application **Home page** appears.
 
 		![Screenshot of the application home page](./media/servicenow-tutorial/test02.png)
@@ -462,3 +491,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 - [Configure user provisioning](servicenow-provisioning-tutorial.md)
 
 - [Try ServiceNow with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [How to protect ServiceNow with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

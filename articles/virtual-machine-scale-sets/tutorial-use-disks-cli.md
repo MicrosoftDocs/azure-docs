@@ -1,18 +1,9 @@
 ---
-title: Tutorial - Create and use disks for scale sets with Azure CLI | Microsoft Docs
+title: Tutorial - Create and use disks for scale sets with Azure CLI
 description: Learn how to use the Azure CLI to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
@@ -150,7 +141,7 @@ az vmss list-instance-connection-info \
 
 Use your own public IP address and port number to connect to the first VM instance, as shown in the following example:
 
-```azurecli-interactive
+```console
 ssh azureuser@52.226.67.166 -p 50001
 ```
 
@@ -202,7 +193,7 @@ sudo df -h
 
 The following example output shows that the three disks have their filesystems correctly mounted under */datadisks*:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        30G  1.3G   28G   5% /
 /dev/sdb1        50G   52M   47G   1% /mnt

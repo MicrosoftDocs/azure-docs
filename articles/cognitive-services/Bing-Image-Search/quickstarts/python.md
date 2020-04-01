@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Python"
+title: "Quickstart: Search for images using the Bing Image Search REST API and Python"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -35,7 +35,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and import the following modules. Create a variable for your subscription key, search endpoint, and search term.
+1. Create a new Python file in your favorite IDE or editor, and import the following modules. Create a variable for your subscription key, search endpoint, and search term. `search_url` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     import requests
@@ -62,12 +62,13 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Use the `requests` library to call the Bing Image Search API. Add your header and parameters to the request, and return the response as a JSON object. 
+2. Use the `requests` library to call the Bing Image Search API. Add your header and parameters to the request, and return the response as a JSON object. Get The URLs to several thumbnail images from the response's `thumbnailUrl` field.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## View the response
@@ -75,6 +76,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 1. Create a new figure with four columns, and four rows using the matplotlib library. 
 
 2. Iterate through the figure's rows and columns, and use the PIL library's `Image.open()` method to add an image thumbnail to each space. 
+
+3. Use `plt.show()` to draw the figure and display the images.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -85,9 +88,9 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. Use `plt.show()` to draw the figure and display the images.
 
 ## Example JSON response
 

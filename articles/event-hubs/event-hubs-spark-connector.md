@@ -1,6 +1,6 @@
 ---
 title: Integrate with Apache Spark - Azure Event Hubs | Microsoft Docs
-description: Integrate with Apache Spark to enable Structured Streaming with Event Hubs
+description: This article shows how to integrate with Apache Spark to enable Structured Streaming with Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy

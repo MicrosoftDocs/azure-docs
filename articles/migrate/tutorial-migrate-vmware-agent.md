@@ -1,12 +1,8 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agent-based Azure Migrate Server Migration  | Microsoft Docs
-description: This article describes how to perform an agent-based migration of on-premises machines to Azure with Azure Migrate Server Migration
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.author: raynew
+ms.date: 03/09/2020
 ms.custom: MVC
 ---
 
@@ -157,7 +153,7 @@ The Mobility service must be installed on machines you want to replicate.
 
 - The Azure Migrate replication appliance can do a push installation of this service when you enable replication for a machine, or you can install it manually, or using installation tools.
 - In this tutorial, we're going to install the Mobility service with the push installation.
-- For push installation, you need to prepare an account that Azure Migrate Server Migration can use to access the VM.
+- For push installation, you need to prepare an account that Azure Migrate Server Migration can use to access the VM. This account is used only for the push installation, if you don't install the Mobility service manually.
 
 Prepare the account as follows:
 
@@ -174,9 +170,9 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
-1. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements.
-2. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) VM support requirements for migration.
-3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware server requirements.
+2. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) VM support requirements for migration.
+3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -333,7 +329,7 @@ Now, select VMs for migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -403,14 +399,17 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
+    - By default Azure Migrate shuts down the on-premises VM to ensure minimum data loss. 
     - If you don't want to shut down the VM, select **No**
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
+1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+    - Stops replication for the on-premises machine.
+    - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
+    - Cleans up replication state information for the VM.
 2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
@@ -421,7 +420,19 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Post-migration best practices
 
-- For increased resilience:
+- On-premises
+    - Move app traffic over to the app running on the migrated Azure VM instance.
+    - Remove the on-premises VMs from your local VM inventory.
+    - Remove the on-premises VMs from local backups.
+    - Update any internal documentation to show the new location and IP address of the Azure VMs.
+- Tweak Azure VM settings after migration:
+    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMare VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
+    - Manually uninstall the Mobility service from the Azure VM after migration.
+    - Manually uninstall VMware tools after migration.
+- In Azure:
+    - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
+    - Perform final application and migration acceptance testing on the migrated application now running in Azure.
+- Business continuity/disaster recovery
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
@@ -430,9 +441,11 @@ After you've verified that the test migration works as expected, you can migrate
     - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
 
 
-## Next steps
+
+
+ ## Next steps
 
 Investigate the [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.

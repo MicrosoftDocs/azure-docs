@@ -1,19 +1,19 @@
 ---
-title: "Quickstart: Face client library for Python | Microsoft Docs"
-description: Get started with the Face client library for Python...
+title: "Quickstart: Face client library for Python"
+description: This quickstart will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 
 # Quickstart: Face client library for Python
 
-Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face API service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
+Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
 
@@ -24,7 +24,7 @@ Use the Face client library for Python to:
 * Verify faces
 * Take a snapshot for data migration
 
-[Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
+[Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Then, create variables for your resource's Azure endpoint and key. You may need 
 You can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Face
+pip install --upgrade azure-cognitiveservices-vision-face
 ```
 
 ## Object model
@@ -148,7 +148,7 @@ Once you've set up your images, define a label at the top of your script for the
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Then add the following code to the bottom of your script. This code creates a **PersongGroup** and three **Person** objects.
+Then add the following code to the bottom of your script. This code creates a **PersonGroup** and three **Person** objects.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 
@@ -285,5 +285,5 @@ In this quickstart, you learned how to use the Face library for Python to do bas
 > [!div class="nextstepaction"]
 > [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
-* [What is the Face API?](../overview.md)
+* [What is the Face service?](../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

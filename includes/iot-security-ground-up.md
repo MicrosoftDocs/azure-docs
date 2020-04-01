@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-# Security for Internet of Things (IoT) from the ground up
-
 The Internet of Things (IoT) poses unique security, privacy, and compliance challenges to businesses worldwide. Unlike traditional cyber technology where these issues revolve around software and how it is implemented, IoT concerns what happens when the cyber and the physical worlds converge. Protecting IoT solutions requires ensuring secure provisioning of devices, secure connectivity between these devices and the cloud, and secure data protection in the cloud during processing and storage. Working against such functionality, however, are resource-constrained devices, geographic distribution of deployments, and a large number of devices within a solution.
 
 This article explores how the IoT solution accelerators provide a secure and private Internet of Things cloud solution. The solution accelerators deliver a complete end-to-end solution, with security built into every stage from the ground up. At Microsoft, developing secure software is part of the software engineering practice, rooted in Microsoft's decades long experience of developing secure software. To ensure this, Security Development Lifecycle (SDL) is the foundational development methodology, coupled with a host of infrastructure-level security services such as Operational Security Assurance (OSA) and the Microsoft Digital Crimes Unit, Microsoft Security Response Center, and Microsoft Malware Protection Center.

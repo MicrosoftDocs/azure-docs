@@ -1,21 +1,11 @@
 ---
-title: Service Fabric Cluster Resource Manager - Management Integration | Microsoft Docs
+title: Cluster Resource Manager - Management Integration 
 description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Cluster resource manager integration with Service Fabric cluster management
 The Service Fabric Cluster Resource Manager doesn't drive upgrades in Service Fabric, but it is involved. The first way that the Cluster Resource Manager helps with management is by tracking the desired state of the cluster and the services inside it. The Cluster Resource Manager sends out health reports when it cannot put the cluster into the desired configuration. For example, if there is insufficient capacity the Cluster Resource Manager sends out health warnings and errors indicating the problem. Another piece of integration has to do with how upgrades work. The Cluster Resource Manager alters its behavior slightly during upgrades.  
@@ -98,7 +88,7 @@ Let’s talk about each of the different constraints in these health reports. Yo
 ## Blocklisting Nodes
 Another health message the Cluster Resource Manager reports is when nodes are blocklisted. You can think of blocklisting as a temporary constraint that is automatically applied for you. Nodes get blocklisted when they experience repeated failures when launching instances of that service type. Nodes are blocklisted on a per-service-type basis. A node may be blocklisted for one service type but not another. 
 
-You'll see blocklisting kick in often during development: some bug causes your service host to crash on startup. Service Fabric tries to create the service host a few times, and the failure keeps occurring. After a few attempts, the node gets blocklisted, and the Cluster Resource Manager will try to create the service elsewhere. If that failure keeps happening on multiple nodes, it's possible that all of the valid nodes in the cluster end up blocked. Blocklisting cna also remove so many nodes that not enough can successfully launch the service to meet the desired scale. You'll typically see additional errors or warnings from the Cluster Resource Manager indicating that the service is below the desired replica or instance count, as well as health messages indicating what the failure is that's leading to the blocklisting in the first place.
+You'll see blocklisting kick in often during development: some bug causes your service host to crash on startup. Service Fabric tries to create the service host a few times, and the failure keeps occurring. After a few attempts, the node gets blocklisted, and the Cluster Resource Manager will try to create the service elsewhere. If that failure keeps happening on multiple nodes, it's possible that all of the valid nodes in the cluster end up blocked. Blocklisting can also remove so many nodes that not enough can successfully launch the service to meet the desired scale. You'll typically see additional errors or warnings from the Cluster Resource Manager indicating that the service is below the desired replica or instance count, as well as health messages indicating what the failure is that's leading to the blocklisting in the first place.
 
 Blocklisting is not a permanent condition. After a few minutes, the node is removed from the blocklist and Service Fabric may activate the services on that node again. If services continue to fail, the node is blocklisted for that service type again. 
 

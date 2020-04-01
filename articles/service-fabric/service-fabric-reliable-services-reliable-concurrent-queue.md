@@ -1,21 +1,9 @@
 ---
 title: ReliableConcurrentQueue in Azure Service Fabric
 description: ReliableConcurrentQueue is a high-throughput queue that allows parallel enqueues and dequeues.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
 
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-
 ---
 # Introduction to ReliableConcurrentQueue in Azure Service Fabric
 Reliable Concurrent Queue is an asynchronous, transactional, and replicated queue which features high concurrency for enqueue and dequeue operations. It is designed to deliver high throughput and low latency by relaxing the strict FIFO ordering provided by [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx) and instead provides a best-effort ordering.

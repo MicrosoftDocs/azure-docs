@@ -1,20 +1,9 @@
 ---
-title: Deploy a .NET app in a container to Azure Service Fabric | Microsoft Docs
+title: Deploy a .NET app in a container to Azure Service Fabric 
 description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/08/2019
-ms.author: atsenthi
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric

@@ -53,14 +53,25 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+
+### Recommended built-in RBAC roles
+
+There are several built-in RBAC roles which can provide the permissions needed to use Storage Explorer. Some of those roles are:
+- [Owner](/azure/role-based-access-control/built-in-roles#owner): Manage everything, including access to resources. **Note**: this role will give you key access.
+- [Contributor](/azure/role-based-access-control/built-in-roles#contributor): Manage everything, excluding access to resources. **Note**: this role will give you key access.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader): Read and list resources.
+- [Storage Account Contributor](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Full management of storage accounts. **Note**: this role will give you key access.
+- [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
+- [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
+- [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
 Certificate errors typically occur in one of the following situations:
 
 - The app is connected through a _transparent proxy_, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
-- You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
+- You're running an application that's injecting a self-signed TLS/SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
 
@@ -90,7 +101,7 @@ If you can't find any self-signed certificates by following these steps, contact
 
 Blank sign-in dialog boxes most often occur when Active Directory Federation Services (AD FS) prompts Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can try to use Device Code Flow for sign-in. To do so, follow these steps:
 
-1. On the menu, go to **Preview** > **Use Device Code Sign-In**.
+1. On the left vertical tool bar, open **Settings**. In the Settings Panel, go to **Application** > **Sign in**. Enable **Use device code flow sign-in**.
 2. Open the **Connect** dialog box (either through the plug icon on the left-side vertical bar or by selecting **Add Account** on the account panel).
 3. Choose the environment you want to sign in to.
 4. Select **Sign In**.
@@ -296,7 +307,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 
 These packages are the most common requirements for Storage Explorer on Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.2 Runtime](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` or `libgnome-keyring-dev`
 * `libgnome-keyring-common`

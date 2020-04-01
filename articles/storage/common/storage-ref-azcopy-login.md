@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy login co
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -31,6 +31,13 @@ Please refer to the examples for more information.
 azcopy login [flags]
 ```
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ## Examples
 
 Log in interactively with default AAD tenant ID set to common:
@@ -45,25 +52,25 @@ Log in interactively with a specified tenant ID:
 azcopy login --tenant-id "[TenantID]"
 ```
 
-Log in by using a VM's system-assigned identity:
+Log in by using the system-assigned identity of a Virtual Machine (VM):
 
 ```azcopy
 azcopy login --identity
 ```
 
-Log in by using a VM's user-assigned identity with a client ID of the service identity:
+Log in by using the user-assigned identity of a VM and a Client ID of the service identity:
 
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
 
-Log in using a VM's user-assigned identity with an object ID of the service identity:
+Log in by using the user-assigned identity of a VM and an Object ID of the service identity:
 
 ```azcopy
 azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
-Log in using a VM's user-assigned identity with a resource ID of the service identity:
+Log in by using the user-assigned identity of a VM and a Resource ID of the service identity:
 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
@@ -89,6 +96,8 @@ Make sure to treat /path/to/my/cert as a path to a PEM or PKCS12 file. AzCopy do
 
 |Option|Description|
 |--|--|
+|--aad-endpoint|The Azure Active Directory endpoint to use. The default (`https://login.microsoftonline.com`) is correct for the public Azure cloud. Set this parameter when authenticating in a national cloud. See [Azure AD authentication endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+This flag is not needed for Managed Service Identity.|
 |--application-id string|Application ID of user-assigned identity. Required for service principal auth.|
 |--certificate-path string|Path to certificate for SPN authentication. Required for certificate-based service principal auth.|
 |-h, --help|Show help content for the login command.|

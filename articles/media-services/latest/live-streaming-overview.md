@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 03/18/2020
 ms.author: juliako
 
 ---
@@ -29,7 +29,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
  
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Dynamic Packaging
 
@@ -39,13 +39,16 @@ With Media Services, you can take advantage of [Dynamic Packaging](dynamic-packa
 
 Dynamic encryption enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. For more information, see [Dynamic encryption](content-protection-overview.md).
 
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Dynamic Manifest
 
 Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
 ## Live Event types
 
-[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
+[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
 
 ### Pass-through
 
@@ -58,6 +61,13 @@ When using the pass-through **Live Event**, you rely on your on-premises live en
 ![live encoding](./media/live-streaming/live-encoding.svg)
 
 When using cloud encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed (up to 32Mbps aggregate) to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event transcodes the incoming single bitrate stream into [multiple bitrate video streams](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) at varying resolutions to improve delivery and makes it available for delivery to playback devices via industry standard protocols like MPEG-DASH, Apple HTTP Live Streaming (HLS), and Microsoft Smooth Streaming. 
+
+### Live transcription (preview)
+
+Live transcription is a feature you can use with Live Events that are either pass-through or live encoding. For more information, see [live transcription](live-transcription.md). When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
+
+> [!NOTE]
+> Currently, live transcription is available as a preview feature in West US 2.
 
 ## Live streaming workflow
 
@@ -105,11 +115,16 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
+## Frequently asked questions
+
+See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
+
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
+* [Live streaming quickstart](live-events-wirecast-quickstart.md(
 * [Live streaming tutorial](stream-live-tutorial-with-api.md)
 * [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md)

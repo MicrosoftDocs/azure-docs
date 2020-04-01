@@ -1,6 +1,6 @@
 ---
 title: Configure High Availability Ports for Azure Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to use High Availability Ports for load balancing internal traffic on all ports 
 services: load-balancer
 documentationcenter: na
@@ -93,7 +93,7 @@ lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfigurati
 In step 4 of [Create an internal load balancer set](load-balancer-get-started-ilb-arm-cli.md), use the following command to create the High Availability Ports load balancer rule:
 
 ```azurecli
-azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
+az network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
 ## Next steps

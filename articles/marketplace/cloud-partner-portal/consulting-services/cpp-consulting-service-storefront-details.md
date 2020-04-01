@@ -1,12 +1,12 @@
 ---
 title: Enter storefront details for consulting offer | Azure Marketplace 
 description: Define storefront details in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Storefront Details tab
@@ -73,7 +73,7 @@ Enter the description of the consulting service offer in the **Offer description
 
 Don't include your email address or phone number in your offer description. A **Contact Me** button is included with your offer to upload leads to the lead management target that you identify for your offer.
 
-Enter the offer description in Markdown format. If you're not familiar with Markdown or formatting for HTML, see [Use Markdown for writing docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Enter the offer description in Markdown format. If you're not familiar with Markdown or formatting for HTML, see [Use Markdown for writing docs](/contribute/markdown-reference).
 
 Use these formats to make sure that your offer is easy for your customers to read.
 
@@ -116,7 +116,7 @@ solutions in the Microsoft cloud.
 
 The following sample Markdown file is for the previous offer:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 

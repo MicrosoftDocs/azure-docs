@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -42,20 +42,22 @@ If you want to use Azure PowerShell instead to complete this procedure, see [Dep
 
 ## Prerequisites
 
-There are three key requirements for this scenario to work correctly:
+A hybrid network uses the hub-and-spoke architecture model to route traffic between Azure VNets and on-premise networks. The hub-and-spoke architecture has the following requirements:
 
-- A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
-- A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
+- Set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke. In a hub-and-spoke network architecture, a gateway transit allows the spoke virtual networks to share the VPN gateway in the hub, instead of deploying VPN gateways in every spoke virtual network. 
 
-   No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
-- Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
+   Additionally, routes to the gateway-connected virtual networks or on-premises networks will automatically propagate to the routing tables for the peered virtual networks using the gateway transit. For more information, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+
+- Set **UseRemoteGateways** when you peer VNet-Spoke to VNet-Hub. If **UseRemoteGateways** is set and **AllowGatewayTransit** on remote peering is also set, the spoke virtual network uses gateways of the remote virtual network for transit.
+- To route the spoke subnet traffic through the hub firewall, you need a User Defined route (UDR) that points to the firewall with the **Virtual network gateway route propagation** option disabled. The **Virtual network gateway route propagation** disabled option prevents route distribution to the spoke subnets. This prevents learned routes from conflicting with your UDR.
+- Configure a UDR on the hub gateway subnet that points to the firewall IP address as the next hop to the spoke networks. No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 
 See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
 
 >[!NOTE]
 >Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 >
->Azure Firewall doesn't currently support forced tunneling. If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
+>Azure Firewall can be configured to support forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
@@ -102,14 +104,6 @@ Now, create the VNet:
 9. Under **Subnet**, for **Name** type **SN-Workload**.
 10. For **Address range**, type **10.6.0.0/24**.
 11. Accept the other default settings, and then select **Create**.
-
-Now create a second subnet for the gateway.
-
-1. On the **VNet-Spoke** page, select **Subnets**.
-2. Select **+Subnet**.
-3. For **Name**, type **GatewaySubnet**.
-4. For **Address range (CIDR block)** type **10.6.1.0/24**.
-5. Select **OK**.
 
 ## Create the on-premises virtual network
 
@@ -180,9 +174,10 @@ First, add a network rule to allow web traffic.
 6. For **Action**, select **Allow**.
 6. Under **Rules**, for **Name**, type **AllowWeb**.
 7. For **Protocol**, select **TCP**.
-8. For **Source Addresses**, type **192.168.1.0/24**.
-9. For Destination address, type **10.6.0.0/16**
-10. For **Destination Ports**, type **80**.
+8. For **Source type**, select **IP address**.
+9. For **Source**, type **192.168.1.0/24**.
+10. For **Destination address**, type **10.6.0.0/16**
+11. For **Destination Ports**, type **80**.
 
 Now add a rule to allow RDP traffic.
 
@@ -190,10 +185,11 @@ On the second rule row, type the following information:
 
 1. **Name**, type **AllowRDP**.
 2. For **Protocol**, select **TCP**.
-3. For **Source Addresses**, type **192.168.1.0/24**.
-4. For Destination address, type **10.6.0.0/16**
-5. For **Destination Ports**, type **3389**.
-6. Select **Add**.
+3. For **Source type**, select **IP address**.
+4. For **Source**, type **192.168.1.0/24**.
+5. For **Destination address**, type **10.6.0.0/16**
+6. For **Destination Ports**, type **3389**.
+7. Select **Add**.
 
 ## Create and connect the VPN gateways
 
@@ -336,7 +332,7 @@ Now create the default route from the spoke subnet.
 2. After the route table is created, select it to open the route table page.
 3. Select **Routes** in the left column.
 4. Select **Add**.
-5. For the route name, type **ToSpoke**.
+5. For the route name, type **ToHub**.
 6. For the address prefix, type **0.0.0.0/0**.
 7. For next hop type, select **Virtual appliance**.
 8. For next hop address, type the firewall's private IP address that you noted earlier.
@@ -379,7 +375,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 ### Install IIS
 
 1. From the Azure portal, open the Cloud Shell and make sure that it's set to **PowerShell**.
-2. Run the following command to install IIS on the virtual machine:
+2. Run the following command to install IIS on the virtual machine and change the location if necessary:
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -415,7 +411,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 
 ## Test the firewall
 
-1. First, get and then note the private IP address for **VM-spoke-01** virtual machine.
+1. First, note the private IP address for **VM-spoke-01** virtual machine.
 
 2. From the Azure portal, connect to the **VM-Onprem** virtual machine.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.

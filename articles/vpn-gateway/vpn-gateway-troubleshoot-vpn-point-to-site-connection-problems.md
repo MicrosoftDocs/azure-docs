@@ -1,19 +1,14 @@
 ---
-title: Troubleshoot Azure point-to-site connection problems| Microsoft Docs
+title: 'Troubleshoot Azure point-to-site connection problems'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot point-to-site connection problems.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
+
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/30/2019
+ms.date: 03/26/2020
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -339,6 +334,19 @@ Update the NIC driver:
 3. Double-click the device name, select **Update driver**, select **Search automatically for updated driver software**.
 4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 5. Restart the computer and try the connection again.
+
+## VPN Client Error: Dialing VPN connection <VPN Connection Name>, Status = VPN Platform did not trigger connection
+
+You may also see the following error in Event Viewer from RasClient: "The user <User> dialed a connection named <VPN Connection Name> which has failed. The error code returned on failure is 1460."
+
+### Cause
+
+The Azure VPN Client does not have the "Background apps" App Permission enabled in App Settings for Windows.
+
+### Solution
+
+1. In Windows, go to Settings -> Privacy -> Background apps
+2. Toggle the "Let apps run in the background" to On
 
 ## Error: 'File download error Target URI is not specified'
 

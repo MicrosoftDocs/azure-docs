@@ -3,8 +3,8 @@ title: Automatically scale compute nodes in an Azure Batch pool | Microsoft Docs
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 services: batch
 documentationcenter: ''
-author: laurenhughes
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: 
 
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -12,14 +12,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: multiple
-ms.date: 06/20/2017
-ms.author: lahugh
-ms.custom: H1Hack27Feb2017
+ms.date: 10/24/2019
+ms.author: labrenne
+ms.custom: H1Hack27Feb2017,fasttrack-edit
 
 ---
-# Create an automatic scaling formula for scaling compute nodes in a Batch pool
+# Create an automatic formula for scaling compute nodes in a Batch pool
 
-Azure Batch can automatically scale pools based on parameters that you define. With automatic scaling, Batch dynamically adds nodes to a pool as task demands increase, and removes compute nodes as they decrease. You can save both time and money by automatically adjusting the number of compute nodes used by your Batch application. 
+Azure Batch can automatically scale pools based on parameters that you define. With automatic scaling, Batch dynamically adds nodes to a pool as task demands increase, and removes compute nodes as they decrease. You can save both time and money by automatically adjusting the number of compute nodes used by your Batch application.
 
 You enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine the number of compute nodes that are needed to execute your workload. Compute nodes may be dedicated nodes or [low-priority nodes](batch-low-pri-vms.md). Batch responds to service metrics data that is collected periodically. Using this metrics data, Batch adjusts the number of compute nodes in the pool based on your formula and at a configurable interval.
 
@@ -30,11 +30,12 @@ This article discusses the various entities that make up your autoscale formulas
 > [!IMPORTANT]
 > When you create a Batch account, you can specify the [account configuration](batch-api-basics.md#account), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 >
->If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+>If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
 ## Automatic scaling formulas
+
 An automatic scaling formula is a string value that you define that contains one or more statements. The autoscale formula is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). The Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing. The formula string cannot exceed 8 KB, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
 You can think of automatic scaling formulas as a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (variables defined by the Batch service) and user-defined variables (variables that you define). They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
@@ -59,12 +60,14 @@ The target number of nodes may be higher, lower, or the same as the current numb
 Below are examples of two autoscale formulas, which can be adjusted to work for most scenarios. The variables `startingNumberOfVMs` and `maxNumberofVMs` in the example formulas can be adjusted to your needs.
 
 #### Pending tasks
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling formula shrinks the pool.
@@ -72,15 +75,18 @@ With this autoscale formula, the pool is initially created with a single VM. The
 This formula scales dedicated nodes, but can be modified to apply to scale low-priority nodes as well.
 
 #### Preempted nodes 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 This example creates a pool that starts with 25 low-priority nodes. Every time a low-priority node is preempted, it is replaced with a dedicated node. As with the first example, the `maxNumberofVMs` variable prevents the pool from exceeding 25 VMs. This example is useful for taking advantage of low-priority VMs while also ensuring that only a fixed number of preemptions will occur for the lifetime of the pool.
 
 ## Variables
+
 You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service. Some service-defined variables are read-write, and some are read-only. User-defined variables are variables that you define. In the example formula shown in the previous section, `$TargetDedicatedNodes` and `$PendingTasks` are service-defined variables. Variables `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
 
 > [!NOTE]
@@ -95,8 +101,13 @@ You can get and set the values of these service-defined variables to manage the 
 | Read-write service-defined variables | Description |
 | --- | --- |
 | $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. The number of dedicated nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. <br /><br /> A pool in an account created with the Batch Service configuration may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created with the User Subscription configuration may not achieve its target if the target exceeds the shared core quota for the subscription.|
-| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch (Preview)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
+| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**-- The default value. Terminates tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reach as quickly as possible, but may be less efficient, as any running tasks will be interrupted and have to be restarted, wasting any work they had already done. <li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks from being interrupted and requeued, wasting any work the task has done. <li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
+
+> [!NOTE]
+> The `$TargetDedicatedNodes` variable can also be specified using the alias `$TargetDedicated`. Similarly, the `$TargetLowPriorityNodes` variable can be specified using the alias `$TargetLowPriority`. If both the fully named variable and its alias are set by the formula, the value assigned to the fully named variable will take precedence.
+>
+>
 
 You can get the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
@@ -113,14 +124,14 @@ You can get the value of these service-defined variables to make adjustments tha
 | $NetworkInBytes |The number of inbound bytes. |
 | $NetworkOutBytes |The number of outbound bytes. |
 | $SampleNodeCount |The count of compute nodes. |
-| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count.|
+| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count. For a multi-instance task, $ActiveTasks will include the number of instances set on the task.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
-| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been pre-empted. |
-| $PreemptedNodeCount | The number of nodes in the pool that are in a pre-empted state. |
+| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
+| $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
 > The read-only, service-defined variables that are shown in the previous table are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) later in this article.
@@ -128,6 +139,7 @@ You can get the value of these service-defined variables to make adjustments tha
 >
 
 ## Types
+
 These types are supported in a formula:
 
 * double
@@ -157,6 +169,7 @@ These types are supported in a formula:
   * TimeInterval_Year
 
 ## Operations
+
 These operations are allowed on the types that are listed in the previous section.
 
 | Operation | Supported operators | Result type |
@@ -190,7 +203,7 @@ These predefined **functions** are available for you to use in defining an autom
 | lg(double) |double |Returns the log base 2 of the double. |
 | lg(doubleVecList) |doubleVec |Returns the component-wise log base 2 of the doubleVecList. A vec(double) must be explicitly passed for the parameter. Otherwise, the double lg(double) version is assumed. |
 | ln(double) |double |Returns the natural log of the double. |
-| ln(doubleVecList) |doubleVec |Returns the component-wise log base 2 of the doubleVecList. A vec(double) must be explicitly passed for the parameter. Otherwise, the double lg(double) version is assumed. |
+| ln(doubleVecList) |doubleVec |Returns the natural log of the double. |
 | log(double) |double |Returns the log base 10 of the double. |
 | log(doubleVecList) |doubleVec |Returns the component-wise log base 10 of the doubleVecList. A vec(double) must be explicitly passed for the single double parameter. Otherwise, the double log(double) version is assumed. |
 | max(doubleVecList) |double |Returns the maximum value in the doubleVecList. |
@@ -212,6 +225,7 @@ Some of the functions that are described in the previous table can accept a list
 The *doubleVecList* value is converted to a single *doubleVec* before evaluation. For example, if `v = [1,2,3]`, then calling `avg(v)` is equivalent to calling `avg(1,2,3)`. Calling `avg(v, 7)` is equivalent to calling `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obtain sample data
+
 Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The service-defined variables that were described previously are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 ```
@@ -271,6 +285,7 @@ Because there may be a delay in sample availability, it is important to always s
 >
 
 ## Metrics
+
 You can use both resource and task metrics when you're defining a formula. You adjust the target number of dedicated nodes in the pool based on the metrics data that you obtain and evaluate. See the [Variables](#variables) section above for more information on each metric.
 
 <table>
@@ -317,13 +332,15 @@ You can use both resource and task metrics when you're defining a formula. You a
 </table>
 
 ## Write an autoscale formula
+
 You build an autoscale formula by forming statements that use the above components, then combine those statements into a complete formula. In this section, we create an example autoscale formula that can perform some real-world scaling decisions.
 
 First, let's define the requirements for our new autoscale formula. The formula should:
 
 1. Increase the target number of dedicated compute nodes in a pool if CPU usage is high.
-2. Decrease the target number of dedicated compute nodes in a pool when CPU usage is low.
-3. Always restrict the maximum number of dedicated nodes to 400.
+1. Decrease the target number of dedicated compute nodes in a pool when CPU usage is low.
+1. Always restrict the maximum number of dedicated nodes to 400.
+1. When reducing the number of nodes, do not remove nodes that are running tasks; if necessary, wait until tasks have finished to remove nodes.
 
 To increase the number of nodes during high CPU usage, define the statement that populates a user-defined variable (`$totalDedicatedNodes`) with a value that is 110 percent of the current target number of dedicated nodes, but only if the minimum average CPU usage during the last 10 minutes was above 70 percent. Otherwise, use the value for the current number of dedicated nodes.
 
@@ -630,9 +647,11 @@ Error:
 ```
 
 ## Example autoscale formulas
+
 Let's look at a few formulas that show different ways to adjust the amount of compute resources in a pool.
 
 ### Example 1: Time-based adjustment
+
 Suppose you want to adjust the pool size based on the day of the week and time of day. This example shows how to increase or decrease the number of nodes in the pool accordingly.
 
 The formula first obtains the current time. If it's a weekday (1-5) and within working hours (8 AM to 6 PM), the target pool size is set to 20 nodes. Otherwise, it's set to 10 nodes.
@@ -643,28 +662,32 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
+`$curTime` can be adjusted to reflect your local time zone by adding `time()` to the product of `TimeZoneInterval_Hour` and your UTC offset. For instance, use `$curTime = time() + (-6 * TimeInterval_Hour);` for Mountain Daylight Time (MDT). Keep in mind that the offset would need to be adjusted at the start and end of daylight saving time (if applicable).
 
 ### Example 2: Task-based adjustment
+
 In this example, the pool size is adjusted based on the number of tasks in the queue. Both comments and line breaks are acceptable in formula strings.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
-$samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$samples = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
 // If we have fewer than 70 percent data points, we use the last sample point,
 // otherwise we use the maximum of last sample point and the history average.
-$tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+$tasks = $samples < 70 ? max(0,$PendingTasks.GetSample(1)) : max( $PendingTasks.GetSample(1), avg($PendingTasks.GetSample(TimeInterval_Minute * 15)));
 // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise
 // half of current dedicated.
 $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### Example 3: Accounting for parallel tasks
+
 This example adjusts the pool size based on the number of tasks. This formula also takes into account the [MaxTasksPerComputeNode][net_maxtasks] value that has been set for the pool. This approach is useful in situations where [parallel task execution](batch-parallel-node-tasks.md) has been enabled on your pool.
 
 ```csharp
@@ -686,6 +709,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### Example 4: Setting an initial pool size
+
 This example shows a C# code snippet with an autoscale formula that sets the pool size to a specified number of nodes for an initial time period. Then it adjusts the pool size based on the number of running and active tasks after the initial time period has elapsed.
 
 The formula in the following code snippet:
@@ -710,6 +734,7 @@ string formula = string.Format(@"
 ```
 
 ## Next steps
+
 * [Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md) contains details about how you can execute multiple tasks simultaneously on the compute nodes in your pool. In addition to autoscaling, this feature may help to lower job duration for some workloads, saving you money.
 * For another efficiency booster, ensure that your Batch application queries the Batch service in the most optimal way. See [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to learn how to limit the amount of data that crosses the wire when you query the status of potentially thousands of compute nodes or tasks.
 

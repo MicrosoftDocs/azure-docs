@@ -1,6 +1,7 @@
 - name: Content Moderator Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Content Moderator?
     href: overview.md
@@ -12,11 +13,7 @@
   - name: Using the client SDK
     items:
     - name: Using the .NET SDK
-      items:
-      - name: Analyze image content
-        href: image-moderation-quickstart-dotnet.md
-      - name: Analyze text content
-        href: text-moderation-quickstart-dotnet.md
+      href: dotnet-sdk-quickstart.md
     - name: Using the Python SDK
       href: python-sdk-quickstart.md
     - name: Using the Java SDK
@@ -69,8 +66,6 @@
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: REST API
       href: try-review-api-review.md
-    - name: .NET SDK
-      href: moderation-reviews-quickstart-dotnet.md
     - name: Video reviews (.NET)
       href: video-reviews-quickstart-dotnet.md
     - name: Video transcript reviews (.NET)
@@ -120,7 +115,7 @@
     - name: REST API samples in C#
       href: samples-rest.md
     - name: Other Azure samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+      href: https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits
@@ -139,3 +134,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: content-moderator-encryption-of-data-at-rest.md

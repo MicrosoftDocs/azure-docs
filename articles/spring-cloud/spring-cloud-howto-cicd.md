@@ -1,15 +1,11 @@
 ---
 title: CI/CD for Azure Spring Cloud
 description: CI/CD for Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: v-vasuke
+ms.author: brendm
 
 ---
 # CI/CD for Azure Spring Cloud
@@ -36,7 +32,7 @@ steps:
     azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+      az extension add -y --name spring-cloud
       az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name> --jar-path ./target/your-result-jar.jar
       # deploy other app
 ```
@@ -51,7 +47,7 @@ It is possible to deploy directly to Azure without a separate build step.
     azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+      az extension add -y --name spring-cloud
       az spring-cloud app deploy --resource-group <your-resource-group> --service <your-spring-cloud-service> --name <app-name>
 
       # or if it is a multi-module project

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Docs
-description: Service Bus Premium and Standard Messaging tiers
+title: Azure Service Bus premium and standard tiers
+description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---
@@ -65,6 +65,31 @@ The CPU and memory usage are tracked and displayed to the you for the following 
 - Provide transparency into the system internals
 - Understand the capacity of resources purchased.
 - Capacity planning that helps you decide to scale up/down.
+
+## Messaging unit - How many are needed?
+
+When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace.
+
+The number of messaging units allocated to the Service Bus Premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
+
+There are a number of factors to take into consideration when deciding the number of messaging units for your architecture:
+
+- Start with ***1 or 2 messaging units*** allocated to your namespace.
+- Study the CPU usage metrics within the [Resource usage metrics](service-bus-metrics-azure-monitor.md#resource-usage-metrics) for your namespace.
+    - If CPU usage is ***below 20%***, you might be able to ***scale down*** the number of messaging units allocated to your namespace.
+    - If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.
+
+The process of scaling the resources allocated to a Service Bus namespaces can be automated by using [Azure Automation Runbooks](../automation/automation-quickstart-create-runbook.md).
+
+> [!NOTE]
+> **Scaling** of the resources allocated to the namespace can be either preemptive or reactive.
+>
+>  * **Preemptive**: If additional workload is expected (due to seasonality or trends), you can proceed to allocate more messaging units to the namespace before the workloads hit.
+>
+>  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
+>
+> The billing meters for Service Bus are hourly. In the case of scaling up, you only pay for the additional resources for the hours that these were used.
+>
 
 ## Get started with Premium Messaging
 

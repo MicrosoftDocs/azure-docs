@@ -2,17 +2,18 @@
 title: Azure Marketplace and AppSource Consulting Services 
 description: This article describes the eligibility criteria and publishing requirements for new consulting-service offerings in the Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
 ms.service: marketplace
-ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 02/27/2020
+ms.author: dsindona
 ---
 
 # Consulting Services for Azure Marketplace and AppSource
 Consulting Services in Azure Marketplace and AppSource provides Microsoft partners the goal of connecting customers with services to support and extend their use of Azure and business goals. 
 
-Azure Marketplace and AppSource support the listing of consulting service offerings from System Integrator (SI) partners of Microsoft – the goal being to offer quality consulting services to enable customers to connect with the expert services they need. Helping customers assess, evaluate, and deploy the right solutions and implementation that will help with their business objectives and goals.  
+Azure Marketplace and AppSource support the listing of consulting service offerings from System Integrator (SI) partners of Microsoft - the goal being to offer quality consulting services to enable customers to connect with the expert services they need. Helping customers assess, evaluate, and deploy the right solutions and implementation that will help with their business objectives and goals.  
 
 These consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type and with fixed scope and duration, either fixed-price or free, and have a defined agenda with deliverables to the customer. Leads are received through a notification in partner's CRM system and aim to respond to customers within 48 hours. 
 
@@ -27,14 +28,14 @@ The marketplace storefronts are aligned with audiences and Microsoft cloud produ
 |In Product Experience  	|Azure Management Portal|Dynamics 365, Office 365, Office Client Apps| 
 |Other  	|On-Premises Publishing Via Azure Stack, Consulting Services for Azure, Managed Services for Azure|Consulting Services for Dynamics and Power BI|
 
-Consulting Services offers that are based on Microsoft Dynamics 365 and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Consulting Services offers that are based on Microsoft Dynamics 365, Power Apps and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
 Consulting Services and Managed Services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see articles on [publishing an Azure consulting service](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) and [publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Consulting services in Azure Marketplace should leverage offerings geared towards a **technical audience with focuses on *Azure technical solutions and services.* **
 > Consulting services in AppSource should leverage offerings geared towards their expertise in delivering quality solutions for Dynamics 365, Power BI,
-> or PowerApps to list their consulting services offerings on AppSource
+> or Power Apps to list their consulting services offerings on AppSource
 > 
 > 
 > [!TIP]
@@ -57,26 +58,31 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 
 |Primary Product |Eligibility Requirement |
 |---------|---------|
-| Dynamics 365 for Customer Engagement    |   Silver or Gold [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) competency.    | 
-|Dynamics 365 for Finance and Operations, Enterprise edition  |  Silver or Gold [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25K in Cloud Operations in the trailing 12 months.       |
-|Dynamics 365 for Finance and Operations, Business edition  |  Serve as [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) for at least one customer      |
-|Power BI, Power BI Custom Visuals | Meet the [Solution Partner criteria](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Have a published [Partner Showcase](https://appsource.microsoft.com/partners) solution
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
+| Dynamics 365 Customer Insights | Must have at least 1 successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least 5 measures and 5 segments. |
+| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and must be the cloud solution provider for at least 3 Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/) |
+| Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|Power Apps | Must be eligible for Advanced Benefits in the [Power Apps Partnership Program](https://aka.ms/PowerAppsPartner). |
+
+Additional resources and support:
+
+1. [Microsoft Cloud Enablement Desk](https://aka.ms/CEDnominate) <br> The Cloud Enablement Desk Guided Experience Partner Nomination Form is to help provide a Cloud Program Specialist to articulate MPN benefits, and serve as guide to competency attainment.  
+2. How to get listed on Power BI showcase? <br> Begin by submitting a request to get listed, see [become a partner](https://powerbi.microsoft.com/become-a-partner/).
 
 <b> For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
- 
 
-**SI partners can submit consulting-service offerings for the following 18 countries/regions**
+**SI partners can submit consulting-service offerings for the following 21 countries/regions**
 
-|Eligible countries/regions |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|Australia |France  |     Mexico          |Spain       |
-|Belgium   |Germany |     Netherlands     |Sweden       |
-|Canada    |India   |     New Zealand     |United Kingdom  |
-|Denmark   |Italy   |     Norway          |United States |
-|Finland   |Japan   |     Poland          
+| Australia | Belgium | Canada | Denmark |
+| Finland  | France | Germany  | India   |
+| Italy    | Japan  |  Mexico  |  Netherlands  |
+|  New Zealand  |  Norway  |  Poland  | South Africa |
+|  Spain  | Sweden  | Switzerland  |  United States  |
+| United Kingdom  |
 
-The launch of consulting services will go live in specific geo-region. First launch will be: United States, Canada, the United Kingdom, and Australia. The catalogs for other countries/regions will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
 
 ## How To Register For Consulting Services in Azure Marketplace and AppSource
 Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) your company information in the marketplace. Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
@@ -123,13 +129,13 @@ Listing your consulting-service offer on the Azure Marketplace and AppSource
 ## Offer Listings and Content Review Criteria
 Offerings must be of one of the following five service types (you can list more than one): 
 
-* **Assessment**: An evaluation of a customer’s environment to determine the applicability of a solution and provide an estimate of cost and timing. 
+* **Assessment**: An evaluation of a customer's environment to determine the applicability of a solution and provide an estimate of cost and timing. 
 * **Briefing**: An introduction to a solution or a consulting service to draw customer interest by using frameworks, demos, and customer examples. 
 * **Implementation**: A complete installation that results in a fully working solution. We recommend limiting it to solutions that can be implemented in two weeks or less. 
 * **Proof of concept**: A limited-scope implementation to determine whether a solution meets customer requirements. 
-* **Workshop**: An interactive engagement that's conducted on a customer’s premises. It can involve training, briefings, assessments, or demos that are built on the customer’s data or environment. 
+* **Workshop**: An interactive engagement that's conducted on a customer's premises. It can involve training, briefings, assessments, or demos that are built on the customer's data or environment. 
 
-**Note:** Except for the *Briefing* service type, consulting services can be offered in person (that is, onsite at a customer’s location or a partner’s facility) or virtually (that is, via teleconferencing, web conferencing, or remote implementation). Briefings must be offered in person.
+**Note:** Except for the *Briefing* service type, consulting services can be offered in person (that is, onsite at a customer's location or a partner's facility) or virtually (that is, via teleconferencing, web conferencing, or remote implementation). Briefings must be offered in person.
 
 Once you have configured the required elements listed above, the content review team will validate that your offer description is informative and complete for your target audience. 
 
@@ -158,7 +164,7 @@ When reviewing Offer Descriptions and Offer Summaries, the team will apply the f
 |**Proof of Concept**    |    Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement     | Optimize your offer summary with your top Search Engine Optimization keywords        |
 |**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the chosen duration of your offering. Articulate what the learning goals or other deliverables are of your workshop     |   Optimize your offer summary with your top Search Engine optimization keywords      |
 
-Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). This is a lightweight design language that will help add polish to your listing. 
+Within Cloud Partner Portal, you can add formatting to your listing by using [Markdown](/contribute/markdown-reference). This is a lightweight design language that will help add polish to your listing. 
 
 **Sample Markdown Notes**
 * Add * at beginning and end of copy block - with no space to create italics (Ex: *content*)

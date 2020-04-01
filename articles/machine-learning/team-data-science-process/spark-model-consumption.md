@@ -3,12 +3,12 @@ title: Operationalize Spark-built machine learning models - Team Data Science Pr
 description: How to load and score learning models stored in Azure Blob Storage (WASB) with Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -29,7 +29,7 @@ To modify the Jupyter notebook for Spark 1.6 to use with an HDInsight Spark 2.0 
 ## Prerequisites
 
 1. You need an Azure account and a Spark 1.6 (or Spark 2.0) HDInsight cluster to complete this walkthrough. See the [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md) for instructions on how to satisfy these requirements. That topic also contains a description of the NYC 2013 Taxi data used here and instructions on how to execute code from a Jupyter notebook on the Spark cluster. 
-2. You must also create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](spark-data-exploration-modeling.md) topic for the Spark 1.6 cluster or the Spark 2.0 notebooks. 
+2. Create the machine learning models to be scored here by working through the [Data exploration and modeling with Spark](spark-data-exploration-modeling.md) topic for the Spark 1.6 cluster or the Spark 2.0 notebooks. 
 3. The Spark 2.0 notebooks use an additional data set for the classification task, the well-known Airline On-time departure dataset from 2011 and 2012. A description of the notebooks and links to them are provided in the [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) for the GitHub repository containing them. Moreover, the code here and in the linked notebooks is generic and should work on any Spark cluster. If you are not using HDInsight Spark, the cluster setup and management steps may be slightly different from what is shown here. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -98,7 +98,7 @@ Set spark context and import necessary libraries with the following code
 
 
 ### Preset Spark context and PySpark magics
-The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These are available for you by default. These contexts are:
+The PySpark kernels that are provided with Jupyter notebooks have a preset context. Therefore, you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available by default:
 
 * sc - for Spark 
 * sqlContext - for Hive
@@ -251,7 +251,7 @@ The [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.pr
 Time taken to execute above cell: 5.37 seconds
 
 ### Create RDD objects with feature arrays for input into models
-This section contains code that shows how to index categorical text data as an RDD object and one-hot encode it so it can be used to train and test MLlib logistic regression and tree-based models. The indexed data is stored in [Resilient Distributed Dataset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. These are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
+This section contains code that shows how to index categorical text data as an RDD object and one-hot encode it so it can be used to train and test MLlib logistic regression and tree-based models. The indexed data is stored in [Resilient Distributed Dataset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objects. The RDDs are the basic abstraction in Spark. An RDD object represents an immutable, partitioned collection of elements that can be operated on in parallel with Spark.
 
 It also contains code that shows how to scale data with the `StandardScalar` provided by MLlib for use in linear regression with Stochastic Gradient Descent (SGD), a popular algorithm for training a wide range of machine learning models. The [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) is used to scale the features to unit variance. Feature scaling, also known as data normalization, insures that features with widely disbursed values are not given excessive weigh in the objective function. 
 
@@ -437,9 +437,9 @@ Time taken to execute above cell: 31.07 seconds
 ## Score classification and regression Gradient Boosting Tree Models
 The code in this section shows how to load classification and regression Gradient Boosting Tree Models from Azure blob storage, score their performance with standard classifier and regression measures, and then save the results back to blob storage. 
 
-**spark.mllib** supports GBTs for binary classification and for regression, using both continuous and categorical features. 
+**spark.mllib** supports GBTS for binary classification and for regression, using both continuous and categorical features. 
 
-[Gradient Boosting Trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
+[Gradient Boosting Trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) are ensembles of decision trees. GBTS train decision trees iteratively to minimize a loss function. GBTS can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. This algorithm can also be used in a multiclass-classification setting.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

@@ -1,11 +1,11 @@
 ---
-title: Connect applications to Azure Database for MariaDB
+title: Connection strings - Azure Database for MariaDB
 description: This document lists the currently supported connection strings for applications to connect with Azure Database for MariaDB, including ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python, and Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 3/18/2020
 ---
 
 # How to connect applications to Azure Database for MariaDB

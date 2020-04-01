@@ -1,19 +1,19 @@
 ---
 title:  "Multiclass Decision Forest: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Multiclass Decision Forest module in Azure Machine Learning service to create a machine learning model based on the *decision forest* algorithm. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Multiclass Decision Forest module in Azure Machine Learning to create a machine learning model based on the *decision forest* algorithm. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Multiclass Decision Forest module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model based on the *decision forest* algorithm. A decision forest is an ensemble model that rapidly builds a series of decision trees, while learning from tagged data.
 
@@ -34,9 +34,7 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
 ## How to configure Multiclass Decision Forest
 
-
-
-1. Add the **Multiclass Decision Forest** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize Model**, and **Classification**.
+1. Add the **Multiclass Decision Forest** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize Model**, and **Classification**.
 
 2. Double-click the module to open the **Properties** pane.
 
@@ -52,6 +50,7 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
     + **Single Parameter**: Select this option if you know how you want to configure the model, and provide a set of values as arguments.
 
+    + **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.   
 
 5. **Number of decision trees**: Type the maximum number of decision trees that can be created in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time might increase.
 
@@ -71,16 +70,10 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-11. Run the experiment.
+11. Submit the pipeline.
 
-## Results
-
-After training is complete:
-
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
-+ To see the rules for each node, click each tree to drill down into the splits.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

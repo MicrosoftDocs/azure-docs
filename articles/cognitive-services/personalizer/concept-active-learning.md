@@ -1,67 +1,49 @@
 ---
-title: Active learning - Personalizer
-titleSuffix: Azure Cognitive Services
-description: 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+title: Learning policy - Personalizer
+description: Learning settings determine the *hyperparameters* of the model training. Two models of the same data that are trained on different learning settings will end up different.
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: diberry
+ms.date: 02/20/2020
 ---
 
-# Active learning and learning policies 
+# Learning policy and settings
 
-When your application calls the Rank API, you receive a rank of the content. Business logic can use this rank to determine if the content should be display to the user. When you display the ranked content, that is an _active_ rank event. When your application does not display that ranked content, that is an _inactive_ rank event. 
+Learning settings determine the *hyperparameters* of the model training. Two models of the same data that are trained on different learning settings will end up different.
 
-Active rank event information is returned to Personalizer. This information is used to continue training the model through the current learning policy.
+[Learning policy and settings](how-to-settings.md#configure-rewards-for-the-feedback-loop) are set on your Personalizer resource in the Azure portal.
 
-## Active events
+## Import and export learning policies
 
-Active events should always be shown to the user and the reward call should be returned to close the learning loop. 
+You can import and export learning-policy files from the Azure portal. Use this method to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
-### Inactive events 
+Learn [how to](how-to-manage-model.md#import-a-new-learning-policy) import and export a learning policy in the Azure portal for your Personalizer resource.
 
-Inactive events shouldn't change the underlying model because the user wasn't given a chance to choose from the ranked content.
+## Understand learning policy settings
 
-## Don't train with inactive rank events 
+The settings in the learning policy aren't intended to be changed. Change settings only if you understand how they affect Personalizer. Without this knowledge, you could cause problems, including invalidating Personalizer models.
 
-For some applications, you may need to call the Rank API without knowing yet if your application will display the results to the user. 
+Personalizer uses [vowpalwabbit](https://github.com/VowpalWabbit) to train and score the events. Refer to the [vowpalwabbit documentation](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) on how to edit the learning settings using vowpalwabbit. Once you have the correct command line arguments, save the command to a file with the following format (replace the arguments property value with the desired command) and upload the file to import learning settings in the **Model and Learning Settings** pane in the Azure portal for your Personalizer resource.
 
-This happens when:
+The following `.json` is an example of a learning policy.
 
-* You may be pre-rendering some UI that the user may or may not get to see. 
-* Your application may be doing predictive personalization in which Rank calls are made with less real-time context and their output may or may not be used by the application. 
+```json
+{
+  "name": "new learning settings",
+  "arguments": " --cb_explore_adf --epsilon 0.2 --power_t 0 -l 0.001 --cb_type mtr -q ::"
+}
+```
 
-### Disable active learning for inactive rank events during Rank call
+## Compare learning policies
 
-To disabling automatic learning, call Rank with `learningEnabled = False`.
+You can compare how different learning policies perform against past data in Personalizer logs by doing [offline evaluations](concepts-offline-evaluation.md).
 
-Learning for an inactive event is implicitly activated if you send a reward for the Rank.
+[Upload your own learning policies](how-to-manage-model.md) to compare them with the current learning policy.
 
-## Learning policies
+## Optimize learning policies
 
-Learning policy determines the specific *hyperparameters* of the model training. Two models of the same data, trained on different learning policies, will behave differently.
+Personalizer can create an optimized learning policy in an [offline evaluation](how-to-offline-evaluation.md). An optimized learning policy that has better rewards in an offline evaluation will yield better results when it's used online in Personalizer.
 
-### Importing and exporting Learning Policies
+After you optimize a learning policy, you can apply it directly to Personalizer so it immediately replaces the current policy. Or you can save the optimized policy for further evaluation and later decide whether to discard, save, or apply it.
 
-You can import and export learning policy files from the Azure portal. This allows you to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
+## Next steps
 
-### Learning policy settings
-
-The settings in the **Learning Policy** are not intended to be changed. Only change the settings when you understand how they impact Personalizer. Changing settings without this knowledge will cause side effects, including invalidating Personalizer models.
-
-### Comparing effectiveness of learning policies
-
-You can compare how different Learning Policies would have performed against past data in Personalizer logs by doing [offline evaluations](concepts-offline-evaluation.md).
-
-[Upload your own Learning Policies](how-to-offline-evaluation.md) to compare with the current learning policy.
-
-### Discovery of optimized learning policies
-
-Personalizer can create a more optimized learning policy when doing an [offline evaluation](how-to-offline-evaluation.md). 
-A more optimized learning policy, which is shown to have better rewards in an offline evaluation, will yield better results when used online in Personalizer.
-
-After an optimized learning policy has been created, you can apply it directly to Personalizer so it replaces the current policy immediately, or you can save it for further evaluation and decide in the future whether to discard, save, or apply it later.
+* Learn [active and inactive events](concept-active-inactive-events.md).

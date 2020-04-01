@@ -1,10 +1,10 @@
 ﻿---
-title: Copy data in Blob Storage using Azure Data Factory | Microsoft Docs
+title: Copy data in Blob Storage using Azure Data Factory 
 description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -58,7 +58,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 
 ## Create a data factory
 
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"ADFQuickStartRG"`.
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"ADFQuickStartRG"`.
 
      ```powershell
     $resourceGroupName = "ADFQuickStartRG";
@@ -311,12 +311,12 @@ In this step, you create a pipeline run.
 
 Run the **Invoke-AzDataFactoryV2Pipeline** cmdlet to create a pipeline run. The cmdlet returns the pipeline run ID for future monitoring.
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline `
-        -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name 
-    ```
+  ```powershell
+$RunId = Invoke-AzDataFactoryV2Pipeline `
+    -DataFactoryName $DataFactory.DataFactoryName `
+    -ResourceGroupName $ResGrp.ResourceGroupName `
+    -PipelineName $DFPipeLine.Name 
+```
 
 ## Monitor the pipeline run
 

@@ -1,23 +1,15 @@
 ---
-title: Create static HTML web app - Azure App Service | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying a static HTML sample app.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'QuickStart: Create a static HTML web app'
+description: Deploy your first HTML Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
+author: msangapu-msft
 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create a static HTML web app in Azure
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
@@ -52,8 +44,10 @@ In the following example, replace <app_name> with a unique app name.
 
 ```bash
 cd html-docs-hello-world
+```
 
-az webapp up --location westeurope --name <app_name>
+```azurecli
+az webapp up --location westeurope --name <app_name> 
 ```
 
 The `az webapp up` command does the following actions:
@@ -104,8 +98,8 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
 You'll now redeploy the app with the same `az webapp up` command.
 
-```bash
-az webapp up --location westeurope --name <app_name>
+```azurecli
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
@@ -114,9 +108,11 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+![Select App Services in the Azure portal](./media/app-service-web-get-started-html/portal0.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-get-started-html/portal1.png)
 
@@ -130,7 +126,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

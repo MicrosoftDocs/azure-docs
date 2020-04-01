@@ -1,17 +1,9 @@
 ---
-title: Azure Service Fabric container application manifest examples | Microsoft Docs
+title: Azure Service Fabric container application manifest examples
 description: Learn how to configure application and service manifest settings for a multi-container Service Fabric application.
-services: service-fabric
-documentationcenter: na
 author: peterpogorski
-manager: chackdan
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: xml
+
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
 ---
@@ -352,7 +344,7 @@ The executable specified by EntryPoint is typically the long-running service hos
  For more information, see [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### ImageName Element
-The repo and image on https://hub.docker.com or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+The repo and image on [https://hub.docker.com](https://hub.docker.com) or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### EnvironmentVariables Element
 Pass environment variables to your container or exe.  For more information, see [EnvironmentVariables Element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -396,7 +388,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 For more information, see [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### ImageName Element
-The repo and image on https://hub.docker.com or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+The repo and image on [https://hub.docker.com](https://hub.docker.com) or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### Commands Element
 Pass a comma delimited list of commands to the container. For more information, see [Commands Element](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

@@ -1,18 +1,15 @@
 ﻿---
-title: Query Store in Azure Database for MariaDB
+title: Query Store - Azure Database for MariaDB
 description: Learn about the Query Store feature in Azure Database for MariaDB to help you track performance over time. 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 3/18/2020
 ---
 # Monitor Azure Database for MariaDB performance with Query Store
 
 **Applies to:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Query Store is in preview.
 
 The Query Store feature in Azure Database for Mariadb provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MariaDB instance.
 
@@ -32,13 +29,13 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 
 1. Sign in to the Azure portal and select your Azure Database for MariaDB server.
 1. Select **Server Parameters** in the **Settings** section of the menu.
-1. Search for the query_store_capture_mode parameter.
-1. Set the value to ALL and **Save**.
+1. Search for the query_store_capture_mode parameter.
+1. Set the value to ALL and **Save**.
 
 To enable wait statistics in your Query Store:
 
-1. Search for the query_store_wait_sampling_capture_mode parameter.
-1. Set the value to ALL and **Save**.
+1. Search for the query_store_wait_sampling_capture_mode parameter.
+1. Set the value to ALL and **Save**.
 
 Allow up to 20 minutes for the first batch of data to persist in the mysql database.
 
@@ -46,8 +43,8 @@ Allow up to 20 minutes for the first batch of data to persist in the mysql datab
 
 Query Store has two stores:
 
-- The runtime statistics store for persisting the query execution statistics information.
-- The wait statistics store for persisting wait statistics information.
+- The runtime statistics store for persisting the query execution statistics information.
+- The wait statistics store for persisting wait statistics information.
 
 To minimize space usage, the runtime execution statistics in the runtime statistics store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
 
@@ -64,6 +61,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## Finding wait queries
+
+> [!NOTE]
+> Wait statistics should not be enabled during peak workload hours or be turned on indefinitely for sensitive workloads. <br>For workloads running with high CPU utilization or on servers configured with lower vCores, use caution when enabling wait statistics. It should not be turned on indefinitely. 
 
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
 
@@ -98,7 +98,7 @@ The following options apply specifically to wait statistics.
 > [!NOTE]
 > Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait statistics to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
 
-Use the [Azure portal](howto-server-parameters.md) to get or set a different value for a parameter.
+Use the [Azure portal](howto-server-parameters.md) to get or set a different value for a parameter.
 
 ## Views and functions
 

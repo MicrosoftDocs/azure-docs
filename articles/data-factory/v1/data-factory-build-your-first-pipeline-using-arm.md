@@ -1,5 +1,5 @@
 ﻿---
-title: Build your first data factory (Resource Manager template) | Microsoft Docs
+title: Build your first data factory (Resource Manager template) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
@@ -40,7 +40,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
-* See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
+* See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
 

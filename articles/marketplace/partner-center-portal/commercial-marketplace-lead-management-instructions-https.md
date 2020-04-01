@@ -1,12 +1,12 @@
 ---
 title: HTTPS Endpoint | Azure Marketplace
 description: Configure lead management for an HTTPS endpoint.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Configure lead management using an HTTPS endpoint
@@ -15,11 +15,11 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
 ## Create a flow using Microsoft Flow
 
-1. Open the [Flow](https://flow.microsoft.com/) webpage. Select **Sign in**, or if you don’t already have an account, select **Sign up free** to create a free Flow account.
+1. Open the [Flow](https://flow.microsoft.com/) webpage. Select **Sign in**, or if you don't already have an account, select **Sign up free** to create a free Flow account.
 
 2. Sign in and select **My flows** on the menu bar.
 
-3. Select **+Automated – from blank**.
+3. Select **+Automated - from blank**.
 
     ![My flows + Automated - from blank](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
@@ -113,7 +113,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
     ![Add dynamic content](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Map the fields you want and then select **Save** to save your flow. An HTTP POST URL is created, and is accessible in the *When an HTTP request is received* window. Copy this URL by using the copy control which is located to the right of the HTTP POST URL – this is important so that you do not mistakenly miss any part of the entire URL. Save this URL as you will need it when you are configuring lead management in the publishing portal.
+5. Map the fields you want and then select **Save** to save your flow. An HTTP POST URL is created, and is accessible in the *When an HTTP request is received* window. Copy this URL by using the copy control which is located to the right of the HTTP POST URL - this is important so that you do not mistakenly miss any part of the entire URL. Save this URL as you will need it when you are configuring lead management in the publishing portal.
 
     ![When an HTTP request is received.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -134,7 +134,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
    - **Subject** - Flow gives you the option of adding Dynamic content, like **LeadSource** in the following screen capture. Start by typing in a field name followed by clicking on the Dynamic Content pick list from the popup window. 
 
         >[!Note] 
-        > When adding field names, you can follow each with a “:” and then Enter to create a new row. Once you have your field names added you can then add each associated parameter from the dynamic pick list.
+        > When adding field names, you can follow each with a ":" and then Enter to create a new row. Once you have your field names added you can then add each associated parameter from the dynamic pick list.
 
         ![Add an email action using dynamic content](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
@@ -143,7 +143,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
        ![Add an email action](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Select **Save** to finish your flow. An HTTP POST URL is created and is accessible in the *When an HTTP request is received* window. Copy this URL by using the copy control which is located to the right of the HTTP POST URL – this is important so that you do not mistakenly miss any part of the entire URL. Save this URL as you will need it when you are configuring lead management in the publishing portal.
+5. Select **Save** to finish your flow. An HTTP POST URL is created and is accessible in the *When an HTTP request is received* window. Copy this URL by using the copy control which is located to the right of the HTTP POST URL - this is important so that you do not mistakenly miss any part of the entire URL. Save this URL as you will need it when you are configuring lead management in the publishing portal.
 
    ![HTTP POST URL ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
@@ -171,7 +171,7 @@ You can test that everything works as expected using the following steps using a
 
    ![My flows - Edit](./media/commercial-marketplace-lead-management-instructions-https/my-flows-edit.png)
 
-6. Select **Test** in the upper right-hand corner, select “I’ll perform the trigger action” then select **Test**. You will see an indication in the top of the screen indicating that the test has started
+6. Select **Test** in the upper right-hand corner, select "I'll perform the trigger action" then select **Test**. You will see an indication in the top of the screen indicating that the test has started
 
    ![Test flow - trigger](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 

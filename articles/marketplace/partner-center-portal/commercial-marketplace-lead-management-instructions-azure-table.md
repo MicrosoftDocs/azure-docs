@@ -1,12 +1,12 @@
 ---
 title: Azure Table | Azure Marketplace
 description: Configure lead management for Azure Table.
-services: Azure, Marketplace, commercial marketplace, Partner Center 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Configure lead management using an Azure Table
@@ -48,7 +48,7 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
 ## (Optional) Use Microsoft Flow with an Azure Table  
 
-You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Azure table. If you don’t have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Azure table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
@@ -61,15 +61,15 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
    ![My flows **+ Scheduled - from blank**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.	On the *Build a scheduled flow* window under *Repeat every* select “1” for interval and “hour” for frequency. Also, give the flow a name if you like. Select **Create**.
+5.	On the *Build a scheduled flow* window under *Repeat every* select "1" for interval and "hour" for frequency. Also, give the flow a name if you like. Select **Create**.
 
     >[!Note]
-    >Although this example uses a 1-hour interval, you can select the interval and frequency that’s best for your business needs.
+    >Although this example uses a 1-hour interval, you can select the interval and frequency that's best for your business needs.
 
     ![Build a scheduled flow.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Select **+ New step**.
-7. On the *Choose an action* window search for “get past time,” and then select **Get past time** under Actions.
+7. On the *Choose an action* window search for "get past time," and then select **Get past time** under Actions.
 
    ![Choose an action.](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
@@ -83,29 +83,29 @@ Use this example as a guide to create a simple flow that automatically sends an 
 >[!TIP] 
 >You can check your flow at any time to verify each step is configured correctly. To check your flow, select **Flow checker** from the Flow menu bar.
 
-In next set of steps, you’ll connect to your Azure table, and set up the processing logic to handle new leads.
+In next set of steps, you'll connect to your Azure table, and set up the processing logic to handle new leads.
 
-9. After the Get past time step, select **+ New step**, and then search for “Get entities” on the *Choose an action* window.
+9. After the Get past time step, select **+ New step**, and then search for "Get entities" on the *Choose an action* window.
 10. Under **Actions**, select **Get entities (Azure Table Storage)**.
 11.	In the **Azure Table Storage** window, provide information for the following fields and select **Create**:
 
-    * *Connection Name* – provide a meaningful name for the connection you are establishing between this flow and the Azure Table.
-    * *Storage Account Name* – provide the name of the storage account for your Azure table. You can find this in the storage account’s **Access keys** page.
-    * *Shared Storage Key* – provide the key value for your store account for your Azure table. You can find this in the storage account’s **Access keys** page.
+    * *Connection Name* - provide a meaningful name for the connection you are establishing between this flow and the Azure Table.
+    * *Storage Account Name* - provide the name of the storage account for your Azure table. You can find this in the storage account's **Access keys** page.
+    * *Shared Storage Key* - provide the key value for your store account for your Azure table. You can find this in the storage account's **Access keys** page.
 
         ![Azure Table storage.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
     After clicking Create you will see a *Get entities* window. Here select **Show advanced options** and provide information for the following fields:
 
-       * *Table* – Select the name of your Azure Table Storage (from step 6 of instructions on how to configure an Azure table). The next screen capture shows the prompt when “marketplaceleads” table is selected for this example.
+       * *Table* - Select the name of your Azure Table Storage (from step 6 of instructions on how to configure an Azure table). The next screen capture shows the prompt when "marketplaceleads" table is selected for this example.
 
             ![Azure Table get entities.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *Filter Query* – Select this field and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *Filter Query* - Select this field and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
             ![Azure Table get entities - Filter Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
-12. Now that you’ve completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads. 
+12. Now that you've completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads. 
 
 13. In the **Choose an action** window, select **Actions**, and then select the **Condition control**.
 
@@ -116,14 +116,14 @@ In next set of steps, you’ll connect to your Azure table, and set up the proce
 15. Paste `length(body('Get_entities')?['value'])` into the ***fx*** field. Select **OK** to add this function. 
 
 16. To finish setting up the condition:
-    1. Select “is greater than” from the dropdown list.
+    1. Select "is greater than" from the dropdown list.
     2. Enter 0 as the value
 
         ![Azure Table - Condition.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
 
 In the next few steps you will set up the action to take based on the result of the condition.
 
-* If the condition resolves to **If no**, don’t do anything.
+* If the condition resolves to **If no**, don't do anything.
 * If the condition resolves to **If yes**, trigger an action that connects your Office 365 account to send an email. 
 
 17. Select **Add an action** under **If yes**.
@@ -140,7 +140,7 @@ In the next few steps you will set up the action to take based on the result of 
 19. In the **Office 365 Outlook** window, provide information for the following fields:
 
     1. **To** - Enter an email address for everyone that will get this notification.
-    1. **Subject** – Provide a subject for the email. For example: New leads!
+    1. **Subject** - Provide a subject for the email. For example: New leads!
     1. **Body** - Add the text that you want to include in each email (optional), and then paste in body `body('Get_entities')?['value']`.
 
     >[!Note]
@@ -148,7 +148,7 @@ In the next few steps you will set up the action to take based on the result of 
 
     ![Azure Table - Condition, **If yes**, Office 365 Outlook window.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-20. Select **Save** to save the flow. Microsoft Flow will automatically test the flow for errors. If there aren’t any errors, your flow starts running after it’s saved.
+20. Select **Save** to save the flow. Microsoft Flow will automatically test the flow for errors. If there aren't any errors, your flow starts running after it's saved.
 
 The next screen capture shows an example of how the final flow should look.
 
@@ -156,13 +156,13 @@ The next screen capture shows an example of how the final flow should look.
 
 ### Manage your flow
 
-Managing your flow after it’s running is easy. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The next screen capture shows the options that are available to manage a flow. 
+Managing your flow after it's running is easy. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The next screen capture shows the options that are available to manage a flow. 
 
  ![Managing a flow](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 The flow keeps running until you stop it by using the **Turn flow off** option.
 
-If you’re not getting any lead email notifications, it means that new leads haven’t been added to the Azure table. If there are any flow failures, you’ll get an email like the example in the next screen capture.
+If you're not getting any lead email notifications, it means that new leads haven't been added to the Azure table. If there are any flow failures, you'll get an email like the example in the next screen capture.
 
  ![Flow failure email notification](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 

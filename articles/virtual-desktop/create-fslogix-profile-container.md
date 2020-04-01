@@ -1,17 +1,18 @@
 ---
-title: Create an FSLogix profile container for a host pool using Azure NetApp Files in Windows Virtual Desktop - Azure
+title: FSLogix profile containers NetApp Windows Virtual Desktop - Azure
 description: How to create an FSLogix profile container using Azure NetApp Files in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 11/25/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
 
-We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop Preview service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Windows Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
@@ -24,13 +25,16 @@ The instructions in this guide are specifically for Windows Virtual Desktop user
 >[!NOTE]
 >This article doesn't cover best practices for securing access to the Azure NetApp Files share.
 
+>[!NOTE]
+>If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+
 ## Prerequisites
 
 Before you can create an FSLogix profile container for a host pool, you must:
 
 - Set up and configure Windows Virtual Desktop
 - Provision a Windows Virtual Desktop host pool
-- [Enable your Azure NetApp Files subscription](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Enable your Azure NetApp Files subscription](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## Set up your Azure NetApp Files account
 
@@ -48,11 +52,11 @@ To get started, you need to set up an Azure NetApp Files account.
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
@@ -64,7 +68,7 @@ To get started, you need to set up an Azure NetApp Files account.
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
 8. Select the **Add** button.
-9. When the **New NetApp account** blade opens, enter the following values:
+9. When the **New NetApp account** tab opens, enter the following values:
 
     - For **Name**, enter your NetApp account name.
     - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
@@ -83,7 +87,7 @@ Next, create a new capacity pool:
 1. Go to the Azure NetApp Files menu and select your new account.
 2. In your account menu, select **Capacity pools** under Storage service.
 3. Select **Add pool**.
-4. When the **New capacity pool** blade opens, enter the following values:
+4. When the **New capacity pool** tab opens, enter the following values:
 
     - For **Name**, enter a name for the new capacity pool.
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
@@ -118,7 +122,7 @@ Next, you'll need to create a new volume.
 
 1. Select **Volumes**, then select **Add volume**.
 
-2. When the **Create a volume** blade opens, enter the following values:
+2. When the **Create a volume** tab opens, enter the following values:
 
     - For **Volume name**, enter a name for the new volume.
     - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.
@@ -171,6 +175,11 @@ This section is based on [Create a profile container for a host pool using a fil
 11.  Create a value named **Enabled** with a **REG_DWORD** type set to a data value of **1**.
 
 12. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure NetApp Files share.
+
+13. Create a value named **DeleteLocalProfileWhenVHDShouldApply** with a DWORD value of 1 to avoid problems with existing local profiles before you sign in.
+
+     >[!WARNING]
+     >Be careful when creating the DeleteLocalProfileWhenVHDShouldApply value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
 
 ## Assign users to session host
 

@@ -1,19 +1,19 @@
 ---
 title:  "Two-Class Boosted Decision Tree: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Boosted Decision Tree module in Azure Machine Learning service to create a machine learning model that is based on the boosted decision trees algorithm. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Boosted Decision Tree module in Azure Machine Learning to create a machine learning model that is based on the boosted decision trees algorithm. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Two-Class Boosted Decision Tree module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
@@ -27,12 +27,13 @@ This module creates an untrained classification model. Because classification is
 
 You can train this type of model using [Train Model](././train-model.md). 
 
-1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your experiment.
+1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your pipeline.
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.
   
     + **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
   
+    + **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
   
 3.  For **Maximum number of leaves per tree**, indicate the maximum number of terminal nodes (leaves) that can be created in any tree.
   
@@ -58,16 +59,15 @@ You can train this type of model using [Train Model](././train-model.md).
 9. Train the model.
   
     + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.  
-  
    
 ## Results
 
-After model training is complete, right-click the output of [Train Model](./train-model.md) to view the results:
+After training is complete:
 
-+ To see the tree that was created on each iteration, select **Visualize**. 
-+ To drill down into the splits and see the rules for each node, click each tree.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

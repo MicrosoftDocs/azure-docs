@@ -114,11 +114,7 @@ Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 > [!IMPORTANT]
 > When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
 
-## Configure in the portal
-
-You can use the Azure portal to configure Automated Backup v2 during provisioning or for existing SQL Server 2016/2017 VMs.
-
-## Configure for new VMs
+## Configure new VMs
 
 Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 or 2017 Virtual Machine in the Resource Manager deployment model.
 
@@ -166,10 +162,10 @@ If the SQL Server IaaS Agent extension is installed, you should see it listed as
 If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region 
+    -Version "2.0" -Location $region 
 ```
 
 ### <a id="verifysettings"></a> Verify current settings
@@ -207,7 +203,7 @@ You can use PowerShell to enable Automated Backup as well as to modify its confi
 First, select, or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -272,8 +268,8 @@ The following script provides a set of variables that you can customize to enabl
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 $backupscheduletype = "Manual"
@@ -286,7 +282,7 @@ $logbackupfrequency = "30"
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
-    -Version "1.2" -Location $region
+    -Version "2.0" -Location $region
 
 # Creates/use a storage account to store the backups
 

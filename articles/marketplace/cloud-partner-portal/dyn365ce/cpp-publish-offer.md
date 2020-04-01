@@ -1,12 +1,12 @@
 ---
 title: Publish Dynamics 365 for Customer Engagement application offer | Azure Marketplace 
 description: Deprecated CPP article, linked to PC article; was "Describes the process and steps for publishing a Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace."
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Dynamics 365 for Customer Engagement 
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Publish a Dynamics 365 for Customer Engagement offer

@@ -1,15 +1,16 @@
 ---
-title: Configure the resource owner password credentials flow in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to configure the resource owner password credentials flow in Azure Active Directory B2C.
+title: Configure the resource owner password credentials flow with custom policies
+titleSuffix: Azure AD B2C
+description: Learn how to configure the resource owner password credentials (ROPC) flow by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: marsma
+ms.date: 04/01/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -19,21 +20,11 @@ ms.subservice: B2C
 
 In Azure Active Directory B2C (Azure AD B2C), the resource owner password credentials (ROPC) flow is an OAuth standard authentication flow. In this flow, an application, also known as the relying party, exchanges valid credentials for tokens. The credentials include a user ID and password. The tokens returned are an ID token, access token, and a refresh token.
 
-The following options are supported in the ROPC flow:
-
-- **Native Client** - User interaction during authentication happens when code runs on a user-side device.
-- **Public client flow** - Only user credentials that are gathered by an application are sent in the API call. The credentials of the application aren't sent.
-- **Add new claims** - The ID token contents can be changed to add new claims.
-
-The following flows aren't supported:
-
-- **Server-to-server** - The identity protection system needs a reliable IP address gathered from the caller (the native client) as part of the interaction. In a server-side API call, only the server’s IP address is used. If too many sign-ins fail, the identity protection system may look at a repeated IP address as an attacker.
-- **Single page application** - A front-end application that is primarily written in JavaScript. Often, the application is written by using a framework like AngularJS, Ember.js, or Durandal.
-- **Confidential client flow** - The application client ID is validated, but the application secret isn't.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## Register an application
 
@@ -337,4 +328,4 @@ Azure AD B2C meets OAuth 2.0 standards for public client resource owner password
 ## Next steps
 
 - See a full example of this scenario in the [Azure Active Directory B2C custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Learn more about the tokens that are used by Azure Active Directory B2C in the [Token reference](active-directory-b2c-reference-tokens.md).
+- Learn more about the tokens that are used by Azure Active Directory B2C in the [Token reference](tokens-overview.md).

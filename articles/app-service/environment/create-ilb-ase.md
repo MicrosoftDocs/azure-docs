@@ -1,21 +1,15 @@
 ---
-title: Create internal load balancer with App Service Environment - Azure
-description: Details on how to create and use an internet-isolated Azure App Service Environment
-services: app-service
-documentationcenter: na
+title: Create an ILB ASE with ARM
+description: Learn how to create an App Service environment with an internal load balancer (ILB ASE) using Azure Resource Manager templates. Fully isolate your apps from the internet.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Create and use an Internal Load Balancer App Service Environment 
 
 The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
@@ -27,7 +21,7 @@ This article shows you how to create an ILB ASE. For an overview on the ASE, see
 
 ## Overview 
 
-You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appservicewebsites.net. Apps that are made in an ILB ASE are not put in the public DNS. 
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appserviceenvironment.net. Apps that are made in an ILB ASE are not put in the public DNS. 
 
 Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. The domain suffix is no longer collected at ILB ASE creation and a default certificate is also no longer collected. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and set certificates on those custom domain names. 
 
@@ -60,7 +54,7 @@ To create an ILB ASE:
 
 5. Select virtual IP type of Internal.
 
-	![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
+    ![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
 6. Select Networking
 
@@ -68,7 +62,7 @@ To create an ILB ASE:
 
 8. Select or create an empty a subnet. If you want to select a subnet, it must be empty and not delegated. The subnet size cannot be changed after the ASE is created. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-	![ASE networking][1]
+    ![ASE networking][1]
 
 7. Select **Review and Create** then select **Create**.
 
@@ -103,9 +97,10 @@ When you use an External VIP, the DNS is managed by Azure. Any app created in yo
 To configure your DNS:
 
 - create a zone for *&lt;ASE name&gt;.appserviceenvironment.net*
-- create an A record in that zone that points * to the ILB IP address 
+- create an A record in that zone that points * to the ILB IP address
+- create an A record in that zone that points @ to the ILB IP address
 - create a zone in *&lt;ASE name&gt;.appserviceenvironment.net* named scm
-- create an A record in the scm zone that points to the ILB IP address
+- create an A record in the scm zone that points * to the ILB IP address
 
 ## Publish with an ILB ASE
 
@@ -152,8 +147,8 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

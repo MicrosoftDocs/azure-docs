@@ -1,21 +1,21 @@
 ---
-title: Analyzers for linguistic and text processing - Azure Search
+title: Analyzers for linguistic and text processing
+titleSuffix: Azure Cognitive Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: heidist
-manager: nitinme
-author: HeidiSteen
 
+author: HeidiSteen
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 12/10/2019
 ---
 
-# Analyzers for text processing in Azure Search
+# Analyzers for text processing in Azure Cognitive Search
 
 An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. Language analyzers process text using linguistic rules in order to improve search quality, while other analyzers perform more basic tasks like converting characters to lower case, for example. 
 
-Language analyzers are the most frequently used, and there is default language analyzer assigned to every searchable field in an Azure Search index. The following language transformations are typical during text analysis:
+Language analyzers are the most frequently used, and there is default language analyzer assigned to every searchable field in an Azure Cognitive Search index. The following language transformations are typical during text analysis:
 
 + Non-essential words (stopwords) and punctuation are removed.
 + Phrases and hyphenated words are broken down into component parts.
@@ -26,19 +26,19 @@ Language analyzers convert a text input into primitive or root forms that are ef
 
 ## Default analyzer  
 
-Azure Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default, which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
+Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default, which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
 It's used automatically on every searchable field. You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md), [custom analyzer](index-add-custom-analyzers.md), or a predefined analyzer from the [list of available analyzers](index-add-custom-analyzers.md#AnalyzerTable).
 
 
 ## Types of analyzers
 
-The following list describes which analyzers are available in Azure Search.
+The following list describes which analyzers are available in Azure Cognitive Search.
 
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
-| Predefined analyzers | Offered as a finished product intended to be used as-is. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no configuration or customization. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Predefined analyzers | Offered as a finished product intended to be used as-is. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no configuration or customization. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 A few predefined analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, you effectively create a custom analyzer, consisting of the predefined analyzer and one of the alternative options documented in [Predefined Analyzer Reference](index-add-custom-analyzers.md#AnalyzerTable). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
@@ -50,6 +50,9 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema. Plan on assigning analyzer in the index definition phase before the index is created in the service.
 
 3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field parameters. You would use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
+
+> [!NOTE]
+> It is not possible to use a different [language analyzer](index-add-language-analyzers.md) at indexing time than at query time for a field. That capability is reserved for [custom analyzers](index-add-custom-analyzers.md). For this reason, if you try to set the **searchAnalyzer** or **indexAnalyzer** properties to the name of a language analyzer, the REST API will return an error response. You must use the **analyzer** property instead.
 
 Assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed. If any of this is unclear, review the following table for a breakdown of which actions require a rebuild and why.
  
@@ -76,7 +79,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field parameters. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
+Azure Cognitive Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field parameters. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 
@@ -282,7 +285,7 @@ Any analyzer that is used as-is, with no configuration, is specified on a field 
 
 This example assigns Microsoft English and French analyzers to description fields. It's a snippet taken from a larger definition of the hotels index, creating using the Hotel class in the hotels.cs file of the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sample.
 
-Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specifying the [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type providing a text analyzer supported in Azure Search.
+Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specifying the [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type providing a text analyzer supported in Azure Cognitive Search.
 
 ```csharp
     public partial class Hotel
@@ -308,7 +311,7 @@ Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.mod
 
 When customization or configuration is required, you will need to add an analyzer construct to an index. Once you define it, you can add it the field definition as demonstrated in the previous example.
 
-Create a [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Create a [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -332,7 +335,7 @@ Create a [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.
 
 ## Next steps
 
-+ Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface.
++ Review our comprehensive explanation of [how full text search works in Azure Cognitive Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface.
 
 + Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](query-simple-syntax.md) in Search explorer in the portal.
 

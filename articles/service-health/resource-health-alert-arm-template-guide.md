@@ -1,10 +1,7 @@
 ---
-title: Configure Azure resource health alerts using Resource Manager templates | Microsoft Docs
+title: Template to create Resource Health alerts
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 9/4/2018
 
 ---
@@ -16,7 +13,7 @@ This article will show you how to create Resource Health Activity Log Alerts pro
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
 
 > [!NOTE]
-> Resource Health alerts are currently in preview.
+> Resource Health alerts currently are in preview.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -176,12 +173,12 @@ Alerts at the subscription or resource group level may have different kinds of r
             "anyOf": [
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Compute/virtualMachines",
+                    "equals": "MICROSOFT.COMPUTE/VIRTUALMACHINES",
                     "containsAny": null
                 },
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Storage/storageAccounts",
+                    "equals": "MICROSOFT.STORAGE/STORAGEACCOUNTS",
                     "containsAny": null
                 },
                 ...
@@ -194,7 +191,7 @@ Alerts at the subscription or resource group level may have different kinds of r
 Here we use the `anyOf` wrapper to allow the resource health alert to match any of the conditions we specify, allowing for alerts that target specific resource types.
 
 ### Adjusting the Resource Health events that alert you
-When resources undergo a health event, they can go through a series of stages that represents the state of the health event: `Active`, `InProgress`, `Updated`, and `Resolved`.
+When resources undergo a health event, they can go through a series of stages that represents the state of the health event: `Active`, `In Progress`, `Updated`, and `Resolved`.
 
 You may only want to be notified when a resource becomes unhealthy, in which case you want to configure your alert to only notify when the `status` is `Active`. However if you want to also be notified on the other stages, you can add those details like so:
 
@@ -210,7 +207,7 @@ You may only want to be notified when a resource becomes unhealthy, in which cas
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -405,7 +402,7 @@ Using the different adjustments described in the previous section, here is a sam
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

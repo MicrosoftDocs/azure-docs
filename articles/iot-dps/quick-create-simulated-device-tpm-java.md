@@ -1,30 +1,30 @@
 ---
-title: Provision a simulated TPM device to Azure IoT Hub using Java | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
+title: Quickstart - Provision a simulated TPM device to Azure IoT Hub using Java
+description: Quickstart - Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
 ---
 
-# Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service
+# Quickstart: Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+In this quickstart, you create a simulated IoT device on a Windows computer. The simulated device includes a TPM simulator as a Hardware Security Module (HSM). You use device sample Java code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
 
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+## Prerequisites
 
-The Azure IoT Device Provisioning Service supports two types of enrollments:
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
-
-This article will demonstrate individual enrollments.
+- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Maven](https://maven.apache.org/install.html).
+- [Git](https://git-scm.com/download/).
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -42,7 +42,7 @@ This article will demonstrate individual enrollments.
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow access** to allow changes to _Windows Firewall_ settings. It listens over a socket on ports 2321 and 2322. Do not close this window; you need to keep this simulator running until the end of this Quickstart guide. 
+1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device. Click **Allow access** to allow changes to _Windows Firewall_ settings. It listens over a socket on ports 2321 and 2322. Do not close this window; you need to keep this simulator running until the end of this quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
@@ -63,7 +63,7 @@ This article will demonstrate individual enrollments.
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
     ![Device Provisioning Service information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
@@ -74,8 +74,9 @@ This article will demonstrate individual enrollments.
     private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
     private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
     ```
+    Save the file.
 
-1. Build the project. Navigate to the target folder and execute the created jar file.
+1. Use the following commands to build the project, navigate to the target folder, and execute the created .jar file. Replace the `version` placeholder with your version of Java.
 
     ```cmd/sh
     mvn clean install
@@ -83,24 +84,32 @@ This article will demonstrate individual enrollments.
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-1. The program begins running. Note the _Endorsement Key_ and _Registration ID_ for the next section and leave the program running.
+1. The program begins running. Note the _Endorsement key_ and _Registration ID_ for the next section and leave the program running.
 
     ![Java TPM device program](./media/java-quick-create-simulated-device/program.png)
     
 
 ## Create a device enrollment entry
 
-1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+The Azure IoT Device Provisioning Service supports two types of enrollments:
 
-1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-1. Under the **Add Enrollment**, enter the following information:
+This article demonstrates individual enrollments.
+
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
+
+1. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
+
+1. In the **Add Enrollment** panel, enter the following information:
    - Select **TPM** as the identity attestation *Mechanism*.
-   - Enter the *Registration ID* and *Endorsement key* for your TPM device as noted previously. 
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
    - Select an IoT hub linked with your provisioning service.
-   - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-   - Update the **Initial device twin state** with the desired initial configuration for the device.
-   - Once complete, click the **Save** button. 
+   - Optionally, you may provide the following information:
+       - Enter a unique *Device ID*. Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
+       - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, press the **Save** button. 
 
      ![Enter device enrollment information in the portal blade](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
@@ -109,29 +118,29 @@ This article will demonstrate individual enrollments.
 
 ## Simulate the device
 
-1. On the command window running the Java sample code on your machine, click enter to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.  
+1. On the command window running the Java sample code on your machine, press *Enter* to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.  
 
     ![Java TPM device program final](./media/java-quick-create-simulated-device/program-final.png)
 
-1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade.
+1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT devices** blade.
 
     ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device/hubregistration.png) 
 
-    If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
+    If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
 1. Close the TPM simulator window on your machine.
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then select the **Individual Enrollments** tab. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open the **IoT devices** blade for your hub, select the check box next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## Next steps
 
-In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the Quickstart for programmatic enrollment of a TPM device. 
+In this quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
-> [Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)
+> [Azure quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)

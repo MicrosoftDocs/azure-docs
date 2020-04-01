@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 11/11/2019
 ms.author: mbaldwin
 ---
 
@@ -241,23 +241,12 @@ At this point, you have allocated all resources for a highly available, two HSM 
 
 ## Delete or clean up resources
 
-If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To remove sensitive customer data the device should be factory reset using the Gemalto client. Refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands in order.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `network interface delete -device eth0`
-4. `network interface delete -device eth1`
-5. `network interface delete -device eth2`
-6. `network interface delete -device eth3`
-7. `my file clear -f`
-8. `my public-key clear -f`
-9. `syslog rotate`
-
+If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong 3 times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device cannot be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
 > if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
-If you have finished with resources in this resource group, then you can remove them all with the following command:
+If you want to remove the HSM resource in Azure you can use the following command replacing the "$" variables with your unique parameters:
 
 ```powershell
 
