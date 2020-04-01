@@ -262,6 +262,8 @@
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
+    - name: Analyze data in Azure Notebooks
+    - href: azurenotebooks.md
     - name: Azure Pipelines
       href: devops.md  
   - name: Troubleshoot
