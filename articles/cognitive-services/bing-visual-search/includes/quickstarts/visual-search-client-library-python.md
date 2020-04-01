@@ -1,31 +1,28 @@
 ---
-title: "Quickstart: Bing Visual Search SDK, Python"
+title: Bing Visual Search Python client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Python SDK.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-visual-search
-ms.topic: quickstart
-ms.date: 12/17/2019
+ms.topic: include
+ms.date: 03/26/2020
 ms.author: aahi
 ---
 
-# Quickstart: Get image insights using the Bing Visual Search SDK for Python
+Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Python client library. While Bing Visual Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-Use this quickstart to begin getting image insights from the Bing Visual Search service, using the Python SDK. While Bing Visual Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
+[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 ## Prerequisites
 
 * [Python](https://www.python.org/) 2.x or 3.x
 * It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv).
-* The Bing Visual Search SDK for Python. You can install it with the following commands:
+* The Bing Visual Search client library for Python. You can install it with the following commands:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](~/includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 
 ## Create and initialize the application
@@ -105,4 +102,4 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
+> [Build a single-page web app](../../tutorial-bing-visual-search-single-page-app.md)
