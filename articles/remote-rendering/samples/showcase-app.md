@@ -13,6 +13,8 @@ The Unity showcase application is a Unity-based sample application to demonstrat
 
 ![Showcase App](./media/showcase-app.png "Showcase App")
 
+## Source repository
+
 The source code for this application alongside with build/deployment instructions can be found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering).
 
 ## Next steps
