@@ -273,7 +273,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Adjust capacity
+    - name: Add capacity
       href: search-capacity-planning.md
     - name: Scale for performance
       href: search-performance-optimization.md
