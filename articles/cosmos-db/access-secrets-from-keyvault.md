@@ -58,7 +58,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
 2. Unzip the downloaded application and open the **HomeController.cs** file. Update the secret ID in the following line:
 
-   `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault's secret identifier>")`
+   `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 
 3. **Save** the file, **Build** the solution.  
 4. Next deploy the application to Azure. Right click on project and choose **publish**. Create a new app service profile (you can name the app WebAppKeyVault1) and select **Publish**.   
