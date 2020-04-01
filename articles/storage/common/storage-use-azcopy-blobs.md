@@ -4,7 +4,7 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/01/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -51,6 +51,12 @@ This section contains the following examples:
 > * Upload a directory
 > * Upload the contents of a directory 
 > * Upload specific files
+
+These examples don't use all of the optional flags that are available with the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use optional flags to accomplish other types of tasks. For example:
+
+- Copy to an archive tier.
+- Automatically decompress files.
+- Specify how detailed you want your copy-related log entries to be.
 
 For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
@@ -150,6 +156,12 @@ This section contains the following examples:
 > [!NOTE]
 > If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
 
+These examples don't use all of the optional flags that are available with the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use optional flags to accomplish other types of tasks. For example:
+
+- Copy to an archive tier.
+- Automatically decompress files.
+- Specify how detailed you want your copy-related log entries to be.
+
 For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
@@ -240,6 +252,12 @@ This section contains the following examples:
 > * Copy a container to another storage account
 > * Copy all containers, directories, and files to another storage account
 
+These examples don't use all of the optional flags that are available with the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use optional flags to accomplish other types of tasks. For example:
+
+- Copy to an archive tier.
+- Automatically decompress files.
+- Specify how detailed you want your copy-related log entries to be.
+
 For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
@@ -300,6 +318,12 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 > [!NOTE]
 > To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
+
+These examples don't use all of the optional flags that are available with the [azcopy sync](storage-ref-azcopy-sync.md) command. You can use optional flags to accomplish other types of tasks. For example:
+
+- Specify how strictly MD5 hashes should be validated when downloading.
+- Exclude files based on a pattern or path.
+- Specify how detailed you want your copy-related log entries to be.
 
 For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
 

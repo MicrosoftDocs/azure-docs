@@ -49,9 +49,6 @@ This section helps you perform these optimization tasks:
 
 You can run a performance benchmark test on specific blob containers to view general performance statistics and to identity performance bottlenecks. 
 
-> [!NOTE]
-> In the current release, this feature is available only for Blob Storage containers.
-
 Use the following command to run a performance benchmark test.
 
 |    |     |
