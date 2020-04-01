@@ -31,11 +31,12 @@ The performance capacity of a data warehouse is determined by the [data warehous
 
 
 ## Workload management concepts
-In the past, for SQL Analytics in Azure Synapse you managed the query performance through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
+
+In the past, for Synapse SQL pool in Azure Synapse you managed the query performance through [resource classes](resource-classes-for-workload-management.md).  Resource classes allowed for assigning memory to a query based on role membership.  The primary challenge with resources classes is that, once configured, there was no governance or ability to control the workload.  
 
 For example, granting an ad-hoc user role membership to smallrc allowed that user to consume 100% of the memory on the system.  With resource classes, there is no way to reserve and ensure resources are available for critical workloads.
 
-SQL Analytics workload management in Azure Synapse consists of three high-level concepts: [Workload Classification](sql-data-warehouse-workload-classification.md), [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).  These capabilities give you more control over how your workload utilizes system resources.
+Synapse SQL pool workload management in Azure Synapse consists of three high-level concepts: [Workload Classification](sql-data-warehouse-workload-classification.md), [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Isolation](sql-data-warehouse-workload-isolation.md).  These capabilities give you more control over how your workload utilizes system resources.
 
 Workload classification is the concept of assigning a request to a workload group and setting importance levels.  Historically, this assignment was done via role membership using [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  This can now be done via the [CREATE WORKLOAD CLASSIFER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  The classification capability provides a richer set of options such as label, session, and time to classify requests.
 
