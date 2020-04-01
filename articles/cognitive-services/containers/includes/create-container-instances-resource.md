@@ -3,12 +3,12 @@ title: Container support
 titleSuffix: Azure Cognitive Services
 description: Learn how to create an Azure container instance resource.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/21/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Create an Azure Container Instance resource
