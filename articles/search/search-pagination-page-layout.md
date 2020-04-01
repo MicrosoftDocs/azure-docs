@@ -41,7 +41,7 @@ By default, the search engine returns up to the first 50 matches, as determined 
 
 To return a different number of matching documents, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
 
-+ Add `$count=true` to return the total number of matching documents within an index.
++ Add `$count=true` to get a count of the total number of matching documents within an index.
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
@@ -70,21 +70,19 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-For full text search queries, results are automatically ranked by a search score which indicates how relevant the match is to  the query's search criteria. Search scores give a general sense of relevance, relative to other documents in the same results set, and are not guaranteed to be consistent from one query to the next.  Relevance is determined by text analysis and statistics, with higher scores going to documents with more or stronger matches on a search term.
-
-For scenarios where you want to sort by a specific field, such as a rating or date, you can explicitly define an [`$orderby` expression](query-odata-filter-orderby-syntax.md), which can be applied to any field that is indexed as **Sortable**.
+For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document, with higher scores going to documents haivng more or stronger matches on a search term. Search scores convey general sense of relevance, relative to other documents in the same results set, and are not guaranteed to be consistent from one query to the next.
 
 As you work with queries, you might notice small discrepancies in ordered results. There are several explanations for why this might occur.
 
 | Condition | Description |
 |-----------|-------------|
-| Data volatility | The contents of an index varies as you add, modify, or delete documents. Term frequencies will change as the index updates are processed over time, affecting the search scores of matching documents. |
-| Query execution location | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered by score in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Generally, differences in per-replica statistics are more noticeable in smaller indexes. |
+| Data volatility | The contents of an index varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
+| Query execution location | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Generally, differences in per-replica statistics are more noticeable in smaller indexes. |
 | Breaking a tie between identical search scores | Discrepancies in ordered results can also occur when search documents have identical scores. In this case, as you rerun the same query, there is no guarantee which document will appear first. |
 
-### Mitigation strategies
+### Consistent ordering
 
-The easiest way to ensure consistent results to sorting by a field value, such as rating or date, as mentioned above.
+Given the flex in search scoring, you might want to explore other options if consistency in result orders is an application requirement. The easiest approach is sorting by a field value, such as rating or date. For scenarios where you want to sort by a specific field, such as a rating or date, you can explicitly define an [`$orderby` expression](query-odata-filter-orderby-syntax.md), which can be applied to any field that is indexed as **Sortable**.
 
 Another option is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
