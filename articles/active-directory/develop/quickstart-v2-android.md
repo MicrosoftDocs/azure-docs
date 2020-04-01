@@ -63,7 +63,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > ## Step 1: Get the sample app

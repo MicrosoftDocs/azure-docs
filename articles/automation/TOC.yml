@@ -22,6 +22,8 @@
     - name: Manage role-based access control
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Use Azure AD in Azure Automation to authenticate to Azure
+      href: automation-use-azure-ad.md
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
     - name: Automate onboarding of Automation Services
@@ -56,7 +58,15 @@
   - name: How-to Guides
     items:
     - name: Start/stop VMs during off-hours
-      href: automation-solution-vm-management.md
+      items:
+      - name: Overview
+        href: automation-solution-vm-management.md
+      - name: Enable solution
+        href: automation-solution-vm-management-enable.md
+      - name: Configure solution
+        href: automation-solution-vm-management-config.md
+      - name: Analyze data with log queries
+        href: automation-solution-vm-management-logs.md
     - name: Manage runbooks
       href: manage-runbooks.md
     - name: Create runbooks
