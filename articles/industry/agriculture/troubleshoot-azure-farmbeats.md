@@ -48,17 +48,9 @@ Please contact us with the following details:
 
 **Corrective action**:
 
-<<<<<<< HEAD
 1. Go to your FarmBeats Datahub resource group.
 2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
 3. Do either of the following:
-=======
-1. Go to your FarmBeats Datahub resource group.   
-
-2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
-
-3. Do either of the following:   
->>>>>>> upstream/master
    - If there are *no incoming messages*, contact your device partner.  
    - If there are *incoming messages*, contact us with your Datahub and Accelerator logs and captured telemetry.
 
