@@ -6,7 +6,7 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
