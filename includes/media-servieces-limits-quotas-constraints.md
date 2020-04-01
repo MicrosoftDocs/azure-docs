@@ -9,13 +9,13 @@ ms.author: juliako
 > [!NOTE]
 > For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
-### General limitations
+### General limits
 
 | Resource | Default Limit | 
 | --- | --- | 
 | Media Services accounts in a single subscription | 25 (fixed) |
 
-### Assets and storage limitations
+### Assets and storage limits
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -35,7 +35,7 @@ The following table shows the limits on the media reserved units S1, S2, and S3.
 
 <sup>2</sup> The storage accounts must be from the same Azure subscription.
 
-### Jobs (encoding & analyzing) limitations
+### Jobs (encoding & analyzing) limits
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -50,7 +50,7 @@ The following table shows the limits on the media reserved units S1, S2, and S3.
 
 Any Job record in your account older than 90 days will be automatically deleted, even if the total number of records is below the maximum quota. 
 
-### Live streaming
+### Live streaming limits
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -62,7 +62,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 
-### Delivery/streaming limitations
+### Delivery/streaming limits
 
 | Resource | Default Limit | 
 | --- | --- | 
@@ -75,7 +75,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 <sup>7</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
-### Protection limitations
+### Protection limits
 
 | Resource | Default Limit | 
 | --- | --- | 
