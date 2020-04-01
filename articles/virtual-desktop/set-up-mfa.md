@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/01/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -27,8 +27,8 @@ Here's what you'll need to get started:
   - Microsoft 365 E3 or E5
   - Azure Active Directory Premium P1 or P2
   - Enterprise Mobility + Security E3 or E5
-- An Azure Active Directory group with your users assigned as group members
-- Enable Azure MFA for all your users
+- An Azure Active Directory group with your users assigned as group members.
+- Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](/active-directory/authentication/howto-mfa-userstates).
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
