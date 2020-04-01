@@ -61,7 +61,7 @@ Next, create the **samples-workitems** container.
 
     :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-account-access.png" alt-text="Access the storage account." border="true":::
 
-1. Choose **Containers**, and then choose **+ Containers**. 
+1. Choose **Containers**, and then choose **+ Container**. 
 
     :::image type="content" source="./media/functions-create-storage-blob-triggered-function/functions-storage-add-container.png" alt-text="Add container to your storage account in the Azure portal." border="true":::
 
