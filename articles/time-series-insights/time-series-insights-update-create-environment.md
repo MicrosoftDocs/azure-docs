@@ -26,7 +26,6 @@ In this tutorial, you learn how to:
 > * Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
 > * Perform basic analysis on the data.
 > * Define a Time Series Model type and hierarchy, and associate it with your instances.
-> * Use the Power BI connector and visualize data in Power BI.
 
 >[!TIP]
 > [IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
@@ -355,3 +354,8 @@ Learn more about Time Series Models:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview data modeling](./time-series-insights-update-tsm.md)
+
+Learn more about Connect your environment to Power BI
+
+> [!div class="nextstepaction"]
+> [Visualize data from Time Series Insights in Power BI](./how-to-connect-power-bi.md)
