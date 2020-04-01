@@ -43,7 +43,7 @@ This section contains the following examples:
 > [!NOTE]
 > AzCopy doesn't automatically calculate and store the file's md5 hash code. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
 
-These examples don't use all of the optional flags that are available with the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use optional flags to accomplish other types of tasks. For example:
+These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
 
 - Persist access control lists (ACLs) in uploaded files.
 - Persist SMB property information in uploaded files.
@@ -139,7 +139,7 @@ This section contains the following examples:
 > [!NOTE]
 > If the `Content-md5` property value of a file contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
 
-These examples don't use all of the optional flags that are available with the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use optional flags to accomplish other types of tasks. For example:
+These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
 
 - Persist access control lists (ACLs) in uploaded files.
 - Persist SMB property information in uploaded files.
@@ -224,7 +224,7 @@ This section contains the following examples:
 > * Copy a file share to another storage account
 > * Copy all file shares, directories, and files to another storage account
 
-These examples don't use all of the optional flags that are available with the [azcopy copy](storage-ref-azcopy-copy.md) command. You can use optional flags to accomplish other types of tasks. For example:
+These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
 
 - Persist access control lists (ACLs) in uploaded files.
 - Persist SMB property information in uploaded files.
@@ -276,7 +276,7 @@ The [sync](storage-ref-azcopy-sync.md) command compares file names and last modi
 
 If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
-These examples don't use all of the optional flags that are available with the [azcopy sync](storage-ref-azcopy-sync.md) command. You can use optional flags to accomplish other types of tasks. For example:
+These examples don't use all of the optional flags that are available to you. You can use optional flags to accomplish other types of tasks. For example:
 
 - Specify how strictly MD5 hashes should be validated when downloading.
 - Exclude files based on a pattern or path.
@@ -307,11 +307,11 @@ The first directory that appears in this command is the source. The second one i
 
 ### Update a file share to match the contents of a share snapshot
 
-The first file share that appears in this command is the source. Append the string `&sharesnapshot=` followed by the **DateTime** value to the source file share URI. The second file share that appears in this command is the destination. 
+The first file share that appears in this command is the source. At the end of the URI, append the string `&sharesnapshot=` followed by the **DateTime** value of the snapshot. 
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' --recursive` |
+| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Example** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 To learn more about share snapshots, see [Overview of share snapshots for Azure Files](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
