@@ -13,7 +13,10 @@ ms.reviewer: sngun
 
 # Secure Azure Cosmos keys using Azure Key Vault 
 
-When using Azure Cosmos DB for your applications, you can access the database, collections, documents by using the endpoint and the key within the app’s configuration file.  However, it’s not safe to put keys and URL directly in the application code because they are available in clear text format to all the users. You want to make sure that the endpoint and keys are available but through a secured mechanism. This is where Azure Key Vault can help you to securely store and manage application secrets.
+>[!IMPORTANT]
+> The recommended solution to access Azure Cosmos DB keys is to use [service-managed identities](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [cert based solution](certificate-based-authentication.md).
+
+When using Azure Cosmos DB for your applications, you can access the database, collections, documents by using the endpoint and the key within the app's configuration file.  However, it's not safe to put keys and URL directly in the application code because they are available in clear text format to all the users. You want to make sure that the endpoint and keys are available but through a secured mechanism. This is where Azure Key Vault can help you to securely store and manage application secrets.
 
 The following steps are required to store and read Azure Cosmos DB access keys from Key Vault:
 
@@ -55,7 +58,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
 2. Unzip the downloaded application and open the **HomeController.cs** file. Update the secret ID in the following line:
 
-   `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
+   `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault's secret identifier>")`
 
 3. **Save** the file, **Build** the solution.  
 4. Next deploy the application to Azure. Right click on project and choose **publish**. Create a new app service profile (you can name the app WebAppKeyVault1) and select **Publish**.   
