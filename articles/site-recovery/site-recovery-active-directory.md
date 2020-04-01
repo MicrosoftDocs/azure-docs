@@ -191,13 +191,15 @@ If DNS isn't on the same VM as the domain controller, you need to create a DNS V
 
 1. Run the following commands to add a zone on the DNS server, allow nonsecure updates, and add an entry for the zone to DNS:
 
-   `dnscmd /zoneadd contoso.com  /Primary`
+   ```cmd
+   dnscmd /zoneadd contoso.com  /Primary
 
-   `dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1`
+   dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1
 
-   `dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>`
+   dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM>
 
-   `dnscmd /config contoso.com /allowupdate 1`
+   dnscmd /config contoso.com /allowupdate 1
+   ```
 
 ## Next steps
 
