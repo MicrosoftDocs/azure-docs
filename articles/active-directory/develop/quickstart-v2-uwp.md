@@ -73,7 +73,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
