@@ -28,25 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart templates](https://docs.microsoft.com/azure/templates/Microsoft.Search/2015-08-19/searchservices).
 
-:::code language="json"
-{
-  "name": "string",
-  "type": "Microsoft.Search/searchServices",
-  "apiVersion": "2015-08-19",
-  "location": "string",
-  "tags": {},
-  "identity": {
-    "type": "string"
-  },
-  "properties": {
-    "replicaCount": "integer",
-    "partitionCount": "integer",
-    "hostingMode": "string"
-  },
-  "sku": {
-    "name": "string"
-  }
-}:::
+:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50":::
 
 The Azure resource defined in this template:
 
