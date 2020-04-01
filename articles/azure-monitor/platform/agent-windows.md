@@ -135,41 +135,41 @@ To retrieve the product code from the agent install package directly, you can us
 1. Create Azure Automation variable assets for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
 1. Copy the script and save it as MMAgent.ps1.
 
-    ```powershell
-    Configuration MMAgent
-    {
-        $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
-        $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
-        $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
+   ```powershell
+   Configuration MMAgent
+   {
+       $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"
+       $OPSINSIGHTS_WS_ID = Get-AutomationVariable -Name "OPSINSIGHTS_WS_ID"
+       $OPSINSIGHTS_WS_KEY = Get-AutomationVariable -Name "OPSINSIGHTS_WS_KEY"
 
-        Import-DscResource -ModuleName xPSDesiredStateConfiguration
-        Import-DscResource -ModuleName PSDesiredStateConfiguration
+       Import-DscResource -ModuleName xPSDesiredStateConfiguration
+       Import-DscResource -ModuleName PSDesiredStateConfiguration
 
-        Node OMSnode {
-            Service OIService
-            {
-                Name = "HealthService"
-                State = "Running"
-                DependsOn = "[Package]OI"
-            }
+       Node OMSnode {
+           Service OIService
+           {
+               Name = "HealthService"
+               State = "Running"
+               DependsOn = "[Package]OI"
+           }
 
-            xRemoteFile OIPackage {
-                Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
-                DestinationPath = $OIPackageLocalPath
-            }
+           xRemoteFile OIPackage {
+               Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
+               DestinationPath = $OIPackageLocalPath
+           }
 
-            Package OI {
-                Ensure = "Present"
-                Path  = $OIPackageLocalPath
-                Name = "Microsoft Monitoring Agent"
-                ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
-                Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + '      OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
-                DependsOn = "[xRemoteFile]OIPackage"
-            }
-        }
-    }
+           Package OI {
+               Ensure = "Present"
+               Path  = $OIPackageLocalPath
+               Name = "Microsoft Monitoring Agent"
+               ProductId = "8A7F2C51-4C7D-4BFD-9014-91D11F24AAE2"
+               Arguments = '/C:"setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_ID=' + $OPSINSIGHTS_WS_ID + '      OPINSIGHTS_WORKSPACE_KEY=' + $OPSINSIGHTS_WS_KEY + ' AcceptEndUserLicenseAgreement=1"'
+               DependsOn = "[xRemoteFile]OIPackage"
+           }
+       }
+   }
 
-    ```
+   ```
 
 4. Update the `ProductId` value in the script with the product code extracted from the latest version of the agent install package using the methods recommended earlier. 
 5. [Import the MMAgent.ps1 configuration script](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) into your Automation account. 
