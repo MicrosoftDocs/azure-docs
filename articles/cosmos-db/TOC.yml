@@ -636,10 +636,6 @@
         items:
         - name: What is MongoDB API in Cosmos DB?
           href: mongodb-introduction.md
-        - name: Wire protocol support (3.2)
-          href: mongodb-feature-support.md
-        - name: Wire protocol support (3.6)
-          href: mongodb-feature-support-36.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -683,6 +679,12 @@
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
           href: tutorial-global-distribution-mongodb.md
+      - name: Concepts
+        items:
+        - name: Wire protocol support (3.6)
+          href: mongodb-feature-support-36.md
+        - name: Wire protocol support (3.2)
+          href: mongodb-feature-support.md
       - name: How-to guides
         items:
         - name: Pre-migration guide
@@ -1107,6 +1109,8 @@
         href: bulk-executor-overview.md
       - name: Bulk executor - .NET library
         href: bulk-executor-dot-net.md
+      - name: Migrate from bulk executor to .NET SDK
+        href: how-to-migrate-from-bulk-executor-library.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
   - name: Reference
