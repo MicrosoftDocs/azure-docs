@@ -21,14 +21,14 @@ While remembering credentials is convenient, it can also make deployments on Ent
 
 ## Prerequisites
 
-Before you start, make sure you have the following things:
+Here's what you'll need to get started:
 
-- Users assigned one of the following licenses:
+- Assign all your users one of the following licenses:
   - Microsoft 365 E3 or E5
   - Azure Active Directory Premium P1 or P2
   - Enterprise Mobility + Security E3 or E5
 - An Azure Active Directory group with your users assigned as group members
-- Azure MFA enabled users
+- Enable Azure MFA for all your users
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
