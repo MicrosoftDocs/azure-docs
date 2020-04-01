@@ -211,7 +211,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and replace _YOUR_QUERY_HERE_ with the same query as you entered in the interactive test panel.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with the same query as you entered in the interactive test panel.
 
     `deliver a medium veggie pizza`
 

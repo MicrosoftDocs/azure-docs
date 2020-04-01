@@ -1,16 +1,9 @@
 ---
 title: "Tutorial: Reviewing endpoint utterances - LUIS"
-titleSuffix: Azure Cognitive Services
 description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/31/2020
-ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
 ---
@@ -43,15 +36,11 @@ Use the following steps to import an app.
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. On the [preview LUIS portal](https://preview.luis.ai), import the .json file into a new app.
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `review`.
+## Train the app to apply the entity changes to the app
 
-    > [!TIP]
-    > Cloning into a new version is a best practice before you modify your app. When you finish a version, export the version (as a .json or .lu file), and check the file into your source control system.
-
-
-1. To train the app, select **Train**.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Publish the app to access it from the HTTP endpoint
 
@@ -107,9 +96,9 @@ Review the endpoint utterances for correctly aligned intent. While there is a si
 
 To verify the correctly aligned example utterances improved the app's prediction, try an utterance close to the corrected utterance.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `Are there any natural language processing jobs in my department right now?`. The last querystring parameter is `q`, the utterance **query**.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {
