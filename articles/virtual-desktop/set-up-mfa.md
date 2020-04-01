@@ -39,19 +39,17 @@ Before you start, make sure you have the following things:
 
 2. Go to the **All applications** tab. In the "Application type" drop-down menu, select **Enterprise Applications**, then search for **Windows Virtual Desktop Client**.
 
-![A screenshot of the All applications tab. The user entered "windows virtual desktop client" into the search bar, and the app has shown up in the search results.](media/all-applications-search.png)
+    ![A screenshot of the All applications tab. The user entered "windows virtual desktop client" into the search bar, and the app has shown up in the search results.](media/all-applications-search.png)
 
 3. Select **Conditional Access**.
 
-![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
+    ![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
 
 4. Select **+ New policy**.
 
-![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
+   ![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
 
-5. Enter a name for the rule, then select the name of the group you created in the prerequisites. In the following example, the group's name is "WVD - MFA Users."
-
-![A screenshot of the Users and Groups page. Select and the name of the app being configured are selected.](media/users-and-groups-selection.png)
+5. Enter a name for the rule, then select the name of the group you created in the prerequisites.
 
 6. Select **Select**, then select **Done**.
 
@@ -59,14 +57,12 @@ Before you start, make sure you have the following things:
 
 8. On the **Select** panel, select both the **Windows Virtual Desktop** and **Windows Virtual Desktop Client** Enterprise applications.
 
->[!NOTE]
->Make sure you add both Windows Virtual Desktop Enterprise applications. If you only add the client app, the instructions won't work.
+    >[!NOTE]
+    >Make sure you add both Windows Virtual Desktop Enterprise applications. If you only add the client app, the instructions won't work.
 
-9. Finally, select **Select**, then select **Done**.
+9. Select **Select**, then select **Done**.
 
-![](media/4d310d3500156228aedeaab7c58d0862.png)
-
-10. Select **Cloud apps or actions** 
+10. Next, select **Cloud apps or actions** 
 
 11. Select **Require multi-factor authentication**, then select at least one of the **selected controls**.
 
@@ -76,7 +72,7 @@ Before you start, make sure you have the following things:
 
 14. Select **Require multi-factor authentication**.
    
-   ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
+    ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
 
     >[!NOTE]
     >If you have MDM-enrolled devices in your organization and don't want them to show the MFA prompt, you can also select **Require device to be marked as compliant**.
@@ -96,4 +92,4 @@ Before you start, make sure you have the following things:
 
 18. Select **Create** to confirm the policy.
 
-19. You're all done! Feel free to test the policy to make sure your allow list works as intended.
+You're all done! Feel free to test the policy to make sure your allow list works as intended.
