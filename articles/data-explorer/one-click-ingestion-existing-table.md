@@ -48,7 +48,9 @@ Select **Edit schema** to view and edit your table column configuration.
 1. In the **Schema** tab:
     1. Select **Compression type**, and then select either **Uncompressed** or **GZip**.
 
-    [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]
+        [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]
+        
+    1. If you select  **JSON**, you must also select **JSON levels**, from 1 to 10. The levels affect the table column data depiction.
 
     ![Select JSON levels](media/one-click-ingestion-existing-table/json-levels.png)
 

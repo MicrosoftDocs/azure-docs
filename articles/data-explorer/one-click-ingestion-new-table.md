@@ -42,7 +42,9 @@ Select **Edit schema** to view and edit your table column configuration. The sys
 
     1. Select **Data format**:
 
-    [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]   
+        [!INCLUDE [data-explorer-one-click-ingestion-edit-schema](../../includes/data-explorer-one-click-ingestion-edit-schema.md)]
+
+    1. If you select  **JSON**, you must also select **JSON levels**, from 1 to 10. The levels affect the table column data depiction. 
 
     ![Select JSON levels](media/one-click-ingestion-new-table/json-levels.png)
 
