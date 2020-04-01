@@ -18,7 +18,7 @@ This article shows you how to create a [serverless](https://azure.microsoft.com/
 
 To develop a function with Kotlin and IntelliJ, install the following software:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 8
+- [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
