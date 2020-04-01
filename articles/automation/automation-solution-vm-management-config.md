@@ -83,7 +83,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 ## <a name="cpuutil"></a>Scenario 3: Start/Stop automatically based on CPU utilization
 
-This solution can help manage the cost of running virtual machines in your subscription by evaluating Azure VMs that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
+This solution can help manage the cost of running Azure Resource Manager and classic virtual machines in your subscription by evaluating VMs that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
 By default, the solution is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less. This scenario is controlled by the following variables and can be modified if the default values do not meet your requirements:
 
@@ -119,7 +119,7 @@ When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the t
 
 1. Add a common separated list of resource group names to the **External_Stop_ResourceGroupNames** variable.
 
-2. [Optional step] If you wish to exclude some of the VMs from the auto shutdown, you can add a comma separated list of VM names to the **External_ExcludeVMNames** variable.
+2. Optionally, if you want to exclude some of the VMs from the auto shutdown, you can add a comma separated list of VM names to the **External_ExcludeVMNames** variable.
 
 3. Enable the **Schedule_AutoStop_CreateAlert_Parent** schedule to run to create the required **Stop VM metric** alert rules for all of the VMs in your resource groups. Running this on a schedule allows you to create new metric alert rules as new VMs are added to the resource group(s).
 
@@ -127,7 +127,7 @@ When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the t
 
 1. Create a new [Schedule](shared-resources/schedules.md#creating-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma separated list of VM names to the **VMList** parameter.
 
-2. [Optional step] If you wish to exclude some VMs from the auto shutdown, you can add a comma separated list of VM names to the **External_ExcludeVMNames** variable.
+2. Optionally, if you want to exclude some VMs from the auto shutdown, you can add a comma separated list of VM names to the **External_ExcludeVMNames** variable.
 
 ## Configure email notifications
 
@@ -136,15 +136,15 @@ To change email notifications after the solution is deployed, modify action grou
 > [!NOTE]
 > Subscriptions in the Azure Government Cloud do not support the email functionality of this solution.
 
-In the Azure portal, navigate to Monitor -> Action groups. Select the action group titled **StartStop_VM_Notication**.
+1. In the Azure portal, navigate to Monitor -> Action groups. Select the action group titled **StartStop_VM_Notication**.
 
-![Automation Update Management solution page](media/automation-solution-vm-management/azure-monitor.png)
+    ![Automation Update Management solution page](media/automation-solution-vm-management/azure-monitor.png)
 
-On the **StartStop_VM_Notification** page, click **Edit details** under **Details**. This opens the **Email/SMS/Push/Voice** page. Update the email address and click **OK** to save your changes.
+2. On the **StartStop_VM_Notification** page, click **Edit details** under **Details**. This opens the **Email/SMS/Push/Voice** page. Update the email address and click **OK** to save your changes.
 
-![Automation Update Management solution page](media/automation-solution-vm-management/change-email.png)
+    ![Automation Update Management solution page](media/automation-solution-vm-management/change-email.png)
 
-Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
+    Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
 
 The following is an example email that is sent when the solution shuts down virtual machines.
 
@@ -156,7 +156,7 @@ The solution provides the ability to add VMs to be targeted by the solution or s
 
 ### Add a VM
 
-There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
+There are two options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
 
 * Each of the parent [runbooks](automation-solution-vm-management.md#runbooks) of the solution has a **VMList** parameter. You can pass a comma-separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
 
