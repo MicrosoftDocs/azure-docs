@@ -67,10 +67,6 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Custom keyword naming guidelines
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
-          href: speech-devices-sdk-create-kws.md
     - name: Reference
       items:
         - name: Speech SDK APIs
