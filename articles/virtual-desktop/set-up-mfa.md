@@ -55,10 +55,14 @@ Here's what you'll need to get started:
 
 7. Next, open **Cloud Apps or actions**.
 
-8. On the **Select** panel, select both the **Windows Virtual Desktop** and **Windows Virtual Desktop Client** Enterprise applications.
+8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app.
 
+    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app is highlighted in red.](media/cloud-apps-select.png)
+    
     >[!NOTE]
-    >Make sure you add both Windows Virtual Desktop Enterprise applications. If you only add the client app, the instructions won't work.
+    >You should also see the Windows Virtual Desktop Client app selected on the left side of the screen, as shown in the following image. You need both the Windows Virtual Desktop and Windows Virtual Desktop Client Enterprise apps for the policy to work.
+    >
+    > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise-selected.png)
 
 9. Select **Select**
 
